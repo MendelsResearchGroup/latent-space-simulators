@@ -1,0 +1,16 @@
+task,run,complete
+diagnostics,velocity_transfer3_shared4_s123,True
+diagnostics,delta_transfer3_shared4_s123,True
+diagnostics,acceleration_transfer3_shared4_s123,True
+lowdata,shared3_d2_s123,True
+lowdata,shared4_d2_s123,True
+diagnostics,velocity_transfer3_shared4_s456,True
+diagnostics,delta_transfer3_shared4_s456,True
+diagnostics,acceleration_transfer3_shared4_s456,True
+lowdata,shared3_d2_s456,True
+lowdata,shared4_d2_s456,True
+diagnostics,velocity_transfer3_shared4_s786,True
+diagnostics,delta_transfer3_shared4_s786,True
+diagnostics,acceleration_transfer3_shared4_s786,True
+lowdata,shared3_d2_s786,True
+lowdata,shared4_d2_s786,True

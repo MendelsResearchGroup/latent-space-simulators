@@ -1,25 +1,38 @@
-# DL Course Project
+# Latent-space simulators
 
-Install the dependencies first:
+Learning shared collective variables and dynamics across ensembles of spring and Lennard–Jones networks. A graph autoencoder maps observed node motion into a small latent space; a propagator evolves that state, and the decoder reconstructs node coordinates.
+
+Start with [notebook 06](notebooks/latent_space/06_mixed_dataset_shared_latent_space.ipynb) for the shared encoding and its relationship to network response. Later notebooks study rollout, transfer between ensembles, and noisy-LJ reconstruction, which remains an open problem.
+
+- [Notebooks](docs/notebooks.md)
+- [Models and variants](docs/models.md)
+- [Current results](docs/research-status.md)
+- [HPC experiments](hpc/README.md)
+
+## Setup
+
+Python 3.10 or newer:
 
 ```bash
-pip install -e .
+python -m venv .venv
+source .venv/bin/activate
+pip install -e '.[notebooks,dev]'
+python -m ipykernel install --user --name latent-space-simulators
+jupyter lab
 ```
 
-Download [the data](https://drive.google.com/file/d/1KTWN1Rp-vs5eKmip4tH5tS77y5HUX_CH/view?usp=sharing) and put it in `data/`.
+Choose the `latent-space-simulators` kernel. Installation fetches `graph_utils` from the research group's GitHub repository.
 
-Then run the notebooks in `notebooks/`.
-The main ones are:
+The local copy includes the available data and checkpoints (about 7.2 GB). Large files are ignored by Git, so a future clone will need them supplied separately. Some older notebook checkpoints and two legacy datasets are unavailable; saved notebook figures are preserved. See [data](data/README.md) and [result availability](docs/results.md).
 
-- `notebooks/01_train_cv_transformer.ipynb`
-- `notebooks/02_train_chignolin_cv_transformer.ipynb`
-- `notebooks/03_training_hybrid.ipynb`
+## Working with the project
 
-The repo already includes the model artifacts needed to load the existing results.
-So by default the notebooks can reuse those instead of retraining.
+`src/lss/` contains the models, data handling, training, and evaluation. `notebooks/` contains the research sequence and results; `hpc/` contains runners and PBS scripts. Selected network-design results are in `examples/network_design/`.
 
-If you want to retrain a notebook from scratch, set the flag at the top of that notebook:
+```bash
+python -m pytest -q
+python tools/check_project.py
+python hpc/submit.py compact_lj_reconstruction --smoke --dry-run
+```
 
-- `force_train = True`
-
-Then rerun the notebook.
+[Validation](docs/validation.md) records what was checked. [Research conventions](CONTRIBUTING.md) cover experiments and notebooks. Active models use observed states and graph structure; p-ratio is evaluated after fitting. Historical response-selected experiments are identified in the notebook map and logs.

@@ -1,0 +1,1802 @@
+[
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0032864221655433627,
+    "box_max": [
+      1.9999998807907104,
+      2.000032901763916
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9822027683258057
+    ],
+    "coordinate_max": [
+      0.9478954672813416,
+      0.9960325360298157
+    ],
+    "coordinate_min": [
+      -0.9932696223258972,
+      -0.9972806572914124
+    ],
+    "displacement_rms_from_initial_mean": 0.006687011168950652,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 314,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.02879622024920337,
+    "increment_cosine_by_lag": {
+      "1": 0.9995493498849514,
+      "10": 0.9981526589604629,
+      "2": 0.9993410608737789,
+      "5": 0.9987896789707649
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.861405203677252e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.5891555394735771e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 108,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 60,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.9588633044007666e-08,
+      "2": 3.0436700304402943e-05,
+      "4": 7.459634779372588e-07,
+      "6": 4.847297285971652e-08,
+      "8": 2.840429510080715e-08
+    },
+    "persistence_coordinate_rms_mean": 6.861405203677252e-05,
+    "source": "reid",
+    "stiffness_max": 1.4177753925323486,
+    "stiffness_min": 0.0032925910782068968,
+    "translation_mean_node_displacement_rms": 0.0005083572574777126,
+    "zero_displacement_coordinate_rms_mean": 0.006687011168950652
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.002796231162019565,
+    "box_max": [
+      2.0,
+      2.0000293254852295
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9846959114074707
+    ],
+    "coordinate_max": [
+      0.9892129302024841,
+      0.982967734336853
+    ],
+    "coordinate_min": [
+      -0.9849218130111694,
+      -0.9941979050636292
+    ],
+    "displacement_rms_from_initial_mean": 0.007640315764134978,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 482,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.023548969969794747,
+    "increment_cosine_by_lag": {
+      "1": 0.9996525690243888,
+      "10": 0.9988986401140435,
+      "2": 0.9995108530605262,
+      "5": 0.9992688020675681
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.901504125811147e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.3428557285715236e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 168,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 45,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.0718050250025984e-08,
+      "2": 5.193905636536787e-05,
+      "4": 3.7235676231082603e-07,
+      "6": 3.5014837013378e-08,
+      "8": 1.629699735754293e-08
+    },
+    "persistence_coordinate_rms_mean": 7.901504125811147e-05,
+    "source": "reid",
+    "stiffness_max": 1.223311185836792,
+    "stiffness_min": 0.00025497301248833537,
+    "translation_mean_node_displacement_rms": 4.257458208450013e-05,
+    "zero_displacement_coordinate_rms_mean": 0.007640315764134978
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0006623050222176762,
+    "box_max": [
+      2.0,
+      2.020319938659668
+    ],
+    "box_min": [
+      1.9400213956832886,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9745569825172424,
+      0.964070200920105
+    ],
+    "coordinate_min": [
+      -0.9896794557571411,
+      -1.008821964263916
+    ],
+    "displacement_rms_from_initial_mean": 0.0065774108284427394,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 369,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.02379982819971618,
+    "increment_cosine_by_lag": {
+      "1": 0.9997267395737629,
+      "10": 0.9997796835034845,
+      "2": 0.9998333863939101,
+      "5": 0.9997997702847728
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.61646894892761e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.5375532368881984e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 128,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 43,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.7643576700298776e-08,
+      "2": 2.702170396771954e-07,
+      "4": 3.428519600488389e-08,
+      "6": 2.3510164854675407e-08,
+      "8": 2.132135530457074e-08
+    },
+    "persistence_coordinate_rms_mean": 6.61646894892761e-05,
+    "source": "reid",
+    "stiffness_max": 0.6730924844741821,
+    "stiffness_min": 0.31662672758102417,
+    "translation_mean_node_displacement_rms": 0.00015413592696463725,
+    "zero_displacement_coordinate_rms_mean": 0.0065774108284427394
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0005481748933835318,
+    "box_max": [
+      2.0,
+      2.0204641819000244
+    ],
+    "box_min": [
+      1.9400213956832886,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9806652069091797,
+      1.0096577405929565
+    ],
+    "coordinate_min": [
+      -0.985374391078949,
+      -0.9990427494049072
+    ],
+    "displacement_rms_from_initial_mean": 0.006358781861507588,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 429,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.023441209080298328,
+    "increment_cosine_by_lag": {
+      "1": 0.9997364253987528,
+      "10": 0.9997997323248077,
+      "2": 0.9998320928891087,
+      "5": 0.9998080283598704
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.389497701738167e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.4556937919981222e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 148,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 73,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.699555068949943e-08,
+      "2": 2.0194848390743869e-07,
+      "4": 2.8195716490534655e-08,
+      "6": 2.2250713073532538e-08,
+      "8": 2.0282336687715464e-08
+    },
+    "persistence_coordinate_rms_mean": 6.389497701738167e-05,
+    "source": "reid",
+    "stiffness_max": 0.6352745294570923,
+    "stiffness_min": 0.3146767020225525,
+    "translation_mean_node_displacement_rms": 0.0006433275416491913,
+    "zero_displacement_coordinate_rms_mean": 0.006358781861507588
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0018603070246312131,
+    "box_max": [
+      2.0,
+      2.000039577484131
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.997589111328125
+    ],
+    "coordinate_max": [
+      0.9974052309989929,
+      0.9826332926750183
+    ],
+    "coordinate_min": [
+      -0.9899021983146667,
+      -0.9949353337287903
+    ],
+    "displacement_rms_from_initial_mean": 0.006554259748473699,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 424,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.023107101158690795,
+    "increment_cosine_by_lag": {
+      "1": 0.9997235042156126,
+      "10": 0.9994606300933403,
+      "2": 0.9996971435219186,
+      "5": 0.9995871204175119
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.609556301322894e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.293691721389548e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 148,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 85,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.636528448775427e-08,
+      "2": 6.149380656066323e-06,
+      "4": 9.496083350887312e-08,
+      "6": 2.7058345536363157e-08,
+      "8": 2.157139077486801e-08
+    },
+    "persistence_coordinate_rms_mean": 6.609556301322894e-05,
+    "source": "reid",
+    "stiffness_max": 1.2581719160079956,
+    "stiffness_min": 0.009306521154940128,
+    "translation_mean_node_displacement_rms": 0.00037524084449199824,
+    "zero_displacement_coordinate_rms_mean": 0.006554259748473699
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.00422351261483419,
+    "box_max": [
+      2.0,
+      2.0000317096710205
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9760546684265137
+    ],
+    "coordinate_max": [
+      0.9947842955589294,
+      0.9879316091537476
+    ],
+    "coordinate_min": [
+      -0.9934400916099548,
+      -0.990346372127533
+    ],
+    "displacement_rms_from_initial_mean": 0.007314348773932412,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 310,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.02816976903246599,
+    "increment_cosine_by_lag": {
+      "1": 0.9995028609735234,
+      "10": 0.9974215898538932,
+      "2": 0.9991339623896153,
+      "5": 0.9984365899178909
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.727057041290277e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.606922166231496e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 108,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 22,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.5750379963892154e-08,
+      "2": 0.00013571580517580462,
+      "4": 1.3043482118745059e-06,
+      "6": 7.387317924523551e-08,
+      "8": 2.3406864166080846e-08
+    },
+    "persistence_coordinate_rms_mean": 7.727057041290277e-05,
+    "source": "reid",
+    "stiffness_max": 1.1760845184326172,
+    "stiffness_min": 2.7395000870455988e-05,
+    "translation_mean_node_displacement_rms": 0.0007356943789916775,
+    "zero_displacement_coordinate_rms_mean": 0.007314348773932412
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.003231068864100236,
+    "box_max": [
+      2.0,
+      2.000030755996704
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9858264923095703
+    ],
+    "coordinate_max": [
+      0.9927930235862732,
+      0.9985069036483765
+    ],
+    "coordinate_min": [
+      -0.9977929592132568,
+      -0.9944802522659302
+    ],
+    "displacement_rms_from_initial_mean": 0.007881905888987812,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 368,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.02355466692527374,
+    "increment_cosine_by_lag": {
+      "1": 0.9996719677393265,
+      "10": 0.9988169936227494,
+      "2": 0.9995456960583778,
+      "5": 0.9992533604940799
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 8.050512969951637e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.4867671244922774e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 128,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 47,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.2889291701172172e-08,
+      "2": 5.2120732485759685e-05,
+      "4": 4.3261134916038736e-07,
+      "6": 4.370273563665173e-08,
+      "8": 1.8535050047776453e-08
+    },
+    "persistence_coordinate_rms_mean": 8.050512969951637e-05,
+    "source": "reid",
+    "stiffness_max": 1.261242151260376,
+    "stiffness_min": 0.002392210066318512,
+    "translation_mean_node_displacement_rms": 0.00017743726705795639,
+    "zero_displacement_coordinate_rms_mean": 0.007881905888987812
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0030939906897348136,
+    "box_max": [
+      2.0,
+      2.0000312328338623
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9897562265396118
+    ],
+    "coordinate_max": [
+      0.9936476945877075,
+      0.9914628863334656
+    ],
+    "coordinate_min": [
+      -0.9933337569236755,
+      -0.9924870133399963
+    ],
+    "displacement_rms_from_initial_mean": 0.0069954131645573936,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 313,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.027377590102621096,
+    "increment_cosine_by_lag": {
+      "1": 0.9996047004780523,
+      "10": 0.9988580046460438,
+      "2": 0.9994711614230953,
+      "5": 0.9991977357885052
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.045894834615614e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.5174462262391295e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 108,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 27,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.917019703857197e-08,
+      "2": 7.578462808014097e-05,
+      "4": 6.634446899179086e-07,
+      "6": 5.5008420627033815e-08,
+      "8": 2.82137458601163e-08
+    },
+    "persistence_coordinate_rms_mean": 7.045894834615614e-05,
+    "source": "reid",
+    "stiffness_max": 1.2484577894210815,
+    "stiffness_min": 5.528199835680425e-05,
+    "translation_mean_node_displacement_rms": 0.00044452349138254755,
+    "zero_displacement_coordinate_rms_mean": 0.0069954131645573936
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0007417131356956669,
+    "box_max": [
+      2.0,
+      2.01617693901062
+    ],
+    "box_min": [
+      1.9400213956832886,
+      2.0
+    ],
+    "coordinate_max": [
+      0.992115318775177,
+      1.0028949975967407
+    ],
+    "coordinate_min": [
+      -0.9796855449676514,
+      -1.0065149068832397
+    ],
+    "displacement_rms_from_initial_mean": 0.0062346536573745955,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 516,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.01810269406319034,
+    "increment_cosine_by_lag": {
+      "1": 0.999837287050616,
+      "10": 0.9998183190299971,
+      "2": 0.9998697777504839,
+      "5": 0.9998475649343523
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.260581916413958e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.1214934400664615e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 180,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 87,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.4412698345429771e-08,
+      "2": 8.788653692652213e-07,
+      "4": 3.438645276904774e-08,
+      "6": 1.8601689637316027e-08,
+      "8": 1.728240284562297e-08
+    },
+    "persistence_coordinate_rms_mean": 6.260581916413958e-05,
+    "source": "reid",
+    "stiffness_max": 0.9544408321380615,
+    "stiffness_min": 0.20389395952224731,
+    "translation_mean_node_displacement_rms": 0.00019793279837870896,
+    "zero_displacement_coordinate_rms_mean": 0.0062346536573745955
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0006670648629988488,
+    "box_max": [
+      2.0,
+      2.016765832901001
+    ],
+    "box_min": [
+      1.9400213956832886,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9988437294960022,
+      0.9856187105178833
+    ],
+    "coordinate_min": [
+      -0.9919684529304504,
+      -1.0065473318099976
+    ],
+    "displacement_rms_from_initial_mean": 0.006303910480575698,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 361,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.020621798081988902,
+    "increment_cosine_by_lag": {
+      "1": 0.9997884659835368,
+      "10": 0.9998099909271403,
+      "2": 0.999833170287974,
+      "5": 0.999821804483813
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.339478940811827e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.2971282132717712e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 128,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 67,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.8837066022744466e-08,
+      "2": 2.9635768922680633e-07,
+      "4": 3.5297905417042325e-08,
+      "6": 2.5425302280709185e-08,
+      "8": 2.2890545601202195e-08
+    },
+    "persistence_coordinate_rms_mean": 6.339478940811827e-05,
+    "source": "reid",
+    "stiffness_max": 0.792499840259552,
+    "stiffness_min": 0.2788636386394501,
+    "translation_mean_node_displacement_rms": 0.0002292373590263147,
+    "zero_displacement_coordinate_rms_mean": 0.006303910480575698
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0014386570680362581,
+    "box_max": [
+      2.0,
+      2.0000813007354736
+    ],
+    "box_min": [
+      1.9400215148925781,
+      1.9973728656768799
+    ],
+    "coordinate_max": [
+      0.965088963508606,
+      0.9609900116920471
+    ],
+    "coordinate_min": [
+      -0.9849124550819397,
+      -0.9843505024909973
+    ],
+    "displacement_rms_from_initial_mean": 0.006534604864606703,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 415,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.0235408712802955,
+    "increment_cosine_by_lag": {
+      "1": 0.9997153846154762,
+      "10": 0.9995250834530216,
+      "2": 0.9996884520478927,
+      "5": 0.9995970022271816
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.614367048313937e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.3328711337694894e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 144,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 99,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.3730280999596284e-08,
+      "2": 4.801867263797284e-07,
+      "4": 4.3914918824998166e-08,
+      "6": 1.846592295327918e-08,
+      "8": 1.6509331977396055e-08
+    },
+    "persistence_coordinate_rms_mean": 6.614367048313937e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 3.233274459838867,
+    "stiffness_min": 0.40737664699554443,
+    "translation_mean_node_displacement_rms": 0.0004976277501256797,
+    "zero_displacement_coordinate_rms_mean": 0.006534604864606703
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0026665993615457256,
+    "box_max": [
+      2.0,
+      2.0000548362731934
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9691959619522095
+    ],
+    "coordinate_max": [
+      0.995136022567749,
+      0.990453839302063
+    ],
+    "coordinate_min": [
+      -0.9508398771286011,
+      -0.9815448522567749
+    ],
+    "displacement_rms_from_initial_mean": 0.007040423700893182,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 471,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.03308753314728969,
+    "increment_cosine_by_lag": {
+      "1": 0.9993620543201868,
+      "10": 0.9980708454965638,
+      "2": 0.9989509869535587,
+      "5": 0.9984972371441795
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.17650894639122e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.4333861209513232e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 164,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 145,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.1408444859156562e-08,
+      "2": 7.114138202991709e-06,
+      "4": 1.5966133268486688e-07,
+      "6": 1.9416462011003774e-08,
+      "8": 1.4161809930624597e-08
+    },
+    "persistence_coordinate_rms_mean": 7.17650894639122e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 3.3868346214294434,
+    "stiffness_min": 0.3166520595550537,
+    "translation_mean_node_displacement_rms": 0.00012375765211301932,
+    "zero_displacement_coordinate_rms_mean": 0.007040423700893182
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.002031401945947464,
+    "box_max": [
+      2.0,
+      2.0000596046447754
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9883911609649658
+    ],
+    "coordinate_max": [
+      0.934824526309967,
+      0.9968319535255432
+    ],
+    "coordinate_min": [
+      -0.9880471229553223,
+      -0.9782716035842896
+    ],
+    "displacement_rms_from_initial_mean": 0.006562216786458754,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 320,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.029837201190209793,
+    "increment_cosine_by_lag": {
+      "1": 0.9995309375678673,
+      "10": 0.9993721731524836,
+      "2": 0.9994224042188512,
+      "5": 0.9994206088838642
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.642245145614765e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.44154116942727e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 112,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 7,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.6201068121977677e-08,
+      "2": 4.389811427396868e-06,
+      "4": 8.859167146583376e-08,
+      "6": 2.343665632032838e-08,
+      "8": 2.0171376564093076e-08
+    },
+    "persistence_coordinate_rms_mean": 6.642245145614765e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 3.1514639854431152,
+    "stiffness_min": 0.41818922758102417,
+    "translation_mean_node_displacement_rms": 0.0003802037907347348,
+    "zero_displacement_coordinate_rms_mean": 0.006562216786458754
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0005640715138997308,
+    "box_max": [
+      2.0,
+      2.020982503890991
+    ],
+    "box_min": [
+      1.9400213956832886,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9832198023796082,
+      0.9852556586265564
+    ],
+    "coordinate_min": [
+      -0.9944138526916504,
+      -1.009911060333252
+    ],
+    "displacement_rms_from_initial_mean": 0.006472258234381074,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 704,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.014717251801511946,
+    "increment_cosine_by_lag": {
+      "1": 0.9998923283394363,
+      "10": 0.99989752817975,
+      "2": 0.9999181947157236,
+      "5": 0.9999085593862739
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.507998861706367e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 9.473761476211132e-07,
+    "lj_indicator_sum": 0.0,
+    "nodes": 244,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 133,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 8.667641812319805e-09,
+      "2": 2.3184216879465377e-07,
+      "4": 1.489574052119613e-08,
+      "6": 1.0718528518932573e-08,
+      "8": 9.871893177783307e-09
+    },
+    "persistence_coordinate_rms_mean": 6.507998861706367e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 1.3461081981658936,
+    "stiffness_min": 0.6290960311889648,
+    "translation_mean_node_displacement_rms": 4.667209966004568e-05,
+    "zero_displacement_coordinate_rms_mean": 0.006472258234381074
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0024147504365510937,
+    "box_max": [
+      2.0,
+      2.0000576972961426
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.977495551109314
+    ],
+    "coordinate_max": [
+      0.9957802295684814,
+      0.9670531153678894
+    ],
+    "coordinate_min": [
+      -0.9984378218650818,
+      -0.994930624961853
+    ],
+    "displacement_rms_from_initial_mean": 0.007104081939510619,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 437,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.030517695616873345,
+    "increment_cosine_by_lag": {
+      "1": 0.9994648461230586,
+      "10": 0.9988031995691651,
+      "2": 0.9991503725871983,
+      "5": 0.9989048121668621
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.236129702744109e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.4243814056056686e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 152,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 198,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.1421836711876385e-08,
+      "2": 3.267796134397595e-06,
+      "4": 1.1623668364184599e-07,
+      "6": 1.6602818524689346e-08,
+      "8": 1.4239478724354826e-08
+    },
+    "persistence_coordinate_rms_mean": 7.236129702744109e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 2.5829060077667236,
+    "stiffness_min": 0.36940526962280273,
+    "translation_mean_node_displacement_rms": 5.6446955408792656e-05,
+    "zero_displacement_coordinate_rms_mean": 0.007104081939510619
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0007103415593028916,
+    "box_max": [
+      2.0,
+      2.0220892429351807
+    ],
+    "box_min": [
+      1.9400213956832886,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9983413815498352,
+      1.0036135911941528
+    ],
+    "coordinate_min": [
+      -0.9989979863166809,
+      -0.9777329564094543
+    ],
+    "displacement_rms_from_initial_mean": 0.006262462447704089,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 320,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.023778621282354653,
+    "increment_cosine_by_lag": {
+      "1": 0.9997254600802568,
+      "10": 0.9997933035142361,
+      "2": 0.9998134947873132,
+      "5": 0.9998017531480786
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.295307427791309e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.471866671981289e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 112,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 13,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.7337362747539668e-08,
+      "2": 5.276427634868771e-07,
+      "4": 2.7870339041023195e-08,
+      "6": 2.218317987394696e-08,
+      "8": 2.078757733566918e-08
+    },
+    "persistence_coordinate_rms_mean": 6.295307427791309e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 1.3355064392089844,
+    "stiffness_min": 0.6338772177696228,
+    "translation_mean_node_displacement_rms": 0.00013386645026124496,
+    "zero_displacement_coordinate_rms_mean": 0.006262462447704089
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0014457179833479413,
+    "box_max": [
+      2.0,
+      2.000056266784668
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9919790029525757
+    ],
+    "coordinate_max": [
+      0.9912341237068176,
+      0.9858911037445068
+    ],
+    "coordinate_min": [
+      -0.9685699939727783,
+      -0.9906312823295593
+    ],
+    "displacement_rms_from_initial_mean": 0.006296309784649834,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 647,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.02526477283312897,
+    "increment_cosine_by_lag": {
+      "1": 0.9996718437959643,
+      "10": 0.9995535274891547,
+      "2": 0.9996120203460587,
+      "5": 0.9996052395516603
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.353582553422375e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.0924917683778022e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 224,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 21,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.0474760426258919e-08,
+      "2": 2.1771055875626932e-06,
+      "4": 1.119001014463264e-07,
+      "6": 1.5460125402639346e-08,
+      "8": 1.247395916385867e-08
+    },
+    "persistence_coordinate_rms_mean": 6.353582553422375e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 3.4154856204986572,
+    "stiffness_min": 0.42201530933380127,
+    "translation_mean_node_displacement_rms": 0.0003479713949673428,
+    "zero_displacement_coordinate_rms_mean": 0.006296309784649834
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.002286515083458555,
+    "box_max": [
+      2.0,
+      2.0000600814819336
+    ],
+    "box_min": [
+      1.9400213956832886,
+      1.9682769775390625
+    ],
+    "coordinate_max": [
+      0.9957368969917297,
+      0.9924341440200806
+    ],
+    "coordinate_min": [
+      -0.9994888305664062,
+      -0.9931191205978394
+    ],
+    "displacement_rms_from_initial_mean": 0.007448692702436279,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 670,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.030779512976830577,
+    "increment_cosine_by_lag": {
+      "1": 0.9994079905660822,
+      "10": 0.9986199365867877,
+      "2": 0.9989870272093364,
+      "5": 0.9988028638979001
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.579578298870758e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.2245118112495825e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 232,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 107,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 7.60546526091387e-09,
+      "2": 5.917506530905231e-06,
+      "4": 8.451574166758067e-08,
+      "6": 1.4281001763026636e-08,
+      "8": 9.2433108800014e-09
+    },
+    "persistence_coordinate_rms_mean": 7.579578298870758e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 2.979288339614868,
+    "stiffness_min": 0.31810298562049866,
+    "translation_mean_node_displacement_rms": 0.0001264493773331361,
+    "zero_displacement_coordinate_rms_mean": 0.007448692702436279
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.0013613773638088617,
+    "box_max": [
+      1.9999998807907104,
+      2.000087022781372
+    ],
+    "box_min": [
+      1.940021276473999,
+      1.9974502325057983
+    ],
+    "coordinate_max": [
+      0.9990136027336121,
+      0.9958768486976624
+    ],
+    "coordinate_min": [
+      -0.9976796507835388,
+      -0.9896457195281982
+    ],
+    "displacement_rms_from_initial_mean": 0.006217167676604332,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 750,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.024248967583002278,
+    "increment_cosine_by_lag": {
+      "1": 0.9997061659806838,
+      "10": 0.9995524081086635,
+      "2": 0.9997480300960702,
+      "5": 0.9996173605932566
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.262736548257667e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.2564161725733314e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 264,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 14,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 9.402479175524251e-09,
+      "2": 1.6161562858114641e-06,
+      "4": 7.882298200281796e-08,
+      "6": 1.4578319484771645e-08,
+      "8": 1.1405988474704641e-08
+    },
+    "persistence_coordinate_rms_mean": 6.262736548257667e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 3.6481292247772217,
+    "stiffness_min": 0.4509313106536865,
+    "translation_mean_node_displacement_rms": 9.662776310116465e-05,
+    "zero_displacement_coordinate_rms_mean": 0.006217167676604332
+  },
+  {
+    "added_lj_edges": 0,
+    "affine_residual_rms_mean": 0.000710559576977845,
+    "box_max": [
+      2.0,
+      2.009517192840576
+    ],
+    "box_min": [
+      1.9400213956832886,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9900705218315125,
+      0.9987183809280396
+    ],
+    "coordinate_min": [
+      -0.9997828602790833,
+      -0.9947761297225952
+    ],
+    "displacement_rms_from_initial_mean": 0.006336604198021564,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 600,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.017385343146559963,
+    "increment_cosine_by_lag": {
+      "1": 0.9998495708221604,
+      "10": 0.9998723010940499,
+      "2": 0.9998767326391874,
+      "5": 0.9998749277045587
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.369617766649138e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.0542874367845776e-06,
+    "lj_indicator_sum": 0.0,
+    "nodes": 208,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 77,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.0556364737196764e-08,
+      "2": 2.649606670781826e-07,
+      "4": 1.6313949717805766e-08,
+      "6": 1.3262266597788859e-08,
+      "8": 1.226063711694132e-08
+    },
+    "persistence_coordinate_rms_mean": 6.369617766649138e-05,
+    "source": "depablo_low_temp",
+    "stiffness_max": 2.5043179988861084,
+    "stiffness_min": 0.5225088596343994,
+    "translation_mean_node_displacement_rms": 0.0001280744895448237,
+    "zero_displacement_coordinate_rms_mean": 0.006336604198021564
+  },
+  {
+    "added_lj_edges": 2032,
+    "affine_residual_rms_mean": 0.002638917022743697,
+    "box_max": [
+      2.0,
+      2.020982503890991
+    ],
+    "box_min": [
+      1.9443072080612183,
+      2.0
+    ],
+    "coordinate_max": [
+      0.991301417350769,
+      0.9575815796852112
+    ],
+    "coordinate_min": [
+      -0.9980857968330383,
+      -1.008407473564148
+    ],
+    "displacement_rms_from_initial_mean": 0.005988333482043133,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 2408,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.024264334098302972,
+    "increment_cosine_by_lag": {
+      "1": 0.9997476846233142,
+      "10": 0.9957917733948515,
+      "2": 0.9994467462650185,
+      "5": 0.9982729071679574
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.197723279127208e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.1702903013859928e-06,
+    "lj_indicator_sum": 2032.0,
+    "nodes": 183,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 178,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.128614927187713e-07,
+      "2": 0.0010169993510758678,
+      "4": 5.2627364229401085e-05,
+      "6": 1.0675898575396823e-05,
+      "8": 3.62162560069451e-06
+    },
+    "persistence_coordinate_rms_mean": 6.197723279127208e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 1.9591686725616455,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 7.275389852547569e-05,
+    "zero_displacement_coordinate_rms_mean": 0.005988333482043133
+  },
+  {
+    "added_lj_edges": 1371,
+    "affine_residual_rms_mean": 0.003015793833720687,
+    "box_max": [
+      2.0,
+      2.0240890979766846
+    ],
+    "box_min": [
+      1.944281816482544,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9678478240966797,
+      1.0002018213272095
+    ],
+    "coordinate_min": [
+      -0.9984388947486877,
+      -0.989283561706543
+    ],
+    "displacement_rms_from_initial_mean": 0.006792480680715752,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 1622,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.030568533373848215,
+    "increment_cosine_by_lag": {
+      "1": 0.999567443126565,
+      "10": 0.9965989396297499,
+      "2": 0.9994401374667837,
+      "5": 0.998505818921579
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.007835897876969e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.7880943044865217e-06,
+    "lj_indicator_sum": 1371.0,
+    "nodes": 124,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 199,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 7.088243825862618e-08,
+      "2": 0.0006074683305911676,
+      "4": 2.8035568100555044e-05,
+      "6": 6.575345101066826e-06,
+      "8": 2.0177921248175903e-06
+    },
+    "persistence_coordinate_rms_mean": 7.007835897876969e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 1.7246150970458984,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 0.00013717436091178074,
+    "zero_displacement_coordinate_rms_mean": 0.006792480680715752
+  },
+  {
+    "added_lj_edges": 1922,
+    "affine_residual_rms_mean": 0.002203845937551131,
+    "box_max": [
+      2.0,
+      2.0236504077911377
+    ],
+    "box_min": [
+      1.9442886114120483,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9887441992759705,
+      1.005354881286621
+    ],
+    "coordinate_min": [
+      -0.9827575087547302,
+      -0.9994233250617981
+    ],
+    "displacement_rms_from_initial_mean": 0.006769384738877799,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 2296,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.022241151387652452,
+    "increment_cosine_by_lag": {
+      "1": 0.9997697717322148,
+      "10": 0.997625345894573,
+      "2": 0.9994639550984011,
+      "5": 0.9989964143087909
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.901313153360887e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.205333335693114e-06,
+    "lj_indicator_sum": 1922.0,
+    "nodes": 182,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 42,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 6.61853214133611e-08,
+      "2": 0.00048017783442160113,
+      "4": 2.474495567041423e-05,
+      "6": 5.129725786838383e-06,
+      "8": 1.3647153806562692e-06
+    },
+    "persistence_coordinate_rms_mean": 6.901313153360887e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 2.115891456604004,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 9.614622495213339e-05,
+    "zero_displacement_coordinate_rms_mean": 0.006769384738877799
+  },
+  {
+    "added_lj_edges": 1311,
+    "affine_residual_rms_mean": 0.0029582002537888,
+    "box_max": [
+      2.0,
+      2.030783176422119
+    ],
+    "box_min": [
+      1.9442874193191528,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9948967695236206,
+      1.0002020597457886
+    ],
+    "coordinate_min": [
+      -0.997115969657898,
+      -0.9965382814407349
+    ],
+    "displacement_rms_from_initial_mean": 0.00742158732211726,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 1550,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.03484561457333827,
+    "increment_cosine_by_lag": {
+      "1": 0.9994495366563618,
+      "10": 0.9971129263270706,
+      "2": 0.9993419418278471,
+      "5": 0.9985520273677322
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.537495401501063e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 2.105597566419439e-06,
+    "lj_indicator_sum": 1311.0,
+    "nodes": 118,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 102,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 6.397692630574062e-08,
+      "2": 0.00041763386796121824,
+      "4": 3.274900113981111e-05,
+      "6": 5.892316781096061e-06,
+      "8": 1.4948539641419536e-06
+    },
+    "persistence_coordinate_rms_mean": 7.537495401501063e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 2.0719192028045654,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 0.00023667872797682646,
+    "zero_displacement_coordinate_rms_mean": 0.00742158732211726
+  },
+  {
+    "added_lj_edges": 1334,
+    "affine_residual_rms_mean": 0.0031026537926706426,
+    "box_max": [
+      2.0,
+      2.0257468223571777
+    ],
+    "box_min": [
+      1.9443186521530151,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9867856502532959,
+      1.0104765892028809
+    ],
+    "coordinate_min": [
+      -0.9833541512489319,
+      -0.9859257340431213
+    ],
+    "displacement_rms_from_initial_mean": 0.006478836701416504,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 1586,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.03488092982135832,
+    "increment_cosine_by_lag": {
+      "1": 0.9994786996884639,
+      "10": 0.9952925072528858,
+      "2": 0.9991477297221848,
+      "5": 0.9978579661327929
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 6.889231695265095e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.785939458803367e-06,
+    "lj_indicator_sum": 1334.0,
+    "nodes": 126,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 99,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 8.246756838083511e-08,
+      "2": 0.0007455703129261138,
+      "4": 5.9642152259400294e-05,
+      "6": 1.086615154874093e-05,
+      "8": 3.7847428043599727e-06
+    },
+    "persistence_coordinate_rms_mean": 6.889231695265095e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 1.5280966758728027,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 0.00034648038513642593,
+    "zero_displacement_coordinate_rms_mean": 0.006478836701416504
+  },
+  {
+    "added_lj_edges": 1294,
+    "affine_residual_rms_mean": 0.002556282528570367,
+    "box_max": [
+      2.0,
+      2.013300657272339
+    ],
+    "box_min": [
+      1.9443174600601196,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9700577259063721,
+      1.0037351846694946
+    ],
+    "coordinate_min": [
+      -0.9926093816757202,
+      -0.9952956438064575
+    ],
+    "displacement_rms_from_initial_mean": 0.0054270424918853345,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 1541,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.03409452912647252,
+    "increment_cosine_by_lag": {
+      "1": 0.9994974578842595,
+      "10": 0.9910523277389016,
+      "2": 0.9989710075058533,
+      "5": 0.9966055827730449
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 5.595263226029712e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.4789668954917795e-06,
+    "lj_indicator_sum": 1294.0,
+    "nodes": 120,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 174,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 9.72008295843136e-08,
+      "2": 0.0034157724242164377,
+      "4": 6.946466899084571e-05,
+      "6": 1.4126026060397875e-05,
+      "8": 3.3471801947739906e-06
+    },
+    "persistence_coordinate_rms_mean": 5.595263226029712e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 1.9420307874679565,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 0.0002959805440314991,
+    "zero_displacement_coordinate_rms_mean": 0.0054270424918853345
+  },
+  {
+    "added_lj_edges": 1166,
+    "affine_residual_rms_mean": 0.0029627216716855164,
+    "box_max": [
+      2.0,
+      2.0215086936950684
+    ],
+    "box_min": [
+      1.9442873001098633,
+      2.0
+    ],
+    "coordinate_max": [
+      0.996578574180603,
+      1.0047097206115723
+    ],
+    "coordinate_min": [
+      -0.9814746975898743,
+      -0.9885124564170837
+    ],
+    "displacement_rms_from_initial_mean": 0.0065456763064913,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 1381,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.018667184805130063,
+    "increment_cosine_by_lag": {
+      "1": 0.9998157423392703,
+      "10": 0.997177235885215,
+      "2": 0.9995963348449751,
+      "5": 0.9988268738323254
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.123147571484903e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.0238203207662076e-06,
+    "lj_indicator_sum": 1166.0,
+    "nodes": 106,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 96,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.2441706766768501e-08,
+      "2": 0.00029375609458045626,
+      "4": 1.104939196338383e-05,
+      "6": 1.8397517812120852e-06,
+      "8": 2.6386730483848385e-07
+    },
+    "persistence_coordinate_rms_mean": 7.123147571484903e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 2.251734495162964,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 0.0002960291690290342,
+    "zero_displacement_coordinate_rms_mean": 0.0065456763064913
+  },
+  {
+    "added_lj_edges": 1661,
+    "affine_residual_rms_mean": 0.00281044680228532,
+    "box_max": [
+      2.0,
+      2.0221898555755615
+    ],
+    "box_min": [
+      1.944319725036621,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9955186247825623,
+      1.0010489225387573
+    ],
+    "coordinate_min": [
+      -0.9755743145942688,
+      -1.0143461227416992
+    ],
+    "displacement_rms_from_initial_mean": 0.006709487000171046,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 1977,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.032076289957531715,
+    "increment_cosine_by_lag": {
+      "1": 0.9995683037791941,
+      "10": 0.9899972591135119,
+      "2": 0.998852632291113,
+      "5": 0.9960450482061777
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.236850887263694e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.7539469728226248e-06,
+    "lj_indicator_sum": 1661.0,
+    "nodes": 156,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 70,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 1.0143066695233952e-07,
+      "2": 0.0012909583110482538,
+      "4": 0.00016321009008813783,
+      "6": 1.2870342930486676e-05,
+      "8": 3.781062001780866e-06
+    },
+    "persistence_coordinate_rms_mean": 7.236850887263694e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 1.551552176475525,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 0.00016643301953382943,
+    "zero_displacement_coordinate_rms_mean": 0.006709487000171046
+  },
+  {
+    "added_lj_edges": 1444,
+    "affine_residual_rms_mean": 0.002864013236170974,
+    "box_max": [
+      2.0,
+      2.0195729732513428
+    ],
+    "box_min": [
+      1.94430673122406,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9836482405662537,
+      0.9813026785850525
+    ],
+    "coordinate_min": [
+      -0.9440699815750122,
+      -0.979647696018219
+    ],
+    "displacement_rms_from_initial_mean": 0.007059923130659697,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 1699,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.021645931614128276,
+    "increment_cosine_by_lag": {
+      "1": 0.9997962274678699,
+      "10": 0.9969774495955215,
+      "2": 0.9995233703100279,
+      "5": 0.9986338453705957
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 7.228860315363158e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.1625313107504108e-06,
+    "lj_indicator_sum": 1444.0,
+    "nodes": 127,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 93,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 4.533921345101922e-08,
+      "2": 0.00028502827842404374,
+      "4": 5.5014086427911335e-05,
+      "6": 6.917736658647685e-06,
+      "8": 9.885138614393807e-07
+    },
+    "persistence_coordinate_rms_mean": 7.228860315363158e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 1.680275797843933,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 0.00024614031367434827,
+    "zero_displacement_coordinate_rms_mean": 0.007059923130659697
+  },
+  {
+    "added_lj_edges": 1967,
+    "affine_residual_rms_mean": 0.0033608106893136453,
+    "box_max": [
+      2.0,
+      2.0408670902252197
+    ],
+    "box_min": [
+      1.9443027973175049,
+      2.0
+    ],
+    "coordinate_max": [
+      0.9838176369667053,
+      1.0147616863250732
+    ],
+    "coordinate_min": [
+      -0.9918522834777832,
+      -1.015268087387085
+    ],
+    "displacement_rms_from_initial_mean": 0.00822202599222307,
+    "edge_feature_dim": 5,
+    "edge_schema": "vector_length_stiffness_is_lj_v1",
+    "edges": 2337,
+    "frames": 200,
+    "high_frequency_second_difference_over_first": 0.022445435218334236,
+    "increment_cosine_by_lag": {
+      "1": 0.9997751283601535,
+      "10": 0.9960391352751892,
+      "2": 0.9995688970721913,
+      "5": 0.9985343319568641
+    },
+    "increment_cosine_valid_by_lag": {
+      "1": 198,
+      "10": 189,
+      "2": 197,
+      "5": 194
+    },
+    "increment_count": 199,
+    "increment_rms_mean": 8.621543651404552e-05,
+    "increments_with_minimum_image_difference": 0,
+    "last_increment_extrapolation_coordinate_rms_mean": 1.4793411757162355e-06,
+    "lj_indicator_sum": 1967.0,
+    "nodes": 183,
+    "nonfinite_coordinate_values": 0,
+    "nonfinite_edge_values": 0,
+    "original_index": 104,
+    "pca_centered_train_reconstruction_error_fraction": {
+      "16": 5.3137940811679615e-08,
+      "2": 0.0011997350593382285,
+      "4": 2.508573423216222e-05,
+      "6": 4.4626892686887954e-06,
+      "8": 1.3138168021023512e-06
+    },
+    "persistence_coordinate_rms_mean": 8.621543651404552e-05,
+    "source": "lj_noisy",
+    "stiffness_max": 2.1137545108795166,
+    "stiffness_min": 0.0,
+    "translation_mean_node_displacement_rms": 0.00014830565353026148,
+    "zero_displacement_coordinate_rms_mean": 0.00822202599222307
+  }
+]

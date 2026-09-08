@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#PBS -N lss_ljmotion
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=01:00:00
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?}"
+export LSS_PROJECT_ROOT="$PWD" OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONUNBUFFERED=1
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/lss-ljmotion-${PBS_JOBID}"
+mkdir -p notebooks/results/compact_lj_motion_audit/logs
+exec >"notebooks/results/compact_lj_motion_audit/logs/${PBS_JOBID}.log" 2>&1
+exec .venv/bin/python -u scripts/audit_compact_lj_motion.py

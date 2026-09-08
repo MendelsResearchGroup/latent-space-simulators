@@ -1,0 +1,368 @@
+{
+  "coordinate_convention": "production position_normalization: each trajectory uses its frame-zero box mapped to [-1,1]^2; stored normalized x is audited without unwrapping",
+  "job_id": "4672395.zeus-master",
+  "limitations": [
+    "Coordinate jumps are reported only as raw-versus-minimum-image increment differences; they are not called noise.",
+    "Temporal correlations and in-sample PCA reconstruction cannot establish irreducible noise, causation, or an AE's achievable generalization.",
+    "Only the fixed first ten training IDs per source were used; no validation, mixed-temperature, or final-test trajectories were accessed."
+  ],
+  "manifest": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/lj_ae_08_bridge/split_manifest.json",
+  "manifest_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+  "pca_caveat": "PCA is fitted and scored on all 200 observed training frames of each network separately; it is optimistic and neither a universal AE nor a generalization estimate.",
+  "script_sha256": "e98c2fc7728e9e3837345ea71dcb1033c089eed31f1c58b0aafedcbd165e1527",
+  "seconds": 82.89139246940613,
+  "sources": {
+    "depablo_low_temp": {
+      "count": 10,
+      "dataset_sha256": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09",
+      "five_channel_schema_verified": true,
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+      "train_ids": [
+        99,
+        145,
+        7,
+        133,
+        198,
+        13,
+        21,
+        107,
+        14,
+        77
+      ]
+    },
+    "lj_noisy": {
+      "count": 10,
+      "dataset_sha256": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+      "five_channel_schema_verified": true,
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+      "train_ids": [
+        178,
+        199,
+        42,
+        102,
+        99,
+        174,
+        96,
+        70,
+        93,
+        104
+      ]
+    },
+    "reid": {
+      "count": 10,
+      "dataset_sha256": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659",
+      "five_channel_schema_verified": true,
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+      "train_ids": [
+        60,
+        45,
+        43,
+        73,
+        85,
+        22,
+        47,
+        27,
+        87,
+        67
+      ]
+    }
+  },
+  "status": "completed",
+  "summary": {
+    "depablo_low_temp": {
+      "affine_residual_rms_mean": {
+        "mean": 0.0015629991892876366,
+        "total": 10,
+        "valid": 10
+      },
+      "displacement_rms_from_initial_mean": {
+        "mean": 0.006627482233526642,
+        "total": 10,
+        "valid": 10
+      },
+      "high_frequency_second_difference_over_first": {
+        "mean": 0.025315777085805673,
+        "total": 10,
+        "valid": 10
+      },
+      "increment_cosine_by_lag": {
+        "1": {
+          "mean": 0.9996326582211171,
+          "total": 10,
+          "valid": 10
+        },
+        "10": {
+          "mean": 0.9993060306643875,
+          "total": 10,
+          "valid": 10
+        },
+        "2": {
+          "mean": 0.9995167715601191,
+          "total": 10,
+          "valid": 10
+        },
+        "5": {
+          "mean": 0.9994030364703816,
+          "total": 10,
+          "valid": 10
+        }
+      },
+      "increment_rms_mean": {
+        "mean": 6.703807229976164e-05,
+        "total": 10,
+        "valid": 10
+      },
+      "increments_with_minimum_image_difference": {
+        "mean": 0.0,
+        "total": 10,
+        "valid": 10
+      },
+      "last_increment_extrapolation_coordinate_rms_mean": {
+        "mean": 1.2679129838341446e-06,
+        "total": 10,
+        "valid": 10
+      },
+      "pca_error_fraction_by_rank": {
+        "16": {
+          "mean": 1.1680570485236018e-08,
+          "total": 10,
+          "valid": 10
+        },
+        "2": {
+          "mean": 2.5987146494805005e-06,
+          "total": 10,
+          "valid": 10
+        },
+        "4": {
+          "mean": 7.42723461014295e-08,
+          "total": 10,
+          "valid": 10
+        },
+        "6": {
+          "mean": 1.684052814504067e-08,
+          "total": 10,
+          "valid": 10
+        },
+        "8": {
+          "mean": 1.4112536334542706e-08,
+          "total": 10,
+          "valid": 10
+        }
+      },
+      "persistence_coordinate_rms_mean": {
+        "mean": 6.703807229976164e-05,
+        "total": 10,
+        "valid": 10
+      },
+      "trajectories_total": 10,
+      "trajectories_valid": 10,
+      "translation_mean_node_displacement_rms": {
+        "mean": 0.00019376977232499844,
+        "total": 10,
+        "valid": 10
+      },
+      "zero_displacement_coordinate_rms_mean": {
+        "mean": 0.006627482233526642,
+        "total": 10,
+        "valid": 10
+      }
+    },
+    "lj_noisy": {
+      "affine_residual_rms_mean": {
+        "mean": 0.0028473685768500784,
+        "total": 10,
+        "valid": 10
+      },
+      "displacement_rms_from_initial_mean": {
+        "mean": 0.00674147778466009,
+        "total": 10,
+        "valid": 10
+      },
+      "high_frequency_second_difference_over_first": {
+        "mean": 0.027572993397609703,
+        "total": 10,
+        "valid": 10
+      },
+      "increment_cosine_by_lag": {
+        "1": {
+          "mean": 0.9996465995657667,
+          "total": 10,
+          "valid": 10
+        },
+        "10": {
+          "mean": 0.9953664900107471,
+          "total": 10,
+          "valid": 10
+        },
+        "2": {
+          "mean": 0.9993352752404394,
+          "total": 10,
+          "valid": 10
+        },
+        "5": {
+          "mean": 0.9980830816037862,
+          "total": 10,
+          "valid": 10
+        }
+      },
+      "increment_rms_mean": {
+        "mean": 7.033926507867725e-05,
+        "total": 10,
+        "valid": 10
+      },
+      "increments_with_minimum_image_difference": {
+        "mean": 0.0,
+        "total": 10,
+        "valid": 10
+      },
+      "last_increment_extrapolation_coordinate_rms_mean": {
+        "mean": 1.4953861642335694e-06,
+        "total": 10,
+        "valid": 10
+      },
+      "pca_error_fraction_by_rank": {
+        "16": {
+          "mean": 7.059241046434548e-08,
+          "total": 10,
+          "valid": 10
+        },
+        "2": {
+          "mean": 0.0009753099864583389,
+          "total": 10,
+          "valid": 10
+        },
+        "4": {
+          "mean": 5.216230131020227e-05,
+          "total": 10,
+          "valid": 10
+        },
+        "6": {
+          "mean": 7.935598449257214e-06,
+          "total": 10,
+          "valid": 10
+        },
+        "8": {
+          "mean": 2.1978170039605365e-06,
+          "total": 10,
+          "valid": 10
+        }
+      },
+      "persistence_coordinate_rms_mean": {
+        "mean": 7.033926507867725e-05,
+        "total": 10,
+        "valid": 10
+      },
+      "trajectories_total": 10,
+      "trajectories_valid": 10,
+      "translation_mean_node_displacement_rms": {
+        "mean": 0.00020421222973016146,
+        "total": 10,
+        "valid": 10
+      },
+      "zero_displacement_coordinate_rms_mean": {
+        "mean": 0.00674147778466009,
+        "total": 10,
+        "valid": 10
+      }
+    },
+    "reid": {
+      "affine_residual_rms_mean": {
+        "mean": 0.0021110790435159106,
+        "total": 10,
+        "valid": 10
+      },
+      "displacement_rms_from_initial_mean": {
+        "mean": 0.006854801133693756,
+        "total": 10,
+        "valid": 10
+      },
+      "high_frequency_second_difference_over_first": {
+        "mean": 0.02405198468632435,
+        "total": 10,
+        "valid": 10
+      },
+      "increment_cosine_by_lag": {
+        "1": {
+          "mean": 0.9996793870322523,
+          "total": 10,
+          "valid": 10
+        },
+        "10": {
+          "mean": 0.9990816243075962,
+          "total": 10,
+          "valid": 10
+        },
+        "2": {
+          "mean": 0.9996068304648791,
+          "total": 10,
+          "valid": 10
+        },
+        "5": {
+          "mean": 0.999381045571913,
+          "total": 10,
+          "valid": 10
+        }
+      },
+      "increment_rms_mean": {
+        "mean": 6.980195798456039e-05,
+        "total": 10,
+        "valid": 10
+      },
+      "increments_with_minimum_image_difference": {
+        "mean": 0.0,
+        "total": 10,
+        "valid": 10
+      },
+      "last_increment_extrapolation_coordinate_rms_mean": {
+        "mean": 1.4248707188622105e-06,
+        "total": 10,
+        "valid": 10
+      },
+      "pca_error_fraction_by_rank": {
+        "16": {
+          "mean": 1.623707282433967e-08,
+          "total": 10,
+          "valid": 10
+        },
+        "2": {
+          "mean": 3.537936916496191e-05,
+          "total": 10,
+          "valid": 10
+        },
+        "4": {
+          "mean": 3.745850595391269e-07,
+          "total": 10,
+          "valid": 10
+        },
+        "6": {
+          "mean": 3.729183607646118e-08,
+          "total": 10,
+          "valid": 10
+        },
+        "8": {
+          "mean": 2.1820498374630304e-08,
+          "total": 10,
+          "valid": 10
+        }
+      },
+      "persistence_coordinate_rms_mean": {
+        "mean": 6.980195798456039e-05,
+        "total": 10,
+        "valid": 10
+      },
+      "trajectories_total": 10,
+      "trajectories_valid": 10,
+      "translation_mean_node_displacement_rms": {
+        "mean": 0.00035084614475052443,
+        "total": 10,
+        "valid": 10
+      },
+      "zero_displacement_coordinate_rms_mean": {
+        "mean": 0.006854801133693756,
+        "total": 10,
+        "valid": 10
+      }
+    }
+  },
+  "trajectory_rows": 30
+}

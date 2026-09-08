@@ -1,0 +1,16 @@
+{
+  "checkpoint": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/lj_ae_repair/equal_source_s456/ae.pt",
+  "limit_per_source": 3,
+  "frames": [
+    5,
+    10,
+    25,
+    50,
+    75,
+    100
+  ],
+  "optimization_steps": 100,
+  "random_starts": 2,
+  "seed": 917,
+  "scope": "Frozen-checkpoint diagnostic only; fitted codes are not forecasts, validation predictions, or model-selection inputs. No expert targets."
+}

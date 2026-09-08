@@ -1,0 +1,38 @@
+{
+  "checkpoint": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/lj_ae_repair/equal_source_s456/ae.pt",
+  "rows": [
+    {
+      "features": "edge",
+      "mean": [
+        -0.0001298060960834846,
+        4.43037279183045e-05
+      ],
+      "std": [
+        0.0016107821138575673,
+        0.0010587509023025632
+      ],
+      "implemented_minus_expected": [
+        -0.16119384765625,
+        0.083709716796875
+      ],
+      "corrected_max_abs_error": 3.0517578125e-05
+    },
+    {
+      "features": "ref_edge",
+      "mean": [
+        0.15024510025978088,
+        0.27878275513648987
+      ],
+      "std": [
+        0.8870348334312439,
+        0.8539491295814514
+      ],
+      "implemented_minus_expected": [
+        0.33875811100006104,
+        0.652925968170166
+      ],
+      "corrected_max_abs_error": 5.960464477539063e-08
+    }
+  ],
+  "caveat": "Algebraic check with saved training normalizers; not a measurement of downstream accuracy impact."
+}

@@ -1,0 +1,55 @@
+{
+  "seed": 123,
+  "ids": [
+    178,
+    199,
+    42
+  ],
+  "frames": [
+    25,
+    100,
+    199
+  ],
+  "optimizer": "Adam 200 steps lr=0.02",
+  "starts": "encoded; encoded + seeded Gaussian(0.1*empirical selected-TRAIN encoded-code std, elementwise floor 1e-3)",
+  "frozen_code": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/code_v2",
+  "hashes": {
+    "frozen_hashes": "3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9",
+    "frozen_data_py": "6a5d052dad354664adff97dc2bce4b4ca6d9ad704be7154ef7fb9f8500b90b4b",
+    "dataset": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+    "runner": "6007b29ed76bba0e536249f1d33391872089c9bcac6e8cdb2bd1b2f3cc30b618"
+  },
+  "job_id": "4673318.zeus-master",
+  "no_heldout_selection": true,
+  "no_ae_weight_updates": true,
+  "checkpoints": {
+    "r16_d4": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/r16_d4_s123_code_v2/ae.pt",
+      "sha256": "582f1982109564a2a660f4e1dc643ecce3174c6adcd02d24e74819487ead09b3",
+      "weights_hash_before": "fa4ece19e1c3cc00812a1a9d54493e2ff05cbb09bcff3f55298b1afcb6b69c79",
+      "weights_hash_after": "fa4ece19e1c3cc00812a1a9d54493e2ff05cbb09bcff3f55298b1afcb6b69c79",
+      "latent_std": [
+        1.7954753637313843,
+        1.51521897315979,
+        2.0732011795043945,
+        0.5096800923347473
+      ]
+    },
+    "ljonly_r16_d4": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s123_code_v2/ae.pt",
+      "sha256": "42d36dc32c6a4bee95f242e7f13f8be6947fb1a49870d26cdf00a9417395164a",
+      "weights_hash_before": "a9e613a521432180864cb9a141f697ac36f4f1e34aaa62435e458973ddcf2d25",
+      "weights_hash_after": "a9e613a521432180864cb9a141f697ac36f4f1e34aaa62435e458973ddcf2d25",
+      "latent_std": [
+        1.058348536491394,
+        0.333947092294693,
+        0.785055935382843,
+        0.7308304309844971
+      ]
+    }
+  },
+  "status": "completed",
+  "seconds": 70.27874970436096,
+  "caveat": "Fitted codes optimize against the same observed coordinates. Improvements diagnose decoder expressiveness versus encoded inference locally; they do not prove global optima, generalization, or a causal explanation.",
+  "rows_v2_note": "rows_v2 adds common encoded-start MSE to both starts; initial_start_mse retains each start value. Derived exactly from rows.json without rerunning."
+}

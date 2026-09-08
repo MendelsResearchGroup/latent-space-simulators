@@ -1,0 +1,26 @@
+{
+  "driven_axis_by_source": {
+    "reid": 0,
+    "depablo_low_temp": 0,
+    "lj_noisy": 0
+  },
+  "axis_selection": "Largest median absolute training frame-100 side strain",
+  "p_ratio": "-transverse strain / driven strain, using the same training-selected axis for true and predicted fields",
+  "min_abs_driven_strain": 1e-05,
+  "side_quantile": 0.1,
+  "legacy_p_ratio": "graph_utils.calc_p_ratio_rollout_sides, also retained for historical comparisons",
+  "PCA_fit_frames": [
+    0,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+  ],
+  "split": "validation only"
+}

@@ -1,0 +1,47 @@
+{
+  "code_version": "code_v1",
+  "collector": {
+    "afterany": false,
+    "memory_gb": 2,
+    "ncpus": 1,
+    "walltime": "00:15:00"
+  },
+  "intended_cells": [
+    {
+      "seed": 123,
+      "variant": "spatial_r16_d4"
+    },
+    {
+      "seed": 123,
+      "variant": "ljonly_spatial_r16_d4"
+    }
+  ],
+  "resources": {
+    "memory_gb": 16,
+    "ncpus": 8,
+    "placement": "free:shared",
+    "queue": "mendels_q",
+    "walltime": "24:00:00"
+  },
+  "seeds": [
+    3456456,
+    123,
+    456,
+    786,
+    2026
+  ],
+  "selection": "Coordinate reconstruction only; no p-ratio use or ranking.",
+  "snapshot": {
+    "manifest": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_spatial_decoder/code_v1/hashes.json",
+    "manifest_sha256": "42802bfb7aa67402172555b8116f0c85af617b9f79450e87c4cc80a36a41d88e",
+    "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_spatial_decoder/code_v1"
+  },
+  "study": "compact_lj_spatial_decoder",
+  "submission_kind": "smoke",
+  "variants": [
+    "spatial_r16_d2",
+    "spatial_r16_d4",
+    "spatial_r16_d8",
+    "ljonly_spatial_r16_d4"
+  ]
+}

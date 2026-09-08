@@ -1,0 +1,26 @@
+{
+  "reference_simplification": {
+    "runner": "run_reference_simplification.py",
+    "smoke": [["--reference-dim", "96", "--latent-dim", "2", "--seed", "123", "--smoke"], ["--reference-dim", "8", "--latent-dim", "2", "--seed", "123", "--smoke"], ["--reference-dim", "16", "--latent-dim", "4", "--seed", "123", "--smoke"]],
+    "full": [["--reference-dim", "96", "--latent-dim", "2", "--seed", "3456456"], ["--reference-dim", "96", "--latent-dim", "4", "--seed", "3456456"], ["--reference-dim", "16", "--latent-dim", "2", "--seed", "3456456"], ["--reference-dim", "16", "--latent-dim", "4", "--seed", "3456456"], ["--reference-dim", "8", "--latent-dim", "2", "--seed", "3456456"], ["--reference-dim", "8", "--latent-dim", "4", "--seed", "3456456"]],
+    "dependencies": ["results/lj_ae_08_bridge/split_manifest.json", "results/network_design/reid_lowT_2d_s786/ae.pt"]
+  },
+  "compact_lj_reconstruction": {
+    "runner": "run_compact_lj_reconstruction.py",
+    "smoke": [["--variant", "r16_d4", "--seed", "123", "--smoke"], ["--variant", "r96_d4", "--seed", "123", "--smoke"], ["--variant", "mp2_r16_d8", "--seed", "123", "--smoke"]],
+    "full": [["--variant", "r16_d2", "--seed", "3456456"], ["--variant", "r16_d4", "--seed", "3456456"], ["--variant", "r16_d6", "--seed", "3456456"], ["--variant", "r16_d8", "--seed", "3456456"], ["--variant", "r96_d4", "--seed", "3456456"], ["--variant", "r96_d8", "--seed", "3456456"], ["--variant", "mp2_r16_d4", "--seed", "3456456"], ["--variant", "mp2_r16_d8", "--seed", "3456456"], ["--variant", "ljonly_r16_d4", "--seed", "3456456"], ["--variant", "ljonly_r16_d8", "--seed", "3456456"]],
+    "dependencies": ["results/lj_ae_08_bridge/split_manifest.json"]
+  },
+  "compact_lj_spatial_decoder": {
+    "runner": "run_compact_lj_spatial_decoder.py",
+    "smoke": [["--variant", "spatial_r16_d4", "--seed", "123", "--smoke"], ["--variant", "ljonly_spatial_r16_d4", "--seed", "123", "--smoke"]],
+    "full": [["--variant", "spatial_r16_d2", "--seed", "3456456"], ["--variant", "spatial_r16_d4", "--seed", "3456456"], ["--variant", "spatial_r16_d8", "--seed", "3456456"], ["--variant", "ljonly_spatial_r16_d4", "--seed", "3456456"]],
+    "dependencies": ["results/lj_ae_08_bridge/split_manifest.json", "results/compact_lj_reconstruction"]
+  },
+  "lj_ae_08_bridge": {
+    "runner": "run_lj_ae_08_bridge.py",
+    "smoke": [],
+    "full": [["--variant", "near08", "--seed", "3456456"], ["--variant", "dim2", "--seed", "3456456"], ["--variant", "dim4", "--seed", "3456456"], ["--variant", "dim8", "--seed", "3456456"], ["--variant", "width128", "--seed", "3456456"], ["--variant", "tokens32", "--seed", "3456456"], ["--variant", "frames101", "--seed", "3456456"], ["--variant", "source_mean", "--seed", "3456456"]],
+    "dependencies": ["results/06b_ae_mixed_ablation/exclude_mixed_d2_s{seed}/recipe.json"]
+  }
+}

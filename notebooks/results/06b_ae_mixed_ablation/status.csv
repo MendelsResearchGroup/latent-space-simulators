@@ -1,0 +1,11 @@
+seed,condition,completed
+3456456,include_mixed,True
+3456456,exclude_mixed,True
+123,include_mixed,True
+123,exclude_mixed,True
+456,include_mixed,True
+456,exclude_mixed,True
+786,include_mixed,True
+786,exclude_mixed,True
+2026,include_mixed,True
+2026,exclude_mixed,True

@@ -1,0 +1,57 @@
+{
+  "code_version": "code_v2",
+  "collector": {
+    "afterany": false,
+    "memory_gb": 2,
+    "ncpus": 1,
+    "walltime": "00:15:00"
+  },
+  "intended_cells": [
+    {
+      "seed": 123,
+      "variant": "r16_d4"
+    },
+    {
+      "seed": 123,
+      "variant": "r96_d4"
+    },
+    {
+      "seed": 123,
+      "variant": "mp2_r16_d8"
+    }
+  ],
+  "resources": {
+    "memory_gb": 16,
+    "ncpus": 8,
+    "placement": "free:shared",
+    "queue": "mendels_q",
+    "walltime": "24:00:00"
+  },
+  "seeds": [
+    3456456,
+    123,
+    456,
+    786,
+    2026
+  ],
+  "selection": "Coordinate reconstruction only; no p-ratio use or ranking.",
+  "snapshot": {
+    "manifest": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/code_v2/hashes.json",
+    "manifest_sha256": "3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9",
+    "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/code_v2"
+  },
+  "study": "compact_lj_reconstruction",
+  "submission_kind": "smoke",
+  "variants": [
+    "r16_d2",
+    "r16_d4",
+    "r16_d6",
+    "r16_d8",
+    "r96_d4",
+    "r96_d8",
+    "mp2_r16_d4",
+    "mp2_r16_d8",
+    "ljonly_r16_d4",
+    "ljonly_r16_d8"
+  ]
+}

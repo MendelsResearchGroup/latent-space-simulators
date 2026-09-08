@@ -1,0 +1,26 @@
+{
+  "source": "depablo_low_temp",
+  "job_id": "4669243.zeus-master",
+  "failures": {},
+  "max_absolute_error": {
+    "reference_context_positions": 0.0,
+    "reference_context_edges": 0.0,
+    "reference_box_width": 1.1920928955078125e-07,
+    "position_affine": 0.0,
+    "edge_identity": 0.0,
+    "edge_scalars": 0.0,
+    "normalization_center": 0.0,
+    "normalization_scale": 0.0,
+    "evolving_box": 2.384185791015625e-07,
+    "box_origin": 1.1920928955078125e-07,
+    "periodic_edge_vector": 0.0,
+    "edge_length": 0.0,
+    "lj_sigma": 0.0,
+    "lj_cutoff": 0.0,
+    "idempotence": 0.0
+  },
+  "trajectories": 200,
+  "frames": 40000,
+  "seconds": 53.69242596626282,
+  "passed": true
+}

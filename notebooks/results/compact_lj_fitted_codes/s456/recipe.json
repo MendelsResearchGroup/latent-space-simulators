@@ -1,0 +1,54 @@
+{
+  "seed": 456,
+  "ids": [
+    178,
+    199,
+    42
+  ],
+  "frames": [
+    25,
+    100,
+    199
+  ],
+  "optimizer": "Adam 200 steps lr=0.02",
+  "starts": "encoded; encoded + seeded Gaussian(0.1*empirical selected-TRAIN encoded-code std, elementwise floor 1e-3)",
+  "frozen_code": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/code_v2",
+  "hashes": {
+    "frozen_hashes": "3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9",
+    "frozen_data_py": "6a5d052dad354664adff97dc2bce4b4ca6d9ad704be7154ef7fb9f8500b90b4b",
+    "dataset": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+    "runner": "6007b29ed76bba0e536249f1d33391872089c9bcac6e8cdb2bd1b2f3cc30b618"
+  },
+  "job_id": "4673319.zeus-master",
+  "no_heldout_selection": true,
+  "no_ae_weight_updates": true,
+  "checkpoints": {
+    "r16_d4": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/r16_d4_s456_code_v2/ae.pt",
+      "sha256": "573982d21c6803d6bd921cbc33b1e21e586b272eb851ba7efcb86c91c1f37d46",
+      "weights_hash_before": "036d01e3f744a0c71eb7a9aee5b97e36854195e5a837395717f5ebde9b7ff373",
+      "weights_hash_after": "036d01e3f744a0c71eb7a9aee5b97e36854195e5a837395717f5ebde9b7ff373",
+      "latent_std": [
+        3.090897560119629,
+        0.9669255018234253,
+        1.856285572052002,
+        1.335729718208313
+      ]
+    },
+    "ljonly_r16_d4": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s456_code_v2/ae.pt",
+      "sha256": "a1ee16370a2503e8dd143006c592426460e1aed4e003df6cdecd366a59e4f689",
+      "weights_hash_before": "a619c1b9cbb2b408f577ded215c553aedc86cdde3856660a46d20adee5c3f4a0",
+      "weights_hash_after": "a619c1b9cbb2b408f577ded215c553aedc86cdde3856660a46d20adee5c3f4a0",
+      "latent_std": [
+        1.3948235511779785,
+        0.5030474066734314,
+        0.40843093395233154,
+        0.5679137706756592
+      ]
+    }
+  },
+  "status": "completed",
+  "seconds": 79.58265352249146,
+  "caveat": "Fitted codes optimize against the same observed coordinates. Improvements diagnose decoder expressiveness versus encoded inference locally; they do not prove global optima, generalization, or a causal explanation."
+}

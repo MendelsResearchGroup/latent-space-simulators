@@ -1,0 +1,1 @@
+{"variant": "tokens32", "seed": 123, "job_id": "4670689.zeus-master", "duplicate_job": "4670700.zeus-master", "reason": "Interruption after scheduler accepted original but before ledger append; recovered from recipe.json"}

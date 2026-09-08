@@ -1,0 +1,20 @@
+{
+  "ae_file_sha256": "951dc4d8c37e0b77c740e5146a49c4183019cebd49db0b0a0a97e674029fd6d1",
+  "approx_optimizer_steps_per_epoch": 1,
+  "bundle_reload": {
+    "decode_equal": true,
+    "frame": 1,
+    "latent_equal": true
+  },
+  "epochs_completed": 1,
+  "job_id": "4673322.zeus-master",
+  "max_rss_kb": 4458292,
+  "output_horizon": 3,
+  "parameters": 297462,
+  "seconds": 77.51388597488403,
+  "seed": 123,
+  "smoke": true,
+  "status": "completed",
+  "total_train_frame_samples": 8,
+  "variant": "ljonly_spatial_r16_d4"
+}

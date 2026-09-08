@@ -1,0 +1,24 @@
+{
+  "active_model_edge_tests": {
+    "passed": 18,
+    "deselected_legacy": 5
+  },
+  "normalizer_reload_test": "Derived reversal offsets require saved normalization statistics; contract test corrected to model bundle behavior.",
+  "legacy_failures": {
+    "count": 5,
+    "reproduced_unchanged_snapshot": "notebooks/results/reference_simplification/code_v2/src",
+    "tests": [
+      "test_load_dataset_applies_stiffness_exponent_before_normalization",
+      "test_reference_box_normalization_uses_one_fixed_trajectory_map",
+      "test_reference_box_normalization_supports_inverse_square_stiffness",
+      "test_physical_reference_context_does_not_change_decoded_coordinate_system",
+      "test_normalized_reference_context_does_not_reconstruct_physical_scale"
+    ]
+  },
+  "new_variants": [
+    "attention_reference16_corrected",
+    "message_passing_reference16"
+  ],
+  "data_policy": "Runtime LJ edges up to3 graph hops, zero raw added stiffness, common5channel schema; no expert supervision.",
+  "pipeline_contracts_passed": 3
+}

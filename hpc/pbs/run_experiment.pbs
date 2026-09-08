@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -euo pipefail
+cd "${LSS_PROJECT_ROOT:?}"
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+"${LSS_PYTHON:-python}" "${LSS_CODE_ROOT:?}/hpc_run_cell.py"

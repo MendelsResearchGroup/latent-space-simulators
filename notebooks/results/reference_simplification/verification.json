@@ -1,0 +1,16 @@
+{
+  "targeted_tests_passed": 10,
+  "cache_and_message_passing_regressions_passed": 13,
+  "total_tests_passed": 23,
+  "smoke_jobs": [
+    "4671316.zeus-master",
+    "4671317.zeus-master",
+    "4671318.zeus-master"
+  ],
+  "status": "integration smoke in progress",
+  "smoke_status": "all three code_v2 passed",
+  "full_frame_check": "full_frame_verification.json",
+  "tests_passed": 23,
+  "full_jobs": 30,
+  "collector_job": "4671446.zeus-master"
+}

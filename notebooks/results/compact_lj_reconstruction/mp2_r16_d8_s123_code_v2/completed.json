@@ -1,0 +1,16 @@
+{
+  "ae_file_sha256": "f9b8cabf63333df042bd088a063801a6000841d5078f748eff5629c732688d64",
+  "approx_optimizer_steps_per_epoch": 750,
+  "bundle_reload": null,
+  "epochs_completed": 22,
+  "job_id": "4672473.zeus-master",
+  "max_rss_kb": 6513984,
+  "output_horizon": 199,
+  "parameters": 300442,
+  "seconds": 15759.355179071426,
+  "seed": 123,
+  "smoke": false,
+  "status": "completed",
+  "total_train_frame_samples": 24000,
+  "variant": "mp2_r16_d8"
+}

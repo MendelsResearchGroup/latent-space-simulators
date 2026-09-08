@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "course-project"
+name = "latent-space-simulators"
 version = "0.1.0"
-description = "Course project models for collective variables and simulators"
+description = "Shared ensemble collective variables and latent-space simulators for network dynamics"
 requires-python = ">=3.10"
 dependencies = [
     "numpy",
@@ -17,6 +17,14 @@ dependencies = [
     "graph_utils @ git+https://github.com/MendelsResearchGroup/graph_utils.git",
     "scipy"
 ]
+
+[project.optional-dependencies]
+notebooks = ["jupyterlab", "ipykernel", "nbformat", "nbclient"]
+dev = ["pytest", "build"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["archive"]
 
 [tool.setuptools]
 package-dir = {"" = "src"}

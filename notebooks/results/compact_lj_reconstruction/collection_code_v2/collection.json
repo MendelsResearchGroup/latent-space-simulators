@@ -1,0 +1,11 @@
+{
+  "code_version": "code_v2",
+  "completed": 50,
+  "eligibility": "Validation rows may be compared; train is diagnostic and mixed_transfer is post-fit only.",
+  "expected_full_runs": 50,
+  "failed": 0,
+  "final_test_used": false,
+  "incomplete": 0,
+  "selection": "Coordinate reconstruction only; p-ratio is neither loaded nor used for ranking.",
+  "submitted_full_runs": 50
+}

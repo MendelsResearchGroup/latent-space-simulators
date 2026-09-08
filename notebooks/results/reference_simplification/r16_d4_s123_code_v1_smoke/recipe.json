@@ -1,0 +1,99 @@
+{
+  "source": {
+    "dataset_name": "network_design_reid_lowT",
+    "source_name": "reid_lowT",
+    "label": "Reid + low-T 2D AE",
+    "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+    "dataset_mixture": [
+      {
+        "name": "reid",
+        "label": "reid",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+        "train_count": 2,
+        "val_count": 2,
+        "split_indices": {
+          "train": [
+            60,
+            45
+          ],
+          "val": [
+            41,
+            49
+          ],
+          "test": []
+        }
+      },
+      {
+        "name": "depablo_low_temp",
+        "label": "depablo_low_temp",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+        "train_count": 2,
+        "val_count": 2,
+        "split_indices": {
+          "train": [
+            99,
+            145
+          ],
+          "val": [
+            161,
+            47
+          ],
+          "test": []
+        }
+      }
+    ]
+  },
+  "config": {
+    "ae_config": {
+      "model": "attention_reference16",
+      "latent_dim": 4,
+      "latent_tokens": 32,
+      "hidden_size": 96,
+      "node_feature_mode": "normalized_delta",
+      "target_mode": "normalized_delta",
+      "edge_feature_dim": 4,
+      "max_train_frames_per_sim": 4,
+      "max_val_frames_per_sim": 4,
+      "max_epochs": 1,
+      "patience": 1,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "mix_sources": true,
+      "balance_sources": false,
+      "gradient_method": "source_mean",
+      "checkpoint_metric": "val_max_source_reconstruction",
+      "checkpoint_mode": "min",
+      "pratio_eval_every": 0
+    },
+    "coordinate_normalization": "position_normalization",
+    "edge_mode": "compact_stored",
+    "static_context_use_physical_reference": true,
+    "pos_dim": 2,
+    "batch_graphs": 32,
+    "frame_skip": 1,
+    "early_stop_min_delta": 1e-05,
+    "split_seed": 123,
+    "model_seed": 123,
+    "should_rollout": false,
+    "should_train_propagator": false,
+    "cache_require_matching_config": true,
+    "cache_path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/reference_simplification/r16_d4_s123_code_v1_smoke/ae.pt"
+  },
+  "reference_dim": 16,
+  "latent_dim": 4,
+  "seed": 123,
+  "job_id": "4671232.zeus-master",
+  "code_version": "code_v1",
+  "code_root": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/reference_simplification/code_v1",
+  "code_manifest_sha256": "c9b3d8aabf6a43daf95bccfe278844fab02d8c5e8ed5452014f2eff9af699cc0",
+  "manifest_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+  "contexts": [
+    16,
+    0
+  ],
+  "smoke": true,
+  "reused_engineering_ae": false,
+  "selection": "AE worst-source coordinate reconstruction; propagator validation latent-delta loss only",
+  "paired_design": "Both context settings use the identical AE state; dynamic width96 and decoder tokens32 fixed",
+  "scope": "Reid+lowT fitting; mixedT loaded only after both propagators finish; no final test or LJ claim"
+}

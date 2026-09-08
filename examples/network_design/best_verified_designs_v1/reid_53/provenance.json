@@ -1,0 +1,86 @@
+{
+  "source": "reid",
+  "index": 53,
+  "method": "inverse_jacobian_pc1",
+  "seed": null,
+  "directory": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/tangent_direction_v1/reid_53",
+  "key": "confirm_tangent",
+  "baseline": 0.09049821989078749,
+  "optimized": 0.049560014927215366,
+  "change": -0.040938204963572124,
+  "relative_reduction_percent": 45.23647538368822,
+  "tested_candidates": [
+    {
+      "method": "calibrated_fixed_sign",
+      "seed": 839,
+      "directory": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/calibrated_direction_v1/reid/optimize_53",
+      "key": "confirm_calibrated_fixed_sign",
+      "baseline": 0.0904982198907874,
+      "optimized": 0.0511858931341659,
+      "change": -0.0393123267566215
+    },
+    {
+      "method": "calibrated_bidirectional",
+      "seed": 839,
+      "directory": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/calibrated_direction_v1/reid/optimize_53",
+      "key": "confirm_calibrated_bidirectional",
+      "baseline": 0.0904982198907874,
+      "optimized": 0.0511858931341659,
+      "change": -0.0393123267566215
+    },
+    {
+      "method": "original_ridge_fixed_sign",
+      "seed": 839,
+      "directory": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/calibrated_direction_v1/reid/optimize_53",
+      "key": "confirm_original_ridge_fixed_sign",
+      "baseline": 0.0904982198907874,
+      "optimized": 0.0614897562325635,
+      "change": -0.0290084636582239
+    },
+    {
+      "method": "random_bidirectional",
+      "seed": 839,
+      "directory": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/calibrated_direction_v1/reid/optimize_53",
+      "key": "confirm_random_bidirectional",
+      "baseline": 0.0904982198907874,
+      "optimized": 0.0892582074452529,
+      "change": -0.0012400124455345
+    },
+    {
+      "method": "random_bidirectional",
+      "seed": 176,
+      "directory": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/random_direction_replicates_v1/reid_53_s176",
+      "key": "confirm_random",
+      "baseline": 0.09049821989078749,
+      "optimized": 0.08958077467791405,
+      "change": -0.0009174452128734439
+    },
+    {
+      "method": "random_bidirectional",
+      "seed": 509,
+      "directory": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/random_direction_replicates_v1/reid_53_s509",
+      "key": "confirm_random",
+      "baseline": 0.09049821989078749,
+      "optimized": 0.08919806661800683,
+      "change": -0.0013001532727806575
+    },
+    {
+      "method": "inverse_jacobian_pc1",
+      "seed": null,
+      "directory": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/tangent_direction_v1/reid_53",
+      "key": "confirm_tangent",
+      "baseline": 0.09049821989078749,
+      "optimized": 0.049560014927215366,
+      "change": -0.040938204963572124
+    }
+  ],
+  "original_registry_p_ratio": null,
+  "response": "first/last unwrapped boundary ratio; matched x compression;60 increments",
+  "selection": "best of seven confirmed methods/seeds on this validation network; NOT unbiased method evaluation",
+  "frozen_recipe": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/tangent_direction_v1/reid_53/recipe.json",
+  "recipe_sha256": "5b687fc581f9cc2e202c003e495fc9bd760f6a9f309e5b25ae2666984d572f92",
+  "log_edit_max": 0.25,
+  "geometry_topology_unchanged": true,
+  "engineered_graph_sha256": "2c21295fe5eebad971aac6b6419db738a025a7bba4fcd2ffbb8a0575424e74b0",
+  "lammps_input_sha256": "b975f80831c57e015854a5a46ebc54122aba511826af8c8a0bbf8e923a2abbec"
+}

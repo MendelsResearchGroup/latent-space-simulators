@@ -1,0 +1,38 @@
+[
+  {
+    "kind": "rollout",
+    "source": "depablo_low_temp",
+    "total": 20,
+    "valid": 20,
+    "coordinate_valid": 20,
+    "p_ratio_mae": 0.07107226051978624,
+    "p_ratio_r2": 0.9491259906650569,
+    "final_pos_mse": 1.3681972063750436e-05,
+    "split": "validation",
+    "transfer_only": false
+  },
+  {
+    "kind": "rollout",
+    "source": "depablo_mixed_temp",
+    "total": 20,
+    "valid": 20,
+    "coordinate_valid": 20,
+    "p_ratio_mae": 0.08188654756402489,
+    "p_ratio_r2": 0.9203210465769895,
+    "final_pos_mse": 3.1966450592335605e-05,
+    "split": "validation",
+    "transfer_only": true
+  },
+  {
+    "kind": "rollout",
+    "source": "reid",
+    "total": 20,
+    "valid": 20,
+    "coordinate_valid": 20,
+    "p_ratio_mae": 0.057064342291174054,
+    "p_ratio_r2": 0.8667755110454507,
+    "final_pos_mse": 3.3643146798567615e-05,
+    "split": "validation",
+    "transfer_only": false
+  }
+]

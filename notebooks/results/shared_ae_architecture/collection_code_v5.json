@@ -1,0 +1,8 @@
+{
+  "code_version": "code_v5",
+  "expected_runs": 40,
+  "complete_runs": 30,
+  "incomplete_or_failed_runs": 10,
+  "matrix_complete": false,
+  "selection_scope": "This collector reports source/frame coordinate results only; it does not select or promote any model."
+}

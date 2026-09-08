@@ -1,0 +1,28 @@
+{
+  "variants": [
+    "near08",
+    "dim2",
+    "dim4",
+    "dim8",
+    "width128",
+    "tokens32",
+    "frames101",
+    "source_mean"
+  ],
+  "seeds": [
+    3456456,
+    123,
+    456,
+    786,
+    2026
+  ],
+  "train_counts": {
+    "reid": 30,
+    "depablo_low_temp": 30,
+    "lj_noisy": 60
+  },
+  "val_counts": 20,
+  "selection": "validation reconstruction",
+  "test_policy": "revised split_manifest.json; original manifest historical only",
+  "status": "prepared"
+}

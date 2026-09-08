@@ -1,0 +1,22 @@
+{"task": "stability", "condition": "acceleration_transfer3_matched_h1", "seed": 123, "job_id": "4669256.zeus-master"}
+{"task": "stability", "condition": "acceleration_transfer3_matched_h1", "seed": 456, "job_id": "4669257.zeus-master"}
+{"task": "stability", "condition": "acceleration_transfer3_matched_h1", "seed": 786, "job_id": "4669258.zeus-master"}
+{"task": "stability", "condition": "acceleration_transfer3_matched_h8", "seed": 123, "job_id": "4669263.zeus-master"}
+{"task": "stability", "condition": "acceleration_transfer3_matched_h8", "seed": 456, "job_id": "4669264.zeus-master"}
+{"task": "stability", "condition": "acceleration_transfer3_matched_h8", "seed": 786, "job_id": "4669265.zeus-master"}
+{"task": "stability", "condition": "acceleration_all4_matched_h1", "seed": 123, "job_id": "4669267.zeus-master"}
+{"task": "stability", "condition": "acceleration_all4_matched_h1", "seed": 456, "job_id": "4669268.zeus-master"}
+{"task": "stability", "condition": "acceleration_all4_matched_h1", "seed": 786, "job_id": "4669269.zeus-master"}
+{"task": "stability", "condition": "acceleration_all4_matched_h8", "seed": 123, "job_id": "4669270.zeus-master"}
+{"task": "stability", "condition": "acceleration_all4_matched_h8", "seed": 456, "job_id": "4669271.zeus-master"}
+{"task": "stability", "condition": "acceleration_all4_matched_h8", "seed": 786, "job_id": "4669272.zeus-master"}
+{"task": "lowdata", "condition": "shared3", "seed": 123, "job_id": "4669273.zeus-master"}
+{"task": "lowdata", "condition": "shared3", "seed": 456, "job_id": "4669274.zeus-master"}
+{"task": "lowdata", "condition": "shared3", "seed": 786, "job_id": "4669275.zeus-master"}
+{"task": "lowdata", "condition": "shared4", "seed": 123, "job_id": "4669276.zeus-master"}
+{"task": "lowdata", "condition": "shared4", "seed": 456, "job_id": "4669277.zeus-master"}
+{"task": "lowdata", "condition": "shared4", "seed": 786, "job_id": "4669278.zeus-master"}
+{"task": "stability", "condition": "acceleration_transfer3_matched_h8", "seed": 123, "job_id": "4669509.zeus-master", "replaces_job_id": "4669263.zeus-master", "placement": "free:shared"}
+{"task": "stability", "condition": "acceleration_transfer3_matched_h8", "seed": 456, "job_id": "4669510.zeus-master", "replaces_job_id": "4669264.zeus-master", "placement": "free:shared"}
+{"task": "stability", "condition": "acceleration_transfer3_matched_h8", "seed": 786, "job_id": "4669511.zeus-master", "replaces_job_id": "4669265.zeus-master", "placement": "free:shared"}
+{"task": "stability", "condition": "acceleration_all4_matched_h8", "seed": 123, "job_id": "4669512.zeus-master", "replaces_job_id": "4669270.zeus-master", "placement": "free:shared"}

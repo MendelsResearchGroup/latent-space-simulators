@@ -1,0 +1,11 @@
+{
+  "expected": 30,
+  "submitted": 30,
+  "completed": 30,
+  "failed": 0,
+  "incomplete": 0,
+  "source_wise_rows": 270,
+  "code_version": "code_v2",
+  "selection": "No response labels in fitting/checkpoint selection; all reported response metrics are post-fit",
+  "final_test_used": false
+}

@@ -1,0 +1,161 @@
+{
+  "status": "completed",
+  "job_id": "4673360.zeus-master",
+  "seconds": 6.04188084602356,
+  "ids": {
+    "train": [
+      178,
+      199,
+      42,
+      102,
+      99
+    ],
+    "validation": [
+      15,
+      79,
+      75,
+      181,
+      31,
+      142,
+      157,
+      12,
+      152,
+      29,
+      95,
+      183,
+      147,
+      43,
+      13,
+      40,
+      132,
+      61,
+      188,
+      67
+    ]
+  },
+  "frames": [
+    25,
+    100,
+    199
+  ],
+  "checkpoints": {
+    "r16_d4_s123": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/r16_d4_s123_code_v2/ae.pt",
+      "sha256": "582f1982109564a2a660f4e1dc643ecce3174c6adcd02d24e74819487ead09b3"
+    },
+    "r16_d4_s456": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/r16_d4_s456_code_v2/ae.pt",
+      "sha256": "573982d21c6803d6bd921cbc33b1e21e586b272eb851ba7efcb86c91c1f37d46"
+    },
+    "r16_d4_s786": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/r16_d4_s786_code_v2/ae.pt",
+      "sha256": "e401ae83fa6023609cad24c593ca73b1e8871d63c08bbcb74e04d47ee5d12f1c"
+    },
+    "mp2_r16_d8_s123": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s123_code_v2/ae.pt",
+      "sha256": "f9b8cabf63333df042bd088a063801a6000841d5078f748eff5629c732688d64"
+    },
+    "mp2_r16_d8_s456": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s456_code_v2/ae.pt",
+      "sha256": "17370d07db76b1c244fe1d6bb809b01f18787e2bdaa1e0160eddccc54c6dd26f"
+    },
+    "mp2_r16_d8_s786": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s786_code_v2/ae.pt",
+      "sha256": "cae6d965a622ec24a8dc3650ee580af2bf8c5b6f171355646e813587700b56c1"
+    },
+    "ljonly_r16_d4_s123": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s123_code_v2/ae.pt",
+      "sha256": "42d36dc32c6a4bee95f242e7f13f8be6947fb1a49870d26cdf00a9417395164a"
+    },
+    "ljonly_r16_d4_s456": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s456_code_v2/ae.pt",
+      "sha256": "a1ee16370a2503e8dd143006c592426460e1aed4e003df6cdecd366a59e4f689"
+    },
+    "ljonly_r16_d4_s786": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s786_code_v2/ae.pt",
+      "sha256": "214d30d23753d01e74a2973b5a4dacbc608d3d813ff4275c6315c7fdd5050dbc"
+    }
+  },
+  "hashes": {
+    "manifest": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+    "dataset": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+    "frozen_hashes": "3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9",
+    "frozen_data_py": "6a5d052dad354664adff97dc2bce4b4ca6d9ad704be7154ef7fb9f8500b90b4b",
+    "runner": "c6052995f750655591846b5632a89bbb421331b46c001694217eba6afda60ed4"
+  },
+  "caveat": "Coordinate-only post-fit diagnostic. Affine projections and residual quantities are not training targets, model selection criteria, or evidence of causal mechanism/generalization.",
+  "pooled_summary": {
+    "train_f25": {
+      "coordinate_mse": 4.199304912491344e-07,
+      "true_nonaffine_energy_mse": 3.051739412285315e-07,
+      "predicted_nonaffine_energy_mse": 1.1110103375560558e-07,
+      "nonaffine_residual_error_mse": 2.892928645476584e-07,
+      "affine_component_error_mse": 1.3063763945177066e-07,
+      "residual_cosine": 0.3560902376969655,
+      "predicted_to_true_nonaffine_energy_ratio": 0.3774739844931497,
+      "valid": 45,
+      "total": 45,
+      "decomposition_pass": 45
+    },
+    "train_f100": {
+      "coordinate_mse": 7.97933745262627e-06,
+      "true_nonaffine_energy_mse": 7.936719248391455e-06,
+      "predicted_nonaffine_energy_mse": 1.264025297587068e-06,
+      "nonaffine_residual_error_mse": 7.360380398798346e-06,
+      "affine_component_error_mse": 6.189569650890311e-07,
+      "residual_cosine": 0.29932705991797975,
+      "predicted_to_true_nonaffine_energy_ratio": 0.17149865229924519,
+      "valid": 45,
+      "total": 45,
+      "decomposition_pass": 45
+    },
+    "train_f199": {
+      "coordinate_mse": 3.5266166742076165e-05,
+      "true_nonaffine_energy_mse": 3.391524660401046e-05,
+      "predicted_nonaffine_energy_mse": 4.4561886574633216e-06,
+      "nonaffine_residual_error_mse": 3.217271894552849e-05,
+      "affine_component_error_mse": 3.0934489271001236e-06,
+      "residual_cosine": 0.25768909321890937,
+      "predicted_to_true_nonaffine_energy_ratio": 0.14993723995155758,
+      "valid": 45,
+      "total": 45,
+      "decomposition_pass": 45
+    },
+    "validation_f25": {
+      "coordinate_mse": 4.2166426423604107e-07,
+      "true_nonaffine_energy_mse": 3.0661506471574286e-07,
+      "predicted_nonaffine_energy_mse": 1.0476511697671893e-07,
+      "nonaffine_residual_error_mse": 2.7270404561679447e-07,
+      "affine_component_error_mse": 1.4896020381380578e-07,
+      "residual_cosine": 0.38983659168912305,
+      "predicted_to_true_nonaffine_energy_ratio": 0.3515683885249827,
+      "valid": 180,
+      "total": 180,
+      "decomposition_pass": 180
+    },
+    "validation_f100": {
+      "coordinate_mse": 7.793600858955567e-06,
+      "true_nonaffine_energy_mse": 8.264464281637628e-06,
+      "predicted_nonaffine_energy_mse": 1.2728274916816595e-06,
+      "nonaffine_residual_error_mse": 7.238583812826013e-06,
+      "affine_component_error_mse": 5.550169876874141e-07,
+      "residual_cosine": 0.3470286713706123,
+      "predicted_to_true_nonaffine_energy_ratio": 0.16074943302406206,
+      "valid": 180,
+      "total": 180,
+      "decomposition_pass": 180
+    },
+    "validation_f199": {
+      "coordinate_mse": 3.921499228454195e-05,
+      "true_nonaffine_energy_mse": 3.977474310280134e-05,
+      "predicted_nonaffine_energy_mse": 4.964806331347265e-06,
+      "nonaffine_residual_error_mse": 3.628246767119789e-05,
+      "affine_component_error_mse": 2.932524684043061e-06,
+      "residual_cosine": 0.2964195176131196,
+      "predicted_to_true_nonaffine_energy_ratio": 0.12901787066625225,
+      "valid": 180,
+      "total": 180,
+      "decomposition_pass": 180
+    }
+  }
+}

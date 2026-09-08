@@ -1,0 +1,21 @@
+{
+  "job_id": "4670357.zeus-master",
+  "checkpoint": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/lj_ae_repair/equal_source_s456/ae.pt",
+  "checkpoint_sha256": "021cf82d71c428d4e1ba150f4bb5ccd26d0ef5c4fc4285306ed605de0844fa91",
+  "script_sha256": "85c87ea38630d95fe0f9585d694dd9ca7146bdaca40f6fd7fad00f893a3c6b05",
+  "recipe": {
+    "frames": [
+      5,
+      10,
+      25,
+      50,
+      75,
+      100
+    ],
+    "limit_per_source": 3,
+    "optimization_steps": 100,
+    "random_starts": 2,
+    "seed": 917
+  },
+  "scope": "Diagnostic only; coordinates and graph/state data only. It cannot select a checkpoint or model."
+}

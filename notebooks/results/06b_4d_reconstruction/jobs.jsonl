@@ -1,0 +1,10 @@
+{"seed": 3456456, "latent_dim": 4, "job_id": "4670127.zeus-master"}
+{"seed": 123, "latent_dim": 4, "job_id": "4670128.zeus-master"}
+{"seed": 456, "latent_dim": 4, "job_id": "4670129.zeus-master"}
+{"seed": 3456456, "latent_dim": 2, "job_id": "4670131.zeus-master", "code_version": "code_v2"}
+{"seed": 123, "latent_dim": 2, "job_id": "4670132.zeus-master", "code_version": "code_v2"}
+{"seed": 456, "latent_dim": 2, "job_id": "4670133.zeus-master", "code_version": "code_v2"}
+{"seed": 786, "latent_dim": 2, "job_id": "4670134.zeus-master", "code_version": "code_v2"}
+{"seed": 2026, "latent_dim": 2, "job_id": "4670135.zeus-master", "code_version": "code_v2"}
+{"seed": 786, "latent_dim": 4, "job_id": "4670136.zeus-master", "code_version": "code_v2"}
+{"seed": 2026, "latent_dim": 4, "job_id": "4670137.zeus-master", "code_version": "code_v2"}

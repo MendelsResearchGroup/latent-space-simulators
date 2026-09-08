@@ -1,0 +1,24 @@
+{
+  "job_ids": [
+    "4671275.zeus-master",
+    "4671276.zeus-master",
+    "4671277.zeus-master",
+    "4671281.zeus-master",
+    "4671284.zeus-master",
+    "4671286.zeus-master",
+    "4671287.zeus-master",
+    "4671288.zeus-master",
+    "4671289.zeus-master",
+    "4671290.zeus-master",
+    "4671291.zeus-master",
+    "4671292.zeus-master",
+    "4671296.zeus-master",
+    "4671298.zeus-master",
+    "4671299.zeus-master",
+    "4671300.zeus-master",
+    "4671301.zeus-master",
+    "4671302.zeus-master",
+    "4671304.zeus-master"
+  ],
+  "reason": "full endpoint requires matched full-span AE fitting"
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "Historical near08 and source_mean AE histories only; normalized coordinate reconstruction losses at the saved validation-selected epoch.",
+  "selection": "recipe checkpoint_metric is null and checkpoint_mode is min; selected epoch is the per-seed minimum recorded val_objective. No p-ratio or mixed-T quantity was used.",
+  "loss_fields": {
+    "train": "train_source_<source>_reconstruction",
+    "validation": "val_source_<source>_reconstruction",
+    "gap": "validation minus train"
+  },
+  "limitations": "This is descriptive historical evidence. The bridge has source-specific LJ edge augmentation and differs from the compact protocol; it does not establish a causal joint-fitting interference mechanism.",
+  "per_seed_selection": [
+    {"variant":"near08","seed":123,"selected_epoch":10,"epochs_recorded":18,"val_objective":0.2235247841491265,"val_max_source_reconstruction":0.3470190957850335},
+    {"variant":"near08","seed":456,"selected_epoch":5,"epochs_recorded":13,"val_objective":0.2190240625001437,"val_max_source_reconstruction":0.3297970884920735},
+    {"variant":"near08","seed":786,"selected_epoch":12,"epochs_recorded":20,"val_objective":0.2179634455865552,"val_max_source_reconstruction":0.3378542383593556},
+    {"variant":"near08","seed":2026,"selected_epoch":10,"epochs_recorded":18,"val_objective":0.2198292375922018,"val_max_source_reconstruction":0.3342415813822299},
+    {"variant":"near08","seed":3456456,"selected_epoch":6,"epochs_recorded":14,"val_objective":0.2165904148318309,"val_max_source_reconstruction":0.3282151987433041},
+    {"variant":"source_mean","seed":123,"selected_epoch":6,"epochs_recorded":14,"val_objective":0.218913905255262,"val_max_source_reconstruction":0.3349722959052183},
+    {"variant":"source_mean","seed":456,"selected_epoch":6,"epochs_recorded":14,"val_objective":0.2167002197284027,"val_max_source_reconstruction":0.331600748426526},
+    {"variant":"source_mean","seed":786,"selected_epoch":4,"epochs_recorded":12,"val_objective":0.2171395417296241,"val_max_source_reconstruction":0.328638979223998},
+    {"variant":"source_mean","seed":2026,"selected_epoch":12,"epochs_recorded":20,"val_objective":0.2144085023335861,"val_max_source_reconstruction":0.3344099072396363},
+    {"variant":"source_mean","seed":3456456,"selected_epoch":9,"epochs_recorded":17,"val_objective":0.2148977465793847,"val_max_source_reconstruction":0.3293471497581585}
+  ]
+}

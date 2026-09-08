@@ -1,0 +1,139 @@
+{
+  "source": {
+    "dataset_name": "network_design_reid_lowT",
+    "source_name": "reid_lowT",
+    "label": "Reid + low-T 2D AE",
+    "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+    "dataset_mixture": [
+      {
+        "name": "reid",
+        "label": "reid",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+        "train_count": 2,
+        "val_count": 2,
+        "split_indices": {
+          "train": [
+            60,
+            45
+          ],
+          "val": [
+            41,
+            49
+          ],
+          "test": []
+        }
+      },
+      {
+        "name": "depablo_low_temp",
+        "label": "depablo_low_temp",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+        "train_count": 2,
+        "val_count": 2,
+        "split_indices": {
+          "train": [
+            99,
+            145
+          ],
+          "val": [
+            161,
+            47
+          ],
+          "test": []
+        }
+      }
+    ]
+  },
+  "config": {
+    "ae_config": {
+      "model": "attention_reference16",
+      "latent_dim": 4,
+      "latent_tokens": 32,
+      "hidden_size": 96,
+      "node_feature_mode": "normalized_delta",
+      "target_mode": "normalized_delta",
+      "edge_feature_dim": 4,
+      "max_train_frames_per_sim": 4,
+      "max_val_frames_per_sim": 4,
+      "max_epochs": 1,
+      "patience": 1,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "mix_sources": true,
+      "balance_sources": false,
+      "gradient_method": "source_mean",
+      "checkpoint_metric": "val_max_source_reconstruction",
+      "checkpoint_mode": "min",
+      "pratio_eval_every": 0
+    },
+    "coordinate_normalization": "position_normalization",
+    "edge_mode": "compact_stored",
+    "static_context_use_physical_reference": true,
+    "pos_dim": 2,
+    "batch_graphs": 32,
+    "frame_skip": 1,
+    "early_stop_min_delta": 1e-05,
+    "split_seed": 123,
+    "model_seed": 123,
+    "should_rollout": true,
+    "should_train_propagator": true,
+    "cache_require_matching_config": true,
+    "cache_path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/reference_simplification/r16_d4_s123_code_v2_smoke/context0/bundle.pt",
+    "propagator_config": {
+      "model": "delta_mlp",
+      "objective": "one_step",
+      "loss": "delta",
+      "hidden_size": 64,
+      "max_train_transitions_per_sim": 3,
+      "max_epochs": 1,
+      "patience": 1,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "step_stride": 1,
+      "mix_sources": true,
+      "balance_sources": false,
+      "source_loss_reduction": "equal",
+      "train_trajectories_per_source": {
+        "reid": 2,
+        "depablo_low_temp": 2
+      },
+      "val_trajectories_per_source": {
+        "reid": 2,
+        "depablo_low_temp": 2
+      },
+      "use_static_context": false,
+      "context_pool": "mean",
+      "context_dim": null,
+      "context_include_temperature": false,
+      "context_include_source_id": false,
+      "rollout_eval_every_epoch": false,
+      "checkpoint_metric": null,
+      "checkpoint_mode": "min",
+      "frozen_latent_cache_dir": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/reference_simplification/r16_d4_s123_code_v2_smoke/context0/frozen_latents"
+    },
+    "pretrained_ae_cache_path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/reference_simplification/r16_d4_s123_code_v2_smoke/ae.pt",
+    "pretrained_ae_require_matching_config": true,
+    "pretrained_ae_require_matching_normalizers": false,
+    "pretrained_ae_skip_stat_fitting": true,
+    "force_train_autoencoder": false,
+    "pretrained_ae_config_keys": [
+      "autoencoder_model",
+      "latent_dim",
+      "latent_tokens",
+      "hidden_size",
+      "node_feature_mode",
+      "ae_target_mode",
+      "edge_mode"
+    ],
+    "rollout_eval_splits": [],
+    "rollout_steps_grid": [
+      199
+    ],
+    "p_ratio_estimator": "endpoint"
+  },
+  "ae_file_sha256": "e9fd6dc5952f1b76db7d76215e37363f43c276a03e27fd4ab7eef8c323054ec6",
+  "ae_weight_sha256": "31c438cba101b878f67e1a8765c31ba56085821c9fe86107637334a9b5949155",
+  "context": 0,
+  "reference_dim": 16,
+  "seed": 123,
+  "job_id": "4671318.zeus-master"
+}

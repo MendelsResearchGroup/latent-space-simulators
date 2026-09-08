@@ -1,0 +1,16 @@
+{
+  "ae_file_sha256": "a1ee16370a2503e8dd143006c592426460e1aed4e003df6cdecd366a59e4f689",
+  "approx_optimizer_steps_per_epoch": 375,
+  "bundle_reload": null,
+  "epochs_completed": 60,
+  "job_id": "4672479.zeus-master",
+  "max_rss_kb": 4891172,
+  "output_horizon": 199,
+  "parameters": 157206,
+  "seconds": 12959.438265323639,
+  "seed": 456,
+  "smoke": false,
+  "status": "completed",
+  "total_train_frame_samples": 12000,
+  "variant": "ljonly_r16_d4"
+}

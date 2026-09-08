@@ -1,0 +1,10 @@
+[
+  {
+    "variant": "spatial_r16_d4",
+    "seed": 123
+  },
+  {
+    "variant": "ljonly_spatial_r16_d4",
+    "seed": 123
+  }
+]

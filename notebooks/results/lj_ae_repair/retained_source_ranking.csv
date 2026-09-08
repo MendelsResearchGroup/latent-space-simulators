@@ -1,0 +1,6 @@
+variant,worst_source_position_mse,sources,seeds_min,valid_min,total_min
+dimension4,8.49364167152089e-06,3,5,20,20
+longer,8.616075765530695e-06,3,5,20,20
+lj_edges,8.619603404440566e-06,3,5,20,20
+equal_source,8.73436389156268e-06,3,5,20,20
+wider,9.018199798447314e-06,3,5,20,20

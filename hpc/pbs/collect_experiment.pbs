@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=1:mem=2gb
+#PBS -l place=free:shared
+#PBS -l walltime=00:15:00
+#PBS -j oe
+set -euo pipefail
+cd "${LSS_PROJECT_ROOT:?}"
+"${LSS_PYTHON:-python}" "${LSS_CODE_ROOT:?}/collect.py" --results-root "${LSS_RESULTS_ROOT:?}" --study "${LSS_STUDY:?}" --code-version "${LSS_CODE_VERSION:?}"

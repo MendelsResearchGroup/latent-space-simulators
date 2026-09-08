@@ -1,0 +1,73 @@
+{
+  "jobs": [
+    "4669055.zeus-master",
+    "4669056.zeus-master",
+    "4669057.zeus-master"
+  ],
+  "comparisons": [
+    {
+      "threads": 8,
+      "median_epoch_seconds": 117.07913274969906,
+      "mean_total_seconds": 437.9665663158521,
+      "job_id": "4669055.zeus-master",
+      "speedup_over_local_8": 1.0
+    },
+    {
+      "threads": 2,
+      "median_epoch_seconds": 177.93805073201656,
+      "mean_total_seconds": 608.35865631653,
+      "job_id": "4669055.zeus-master",
+      "speedup_over_local_8": 0.6579769322415809
+    },
+    {
+      "threads": 1,
+      "median_epoch_seconds": 252.23817771999165,
+      "mean_total_seconds": 826.8937370274216,
+      "job_id": "4669055.zeus-master",
+      "speedup_over_local_8": 0.4641610314821891
+    },
+    {
+      "threads": 8,
+      "median_epoch_seconds": 124.49630979448557,
+      "mean_total_seconds": 460.6113972812891,
+      "job_id": "4669056.zeus-master",
+      "speedup_over_local_8": 1.0
+    },
+    {
+      "threads": 16,
+      "median_epoch_seconds": 157.951225630939,
+      "mean_total_seconds": 561.9921815022826,
+      "job_id": "4669056.zeus-master",
+      "speedup_over_local_8": 0.7881946423472361
+    },
+    {
+      "threads": 4,
+      "median_epoch_seconds": 168.8757414892316,
+      "mean_total_seconds": 579.5204108245671,
+      "job_id": "4669056.zeus-master",
+      "speedup_over_local_8": 0.7372065916431467
+    },
+    {
+      "threads": 8,
+      "median_epoch_seconds": 120.79343241453171,
+      "mean_total_seconds": 446.97473315149546,
+      "job_id": "4669057.zeus-master",
+      "speedup_over_local_8": 1.0
+    },
+    {
+      "threads": 32,
+      "median_epoch_seconds": 123.54680681601167,
+      "mean_total_seconds": 463.17270409688354,
+      "job_id": "4669057.zeus-master",
+      "speedup_over_local_8": 0.9777139169158752
+    },
+    {
+      "threads": 64,
+      "median_epoch_seconds": 158.78123499453068,
+      "mean_total_seconds": 567.8160193525255,
+      "job_id": "4669057.zeus-master",
+      "speedup_over_local_8": 0.7607538284904543
+    }
+  ],
+  "interpretation": "Compare speedups against each node's own eight-thread baseline; confirm finalists on the same node before selecting a production default."
+}

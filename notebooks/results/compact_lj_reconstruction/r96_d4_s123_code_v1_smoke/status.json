@@ -1,0 +1,10 @@
+{
+  "max_rss_kb": 5558832,
+  "seconds": 92.18519186973572,
+  "seed": 123,
+  "smoke": true,
+  "stage": "failed",
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/code_v1/scripts/run_compact_lj_reconstruction.py\", line 424, in main\n    result = run_latent_experiment(source, cfg, device=\"cpu\")\n  File \"/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/code_v1/src/lss/latent/experiment.py\", line 2962, in run_latent_experiment\n    result = train_latent_autoencoder_experiment(source_spec, cfg, device=device)\n  File \"/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/code_v1/src/lss/latent/experiment.py\", line 2865, in train_latent_autoencoder_experiment\n    min_delta=float(params[\"early_stop_min_delta\"]),\nKeyError: 'early_stop_min_delta'\n",
+  "variant": "r96_d4"
+}

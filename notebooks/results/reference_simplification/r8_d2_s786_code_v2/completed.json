@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "seconds": 5589.175537824631,
+  "ae_parameters": 147292,
+  "ae_weight_sha256": "ea596aee7139c264b35126cff1b66bc649bbbaa49ed10e210a4d28eac828e44f",
+  "ae_file_sha256": "2a3daa41056d8003a0b53bf50f0c6e3adf84b2838174f71a242a13e7e3124b60",
+  "max_rss_kb": 3575316,
+  "job_id": "4671439.zeus-master",
+  "reference_dim": 8,
+  "latent_dim": 2,
+  "seed": 786,
+  "contexts": [
+    16,
+    0
+  ],
+  "smoke": false
+}

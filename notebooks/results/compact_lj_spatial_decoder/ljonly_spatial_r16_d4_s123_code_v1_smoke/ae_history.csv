@@ -1,0 +1,2 @@
+epoch,train_objective,val_objective,train_mse_norm,train_source_lj_noisy_reconstruction,train_macro_source_reconstruction,train_max_source_reconstruction,val_mse_norm,val_source_lj_noisy_reconstruction,val_macro_source_reconstruction,val_max_source_reconstruction,dataset,latent_dim,target_mode,hidden_size
+1,1.0292572975158691,0.9433846473693848,1.020202875137329,1.0292572975158691,1.0292572975158691,1.0292572975158691,0.9418489933013916,0.9433846473693848,0.9433846473693848,0.9433846473693848,spatial-decoder noisy-LJ only,4,normalized_delta,96

@@ -1,0 +1,200 @@
+{
+  "source": {
+    "dataset_name": "latent_matched_study",
+    "source_name": "shared4",
+    "label": "shared4",
+    "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+    "dataset_mixture": [
+      {
+        "name": "reid",
+        "label": "reid",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+        "train_count": 1,
+        "val_count": 20,
+        "split_indices": {
+          "train": [
+            60
+          ],
+          "val": [
+            41,
+            49,
+            25,
+            93,
+            84,
+            96,
+            97,
+            13,
+            28,
+            52,
+            59,
+            57,
+            15,
+            53,
+            2,
+            88,
+            74,
+            31,
+            69,
+            19
+          ],
+          "test": []
+        },
+        "append_lj_indicator": true,
+        "lj_max_graph_distance": null
+      },
+      {
+        "name": "depablo_low_temp",
+        "label": "depablo_low_temp",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+        "train_count": 1,
+        "val_count": 20,
+        "split_indices": {
+          "train": [
+            99
+          ],
+          "val": [
+            161,
+            47,
+            191,
+            66,
+            118,
+            98,
+            2,
+            136,
+            131,
+            124,
+            105,
+            96,
+            152,
+            70,
+            169,
+            168,
+            126,
+            196,
+            138,
+            78
+          ],
+          "test": []
+        },
+        "append_lj_indicator": true,
+        "lj_max_graph_distance": null
+      },
+      {
+        "name": "depablo_mixed_temp",
+        "label": "depablo_mixed_temp",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-10k-mix-temp.pt",
+        "train_count": 1,
+        "val_count": 20,
+        "split_indices": {
+          "train": [
+            109
+          ],
+          "val": [
+            268,
+            161,
+            47,
+            191,
+            242,
+            208,
+            221,
+            140,
+            118,
+            158,
+            250,
+            136,
+            68,
+            96,
+            262,
+            70,
+            78,
+            44,
+            36,
+            39
+          ],
+          "test": []
+        },
+        "append_lj_indicator": true,
+        "lj_max_graph_distance": null
+      },
+      {
+        "name": "lj_noisy",
+        "label": "lj_noisy",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+        "train_count": 1,
+        "val_count": 20,
+        "split_indices": {
+          "train": [
+            178
+          ],
+          "val": [
+            15,
+            79,
+            75,
+            181,
+            31,
+            142,
+            157,
+            12,
+            152,
+            29,
+            95,
+            183,
+            147,
+            43,
+            13,
+            40,
+            132,
+            61,
+            188,
+            67
+          ],
+          "test": []
+        },
+        "append_lj_indicator": true,
+        "lj_max_graph_distance": 3
+      }
+    ]
+  },
+  "config": {
+    "split_seed": 123,
+    "model_seed": 456,
+    "pos_dim": 2,
+    "batch_graphs": 32,
+    "frame_skip": 1,
+    "coordinate_normalization": "position_normalization",
+    "edge_mode": "compact_stored",
+    "static_context_use_physical_reference": true,
+    "should_rollout": false,
+    "should_train_propagator": false,
+    "force_train": true,
+    "cache_path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/latent_low_data/shared4_d2_s456/ae.pt",
+    "early_stop_min_delta": 1e-05,
+    "ae_config": {
+      "model": "attention",
+      "latent_dim": 2,
+      "latent_tokens": 32,
+      "hidden_size": 128,
+      "target_mode": "normalized_delta",
+      "node_feature_mode": "normalized_delta",
+      "edge_feature_dim": 5,
+      "max_train_frames_per_sim": 101,
+      "max_val_frames_per_sim": 101,
+      "train_frame_skip": 1,
+      "val_frame_skip": 1,
+      "max_epochs": 40,
+      "patience": 8,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "mix_sources": true,
+      "balance_sources": true,
+      "train_rows_per_source": 101,
+      "gradient_method": "source_mean",
+      "checkpoint_metric": "val_max_source_reconstruction",
+      "checkpoint_mode": "min"
+    }
+  },
+  "matched_recipe": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/latent_matched_study/shared4_d2_s456/recipe.json",
+  "design": "Same 40-epoch/patience-8 recipe and frames 0\u2013100; training budget 1 vs 30 trajectories/source. Not update-matched or an exact historical reproduction.",
+  "code_root": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/latent_matched_study/code_v1",
+  "job_id": "4669155.zeus-master"
+}

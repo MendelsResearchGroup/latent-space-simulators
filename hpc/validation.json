@@ -1,0 +1,26 @@
+{
+  "submission_performed": false,
+  "checks": {
+    "python_compile": "passed",
+    "pbs_bash_syntax": "passed",
+    "runner_help_target_project": {
+      "run_reference_simplification.py": "passed",
+      "run_compact_lj_reconstruction.py": "passed",
+      "run_compact_lj_spatial_decoder.py": "passed",
+      "run_lj_ae_08_bridge.py": "passed"
+    },
+    "dry_run_matrix_counts": {
+      "reference_simplification": 30,
+      "compact_lj_reconstruction": 50,
+      "compact_lj_spatial_decoder": 20,
+      "lj_ae_08_bridge": 40
+    },
+    "unsupported_bridge_smoke": "rejected as intended",
+    "bridge_recipe_dataset_paths": "all target data basenames",
+    "collector_fixture": "exact reference cell, completed filename status, AE/context stage labels, no architecture pooling"
+  },
+  "notes": [
+    "Dry runs wrote only under /tmp validation roots and did not invoke qsub.",
+    "No historical job IDs or execution results are represented here."
+  ]
+}

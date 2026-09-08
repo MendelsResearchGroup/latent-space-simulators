@@ -1,0 +1,82 @@
+[
+  {
+    "variant": "spatial_r16_d2",
+    "seed": 3456456
+  },
+  {
+    "variant": "spatial_r16_d2",
+    "seed": 123
+  },
+  {
+    "variant": "spatial_r16_d2",
+    "seed": 456
+  },
+  {
+    "variant": "spatial_r16_d2",
+    "seed": 786
+  },
+  {
+    "variant": "spatial_r16_d2",
+    "seed": 2026
+  },
+  {
+    "variant": "spatial_r16_d4",
+    "seed": 3456456
+  },
+  {
+    "variant": "spatial_r16_d4",
+    "seed": 123
+  },
+  {
+    "variant": "spatial_r16_d4",
+    "seed": 456
+  },
+  {
+    "variant": "spatial_r16_d4",
+    "seed": 786
+  },
+  {
+    "variant": "spatial_r16_d4",
+    "seed": 2026
+  },
+  {
+    "variant": "spatial_r16_d8",
+    "seed": 3456456
+  },
+  {
+    "variant": "spatial_r16_d8",
+    "seed": 123
+  },
+  {
+    "variant": "spatial_r16_d8",
+    "seed": 456
+  },
+  {
+    "variant": "spatial_r16_d8",
+    "seed": 786
+  },
+  {
+    "variant": "spatial_r16_d8",
+    "seed": 2026
+  },
+  {
+    "variant": "ljonly_spatial_r16_d4",
+    "seed": 3456456
+  },
+  {
+    "variant": "ljonly_spatial_r16_d4",
+    "seed": 123
+  },
+  {
+    "variant": "ljonly_spatial_r16_d4",
+    "seed": 456
+  },
+  {
+    "variant": "ljonly_spatial_r16_d4",
+    "seed": 786
+  },
+  {
+    "variant": "ljonly_spatial_r16_d4",
+    "seed": 2026
+  }
+]

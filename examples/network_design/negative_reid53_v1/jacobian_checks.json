@@ -1,0 +1,53 @@
+[
+  {
+    "jacobian_singular_values": [
+      0.3485945165157318,
+      0.08511269092559814
+    ],
+    "target_standardized_latent_direction": [
+      0.7071068286895752,
+      0.7071068286895752
+    ],
+    "linearized_latent_change": [
+      1.8553096055984497,
+      1.8552175760269165
+    ],
+    "linearized_alignment": 1.0,
+    "damping": 6.43811335976352e-06,
+    "iteration": 0
+  },
+  {
+    "jacobian_singular_values": [
+      0.3889482021331787,
+      0.0914798453450203
+    ],
+    "target_standardized_latent_direction": [
+      0.7071068286895752,
+      0.7071068286895752
+    ],
+    "linearized_latent_change": [
+      1.9275894165039062,
+      1.9274851083755493
+    ],
+    "linearized_alignment": 1.0000001192092896,
+    "damping": 7.98246492195176e-06,
+    "iteration": 1
+  },
+  {
+    "jacobian_singular_values": [
+      0.4319908916950226,
+      0.09833208471536636
+    ],
+    "target_standardized_latent_direction": [
+      0.7071068286895752,
+      0.7071068286895752
+    ],
+    "linearized_latent_change": [
+      2.000981330871582,
+      2.0008702278137207
+    ],
+    "linearized_alignment": 1.0000001192092896,
+    "damping": 9.814266377361491e-06,
+    "iteration": 2
+  }
+]

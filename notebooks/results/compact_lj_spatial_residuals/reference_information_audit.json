@@ -1,0 +1,14 @@
+{
+  "check": "Algebraic synthetic connected-graph contract, not a data performance metric",
+  "h0_features": 16,
+  "affine_input_features": 7,
+  "centered_numerical_rank": 7,
+  "affine_identity_max_abs_error": 8.881784197001252e-16,
+  "scope": "Current corrected attention reference encoder: linear projection of position2 + mean incident normalized edge5. No isolated nodes in this check; isolation mask can add a separate indicator. Reference96 has same input-information limit, not96independent structural features.",
+  "implication": "Widening static projection cannot restore topology/neighbor distributions lost during mean aggregation. This does not establish that these features are insufficient on the observed dataset.",
+  "seed": 72,
+  "code_hashes": {
+    "src/lss/latent/models.py": "0450cd47ac0c7cf1361591ca82feb30a06e75832fdb050da90c2e7129e3134fa",
+    "src/lss/latent/experiment.py": "b038c9f61f9954f080250951fb185c6c942ed7307a22fbf5d02d9433cd05e562"
+  }
+}

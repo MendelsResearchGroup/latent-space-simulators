@@ -1,0 +1,15 @@
+{
+  "baselines": "Affine and PCA are fitted to observed target trajectory frames, so are optimistic descriptive baselines, not predictors or AE ceilings.",
+  "data_py_sha256": "6a5d052dad354664adff97dc2bce4b4ca6d9ad704be7154ef7fb9f8500b90b4b",
+  "job_id": "4672421.zeus-master",
+  "manifest_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+  "scope": "same first ten train IDs per source as audit 4672395; no validation or reserve trajectory analyzed/evaluated",
+  "script_sha256": "87b532f94ee839b9c26e2881b16a4dc29bd2cbb3186ccf0643b00144c940e268",
+  "valid_denominators": {
+    "affine": "200 frames/trajectory",
+    "last_increment_extrapolation": "198 frames/trajectory",
+    "pca": "200 frames/trajectory",
+    "persistence": "199 frames/trajectory",
+    "zero_motion": "200 frames/trajectory"
+  }
+}

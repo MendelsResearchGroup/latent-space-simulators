@@ -1,0 +1,12 @@
+{
+  "code_version": "code_v2",
+  "runs": {"completed": 50, "failed": 0, "incomplete": 0, "expected": 50},
+  "selection": "Selected checkpoint minimizes validation max-source normalized coordinate reconstruction; no p-ratio, mixed-transfer, or expert-derived quantity was used.",
+  "metric_scope": "Coordinate MSE is in normalized-coordinate units. Train is diagnostic (5 networks/source/seed); validation is held-out (20 networks/source/seed); mixed_transfer is post-fit and only exists for shared recipes.",
+  "full_source_frame_table": "../collection_code_v2/source_frame_aggregate.csv",
+  "seed_source_frame_table": "../collection_code_v2/source_frame_seed_results.csv",
+  "paired_ljonly_table": "paired_shared_ljonly_lj_nonzero.csv",
+  "matched_train_motion_table": "../comparisons_code_v2/matched_train_motion_summary.csv",
+  "counts": {"train_per_source_variant_frame": 25, "validation_per_source_variant_frame": 100, "seeds": 5},
+  "caveat": "Shared and LJ-only recipes differ in retained-source composition, normalizer fit population, per-epoch steps, and stopping/exposure; their paired seed differences are descriptive, not a causal matched-training estimate."
+}

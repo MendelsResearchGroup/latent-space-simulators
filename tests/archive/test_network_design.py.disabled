@@ -1,0 +1,34 @@
+import sys
+from pathlib import Path
+import torch
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'notebooks/network_design'))
+from design import encode_initial, design, physical_candidate
+from test_latent_pipeline_contract import setup_case
+
+
+def test_stiffness_gradient_matches_finite_difference_and_keeps_reference_intact():
+    sim,m,n=setup_case();ref=sim[0];before=ref.edge_attr.clone()
+    k=ref.edge_attr[:,3].clone().requires_grad_()
+    value=encode_initial(m,ref,k,n)[0]
+    grad=torch.autograd.grad(value,k)[0]
+    assert grad.abs().max()>1e-8
+    eps=.01;i=int(grad.abs().argmax());plus=k.detach().clone();minus=plus.clone()
+    plus[i]+=eps;minus[i]-=eps
+    fd=(encode_initial(m,ref,plus,n)[0]-encode_initial(m,ref,minus,n)[0])/(2*eps)
+    torch.testing.assert_close(grad[i],fd,rtol=.04,atol=2e-6)
+    torch.testing.assert_close(ref.edge_attr,before)
+
+
+def test_bounds_controls_and_physical_export():
+    sim,m,n=setup_case();ref=sim[0]
+    readout={'mean':torch.zeros(2),'scale':torch.ones(2),'weights':torch.tensor([0.,1.,-1.])}
+    variants,h=design(ref,m,n,readout,steps=3)
+    k0=variants['original'];norm=torch.log(variants['designed']/k0).norm()
+    for name,k in variants.items():
+        assert (k>0).all() and torch.log(k/k0).abs().max()<=.250001
+        if name.startswith('random'):torch.testing.assert_close(torch.log(k/k0).norm(),norm,atol=1e-6,rtol=1e-4)
+    raw=ref.clone();raw.x=ref.reference_context_positions.clone()
+    result=physical_candidate(raw,ref,variants['designed'])
+    torch.testing.assert_close(result.x,raw.x)
+    torch.testing.assert_close(result.edge_attr[:,3],variants['designed'])
+    assert len(h)==4

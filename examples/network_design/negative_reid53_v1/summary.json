@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "source": "reid",
+  "index": 53,
+  "original_p_ratio": 0.09049821989813585,
+  "starting_p_ratio": 0.049560014885478176,
+  "best_p_ratio": -0.006012175384968586,
+  "confirmations": [
+    {
+      "iteration": 2,
+      "p60": -0.006012175382014793,
+      "p120": -0.0060121753920150895
+    }
+  ],
+  "max_abs_log_edit": 0.699999988079071,
+  "stiffness_multiplier_min": 0.5461147427558899,
+  "stiffness_multiplier_max": 2.0137526988983154,
+  "rounds": 3,
+  "valid": 22,
+  "total": 22,
+  "engineered_sha256": "2bf3d8e5755d79d5ae6c354411dae6c845030f2257259bf8768a8a31be46960f"
+}

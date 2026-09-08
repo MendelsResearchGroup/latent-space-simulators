@@ -1,0 +1,5 @@
+{"seed": 3456456, "latent_dim": 2, "condition": "exclude_mixed", "job_id": "4670159.zeus-master"}
+{"seed": 123, "latent_dim": 2, "condition": "exclude_mixed", "job_id": "4670160.zeus-master"}
+{"seed": 456, "latent_dim": 2, "condition": "exclude_mixed", "job_id": "4670161.zeus-master"}
+{"seed": 786, "latent_dim": 2, "condition": "exclude_mixed", "job_id": "4670162.zeus-master"}
+{"seed": 2026, "latent_dim": 2, "condition": "exclude_mixed", "job_id": "4670163.zeus-master"}

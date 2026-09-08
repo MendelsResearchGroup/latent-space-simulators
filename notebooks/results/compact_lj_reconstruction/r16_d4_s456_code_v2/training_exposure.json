@@ -1,0 +1,47 @@
+{
+  "approx_optimizer_steps_per_epoch": 750,
+  "batch_graphs": 32,
+  "epochs_completed": 19,
+  "history_columns": [
+    "epoch",
+    "train_objective",
+    "val_objective",
+    "train_mse_norm",
+    "train_source_lj_noisy_reconstruction",
+    "train_source_reid_reconstruction",
+    "train_source_depablo_low_temp_reconstruction",
+    "train_macro_source_reconstruction",
+    "train_max_source_reconstruction",
+    "val_mse_norm",
+    "val_source_reid_reconstruction",
+    "val_source_depablo_low_temp_reconstruction",
+    "val_source_lj_noisy_reconstruction",
+    "val_macro_source_reconstruction",
+    "val_max_source_reconstruction",
+    "dataset",
+    "latent_dim",
+    "target_mode",
+    "hidden_size"
+  ],
+  "total_train_frame_samples": 24000,
+  "train_by_source": {
+    "depablo_low_temp": {
+      "available_frames_min": 200,
+      "configured_frames_per_trajectory": 200,
+      "frame_samples_used": 6000,
+      "trajectories": 30
+    },
+    "lj_noisy": {
+      "available_frames_min": 200,
+      "configured_frames_per_trajectory": 200,
+      "frame_samples_used": 12000,
+      "trajectories": 60
+    },
+    "reid": {
+      "available_frames_min": 200,
+      "configured_frames_per_trajectory": 200,
+      "frame_samples_used": 6000,
+      "trajectories": 30
+    }
+  }
+}

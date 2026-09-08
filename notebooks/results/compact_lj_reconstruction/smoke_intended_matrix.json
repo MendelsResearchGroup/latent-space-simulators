@@ -1,0 +1,14 @@
+[
+  {
+    "variant": "r16_d4",
+    "seed": 123
+  },
+  {
+    "variant": "r96_d4",
+    "seed": 123
+  },
+  {
+    "variant": "mp2_r16_d8",
+    "seed": 123
+  }
+]

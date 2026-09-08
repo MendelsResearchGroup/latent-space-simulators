@@ -1,0 +1,32 @@
+{
+  "source": "reid",
+  "index": 53,
+  "job_id": "4671579.zeus-master",
+  "status": "completed",
+  "seed": 839,
+  "start": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/tangent_direction_v1/reid_53/candidates.pt",
+  "start_sha256": "365cfcd5d6a9dbb6c3b8cbaa33bb6d6f1ba6f3add84c0d82784ef123dead1646",
+  "base_code_sha256": "f2519f660259fbdb1e9bcea333e3088844a32fe68c2c654397fd3671bcf1d319",
+  "tangent_code_sha256": "f210775f833bdef0980c38371cb5b5390c6a5e4f2eaa13b9c0ba873a32715c72",
+  "script_sha256": "1e5eb5db7b0d7b4420e1098f6589420b431f159ca0758d41bcd5f68fd7153c29",
+  "target": "first-last physical p-ratio <= -0.005 confirmed at60 and120 compression increments",
+  "bound_schedule": "min(1.5,0.4+0.15*round), relative to original unedited stiffness",
+  "maximum_rounds": 24,
+  "step_sizes": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "directions": [
+    "inverse-Jacobian PC1",
+    "calibrated z1"
+  ],
+  "stalled_fallback": "one seeded random direction, both signs",
+  "acceptance_tolerance": 1e-05,
+  "geometry": "fixed original positions/topology; zero springs unchanged; positive stiffness",
+  "split": "same validation design graph; targeted engineering, not generalization test",
+  "expert_use": "only downstream design selection; reconstruction-trained AE frozen",
+  "target_achieved": true,
+  "runtime_seconds": 79.048983335495,
+  "max_rss_kb": 722592
+}

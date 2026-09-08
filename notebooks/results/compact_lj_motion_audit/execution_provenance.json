@@ -1,0 +1,23 @@
+{
+  "job_id": "4672395.zeus-master",
+  "submission": {
+    "command": "ssh -F /dev/null -o BatchMode=yes -o UserKnownHostsFile=/tmp/lss_known_hosts alexander.z@127.0.0.1 'cd /rg/mendels_prj/alexander.z/DL-course-project && /opt/pbs/bin/qsub scripts/compact_lj_motion_audit.pbs'",
+    "queue": "mendels_q",
+    "placement": "free:shared",
+    "select": "1:ncpus=8:mem=16gb",
+    "walltime": "01:00:00"
+  },
+  "completion": {
+    "job_state": "F",
+    "exit_status": 0,
+    "resources_used_walltime": "00:02:47",
+    "resources_used_mem": "5526364kb"
+  },
+  "executed_file_sha256": {
+    "scripts/audit_compact_lj_motion.py": "e98c2fc7728e9e3837345ea71dcb1033c089eed31f1c58b0aafedcbd165e1527",
+    "src/lss/data.py": "6a5d052dad354664adff97dc2bce4b4ca6d9ad704be7154ef7fb9f8500b90b4b",
+    "scripts/compact_lj_motion_audit.pbs": "a8a0ba7f1823bc1774010a410d28a4b73bcc11a1ac8ea96c22b5681dc78a99d4",
+    "notebooks/results/lj_ae_08_bridge/split_manifest.json": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045"
+  },
+  "analyzed_scope": "Only the fixed first ten train IDs per source were analyzed. The loaders deserialize source files, but validation, mixed-temperature, and final-reserve trajectories were not analyzed or evaluated."
+}

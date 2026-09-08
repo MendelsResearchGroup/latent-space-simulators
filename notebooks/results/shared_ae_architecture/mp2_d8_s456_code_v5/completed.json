@@ -1,0 +1,11 @@
+{
+  "seconds": 3795.632152557373,
+  "seed": 456,
+  "variant": "mp2",
+  "latent_dim": 8,
+  "parameters": 321802,
+  "job_id": "4670379.zeus-master",
+  "split": "validation",
+  "mixed_evaluation_only": true,
+  "smoke": false
+}

@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "name": "2340_dePablo_networks_OOL_undirected.pt",
+      "bytes": 611532913,
+      "sha256": "2bc75d96e4bb801a78c541d494d1e50d220a1f6b8c4fbffaec01717a1ade3344"
+    },
+    {
+      "name": "depablo-10k-mix-temp.pt",
+      "bytes": 2371764434,
+      "sha256": "b5c10f48a03df0822ddc4decb5792afa83b73fee755fa83cc588bbfdaa0d3a67"
+    },
+    {
+      "name": "depablo-near-zero-temp.pt",
+      "bytes": 1592810734,
+      "sha256": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09"
+    },
+    {
+      "name": "lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.csv",
+      "bytes": 20732,
+      "sha256": "a7c73c33054aec51c210c41165e50a882c02083e780ea43ecb88d365ff76765b"
+    },
+    {
+      "name": "lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+      "bytes": 482897241,
+      "sha256": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0"
+    },
+    {
+      "name": "real_reid_200_frames.manifest.json",
+      "bytes": 556202,
+      "sha256": "2f27fe10815504750cb47712c3798a88b4e72954157f8f7cd10cc075b5f6292d"
+    },
+    {
+      "name": "real_reid_200_frames.pt",
+      "bytes": 785783898,
+      "sha256": "c50fcbedf7900bc1c898bda5d2a429b1599b43615c8b46d0bc0c2228b43b5b8b"
+    },
+    {
+      "name": "reid_200_frames.pt",
+      "bytes": 310435942,
+      "sha256": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659"
+    }
+  ]
+}

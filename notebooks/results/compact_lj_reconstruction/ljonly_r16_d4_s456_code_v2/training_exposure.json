@@ -1,0 +1,31 @@
+{
+  "approx_optimizer_steps_per_epoch": 375,
+  "batch_graphs": 32,
+  "epochs_completed": 60,
+  "history_columns": [
+    "epoch",
+    "train_objective",
+    "val_objective",
+    "train_mse_norm",
+    "train_source_lj_noisy_reconstruction",
+    "train_macro_source_reconstruction",
+    "train_max_source_reconstruction",
+    "val_mse_norm",
+    "val_source_lj_noisy_reconstruction",
+    "val_macro_source_reconstruction",
+    "val_max_source_reconstruction",
+    "dataset",
+    "latent_dim",
+    "target_mode",
+    "hidden_size"
+  ],
+  "total_train_frame_samples": 12000,
+  "train_by_source": {
+    "lj_noisy": {
+      "available_frames_min": 200,
+      "configured_frames_per_trajectory": 200,
+      "frame_samples_used": 12000,
+      "trajectories": 60
+    }
+  }
+}
