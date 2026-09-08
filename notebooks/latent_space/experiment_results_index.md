@@ -571,7 +571,7 @@ deformation, not a matched performance comparison. Incoming AE train diagnostics
 share the first5training IDs with this audit, enabling a valid matched residual
 comparison. Affine/PCA fits use observed targets and are NOT forecasts or losses.
 
-Review notebook: notebooks/latent_space/11_compact_lj_reconstruction.ipynb,
+Review notebook: notebooks/latent_space/diagnostics/compact_lj_reconstruction.ipynb,
 executed successfully with inline Editorial plots, no figure exports. Shows
 training-motion summaries, per-network in-sample PCA, per-frame fitted baselines,
 and any completed compact AE source/frame results. Partial runs remain labeled.
@@ -689,3 +689,28 @@ Shared mendels_q8CPU16GB24h, no hostpin. Firstfull job measured6,327,228kB.
 Results compact_lj_spatial_decoder/. Existing50baselinefits reused; no repeated
 baseline training. Newdecoder effects pending.11active tests passed. Notebook11
 refreshed with50complete baselinefits and inline frozen-code/PCA/affine diagnostics.
+
+### Live scheduler verification after standalone migration — 2026-09-08
+
+At 09:08:15 UTC (12:08:15 Israel), PBS reported 18/20 full spatial-decoder
+runs finished with exit status 0; LJ-only D4 seeds456/786 (4673354/4673355)
+were still running at approximately3h09m, using about4.5GiB each. All15 shared
+D2/D4/D8 runs finished. Collector4673357 has a system dependency hold awaiting
+only those two remaining jobs; this is expected afterany behavior.
+Jobs still write under `/rg/mendels_prj/alexander.z/DL-course-project/`, so
+the standalone repository's copied per-run status files are stale. No scientific
+results synchronized or aggregated in this check. Exact job identities, states,
+exit codes and resource measurements: `compact_lj_spatial_decoder/live_cluster_status_20260908.json`.
+
+### Notebook cleanup and renumbering — 2026-09-08
+
+Main notebook06 is now `01_mixed_dataset_shared_latent_space.ipynb`,06b is
+`02_mixed_dataset_shared_latent_rollout.ipynb`, and09 is
+`03_four_source_standard_ae_pca.ipynb`. Notebook11 is now the unnumbered
+`notebooks/latent_space/diagnostics/compact_lj_reconstruction.ipynb` reader.
+All four retained notebook contents are unchanged. User requested deletion of
+the archived notebooks: legacy04,06c,both06d,07,07b,08,10a/10b; recover them
+from Git history when needed. Results, exact recipes, historical experiment IDs,
+logs and model implementations retain their paths. The notebook map records the
+07b seed/cache discrepancy and10a/10b epoch-budget mismatch. No new scientific
+results or training were produced by cleanup.

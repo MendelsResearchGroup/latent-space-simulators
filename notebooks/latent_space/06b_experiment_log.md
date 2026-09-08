@@ -2,7 +2,7 @@
 
 ## 2026-08-21 — AE all sources; propagator Reid + low-T
 
-- Notebook: `06b_mixed_dataset_shared_latent_rollout.ipynb`
+- Notebook: `02_mixed_dataset_shared_latent_rollout.ipynb` (historical 06b)
 - Seed: `3456456`; 4D latent; 20 train and 20 validation trajectories per source; frames `0..100`.
 - AE training sources: Reid, de Pablo low-T, de Pablo mixed-T, noisy LJ. AE stopped at epoch 11 of 14. Validation step-100 p-ratio R² at that epoch: Reid `0.967`, low-T `0.944`, mixed-T `0.776`, noisy LJ `0.663`.
 - Propagator: one-step shared Δz MLP, hidden size 64, static 16D mean-pooled reference context, equal per-source loss; training sources only Reid and de Pablo low-T. It stopped at epoch 3 of 6.
@@ -14,7 +14,7 @@ Noisy LJ and mixed-T were excluded from propagator supervision. Mixed-T remained
 
 ## 2026-08-21 — frozen all-source AE; Reid + low-T + noisy-LJ propagator with stride-5 PCGrad
 
-- Notebook: `06b_mixed_dataset_shared_latent_rollout.ipynb`
+- Notebook: `02_mixed_dataset_shared_latent_rollout.ipynb` (historical 06b)
 - Frozen AE: `model_compact_edges_v8_ae_all_sources_prop_reid_lowT_lj.pt` (the all-four-source 4D AE above); no AE retraining in this experiment.
 - Propagator: shared one-step Δz MLP (hidden size 64), 16D mean-pooled static reference context, equal source loss, genuinely balanced source-mixed batches, source-specific latent/Δz standardization fitted on propagator-training trajectories only, and PCGrad.
 - Training sources: Reid, de Pablo low-T, and noisy LJ; 20 training and 20 validation trajectories/source; frames `0..100`; stride `5`; seed `3456456`.
@@ -455,7 +455,7 @@ deformation, not a matched performance comparison. Incoming AE train diagnostics
 share the first5training IDs with this audit, enabling a valid matched residual
 comparison. Affine/PCA fits use observed targets and are NOT forecasts or losses.
 
-Review notebook: notebooks/latent_space/11_compact_lj_reconstruction.ipynb,
+Review notebook: notebooks/latent_space/diagnostics/compact_lj_reconstruction.ipynb,
 executed successfully with inline Editorial plots, no figure exports. Shows
 training-motion summaries, per-network in-sample PCA, per-frame fitted baselines,
 and any completed compact AE source/frame results. Partial runs remain labeled.

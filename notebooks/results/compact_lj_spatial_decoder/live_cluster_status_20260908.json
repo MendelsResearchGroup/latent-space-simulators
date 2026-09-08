@@ -1,0 +1,352 @@
+{
+  "timestamp": 1788858495,
+  "jobs": [
+    {
+      "job": "4673337.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d2",
+      "seed": 3456456,
+      "used": {
+        "cpupercent": 763,
+        "cput": "15:45:46",
+        "mem": "6327228kb",
+        "ncpus": 8,
+        "vmem": "11853104kb",
+        "walltime": "02:10:16"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673338.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d2",
+      "seed": 123,
+      "used": {
+        "cpupercent": 766,
+        "cput": "13:52:57",
+        "mem": "6077348kb",
+        "ncpus": 8,
+        "vmem": "11638532kb",
+        "walltime": "01:51:39"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673339.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d2",
+      "seed": 456,
+      "used": {
+        "cpupercent": 760,
+        "cput": "17:43:52",
+        "mem": "6085068kb",
+        "ncpus": 8,
+        "vmem": "11642824kb",
+        "walltime": "02:26:19"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673340.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d2",
+      "seed": 786,
+      "used": {
+        "cpupercent": 755,
+        "cput": "17:46:47",
+        "mem": "6091792kb",
+        "ncpus": 8,
+        "vmem": "11641012kb",
+        "walltime": "02:28:23"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673341.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d2",
+      "seed": 2026,
+      "used": {
+        "cpupercent": 754,
+        "cput": "17:07:22",
+        "mem": "6136552kb",
+        "ncpus": 8,
+        "vmem": "11702780kb",
+        "walltime": "02:23:07"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673342.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d4",
+      "seed": 3456456,
+      "used": {
+        "cpupercent": 766,
+        "cput": "19:49:59",
+        "mem": "6114976kb",
+        "ncpus": 8,
+        "vmem": "11691292kb",
+        "walltime": "02:43:43"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673343.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d4",
+      "seed": 123,
+      "used": {
+        "cpupercent": 759,
+        "cput": "17:27:56",
+        "mem": "6099708kb",
+        "ncpus": 8,
+        "vmem": "11723192kb",
+        "walltime": "02:25:11"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673344.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d4",
+      "seed": 456,
+      "used": {
+        "cpupercent": 756,
+        "cput": "19:12:51",
+        "mem": "6069492kb",
+        "ncpus": 8,
+        "vmem": "11640048kb",
+        "walltime": "02:39:46"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673345.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d4",
+      "seed": 786,
+      "used": {
+        "cpupercent": 766,
+        "cput": "15:41:44",
+        "mem": "6131032kb",
+        "ncpus": 8,
+        "vmem": "11706672kb",
+        "walltime": "02:08:23"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673346.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d4",
+      "seed": 2026,
+      "used": {
+        "cpupercent": 766,
+        "cput": "15:57:03",
+        "mem": "6096448kb",
+        "ncpus": 8,
+        "vmem": "11651760kb",
+        "walltime": "02:08:11"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673347.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d8",
+      "seed": 3456456,
+      "used": {
+        "cpupercent": 768,
+        "cput": "13:39:35",
+        "mem": "6089288kb",
+        "ncpus": 8,
+        "vmem": "11644516kb",
+        "walltime": "01:49:26"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673348.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d8",
+      "seed": 123,
+      "used": {
+        "cpupercent": 748,
+        "cput": "18:09:02",
+        "mem": "6078692kb",
+        "ncpus": 8,
+        "vmem": "11644936kb",
+        "walltime": "02:31:20"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673349.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d8",
+      "seed": 456,
+      "used": {
+        "cpupercent": 763,
+        "cput": "14:40:30",
+        "mem": "6091376kb",
+        "ncpus": 8,
+        "vmem": "11647936kb",
+        "walltime": "01:59:30"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673350.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d8",
+      "seed": 786,
+      "used": {
+        "cpupercent": 767,
+        "cput": "12:45:18",
+        "mem": "6082616kb",
+        "ncpus": 8,
+        "vmem": "11637008kb",
+        "walltime": "01:42:53"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673351.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "spatial_r16_d8",
+      "seed": 2026,
+      "used": {
+        "cpupercent": 767,
+        "cput": "12:44:54",
+        "mem": "6074752kb",
+        "ncpus": 8,
+        "vmem": "11624276kb",
+        "walltime": "01:42:34"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673352.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "ljonly_spatial_r16_d4",
+      "seed": 3456456,
+      "used": {
+        "cpupercent": 765,
+        "cput": "16:29:57",
+        "mem": "4790360kb",
+        "ncpus": 8,
+        "vmem": "10327032kb",
+        "walltime": "02:13:14"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673353.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "ljonly_spatial_r16_d4",
+      "seed": 123,
+      "used": {
+        "cpupercent": 766,
+        "cput": "13:59:13",
+        "mem": "4691500kb",
+        "ncpus": 8,
+        "vmem": "10230796kb",
+        "walltime": "01:51:18"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673354.zeus-master",
+      "state": "R",
+      "variant": "ljonly_spatial_r16_d4",
+      "seed": 456,
+      "used": {
+        "cpupercent": 764,
+        "cput": "23:13:35",
+        "mem": "4737820kb",
+        "ncpus": 8,
+        "vmem": "10274448kb",
+        "walltime": "03:09:25"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673355.zeus-master",
+      "state": "R",
+      "variant": "ljonly_spatial_r16_d4",
+      "seed": 786,
+      "used": {
+        "cpupercent": 764,
+        "cput": "23:19:34",
+        "mem": "4754192kb",
+        "ncpus": 8,
+        "vmem": "10284568kb",
+        "walltime": "03:09:24"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673356.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "variant": "ljonly_spatial_r16_d4",
+      "seed": 2026,
+      "used": {
+        "cpupercent": 765,
+        "cput": "18:30:23",
+        "mem": "4725872kb",
+        "ncpus": 8,
+        "vmem": "10282948kb",
+        "walltime": "02:30:26"
+      },
+      "dependency": "beforeany:4673357.zeus-master@zeus-master",
+      "hold": "n"
+    },
+    {
+      "job": "4673357.zeus-master",
+      "state": "H",
+      "dependency": "afterany:4673354.zeus-master@zeus-master:4673355.zeus-master@zeus-master",
+      "hold": "s"
+    }
+  ],
+  "checked_at_utc": "2026-09-08T09:08:15.000Z",
+  "artifact_root": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_spatial_decoder",
+  "scope": "Live PBS status only; scientific results not synchronized or aggregated."
+}

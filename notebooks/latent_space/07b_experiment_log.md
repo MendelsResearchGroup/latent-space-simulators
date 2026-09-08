@@ -692,3 +692,13 @@ frozen-AE propagator comparison.
 
 The notebook now uses `SEED = 456` for both the frozen AY AE split and the
 propagator, with a new cache name ending in `seed456_matched_split`.
+
+## Standalone notebook cleanup — 2026-09-08
+
+Notebook 07b was deleted from the working tree at user request after an initial
+archive move. Its original code remains recoverable from Git history.
+Inspection found its current saved code sets `SEED = 4654562`, despite the
+seed456 checkpoint/model name and the earlier statement above. That statement
+does not describe the current notebook configuration. No experiment was rerun
+or recipe corrected during cleanup; do not interpret it as a verified matched
+seed456 replay. This log and all historical results remain in place.
