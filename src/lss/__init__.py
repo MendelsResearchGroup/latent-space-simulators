@@ -1,6 +1,5 @@
-"""Latent-space simulator research package."""
+"""Graph dynamics learning and gradient-based network engineering.
 
-from .config import ExperimentConfig
-from .runner import run_graph_cv_experiment, run_graph_experiment
-
-__all__ = ["ExperimentConfig", "run_graph_experiment", "run_graph_cv_experiment"]
+Active workflows: lss.dynamics and lss.engineering.
+Historical CV/full-space experiments: lss.past_experiments.
+"""

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#PBS -N lss_mp2d_pr
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=1:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=04:00:00
+#PBS -j oe
+set -euo pipefail
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 MPLCONFIGDIR=/tmp/mpl-${PBS_JOBID}
+cd "${PBS_O_WORKDIR:?}"
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python "$LSS_EVAL_RUNNER" --checkpoint "$CHECKPOINT" --recipe "$RECIPE" --out "$OUT"

@@ -1,8 +1,12 @@
 import pandas as pd
 import pytest
 
-from lss.latent.analysis import label_evaluation_sources
-from lss.latent.experiment import _expand_component_configs, latent_experiment_cache_key
+from lss.dynamics.analysis import label_evaluation_sources
+from lss.dynamics.experiment import (
+    DEFAULT_PROPAGATOR_CHECKPOINT_METRIC,
+    _expand_component_configs,
+    latent_experiment_cache_key,
+)
 
 
 def test_nested_component_configs_expand_without_notebook_prefixes():
@@ -99,10 +103,31 @@ def test_cache_fingerprint_changes_with_model_config_but_not_runtime_path():
     assert base != changed_model
 
 
+def test_default_propagator_selection_is_state_loss_and_distinct_from_response_recipe():
+    """Default caches represent state-loss selection without epoch rollouts."""
+
+    assert DEFAULT_PROPAGATOR_CHECKPOINT_METRIC == "val_loss"
+    default_metric = {}.get(
+        "propagator_checkpoint_metric", DEFAULT_PROPAGATOR_CHECKPOINT_METRIC
+    )
+    rollout_callback_enabled = bool(
+        {}.get("propagator_rollout_eval_every_epoch", False)
+    ) or default_metric not in {None, "val_loss"}
+    assert not rollout_callback_enabled
+
+    source = {"path": "data.pt", "dataset_name": "example"}
+    state_loss_key = latent_experiment_cache_key(source, {"latent_dim": 2})
+    response_selected_key = latent_experiment_cache_key(
+        source,
+        {"latent_dim": 2, "propagator_checkpoint_metric": "val_rollout_p_ratio_r2"},
+    )
+    assert state_loss_key != response_selected_key
+
+
 @pytest.mark.parametrize('matches', [False, True])
 def test_cache_loading_checks_recipe_by_default(tmp_path, monkeypatch, matches):
     import torch
-    import lss.latent.experiment as experiment
+    import lss.dynamics.experiment as experiment
     path=tmp_path/'ae.pt'
     source={'path':'unused.pt','dataset_name':'example'}
     cfg={'latent_dim':2,'cache_path':str(path),'should_rollout':False,'should_train_propagator':False}

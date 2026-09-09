@@ -1,43 +1,69 @@
-# Latent-space simulator models
+# Models
 
-The active work learns dynamics from observed node coordinates/trajectories and graph structure. Coordinate reconstruction and latent-dynamics losses are the operative objectives. P-ratio and strain are post-fit diagnostics; slow-mode labels and physics-informed losses belong to historical training branches and are not inputs, targets, or selection criteria for the active state-only recipes.
+Active learned dynamics lives in `lss.dynamics`. The package learns from node
+positions, trajectories, and graph structure. P-ratio and strain are post-fit
+diagnostics, never model inputs, losses, or checkpoint-selection criteria.
 
-## Autoencoders
+## Autoencoder
 
-`src/lss/latent/experiment.py::_autoencoder_class` is the model registry. The standard attention AE builds reference-node features from reference positions and edges, combines current node features with evolving edge features, pools node states into a graph latent, and decodes per-node coordinates/displacements using node queries over learned latent tokens. `normalized_delta` is the current compact-LJ input/target convention, under per-trajectory reference-box coordinate normalization.
+`lss.dynamics.autoencoder` defines the graph autoencoders and
+`lss.dynamics.experiment` selects them for a named recipe. The standard model
+encodes reference geometry, current node state, and edge features into a graph
+latent, then decodes node coordinates or displacements. Compact-LJ recipes use
+`normalized_delta` with reference-box normalization.
 
-- `attention` / `attention_mlp`: baseline pyramid-attention AE.
-- `orientation_corrected`: baseline with reversal-consistent edge handling.
-- `attention_reference8`, `attention_reference16`, `attention_reference16_corrected`: retain an 8D/16D reference representation per node while dynamic hidden width remains larger. The corrected 16D form is the compact-reference default under current study.
-- `message_passing_reference16`: compact 16D reference plus residual nonlinear neighbour-message steps before pooling. `message_passing` applies the same idea to the full reference variant.
-- `attention_reference16_spatial_decoder`: compact reference with a graph-wide Transformer decoder over node states after latent-token attention; it is a candidate spatial-pattern decoder, not the established default.
-- `direct_attention`: decoder attention directly returns displacement values; `single_stage_attention` pools nodes directly to learned latent queries.
-- `mlp` / `pyramid_mlp`: mean-pooled MLP alternatives.
+The named AE families are attention, orientation-corrected attention,
+compact-reference attention, message-passing, direct-attention,
+single-stage-attention, and MLP baselines. Compact-reference and
+message-passing variants retain a small per-node reference representation while
+the dynamic encoder remains wider. The spatial decoder is an experimental
+decoder family, not a default.
 
-The AE reconstructs a frame from its observed state. It is not an autonomous simulator by itself. Compact-LJ recipes use fixed stored graph edges and five edge channels: vector (2), length, raw spring stiffness, and an LJ-relation indicator. LJ additionally connects missing original-spring-graph distance-2/3 pairs with zero raw stiffness and indicator one. The same schema is required through fitting and inference.
+LJ uses the same stored edge schema during fitting and inference: two edge-vector
+components, length, raw spring stiffness, and an LJ-relation indicator. Missing
+spring-graph distance-two and distance-three pairs are included with zero raw
+stiffness and indicator one.
 
-## Latent propagators
+## Propagator
 
-`src/lss/latent/models.py::make_latent_propagator` is the transition-model factory. Static graph context is a pooled reference representation; it is not an expert observable. The ordinary active reference-simplification model is `delta_mlp`: current `z` plus optional graph context, predicting a one-step latent delta. It trains on adjacent observed transitions and rolls out autonomously from frame zero.
+`lss.dynamics.propagator` and `make_latent_propagator` define latent transition
+models. `delta_mlp` is the ordinary state-only baseline: it predicts a one-step
+latent increment from the current latent and optional learned graph context.
+Other supported families include residual/direct MLPs, kinematic models, causal
+history models, recurrent models, and historical controls. A history model has
+a larger observed-state budget and must be reported separately from a
+current-state model.
 
-| Factory names | Inputs and causal budget | Output and use |
-| --- | --- | --- |
-| `residual_mlp`, `delta_mlp`, `linear` | Current `z`; optional pooled context | Respectively residual next `z`, delta `Δz`, or linear residual/delta transition. `delta_mlp` is the active baseline. |
-| `direct_mlp` / `jepa_mlp` | Current `z`; optional context | Direct next latent `z_next`, for next-embedding objectives. |
-| `kinematic_mlp`, `anchored_mlp`, `second_order_direct`; `velocity_mlp` | Current latent state in their defined kinematic/velocity parameterization; optional context | Second-order or velocity-style next-state update. |
-| `history_mlp`, `history_delta_mlp`, `history_attention` | A causal window of `history_depth` prior/current latents; optional context | Direct next latent, delta, or attention-based next latent. These consume more observed history than current-state models. |
-| `fixed_velocity_residual`, `fixed_window_velocity_residual`, `fixed_window` | Current latent plus fixed observed velocity/window inputs; optional progress if enabled | Residual next latent. The fixed window size is configurable. |
-| `fixed_history`, `fixed_window_history_context`, `fixed_window_history_gated_context` | Fixed observed latent history; the latter two construct learned or gated motion context | Next/residual latent with an explicit larger observed-history budget. |
-| `recurrent_memory_gru` | Current latent and recurrent hidden memory; optional context | GRU-based next latent. |
-| `polar`, `polar_rho`, `rho_theta`, `radial` | Latent represented in the model's polar form; optional context | Polar/radial latent transition. |
-| `delta_source_classifier`; `source_conditioned_fixed_velocity_residual`; `noisy_residual_fixed_velocity_residual` | Include source labels or specialised fixed-velocity/noise inputs | Specialised historical/control transitions, not active shared state-only recipes. |
+The AE reconstructs observed frames. Autonomous prediction requires a fitted
+propagator and must be evaluated separately from reconstruction. Report
+physical-coordinate p-ratio R-squared source-wise at stated horizons, with
+valid/total counts, alongside secondary coordinate diagnostics.
 
-`context_include_temperature` and source-name conditioning are factory options but are outside the current state-and-structure-only recipes. Objectives include one-step latent delta/next-state fitting and rollout-coordinate evaluation; active comparisons use source-wise coordinate validation. Historical response-selected, p-ratio-supervised, strain-supervised, and physics branches remain for provenance but are incompatible with the current requirement.
+## Engineering and history
 
-## Separate simulator modules
+`lss.engineering` loads frozen models and original networks, optimizes bounded
+edits with model gradients, freezes final designs, and performs final-only
+verification. Its workflow and scientific boundary are defined in
+[engineering_goal.md](research/engineering_goal.md).
 
-`static_autoencoder.py::StaticGraphAutoEncoder` is a masked static-graph denoising AE. It message-passes masked node/edge features, produces local node/edge encodings and a pooled static vector, then reconstructs node and edge features.
+`lss.past_experiments` contains retired implementations retained only for
+reproducibility. New code must import `lss.dynamics` or `lss.engineering`;
+there is no ongoing legacy import-alias support.
 
-`factorized_simulator.py` separates a displacement-only dynamic code from static graph features. `ConditionalDynamicAutoEncoder` pools node displacements to a dynamic code and decodes them with static node/global features. `StaticConditionedDeltaPropagator` predicts a residual dynamic-code update; `StaticConditionedNextStepSimulator` re-encodes the current displacement and decodes a coordinate increment; `AttentionStaticConditionedPropagator` applies Transformer attention over dynamic-coordinate tokens conditioned on the static code.
+The single-network notebook uses the converted working bundle
+`models/engineering/reid_frozen_ae.pt`; its adjacent migration record identifies
+the unchanged historical source and the converted-file hashes.
 
-`direct_autoencoder_simulator.py` trains a registered AE directly on observed frame-to-next-frame transitions and provides next-graph prediction and rollout evaluation. It is a direct coordinate-transition route, separate from freezing an AE and fitting a latent propagator.
+## Historical checkpoints
+
+Trusted PyTorch ZIP checkpoints with retired import names must be converted
+once before loading. Run:
+
+```bash
+python tools/migrations/checkpoint_imports.py SOURCE DESTINATION
+```
+
+The converter rewrites pickle import references, leaves the source checkpoint
+unchanged, verifies every non-pickle ZIP member, and writes a hash-backed
+`DESTINATION.migration.json` record. It does not promise that every historical
+checkpoint is compatible with the current runtime.

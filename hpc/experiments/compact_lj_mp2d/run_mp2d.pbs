@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#PBS -N lss_mp2d
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export LSS_PROJECT_ROOT="$PWD"
+export LSS_CODE_ROOT="$PWD/notebooks/results/compact_lj_reconstruction/code_v2"
+export LSS_CODE_VERSION="code_v4"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 MPLBACKEND=Agg
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/lss-mp2d-${PBS_JOBID}"
+mkdir -p notebooks/results/compact_lj_mp2d/logs
+exec >"notebooks/results/compact_lj_mp2d/logs/${PBS_JOBID}.log" 2>&1
+args=(--variant mp2_r16_d2 --seed "${LSS_SEED:?}")
+if [[ "${LSS_SMOKE:-0}" == "1" ]]; then args+=(--smoke); fi
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "$PWD/hpc/experiments/compact_lj_mp2d/run_compact_lj_mp2d.py" "${args[@]}"

@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=1:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=04:00:00
+#PBS -j oe
+set -euo pipefail
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 MPLCONFIGDIR=/tmp/mpl-${PBS_JOBID}
+cd "${LSS_PROJECT_ROOT:?}"
+"${LSS_PYTHON:?}" "${LSS_RUNNER:?}" --checkpoint "${CHECKPOINT:?}" --recipe "${RECIPE:?}" --out "${OUT:?}"

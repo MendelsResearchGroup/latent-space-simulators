@@ -1,7 +1,8 @@
 import torch
 
-from lss.latent.models import NodeDeltaMLPAutoEncoder, make_latent_propagator
-from lss.latent.training import (
+from lss.dynamics.autoencoder import NodeDeltaMLPAutoEncoder
+from lss.dynamics.propagator import make_latent_propagator
+from lss.dynamics.training import (
     LatentNormalizer,
     latent_step_fixed_history,
     latent_step_history,

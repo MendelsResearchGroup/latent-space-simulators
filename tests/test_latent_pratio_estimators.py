@@ -3,7 +3,7 @@ from __future__ import annotations
 import torch
 from torch_geometric.data import Data
 
-from lss.latent.experiment import ground_truth_p_ratio, temperature_p_ratio
+from lss.dynamics.experiment import ground_truth_p_ratio, temperature_p_ratio
 
 
 def _linear_strain_trajectory(*, p_ratio: float = 0.3, frames: int = 8):

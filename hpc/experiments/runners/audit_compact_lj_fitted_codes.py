@@ -7,8 +7,8 @@ FROZEN=HISTORICAL_RESULTS/'compact_lj_reconstruction/code_v2'
 sys.path.insert(0,str(FROZEN/'src'))
 import torch
 from lss.data import load_dataset
-from lss.latent.experiment import _autoencoder_class
-from lss.latent.training import decode_latent_positions, encode_frame_latent
+from lss.dynamics.experiment import _autoencoder_class
+from lss.dynamics.training import decode_latent_positions, encode_frame_latent
 IDS=(178,199,42); FRAMES=(25,100,199); VARIANTS=('r16_d4','ljonly_r16_d4')
 OUT=RESULTS_ROOT/'hpc_diagnostics/compact_lj_fitted_codes'
 def digest(p):

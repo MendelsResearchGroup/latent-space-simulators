@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+#PBS -N reid_joint_sw
+#PBS -j oe
+
+# The submitter must set LSS_STAGE to optimize or verify and LSS_OUTPUT to the
+# immutable experiment directory.  Verification is submitted with afterok on
+# optimization, so it never runs if freezing the complete design set fails.
+set -euo pipefail
+
+project_root=/rg/mendels_prj/alexander.z/latent-space-simulators
+python_bin=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+stage="${LSS_STAGE:?set LSS_STAGE to optimize or verify}"
+output="${LSS_OUTPUT:?set LSS_OUTPUT to notebooks/results/reid_joint_sweep/study_v1}"
+runner="${LSS_RUNNER:-$output/code/run.py}"
+
+case "$stage" in
+  prepare)
+    threads=4
+    ;;
+  screen)
+    threads=2
+    ;;
+  optimize)
+    threads=4
+    ;;
+  verify)
+    threads=1
+    # This must be present before the runner can invoke any physical verifier.
+    test -s "$output/frozen_designs.json"
+    ;;
+  freeze|collect)
+    threads=1
+    ;;
+  *)
+    printf 'Invalid LSS_STAGE: %s\\n' "$stage" >&2
+    exit 64
+    ;;
+esac
+
+test -x "$python_bin"
+test -f "$runner"  # immutable snapshot created before optimize submission
+mkdir -p "$output/logs"
+cd "$project_root"
+
+export OMP_NUM_THREADS="$threads"
+export OPENBLAS_NUM_THREADS="$threads"
+export MKL_NUM_THREADS="$threads"
+export NUMEXPR_NUM_THREADS="$threads"
+export MPLBACKEND=Agg
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/lss-ml-only-engineering-${PBS_JOBID:-local}"
+export PYTHONDONTWRITEBYTECODE=1
+
+log="$output/logs/${stage}_${PBS_JOBID:-local}.log"
+exec >"$log" 2>&1
+printf 'stage=%s job=%s output=%s threads=%s started_utc=%s\\n' \
+  "$stage" "${PBS_JOBID:-local}" "$output" "$threads" "$(date -u +%FT%TZ)"
+
+if [[ "$stage" == prepare ]]; then
+  exec "$python_bin" -u "$runner" --output "$output/prepared"
+fi
+if [[ "$stage" == screen ]]; then
+  exec "$python_bin" -u "$runner"
+fi
+exec "$python_bin" -u "$runner" --stage "$stage" --output "$output"

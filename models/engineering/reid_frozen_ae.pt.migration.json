@@ -1,0 +1,26 @@
+{
+  "source": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/study_v1/prepared/reid/prepare/prepared.pt",
+  "source_sha256": "b137ccfce3991d43fff5a7a57c271f0eb87327d83028d8fb834662e6d3e754ff",
+  "destination": "/rg/mendels_prj/alexander.z/latent-space-simulators/models/engineering/reid_frozen_ae.pt",
+  "destination_sha256": "404dd51f938a0cd358714e2a72569d17a4fba5e9d131be2cf1d087407604024e",
+  "converter_sha256": "93c11d3bb17819477f49a7c1176457d9a975cff8a7d7b1d508c912bb911effdf",
+  "globals_changed": [
+    {
+      "from": "lss.latent.models.NodeDeltaAttentionAutoEncoder",
+      "to": "lss.dynamics.autoencoder.NodeDeltaAttentionAutoEncoder"
+    },
+    {
+      "from": "lss.latent.models.PyramidAttentionPool",
+      "to": "lss.dynamics.autoencoder.PyramidAttentionPool"
+    },
+    {
+      "from": "lss.latent.models.SimpleAttentionPool",
+      "to": "lss.dynamics.autoencoder.SimpleAttentionPool"
+    },
+    {
+      "from": "lss.latent.models.DirectLatentAttentionPool",
+      "to": "lss.dynamics.autoencoder.DirectLatentAttentionPool"
+    }
+  ],
+  "all_other_zip_members_unchanged": true
+}

@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import math
 from pathlib import Path
-import sys
-from types import ModuleType
 from typing import Literal
 import warnings
 
@@ -163,18 +161,6 @@ def normalize_dataset_coordinates(
     for simulation in trajectories:
         normalize_trajectory_to_reference_box(simulation, pos_dim=pos_dim)
     return simulations
-
-
-def _install_legacy_auxetic_box_alias() -> None:
-    """Map legacy MetaForge pickles to the shared graph_utils Box class."""
-    auxetic_module = sys.modules.setdefault("auxetic", ModuleType("auxetic"))
-    network_module = sys.modules.setdefault("auxetic.network", ModuleType("auxetic.network"))
-    network_module.Box = Box
-    auxetic_module.network = network_module
-    # Some standalone trajectory generators serialized the same Box type as
-    # ``network.Box`` rather than ``auxetic.network.Box``.
-    legacy_network_module = sys.modules.setdefault("network", ModuleType("network"))
-    legacy_network_module.Box = Box
 
 
 def canonicalize_graph_edges(
@@ -442,7 +428,6 @@ def load_dataset(
     map_location: str | torch.device = "cpu",
     coordinate_normalization: str | None = None,
     pos_dim: int = 2,
-    edge_stiffness_length_exponent: int | None = None,
     append_lj_indicator: bool = False,
     add_lj_two_hop_edges: bool = False,
     lj_max_graph_distance: int | None = None,
@@ -453,7 +438,6 @@ def load_dataset(
     explicitly require both orientations can request ``edge_multiplicity=2``.
     The source file is never modified.
     """
-    _install_legacy_auxetic_box_alias()
     simulations = list(
         torch.load(
             Path(path),
@@ -461,8 +445,6 @@ def load_dataset(
             map_location=map_location,
         )
     )
-    # Kept in the signature for compatibility with older callers. Stiffness
-    # is now passed through unchanged for every source.
     normalize_dataset_edges(
         simulations,
         edge_multiplicity=edge_multiplicity,
@@ -538,7 +520,6 @@ def resolve_dataset_splits(
     edge_vector_dim: int = 2,
     coordinate_normalization: str | None = None,
     pos_dim: int = 2,
-    edge_stiffness_length_exponent: int | None = None,
     append_lj_indicator: bool = False,
     add_lj_two_hop_edges: bool = False,
     lj_max_graph_distance: int | None = None,
@@ -550,7 +531,6 @@ def resolve_dataset_splits(
             edge_vector_dim=edge_vector_dim,
             coordinate_normalization=coordinate_normalization,
             pos_dim=pos_dim,
-            edge_stiffness_length_exponent=edge_stiffness_length_exponent,
             append_lj_indicator=append_lj_indicator,
             add_lj_two_hop_edges=add_lj_two_hop_edges,
             lj_max_graph_distance=lj_max_graph_distance,
@@ -668,10 +648,6 @@ def resolve_dataset_splits(
                 "coordinate_normalization", coordinate_normalization
             ),
             pos_dim=int(spec.get("pos_dim", pos_dim)),
-            edge_stiffness_length_exponent=spec.get(
-                "edge_stiffness_length_exponent",
-                edge_stiffness_length_exponent,
-            ),
             append_lj_indicator=bool(
                 spec.get("append_lj_indicator", append_lj_indicator)
             ),

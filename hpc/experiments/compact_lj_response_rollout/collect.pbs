@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#PBS -N lss_response_plot
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=1:mem=2gb
+#PBS -l place=free:shared
+#PBS -l walltime=00:15:00
+#PBS -j oe
+set -euo pipefail
+cd "${LSS_PROJECT_ROOT:?}"
+export MPLBACKEND=Agg OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/lss-response-plot-${PBS_JOBID}"
+export IPYTHONDIR="$MPLCONFIGDIR/ipython" JUPYTER_RUNTIME_DIR="$MPLCONFIGDIR/jupyter"
+mkdir -p "$MPLCONFIGDIR"
+/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python "${LSS_COLLECTOR:?}"
+/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python - <<'PY'
+from pathlib import Path
+import nbformat
+from nbclient import NotebookClient
+p = Path('notebooks/dynamics/diagnostics/compact_lj_response_rollout.ipynb').resolve()
+n = nbformat.read(p, as_version=4)
+NotebookClient(n, timeout=600, kernel_name='python3', resources={'metadata': {'path': str(p.parent)}}).execute()
+nbformat.write(n, p)
+print('Refreshed inline response/rollout notebook:', p)
+PY

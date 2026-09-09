@@ -18,8 +18,8 @@ def load_portable_manifest(path):
 sys.path.insert(0,str(CODE/'src'))
 import pandas as pd
 import torch
-from lss.latent.experiment import run_latent_experiment,seed_everything,resolve_train_val_test
-from lss.latent.training import encode_frame_latent,decode_latent_to_graph
+from lss.dynamics.experiment import run_latent_experiment,seed_everything,resolve_train_val_test
+from lss.dynamics.training import encode_frame_latent,decode_latent_to_graph
 from latent_diagnostic_metrics import metrics,summarize
 
 VARIANTS=('near08','dim2','dim4','dim8','width128','tokens32','frames101','source_mean')

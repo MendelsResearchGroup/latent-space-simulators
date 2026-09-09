@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#PBS -N engineering_report
+#PBS -j oe
+set -euo pipefail
+project_root=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$project_root"
+export MPLBACKEND=Agg MPLCONFIGDIR=/tmp/lss-night-mpl XDG_CACHE_HOME=/tmp/lss-night-cache IPYTHONDIR=/tmp/lss-night-ipython JUPYTER_RUNTIME_DIR=/tmp/lss-night-jupyter
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "$project_root/notebooks/results/overnight_engineering_report/code/report.py"

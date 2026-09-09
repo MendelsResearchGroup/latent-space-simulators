@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#PBS -N lss_ljroll
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT="/rg/mendels_prj/alexander.z/latent-space-simulators"
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 MPLBACKEND=Agg PYTHONDONTWRITEBYTECODE=1
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/lss-ljroll-${PBS_JOBID}"
+mkdir -p notebooks/results/compact_lj_response_rollout/logs
+exec >"notebooks/results/compact_lj_response_rollout/logs/${PBS_JOBID}.log" 2>&1
+args=(--variant "${LSS_VARIANT:?}" --seed "${LSS_SEED:?}" --strategy "${LSS_STRATEGY:?}")
+[[ "${LSS_SMOKE:-0}" == 1 ]] && args+=(--smoke)
+[[ -n "${LSS_TAG:-}" ]] && args+=(--tag "$LSS_TAG")
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "${LSS_RUNNER:?}" "${args[@]}"

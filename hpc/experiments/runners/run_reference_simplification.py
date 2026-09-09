@@ -11,9 +11,9 @@ sys.path[:0]=[str(CODE/'src')]
 import numpy as np
 import pandas as pd
 import torch
-from lss.latent.experiment import (run_latent_experiment,seed_everything,resolve_train_val_test,
+from lss.dynamics.experiment import (run_latent_experiment,seed_everything,resolve_train_val_test,
     evaluate_rollout_horizons,evaluate_autoencoder_reconstruction_horizons,latent_experiment_cache_key)
-from lss.latent.capacity import load_experiment_bundle
+from lss.dynamics.capacity import load_experiment_bundle
 
 SOURCES=('reid','depablo_low_temp')
 MODELS={96:'attention',16:'attention_reference16',8:'attention_reference8'}

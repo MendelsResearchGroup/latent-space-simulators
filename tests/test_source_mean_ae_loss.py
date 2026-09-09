@@ -3,7 +3,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 import torch
-from lss.latent.training import epoch_autoencoder
+from lss.dynamics.training import epoch_autoencoder
 
 
 class SourceMeanLoss(unittest.TestCase):
@@ -20,8 +20,8 @@ class SourceMeanLoss(unittest.TestCase):
                  for name in ("target", "node_feature", "edge", "ref_edge")
                  for stat in ("mean", "std")}
         sims = [[SimpleNamespace(source_name=name)] for name in ("a", "a", "b")]
-        with patch("lss.latent.training.batch_delta_graphs", return_value=batch), patch(
-            "lss.latent.training.ae_target_tensor", return_value=zero
+        with patch("lss.dynamics.training.batch_delta_graphs", return_value=batch), patch(
+            "lss.dynamics.training.ae_target_tensor", return_value=zero
         ):
             result = epoch_autoencoder(FixedModel(), sims, [(0, 0), (1, 0), (2, 0)],
                 batch_graphs=3, pos_dim=1, node_feature_mode="normalized_delta",

@@ -305,7 +305,7 @@ passed for all ten variants/seeds; shared mendels_q, 8 CPUs/32GB, no host pins.
 Existing and new collectors rank only state reconstruction among eligible
 non-response-selected recipes; p-ratio/strain tables remain diagnostic only.
 
-Deeper architecture audit: `docs/research/shared_dynamics_deeper_audit.md`. Saved history diagnostics suggest LJ training error is also high (~0.30 normalized MSE vs ~0.33 validation); no irreducible-noise claim. Identified nonzero-mean standardized-edge reversal inconsistency in frozen model; algebraic check `scripts/audit_ae_edge_reversal.py`, downstream impact pending. Terra notified to isolate correction from architecture changes. Proposed encoder-vs-decoder latent optimization, latent-use controls, and predictive temporal objectives without expert supervision.
+Deeper architecture audit: `docs/past_experiments/research/shared_dynamics_deeper_audit.md`. Saved history diagnostics suggest LJ training error is also high (~0.30 normalized MSE vs ~0.33 validation); no irreducible-noise claim. Identified nonzero-mean standardized-edge reversal inconsistency in frozen model; algebraic check `scripts/audit_ae_edge_reversal.py`, downstream impact pending. Terra notified to isolate correction from architecture changes. Proposed encoder-vs-decoder latent optimization, latent-use controls, and predictive temporal objectives without expert supervision.
 
 ## Automatic AE reconstruction collection
 
@@ -326,7 +326,7 @@ All use historical uncorrected edge orientation; 6/8 disable diagnostic callback
 while2/4 had callback without response-based selection. Expert metrics are
 post-fit diagnostics only, not model-selection criteria.
 
-Pipeline audit saved at docs/research/latent_pipeline_audit.md. Default cache
+Pipeline audit saved at docs/past_experiments/research/latent_pipeline_audit.md. Default cache
 configuration matching is now enabled and regression-tested; current study
 force-training means stale reuse does not explain its outcomes. Targeted active
 pipeline suite:17 passed plus6 subtests, including batch-vs-single parity,
@@ -335,7 +335,7 @@ separate legacy simulator tests failed on stale argument signatures; recorded
 rather than hidden. Edge-reversal corrected controls and architecture study
 remain delegated to Terra, with smoke failures and retries preserved.
 
-User reports working LJ AE elsewhere. Historical08/09 comparison saved in docs/research/lj_historical_positive_control.md:08 LJ R2 .6296 on30 vs .4681 on110;09 .468 on110 under ordinary reconstruction selection. Recent6D differs materially in data budget,width,decoder tokens,objective,edges and evaluation split; it was not a positive-control replay. Exact user example requested; checkpoint not found in current08/09 results directory inventory.
+User reports working LJ AE elsewhere. Historical08/09 comparison saved in docs/past_experiments/research/lj_historical_positive_control.md:08 LJ R2 .6296 on30 vs .4681 on110;09 .468 on110 under ordinary reconstruction selection. Recent6D differs materially in data budget,width,decoder tokens,objective,edges and evaluation split; it was not a positive-control replay. Exact user example requested; checkpoint not found in current08/09 results directory inventory.
 
 ## Notebook08-inspired sweep and approved reserve migration
 
@@ -389,7 +389,7 @@ compact-reference sweep. Shared architecture study30/40 complete; MP2/D2 has
 five seeds and improves corrected-control coordinates, but LJ frame100 remains
 8.252e-6. Ten uncompleted cells are directory-collision failures, not model
 failures. Exact evidence, caveats and proposed conditional experiments:
-`docs/research/compact_reference_lj_next_plan.md`. Plan only, no new submissions.
+`docs/past_experiments/research/compact_reference_lj_next_plan.md`. Plan only, no new submissions.
 Prioritize matched shared/LJ-only reconstruction diagnostics with16D reference
 and wide control, full-time coverage, then conditional propagator training.
 
@@ -402,7 +402,7 @@ required representation and cannot settle LJ performance with the intended edges
 ### Compact-reference LJ reconstruction execution prepared — 2026-09-07
 
 User authorized continued reconstruction work and a motion/data audit. Exact
-50-run first matrix and limitations: docs/research/compact_reference_lj_next_plan.md.
+50-run first matrix and limitations: docs/past_experiments/research/compact_reference_lj_next_plan.md.
 Mandatory LJ graph-distance3 edges (raw added stiffness0), five-channel schema,
 full200-frame span, reference16 priority; latent2/4/6/8 + wider controls +MP2
 with required edges + LJ-only reconstructibility controls; five seeds. No new
@@ -573,3 +573,315 @@ Shared mendels_q8CPU16GB24h, no hostpin. Firstfull job measured6,327,228kB.
 Results compact_lj_spatial_decoder/. Existing50baselinefits reused; no repeated
 baseline training. Newdecoder effects pending.11active tests passed. Notebook11
 refreshed with50complete baselinefits and inline frozen-code/PCA/affine diagnostics.
+
+### Completed spatial-decoder comparison — 2026-09-08
+
+All20 full runs4673337–4673356 and collector4673357 finished with PBS exit0. Last run finished12:47:14 Israel; collector finished12:47:35. All completed artifacts, checkpoints, logs and collector tables synchronized from the donor repository;234 files verified by SHA256. Exact sync manifest, final PBS states, reproducible comparison script, paired seed results and recipe audit: `notebooks/results/compact_lj_spatial_decoder/review_20260908/`. Original status snapshot retained as a historical observation.
+
+Matched seeds3456456/123/456/786/2026, full200 frames,16D node reference, shared train30Reid/30low-T/60LJ, validation20/source; required graph-distance2/3 LJ relations and five-channel edges retained. Recipe assertions confirm identical paired data/split hashes and configured budgets except model/cache paths. New code manifest42802bfb7aa67402172555b8116f0c85af617b9f79450e87c4cc80a36a41d88e; baseline code hashes/checkpoint hashes and job mappings in comparison_metadata.json. Coordinate-only worst-source validation selection; mixed-T post-fit only, no final test.
+
+Frame199 coordinate MSE, mean ± sample SD across five seeds. Every row has100/100 valid evaluations for each model (20 unique networks repeated across five seeds). Negative change means lower error; percentage is change of means, not mean paired percentage (both saved in CSV).
+
+| Spatial variant | Source | Baseline MSE ± SD | Spatial MSE ± SD | Change | Improved seeds |
+| --- | --- | --- | --- | --- | --- |
+| ljonly_spatial_r16_d4 | lj_noisy | 4.08065e-05 ± 6.13e-07 | 4.35226e-05 ± 1.37e-06 | +6.66% | 0/5 |
+| spatial_r16_d2 | depablo_mixed_temp | 3.76944e-05 ± 3.39e-06 | 3.24295e-05 ± 1.86e-06 | -13.97% | 5/5 |
+| spatial_r16_d2 | depablo_low_temp | 1.44212e-05 ± 2.31e-06 | 1.17685e-05 ± 3.34e-07 | -18.39% | 5/5 |
+| spatial_r16_d2 | lj_noisy | 3.99904e-05 ± 1.45e-06 | 3.90931e-05 ± 5.29e-07 | -2.24% | 2/5 |
+| spatial_r16_d2 | reid | 3.19803e-05 ± 6.34e-07 | 3.20449e-05 ± 1.22e-06 | +0.20% | 3/5 |
+| spatial_r16_d4 | depablo_mixed_temp | 3.78528e-05 ± 5.22e-06 | 3.10283e-05 ± 7.24e-07 | -18.03% | 5/5 |
+| spatial_r16_d4 | depablo_low_temp | 1.47619e-05 ± 1.68e-06 | 1.25005e-05 ± 9.76e-07 | -15.32% | 4/5 |
+| spatial_r16_d4 | lj_noisy | 3.94145e-05 ± 1.8e-07 | 3.86328e-05 ± 5.74e-07 | -1.98% | 5/5 |
+| spatial_r16_d4 | reid | 3.16988e-05 ± 1.45e-06 | 3.07833e-05 ± 1.12e-06 | -2.89% | 4/5 |
+| spatial_r16_d8 | depablo_mixed_temp | 3.74803e-05 ± 3.3e-06 | 3.16401e-05 ± 2.23e-06 | -15.58% | 5/5 |
+| spatial_r16_d8 | depablo_low_temp | 1.45689e-05 ± 1.02e-06 | 1.21245e-05 ± 8.85e-07 | -16.78% | 5/5 |
+| spatial_r16_d8 | lj_noisy | 4.01114e-05 ± 1.14e-06 | 3.89172e-05 ± 1.08e-06 | -2.98% | 4/5 |
+| spatial_r16_d8 | reid | 3.14633e-05 ± 4.81e-07 | 3.24581e-05 ± 8.41e-07 | +3.16% | 1/5 |
+
+At frame100 shared LJ coordinate error is2.25/3.07/3.66% higher for D2/4/8; at199 only2.24/1.98/2.98% lower. LJ-only D4 is7.62% worse at100 and6.66% worse at199 (allfive paired seeds worse at199). Late low-T and mixed-T reconstruction improve materially; Reid is small/inconsistent. This architecture has not resolved the coordinate reconstruction limitation. Larger latent dimensions still provide no clear LJ rescue.
+
+Important claim boundary: no p-ratio reconstruction R² was computed in this new sweep. Coordinate MSE does not establish p-ratio failure. Shared spatialD4 LJ mean per-network displacement-explained score is0.8325 at100 and0.8077 at199 relative to zero displacement, so reconstruction is not wholly absent. This score is not p-ratio R². Historical poor p-ratio results concern earlier recipes. No propagator was trained.
+
+Architecture changes parameter count/initialization and realized stopping epochs: configured budgets match, realized updates do not. Shared-vs-LJ-only also differs in fitted normalization/exposure. Allfive LJ-only recipe files incorrectly state shared_fit=true; source.dataset_mixture contains LJ only and training exposure confirms60LJ/12000 frames. Treat this as a metadata flag bug, not shared fitting; preserve original recipes.
+
+Interpretation: decoder self-attention gives useful source-dependent coordinate gains but modest LJ gains. The earlier nonlinear topology-aware reference-encoding hypothesis remains motivated, not established. Post-fit p-ratio evaluation is still needed to answer the response-reconstruction question for these checkpoints; it must not enter fitting or selection.
+
+### Primary success metric and frozen p-ratio evaluation — 2026-09-08
+
+User clarified that post-fit p-ratio R² is the primary success metric, with
+coordinate reconstruction error secondary and potentially acceptable for a
+compact latent. This supersedes any implication that coordinate MSE alone
+justifies rejecting the current AEs. AGENTS.md, CONTRIBUTING.md, README.md and
+research status now state this explicitly. Training remains positions/dynamics/
+structure-only, with state-based checkpoint selection and no response inputs,
+losses or checkpoint selection.
+
+Authorized backfill: all50 compact_lj_reconstruction/code_v2 and20 spatial
+code_v1 frozen AEs, samefive seeds, exact20-network/source validation cohorts,
+frames25/50/100/150/199. Shared models additionally evaluate the existing
+mixed-T post-fit cohort. No final test and no propagator claim. Primary estimator
+declared before inspecting results: physical-coordinate endpoint directional-side
+p-ratio via graph_utils.calc_p_ratio_rollout_sides, same original frame0 side
+groups for true and decoded positions. The same endpoint formula is also
+reported in model coordinates for historical comparison: older bridge helpers
+scored normalized positions, whose anisotropic scaling can change the raw
+width/height-delta ratio. Physical evaluation explicitly inverts
+reference_box_half_extent/reference_box_center and verifies true values against
+raw data. Neither this coordinate-convention difference nor temperature-source
+historical trajectory-estimator scores should be conflated. Do not choose the
+estimator by observed R². Retain undefined predictions with valid/total counts.
+
+Smokes must verify checkpoint hashes unchanged, required LJ relations, original
+splits/data hashes, and coordinate parity with saved frame rows before broad
+post-fit evaluation. Recover existing weights first; new training only for
+irrecoverable missing artifacts. Evaluation scripts/artifacts are under
+hpc/experiments/compact_lj_pratio/ and notebooks/results/compact_lj_pratio/.
+
+### Frozen p-ratio evaluation launched after correctness checks — 2026-09-08
+
+All70 existing checkpoints were found; no training reruns needed. Full post-fit
+jobs4674041–4674110 submitted,1CPU16GB each,mendels_q,place=free:shared,no pins.
+Exact seeds/studies/checkpoint hashes and immutable source snapshots:
+compact_lj_pratio/jobs.jsonl,intended_matrix.json,execution_summary.json.
+Evaluation runner SHA25665b2da9aa5e34df1d56b05a8e717696b11e3667974fb50275514485fc7daef7f.
+
+Final smokes4674035(shared) and4674036(LJ-only spatial) completed400/100rows;
+checkpoints unchanged; max saved coordinate-MSE differences3.64e-11/1.82e-11.
+Independent raw-data p-ratio parity max5.32e-6 shared and2.67e-6 LJ-only.
+Allfour raw dataset hashes verified. Actual-runner synthetic inverse test
+includes a non-square reference and decoded graphs lacking normalization
+metadata. Exact physical reference positions must define side groups: inverse
+roundoff otherwise changes ties on regular LJ boundary grids. Inverse scales
+come from untouched reference metadata, never the minimal decoded graph.
+
+Preserved provisional/failed smoke attempts: mutable-path3989/3990;3995 wrapper
+absolute-path prefix failure;4003 omitted mixed-T evaluation;4010/4011 metadata
+loss in cloned graphs;4026/4027 wrongly required historical coordinate rows for
+new frame150. Final evaluation checks all common historical frames25/50/100/199;
+frame150 is additionally evaluated against raw physical p-ratio reference.
+No failed provisional output enters the final70-run collection.
+
+### Completed primary-metric backfill — 2026-09-08
+
+All70 frozen AEs evaluated successfully; jobs4674041–4674110 exit0. All23,500/
+23,500 network-frame predictions finite;235 source/frame cells with five seeds,
+100/100 evaluations each (20 unique validation networks). Mixed-T remains
+post-fit reconstruction transfer; no final test, propagator, or training rerun.
+Exact source/seed tables, rawtrue/pred p-ratios, paired comparisons and provenance:
+`notebooks/results/compact_lj_pratio/review.md` and its linked collection/ files.
+
+Primary metric changes the interpretation: LJ reconstruction is meaningful but
+moderate and horizon-dependent, not wholly absent. Standard shared2D gives
+physical endpoint p-ratio R²0.451±0.020 at100,0.413±0.269 at199. MP2D4 gives
+0.633±0.095 at100 but0.127±0.284 at199. Standard shared4D0.335±0.112/0.360±0.074;
+spatial4D0.206±0.286/0.315±0.470; spatial8D0.437±0.317/0.406±0.254. Wider96ref/8D
+late score0.457±0.195 is not an established winner. Increasing latent size is
+not a monotonic solution. Spatial2D's slight coordinate improvement at199 comes
+with paired p-ratio R² deterioration-0.453±0.248 (5/5 seeds worse). LJ-only D4
+-0.105±0.323/-1.262±0.870 at100/199; LJ-only spatial worse still. Shared/LJ-only
+normalization and exposure differ; do not interpret as isolated interference.
+
+Other source responses remain strong despite coordinate residuals: shared2D
+Reid0.931/0.956, low-T0.932/0.945, mixed-T0.840/0.898 at100/199. MP2D4 gives
+Reid0.950/0.924, low-T0.988/0.991, mixed-T0.884/0.923. Exact SDs and100/100 counts
+for every variant/source/horizon in review.md and source_frame_aggregate.csv.
+
+All checkpoints unchanged; max savedcoordinate-MSE delta8.73e-11; max inverse
+physical p-ratio reference discrepancy from rawdata5.32e-6. Physical primary and
+historical model-coordinate metrics separately recorded. Do not equate these
+endpoint scores with prior temperature-source trajectory estimators. No expert
+inputs, losses, or checkpoint selection were introduced.
+
+### Matched message-passing dimension and autonomous response study — 2026-09-08
+
+User requested matched 2D message passing, autonomous propagation, and inline
+source-wise p-ratio R² versus step plots comparing reconstruction with rollout.
+LJ R² >= 0.4 at the declared nonzero horizons is the desired outcome, not a
+checkpoint-selection rule or a promised result. Retain all negative/undefined
+scores. AE reconstruction is an observed-frame reference, not a mathematical
+upper bound on an observable score.
+
+New AE: mp2_r16_d2, five seeds 3456456/123/456/786/2026, matching completed
+mp2_r16_d4/code_v2 except latent dimension and output paths. Two encoder message
+passing rounds, 16D static reference/node, hidden96, 32 decoder tokens. Full
+200 frames (0–199), not just 100: 30 Reid + 30 low-T + 60 LJ trajectories,
+24,000 frame samples/epoch, validation20/source, mixed-T20 post-fit only.
+Required graph-distance-two/three LJ augmentation and exact existing splits
+remain unchanged. Existing MP4D/8D checkpoints are reused. AE selection remains
+worst-source coordinate validation reconstruction; no response callbacks.
+
+Propagation design: frozen MP2 2D and 4D AEs, five seeds each, shared deltaMLP
+hidden64 and mean static graph context projected16, with one-step delta loss
+versus eight-step autonomous latent-state supervision (horizons1–8). Both learn
+from the three retained sources only, full199 available transitions. State-only
+validation loss selects propagator checkpoints; explicitly disable historical
+default p-ratio selection. No expert inputs, physics losses, temperature/source
+metadata, or final-test use. Reference initial state is frame0; no future
+observations are supplied during autonomous rollout.
+
+Report physical-coordinate endpoint directional-side p-ratio at25/50/100/150/199,
+using exactly the same physical inverse, original reference side groups, and
+20 validation networks/source as the audited AE backfill. Mixed-T remains
+post-fit transfer. Save per-network true/predicted values, valid/total counts,
+seed means/SDs, source-wise curves, checkpoint/code/data hashes and PBS recipes.
+The completed MP4D reconstruction is 0.633±0.095 at100 but0.127±0.284 at199;
+late representation error and propagation error must be distinguished.
+
+Execution artifacts: compact_lj_mp2d/ and compact_lj_response_rollout/ under
+notebooks/results; runners under matching hpc/experiments subdirectories.
+Integration smokes gate full submission. Shared mendels_q, place=free:shared,
+no host pins; full training8CPU16GB. Submission and completion status will be
+recorded separately from this prospective recipe.
+
+### Matched MP2D training submitted — 2026-09-08
+
+Successful integration smoke4674631 exited0 in192.56s with frozen bundle
+latent/decode reload parity and peak RSS5.39GiB. Smoke success preceded first
+production submission; exact timing and identical training adapter hashes are
+in compact_lj_mp2d/smoke_gate.json. Preserve failed adapter smoke/code_v1,
+code_v2 successful smoke, and unsubmitted code_v3 bytecode-manifest attempt.
+Production immutable code_v4 reuses compact reconstruction training source
+manifest3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9.
+
+Five full AE jobs: seed3456456=4674650,123=4674651,456=4674652,
+786=4674653,2026=4674654. Per-seed afterok p-ratio jobs4674655–4674659;
+afterany collector4674660. Full runs observed around5.1–5.3GiB,8CPU16GB
+shared mendels_q. Exact recipes, hashes, dependencies and attempts:
+compact_lj_mp2d/jobs.jsonl and controlled_recipe.json. Scientific MP2D results
+are pending. New inline reader: diagnostics/compact_lj_response_rollout.ipynb;
+current completed curves are MP4D AE reconstruction only.
+
+### Frozen MP2D/4D propagation matrix submitted — 2026-09-08
+
+Final frozen harness code_rollout_v4 smokes4674692(one-step) and4674693
+(eight-step) completed in175.08/173.31s with800 rows each:400 reconstruction
+and400 autonomous evaluations, four sources ×20 validation networks ×five
+horizons. AE state and all normalizers remained exactly unchanged. Independent
+D4 reconstruction parity: max true p difference9.89e-17, predicted p7.61e-7,
+coordinate MSE2.55e-11. Declared tolerances1e-5 p-ratio and1e-10 MSE reflect
+float32/thread roundoff; failed earlier overly strict1e-10 p check is retained.
+Frozen-source hash verification ignores runtime bytecode and verifies every
+manifest-listed source file. No metric or model was selected using p-ratio.
+
+Training source manifest3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9;
+runner SHA256d27b8464d5f4d4a7909223fbc27104d346f922fe1bfac24cdf678c9475d7423c.
+Full20 jobs4674709–4674728: D2 jobs4674709–4674718 depend afterok on their
+matching AE jobs4674650–4674654; D4 jobs4674719–4674728 use completed AEs.
+Each dimension has seeds3456456/123/456/786/2026, one-step thenmultistep8
+perseed in the job ordering. Width64, mean reference context16, batch32,
+max30epochs/patience6, lr1e-4,wd1e-5, full199 transitions, equal-source loss.
+Only state validation loss selects propagator checkpoints; frame0 is the only
+observed dynamic state during autonomous evaluation. Required LJ relations and
+original source splits retained. Mixed-T is post-fit only; final test untouched.
+
+Live scheduler verification: ten D4 runs R, ten D2 runs dependency-held H.
+Final collector/inline-notebook refresh4674730 is dependency-held afterany all
+20 propagation runs, allfive independent D2 p-ratio evaluations, and initial
+AE collector4674660. Frozen collector SHA256c3f5d95e964102c5529e0d61bd5120156d426f6f86a21fcb0b215852b4894225.
+Exact identities/dependencies/resources in compact_lj_response_rollout/jobs.jsonl,
+collection_job.json and submission_pbs_status.json. Scientific full results are
+pending. Preserve all provisional smoke outputs and failed hash/parity attempts.
+
+The results-reader notebook executed successfully with current MP4D AE curves;
+missing MP2D and autonomous curves remain explicitly pending. It displays
+source-wise seed mean/SD, valid/total and finite-R² seed counts with an LJ0.4
+target line. Eight notebooks/68 code cells and eight data files passed the project
+checker. Collector checks passed for exact cohorts, duplicate rejection, physical
+target parity, perfect-prediction R²=1 and mean-prediction R²=0.
+
+Submission provenance qualification: the consolidated rollout intended_matrix.json
+was written after qsub and explicitly records that ordering; immutable runtime
+code existed before submission, and each job writes its full resolved recipe
+before fitting. Final smokes observed peak5,783,460kB;16GB requests retained.
+
+### LJ data-budget diagnosis requested — 2026-09-08
+
+User suggested more training to improve weak noisy-LJ reconstruction. Current
+shared MP4D has60 LJ training trajectories,20 validation,120 reserved; all200
+frames per training trajectory are already used. No reserve migration or new
+training is part of this diagnostic. First evaluate physical endpoint p-ratio
+reconstruction on all60 TRAIN LJ trajectories of the five frozen MP2R16D4
+checkpoints, at25/50/100/150/199, and compare against their existing20-network
+validation scores. Same exact estimator/inverse/original side groups as the
+validated backfill; weights and normalizers fixed. Report target variance and
+p-ratio MAE as well as R², since train and validation response spreads may differ.
+This distinguishes evidence for a generalization gap from difficulty fitting
+the response; coordinate training curves alone cannot answer that question.
+Artifacts and exact provenance: notebooks/results/compact_lj_training_gap/.
+
+Frozen LJ training-response diagnostic jobs were submitted before interruption: seed3456456=4674805.zeus-master, seed123=4674806.zeus-master, seed456=4674807.zeus-master, seed786=4674808.zeus-master, seed2026=4674809.zeus-master.
+Evaluation-only: five frozen MP4D checkpoints, no new fitting or reserve access.
+Runner SHA256 6497c5a6d17e88f2ca99a1e1955959e52b3fd99f235238245d6663a9b6250394.
+Collection resumed after interruption; completed metrics are pending verification.
+
+### Completed frozen LJ training-versus-validation response audit — 2026-09-08
+
+Allfive evaluation jobs4674805–4674809 produced successful completion markers,
+300 training rows each (60 training LJ networks ×five horizons). No fitting,
+checkpoint selection or reserved-data access. Training checkpoints unchanged.
+Historical PBS queries were intermittently unavailable; terminal success here
+is supported by saved completed.json artifacts, not a claim of verified PBS
+exit codes. Exact runner, data, split IDs, checkpoint, metric-module and collector
+hashes are saved in compact_lj_training_gap/{jobs_submitted.json,collection.json}.
+Collector SHA2563ae10e25a535353092af97cd8c6e919219ed8ece7e9753fa2a4ec6f694894709.
+
+Physical endpoint p-ratio R² mean ±sample SD across seeds3456456/123/456/786/2026.
+Every training cell has300/300 valid predictions (60 unique networks repeated
+five times); every validation cell100/100 (20 unique networks repeated). Exact
+train/validation IDs are disjoint, all five frames present, duplicates rejected.
+
+| Frame | Training R² | Validation R² | Training p MAE | Validation p MAE | Training target variance | Validation target variance |
+| --- | --- | --- | --- | --- | --- | --- |
+|25|0.381±0.210|0.217±0.305|0.04922|0.04701|0.006743|0.004217|
+|50|0.712±0.080|0.605±0.135|0.03988|0.03497|0.009735|0.004872|
+|100|0.824±0.025|0.633±0.095|0.03755|0.03604|0.013043|0.005393|
+|150|0.840±0.013|0.351±0.308|0.03825|0.04713|0.014937|0.005919|
+|199|0.817±0.041|0.127±0.284|0.04222|0.05825|0.017069|0.007100|
+
+Interpretation: late response reconstruction is possible on training networks;
+there is a held-out response-error gap. Do not interpret the R² difference
+alone as overfitting: validation target variance is smaller (about2.4x smaller
+at199), and validation MAE is actually slightly lower at25–100. At150/199,
+validation MAE also increases; late generalization is therefore a real concern,
+not solely an R² denominator effect. These data motivate testing additional
+independent LJ trajectories, but do not prove that more data will fix the gap.
+Keep the validation cohort fixed and the120 reserved LJ trajectories untouched.
+No additional training was launched by this diagnostic.
+
+Existing MP4D histories selected coordinate checkpoints at epochs8–10 and
+stopped20–22 under max60/patience12. Raising max_epochs alone would not bypass
+that early stop, and coordinate histories do not establish p-ratio convergence.
+The response-rollout notebook now includes inline training/validation R² and
+MAE curves plus target-variance and count tables.
+
+### Temporal linearity quick check — 2026-09-08
+
+User asked when Reid/dePablo trajectories become linear. Definition: fit each
+node coordinate against saved frame index, pool temporally centered SSE/SST;
+20-frame sliding windows,20 existing validation trajectories per source. No
+model training, response selection, or final-test analysis. All60 trajectories
+and every window finite; exact IDs/code hashes/manifest in
+notebooks/results/temporal_linearity_check/recipe.json, raw fits and summaries
+alongside it. These are coordinate-linearity R², not p-ratio scores.
+
+For all20 trajectories to pass in every subsequent window: threshold0.99 is
+met from window start0 for Reid and low-T; stricter0.999 is met from Reid6
+and low-T2. Mixed-T never meets either criterion through the last window180–199.
+Whole0–199 straight-line fit median R²: Reid0.999939,low-T0.999833,mixed-T0.766289.
+Mixed-T early/late20-frame window medians remain about0.18–0.23; no clear
+noise-free linear regime. Minimum-image fractional-coordinate unwrapping using
+each evolving box found zero crossings in these60 trajectories and preserved
+results; this does not establish absence of wrapping elsewhere in the datasets.
+Saved frame index is the reported unit; physical time per frame is undocumented.
+Threshold-dependent empirical characterization, not a universal onset or proof
+that the smaller motion components relevant to p-ratio are easy to predict.
+
+### Completed matched MP2D/4D autonomous response comparison
+
+All five new MP2D reconstruction evaluations and twenty frozen-AE propagator
+runs passed collection. Physical target cohorts, frozen AE reconstruction
+predictions and checkpoint hashes matched the independent reconstruction
+evaluations. Source-wise R² versus step, five-seed SD and valid/total counts:
+`notebooks/results/compact_lj_response_rollout/review.md`; exact rows,
+recipes, hashes, failures and job identities remain alongside the review.
+No response-selected checkpoints or final-test data were used.

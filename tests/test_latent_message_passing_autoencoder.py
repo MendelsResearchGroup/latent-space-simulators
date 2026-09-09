@@ -2,7 +2,7 @@ import unittest
 
 import torch
 
-from lss.latent.models import NodeDeltaMessagePassingAutoEncoder
+from lss.dynamics.autoencoder import NodeDeltaMessagePassingAutoEncoder
 
 
 class MessagePassingAutoEncoderTests(unittest.TestCase):

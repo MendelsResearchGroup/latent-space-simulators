@@ -1,5 +1,5 @@
 import torch
-from lss.latent.experiment import _autoencoder_class
+from lss.dynamics.experiment import _autoencoder_class
 
 
 def test_spatial_decoder_equivariance_batch_isolation_and_gradients():

@@ -2,8 +2,8 @@
 import io
 import pytest
 import torch
-from lss.latent.experiment import _autoencoder_class
-from lss.latent.models import DeltaLatentDynamicsMLP
+from lss.dynamics.experiment import _autoencoder_class
+from lss.dynamics.propagator import DeltaLatentDynamicsMLP
 
 
 @pytest.mark.parametrize('width',[8,16])

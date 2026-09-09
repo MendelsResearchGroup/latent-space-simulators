@@ -1,0 +1,20 @@
+{
+  "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/runs/engineering/reid84_known_case_20260909T070419Z",
+  "manifest": {
+    "recipe_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/runs/engineering/reid84_known_case_20260909T070419Z/frozen_recipe.json",
+    "recipe_sha256": "768a067b2c2c552c0a6e7df55c4a5cd03d7e580f59b1eb8dd80fa2889f6b6ebd",
+    "designs": [
+      {
+        "name": "original",
+        "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/runs/engineering/reid84_known_case_20260909T070419Z/original.pt",
+        "graph_sha256": "05c6d33ca81e35e248d38242375f48814d84e9516da1eb702e70c217d639a8f0"
+      },
+      {
+        "name": "optimized",
+        "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/runs/engineering/reid84_known_case_20260909T070419Z/optimized.pt",
+        "graph_sha256": "65b712d8dfe57dd1d9ca2c82b07e4af75728279d29c7ed3e1e911199ff43e7f0"
+      }
+    ]
+  },
+  "gif": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/engineering/Engineer one Reid network/engineering_comparison.gif"
+}

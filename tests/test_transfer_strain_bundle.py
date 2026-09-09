@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from torch_geometric.data import Data
 
-from lss.latent.transfer_strain_bundle import (
+from lss.dynamics.transfer_strain_bundle import (
     DirectionalStrainTransferBundle,
     directional_strain_latents,
 )

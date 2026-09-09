@@ -14,3 +14,11 @@ resolves dataset basenames below `$LSS_PROJECT_ROOT/data`.
 Post-fit diagnostics are also in `runners/`: motion, fitted-code, spatial
 residual, and compact comparison. Use `$LSS_HISTORICAL_RESULTS_ROOT` for inputs
 and `$LSS_RESULTS_ROOT` for fresh output.
+
+`compact_lj_pratio/` evaluates existing compact and spatial-decoder AE checkpoints
+for the project's primary success metric: post-fit endpoint p-ratio R². It
+preserves frozen weights, exact validation identities and mixed-T post-fit scope,
+and verifies saved coordinate-error parity before reporting response metrics.
+Physical-coordinate scores and historical model-coordinate scores are labelled
+separately. Per-network rows, seed metrics, source-wise means/SDs and valid/total
+counts are collected in `notebooks/results/compact_lj_pratio/collection/`.

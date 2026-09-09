@@ -5,8 +5,8 @@ from pathlib import Path
 ROOT=Path(os.environ.get('LSS_PROJECT_ROOT',Path(__file__).resolve().parents[3])); RESULTS_ROOT=Path(os.environ.get('LSS_RESULTS_ROOT',ROOT/'notebooks/results')); HISTORICAL_RESULTS=Path(os.environ.get('LSS_HISTORICAL_RESULTS_ROOT',ROOT/'notebooks/results')); FROZEN=HISTORICAL_RESULTS/'compact_lj_reconstruction/code_v2';sys.path.insert(0,str(FROZEN/'src'))
 import numpy as np, torch
 from lss.data import load_dataset
-from lss.latent.experiment import _autoencoder_class
-from lss.latent.training import encode_frame_latent,decode_latent_positions
+from lss.dynamics.experiment import _autoencoder_class
+from lss.dynamics.training import encode_frame_latent,decode_latent_positions
 OUT=RESULTS_ROOT/'hpc_diagnostics/compact_lj_spatial_residuals'; MANIFEST=Path(os.environ.get('LSS_SPLIT_MANIFEST',HISTORICAL_RESULTS/'lj_ae_08_bridge/split_manifest.json')); VARIANTS=('r16_d4','mp2_r16_d8','ljonly_r16_d4');SEEDS=(123,456,786);FRAMES=(25,100,199)
 def sha(p):
  h=hashlib.sha256()

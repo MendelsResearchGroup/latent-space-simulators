@@ -1,0 +1,17 @@
+{
+  "reason": "Final notebook validation after adding missing history/edit persistence. Prior verified example and failed ML-only history recovery retained. No recipe tuning or physical selection.",
+  "thread_count": 1,
+  "kernel_python": "/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python",
+  "notebook_source_sha256": "4d6f81e7b81549b092cb4caf9a9aeae68e258a7a0637648388d21798ef4aba7a",
+  "launcher_sha256": "4337fb51f803a44fb8cc8d935f7d0cb4e47e938cf7a61c60aa7e00961d46e758",
+  "optimizer": "joint Adam",
+  "index": 84,
+  "learning_rate": 0.08,
+  "stiffness_bound": 0.25,
+  "patience": 50,
+  "max_steps": 1200,
+  "min_delta": 1e-05,
+  "position_radius": 4,
+  "mask_blocking_nodes": true,
+  "selection": "lowest feasible frozen ML score, including initial; physical verification not used"
+}

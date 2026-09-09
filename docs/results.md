@@ -1,23 +1,19 @@
-# Experiment results
+# Results and provenance
 
-`notebooks/results/` contains the available scientific experiment artifacts: split manifests, exact recipes, job records, source-wise tables, diagnostics, frozen source snapshots, and trained weights. The working copy includes large artifacts; Git ignores datasets, model weights, and historical frozen code directories. Small result tables and provenance remain available for version control.
+`notebooks/results/` stores split manifests, frozen recipes and source
+snapshots, source-wise tables, diagnostics, job records, and model artifacts.
+Its directory names preserve experiment identity; they do not make a recipe a
+current baseline.
 
-| Study | Main evidence |
-| --- | --- |
-| `reference_simplification/collection_code_v2` | Matched node-reference 96/16/8, latent 2/4, and propagator-context 16/0 comparisons |
-| `compact_lj_reconstruction/collection_code_v2` | Full-horizon shared and LJ-only AE reconstruction; capacity and message-passing comparisons |
-| `lj_ae_08_bridge` | Coordinate-selected experiments close to notebook 08's architecture |
-| `compact_lj_motion_audit` | Descriptive trajectory motion and per-network PCA diagnostics |
-| `compact_lj_fitted_codes` | Frozen-decoder, per-example latent optimization diagnostics |
-| `compact_lj_spatial_residuals` | Post-fit spatial decomposition of reconstruction residuals |
-| `compact_lj_spatial_decoder` | Spatial-decoder experiment snapshot; some runs were pending when copied |
-| `in_memory_normalization_audit` | Coordinate-normalization checks |
-| `latent_*`, `06b_*`, `lj_ae_capacity`, `lj_ae_repair`, `shared_ae_architecture`, `ae_information_audit` | Earlier comparisons, controls, and diagnostic attempts |
+Start with the [experiment results index](../notebooks/latent_space/experiment_results_index.md)
+for conclusions, exact configurations, seeds, valid/total counts, and links to
+source artifacts. The [research status](research-status.md) provides only the
+current high-level interpretation.
 
-The [results index](../notebooks/latent_space/experiment_results_index.md) and linked experiment logs provide the interpretation, exact recipes, and known confounds. Directory names preserve historical experiment identities; they do not imply that every recipe is a current baseline. In particular, response-selected runs are historical evidence, not valid state-only model-selection recipes.
+Response-selected experiments, simulator-guided engineering, and incomplete
+matrices are retained as historical evidence. They must be identified as such
+and cannot establish current state-only dynamics or ML-only engineering claims.
 
-This is a standalone snapshot, not a live view of cluster jobs. Running or queued jobs retain their recorded status until results are collected. Historical manifests may contain the original machine paths; these are provenance records and are left unchanged. The portable HPC runners resolve dataset names against this project's `data/` directory for new work. New runs should use the output location documented in `hpc/README.md`.
-
-Exact notebook-specific cache directories for the main sequence (formerly 06/06b/09) were unavailable. Preserved plots are historical outputs, not fresh executions; see [the notebook map](notebooks.md) for the new numbering and dependencies. Removed notebooks remain in Git history; their experiment artifacts and historical IDs are retained here. Scheduler chatter, duplicate compressed/normalized data, and the external engineering simulation workspace are omitted. Selected downstream engineering results are in `examples/network_design/`.
-
-`notebooks/results/artifact-manifest.json` records hashes of the copied runtime source and historical result files, together with the donor commit. The donor worktree contained changes, so the file hashes identify the actual copied code. `data/manifest.json` independently identifies the supplied datasets. `environment-tested.json` records the dependency versions used for local validation; it is an environment record, not a cross-platform lockfile.
+Artifacts are a snapshot, not a scheduler view. Result manifests and dataset
+manifests identify copied files and inputs; use `hpc/README.md` for new-run
+output locations.

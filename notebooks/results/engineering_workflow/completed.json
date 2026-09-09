@@ -1,0 +1,45 @@
+{
+  "runs": [
+    {
+      "run": "runs/engineering/reid84_known_case_20260909T065036Z",
+      "steps": 594,
+      "ml_score": -1.0305200815200806,
+      "physical": {
+        "original": 0.14536385489933665,
+        "optimized": -0.1892959352030621
+      },
+      "history_saved_before_verification": false
+    },
+    {
+      "run": "runs/engineering/reid84_known_case_20260909T065259Z",
+      "steps": 565,
+      "ml_score": -1.0302908420562744,
+      "physical": {
+        "original": 0.14536385489933665,
+        "optimized": -0.18743888736952807
+      },
+      "history_saved_before_verification": true
+    },
+    {
+      "run": "runs/engineering/reid84_known_case_20260909T070419Z",
+      "steps": 565,
+      "ml_score": -1.0302908420562744,
+      "physical": {
+        "original": 0.14536385489933665,
+        "optimized": -0.18743888736952807
+      },
+      "history_saved_before_verification": true
+    }
+  ],
+  "notebook_sha256": "7f8258b83134377561044eab29870f98f22cd153d4a13c158dd9f9d202d6c4f5",
+  "gif_sha256": "866b2a1b2bd69a7548bdbbf4759e02ff883ea427ed0542c5f17bd020e34f026e",
+  "gif_frames": 121,
+  "gif_duration_ms": 4000,
+  "final_run": "runs/engineering/reid84_known_case_20260909T070419Z",
+  "failures": [
+    "initial notebook kernel socket permission failure",
+    "first-draft history/edits not saved; recovery failed exact graph parity",
+    "one duplicate ML-only recovery interrupted"
+  ],
+  "new_holdout_evidence": false
+}

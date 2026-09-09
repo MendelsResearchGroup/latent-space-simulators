@@ -37,12 +37,12 @@ import pandas as pd
 import torch
 
 from lss.data import append_lj_edge_indicator, load_dataset
-from lss.latent.experiment import (
+from lss.dynamics.experiment import (
     resolve_train_val_test,
     run_latent_experiment,
     seed_everything,
 )
-from lss.latent.training import decode_latent_to_graph, encode_frame_latent
+from lss.dynamics.training import decode_latent_to_graph, encode_frame_latent
 
 
 SEEDS = (3456456, 123, 456, 786, 2026)

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#PBS -N adam_showcase
+#PBS -j oe
+set -euo pipefail
+root=/rg/mendels_prj/alexander.z/latent-space-simulators
+py=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+out="${SHOWCASE_OUT:?}"; stage="${SHOWCASE_STAGE:?}"; key="${SHOWCASE_KEY:?}"
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 MPLBACKEND=Agg MPLCONFIGDIR="${TMPDIR:-/tmp}/showcase-${PBS_JOBID:-local}"
+mkdir -p "$out/logs"; exec >"$out/logs/${stage}_${key}_${PBS_JOBID:-local}.log" 2>&1; cd "$root"
+if [[ "$stage" == reid ]]; then "$py" -u "$out/code/replay.py" --output "$out" --id "$key"; fi
+if [[ "$stage" == collect ]]; then exec "$py" -u "$out/code/render.py" --collect --output "$out"; fi
+"$py" -u "$out/code/render.py" --output "$out" --key "$key"

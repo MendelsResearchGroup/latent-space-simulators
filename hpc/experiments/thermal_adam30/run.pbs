@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#PBS -N thermal_adam30
+#PBS -j oe
+set -euo pipefail
+project_root=/rg/mendels_prj/alexander.z/latent-space-simulators
+python_bin=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+stage="${LSS_STAGE:?}"; output="${LSS_OUTPUT:?}"; runner="${LSS_RUNNER:?}"
+case "$stage" in prepare|optimize) threads=4;; verify|collect) threads=1; test -s "$output/frozen_designs.json";; *) exit 64;; esac
+mkdir -p "$output/logs"; cd "$project_root"; export OMP_NUM_THREADS="$threads" OPENBLAS_NUM_THREADS="$threads" MKL_NUM_THREADS="$threads" NUMEXPR_NUM_THREADS="$threads" PYTHONDONTWRITEBYTECODE=1
+exec >"$output/logs/${stage}_${PBS_JOBID:-local}.log" 2>&1
+if [[ "$stage" == prepare ]]; then exec "$python_bin" -u "$runner" --output "$output"; fi
+if [[ "$stage" == verify ]]; then exec "$python_bin" -u "$runner" --output "$output" --temperature "${LSS_TEMPERATURE:?}" --index "${LSS_INDEX:?}"; fi
+if [[ "$stage" == collect ]]; then exec "$python_bin" -u "$runner" --output "$output"; fi
+exec "$python_bin" -u "$runner" --stage optimize --output "$output"

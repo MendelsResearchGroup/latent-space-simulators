@@ -3,7 +3,7 @@ from types import SimpleNamespace
 
 import torch
 
-from lss.latent.training import _source_mixed_rows
+from lss.dynamics.training import _source_mixed_rows
 
 
 def test_source_mixing_preserves_rows_and_spreads_small_sources():

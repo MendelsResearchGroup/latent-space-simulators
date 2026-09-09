@@ -709,7 +709,7 @@ All use historical uncorrected edge orientation; 6/8 disable diagnostic callback
 while2/4 had callback without response-based selection. Expert metrics are
 post-fit diagnostics only, not model-selection criteria.
 
-Pipeline audit saved at docs/research/latent_pipeline_audit.md. Default cache
+Pipeline audit saved at docs/past_experiments/research/latent_pipeline_audit.md. Default cache
 configuration matching is now enabled and regression-tested; current study
 force-training means stale reuse does not explain its outcomes. Targeted active
 pipeline suite:17 passed plus6 subtests, including batch-vs-single parity,

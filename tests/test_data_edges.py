@@ -12,8 +12,8 @@ from lss.data import (
     normalize_trajectory_to_reference_box,
     resolve_dataset_splits,
 )
-from lss.latent.simulation import batch_delta_graphs, set_reference_context_mode
-from lss.latent.training import (
+from lss.dynamics.simulation import batch_delta_graphs
+from lss.dynamics.training import (
     decode_latent_positions,
     encode_frame_latent,
     fit_latent_step_stats,
@@ -122,11 +122,9 @@ def test_load_dataset_keeps_raw_stiffness_under_coordinate_normalization(tmp_pat
     simulations = load_dataset(
         path,
         coordinate_normalization="position_normalization",
-        edge_stiffness_length_exponent=2,
     )
 
     normalized = simulations[0][0]
-    # The compatibility argument is intentionally ignored: stiffness is raw.
     torch.testing.assert_close(
         normalized.edge_attr[:, -1],
         torch.tensor([2.0, 3.0]),
@@ -227,7 +225,6 @@ def test_reference_box_normalization_keeps_inverse_square_stiffness_raw() -> Non
             [vector, torch.linalg.vector_norm(vector, dim=-1), stiffness]
         ),
         box=Box(-10, 10, -5, 5, -0.1, 0.1),
-        edge_stiffness_length_exponent=2,
     )
 
     normalize_trajectory_to_reference_box([graph])
@@ -367,8 +364,6 @@ def test_normalized_reference_context_does_not_reconstruct_physical_scale() -> N
     graph.edge_attr[:, :3] = graph.edge_attr[:, :3] / 5.0
     graph.edge_attr[:, 3] = graph.edge_attr[:, 3] * 5.0
     simulation = [graph]
-    set_reference_context_mode([simulation], "normalized")
-
     batch = batch_delta_graphs(
         [simulation], [(0, 0)], pos_dim=2, device="cpu"
     )

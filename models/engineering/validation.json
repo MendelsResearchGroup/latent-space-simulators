@@ -1,0 +1,14 @@
+{
+  "canonical_class": "lss.dynamics.autoencoder.NodeDeltaAttentionAutoEncoder",
+  "bundle_sha256": "404dd51f938a0cd358714e2a72569d17a4fba5e9d131be2cf1d087407604024e",
+  "network": 84,
+  "source": "reid",
+  "learning_rate": 0.02,
+  "stiffness_bound": 0.25,
+  "steps": 2,
+  "threads": 1,
+  "initial_score": 0.043594829738140106,
+  "final_score": 0.007926616817712784,
+  "legacy_modules_loaded": false,
+  "new_physics_runs": 0
+}

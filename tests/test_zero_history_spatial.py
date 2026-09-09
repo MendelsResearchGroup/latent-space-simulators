@@ -4,7 +4,7 @@ import torch
 from torch_geometric.data import Data
 
 from lss.graph import clone_graph, rollout
-from lss.training import _sample_autoregressive_loss
+from lss.past_experiments.training import _sample_autoregressive_loss
 
 
 def _frame(offset: float) -> Data:

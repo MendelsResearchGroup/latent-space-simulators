@@ -33,9 +33,6 @@ DATASET_COLORS = {
     "unknown": PAPER_COLORS["slate"],
 }
 
-# Backwards-compatible name used by older notebooks.
-SOURCE_COLORS = DATASET_COLORS
-
 LATENT_DIMENSION_COLORS = {
     1: PAPER_COLORS["purple"],
     2: PAPER_COLORS["blue"],

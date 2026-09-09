@@ -1,0 +1,81 @@
+[
+  {
+    "cell_type": "markdown",
+    "source": [
+      "# Engineer one Reid network\n",
+      "\n",
+      "Known-case refactor verification for Reid-84. The historical frozen z1 readout is response-calibrated; LAMMPS is final-only verification after graph hashes are frozen."
+    ]
+  },
+  {
+    "cell_type": "code",
+    "source": [
+      "%matplotlib inline\n",
+      "from datetime import datetime, timezone\n",
+      "from pathlib import Path\n",
+      "import sys\n",
+      "import torch\n",
+      "\n",
+      "ROOT = Path.cwd().resolve().parents[1]\n",
+      "sys.path.insert(0, str(ROOT / 'src'))\n",
+      "sys.path.insert(1, '/rg/mendels_prj/alexander.z/MetaForge/src')\n",
+      "\n",
+      "from lss.engineering import OptimizationConfig, load_model, load_network, optimize_network\n",
+      "from lss.plotting import apply_editorial_style\n",
+      "\n",
+      "apply_editorial_style()\n",
+      "torch.set_num_threads(1)\n",
+      "BUNDLE = ROOT / 'notebooks/results/reid_positive10/study_v1/prepared/reid/prepare/prepared.pt'\n",
+      "DATASET = ROOT / 'data/reid_200_frames.pt'\n",
+      "LAMMPS = Path('/rg/mendels_prj/alexander.z/DL-course-project/.runtime/lammps/bin/lmp')\n",
+      "ASSETS = Path.cwd() / 'Engineer one Reid network'\n",
+      "ASSETS.mkdir(exist_ok=True)\n",
+      "RUN = ROOT / 'runs/engineering' / f\"reid84_known_case_{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}\"\n",
+      "config = OptimizationConfig(learning_rate=.08, stiffness_bound=.25, patience=50, max_steps=1200, mask_blocking_nodes=True)\n",
+      "model = load_model(BUNDLE)\n",
+      "network = load_network(DATASET, 84, 'reid')"
+    ]
+  },
+  {
+    "cell_type": "code",
+    "source": [
+      "import matplotlib.pyplot as plt\n",
+      "\n",
+      "result = optimize_network(model, network, config)\n",
+      "fig, ax = plt.subplots(figsize=(6, 3))\n",
+      "ax.plot(result.history['step'], result.history['predicted_p'], color='#146b66', label='post-update score')\n",
+      "ax.plot(result.history['step'], result.history['best_score'], color='#c66a3d', label='strict best')\n",
+      "ax.set(xlabel='Adam step', ylabel='frozen z1 readout', title='ML-only optimization history')\n",
+      "ax.legend(frameon=False)\n",
+      "print(f'initial={result.initial_score:.6f}; best={result.best_score:.6f}; steps={result.steps}; stop={result.stop_reason}')"
+    ]
+  },
+  {
+    "cell_type": "code",
+    "source": [
+      "from lss.engineering import freeze_final_designs, verify_frozen_designs\n",
+      "\n",
+      "manifest = freeze_final_designs(result, RUN, dataset_path=DATASET, known_case_refactor_verification=True)\n",
+      "verification = verify_frozen_designs(RUN, LAMMPS)\n",
+      "print('Final designs saved and verified.')"
+    ]
+  },
+  {
+    "cell_type": "code",
+    "source": [
+      "import json\n",
+      "import pandas as pd\n",
+      "import shutil\n",
+      "from IPython.display import Image, display\n",
+      "from lss.engineering import render_comparison\n",
+      "\n",
+      "comparison = pd.DataFrame([{'design': name, 'physical_p_ratio': row['physical_p_ratio'], 'endpoint_parity_error': row['endpoint_parity_error'], 'frames': row['frame_count']} for name, row in verification.items()])\n",
+      "gif = render_comparison(RUN)\n",
+      "published_gif = ASSETS / gif.name\n",
+      "shutil.copy2(gif, published_gif)\n",
+      "(ASSETS / 'latest_run.json').write_text(json.dumps({'run_dir': str(RUN.resolve()), 'manifest': manifest, 'gif': str(published_gif.resolve())}, indent=2) + '\\n')\n",
+      "display(comparison)\n",
+      "display(Image(filename=str(published_gif)))"
+    ]
+  }
+]

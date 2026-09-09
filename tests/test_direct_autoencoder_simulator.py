@@ -4,7 +4,7 @@ import torch
 from torch import nn
 from torch_geometric.data import Data
 
-from lss.latent.direct_autoencoder_simulator import (
+from lss.dynamics.direct_autoencoder_simulator import (
     _direct_target_tensor,
     predict_next_graph,
 )

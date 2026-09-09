@@ -2,9 +2,9 @@
 from copy import deepcopy
 import torch
 from torch_geometric.data import Data
-from lss.latent.models import NodeDeltaAttentionAutoEncoder
-from lss.latent.simulation import batch_delta_graphs, ae_target_tensor
-from lss.latent.training import encode_frame_latent, decode_latent_positions
+from lss.dynamics.autoencoder import NodeDeltaAttentionAutoEncoder
+from lss.dynamics.simulation import batch_delta_graphs, ae_target_tensor
+from lss.dynamics.training import encode_frame_latent, decode_latent_positions
 
 
 def setup_case():

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import torch
 
-from lss.latent.training import (
+from lss.dynamics.training import (
     _nash_mtl_combined_gradients,
     _solve_nash_mtl_coefficients,
 )
