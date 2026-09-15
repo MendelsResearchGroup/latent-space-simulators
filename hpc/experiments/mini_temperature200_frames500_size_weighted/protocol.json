@@ -1,0 +1,19 @@
+{
+  "study": "mini_temperature200_frames500_size_weighted",
+  "version": "v2",
+  "purpose": "Validation-selected comparison of uniform and size-weighted normalized-displacement AE reconstruction for stiffness_low only.",
+  "source": "stiffness_low",
+  "seeds": [123, 456, 786],
+  "arms": ["uniform", "inverse_energy_cap100"],
+  "frames": {"included": [1, 499], "excluded": [0], "saved_md_step_stride": 200},
+  "split": {"train": [0, 20], "validation": [20, 40], "heldout_development_untouched": [40, 120]},
+  "model": "Fresh 2D message_passing_reference16 normalized-displacement AE; no propagator.",
+  "loss": {
+    "coordinates": "same standardized normalized-displacement target coordinates used by AE reconstruction",
+    "uniform": "weight 1 for every source/frame row t=1..499",
+    "inverse_energy_cap100": "E_t is training-only mean squared reference-displacement target magnitude after division by target_std (without target_mean subtraction), over trajectories, nodes and coordinates; epsilon=median(E_t:t=1..499)/100; raw=1/max(E_t,epsilon); normalize weights to mean 1 over t=1..499.",
+    "forbidden": ["stiffness", "strain", "p-ratio", "response labels", "heldout data"]
+  },
+  "selection": "Each arm restores its minimum corresponding validation coordinate objective. Both frozen arms record the common unweighted validation MSE and the common fixed inverse-energy validation MSE; only these commensurate validation diagnostics compare arms. Framewise/early coordinate reconstruction and p-ratio are post-fit diagnostics only. Heldout IDs 40..119 are not loaded by fitting or selection.",
+  "resources": {"queue": "mendels_q", "ncpus": 8, "mem": "16gb", "place": "free:shared"}
+}
