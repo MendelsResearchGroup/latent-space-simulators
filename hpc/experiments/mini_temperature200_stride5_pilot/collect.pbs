@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N mt200_s5_collect
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=1:mem=4gb
+#PBS -l place=free:shared
+#PBS -l walltime=01:00:00
+#PBS -j oe
+
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export LSS_PROJECT_ROOT="$PWD"
+mkdir -p notebooks/results/mini_temperature200_stride5_pilot/logs
+exec >"notebooks/results/mini_temperature200_stride5_pilot/logs/${PBS_JOBID}.log" 2>&1
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u \
+  hpc/experiments/mini_temperature200_stride5_pilot/collect.py

@@ -1,0 +1,94 @@
+"""Insert the matched latent/box-response example into dynamics notebook 01."""
+
+from pathlib import Path
+
+import nbformat as nbf
+
+
+ROOT = Path(__file__).resolve().parents[2]
+TARGET = ROOT / "notebooks/dynamics/01_mixed_dataset_shared_latent_space.ipynb"
+HEADING = "## Same latent, opposite box response"
+
+MARKDOWN = """## Same latent, opposite box response
+
+Held-out low-T node network 47 and stiffness network 106 nearly meet in both latent coordinates at frame 33. The physical curve uses the **raw box height change from frame 0**, not the boundary-node estimator used for notebook p-ratio. The exact frame-33 values are below the plot.
+"""
+
+CODE = r"""
+import sys
+if str(PROJECT_ROOT / 'src') not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / 'src'))
+from lss.plotting import apply_editorial_style, style_axes
+apply_editorial_style('light')
+
+pair_box = pd.read_csv(PROJECT_ROOT / 'notebooks/results/all4_coverage_1000/notebook01_crossing_pair/raw_box_motion.csv')
+PAIR_IDS = {'node_low': 47, 'stiffness_low': 106}
+PAIR_FRAME = 33
+assert len(pair_box) == 400
+
+fig, axes = plt.subplots(1, 3, figsize=(12.2, 3.65), constrained_layout=True)
+for source in LOW_SOURCES:
+    trajectory_id = PAIR_IDS[source]
+    color = SOURCE_COLORS[source]
+    name = 'node 47' if source == 'node_low' else 'stiffness 106'
+    latent = frame_df.query('source == @source and trajectory_id == @trajectory_id and frame <= 99').sort_values('frame')
+    box = pair_box.query('source == @source and trajectory_id == @trajectory_id and frame <= 99').sort_values('frame')
+    assert latent.frame.tolist() == box.frame.tolist() == list(range(100))
+    near = latent.query('20 <= frame <= 45')
+    point = latent.query('frame == @PAIR_FRAME').iloc[0]
+    box_point = box.query('frame == @PAIR_FRAME').iloc[0]
+    axes[0].plot(near.frame, near.z0, color=color, label=name, lw=1.8)
+    axes[0].scatter(PAIR_FRAME, point.z0, color=color, s=42, zorder=3)
+    axes[1].plot(near.z0, near.z1, color=color, lw=1.8)
+    axes[1].scatter(point.z0, point.z1, color=color, s=45, zorder=3)
+    axes[2].plot(box.frame, box.delta_Ly, color=color, lw=1.8)
+    axes[2].scatter(PAIR_FRAME, box_point.delta_Ly, color=color, s=42, zorder=3)
+
+axes[0].set_title('z0 crossing')
+axes[1].set_title('Raw latent paths')
+axes[2].set_title('Physical y-box motion')
+axes[0].axvline(PAIR_FRAME, color='#7a858c', lw=.8, alpha=.55)
+axes[2].axvline(PAIR_FRAME, color='#7a858c', lw=.8, alpha=.55)
+axes[2].axhline(0, color='#7a858c', lw=.8, alpha=.55)
+style_axes(axes[0], xlabel='frame', ylabel='z0', legend=True)
+style_axes(axes[1], xlabel='z0', ylabel='z1')
+style_axes(axes[2], xlabel='frame', ylabel='box ΔLy')
+plt.show()
+
+latent_at_33 = frame_df.query('frame == @PAIR_FRAME and ((source == "node_low" and trajectory_id == 47) or (source == "stiffness_low" and trajectory_id == 106))')
+box_at_33 = pair_box.query('frame == @PAIR_FRAME')
+values = latent_at_33.merge(box_at_33, on=['source', 'trajectory_id', 'frame'], validate='one_to_one')
+assert len(values) == 2
+assert values.set_index('source').loc['node_low', 'delta_Ly'] > 0 > values.set_index('source').loc['stiffness_low', 'delta_Ly']
+latent_distance = np.linalg.norm(values[['z0', 'z1']].to_numpy()[0] - values[['z0', 'z1']].to_numpy()[1])
+print(f'Frame 33 · 2D latent separation {latent_distance:.6f} · both box x-strains {values.strain_x.iloc[0]:.5f}')
+display(values.assign(network=values.source.map({'node_low': 'node 47', 'stiffness_low': 'stiffness 106'}))
+        [['network', 'z0', 'z1', 'delta_Ly', 'strain_y', 'box_p_ratio']]
+        .rename(columns={'delta_Ly': 'box ΔLy', 'strain_y': 'box y-strain', 'box_p_ratio': 'box p-ratio'})
+        .round(6).reset_index(drop=True))
+"""
+
+
+def main() -> None:
+    notebook = nbf.read(TARGET, as_version=4)
+    existing = [index for index, cell in enumerate(notebook.cells) if cell.cell_type == "markdown" and cell.source.startswith(HEADING)]
+    if existing:
+        index = existing[0]
+        if len(existing) != 1 or notebook.cells[index + 1].cell_type != "code":
+            raise ValueError("Unexpected existing crossing section")
+        notebook.cells[index].source = MARKDOWN
+        notebook.cells[index + 1].source = CODE.strip() + "\n"
+        notebook.cells[index + 1].outputs = []
+        notebook.cells[index + 1].execution_count = None
+    else:
+        scope = [index for index, cell in enumerate(notebook.cells) if cell.cell_type == "markdown" and cell.source.startswith("## Scope")]
+        if len(scope) != 1:
+            raise ValueError("Expected exactly one scope section")
+        notebook.cells[scope[0]:scope[0]] = [nbf.v4.new_markdown_cell(MARKDOWN), nbf.v4.new_code_cell(CODE.strip() + "\n")]
+    nbf.validate(notebook)
+    nbf.write(notebook, TARGET)
+    print(f"Updated {TARGET} ({len(notebook.cells)} cells)")
+
+
+if __name__ == "__main__":
+    main()

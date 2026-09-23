@@ -1,0 +1,10 @@
+{
+  "expected": 630,
+  "observed": 630,
+  "valid": 630,
+  "missing_ids": [],
+  "missing_keys": 0,
+  "manifest_sha256": "63e537a7ab85b99a2c7610d0da554e5f7847158968e662050814d74f1fe4a116",
+  "protocol_sha256": "45c58529e337c20f7bda21160a29ba6444f53a491447c668160bfeb91c161500",
+  "feedback_to_optimizer": false
+}

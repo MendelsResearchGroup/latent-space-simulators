@@ -1,0 +1,17 @@
+{
+  "baseline_ae_sha256": "11a4a3f73154ef711d657e0bc1ef2a615e424d141382846bd3f6dcab1aa9f561",
+  "comparison_csv_sha256": "0140c02e47cb694afe6c24df88c7fbc26f6c1eb5fb33aecdc1c5566aff434e20",
+  "final_test_used": false,
+  "job_id": "4688466.zeus-master",
+  "propagator_sha256": {
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_temperature200_stride5_pilot/seed123/propagator.pt": "9bd794e03365eb7b8d9f0c18bb54f8070f27720f2a46c17efdac3df4f0bfe378",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_temperature200_stride5_pilot/seed456/propagator.pt": "b3e6013e06f302464615ca41540265806f95c26604dd12645e7a8aabff4386ed",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_temperature200_stride5_pilot/seed786/propagator.pt": "feff859002a57ca2e840fb2c88792e2909de246c5cd6ddba817bb72555373a7e"
+  },
+  "seeds": [
+    123,
+    456,
+    786
+  ],
+  "status": "complete"
+}

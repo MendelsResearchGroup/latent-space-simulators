@@ -1,0 +1,5 @@
+source,mode,rows,max_abs_true_p_error,max_abs_pred_p_error
+node_mixed,ae_reconstruction,80,6.201480995393638e-09,3.0337804490798703e-09
+node_mixed,autonomous_delta_mlp,80,6.201480995393638e-09,3.956025951268316e-09
+stiffness_mixed,ae_reconstruction,80,4.739502346140512e-09,2.0466729422352614e-09
+stiffness_mixed,autonomous_delta_mlp,80,4.739502346140512e-09,2.0602275441206075e-09

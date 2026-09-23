@@ -1,0 +1,5 @@
+split,source,trajectory_id,temperature,frames,first_time,last_time
+train,node_low,0,1e-07,200,0,199000
+train,stiffness_low,0,1e-07,200,0,199000
+validation,node_low,20,1e-07,200,0,199000
+validation,stiffness_low,20,1e-07,200,0,199000

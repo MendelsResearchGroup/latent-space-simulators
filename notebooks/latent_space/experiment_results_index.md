@@ -1430,3 +1430,2976 @@ Removed runtime module aliases (`lss.latent`, `lss.models`, retired top-level mo
 Converted a separate engineering working bundle to `models/engineering/reid_frozen_ae.pt` with `tools/migrations/checkpoint_imports.py`; historical source remains unchanged. Source SHA256 b137ccfce3991d43fff5a7a57c271f0eb87327d83028d8fb834662e6d3e754ff; converted SHA256 404dd51f938a0cd358714e2a72569d17a4fba5e9d131be2cf1d087407604024e. Only pickle import references changed; other ZIP members/tensor storage were preserved. Conversion manifest includes the tool hash and all rewritten references. Engineering notebook setup now points to this working copy, while historical outputs and manifests remain untouched. All six raw dataset pickle inventories already used current types, so data were not converted.
 
 Validation: 69 tests passed. Converted-model Reid 84 check (two joint Adam steps, learning rate .02, bound .25, one CPU thread, remaining optimizer defaults unchanged) exactly reproduced initial score .043594829738140106 and final score .007926616817712784 without loading legacy modules. The score is the existing calibrated downstream proxy, not a physical or autonomous position prediction. `models/engineering/validation.json` records the check. No new training, LAMMPS verification, p-ratio evaluation, split change or final-test use.
+
+
+### Shared MP2D response and raw-latent notebook — 2026-09-09
+
+Created `notebooks/dynamics/04_shared_ae_response_and_latents.ipynb`: one shared reconstruction p-ratio R² plot for all four sources with five-seed mean/SD, raw z0–z1 trajectories, paths colored by physical frame response, initial latent versus final p-ratio, fixed-step latent/response correlations, strain associations and original-network descriptors. No new training or propagator results.
+
+Raw-latent export uses predeclared seed786 of frozen `compact_lj_mp2d/mp2_r16_d2_s786_code_v4/ae.pt` (SHA25619fc84204be908dad3843ba38a1765bdecad7abf35d701aa50b3b23b0baa64f9), all200frames of20existingvalidationnetworks/source:80networks,16000/16000finite latentpairs. Mixed-T remains post-fit transfer. Physical endpoint p-ratio uses original physical frame-zero side groups, quantile.10; all400targets at25/50/100/150/199 exactlymatch independent saved evaluation. Per source3980/4000defined p-ratios:20frame-zero values remainNaN. No final-test evaluation, response-selection or new physics. Rawaxes are single-seed encoder outputs, notaligned/PCAtransformed acrossseeds.
+
+Correlations are descriptive Pearson associations: initialz→finalphysicalp at199 uses20networks/source; framewisez→framep compares20networks at eachfixedhorizon, notpooledtimepoints. Strain heatmaps usefixedframe100; networkdescriptors useoriginalspringedges excluding LJaugmentedrelations. Undefinedconstantobservable correlations aremarked. These are not held-out predictionR², autonomouspositionpredictions or engineeringreliability evidence.
+
+Allsevenfigures savedinline in eightexecutedcodecells, noerrors; nofigurefiles exported. ExactIDs, source/checkpoint/recipe/datahashes, code snapshot, CSVs, paritychecks and presentationhashes are in `notebooks/results/mp2_latent_analysis/`. Extractioncompletedlocally ononeCPU beforea proposedqueuehandoff; noPBSjob submitted. Plottingusescachedtables.
+
+User requested excluding mixed-T from this notebook. Refreshed all seven inline plots and displayed tables to include only Reid, low-T dePablo and noisy LJ: 60 networks / 12,000 latent frames. The complete four-source export remains preserved; this is a presentation filter, with no new inference, fitting or evaluation. Current presentation hashes and the three-source plotting helper are saved alongside the export.
+
+Added all-frame raw z0/z1 scatter plots against same-frame physical p-ratio and transverse strain, source-wise for Reid/low-T/LJ and colored by step. Per source: 3,980/4,000 p-ratio pairs (frame-zero undefined), 4,000/4,000 strain pairs. These are repeated trajectory observations; no pooled significance or predictive score is inferred. Nine inline figures saved; no new inference, fitting or physics.
+
+
+### Shared MP2D early-step reconstruction evaluation — 2026-09-09
+
+User requested the reconstruction p-ratio R² curve begin at step 1. Evaluate steps 1/5/10 from the same five frozen MP2D checkpoints (seeds 3456456/123/456/786/2026), with step25 as a per-network parity check against the existing physical evaluation. Preserve the exact20 validation IDs/source for Reid, low-T dePablo and noisy LJ; exclude mixed-T as requested. Use the established physical endpoint side estimator with original reference-side memberships (quantile0.10), saved normalizers and LJ graph-distance-two/three augmentation. No training, response selection, physics or final-test use. Selected-frame preprocessing avoids processing unrelated trajectories. Evaluation job4676379.zeus-master uses mendels_q, free:shared, 2CPUs/6GB. Results and provenance will be retained under `notebooks/results/mp2_latent_analysis/early_response/`; notebook04 combines these new early measurements with the existing25/50/100/150/199 curve.
+
+Evaluation completed in job4676381.zeus-master:54s PBSwalltime,48s CPU,2452440KB measured memory (runner peakRSS2553172KB). All1200/1200 network/seed/frame pairs finite; each of60 source/seed/horizon summaries20/20valid,100/100 pooled per source/horizon. Step25 truth/prediction parity passed for all300pairs with maximum absolute difference9.8879238130678e-17. Dataset hashes match allfive trainingrecipes; exact IDs/checkpoint and recipe hashes, code snapshots and resource/job provenance retained in early_response.
+
+New reconstruction R² mean±sampleSD acrossfive seeds at steps1/5/10: Reid−2.148572±3.648592 /0.064992±0.325833 /0.611693±0.073369; low-T dePablo−7.760463±2.936845 /0.613843±0.122322 /0.713498±0.061885; noisyLJ−11.030956±9.865822 /−3.709510±3.210145 /−1.853691±1.494054. Early negative scores are retained; no coordinate-error-only judgment or estimator change. Notebook04 now includes measured1/5/10/25/50/100/150/199 with five-seed SD. Its y-axis is linear in[−1,1], logarithmic outside, so both early negative scores and later positive response remain visible. Nine inline figures executed without errors.
+
+Two launcher/output-directory failures preceded the collected evaluation and are retained in early_response/attempt_logs and metadata.failures:4676379 stopped at preflight before loading data;4676380 completed inference but failed at final directory creation before parity/CSV persistence.4676381 is the sole collected attempt. No model, metric, cohort or selection changes between attempts.
+
+
+### Initial LJ line and network-level latent rates — 2026-09-09
+
+User requested an explanation of the initial LJ latent line and trajectory slopes, with only supported associations shown in the notebook. Subsequent steering moves the reconstruction R² display start to step5 and separates plotting from evaluation: do not execute notebooks or inspect rendered images. Step1 evaluation artifacts remain preserved. Notebook04 now reads cached tables and contains the new compact plotting code directly; affected stale outputs were cleared. Syntax and table consistency checks passed, with no notebook execution.
+
+Analyzed frozen representative seed786, exact20 existing validation IDs each for Reid/low-T/LJ (60 total, no mixed-T or final test). Reused all200-frame latent/physical exports; extracted original physical frame-zero geometry, spring stiffness, connectivity and orientation descriptors from the hash-matched datasets. No model inference, training, checkpoint selection or physics. A requested operational worker remained pending initialization, so root completed the extraction locally. The first extraction stopped because raw Reid lacked edge_multiplicity metadata; no rows were saved. Canonical unique-undirected edge normalization resolved it without changing physical positions. Source hashes, exact IDs, definitions, runtime/RSS and that failure are recorded under mp2_latent_analysis/structure_descriptors.
+
+The initial LJ leading line accounts for94.3812% of its raw initial latent variance. Position along it correlates with mean initial physical y-position: Pearson r=-0.791107, Spearman=-0.625564, paired-bootstrap95% interval[-0.934178,-0.432567], leave-one-network-out range[-0.868139,-0.712960],20/20valid. This is a geometric placement association, not established mechanical response or proof of a translation artifact. A controlled intervention would be needed for a causal claim.
+
+Trajectory rates are OLS dz/dstep with intercept over frames0–199. Against established final physical endpoint p-ratio at199: Reid dz0/dstep r=-0.969170 (bootstrap95%[-0.986493,-0.940581]); low-T dz0/dstep r=-0.993679 ([-0.997651,-0.988257]); LJ dz1/dstep r=-0.825622 ([-0.933511,-0.641386]). Each20/20valid. These descriptive correlations are not predictive R², reconstructed-position accuracy, autonomous rollout or engineering reliability. Geometric path slopes OLS z1 versus z0 correlate with finalp at about-0.307/+0.306/-0.625 respectively and do not survive the full search correction, so they are not highlighted.
+
+Full audit contains612 source/latent/observable rows,600 evaluated and12 constant/incomplete. All four displayed findings pass a global maximum-absolute-correlation permutation correction across600 tests, using20000 independent within-source network permutations, seed20260909. Adjusted p: initialLJ0.011549; Reidrate0.000050; lowTrate0.000050; LJrate0.003200. All retain sign when any one network is removed. Bootstrap5000 paired-network resamples use the same seed; intervals are exploratory after selection, not independent confirmation. No p-ratio/strain was used to change model fitting or checkpoint selection. Full search, selected plotting rows, definitions, line directions, code/data hashes and code snapshots are under mp2_latent_analysis/correlation_search. The notebook replaces two broad scans with one four-panel view and preserves the earlier framewise/raw-latent views.
+
+User requested local latent increments versus same-frame p-ratio. Added a cached-data-only notebook04 view of Δz/Δstep=(z_t−z_{t−1})/(t−(t−1)) against established physical p-ratio at ending frame t, steps5–199, no smoothing. Both raw latent coordinates shown for allthree retained sources in one2×3figure. Calculated1170 within-source/within-step correlations (195steps×3sources×2latents), all20/20valid network pairs. Median Pearson r for z0/z1: Reid−0.921508/−0.756935; low-T−0.977302/−0.792287; LJ−0.561741/−0.638375. Distinguish these from whole-trajectory OLS rates versus finalp; repeated frame pairs are not independent samples. Code, exact definition and hashes in mp2_latent_analysis/correlation_search/frame_rate_metadata.json and code/analyze_frame_rates.py. No new inference, fitting, physics or final-test use. Notebook syntax validated but not executed/rendered, per user instruction.
+
+
+### Interior spring crossings in the Adam Reid showcase — 2026-09-09
+
+User reported edges lying over one another inside engineered networks. Read-only audit of all10 saved original/optimized Reid design pairs for `lr0.08_b0.25_p50_mask_blocking_nodes` confirms proper interior crossings introduced by position optimization: original0/10 designs with crossings, optimized10/10. Crossing pair counts by ID:2=40,52=32,53=39,57=16,59=38,74=30,84=66,93=53,96=30,97=33. These are present in saved designs before LAMMPS; the audit excludes shared-node joints and wrapping edges, so it is independent of periodic rendering. It is conservative, omitting collinear overlaps, near contacts and periodic-edge intersections. No mixed-T or other-run validity claim follows.
+
+The current geometry checks enforce length bounds, pairwise node separation and boundary memberships but omit spring–spring intersections. The reported physical p-ratios remain unchanged, but all10 audited optimized designs fail the newly explicit planar no-crossing requirement. Added that requirement to docs/research/engineering_goal.md and a concise failure annotation to engineering notebook01 without executing it. No optimizer implementation, frozen historical artifact, selection rule, simulation or notebook output was regenerated. A corrected constrained study must have a new frozen recipe and remain ML-only; geometric feasibility checks do not require LAMMPS.
+
+Exact graph paths/hashes, crossing node-index pairs, counts, audit code and four passing analytic geometry checks are under notebooks/results/engineering_geometry_audit/. No images inspected or new jobs submitted.
+
+
+### Planar joint-Adam rerun, prospectively declared — 2026-09-09
+
+User authorized re-optimizing the same10 Reid and30 mixed-temperature networks with crossing prevention, followed by GIFs. Start from their original physical frame-zero networks, never the prior engineered graphs or matched low-T counterparts. Retain frozen model seed786 and historical calibrated z1 readouts; these scores are downstream response-calibrated proxies, not autonomous position predictions. Reid uses lr0.08/bound0.25/patience50; mixed-T uses arm-A lr0.02/bound0.25/patience50. Both: joint raw-gradient Adam, max1200steps, min_delta1e-5, radius4, unchanged topology/box/boundary nodes and strict lowest feasible frozen-ML score. Blocking-node masking is retained for Reid and explicitly added to the thermal arm-A hyperparameters to handle geometric obstructions. No physical-response-based stopping, editing, restarts or selection.
+
+New PlanarConstraints checks all neighboring periodic images, proper intersections, nonincident contacts, and collinear overlaps while permitting ordinary shared-node joints. Accepted states require pair clearance min(0.05×median original spring length,0.5×original pair clearance), with a numerical tolerance floor. Analytic orientation roots detect contacts during the full linear interpolation from the previous accepted state, so an Adam move cannot jump through another spring and emerge crossing-free. Fixed periodic bond images and noncollapse are also enforced. Twelve geometry tests cover these cases, including a sampled independent orientation oracle. Full suite passed81tests and6subtests. A3-step Reid84 smoke preserved zero periodic contacts while reducing the frozen proxy0.04359483→−0.21449578; no LAMMPS was run for that smoke.
+
+Freeze every final graph and all40 outcomes before final-only verification. Reid retains its120-increment athermal compression protocol; thermal retains the separately declared finite-T protocol,3paired Maxwell velocity seeds786/123/456 and200frames, with p-ratio from minus the transverse/axial strain-vs-frame OLS slope ratio. This is the existing declared thermal protocol, not a recovered original dataset generator. Every final physical trajectory will be audited for contacts; contact failures remain failures even if p-ratio is negative and cannot feed back into optimization. Save all40 comparison GIFs, including failures when trajectories exist, for4seconds in notebooks/engineering/Planar Adam engineering/. Display IDs are fixed before physical results: Reid93/84/96/97/52; thermal47/68/140/161/242/268. Notebook03 is a plotting/view layer over saved results; do not execute notebooks or inspect rendered images.
+
+Exact cohorts, model migrations/tensor checks, frozen code/recipes, geometry audit, submissions, failures and results live under notebooks/results/planar_engineering/study_v1 and hpc/experiments/planar_engineering. Optimization uses shared mendels_q without host pins. Initial test import failed when MetaForge/src was missing from PYTHONPATH; adding the required auxetic dependency resolved it, and the full suite passed. No scientific recipe was selected by this environment repair.
+
+### Dense Reid small-step study — prospectively declared, 2026-09-09
+
+User supplied data/data_reid_with_angles and requested canonical assembly, integrity checks, AE displacement reconstruction R² by step, then100-step autonomous propagation. User capped the cohort at100networks. Planned70train/10validation/20finaltest with response-independent network-level splitseed123; preserve every available frame in the selected canonical dataset and use a contiguous0–100prefix for this study. Initial chunks contain1000frames rather than the requested/expected1500 and lackphysicaltime metadata; fullselected-cohortaudit pending, so no density-only-equivalence claim. Protocol: notebooks/results/dense_reid/protocol.md. Matched2D/4D × seeds123/456/786,Reference16MP2 AE,one-step/multistep8 deltaMLP; state-onlycheckpointselection. Postfit displacement-from-reference,consecutive-frame displacement,andprimaryp-ratioR² at every horizon1–100; validation andfinaltest keptseparate. Test only afterfitting allpredeclaredchoices; no test-driven retuning. Nojobs orresults areclaimed by this declaration.
+
+Dense Reid preparation and launch completed. Selected100/100trajectories have1000frames each (100000/100000frames validated), not1500. Canonical data/reid_with_angles_1000_frames.pt SHA256f0ca7c612e3550fae8e52f58228d25f0bde369eb4ae04fc7cef07d7219d5dbcc; first101prefix SHA25657acf561f3e263fa4e87c52d161fbc87bd94ef7b785de0efbc7f9dc88fa7851b. Rawtensors retained,Box converted tocurrentgraph_utils class,provenance added; no inventedtime/temp. Fouredgecolumns validated as signedperiodicvector,length,stiffness; angularpotentialmetadata absent. Selected100 have0exacttopologyhashmatches to each historicalReidfile, so this is not established matched-frame-density resampling. All10000prefixtransitions change; medianabsolute coordinateincrement2.25544e-4 versusfloat32spacing2.38419e-7. OLSlinearpath residual/centeredSSEmedian1.19072e-4: earlynonlinearity exists but is small. Audit and sourcehashes: notebooks/results/dense_reid/audit/README.md anddata manifest. ConversionpeakRSS3.15GiB; standardnormalizedloader10100frames passed,peak939752KB,8.05s.
+
+Smoke4677438.zeus-master completed bothpropagators, AEfreeze/normalizerassertions, andall101horizonmetrics on2train/2validation;60.41seconds,peak1484412KB,no finaltest. Frozen trainingharness/codehashmanifest2c126a8a25c071ca614899aa2bd435a35fbc7e9a3ee2f6de2f4cc65eab0c8f8e; preparedmanifest75b3d61adb3ef0c1f1b7b72fc583a99db23928217ba30c8ec54da834ff08feb4. Fullchains4677439/440/441:2D seeds123/456/786;4677442/443/444:4D same seeds. AllsixconfirmedR in mendels_q with8CPU16GBfree:shared. EachtrainsAE thenone-step+multistep8propagators andpostfitvalidation/testmetrics. Collector4677445 dependsafteranyallsix; exactjobs/hashes in dense_reid/jobs.jsonl,collection_job.json,launch_status.json. Notebook notebooks/dynamics/05_dense_reid_small_steps.ipynb reads saved tables,unexecuted. Userexplicitlyrequestedendingtheturnoncealltrainingisrunning; fulltrainingresults remainpending, no performanceclaim.
+
+Planarengineeringupdate2026-09-09: userrequested dropping thelasttwo unfinishedoptimizations36/268 andproceeding. All10Reid+28thermal designsretained; cancelledcases remainexplicitin40-rowmanifest. Globalfreeze4677371completed,38finalverification/GIFjobsreleased; replacementcollector4677469queued. No physicalresponsefeedback, no result-basedcase selection. See network_engineering_log.md andstudy_v1/user_cancellation.json. Added unexecuted notebooks/engineering/03_planar_adam_engineering.ipynb forcachedresults andfixedGIFexamples. Physicalverification/GIFresults arepending.
+
+### Dense Reid with angles: completed held-out evaluation — 2026-09-09
+
+Terra confirmed allsixtrainingchains4677439–4677444 andcollector4677445 completedPBSexit0. All6AEs and12propagators have savedresults; nofailuretrace. Exact100networkresponse-independentcohort70train/10validation/20test; testnotusedfornormalization,fitting,checkpointselection. Each retainedframe0–100,2D/4DReference16MP2,modelseeds123/456/786,frozenAEandnormalizerassertionspassed. Bothone-step andmultistep8 trainedlatentloss; decodedphysicalmetricsarepostfit. Source=reid_dense. Data/split/codehashes andhistories remainindense_reid/; notebook05readscompletedcachedtables,notexecuted.
+
+Atstep100 finaltest (seedmean±sampleSD; everymetric20/20networksperseed,60/60repeatednetworkevaluationsacross3seeds):
+
+| Latent | Mode | Physical x/y displacement R² | Physical x/y increment R² | Physical endpoint p-ratio R² |
+| --- | --- | --- | --- | --- |
+| 2D | AE reconstruction | .918537±.000692 | .830400±.043647 | .933301±.022105 |
+| 2D | Autonomous one-step | .918347±.001809 | .859778±.032175 | .821303±.040173 |
+| 2D | Autonomous multistep8 | .918821±.001750 | .861021±.028288 | .816260±.045016 |
+| 4D | AE reconstruction | .914588±.008256 | .828090±.026886 | .944904±.010001 |
+| 4D | Autonomous one-step | .914155±.007564 | .867862±.049477 | .816709±.029053 |
+| 4D | Autonomous multistep8 | .915601±.007155 | .871383±.039407 | .816356±.034519 |
+
+Primaryresponseceilingandrolloutareseparate; no clearbenefitofmultistep8onstep100response. Earlystepsremainweak: step1meanphysicaldisplacementR²negativeforall6groups; bystep5means.613–.769. Retainfullearlycurvesandundefinedframe0scores. AE incrementsdifferenceconsecutivedecodedframes; autonomousfirstincrementstartsfromobservedphysicalframe0,sofirst-stepincrementerrorincludestheabsoluteinitialdecodingoffset. Subsequentrolloutincrementscompareconsecutivepredictions. MetricsareratioofsummedSSE/centeredcomponentSSToverpooledx/yphysicaldisplacements,noty-onlyR². Highlaterdisplacement/incrementR²doesnotaloneproveaccuraterecoveryofthesmallnonlinearresidual: dataauditlinearfitleavesmedian1.19e-4ofpositionvariance. All100framesandvalidcounts in per_seed_steps.csv/seed_summary.csv; conciseinterpretationinreview.md. No newtrainingorfinal-test-guidedretuningwasperformed.
+
+### Shared propagator repair through100 steps — protocol,2026-09-09
+
+User explicitly freezes the existing2D message-passing AE and prioritizes autonomous noisy-LJ p-ratio R² at100, approaching the AE reference. No AE training or dimensional sweep in this study. Existing five-seed validation at100: AE0.563±0.078, one-step rollout−1.887±0.559, multistep8−1.907±0.874; each20/20 valid perseed. Reuse exact existing training30Reid/30lowT/60LJ and20validation/source, graph-distance2/3 LJ augmentation, saved normalizers and three existing one-step initializations seeds123/456/786. Mixed-T and final test excluded.
+
+Predeclared12-run matrix: full100-step autonomous latent-state loss versus decoded-position loss(+0.1latent), Adam lr1e-4/3e-4, three seeds,40epochs/patience8. Supervision1/2/3/5/10/25/50/75/100; evaluationevery1–100. Both select by equal-source decoded-position validation MSE, epoch0 eligible. No p-ratio/strain inputs, losses or checkpoint selection. Frozen decoder passes gradients only to propagator. Frame0 is sole observed dynamic input. Protocol and exact splits: notebooks/results/lj100_propagator/protocol.json (SHA25682cd088d7a3eef75520b9efa072d08fcfd2abc20a4905b29a4ba677d1f5a0d84).
+
+Initial integration smokes4678412/4678413 completed, but review found source weighting, latent-stat warm-start preservation and dependency-freezing issues; those attempts are diagnostic only. Corrected immutable smoke required before production. Runner and PBS under hpc/experiments/lj100_propagator; all attempts preserved. Collector tools/analysis/collect_lj100_propagator.py retains all arms and failures, physical response R² and component-centered physical displacement R². Notebook notebooks/dynamics/06_shared_propagator_100_steps.ipynb reads cached tables; not executed. No production performance claim yet.
+
+### Shared100-step propagator repair submitted —2026-09-09
+
+Final immutable code_v6 smokes4678474/4678475 completed PBSexit0 in85.13/75.69runner seconds, peak5.737/5.729GiB. Each evaluates600rows (three validation networks, AE+autonomous, steps1–100),600/600finitepairs including2/3/5. Correctness comparison against18 historical rows (three sources,25/50/100,AE+rollout) measured maxtruep difference1.55523e-6 and maxpredictedp difference2.55157e-6. FrozenAE, normalizer and latent-stat digests unchanged. Puredecoded-position loss gradient topropagator sum9.685128; no latentloss included in this check. Initial smokes/code_v1–v5 remain preserved as diagnostic/failed or superseded attempts; v5 hardcoded parity field is not evidence and was replaced by actual v6 comparison.
+
+Production12jobs4678481–4678492 all initiallyRunning, mendels_q/free:shared8CPU16GB24h, collector4678493Held afteranyall12,2CPU4GB. No AE fitting. Exact mappings and submission hashes in notebooks/results/lj100_propagator/jobs.jsonl; final smoke_gate.json records measured gate evidence. Recursive copiedLSS dependencies, runner/evaluator and protocol frozen under code_v6; manifestSHA25690b90dcfecbb817fd9ab68c0dfc3f655144c179c634c1e50b82bce05658c0432. Frozen collector and dependency ledger retained. Training uses100autonomous steps and nine supervised horizons; p-ratio evaluated only after selecting by decoded-position validationloss. Initialepoch0eligible; all four variants/three seeds retained.
+
+Matchedthree-seed existing validationbaseline at100: noisyLJ AE0.594490±0.064363 versusone-step rollout−1.827949±0.729284; ReidAE0.956959±0.009619 versusrollout0.779318±0.038925; lowTAE0.991890±0.000178 versusrollout0.928330±0.051739. Each20/20perseed (60/60repeated,20unique/source). BaselineCSV saved without new inference. Productionresults pending; no claim of improvement from smoke. New notebook06_shared_propagator_100_steps reads futurecachedcollection; no notebook execution or figure export. User requested leaving full training oncluster after launch.
+
+### Broader frozen-AE propagator study —2026-09-09,pre-submission protocol
+
+User requested substantially different propagator approaches; keep frozen2DMPAE and focus100step physicalp-ratioR². Existing12 decoded/latentloss jobs4678481–4678492 remainrunning atsingleoperationalcheck, no tracederrors, collector4678493held. Do not duplicate orcancel them.
+
+New36arms: residual-rateMLP, inferred-velocity/acceleration, GRUmemory, attentionoverlast8generatedlatents, directtimeMLP, cubiclatenttrajectory; eachmeanreferencecontext versuslearned4-queryattention, seeds123/456/786. Allmodelsfreshlyinitialized hidden64; reference tokens are16DfrozenH_ref+2referencecoordinates, nofutureobservations. Directtime/cubic are directtrajectoryprediction, reported separately fromrecursiveautonomous. Normalizedstepindex isknownclock, notobservedstrain. AE remainsunchanged. No dimensionchange inthispropagator-only study. Sameexact30Reid30lowT60LJtrain,20validation/source; nofinaltest/mixedT.
+
+Commondecodedtarget-normalizedpositionMSE+.1normalizedlatentMSE at1/2/3/5/10/25/50/75/100,full100prediction; equal-source1/1/2minibatches, Adam3e-4wd1e-5,max60epochs/patience12, clip1. AllcheckpointselectionusespositionvalidationMSEalone,epoch0eligible,minimprove1e-5. Physicalp-ratioonlypostfit frompositions, originalsidequantile.10, every1–100, source-wise3seedmean/sampleSD andvalid/total. Reportallarms/failures; retainAEseparately.
+
+CachefrozenAEembeddings/targettensorsonceperseed toavoid36repeatedrawdata/AEencodingpasses. Preparationvalidatescacheddecoderagainstcanonicaldecode onfirstvalnetwork/source at1/25/100 andfrozenAEhashes; no p/straincachefeatures. Code: src/lss/dynamics/trajectory_propagator.py andhpc/experiments/lj100_broad. ProtocolSHA25624284a0ab8b2dbca4f0ad6ec0e7020e853468e27679ee98b4772cc05df495dcc; exactmatrix/splits innotebooks/results/lj100_broad/protocol.json. Modeltests: all12family/context combinations preserveinitialstateexactly, nodepermutationinvariance, finite/nonzerogradients andcheckpointreloadparity (oneparameterizedunittest,0.190s); fullcachedintegration/per-familydecodergradient smoke requiredbeforeproduction. No broadperformanceclaims yet.
+
+### Broad36-arm propagator matrix submitted —2026-09-09
+
+Frozen code_v1 cache smoke4678635 completedexit0,77.66runnersec/86PBSsec,5.72GiB peak, cacheddecoderparity0.0. All12family/context smokes4678636–4678647 completedexit0,600rowseach,1.94–3.31runnersec,14–15PBSsec,0.70–0.97GiB peak. Root verifiedallframes1–100 andphysical pernetwork schema,AE/normalizer/latentstat invariants, exactcheckpointreload, purepositiongradientrange0.152276–0.475222; historicalAEp-ratioparityat25/50/100 maxabsolute1.99079e-6. Evidence root_smoke_review.json andsmoke_gate.json; no performanceclaimfromsmoke.
+
+Productionaccepted: cache4678654(seed123),4678655(456),4678656(786) initiallyRunning8CPU16GB;36fits4678657–4678692 initiallyHeld afterokmatchingseedcache,4CPU4GB basedcachedsmokememory<1GiB; collector4678693Held afteranyall36,2CPU4GB. All mendels_q/free:shared, nohostpins. Fullcache retains120train/60validation, AE/data/norm provenance; previous12narrowjobsunchanged. RecursivecopiedLSS+runner/eval/prepare/collector/protocol immutablemanifestSHA2566478d2fd52eb2df5e0b6c270ab57b6e3977b894f300ea8a7a610f25b259cb3af. Exactarmmapping,dependencies,qsubcommands,submitterhash in lj100_broad/jobs.jsonl. Currentproduction submitter overrides frozenPBS8GB smoke request to4GB basedmeasurement; frozen scientificcodeunchanged.
+
+Notebook notebooks/dynamics/07_broad_propagator_100_steps.ipynb reads cachedsource-wisemetrics aftercollection, displaysall6families withmean/attentioncontext andsourcewise100steptable. Directtime/cubic prediction remains distinguishedfromrecursiveautonomousrollout; frozen2DAEdoesnot implyGRUmemoryhas2Dstate. Notebooknotexecuted,nofigures exported. All36resultsarepending; noimprovementclaim. Endinteractivewaitingafterconfirmedsubmission aspreviouslyrequested.
+
+### Three radical shared-dynamics hypotheses —2026-09-09,smoke submission
+
+User explicitly requestedthree additionalradicalideas andqueueing, aimingoneLSS acrosssourceswithmixedTnevertrained. Newstudy lj100_radical keepssamefrozen2DMPAE,30Reid30lowT60LJtrain,20validation/source,three modelseeds123/456/786 andsharedlearnedgraphconditioning; reusescompleted lj100_broad featurecaches ratherthanencodingagain.
+
+Predeclared9models: (1) graph-conditioned stable8Dliftedlineargenerator, A=.05(B−Bᵀ)−.1diag(softplus(diagB)+.001), exactmatrixexponential andlearnedlinearreadoutto2Dlatent; (2) soft4expert graph/time trajectorymixture withgraph-derivedweights,no datasetIDs; (3) conditionalflowmatching over200Dfuturelatentdisplacementpath,graph+initiallatentcondition,8fixedantitheticnoisesamples(seed91823),16Eulerflowsteps,meanofdecodedpositions forpointprediction, notbestof8. Flowmotionscale istraining-onlycomponentRMS,floor1e-3. Allinternalstate/lift/distributiondimensions areexplicit, notclaimingentiredynamicsstate2D. Allreferencecontextuses4queryattentionoverfrozen16DH_ref+2referencecoordinates.
+
+Operator/experts train decodedpositionMSE+.1latentMSE; flow trainsdecodedpositionMSEofestimatedflowendpoint+.1flowvelocityMSE. SameSUP1/2/3/5/10/25/50/75/100, Adam3e-4wd1e-5,sourcebalanced1/1/2,max60epochs/patience12,minimprove1e-5. Selectbythree-sourcepositionvalidationMSEalone,epoch0eligible; flowusesfixed8sampledecodedmean forvalidation. p-ratio/strain/sourceID/temperature excludedfromlearnedinputs/loss/checkpointselection. Operator/expertspredictionandflowensemblemean labeledseparately.
+
+MixedTpostfitonly: exact20existingvalidationIDs fromAErecipe mixed_evaluation; nofinaltest. Freezeallpredeclaredfitcheckpointsbeforemixedcache/evaluationchain. Reportphysicalendpointp-ratioR² andseparatelyprefix0..t negative ratiooftwoOLSstrain-vs-frame slopes,originalsidequantile.10,atall1–100; do notchoosefavorableestimator. Flowpositionensemblespreadsaved; noresponse-basedsampleselection. Cacheprovenancefrombroad preserved; newprotocolSHA256ecd0afbde12b6843e4b9d0367e3a28ad96c06b3bf74e061d22e86e56024d3ae5.
+
+Canonicalmodels src/lss/dynamics/radical_propagator.py; harnesshpc/experiments/lj100_radical. Smalllocalmodelchecks passed3families: exactinitialstate,nodepermutationinvariance,finite/nonzerogradients,flowtrainshape/finiteobjective. Frozen code_v1 smokes:fits4678753(operator),4678754(experts),4678755(flow),mixedprep4678756afteranyall3,mixedevals4678757–4678759afterokprep. Production9fits+postfittransfer awaitintegrationreview; noresultclaimfromsmoke. Existing12+36runsleftunchanged.
+
+### Completed48-run sharedpropagator evidence and radicalbudget revision —2026-09-09
+
+Both lj100_propagator(12/12) andlj100_broad(36/36) collectors reportcomplete. Rootreadcachedseed_summary.csv only, no additionalinference. At100, warm-startdecodedpositionfine-tuning lr3e-4: LJ−0.329599±0.132810, Reid0.835348±0.018367,lowT0.933744±0.032438; each60/60valid across3seeds,20unique/source. MatchedoriginalLJrollout−1.827949±0.729284; improvementdoesnotmeet0.4goal. Allotherarms retainedinrespective review.md/seed_summary.csv. HighestreportedbroadLJmean ishistory_attention/mean0.014119±0.175893, withReid0.541744±0.574589 andlowT0.143345±0.236871; noall-sourceworkingmodelclaim. This is retrospectivevalidationdescription, notresponsecheckpointselection orfinal-testclaim.
+
+Smallcachedcasecheck(seed123 only): direct_mlp/mean predictedp-ratioSD at100 is0.029206 vsGT0.075345 forLJ; Reid0.028520vs0.203294,lowT0.065369vs0.371283. history_attention/mean andgru/attention alsohavecompressedpredictedspread; checkedbestepochs58and59,trained60. This supportsa hypothesisofunderlearnednetworkvariation andpossiblebudgetlimitation, notproofthatallnetworks/modelsconvergedorarchitecturealoneisresponsible. All36freshmodels versus12warm-starts alsohaveinitialization/budgetdifferences; don'tclaimmatchedcausalarchitecturecomparison.
+
+Radicalv1all7smokejobs4678753–4678759 exited0; source600rows/model,mixed4000/model; AE/statinvariantsandcheckpointreloadpass. Purepositiongradientoperator.00711/experts.15826/flow7.61260. Mixedprep55s/3.48GiB,transfer22–55s/~.76GiB. Beforeanyradicalproduction, increaseallthree newfamilies maxepochs240/patience30 basedabovebudgetevidence, leavingobjectiveandselectionunchanged; preservev1smokes. Newimmutablecode_v2smoke gatesproduction. Finalnewprotocolhash below; this is notmatched60epochcomparison. No mixedTresultenteredloss/modelselection orbudgetchoice.
+
+Radical revised protocolSHA256 10365d3e13ee35f9a251674fdf73212f7ea331fe6580f4f9d8f98c7913cee884.
+
+### Radical9-run shared-model study submitted —2026-09-09
+
+Finalimmutablecode_v2 smokesall7passed (source600rows/model,mixed4000/model),includingpuredecodedpositiongradients,frozenAE/normalizers/stats,andexactreload. Scientificmodel/evaluatorunchangedfromv1; budgetreadfromfrozenprotocol240epochs/patience30. Fullprovenance smoke_gate.json andjobs.jsonl; code_v2manifestSHA25604007ea9a3113862b48f7ef3eb1a781f2b3089c8fe0ef5ca7a6dec6b184c1a9a.
+
+Production9fits4678881–4678889 initiallyRunning: threefamilies×seeds123/456/786. Mixedpreparations4678890,4678894,4678898 Held afteranyALL9fits, ensuring post-fit-only mixedTaccess. Transferjobs4678891/92/93,4678895/96/97,4678899/4678900/4678901 Held afterokseedmixedcache; eachrequiresits savedcompletedmodel/hash beforeevaluating. Collector4678902 Held afteranyall9transferjobs; all22jobsaccepted, exactdependenciesverifiedagainstledger. Sharedmendels_q/free:shared, nohostpins; fit4CPU8GB,mixedcache8CPU16GB,transfereval4CPU4GB,collector2CPU4GB. No finaltestuse, no p-ratio/strainselection, no mixedTtraining. Existingbroadcache reusedwithits source/AE/datahashes. Rootdidnotwaitproductionresults; remainpending.
+
+### Radical study interim step100 collection —2026-09-09
+
+User requested completionstatus. Eightofnine productionfit completed artifacts present: all3graph_operator,all3soft_experts,flowseeds123/456; flow786notyetcompleted atthisread. Mixedtransfer/finalcollector notyetcollected. Rootreadonlyexistingstep100CSVcolumns,nofitting/inference. Progressfiles lj100_radical/progress_step100_per_seed.csv andprogress_step100_summary.csv explicitlyretaincompleted-seedcounts.
+
+Graphoperator3seedmean±SD p-ratioR² at100: Reid0.853944±0.070522,lowT0.954230±0.007798,LJ−0.301094±0.147422. Softexperts: Reid0.868665±0.012460,lowT0.940654±0.008642,LJ−0.133820±0.011512. Eachsource60/60valid,20uniquenetworks/seed. PairedAEreconstructionReid0.956959±0.009619,lowT0.991890±0.000178,LJ0.594490±0.064363. Two-seedflowONLY: Reid0.118191±0.151114,lowT0.078314±0.170099,LJ−0.332200±0.062188,40/40valid/source; thirdseedpendingso provisional. Allmetricsvalidation,physicalendpointsidesquantile.10, nofinaltest. NoLJsuccessclaim; mixedTpostfitremainsunavailableatthischeck. Longerbudget/operator/experts preserveother-source responsebetter thanearlierfresh60epochmodels, butbudget/architectureconfounded; do notattributecausally.
+
+### Completed radical LJ comparison —2026-09-09
+
+User redirected focus exclusivelytoLJ, leavingexistingmixedjobsalone. All9radicalfitscompleted; rootcollectedsavedLJrowsat25/50/100, no newinference/fitting. Fullthree-seed100stepphysicalendpointp-ratioR²: graphoperator−0.301094±0.147422; softexperts−0.133820±0.011512; flowdecodedensemblemean−0.318065±0.050330. PairedfrozenAE0.594490±0.064363. All60/60valid perapproach/horizon (20validationnetworksperseed,20unique); nofinaltest. At50,operator−0.328515±0.219204,experts−0.374112±0.230606,flow−0.249618±0.061552,AE0.443255±0.170377. None meetsLJ0.4goal. All3seedflow replacesprevious2seedinterim, withoutdiscardinganyseed. Exactrows/summary lj100_radical/lj_completed_per_seed.csv andlj_completed_summary.csv. BroaderfreshstudybestLJ100mean0.014119±0.175893 likewisebelowtarget. Architecture/training-budget differencespreventcausalranking. Nextpriorityisdiagnosingmissingnetwork-specificresponse ratherthanclaimingAEfailure frompropagationerrors.
+
+### Real three-frame observed-history experiment —2026-09-09
+
+User explicitly authorizesfirst3observedframes, testingwhethermissinginitialmotion explainsLJpredictiongap. PreviousbroadGRU/historyattentionusedgeneratedhistoryonly; thisnewinputcontractallowsactualframes0/1/2, thennoobservedfuture. Update docs/research/dynamics_goal.md toseparatelypermitthisdiagnostic; do notclaimitmeetsinitial-frame-onlygoal. Originalreference, AEencoder/decoderandnormalizers stayfrozen; sourcepipeline/LJhop2/3 unchanged.
+
+Matched12fits: history_mlp versusvelocity_residual ×observedframecounts1or3 ×seeds123/456/786. Botharchitecturesconditiononlearnedattentionreferencecontext,z0,lastobservedz,andtwoinitiallatentincrements(normalizedbytraining-onlyRMS,floor1e-5). One-framecontrolgetsonlyz0,zeroincrementfeatures; samemodelwidth/parametercount. velocity_residual addsexplicitconstantobservedvelocity (z2−z0)/2when3framesavailable,otherwisezero; learnedcorrectiononallmodels. Alsoevaluateuntrainedlatentvelocityextrapolationfromthreeframes. Prefixencodedrelativetoframe0, positions/graphonly, nop/strain features.
+
+Useexistingbroadcached120train/60validation exactly (30Reid30lowT60LJtrain20val/source),nofinaltest/mixedT. Equal-source1/1/2batch,Adam3e-4wd1e-5,max240/patience30,minimprove1e-5,positionMSE+.1latentMSE; state-onlycheckpointselectionatforecastSUP3/5/10/25/50/75/100,epoch0eligible. Scoreonlyforecastframes3–100forbotharms,neverobserved0/1/2. Primaryabsolute100means100stepsfrom0or98afterobserved2; reportconditioninglengthandforecasthorizonexplicitly. Physicalendpointsidep-ratioR²andAEreconstruction,linearhistorybaseline,mean±SD/validtotalallretained. Hypothesisratherthanclaimofhistorysuccess.
+
+ProtocolSHA2568eec0f69a96bb8c85bdb8ab8136fe85c9e48b5fa641159a7d6a12cf4873b3526; canonicalmodel src/lss/dynamics/observed_history_propagator.py, harness hpc/experiments/lj100_observed_history. Two smalltests/fourmodelsubcasespassed prefixpreservation,future-dataexclusion,nodepermutation,finite/nonzerogradients,observedmotionsensitivity,andanalyticlinearpathbaseline (0.046s). Smokes4679050(historyMLPh1),4679051(historyMLPh3),4679052(velocityresidualh1),4679053(velocityresidualh3),4CPU4GBsharedmendels_q. Expected588rows/h1and882/h3 for3smokevalidationnetworks×98forecastframes×2or3kinds; decodedgradient/frozen/reload/scoreboundarygate beforeproduction.
+
+### Observed-history12-run matrix submitted —2026-09-09
+
+All4frozen code_v1 smokes4679050–4679053passed: h1rows588,h3rows882,exactforecastframes3–100,noconditioningframescounted. Kindsh1AE/prefixprediction;h3also linearhistorybaseline. Puredecodedpositiongradienthistoryh1.256259,h3.375347;velocityh1.256259,h3 86.3798. FrozenAE/normalizers/latentstats unchanged; exactcheckpointreload. One-framehistory/velocity modelsaremathematicallyidenticalwhenobservedvelocityiszero; retainedpairedcontrolsarenotindependentarchitectureevidence.
+
+Production12fits4679056–4679067 initiallyRunning4CPU4GB/mendels_q/free:shared; collector4679068Held afteranyall12,2CPU4GB. Exactarmmapping/resources/deps in jobs.jsonl/production_status.json under lj100_observed_history. FrozenrecursiveLSS/harnessmanifestSHA2569ecb71c7842212de6768b2fbac8dd157b926ac88a9b0703bbc79d56807a8721d; current submitterSHA2564c80ef9ffbe0bcb3fa65ebc6b65b2c2a2fa4c35487d035ec68ae85b0266a287f. Allcache/data/source/cohort hashespreserved in recipes; no AEfit/newdata/no mixedT/no finaltest. Notebook08_observed_history_100_steps.ipynb reads futurecachedcollection,notexecuted. No improvementclaim; productionpending,endinteractivewaitingafterlaunch.
+
+### Observed-history overnight results completed —2026-09-10
+
+Cachedcollectionconfirms12/12completed, protocolSHA2568eec0f69a96bb8c85bdb8ab8136fe85c9e48b5fa641159a7d6a12cf4873b3526. Rootreadseed_summary.csvonly,no newinference/jobs. Atabsolute100 (98predictedstepsafterobservedframe2), LJphysicalendpointp-ratioR²3seedmean±sampleSD: historyMLPoneframe−0.082002±0.104242,threeframes−0.000415±0.260152; velocityresidualthreeframes−0.204202±0.147521; untrainedthreeframelinearhistory−26.823520±24.097677; pairedfrozenAE0.594490±0.064363. Everyentry60/60valid over20uniquenetworks/3modelseeds. One-framehistory/velocityarmsareidenticalcontrols, notindependentarchitectureevidence. NoLJtargetsuccessorrobusthistorygainclaim; thisdoesnotruleoutotherobservationwindows orhistoryrepresentations.
+
+HistoryMLPReidoneframe0.879374±0.019508→threeframes0.914041±0.012291; lowT0.942840±0.009559→0.963267±0.026731. ThreeframevelocityresidualReid0.885450±0.004009,lowT0.954053±0.022110. Validationonly,20/20/source/seed; nofinaltest/mixedT. Scoredboundary3..100 excludesobserved0..2. Fullall-armcurves/counts in lj100_observed_history/per_seed_steps.csv,seed_summary.csv,review.md; notebook08readscachedoutputs,notexecuted. No newexperimentlaunched bystatusrequest.
+
+### Observed-velocity recurrent acceleration pilot — 2026-09-10
+
+User requested the previously untested combination of three observed initial frames and recurrent acceleration. One seed123, shared frozen MP2D AE, existing broad cache and unchanged exact30Reid/30lowT/60LJ training plus20 validation/source; no mixed-T or final test. Only actual frames0/1/2 are supplied. Initialize z at frame2 and per-frame velocity v=(z2-z0)/2; predict a_t from reference attention64, current generated z, scaled generated velocity, z0 and known step; v_next=v+a, z_next=z+v_next (dt=1), through absolute100. Acceleration output scaled by training-only prefix increment RMS/100, zero-initialized final layer starts at constant-velocity baseline. No observed future or expert observable supervision.
+
+Reuse observed-history runner/evaluator: decoded-position MSE +0.1 latent MSE at3/5/10/25/50/75/100; Adam3e-4, wd1e-5, clip1, max240 epochs/patience30; checkpoint equal-source position validation MSE only, epoch0 eligible. Post-fit physical endpoint side p-ratio R² for all frames3–100, original side quantile0.10 and frozen physical inversion; report AE reconstruction, generated forecast and linear-history baseline separately, source-wise valid/total. Single-seed preliminary results, no seed SD; compare matching seed123 historical results. No notebook.
+
+Protocol SHA256 2815cc80352e3db6f6fd8a368cfc626e852782ec08780a207d748e7394b9e77d. Harness hpc/experiments/lj100_observed_acceleration; canonical model src/lss/dynamics/observed_acceleration_propagator.py. Smoke4680412.zeus-master submitted; one production fit plus collector to follow only after smoke gate. Source/data/checkpoint/cache hashes and exact cohorts inherited and recorded in recipe; frozen snapshot and PBS identities recorded in jobs.jsonl. Results pending.
+
+Root targeted recurrence check passed: observed prefix exactly preserved; zero acceleration matches constant observed velocity; nonzero constant acceleration matches analytic semi-implicit Euler z2+k*v0+k(k+1)/2*a; node permutation invariance and finite nonzero acceleration gradients. No full notebook execution or production inference locally.
+
+Smoke4680412 exited0:882 rows across3 smoke validation networks ×98 forecast frames ×3 kinds; pure decoded-position gradient23.72935, frozen AE/normalizers/stats identical, checkpoint reload maxabs0. Runner2.5753s, PBS11s, peak resident821884KB. Frozen code_v1 manifest SHA2568dd9059f5009a9fa4a60de0dd558c2370864f3b5c0c107bb46f657eed44d7197. Production fit4680417.zeus-master accepted Running (4CPU4GB); collector4680418.zeus-master accepted Held afterany fit (2CPU4GB). Both mendels_q/free:shared, no host pins. Production results pending; no training wait or performance claim.
+
+### Local dynamics versus rollout drift diagnostic — 2026-09-10
+
+User requested true-input one-step versus free-rollout tests, including smaller/larger propagators and velocity/graph-conditioning alternatives. Six one-seed123 arms: state32/state64/state128 (only current latent, time and graph); velocity64/velocity128 (also rolling three-frame velocity/history); velocity_node64 (current-state-conditioned attention directly over reference node tokens rather than fixed pooled context). Width varies only the two-hidden-layer increment MLP; standard reference context remains64D. Node-attention arm changes pooling/parameterization together, so it is a graph-conditioning alternative, not a perfectly parameter-matched causal test. Model parameter counts saved in recipes.
+
+AE frozen, exact existing broad seed123120train/60validation cache reused;30Reid/30lowT/60LJtrain,20val/source; no mixed-T/final test. Training samples8 true consecutive prediction targets per trajectory each epoch across3..100; windows end before target. State-only arms explicitly mask history; velocity=(z_t-z_t-2)/2. Predict next latent as z_t + training-increment-RMS * MLP; final layer zero starts at persistence. Loss decoded-position MSE +0.1 latent next-state error standardized by training-only RMS increments over1..100 (equivalently teacher increment error). Shared source-balanced1/1/2; Adam3e-4wd1e-5clip1,max120patience20. Checkpoint equal-source teacher one-step decoded-position validationMSE at3/5/10/25/50/75/100,epoch0eligible,minimprovement1e-8; no observable selection.
+
+Each frozen model gets (a) teacher_one_step from true rolling windows, (b) prefix_prediction recursively from only actual0/1/2, (c) AE reconstruction, (d) persistence_one_step copying actual previous latent, (e) velocity_one_step extrapolating actual recent-window velocity one step. These five evaluator kinds are authoritative; inherited generic baseline prose in protocol is specialized here to the rolling true-input one-step baseline, not a second long extrapolation. All positions evaluated with original physical inversion/endpoint directional sides quantile0.10 at3..100. Record p-ratio R², displacement R², valid/total and auxiliary latent-increment R² perframe and aggregated; one-step skill must exceed persistence rather than just match AE on near-identical frames. Velocity/node/width effects preliminary single-seed, no seed SD. Teacher inputs are diagnostic access to true history and are never presented as free forecasting.
+
+Protocol SHA256 fdba39bdc2847b5e327ce16ea4383be4524b38cff0c7820c3267058c76647d62. Canonical src/lss/dynamics/local_dynamics_propagator.py; harness hpc/experiments/lj100_local_dynamics; no notebook. Smokes4680467–4680472 submitted; production waits all-six integration gates. Existing acceleration job untouched.
+
+All six smoke jobs4680467–4680472 exited0:1470 rows each (3networks×98frames×5kinds), frozen AE/normalizer/stats invariant, exact reload0, pure position gradients0.00151662/0.00209710/0.00277609/0.00208393/0.00282843/0.00204045 in matrix order. Runner3.72–4.26s,PBS13–14s,peak RSS827460–901660KB. Root test tests/test_local_dynamics_propagator.py passed all six model subcases in0.668s, covering no future leakage, masked-history controls, permutation invariance, prefix/persistence identity and finite gradients. Frozen code_v1 manifest SHA2569626d3eab486c4d741724678b4378e993d63b60c8aea0cfac438a647be6b4d76. Production state32/64/128 jobs4680482/4680483/4680484; velocity64/128/node64 jobs4680485/4680486/4680487 all accepted Running4CPU4GB. Collector4680488 Held afterany all six,2CPU4GB. All mendels_q/free:shared,no host pins. Stop after submission; results pending, no performance claim.
+
+### Local diagnostic completed — 2026-09-10
+
+Status reconciliation: all six fits4680482–4680487 and collector4680488 PBS finished exit0 with completed artifacts; collection complete6/6. Root recipe check: all six trained20epochs and selected epoch0 (zero final layer = persistence); runner181.57–259.74s. Thus identical outputs across architectures reflect checkpoint selection of the untrained persistence baseline, not evidence of equivalent learned dynamics or successful one-step learning. Step100 source-wise p-ratioR² identical all six (each20/20valid,seed123): AE Reid0.9515/lowT0.9919/LJ0.5202; teacher_one_step and persistence_one_step Reid0.9514/lowT0.9917/LJ0.5185; velocity_one_step Reid0.9515/lowT0.9919/LJ0.5205; free prefix_prediction Reid−0.6718/lowT0.3978/LJ−0.6904. Values rounded4decimals here; full precision per_seed_steps.csv. No claim that learned one-step prediction works: it did not beat persistence under the declared position-validation selection. Frozen checkpoints and failed-to-improve training histories retained. Existing acceleration4680417 still Running and collector4680418 Held at this check; no new jobs or inference.
+
+### Pure latent-increment diagnostic rerun — 2026-09-10
+
+User requested dz loss for the recent six models. New lj100_local_dz preserves six architectures state32/state64/state128/velocity64/velocity128/velocity_node64, single seed123, exact cached splits and frozen AE/normalizers, 8 sampled true consecutive targets per trajectory/epoch, Adam3e-4wd1e-5clip1,max120patience20. Only objective and checkpoint criterion change: pure componentwise training-RMS-scaled dz MSE, validation same dz MSE at3/5/10/25/50/75/100 averaged equally over sources; epoch0 eligible, minimum improvement1e-8. Under teacher input dz error equals next-state error, so runner uses algebraically equivalent prediction-minus-target expression. No decoder in training/selection; frozen decoder only in post-fit physical evaluation. No p-ratio/strain supervision or selection.
+
+Compare teacher one-step and free98-step rollout after actual0..2, plus frozen AE and teacher persistence/velocity baselines, all3sources20val/source, p-ratioR² valid/total and latent-increment R². No mixedT/finaltest; one seed preliminary, no seed SD. Previous study selected epoch0 all six; this rerun changes both objective and selection, so cannot isolate which caused any difference. Protocol SHA256 f5fccdd9ad13cf67b69ad967bc58e3cab188d06b2c5005156b397c5efe1dc792. Harness hpc/experiments/lj100_local_dz reuses canonical local_dynamics_propagator unchanged. Six integration smokes gate six production runs+collector; no notebook or production wait.
+
+Small cached-history review of prior lj100_local_dynamics (no inference): equal-source val_latent mean initially2.07658 in every arm; minimum within saved20epochs at epoch20 was state32 .40563,state64 .35681,state128 .31367,velocity64 .09495,velocity128 .03642,velocity_node64 .09792. Thus latent-increment validation improved substantially while position selection retained epoch0. Histories establish local loss improvement but only selected epoch0 weights were saved, so no post-fit p-ratio/free-rollout claim can be made for those discarded trained states. New pure-dz rerun tests retained increment-selected checkpoints.
+
+Pure-dz smoke4680538–4680543 all exited0,1470rows each,pure latent gradients9.7148/12.9502/22.6006/14.7995/31.1128/17.3819 (matrix order),frozen invariants and exactreload0. Runner3.71–5.28s,PBS13–14s,RSS746256–750352KB. code_v1 manifest SHA256440500a95981dc0b7ba602bf80f4b7e93e39c76e6ab364338c6e3542b696ce1a. Production state32/state64/state1284680548/4680549/4680550,velocity64/velocity128/velocity_node644680551/4680552/4680553 accepted Running4CPU4GB; collector4680554 Held afterany all6,2CPU4GB; shared mendels_q/free:shared. Results pending; stop after confirmed launch.
+
+### Pure dz and observed acceleration overnight results — 2026-09-11
+
+Completed artifact collections: lj100_local_dz 6/6 and lj100_observed_acceleration 1/1; no failed artifacts. Cached metrics only, no new inference/jobs. Single seed123, validation20/20 per source per reported row; no seed SD, mixedT or finaltest. Absolute100 free rollout has98 predicted steps after actual0..2. Both protocols/snapshots/jobs retained above.
+
+| Study | Family | Mode | Source | Step100 p-ratio R2 | Valid/total |
+| --- | --- | --- | --- | --- | --- |
+| lj100_local_dz | state32 | prefix_prediction | depablo_low_temp | 0.667568 | 20/20 |
+| lj100_local_dz | state32 | reconstruction | depablo_low_temp | 0.991859 | 20/20 |
+| lj100_local_dz | state32 | teacher_one_step | depablo_low_temp | 0.991719 | 20/20 |
+| lj100_local_dz | state32 | prefix_prediction | lj_noisy | -1.987189 | 20/20 |
+| lj100_local_dz | state32 | reconstruction | lj_noisy | 0.520198 | 20/20 |
+| lj100_local_dz | state32 | teacher_one_step | lj_noisy | 0.519874 | 20/20 |
+| lj100_local_dz | state32 | prefix_prediction | reid | 0.213811 | 20/20 |
+| lj100_local_dz | state32 | reconstruction | reid | 0.951530 | 20/20 |
+| lj100_local_dz | state32 | teacher_one_step | reid | 0.951251 | 20/20 |
+| lj100_local_dz | state64 | prefix_prediction | depablo_low_temp | 0.853394 | 20/20 |
+| lj100_local_dz | state64 | reconstruction | depablo_low_temp | 0.991859 | 20/20 |
+| lj100_local_dz | state64 | teacher_one_step | depablo_low_temp | 0.991700 | 20/20 |
+| lj100_local_dz | state64 | prefix_prediction | lj_noisy | -2.778996 | 20/20 |
+| lj100_local_dz | state64 | reconstruction | lj_noisy | 0.520198 | 20/20 |
+| lj100_local_dz | state64 | teacher_one_step | lj_noisy | 0.519131 | 20/20 |
+| lj100_local_dz | state64 | prefix_prediction | reid | 0.350394 | 20/20 |
+| lj100_local_dz | state64 | reconstruction | reid | 0.951530 | 20/20 |
+| lj100_local_dz | state64 | teacher_one_step | reid | 0.951810 | 20/20 |
+| lj100_local_dz | state128 | prefix_prediction | depablo_low_temp | 0.838624 | 20/20 |
+| lj100_local_dz | state128 | reconstruction | depablo_low_temp | 0.991859 | 20/20 |
+| lj100_local_dz | state128 | teacher_one_step | depablo_low_temp | 0.991818 | 20/20 |
+| lj100_local_dz | state128 | prefix_prediction | lj_noisy | -5.117549 | 20/20 |
+| lj100_local_dz | state128 | reconstruction | lj_noisy | 0.520198 | 20/20 |
+| lj100_local_dz | state128 | teacher_one_step | lj_noisy | 0.518847 | 20/20 |
+| lj100_local_dz | state128 | prefix_prediction | reid | 0.395671 | 20/20 |
+| lj100_local_dz | state128 | reconstruction | reid | 0.951530 | 20/20 |
+| lj100_local_dz | state128 | teacher_one_step | reid | 0.951918 | 20/20 |
+| lj100_local_dz | velocity64 | prefix_prediction | depablo_low_temp | 0.343384 | 20/20 |
+| lj100_local_dz | velocity64 | reconstruction | depablo_low_temp | 0.991859 | 20/20 |
+| lj100_local_dz | velocity64 | teacher_one_step | depablo_low_temp | 0.991849 | 20/20 |
+| lj100_local_dz | velocity64 | prefix_prediction | lj_noisy | -5.641306 | 20/20 |
+| lj100_local_dz | velocity64 | reconstruction | lj_noisy | 0.520198 | 20/20 |
+| lj100_local_dz | velocity64 | teacher_one_step | lj_noisy | 0.520271 | 20/20 |
+| lj100_local_dz | velocity64 | prefix_prediction | reid | -0.328182 | 20/20 |
+| lj100_local_dz | velocity64 | reconstruction | reid | 0.951530 | 20/20 |
+| lj100_local_dz | velocity64 | teacher_one_step | reid | 0.951880 | 20/20 |
+| lj100_local_dz | velocity128 | prefix_prediction | depablo_low_temp | 0.564907 | 20/20 |
+| lj100_local_dz | velocity128 | reconstruction | depablo_low_temp | 0.991859 | 20/20 |
+| lj100_local_dz | velocity128 | teacher_one_step | depablo_low_temp | 0.991855 | 20/20 |
+| lj100_local_dz | velocity128 | prefix_prediction | lj_noisy | -14.032257 | 20/20 |
+| lj100_local_dz | velocity128 | reconstruction | lj_noisy | 0.520198 | 20/20 |
+| lj100_local_dz | velocity128 | teacher_one_step | lj_noisy | 0.520354 | 20/20 |
+| lj100_local_dz | velocity128 | prefix_prediction | reid | 0.236453 | 20/20 |
+| lj100_local_dz | velocity128 | reconstruction | reid | 0.951530 | 20/20 |
+| lj100_local_dz | velocity128 | teacher_one_step | reid | 0.951754 | 20/20 |
+| lj100_local_dz | velocity_node64 | prefix_prediction | depablo_low_temp | 0.834438 | 20/20 |
+| lj100_local_dz | velocity_node64 | reconstruction | depablo_low_temp | 0.991859 | 20/20 |
+| lj100_local_dz | velocity_node64 | teacher_one_step | depablo_low_temp | 0.991794 | 20/20 |
+| lj100_local_dz | velocity_node64 | prefix_prediction | lj_noisy | -10.577249 | 20/20 |
+| lj100_local_dz | velocity_node64 | reconstruction | lj_noisy | 0.520198 | 20/20 |
+| lj100_local_dz | velocity_node64 | teacher_one_step | lj_noisy | 0.520858 | 20/20 |
+| lj100_local_dz | velocity_node64 | prefix_prediction | reid | -0.036492 | 20/20 |
+| lj100_local_dz | velocity_node64 | reconstruction | reid | 0.951530 | 20/20 |
+| lj100_local_dz | velocity_node64 | teacher_one_step | reid | 0.951770 | 20/20 |
+| lj100_observed_acceleration | observed_acceleration | prefix_prediction | depablo_low_temp | 0.976239 | 20/20 |
+| lj100_observed_acceleration | observed_acceleration | reconstruction | depablo_low_temp | 0.991859 | 20/20 |
+| lj100_observed_acceleration | observed_acceleration | prefix_prediction | lj_noisy | -0.048044 | 20/20 |
+| lj100_observed_acceleration | observed_acceleration | reconstruction | lj_noisy | 0.520198 | 20/20 |
+| lj100_observed_acceleration | observed_acceleration | prefix_prediction | reid | 0.926420 | 20/20 |
+| lj100_observed_acceleration | observed_acceleration | reconstruction | reid | 0.951530 | 20/20 |
+
+Teacher increment R2 across98frames/20validation networks, by [Reid,lowT,LJ]: state32 [.8984,.8678,.8794],state64 [.9191,.9430,.8482],state128 [.9244,.9528,.8346],velocity64 [.9916,.9895,.9856],velocity128 [.9931,.9914,.9848],velocity_node64 [.9919,.9919,.9902]. These aggregated increment scores accompany sourcewise/perframe metrics; smooth-motion baselines remain critical. Step100 teacher p-ratio almost equals persistence and AE. High teacher increment accuracy together with poor free rollouts supports exposure/drift concerns, not proof of causal sufficiency or solved dynamics. Larger models and velocity improved some local metrics without improving LJ free rollout.
+
+Local dz selected epochs state32/64/128120/120/120;velocity6449(of69),velocity12829(of49),velocity_node64113(of120). Acceleration selected237/240; LJ free step100 −.0480 versus AE .5202 (single seed); Reid .9264,lowT .9762. It improves on several local-loss free rollouts but still fails LJ0.4 target; training objectives/budgets differ, so not architecture-only attribution. No new training launched by status request.
+
+### data_mini stiffness short-prefix study — 2026-09-12
+
+User replaces notebook05 input with new data_mini.tar.gz and requests separate node-position/stiffness optimization datasets. Registry audit:669 entries (381node_optimized,288stiff_optimized); sampled stiffness chunk has1500frames,240nodes,689edges, x[N,2], edge_index[2,E], edge_attr[E,4], legacy network.Box. Preserve stored edge channels exactly; no invented angles/rest lengths. Converter retains first50 frames without resampling, original archive and original frame counts retained; fit-only first20 prefix prevents temporal leakage. Conversion metadata/grouping determines deterministic stiffness120-cohort,20train20val80test, no response-based filtering.
+
+Predeclared one2Dseed123MP2/reference16AE (hidden96,32tokens),60epochs/patience12lr1e-4wd1e-5 on frames0..19 only; frozen-AE delta-MLP64/staticmean16 propagators one_step and multistep8,30epochs/patience6lr1e-4wd1e-5,19transitions pertrajectory. Match existing denseReid recipe except new source/counts/horizon and single2Dseed. All normalizers/statistics and checkpoint selection restricted to prefix20; no p-ratio/strain supervision. Both propagators are fitted and frozen before test evaluation. Post-fit validation20/test80 at0..49: physical p-ratio R² from original directional sides quantile0.10, displacement/increment pooledR², validtotal; AE observed-frame reconstruction vs free rollout from0 distinguished. Test20..49 is temporal extrapolation beyond fit prefix as well as held-out networks. No final-test feedback, no seed SD.
+
+Notebook notebooks/dynamics/05_dense_reid_small_steps.ipynb now a compact cached reader for this study, no outputs or execution; preserves early2/3/5 markers and visibly marks training end19, no clipping negative scores. Historical denseReid result artifacts unchanged. Harness hpc/experiments/mini_stiffness; pipeline gates full training behind conversion and2trajectory smoke; no interactive production wait. Exact converter/code/data hashes,cohort IDs and PBS dependencies follow in manifests/ledger.
+
+Conversion sample validation: legacy Box roundtrip preserves x/edge_index/all edge_attr tensors exactly; stored columns0:2 match periodic source-minus-target vectors maxabs0, column2 norm maxabs1.07e-6, column3 stiffness invariant0→1499. Retained frames0..49 all checked for finite data, fixed topology/stiffness; outcome registry remains manifest-only. Group identity sorts edgepairs; one deterministic representative per topology group ensures split separation, requiring at least120groups. Both381node and288stiffness branches retained first50; full original archive preserved.
+Archive SHA256 840c8175c83474b4f7c84236a72ed58d9a5e7bfeaedc2bea788ce5bd4b329474; corrected frozen converter SHA256 1d753c1ac24acf0163df7b3bc022a675e5807935b36570cffde43e87d60bbc43; conversion job 4682272.zeus-master. Initial prefreeze4682269 failed on seek in streamed CSV (no data outputs), preserved; superseded4682270 cancelled/finished without outputs, ledger retained. Corrected CSV materialization sample test passed.
+Dependent smoke→full training pipeline 4682273.zeus-master accepted afterok:4682272.zeus-master; 8CPU16GB shared mendels_q for conversion and training, no hostpins. Training code manifest SHA256 45b4d4d395351b6085836ee9e0b51ed084e93d9c06125f7cdc527cdf218db332; protocol SHA256 8726822580cb8ff16117ca6df70d9e6023b52ae8162c2b2a858e2e66f1e64064. Dataset conversion still running at submission; full cohort checks/data hashes/prepared.json precede automatic smoke; any conversion or smoke error stops production. No converted-cohort or model-performance claim yet. Notebook cells parse without execution; leave cluster pipeline running.
+
+### Mini-data conversion completed; pipeline metadata repair — 2026-09-12
+
+Conversion4682272 completed both branch first50 files and120 distinct-topology stiffness cohort first20/first50; prepared.json and conversion manifest present. Training4682273 failed in smoke before anyfit: KeyError label; converter emitted source labels at manifest top level instead of nested source. Root moved four fields dataset_name/source_name/label/coordinate_normalization into source, saved prepared_before_label_fix.json, and corrected live converter (frozen historical snapshot unchanged). Failed smoke retained failed_attempts/4682273/d2_s123_smoke. No tensor data changed or reconversion needed. Revised prepared SHA256 c86e1f554a5cf16f4e1a413a66658c812f1fe28c0f7c36a5b4cda098277dda7c. Retry uses same scientific frozen code and existing converted data; no production was trained by failed job.
+
+User clarified canonical mini datasets must retain full1500frames, then capped each branch at200trajectories. Full200conversion is independent of the existing first20/50 experiment inputs. Stiffness200 selection must include existing120 distinct-topology cohort; remaining80 unused by current20train20val80test study. Both branch fullsets use deterministic response-independent selection and preserve original archive/provenance; no truncation to50in canonical files.
+
+Retry4682274 passed smoke fits but failed post-fit reload because resolve_existing_path unnecessarily searched for deleted pyproject.toml even for existing absolute dataset paths. Narrow canonical fix resolves existing absolute paths directly and raises for missing paths; relative-path behavior unchanged. AST-isolated filesystem checks passed; no pyproject restoration. Prior smoke retained failed_attempts/4682274. New frozen code_v2 manifest SHA25605f96d00f26f1b3dcc4b95179d82893dd7423eebf35b5b6f0b29ea9a20c10b23. Pipeline4682276 smoke completed16.54s with bothpropagators/frozenAEchecks and50frameevaluation; full d2_s123 production has begun. Stop production monitoring.
+
+Full manifest clarification: all288stiffness records have1500rawframes and288distincttopologies; all381node records have500rawframes and231distincttopologies. Earlier1500-per-branch wording extrapolated incorrectly from stiffness samples; corrected. User informed that full canonical200 selection will retain200×1500stiffness and200×500node, no padding/interpolation. Choose200 distinct topologygroups for each, with stiffness retaining prior120cohort. Original first20/50experiment unchanged.
+
+Full canonical200 conversion4682277 submitted shared mendels_q8CPU64GB/placefree:shared,24h; conservative memory request for full graph-object retention and torchserialization (~400000frames). Frozen fullconverter includes its canonical-frame helper; exactsource/PBS/archive/prefixmanifest hashes in fullconversionledger. Tiny deterministic selection check:200node topologygroups of231;200stiffness of288, ordered first120 stiffness paths exactlymatch currentstudycohort. Outputs mini_node_optimized_200_500.pt and mini_stiff_optimized_200_1500.pt; manifest mini_data_full200.manifest.json. All actualframes preserved, nointerp/padding; per-frame schema/finite/topology/stiffness checks runoncluster. Fullconversion pending, no completionclaim; existingprefixtraining4682276 proceeds independently.
+
+### Mini canonical conversion and stiffness study completed — 2026-09-12
+
+Full conversion4682277 completed:200node×500frames (~1.5GB),200stiffness×1500frames (~6.9GB); exactcounts/hashes/selection in data/mini_data_full200.manifest.json. Training4682276 completed1133s,peakRSS2.05GiB. Cached final-test results only, no newinference/notebook execution. Single seed123,80/80valid all reportedentries; all fitting/selection restrictedframes0..19. Atframe19 p-ratioR²/displacementR²: AE .5773/.9338,one-step .5466/.9172,multistep8 .5583/.9320. Atframe49: AE .1987/.6733,one-step .1936/.8655,multistep8 .1050/.8527. Here new AE trainedonly20frames also loses response accuracy outsideprefix; one-step rollout almostmatches AE p-ratio at49, while higherdisplacementR² doesnotimplybetterphysicalresponse. No seedSD or final-test-basedmodelselection. Notebook05cachedtables ready foruserexecution.
+
+### Mini stiffness early-frame diagnosis and notebook view — 2026-09-12
+
+User requests p-ratio plot limits0..1 even though negatives hidden; notebook05 now linear0..1 p-ratio panel, physical position/displacement MSE panel=SSE/(2×totalnodes), compact table retains negative R² and validtotal. No new inference/figure export/notebook execution. Cached80test trajectories,seed123,all80/80 response pairs atframes1..5/19. AE p-ratioR² frames1..5 −2.830,−6.346,−6.274,−4.778,−3.037; one-step−2.992,−6.199,−5.761,−4.301,−2.758; multistep8−2.702,−5.223,−4.732,−3.589,−2.432. Thus failure already occurs in AE. AE frame0 residual RMS9.74e-5 versusGTframe1 displacementRMS5.52e-5. Atframe5 AE responsebias−.09060,predSD.01880 versusGTSD.04852,responseRMSE.09687. AE positionMSE frame5 5.45e-9 versusframe19 1.34e-7 while responseR² improves−3.037→.577: small coordinate error alone doesnotestablish goodresponse. Small early deformation, compressed/bias response predictions and narrower GTspread support sensitivity to reconstruction error; no claim of complete causal decomposition without boundary-strain/predicted-coordinate analysis. No new model training or test-based selection.
+
+### Separate node-position optimization study — 2026-09-12
+
+User requests separate node/stiffness notebooks. Preserve completed stiffness05; add05b_node_optimized_small_steps.ipynb and mini_node study. Exact recipe matched to stiffness (2DMP2AE/reference16hidden96tokens32,60epochs/patience12, frozenAEdeltaMLP64one_step/multistep8 30epochs/patience6,seed123; alllearningrates1e-4wd1e-5). Node cohort is ordered first120 of existingdeterministic200 distinctnode-topology subset; use originalfirst50cache mapping byarchivepath for cheap preparation.20train/20val/80test; frames0..19only forfit/stats/selection,0..49postfit. Fullnode200×500canonicaldatasetunchanged; noresponsefiltering, no mixedT/LJ training. Bothmodelsfrozen beforetest. Cohorts differ between node/stiffness studies, so this is not paired causal comparison.
+
+Notebook05b mirrors p-ratio0..1 view and physicalMSE with earlyframes2/3/5 markers; tablepreservesnegatives; noexecution/figureexport. Existing stiffness-specific earlyfailure explanation notcopied to node notebook. Pipeline4682294 accepted8CPU16GBsharedmendels_q/free:shared; prepare→smoke→full. Frozenmanifest SHA25659dd09d25f2325cfc1a5c7b2781021efb70f7f1e26ffaa6f087dc6001643ee9d; protocol SHA256672f5028e5cf24e0f6bdb45d3dda1640b249e2626415d5a75c367ceef2b0d0c1. Exactpreparationpaths/hashes/selectedrecords emittedprepared.json beforefit. Productionawaitssmoke gate; nooutcomeclaim.
+
+Node pipeline4682294 preparation verified120distinctnetworkcohort and20/20/80first20/50boundaries; prepared SHA25624ab01f1f9569f649abd0733fa8a24b0f97eaa37d35eca46b32d52ca88c501b4. Smoke completed16.047s,peakRSS1345860KB,bothfrozenAEpropagators and50framevalidationpassed. Full d2_s123 AEtrainingbegun; stopproductionmonitoring, results pending.
+
+User clarified one notebook for both datasets:05 now has separate stiffness and node sections using shared plotting/loading functions; removed newly created05b. Training/data remain separate and unchanged; p-ratio0..1 and physicalMSE preserved. Cells syntax-checked only, no notebook execution.
+
+### Frozen AE reference-offset diagnostic — 2026-09-12
+
+User requests deeper early-reconstruction investigation; keep2Dlatent/frozenAE. Validation-only20networks each mini_stiffness/mini_node,seed123,frames0/1/2/3/4/5/10/19. Test original decodedpositions, reference-subtraction pred_t−pred_0+true_ref, and translation-only removal pred_t−mean(pred_0−ref) as a response-invariant control. Physical-inverse/originalsidequantile.10 unchanged. Report p-ratioR² validtotal, physicalcomponent MSE, boundary-node MSE, width/height changes/errors, alignment oforiginalframeerrorwithreferenceoffset, and dominant-axis branchswitchcounts. Established estimator uses raw width/height changes and min-magnitude reciprocal ratio, not independently normalized engineering strains; do not silently change it for this diagnostic. Exactreferencezero andtranslation-invariance checks included. No fitting, checkpointselection, finaltest or notebookexecution; cached AE/recipehashes and snapshot/PBS logged. Objective is to distinguish persistentoffset fromchangingearly errors and relativeboundary response error.
+
+Frozen AE audit4682320 completed13s/824880KB,960rows(2sources×20val×8frames×3variants); code manifest SHA2566b4069bf9e344a8b9ada688995748ff503e4ee96f6f7002424f5969ab070a462. Original-vs-anchored pR² at1/5/19: stiffness−1.852/−4.745,−3.947/−5.370,.548/.597; node−29.359/−46.595,−22.422/−24.542,.327/.345; every20/20valid. Translationcontrolpreservedresponse, no originalbranchswitches at1/5/19. Exact parity ofneworiginalp withcachedvalidationresults (maxdifference0); physical-inversemaxabs 3.183085937052965e-07. Reference subtraction helps somepositionMSE butworsens earlyp, so notsimpleoffsetfix. Frame5meanboundaryratio(pred/true):stiffnessy.628,x1.154;nodey.487,x1.415. Underpredictedtransverseexpansion andexcesscompressionexplain lowpredictedp directly; underlyingtraining/representationcause notuniquelyestablished. Allmodelsfrozen/no newtraining/notebookoutputs;fulltables/README in mini_ae_audit.
+
+### Frame-balanced coordinate AE fine-tuning pilot — 2026-09-12
+
+User authorizes bestnextstep under strictnoexpertobservablesupervision/selection rule. Fourshortfits: twoexisting2D AEs(mini_stiffness,mini_node)×uniformcontinuation/balancedframes,seed123. Frozenstartingcheckpoint+normalizers; AEweights fine-tuned, architecture2DMP2/reference16 unchanged. No posthocreference subtraction (previousaudit worsenedearlyp). Training20networks×frames0..19,validation20only,no finaltest. Frameenergy is training-only per-network mean squared normalized displacement divided byfrozen targetstd; flooredat.04medianpositive-frameenergy, inverseweights normalizedmean1. Frame0 includedwithfloor. Objectiveandcheckpointselection both weighted per-graph reconstructioncoordinateMSE; uniformcontrolweight1. Adam1e-4wd1e-5clip1,30epochs/patience8,batch32,minimprove1e-8,epoch0eligible. Normalizers fixed; p-ratio/strain absentfromweights/features/loss/selection. PostfitAEpR²,physicalMSE/R²,validtotalat0..19,sourcewise single-seed. No propagatorchange/notebookexecution. ProtocolSHA256 9b10077d49906a42aadd9a5bc1e33e749222198744c714ffe27d8a65aa165078. Smokesgateproduction; scientificrunner hpc/experiments/mini_ae_frame_balance/run.py.
+
+Frame-balance immutablecode_v1 manifest SHA256f572e56d43cf7cf313cc36838cdbff335d7e7e8c81f05ef3fe58e7bbbb82787f. Smokes4682323(stiffnessuniform),4682324(stiffnessbalanced),4682325(nodeuniform),4682326(nodebalanced) submitted shared4CPU4GB; fullfitsgated oncompletevalidationevaluation andnormalizer/originalcheckpoint invariants.
+
+Allfour frame-balance smokes passed exit0:finitepositive20weights, energyfloorsstiffness.0351915/node.0342468, unchangednormalizers/originalcheckpoint,40pernetwork/20perstepvalidationrows. Runner1.785–2.059s,PBS10–11s,RSS1035280–1165084KB. Production4682327stiffnessuniform,4682328stiffnessbalanced,4682329nodeuniform,4682330nodebalanced acceptedRunning4CPU4GB/shared. Exactcommands/IDs/dependencyhashes in mini_ae_frame_balance/job_ledger.json. No productionwait or resultclaim.
+
+### Frame-balance pilot completed — 2026-09-12
+
+Allfour production4682327–4682330 completed, nofailedartifacts; everyarmselectedepoch30of30 (budgetcap,notconvergenceproof). Originalcheckpoint/normalizers unchanged. Cachedvalidation20/20validperreportedframe,seed123,no finaltest ornewinference. p-ratioR² atframes1/3/5/10/19: stiffnessoriginal[−1.852,−8.078,−3.947,.562,.548],uniform[−2.993,−1.612,.267,.945,.903],balanced[−1.974,−.254,.633,.947,.850]; nodeoriginal[−29.359,−41.803,−22.422,−1.244,.327],uniform[−23.131,−2.836,−5.305,.617,.842],balanced[−39.395,−1.139,−1.299,.652,.599]. Stiffnessframe5/19physicalMSE original4.075e-9/1.245e-7,uniform1.439e-9/3.083e-8,balanced7.768e-10/4.409e-8; nodeoriginal1.572e-8/7.418e-8,uniform2.382e-9/4.353e-8,balanced1.236e-9/6.753e-8. Extra training alone improves substantially; framebalancing improvesframe5againstuniform buttradesoffframe19anddoesnotresolveframe1/nodeearlyresponse. No blanketbestweighting/convergenceclaim. No propagatorfits/notebookchanges/newjobs fromstatusrequest.
+
+### Expand mini investigation to100frames — 2026-09-12
+
+User requests moreframes andcontinuedinvestigation. Extend both fitting andevaluation toexactframes0..99, maintaining original20/20/80identities and2Dlatent. Dataprep4682337 submitted8CPU64GBshared tosliceexistingfullcanonicaldatasets sequentially; no resampling, exactfirst120cohortchecks. Source100preparedmanifests retain full/prefix/codehashes.
+
+FourAEarms2sources×uniform/balanced allstartfromsameoriginal20frameAE per source, not mode-specific30epochfine-tunes. Keeporiginaltraining-onlynormalizersfixedforcomparison;60epochs/patience12Adam1e-4wd1e-5clip1batch32. Balanceweights use100training-frameenergies withfloor .04medianenergyframes1..19, retainingprior earlyfloor; normalizeinverseweights mean1 over100frames. AEcheckpointselection matchingweightedcoordinate validationloss only. Noresponse/strainfeatures,weightingorselection. EachAE thenfrozenfor two latentdeltaMLP64/staticmean16propagators(one_step,multistep8),99transitions/source,60epochs/patience12lr1e-4wd1e-5,selectvalidationlatentloss. All8propagatorspredeclared. PerAE bothpropfitsfreeze before80testevaluation; allAEandfree-rolloutphysicalp-ratioR²/MSE/R² at0..99withvalidtotal,one seed noSD. Previouslyinspectedtestcohort is heldoutdevelopment, notfreshblindtest; no feedbackduringfitting. Budgetandlengthincrease together; historicalcomparisonnotisolatedcausalframeeffect.
+
+ProtocolSHA256 19fc12a7a2d8a6d63d46db7bbb720e1b28db0c0a23997a8272d947f9d20b2646. Notebook05now100-framecachedreader,sameone-notebooktwo-datasetstructure; separate ordinary/balancedcolumns, pR²0..1/MSE, early2/3/5markers. Noexecution orfiguresaved; oldresultsretained. TrainingpipelinesgateAE+bothpropagatorssmoke beforefull; results pending.
+
+100frame productionpipelines4682342(stiffnessuniform),4682343(stiffnessbalanced),4682344(nodeuniform),4682345(nodebalanced) accepted8CPU16GBsharedafterokprep4682337. Frozenmanifest SHA256433fa444d79375991148e729d12ccb487c23c024f8ff242333e96f202025a050; protocol SHA25619fc12a7a2d8a6d63d46db7bbb720e1b28db0c0a23997a8272d947f9d20b2646; job_ledger.json exactcommands/deps/hashes. Allfour automaticAE+bothpropagator smoke gates passed through99 (200perstep rowsperstrategy, AEunchangedassertion); fullproductionbegun. No failures, no productionwaiting; newmetrics pending.
+
+
+### Mini100 one-step-only scope and shared plotting theme — 2026-09-12
+
+User retired the 8-step propagators from the current study. At the operational check, jobs4682342–4682345 were already terminal F/Exit_status0 with all four one_step completion and test CSV artifacts present; no cancellation or retraining was needed. Live mini_100 propagation and smoke checks now require only one_step. Frozen code_v1, original protocol, and historical multistep8 results are preserved; exact operational changes are recorded in `notebooks/results/mini_100/operational_change_20260912_stop_multistep8.json`. Notebook05 now compares AE reconstruction with one-step autonomous rollout only, retaining both datasets and both AE weighting arms. No new metric analysis or model selection in this change. Shared `lss.plotting.apply_editorial_style(mode)` supports light/dark; active dynamics and engineering notebooks expose PLOT_THEME at the beginning. Lightweight theme rendering and code-cell syntax checks passed; no notebook execution or figure export.
+
+
+### Mini shared originals and mixed-temperature transfer — 2026-09-12
+
+User requests fresh2D MP AE+one-step propagator fits and a clean notebook with single-network demonstrations, shared source-wise responseR²/MSE, latent z0/z1 associations to p-ratio and physical x/y boundary deformation, and matched unseen-network comparison of stiffness-only versus joint-original fits. Explicit confirmation: train only originals; mixed-T excluded from normalization, fitting and selection. No expert observables in inputs/loss/selection. All200frames0..199 used without resampling. Four predeclared arms single_stiffness/single_node (train identity0 only, validation20..39), stiffness_only (20stiffness originals), joint_original (20stiffness+20node originals); validation20/source, test80/source identities40..119, unused120..199. One seed123; prior-inspected held-out development, not freshblindtest. Equal epochs/countper-source, joint has moregraphs, not a controlled total-data causal comparison.
+
+Architecture MP2/reference16,2Dlatent,hidden96,tokens32. Fresh initialization then1ordinaryAdamW warmup epoch and60maximum frame-balancedAdam epochs/patience12,lr1e-4wd1e-5batch32clip1; source-wise train-only inverse normalized displacement energy withfloor .04medianframes1..19 and source-mean-one weights. Select mean weighted validation source coordinate MSE,min1e-8. Frozen training normalizers afterwarmup. FrozenAE propagator deltaMLP64/reference-mean16, no source/temperature input, one-step latentdelta MSE,60max/patience12lr1e-4wd1e-5,199transitions; val latentlossselection. No8-step variants. Allfits frozen before productioncollectors. Exactrecipe `hpc/experiments/mini_shared/protocol.json`.
+
+Dataaudit4682393 succeeded: four200×200files, allfinite coordinates, paired topology equal atall200frames for200pairs/source, first120node/stiffness topologies distinctwithzerooverlap. Unmodified trainval40/test80caches, hashes and temperatureassignment/MDprotocol in `notebooks/results/mini_shared/data_manifest.json`. Mixed T={.1,1,5,10,20,30}K,counts34/34/33/33/33/33,assignmentseed904297,200MDsteps/frame,dt.01,compressionincrement2e-5,noLJ. Originalsourcechunk/ID metadata retained; mixed identities established via source_index plus topology. PeakRSS3070212KiB. Audit4682391 failed on missingmixedsource_chunk assumption beforecaches;4682392 completedaudit;4682393 finalizedcollectorcontract andcrossbranchoverlap. Failures/logs retained.
+
+User additionally requests quick single-network transfer: eachfrozen singlemodel evaluated on matchedmixedID0 (response trace, no across-networkR²), and20unseenoriginal/mixed identities40..59 (pR²/MSEwithvalidtotal). This separates same-network temperature transfer from unseen-network generalization; no extra fitting. Postfit physical endpoint p-ratio estimator fixedframe0sidesquantile.10 preserved; physical inversion checked. Latent coordinate associations descriptive, not intervention claims; raw axes across AEs arbitrary rotation/sign/scale. New notebook `notebooks/dynamics/06_mini_shared_latent_dynamics.ipynb` reads cachedresults only, sharedlight/darktheme, pR²ylim0..1. Notebooknotexecuted; training/evalresults pending.
+
+Mini_shared submission confirmed: fitting pipelines4682399(single_stiffness),4682400(single_node),4682401(stiffness_only),4682402(joint_original); collectors4682403–4682406 respectively, eachafterok ALLfourfitjobs. All8CPU16GBsharedmendels_q/free:shared. Frozen code_v1 manifestSHA256459cf061ce9f6ce0e3149d7c6c2a1229ddbbda91ae209bf11edbcef7e60d59bc; protocolSHA2563c2259382e905c968cd9513b60db2ecc9bf850754d44e6507cb84fed68b5e617; data_manifestSHA25622c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae. Exactcommands/dependencies/status in job_ledger.json. Firstboundedcheck: all4fitPBSrunning, first3smokefitscomplete, jointsmokeAEcomplete/propagatorprogressing; noobservederrors. Productiongatedonsmokeevaluationcompletion. No fulltrainingwait or outcomeclaim.
+
+
+### Additional all-four mini training arm — 2026-09-12
+
+User explicitly authorizes joint_all as an additional comparison if original-only transfer fails. Original-only arms and frozen code_v1 remain unchanged. New arm includes stiffness_original,node_original,stiffness_mixed,node_mixed with20train/20validation/80test trajectories per source, identical paired-network split boundaries and seed123, frames0..199. Same2D MP AE/frame-balanced coordinate loss and frozen one-step latentdelta propagator recipe; no temperature/sourceID input or expertobservable supervision. Training-only normalizers and validation selection now include mixed sources for this arm only. Therefore joint_all mixed results are held-out network performance with mixed-T training exposure, not zero-shot temperature transfer. More source trajectories imply greater training exposure at the same epoch cap; no exposure-matched causal claim. Newcode_v2 and separatejobledger preserve originalrecipe/provenance. Notebook06 MODEL switch supports joint_original or joint_all; noexecution or resultsclaim.
+
+Joint_all fitting4682407 accepted/running; collector4682408 heldafterok4682407.8CPU16GBsharedmendels_q/free:shared. Immutablecode_v2 manifestSHA25626a82b1596f6a6052107cb6b9d077f873e3a0eb21ad7f27f143c7ba997b01acc; protocolSHA25611d3b9c73a80166384a1a8dcb6873db074cf677432becfa21d2963795d8a2fbd; dataSHAunchanged22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae. Separate joint_all_job_ledger.json contains exactcommands/dependencies. Initialjoblogempty, smokeoutcome notyetknown. Existing4682399–4682402 stillrunning anduntouched. No productionwait or metricclaim.
+
+
+### Mini shared completed results — 2026-09-13
+
+Allfivearms fit_completed and completed artifacts present. ReadcachedCSVsonly; no newinference/notebookexecution. Source-wise horizons99/199, AE/rollout, validtotal andsecondarymetrics collectedin notebooks/results/mini_shared/brief_20260913.csv. Seed123single-run, noSD. Heldout80/80valid each reported main source/horizon. Joint_original at99 AE/rolloutpR² stiffnessoriginal .987896/.832477,nodeoriginal .981239/.950737,stiffnessmixed −.010705/.088865,nodemixed .085782/.108923. At199 stiffnessoriginal .971782/.833843,nodeoriginal .963663/.922629,stiffnessmixed −.086968/.057466,nodemixed .094998/.332096. Thus strong original-source AE and rollout, weak mixed transfer under frozen endpoint estimator. Stiffness-only at99 AE/rollout stiffnessoriginal .984690/.832050,nodeoriginal .731336/−4.417131; adding node training substantiallyhelpsnode rollout. Joint_all AE androlloutpR² nearzero/negative onallfour (range−.149to.006at99), so addingmixed didnotfixthisrecipe anddegradedoriginals; causeunresolved, notproofarchitectureincapacity. Single-network fits donotgeneralize to20unseen originals/mixed: all99AEandrolloutpR²negative,20/20valid. Same-network pairedtransfer isdistinct andnotassessed by thisbrief. Mixed scores here are savedphysicalendpoint fixedframe0sidequantile.10 p-ratio, not across-frame thermalregression; do not conflateestimatornoise withirreducibledynamicsfailure. No newmodelselection or traininginitiated.
+
+
+### Mixed-T response corrected to trajectory linear fits — 2026-09-13
+
+User explicitlyrequests mixed-T p-ratio from fulltrajectory linearfit toreduce thermalnoise. Postfit-only reevaluation ofexistingfivefrozen mini_shared arms; no retraining/normalizerchange/checkpointselection. New thermal_response.py matches existing thermalengineering frame_time_ols_p_ratio: fixedframe0q.10boundarygroups, physicalcoordinateinversion, width/height normalizedbyfirstfinitevalue, twoOLSstrain-vs-frame fitswithintercepts,p=−slope_y/slope_x,>=8finiteframes andabsolute fittedaxialtotalstrain>=1e-3. Undefinedprefixes retainedasNaN withvalidtotal. R²curveat t usesonlyframes0..t;199usesall200. Mixedlatent p_ratio usesfulltrajectoryfit (retainsendpointcolumn); x/ydeformation staysframewise. Original endpoint metrics reusedunchanged. These estimators have explicitlydifferent normalization/branchdefinitions; cannotattributeallscorechange solelytosmoothing.
+
+Oldendpoint artifacts andbrief conclusions preservedashistorical. Refreshedtree notebooks/results/mini_shared/thermal_fit; recipe.json describesestimator/tests. Notebook06nowreadsthisnewtree; noexecution. Lightweighttests: exactagreementexistingthermalmetric at1/8/30/99/200frames, analyticpositive/negative response, flatcompressionundefined, changedfutureframesdonotalterearlierprefixfit. Need frozencheckpointreevaluation forpredictedwidths/heights; existing CSVshadonlyendpointp,insufficienttorecovertrajectoryfits. BulkreevaluationonsharedHPC, outputs/metrics pending.
+
+User requested existinggraph_utils implementation. Checked installedpackage andfreshGitHubmain+remoteheads: both734c6b81b5cddc539d1fad2e465e333f45ee5a90, onlymain, endpointhelpers only. No packageupgrade needed. Removed duplicatefitmath fromnewadapter; delegate directly toexisting hpc/experiments/ml_only_engineering/thermal_metric.py::frame_time_ols_p_ratio, snapshottedverbatim/hashpinned inreevaluationcode. Adapterrepresentscachedwidth/heightasfourboundarymeans, mathematicallysufficient forsamefunction. Directscientific-environmentimport andanalytic/undefinedprefixchecks passed. No changednumericalestimatordefinition; newjobsstillpostfitonly.
+
+Thermalresponse refreshsubmitted:4682602single_stiffness,4682603single_node,4682604stiffness_only,4682605joint_original,4682606joint_all; evaluationonly, no8-steporothertraining. Snapshot thermal_fit/code_thermal_fit_v1 manifestSHA256d6e854751490f2ee3d05bddfbf52e62ab52823cb4bc74e8faede3ebf8d9680df; existinghelperSHA256e4b2a6af2ba9927a5ff8547eee58b34457674941b1efea2dcfa714cefba910bd; exactjobs/hashes inthermal_fit/job_ledger.json. Strictcohort/endpointprediction/displacementidentitychecks appliedincludingpairedmixedID0 fromtrainvalcache. Outputs pending.
+
+Notebook06 adds absolutePearson/Spearman heatmaps bysource atuser-chosen CORRELATION_FRAME(default99),2latentrows×3observables,shared0..1scale,finitepaircounts andundefinedconstantcells. Eachnetworkcontributesonce perframe/source; avoidsconfoundingpooledtimeprogress. Signedcoefficientsretainedinheatmap_correlations; no p-values or modelselection. Removedlargeperframecorrelationtabledisplay, retainedscatters. Syntaxcheckedonly; notebooknotexecuted.
+
+
+### Thermal refresh launcher recovery and notebook paths — 2026-09-13
+
+User reported missingthermal_fit/single_stiffness/demo/per_network.csv. Logs4682602–4682606 showargparseinvalidchoiceemptyarm: launcher passedLSS_ARM empty, allfailedbeforeinference/output. No oldresults/checkpoints modified. Recovered evaluation-onlyjobs4682612single_stiffness,4682613single_node,4682614stiffness_only,4682615joint_original,4682616joint_all bindarms explicitly. Eachcreatedrefresh_recipe.json confirmingnonemptyarm andcorrectfrozenmodelpath; fullcompletionnotyetclaimed. Failedsnapshot/attempt and recoverykeptinthermal_fit/job_ledger.json. Notebook06originaldemoreads ORIGINAL_RESULTS directly; thermalplotsseparatedintosubsequentcell withexplicitpending-evaluationnote. Existingoriginaldemofiles andallcodecellsyntaxverified; no notebookexecution/fallbacktomislabelledendpointthermalresults.
+
+
+### Cached latent geometry interpretation — 2026-09-13
+
+User requests concise paper interpretation, nojobs/notebooks. Inspected same80heldout original networks/source acrossstiffness_only andjoint_original, seed123all200frames. PertrajectoryPCA inraw2Dcoordinates: medianPC1variancefraction node .995598→.999440, stiffness .998896→.999570. PrespecifiedexampleID40 node .996096→.999460; stiffness .999742→.999712. Saved exactrows inmini_shared/latent_geometry_comparison_20260913.csv. Bothrepresentations trace predominantly1Dpaths; jointdoesnotshowincreased2Dspreadasnecessarybenefit. CoordinatePCA notinvarianttoarbitraryrescaling andnotintrinsicdimensionproof. Cachedframe99AEpR²node .731336→.981239, rollout −4.417131→.950737; stiffnessAE .984690→.987896,rollout .832050→.832477,80/80valid. Supports broader predictivecoverage inthissingle-seedcomparison; cannotisolate latentgeometryfromdecoder/staticcontext/propagator retraining or increasedtrainingexposure. No claimdisentanglement or mechanisticcausality. PrimaryliteraturecheckedKornblithetal2019 representationcomparison (PMLRv97): representationcoordinateshaveinvariances,rawaxisdifferencesnotaloneinformationgain.
+
+
+### Mixed linear-fit failure diagnosis at frame100 — 2026-09-13
+
+Verified refreshed joint_original/joint_all completed artifacts andcachedprefixfitdiagnostics; no inference. Atframe100 all80mixed trajectories eachhave101finiteframes inGTandpredfit. Thusfituses0..100, notendpoint. joint_original node_mixed AEpR².834272 butonly10/80validpairs; stiffnessmixed AE−.088317with19/80. GTvalid76/80node,71/80stiffness. MedianfittedaxialstrainGT node−.00205631/stiff−.00201891, AEpred−.000254831/−.000053806; muchweakerdecodedcompression causespredminimum1e-3axialstrain gate torejectmost. Do notinterpret highnodeAEconditionalR²asgoodfullcohortreconstruction; changingvalidsubsetcanmakecurvesirregular. Rolloutvalid76/80node,71/80stiffness,pR² .049244/−.013706. Rolloutmedianaxialslopes−2.00977e-5/−2.28129e-5 nearGT−2.05631e-5/−2.01891e-5 buttransverseslopedistributioniscompressedrelativeGT. Linearaveragingdoesnotcorrectbiasedpredicteddeformation anddoesnotguarantee eliminationofslowthermalvariation. Originalendpointchecks/refreshreceipts preserved; noadditionaltrainingfromthisquestion.
+
+
+### Ground-truth mini original/mixed data notebook — 2026-09-13
+
+User requests paired200frame ~3sGIFs andp-ratiohistograms overallnetworks. Data-onlypreview4682624 completedpilot+full~116s,shared8CPU16GBmendels_q/free:shared; prior4682623failedonGIF filename-extensionencodingbeforecompletion,preserved. No models/fitting/selection. Newnotebook07_mini_data_original_and_mixed_temperature.ipynb reads notebooks/results/mini_data_preview/{networks.csv,frame_series.csv,metadata.json}.800networkrows,200persource(node_original,node_mixed,stiffness_original,stiffness_mixed);160000framerows. Samefixedframe0q.1sides endpointandexistingthermalOLSfull/prefixestimators appliedtoALLfourphysicaldatasets, includingvalidcounts; comparabilitynotes explainrawendpointvsnormalizedstrainfitdefinitions. Metadatarecordsfullinput/helper/codehashes,widthvsboxdiagnostics,resourceusage andmixedrestlength-rebuild/zeroangleprovenancecaveat.
+
+FourpairedGIFs preselectedfirstsourceindexatT.1and30K(categorynode/stiffness,IDs0and24each), withoutresponsefilter; savedalongside notebook in titlefolder Mini data — original and mixed temperature. Sharedphysicalscales, periodicminimum-imagesegments, noexaggeration. Rootindependentlyverifiedall4files200framesand3000ms andeachselectedsourcecurve200rows; CSVsourcecounts200each,originaltemperatureblank(actualTnotrecorded). Agentpostprocessedlabels mixed_temp→mixed andclearedmistakenpaired-temperaturemetadataonoriginalrows withoutrecomputation; preservedcorrectionrecord. Notebooksyntaxchecked, notexecuted; nofiguresexportedapartfromrequestedGIFs. Outputsreadyforuser.
+
+
+### Mixed-T historical p-ratio estimator parity — 2026-09-13
+
+User requested the same mixed-T response estimator as the earlier successful
+06b transfer study. The historical0.901 original checkpoint, exact code and
+30-trajectory split remain unavailable, so it cannot be exactly replayed.
+The preserved five-seed2D reconstruction was independently reaggregated from
+raw per-network frame100 rows: mixed-T autonomous endpointpR²
+0.9041634848±0.0115603800,20/20valid per seed3456456/123/456/786/2026.
+All stored primary and explicitly labelled endpoint columns agree.
+
+Notebook06 endpoint values were independently recomputed from cached physical
+fixed-frame0 q.10 side widths/heights using the historical symmetric minimum-
+reciprocal displacement formula. NaN patterns agree across64,000 mixed rows;
+maximum absolute disagreement at reported frames99/199 is2.074e-13 (the
+all-frame maximum8.637e-7 occurs near zero deformation at very early frames
+from CSV roundoff). Thus the preserved endpoint metric is numerically
+equivalent for the cached positions. The full-trajectory normalized-strain OLS
+metric is not equivalent and remains a separately labelled auxiliary
+diagnostic.
+
+Under the like-for-like endpoint estimator, joint_original mixed-T frame99
+AE/rolloutpR² is0.085782/0.108923 for node and-0.010705/0.088865 for stiffness;
+frame199 is0.094998/0.332096 and-0.086968/0.057466,respectively,all80/80valid.
+Therefore estimator mismatch does not explain the failed recovery on the new
+small-step data. Notebook06 now reads original endpoint caches for its primary
+mixed-T plots; stale OLS outputs were cleared and code syntax checked, but the
+notebook was not reexecuted. Audit script/result:
+`tools/analysis/audit_mixed_pratio_estimator_parity.py` SHA256
+593f5ad6780054a7130d2b5842f0b3325fd759862bb012c2c920a8e79b4391ca and
+`mini_shared/mixed_pratio_estimator_parity_20260913.json` SHA256
+acf575d055a0858b878fa1b5605780c126e5218bd8e14ff1ec0b729f3fef4dee.
+No inference, training, checkpoint selection or final-test access.
+
+
+### Uniform-frame mini shared and low-T-only extrapolation pilots — 2026-09-13
+
+User requests evaluation at the 200th stored frame (frame199) with the
+historical physical endpoint estimator, while removing the large inverse-
+deformation early-frame emphasis. Two single-seed123 pilots use all frames
+0..199 and exactly unit post-warmup weight for every training frame/source.
+Architecture, 2D latent, normalizers, optimizer, 60epoch/patience12 budgets,
+and frozen one-step delta propagator match mini_shared/joint_original. Model
+selection remains uniform validation coordinate MSE and validation latent-
+delta loss only; p-ratio/strain never enter training or selection. Mixed-T is
+excluded from fitting, normalization and selection and is evaluated only after
+the checkpoints are frozen. Primary post-fit reporting is source-wise AE and
+autonomous-rollout p-ratio R2 at frame199 using physical coordinates and fixed
+frame0 q.10 sides, with valid/total counts. Test80 is previously inspected
+held-out development data; each one-seed result is preliminary with no SD.
+
+Joint-original uniform retry2 trains20/validates20 for both
+stiffness_original and node_original; fit/smoke job4682637 and dependent
+collector4682638 are accepted (mendels_q,8CPU,16GB,placefree:shared). Frozen
+code_uniform_v3 manifest SHA256
+3ffdedb155ece2c339bdb7d59d0513b2693bb066ac4067c7e6c7b6102ce615ae;
+protocol SHA256
+42ad7396e411b73ae8e3e8f903a005bf710e342d462043da3e3ed2902a138116;
+exact provenance/status in mini_shared/uniform_retry2_job_ledger.json.
+
+Low-temperature node-only retry1 trains20/validates20 node_original networks
+and evaluates exactly node_original and node_mixed test80, directly testing
+dePablo/node-optimized low-T to mixed-T extrapolation without stiffness-source
+training. Fit/smoke job4682639 and dependent collector4682640 are accepted with
+the same resources. Frozen code_node_uniform_v2 manifest SHA256
+558ab83e6ebf0e9bb169e7d939458f22200866a2b109ff93b14e45a0e2303356;
+protocol SHA256
+587c1443f3f3b4329b1237b6d5c16d6f5c8edbb94c607dd711f0383f7eb90e63;
+exact provenance/status in mini_shared/node_uniform_retry1_job_ledger.json.
+
+Failures are retained. Initial joint job4682630 failed in smoke because the
+parity assertion compared intentional smoke propagator limits1/1 against
+production60/12; collector4682631 dependency-failed. Joint retry1 job4682633
+passed smoke fit/evaluation but failed before production because PBS logging
+pre-created the protected result directory; collector4682634 dependency-
+failed. Initial node job4682635 was terminated before completing smoke when
+the same logging collision was identified; collector4682636 dependency-
+failed. Corrected launchers keep logs outside result directories and preserve
+strict no-overwrite creation. Both final pilots were running and collectors
+held afterok at the independent status check; no production metric claim yet.
+
+Both corrected pilots subsequently completed with all four jobs exit0.
+At frame199, joint-original uniform AE/rollout endpoint p-ratio R2 was
+node_original .964865/.950210, node_mixed -.026687/.387178,
+stiffness_original .978978/.836946 and stiffness_mixed -.302444/.035497;
+all entries80/80valid. The AE selected post-warmup epoch9 (stopped after21),
+and the propagator selected epoch58 of60. Fit4682637 used3:25:40 and
+2589592KB; collector4682638 used00:17:09 and2231656KB. Checkpoint SHA256:
+AE54356df4072e7d8a5fa9457ef27a762f3a1e0a61afa2b934d44fc8587e1b5a3b,
+propagator0880795f4157ff1efc8f70a16025afc949eb4171b125f48aca1519ff899e5f6f.
+
+Low-T node-only frame199 AE/rollout endpoint p-ratio R2 was
+node_original .970263/.961533 and node_mixed .082617/.362967, all80/80valid.
+The AE selected post-warmup epoch13 (stopped after25), and the propagator
+selected epoch55 of60. Fit4682639 used1:29:01 and1651224KB;
+collector4682640 used00:08:02 and1522348KB. Checkpoint SHA256:
+AEf6bddc23488c3518356419e4fefdb3ce8df5b2c99bf43ec29e27a0168fd47275,
+propagator40541ce146e9d58ad6aa5a177589cee5fbc25a8c8ece446d74adb76a0a2647e3.
+Uniform weighting therefore did not recover the historical mixed-T transfer.
+Against the prior joint_original frame199 endpoint rollout, it modestly raised
+node_mixed .332096→.387178 but lowered stiffness_mixed .057466→.035497;
+AE response reconstruction worsened for both mixed sources. Node-only training
+gave node_mixed rollout .362967, also far below the reconstructed historical
+.904163 five-seed validation result. These are single-seed, previously
+inspected held-out-development results, not untouched-final-test evidence.
+
+
+### Matched 1,000-MD-step mini-temperature reruns — 2026-09-13
+
+User identified four newer MetaForge datasets intended to test larger stored
+deformation steps. Full audit of all160,000frames passed: four datasets each
+contain200trajectoriesx200frames, times0..199000 exactly every1000MDsteps,
+finite coordinates, monotone exact1.99% axial compression, and fixed topology
+and edge stiffness within every trajectory. Low/mixed pairs preserve all200
+source_index/source_chunk identities and use the same per-index thermal seed.
+Low uses1e-7K; mixed uses0.1/1/5/10/20/30K with counts34/34/33/33/33/33.
+Dataset SHA256: node_low fa9413516e252825a9e93f73f87edd1e361004807c6fe158e6b54ace1678784b,
+node_mixed d4f85c76434470293c75968f7c9bd29b9ff55f76012c9fffbb73f9f9b3ee49f9,
+stiffness_low 5cdb873ac50118a65294f6ca0db9e3f25a22f6f0ed30fa089951b0e521e1c1f8,
+stiffness_mixed 211e9f5738b1abcaacfff4295400c5b2812983c9f299c020aca2fab0ec2f790c.
+Matched mixed-vs-low endpoint p-ratio R2 across all200 is.887131node and
+.712079stiffness,200/200valid each; high-temperature stochastic response is
+larger, especially stiffness20/30K. Historical-source comparisons have
+different horizons (nodeabout1%, stiffnessabout3%) and do not invalidate the
+internally matched1.99% experiment. These simulations rebuild rest lengths
+from each source first graph because the original archive lacks them; this is
+a new matched physical condition, not an exact historical-trajectory replay.
+The prior uniform results used old times0..39800 stride200 and therefore did
+not test this hypothesis.
+
+Two seed123 reruns use direct new files with trainIDs0..19,
+validation20..39 and previously inspected heldout-development40..119. Both
+use all200frames, exact unit post-warmup AE frame weights, the matched fresh2D
+MP AE and frozen one-step latent-delta propagator,60epochs/patience12, and
+coordinate/latent validation selection only. Mixed data is excluded from all
+fitting, normalization and selection. Primary post-fit metric remains physical
+fixed-frame0 q.10 endpoint p-ratio R2 at frame199, separately for AE and
+autonomous rollout with valid/total. Joint low-T fit4683622 and collector
+4683624(afterok) cover node+stiffness low training and allfour evaluations.
+Node-only low-T fit4683623 and collector4683625(afterok) evaluate node_low and
+node_mixed only. All jobs accepted on mendels_q,8CPU,16GB,placefree:shared;
+fits running and collectors held at independent check. Frozen code_v1 manifest
+SHA25605b6ca2efa2e12d7cd608569c4e3645b74b6cc345f35b9ae20cb1dc0bddc0bb8;
+data manifest SHA256fcf9ca1a95e81aaa8a13ab098d91d611163cbdf10df74b2ac0d8ea06de4bebb2.
+Frozen static AE/propagator parity assertions passed for both smoke and
+production budgets before submission and were independently repeated after
+submission; runtime also asserts frame time=1000xframe. Exact paths, hashes,
+jobs and status are in mini_temperature1000_uniform/job_ledger.json. Results
+pending; single seed means noSD and no final-test claim.
+
+Initial fit jobs4683622/4683623 subsequently failed after successful AE and
+propagator smoke fitting, during smoke endpoint collection only: direct
+MetaForge graphs expose source_index but not the old-cache source_sim_id field.
+Collectors4683624/4683625 terminated by afterok dependency. No production
+training or test evaluation occurred. Failure logs and smoke artifacts remain;
+the original ledger is marked failed. This is an evaluation identity-schema
+failure, not a model or dataset result.
+
+Schema-only retry assigns the declared smoke validation identity20 explicitly
+before evaluation and requires returned trajectory_id={20}; production still
+assigns and asserts exact IDs40..119. No data, model, objective, split, seed,
+weighting or estimator changed. Joint retry fit4683633 and collector4683635
+(afterok); node-only retry fit4683634 and collector4683636(afterok). At an
+independent live PBS check both fits were stateR and both collectors stateH,
+with mendels_q8CPU16GBplacefree:shared. Frozen code_v2 manifest SHA256
+94cb298e078e24e3e75fbaccf848e0f39f7af10bca079f53f59a07d40e854766;
+unchanged data-manifest SHA256
+fcf9ca1a95e81aaa8a13ab098d91d611163cbdf10df74b2ac0d8ea06de4bebb2.
+The retry submitter itself runs smoke/production configuration parity before
+freezing/submission. Exact status is in
+mini_temperature1000_uniform_retry1/job_ledger.json; results pending.
+
+Corrected1,000-step reruns completed: fits4683633/4683634 and collectors
+4683635/4683636 all exit0. Cached frame199 historical-endpoint p-ratio R2,
+AE/rollout respectively, all80/80valid: joint node_low .952517/.958657,
+node_mixed .745768/.883940, stiffness_low .927525/.835224, stiffness_mixed
+.482135/.566453; node-only node_low .959749/.960070 and node_mixed
+.529379/.873666. At frame99 joint node_mixed .561122/.645147 and
+stiffness_mixed .254239/.421346; node-only node_mixed .403058/.612940,
+all80/80valid. Thus the five-times-larger stored step/1.99% horizon materially
+improves mixed-T response recovery. Joint node_mixed rollout rose from the
+old-stride uniform .387178 to .883940; stiffness_mixed .035497 to .566453.
+Node-only mixed rollout rose .362967 to .873666. This strongly supports the
+larger-signal hypothesis for node transfer and partially for stiffness; it
+does not isolate stored cadence from the simultaneously longer total strain.
+The node result is close to, but not an exact comparison with, historical06b
+.904163 because data generation, horizon, cohort and seed aggregation differ.
+
+Joint AE selected post-warmup epoch6/stopped18; propagator selected20/stopped32.
+Node AE selected13/stopped25; node propagator selected60/stopped60, so the last
+is budget-capped rather than convergence-proven. Checkpoint SHA256 joint
+AE6724f375c0f23781647631e5e9d07c3e92807e772f8a3eb89d2b626b24583040,
+joint propagatorfe3785ca90b192da783eda59e94c2f8ee31f89f74785e1125c11a0e13179ea6f,
+node AEf22ebf56c232e269c3466f38fa40706a045499b0601baff69476ef99413d92bd,
+node propagator0547d98ceb07aec5235ea671c81358a6f9f8e4d172095a0c41062ad159b30e44.
+Walltime/maxmemoryKB: joint fit02:29:32/3491624, collector00:18:54/2813884;
+node fit01:38:23/2060780, collector00:09:43/1849116. All are single-seed123 on
+previously inspected heldout-development IDs40..119; noSD/final-test claim.
+
+### Mixed-T 1,000-step linear-response evaluation — 2026-09-14
+
+User requested suppressing mixed-T thermal fluctuations with a trajectory fit.
+This is post-fit evaluation only of the frozen corrected 1,000-step checkpoints;
+there is no retraining, normalization change, response-based selection or new
+test cohort. The historical fixed-frame0 q.10 endpoint score at frame199 remains
+the primary comparable metric. The new auxiliary estimator uses the same fixed
+physical frame0 side groups, normalized boundary strains, and an affine OLS fit
+of epsilon_y versus epsilon_x over predeclared frames30..199 inclusive; p is
+minus the slope. All170 finite pairs and nondegenerate axial strain are required.
+
+The first smoke jobs4684994/4684995 failed safely before full evaluation because
+`cached.mode` resolved the Pandas method instead of the `mode` column in the
+endpoint-parity guard. The failed code_v1 jobs/artifacts remain recorded. A
+schema-only code_v2 retry changed this to explicit column access without changing
+the estimator, data or checkpoints. Jobs4685004 joint and4685005 node-only both
+completed exit0; walltime/maxmemoryKB were00:09:10/2775128 and
+00:03:41/1824288. Frozen code_v2 manifest SHA256
+d4fd2275a2f99e2448867cf1e1951f8bd97a6c6e80ea326d7da83e6b6ae9d594.
+Recomputed frame199 endpoint values agree with the cached evaluator to maximum
+absolute error6.21e-9, confirming identical cohort/inference conventions.
+
+Frames30..199 linear-fit p-ratio R2, AE/rollout respectively, all80/80valid:
+joint node_mixed .597394/.952558, joint stiffness_mixed .181996/.634661, and
+node-only node_mixed -.125954/.944068. Relative to the unchanged endpoint
+rollouts .883940/.566453/.873666, trajectory fitting improves the three rollout
+scores to .952558/.634661/.944068. The separately implemented all-frame two-OLS
+time-slope ratio agrees closely for rollout: .950525 joint node, .642273 joint
+stiffness and .945605 node-only node, all80/80valid. Thus regression materially
+reduces mixed-T rollout response noise, especially for node transfer, but does
+not rescue AE response: the fitted AE scores are lower than their endpoint
+scores. Ground-truth median within-trajectory fit R2 is only .701590 node and
+.522299 stiffness, while autonomous predicted curves are much smoother
+(.997447/.993628 median for joint); report these diagnostics so smoothing is not
+mistaken for faithful reproduction of thermal fluctuations. Single seed123 and
+the previously inspected heldout-development IDs40..119 still preclude a seedSD
+or untouched-final-test claim. Exact rows, summaries, parity receipts, job
+identities and hashes are in `notebooks/results/mini_temperature1000_linear_fit/`.
+
+### Mixed-T-only 1,000-step training pilot — 2026-09-14
+
+User requested testing whether direct mixed-temperature fitting succeeds on the
+new 1,000-MD-step data. One preliminary seed123 arm changes only the fitting
+domain relative to the corrected joint low-T baseline: AE and propagator train
+on `node_mixed` plus `stiffness_mixed` IDs0..19 and select on mixed IDs20..39.
+It retains all200 frames, exact unit post-warmup frame weights, the same 2D MP
+AE, one-step delta propagator, optimizer/early-stopping budgets, and exclusively
+coordinate/latent validation selection. P-ratio and strain remain absent from
+inputs, losses and selection. Held-out-development IDs40..119 are evaluated
+source-wise on all four sources; primary mixed-T reporting separates AE
+reconstruction from autonomous rollout at the historical frame199 endpoint and
+the auxiliary normalized boundary-strain affine fit over frames30..199.
+
+Frozen snapshot `mini_temperature1000_mixed_only/code_v2`, code-manifest SHA256
+`a3a64c53127ac5b41e350f44c9b1a0edf44b6e06de6c201793478ea35a28de28`,
+data-manifest SHA256
+`2b33efffe3e690d9d4dacfd66c22de28b97ad4848aba9e1a05229a41d8198c51`.
+Fit job4685141 is running; collector4685142 is held `afterok` and will perform
+all post-fit evaluation. Both request `mendels_q`,8CPU,16GB,
+`place=free:shared`; no host pin. Static recipe assertions passed before
+submission. An earlier code_v1 snapshot was never submitted because sandboxed
+`qsub` could not create its temporary script; it is retained in the ledger and
+is not a job or result. Exact recipe, dependencies and status are in
+`notebooks/results/mini_temperature1000_mixed_only/job_ledger.json`. Results are
+pending; one seed means no SD or final-test claim.
+
+Mixed-only fit4685141 completed exit0 after02:27:48 using3500196KB; collector
+4685142 is still running, so auxiliary fitted results and final completion
+receipt remain pending. Its completed held-out frame199 endpoint files already
+give AE/rollout p-ratio R2, respectively: node_mixed .928575/.905186 and
+stiffness_mixed .798073/.444567, all80/80valid. Against the matched low-T-trained
+joint model (.745768/.883940 node and .482135/.566453 stiffness), direct mixed-T
+fitting improves both AE reconstruction scores and slightly improves node
+rollout, but reduces stiffness rollout. These are endpoint-only partial
+collection results; do not substitute them for the pending frames30..199 fit.
+
+Post-fit mixed-only prefix evaluation was requested for notebook02. It freezes
+the completed seed123 `joint_mixed_only` AE/propagator and evaluates the same
+heldout-development IDs40..119 for node_mixed and stiffness_mixed. At every
+horizon37..199 it computes normalized boundary-strain OLS over
+frames30..horizon and reports AE and autonomous p-ratio R2 with valid/total;
+horizon199 must reproduce the completed linear-fit artifact and cached endpoint
+values. No training, selection, or checkpoint mutation occurs. Frozen snapshot
+`mini_temperature1000_mixed_only/prefix_linear_fit/code_v1`, code-manifest
+SHA256 `a5f3c9de79bd1b1fc2d2058640fa71b5f2a8cb538f611797368156f46ab97d6d`;
+job4687548 uses mendels_q,8CPU,16GB,placefree:shared without a host pin.
+It completed exit0 after00:09:51. Horizon199 reproduced the prior linear values
+to <1.2e-16 and endpoint caches to <6.3e-9; checkpoint hashes were unchanged.
+Autonomous fitted p-ratio R2/MAE is .919994/.083793 node_mixed and
+.460448/.142120 stiffness_mixed, both80/80 valid.
+
+Notebook01 was subsequently narrowed to mixed-T heldout statistics at user
+request. Latent-plane, selected-trajectory, response-range and initial-latent
+correlation panels now show only node_mixed and stiffness_mixed; the four
+training trajectories remain solely as an exposure audit. Final p-ratio is the
+same normalized boundary-strain OLS over frames30..199. Heldout Pearson/
+Spearman correlations are node z0 -.878/-.874, node z1 .882/.876, stiffness z0
+-.764/-.767 and stiffness z1 .754/.759, all80/80. The selected raw trajectory
+coordinate is z0 based on the stiffness-mixed heldout correlation, and its
+initial inset is restricted to frames0..5 (MD steps0..5000). Notebook
+executes17cells,4inline PNGs,0errors. Builder/notebook SHA256 are
+`631a866d787cb35314a9db747ff5019757c64960c8faec892ba813db67576efa`
+and `f78624c6f567916b05521d557caed89b640c8ce8df42b76eb1d67afbb5a8f631`.
+
+Notebook02 and notebook03 were then converted to mixed-T-only paper-facing
+views. Notebook02 retains the honest note that the frozen 1/20 comparison
+models trained on paired all-four data, but every displayed trajectory,
+correlation, richness statistic and response panel is node_mixed or
+stiffness_mixed. It adds the separately trained mixed-T-only model's prefix-R2
+curve and final predicted-versus-true fitted-p-ratio scatter. It executes
+16cells,5inline PNGs,0errors; builder/notebook SHA256 are
+`9f6d94c36921785bdf35a13831b355cc230bd12cb60984ad916d478748c8bdd6`
+and `278cdc88f8dbe083c269b32e55b9e0cd1757d8355734f4dd4aad6baaa12a5879`.
+
+Notebook03 now uses stiffness_mixed IDs40..119 and strain-OLS p-ratio for the
+entire 1-versus-20 analysis. Within-trajectory and matched-network panels are
+restricted to frames0..5. Low-T-only frozen-input and count-morph panels were
+removed rather than relabelled. Static reference descriptors are reused only
+through exact paired network IDs, while latent states and responses are mixed-T.
+Feature and edge gradients were recomputed response-blind on stiffness_mixed
+ID40 from the frozen one/20 encoders in
+`edge_attribution_one_vs_twenty_mixed`; exporter SHA256
+`9d740a1b2ecbbfc3516b1a15ab9ab1ce4cd3a091865c453041ed0d6d6bd3fad6`.
+Notebook03 executes15cells,6inline PNGs,0errors; builder/notebook SHA256 are
+`138a364631b99fdd6f4d440b01a5d8baedb582791abd98eb5b05daaaab745c2e`
+and `92691dd2afc0b3c4fc0e1ff9af35395b967db7f36cdc8ffebddd09ddfc2ac060`.
+Notebook06 now contains an executed inline two-panel endpoint-R2-versus-MD-step
+comparison (solid mixed-trained, dashed low-T-trained) for AE and autonomous
+rollout; no figure file was exported.
+
+### All-four 1-versus-20 trajectory coverage study — 2026-09-14
+
+User requested rebuilding notebooks01/02 on the four new 1,000-MD-step mini
+sources, first with one training trajectory per source and then20 per source to
+test whether held-out latent geometry becomes richer. Two matched seed123 arms
+use `node_low`, `node_mixed`, `stiffness_low`, and `stiffness_mixed`: `all4_one_each`
+trains exact ID0/source, while `all4_twenty_each` trains IDs0..19/source. Both
+validate on IDs20..39/source and reserve the previously inspected development
+cohort IDs40..119/source for frozen evaluation. They retain the same fresh2D MP
+AE, all200 frames, exact unit post-warmup frame/source weights,60epoch/patience12
+budgets and frozen one-step delta propagator used by the corrected 1,000-step
+study. Coordinate MSE and latent-delta validation losses alone select
+checkpoints; p-ratio/strain are post-fit only.
+
+The comparison is not solely a trajectory-count intervention: low/mixed same-ID
+records are paired versions of the same topology. The one-each arm therefore
+has4 trajectories but2 unique structures; twenty-each has80 trajectories but40
+unique structures, changing both structure coverage and thermal-trajectory
+coverage. Exact source/ID/temperature exposure will be saved per arm. Notebook
+interpretation will quantify scale/rotation-aware latent geometry, rather than
+claiming richness from arbitrary raw-axis orientation alone. Frozen evaluation
+will separately report AE reconstruction and autonomous rollout source-wise at
+the historical frame199 endpoint, plus the auxiliary frames30..199 normalized
+boundary-strain affine fit for mixed sources only.
+
+Frozen snapshot `all4_coverage_1000/code_v2`, code-manifest SHA256
+`aefc3fe6b50956f06d5e8c9759984e2818f47f224f64e16b7a701b515165cfcb`,
+data-manifest SHA256
+`c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a`.
+Fit jobs4685192(one-each) and4685193(twenty-each) are running; collectors
+4685194/4685195 are respectively held `afterok`. All use `mendels_q`,8CPU,16GB,
+`place=free:shared`, no host pins. Static parity/configuration, auxiliary-metric,
+syntax and whitespace checks passed. An initial sandboxed submission failed
+before PBS accepted any job because it could not create a `/var/tmp` qsub file;
+the unsubmitted code_v1 snapshot and failure are preserved. Exact dependencies,
+hashes and status are in `notebooks/results/all4_coverage_1000/job_ledger.json`.
+Results and notebook rewrites are pending; this is one seed and not final-test
+evidence.
+
+Initial code_v2 jobs did not yield models. One-each fit4685192 failed after its
+smoke warmup and twenty-each fit4685193 was cancelled before the same inevitable
+assertion; dependent collectors4685194/4685195 became terminal without running.
+Cause was provenance-only: exposure export zipped a flat source-interleaved
+simulation list against one source-local ID range, so its newly added coverage
+assertion failed. No post-fit evaluation or production result was collected.
+Code_v3 enumerates each source separately and asserts every exact
+`(split,source,ID)` once; no data, architecture, objective, optimizer, split or
+selection rule changed. Corrected fits4685209(one-each) and4685210(twenty-each)
+are running; collectors4685211/4685212 are held afterok. Code-v3 manifest SHA256
+`5ae03a4cdc5685149e907515e72db3e32468922a72e79a593389505059eca501`;
+data manifest remains unchanged. Failure and recovery are preserved in the same
+job ledger.
+
+User then reduced validation to exactly30 trajectories for speed and requested
+a matched restart. Code_v5 assigns node_low/node_mixed IDs20..27 (8 each) and
+stiffness_low/stiffness_mixed IDs20..26 (7 each):30 trajectories representing15
+paired unique structures. Held-out evaluation remains IDs40..119/source. Active
+v3 one-each4685209 and v4 twenty-each4685237 plus held collectors4685211/
+4685238 were cancelled and preserved; neither supplies a result. Matched code_v5
+fits4685259/4685260 are running with collectors4685261/4685262 held afterok.
+Code-manifest SHA256
+`7555cdce89d21d542eb492f03f5be37b58941e323c6ea3093e3b7b926f99259a`;
+data hash and all non-validation settings are unchanged. This is a deliberate
+selection-cohort change, so code_v5 supersedes earlier attempts for the notebook
+comparison.
+
+Code_v5 fits completed exit0: one-each4685259 in01:33:42 using3437184KB and
+twenty-each4685260 in04:00:38 using4154220KB. Primary collectors wrote complete
+heldout endpoint/per-step/per-network/latent artifacts for all four sources and
+320 trajectories per arm, then exited1 only in the auxiliary launcher because
+the submitted tag already began with `_` and `linear_run.py` added a second
+underscore. The empty double-underscore directories and failed collector job
+identities4685261/4685262 are preserved. No primary artifact or checkpoint was
+overwritten. Corrected post-fit-only jobs use the identical frozen evaluator
+with tag `retry_v5_validation30`: one-each4685853 completed exit0 in00:08:04,
+3223052KB; twenty-each4685855 completed exit0 as recorded below. Repair PBS SHA256
+`15c1a80d866fcfb3422edf3d53e06e028867e62cc628b736b71665b4c1758cdf`.
+
+Notebook01 is now an executed cached-results narrative for the one-each model.
+User clarified its primary objective is heldout correlation of initial latent
+coordinates with final p-ratio, not successful autonomous rollout. Using
+source-appropriate post-fit truth (low-T physical endpoint frame199; mixed-T
+normalized boundary-strain OLS frames30..199), Pearson(initial z0, final p) is
+-.873 node-low, -.878 node-mixed, -.858 stiffness-low and -.764
+stiffness-mixed; z1 is +.877,+.882,+.848,+.754. Spearman z0 is
+-.864,-.874,-.789,-.767. Every entry is80/80valid. These are descriptive
+heldout correlations from one fixed2D seed, not supervised probes or model
+selection. The secondary mixed-T position-prediction R2 is low, as expected in
+this extreme limit: node AE/rollout .0810/.1311 and stiffness .0118/-.0317,
+all80/80valid. Do not use rollout failure to negate the strong initial-latent
+ordering claim.
+
+The new mini stiffness-optimized sources derive from
+`data/mini_stiff_optimized_200_1500.pt`; they are distinct from the historical
+`data/reid_200_frames.pt` collection even though Reid is also described as a
+stiffness-optimized family. Notebook labels preserve `stiffness optimized` and
+state this distinction explicitly. Notebook01 contains the requested coloured
+heldout z0 trajectories with per-source initial zooms, source-wise initial-z
+correlation panels/tables, and a secondary AE/rollout section. Current execution
+has 21 cells, 6 inline PNG outputs and 0 errors; no figure files were exported.
+
+Notebook01 now also visualizes a frozen low-T near-collision: held-out node ID47
+and stiffness ID106 at frame33 (MD step33,000), under the same one-each seed123
+AE/job4685259. Raw 2D latent separation is0.000173, yet raw box ΔLy is
++0.014122 versus−0.011566; both have box x-strain−0.003300 (2/2 valid).
+The inline three-panel plot shows z0 crossing, raw latent paths and box ΔLy;
+the exact values are printed beneath it. This is descriptive heldout-development
+analysis, not a new fit or final-test result. Source paths/hashes and the
+framewise box export are in
+`notebooks/results/all4_coverage_1000/notebook01_crossing_pair/`.
+
+Follow-up interpretation audit (same frozen checkpoint, no training): at frame33,
+node47 has z0=1.471606+0.851036 and stiffness106 has z0=0.777404+1.545375.
+Their nearly coincident codes result from different starting offsets and travel.
+Native AE boundary p-ratio is−0.120635/−0.101643 versus truth
++0.336175/−0.229816 (node/stiffness, 2/2 valid). A frozen decoder probe supplying
+the identical mean z=(2.32271099,−3.61238480) to each graph's reference context
+still gives−0.120635/−0.101644: graph conditioning does not recover the opposite
+transverse signs here. These are single-frame boundary diagnostics, not fitted
+p-ratio or rollout scores. The pair's normalized displacement RMS nearly agrees
+at33, but cohort analysis of3,237 cross-family z0 crossings over frames1–99
+finds median relative RMS mismatch7.27%, versus5.62% for arbitrary same-frame
+pairs. Thus the near-collision is not evidence of a common physical response.
+
+Standalone visualization: `notebooks/dynamics/10_latent_crossing_and_response.ipynb`
+(9 cells, 3 inline figures, 0 execution errors). Same frozen pair/recipe above;
+shows raw z0/z1 timing, initial-plus-movement decomposition, raw box ΔLy, and
+matched boundary-estimator truth versus AE p-ratio (frame33 valid2/2). No
+training, rollout evaluation, or figure exports. Built by
+`tools/analysis/build_latent_crossing_notebook.py`.
+
+Notebook10 now includes the frozen twenty-each comparison (17 cells, 6 inline
+figures, 0 errors). Seed123; fit4685260, corrected evaluator4685855; train IDs0–19
+per source, held-out-development IDs40–119. The original node47/stiffness106
+pair is separated at frame33 (raw distance1.365203); true/AE p-ratios are
++0.336175/+0.225485 and−0.229816/−0.109867 (2/2 valid).
+Searching6,400 cross-family pairs over saved frames1–99 without response-based
+selection finds node102/stiffness51 nearest at frame2 (distance0.000750).
+There are2,525 strict synchronous interpolated z0 crossings; minimum remaining
+z1 gap0.000072, not an exact2D collision. Selected frame2 true/AE p values:
+node+0.208412/+0.071937, stiffness+0.054242/+0.146651; frame199:
+node+0.141390/+0.137291, stiffness−0.352315/−0.362360 (all2/2).
+Whole-cohort endpoint AE p-ratio R² at frames2/33/99/199 is
+node−11.7526/.9618/.9847/.9823, stiffness−3.1681/.7153/.9738/.9430
+(80/80 each; one seed, no seed SD). Early ratios have small compression
+denominators; these are endpoint diagnostics, not thermal fits or rollouts.
+Audit tables and input/code hashes: `notebooks/results/all4_coverage_1000/notebook10_twenty_crossings/`.
+No new training, final-test use or figure exports.
+
+### More training networks: AE curve pilot — 2026-09-23
+
+Question: does more structure coverage improve notebook10's low-T AE response
+curves? Submitted through normal Zeus from zeus-post:4698519, confirmed running
+on mendels_q (8CPU/16GB, free:shared). Same frozen v5 2D AE/objective/seed123;
+32/source, IDs0–19+28–39; unchanged validation node20–27/stiffness20–26 and
+held-out-development40–119. Four training sources; low-T evaluation only,
+frames1–199, pair curve MAE over1–99 plus cohort endpoint p-ratio R². No
+propagator, notebook changes, response-based selection or final-test use.
+Artifacts/recipe/hashes: `notebooks/results/all4_more_networks_pilot/` and
+`hpc/experiments/all4_more_networks_pilot/`. Results pending; no improvement
+claim yet. Collector mode-filter fix was applied immediately after submission;
+if the running process loaded the pre-fix script, recover comparison tables
+from its saved per-source outputs without repeating training.
+
+Twenty-each corrected post-fit job4685855 completed exit0 in00:08:38 using
+3418076KB. Mixed-T normalized-strain-OLS p-ratio R2 is .9380/.9585 for node
+AE/rollout and .6399/.5266 for stiffness AE/rollout, all80/80valid. Low-T
+frame199 endpoint R2 is .982/.970 node and .943/.630 stiffness, likewise
+80/80. These secondary prediction results remain one seed.
+
+Notebook02 has been rebuilt and executed as the matched one-versus-twenty
+representation comparison:12cells,3inline PNG outputs,0errors. Response-free
+initial-latent covariance effective dimension rises from1.000 in every
+one-each source to1.557/1.576 node low/mixed and1.405/1.372 stiffness
+low/mixed. Thus the 20-each heldout geometry is materially less line-like.
+However, richer2D geometry does not mean stronger single-axis response
+ordering. In the 20-each model, Pearson(initial z0,z1) is (.553,.799) node-low,
+(.523,.814) node-mixed,(-.478,-.055) stiffness-low and(-.329,.026)
+stiffness-mixed. An unsupervised response-label-free PC1 construction gives
+absolute Pearson correlation .815/.817 node low/mixed but only .423/.281
+stiffness low/mixed, versus .876/.881/.850/.757 for one-each. PC1 uses no
+p-ratio to choose its direction; sign is arbitrary and reported in absolute
+value. Therefore twenty-each clearly enriches dimensional occupancy and greatly
+improves position-derived response reconstruction, while the exceptionally
+clean initial-latent scalar ordering of notebook01 is partly lost for the
+stiffness branch. Do not collapse these distinct outcomes into one notion of
+"better latent space."
+
+### Tiny edge-MLP AE pilot — 2026-09-23 (running)
+
+Question: does initial-z/p-ratio ordering survive a transparent tiny encoder?
+Shared low-T-only AE: node/stiffness ID0, all200 frames at1,000MD cadence;
+validation node20–27/stiffness20–26, development40–119/source. Seeds123/456/786.
+Encoder: standardized reference edge(dx,dy,length,k) and evolving edge changes,
+8→8(tanh)→2, mean over both edge orientations (90parameters). Static-node
+decoder8→16(tanh)→2; full AE268parameters. No attention/message passing.
+Architecture intentionally loses connectivity information in graph encoding.
+Adam1e-3, wd1e-5, graph-equal standardized-displacement MSE, batch32,
+max300epochs/patience30; checkpoint on validation displacement only.
+Compare both initial raw coordinates before/after fitting against frame199
+physical endpoint p-ratio (Pearson/Spearman, source-wise counts/seed meanSD),
+and separately report position-derived AE p-ratio R² at declared horizons.
+No propagator, response supervision, final-test use or notebook changes.
+Model: `src/lss/dynamics/tiny_edge_ae.py`; runner/results: `tiny_edge_mlp`.
+Small tensor checks passed:268parameters, edge-reversal/node-permutation
+invariance and backpropagation. Initial audit below motivates the untrained
+control; high correlation alone is not evidence it was learned.
+Submitted through normal Zeus: seeds123/456/786 → jobs4698537/4698538/4698539;
+all confirmed running in mendels_q,8CPU/16GB/free:shared. Frozen `code_v1`
+manifest SHA256 `6e35f6e6390e76aa5cd7769767b0717e38ccb98434a4765dfb849ccbaa0e16d4`.
+Results pending. Exact encoder/decoder matrices and fitted train-only
+normalizers will be exported with each checkpoint for an explicit static map.
+
+### One-each initial-latent origin audit — 2026-09-14
+
+User asks whether the strong heldout initial-z/final-p ordering is learned from
+the deformation frames or inherited from static graph representation and
+dataset structure. Post-fit-only audit4685877 completed exit0 in00:02:23 using
+3210188KB. Same frozen one-each seed123 AE, low-T heldout-development IDs40..119,
+physical endpoint frame199 truth; no checkpoint, fitting, selection or final-test
+change. At frame0 the normalized displacement and evolving-edge-change inputs
+are constant; network-varying encoder inputs are reference node positions,
+connectivity and reference edge vector/length/stiffness.
+
+Fifteen response-blind random initializations of the identical architecture
+with the fitted input normalizers give PC1 absolute Pearson mean±SD .802±.292
+node and .592±.253 stiffness; maxima .982/.899 exceed the trained .876/.850.
+Thus architecture plus static dataset structure can expose the ordering without
+learning, although one trained seed cannot quantify how much fitting stabilizes
+it. Simple static descriptor correlations identify the branch-specific signal:
+node mean/std edge length |r|=.985/.974; stiffness std/mean stiffness
+|r|=.941/.915, all80/80. Response-blind PCA of all17 standardized descriptors
+is not itself strongly correlated (.132 node/.384 stiffness), so the signal is
+specific rather than generic maximum variance.
+
+Trained-encoder input ablations support the same attribution. Holding static
+edge geometry at its fitted mean reduces node PC1/p |r| .876→.474, while
+holding stiffness at its mean retains .941. For stiffness, holding stiffness at
+its mean reduces .850→.276, while holding edge geometry retains .854. Setting
+all reference-edge channels to their fitted means reduces correlations to
+.020/.267. Position centering has small effect; zero-position is explicitly
+OOD and not causal evidence. Local normalized-input gradients and every
+predeclared descriptor/ablation row are retained. Bottom line: training
+compresses/organizes a strong pre-existing optimized-family signal; node
+ordering primarily enters through edge geometry/length and stiffness ordering
+through the stiffness distribution. Correlated optimized inputs prevent a
+unique physical-causality claim. Artifacts and exact hashes:
+`notebooks/results/initial_latent_origin/`; runner/PBS:
+`hpc/experiments/initial_latent_origin/`.
+
+### Nested latent-count morphology study — 2026-09-14
+
+User requests watching the2D latent plane morph with training coverage. Frozen
+matrix counts1/2/4/8/10/12/14/20 per source × seeds123/456/786; nested train
+IDs0..count-1, identical code-v5 four sources/all200frames/30-trajectory
+validation, ordinary warmup plus uniform coordinate-only AE fitting. No
+propagator training is needed for this representation question. Existing
+seed123 count1/count20 checkpoints are reused without retraining; all other
+cells train fresh. Heldout low-T IDs40..119 give initial latents plus eight
+response-blind fixed-ID full trajectories/source. Collector alignment is
+centered Frobenius-normalized orthogonal Procrustes on identical heldout latent
+coordinates without p-ratio. Effective dimension, PC1 variance and trajectory
+geometry are primary; low-T endpoint p is post-fit correlation only and never
+selection. Matrix has24 cells. Gate job4685881 runs the reused count1 seed123
+cell before release of remaining cells. An attempted single-element PBS-array
+syntax was rejected before job acceptance; no experiment resulted. Runner SHA
+`f0746dc2da6e315a0dc9e99d93f9833acaf754be7e7571d39d489ce23eb332e0`,
+matrix SHA`7e757a706d2efd9b474203b9a4faa252d1d977efe46a53c2a54e897f48fe30a2`,
+PBS SHA`f082d230923161874fc35869abfd137d14c7f1ac8c8e3b34e15edb1b491d0650`.
+Shared mendels_q8CPU16GB/placefree:shared, no host pins. Results pending.
+
+Gate4685881 completed exit0 in00:02:17 using3201468KB and reproduced the reused
+count1/seed123 checkpoint hash exactly while writing initial and fixed-ID
+trajectory latents. Remaining23 cells submitted as PBS array4685887[1-23]; all
+23 entered running state. The earlier rejected `-J 0-0` command remains a
+submission-syntax failure only, with no accepted job. No collector is submitted
+yet; aggregation and notebook morph plots wait for all declared cells and must
+report failures rather than silently dropping them.
+
+Notebook02 has been re-executed with four source-specific AE versus autonomous
+rollout endpoint-p-ratio R2 curves across every stored MD horizon. Mixed-T
+curves are explicitly labelled as thermally noisy frame-specific endpoint
+estimates; the less-noisy final frames30..199 strain-OLS values remain in the
+table. Notebook02 now has4inline PNG outputs and0errors.
+
+Historical notebook03 was replaced at user request and executed as the exact
+one-versus-twenty comparison. At the user's correction, every coordinate-level
+analysis now uses the model's actual two learned variables z0 and z1, without a
+PCA replacement. It reports initial z0/z1, final delta-z0/delta-z1,
+full-trajectory z0/frame and z1/frame slopes, arc length, straightness,
+effective dimension, pooled motion/frame correlations and all source-wise
+correlations with source-appropriate final p. The effective-dimension scalar is
+computed from the two-coordinate covariance but does not rotate the displayed
+variables. It also embeds the completed direct-z static-input/random-encoder
+attribution audit. Thirteen cells,3inline PNG outputs,0errors; no figure files.
+
+Direct-z audit job4685893 completed exit0 in00:03:25 using3224924KB. For the
+trained one-each encoder, initial z0/z1 absolute Pearson correlations with
+low-T endpoint p are .873/.877 node and .858/.848 stiffness, all80/80. Across
+15 response-blind random initializations of the same architecture, mean raw
+z0/z1 absolute correlations are .766/.693 node and .587/.531 stiffness; maxima
+are .983/.970 and .895/.897. Trained direct-coordinate ablations give node
+baseline .873/.877, geometry-held-mean .473/.474, stiffness-held-mean
+.940/.941 and all-reference-edges-held-mean .020/.020; stiffness gives
+.858/.848, .862/.852, .267/.279 and .255/.270 respectively. This preserves the
+earlier conclusion in the actual learned coordinates: node ordering primarily
+enters through static edge geometry and stiffness ordering through the static
+stiffness distribution. The earlier PC audit is retained as auxiliary history
+but is superseded for notebook03 presentation by
+`notebooks/results/initial_latent_origin_z/`. Runner SHA
+`d6a331d4a6400da4608a84b8d1831da5e35812a05c7108ea49fe106eccea2e12`.
+
+### Direct-z structure, motion and edge-attribution narrative — 2026-09-14
+
+Notebook03 was expanded and re-executed:19cells,7inline PNG outputs,0errors.
+All coordinate plots use raw learned z0/z1. For low-T heldout IDs40..119,
+one-each corr(initial z0,z1) is -.9996 node and-.9994 stiffness, so squared
+shared variation is.9993/.9988 and effective dimension1.000/1.000. Twenty-each
+corr is+.4939/.5289, squared shared variation.2439/.2798 and effective
+dimension1.557/1.405, all80/80. Thus the nominally2D one-each state is almost
+one duplicated coordinate, while twenty-each represents independent initial
+graph variation. This does not claim every within-network path is intrinsically
+2D: at frame199 twenty-each corr(delta z0,delta z1) is.963 node and.797
+stiffness. Response appears strongly in motion: twenty-each endpoint absolute
+corr(delta z0/z1,final p) is.977/.982 node and.886/.978 stiffness, all80/80.
+Framewise motion-response curves including frames10/50/100/199 are inline.
+
+The encoder receives no source ID, temperature or p-ratio. Node/stiffness
+families separate only through positions and compact reference/current edge
+direction, length and stiffness features. Raw initial family centroid distance
+divided by pooled within-family RMS is6.351 one-each and1.403 twenty-each. The
+large one-each offset is therefore not a supplied label. Twenty-each static
+associations suggest node z1 retains mean-edge-length ordering(r=-.795), while
+stiffness z0 retains stiffness-spread ordering(r=.454) and stiffness z1 also
+represents gyration radius(r=.682). These twenty-each descriptor results are
+correlational; the frozen-input ablation remains completed only for one-each.
+
+New response-blind edge audit uses fixed heldout graphID40 for node-low and
+stiffness-low and passes the exact graph through frozen one-each and
+twenty-each AEs. Per physical spring importance is the L2 norm across z0/z1 of
+gradient-times-normalized-input, combining current/reference routes and paired
+directed entries; geometry uses vector-x/vector-y/length and stiffness uses the
+stored-stiffness channel. It is a local sensitivity visualization, not a causal
+edge deletion. Notebook drawing now uses `graph_utils.draw_graph` with
+`periodic_edges=False`; the utility removes51/439 node and61/830 stiffness
+wraparound edges from the display only, while all remain in encoder attribution.
+Across visible edges, one-versus-twenty importance-rank correlation is-.181 for
+node geometry and+.170 for stiffness-channel influence; overlap between each
+model's top10% visible edges is.077/.039. This demonstrates strong
+fitted-representation reorganization on the same graph but not a unique causal
+spring set. Artifacts:
+`notebooks/results/edge_attribution_one_vs_twenty/`; script SHA
+`97cd11c246ecc4aa1e77e3c17ed4b1b5d43087c385e21743a292e69f90ef3402`,
+CSV SHA`aee26e7799047b4f69c797a83ef0db7397b380930684a74513fff0a25801777b`,
+same frozen AE hashes recorded in metadata.
+
+Notebook02 was rebuilt/re-executed:14cells,4inline PNG outputs,0errors. Its
+latent-plane figures now omit noisy mixed-T paths and overlay all80 node-low and
+80 stiffness-low complete200-frame trajectories on common z0/z1 axes for the
+twenty-each model. Mixed-T remains in source-wise response evaluation. Every
+displayed p-ratio-R2 horizon curve is clipped at zero from below with ylim
+0..1.03; exact negative values remain unchanged in displayed tables and source
+CSVs. Notebook02 builder SHA
+`032201e421914dbec2f05adfe3cdf9352a23c7af5c593232fdfad4e71c0cd918`.
+
+Latent-count scheduler audit corrected a misleading parent-only qstat result:
+original array4685887 still had tasks present. Nine/24 cells were complete
+(indices0,1,2,7,8,10,16,17,18). Fifteen incomplete cells are exactly
+3-6,9,11-15,19-23. Their original partial artifacts were preserved under
+`latent_count_morph/partial_4685887/`. A first rerun overlapped briefly while
+PBS applied old-task cancellation gradually; all involved processes were
+stopped and those outputs preserved separately under
+`latent_count_morph/overlap_window_4685947_4685950/`, so none can enter the
+collector. Final clean reruns began only after no relevant old/brief-rerun task
+remained active: jobs4685958[3-6],4685957(index9),4685956[11-15] and
+4685959[19-23], all15/15 verified running. Existing nine completed cells remain
+untouched. Final collection requires completed.json status/hash/count/seed
+validation and will present per-seed raw z0/z1, z0/z1 redundancy and covariance
+effective dimension; no PC coordinate will replace the two learned variables.
+
+### Early latent turn and completed count morphology — 2026-09-15
+
+User notes endpoint directionality can hide nonlinear motion near the beginning.
+Notebook03 now measures, for each heldout low-T trajectory, the angle between
+z(frame)-z(0) and its own eventual z(199)-z(0), using raw z0/z1 only. All80/80
+trajectories are valid at every frame. One-each is already straight at frame1:
+median angle.823degrees node and1.089degrees stiffness; at frame10
+.863/1.072degrees. Twenty-each has a reproducible initial turn in seed123:
+frame1 median30.994degrees node and22.073degrees stiffness, frame10
+11.296/9.468degrees, frame20 6.334/7.547degrees. Frame20 median perpendicular
+deviation remains only.016/.022 of final displacement, so this is an early
+turning transient rather than a large loop. Notebook shows median plus10–90%
+bands through frame50 and centered initial paths for fixed IDs40,54,68,82,96,
+110 with frame10/20 markers.
+
+All24/24 latent-count matrix cells are now complete and passed strict
+completed.json status/count/seed/runner/data-hash validation. Final clean jobs:
+4685958[3-6],4685957(index9),4685956[11-15],4685959[19-23]. Collector outputs
+are `notebooks/results/latent_count_morph/collected/`; collector SHA
+`bfaffd69398f31bb0e138ec45a45e34aba31c03d9cae96c57f151dc59b085421`,
+raw-z metrics CSV SHA
+`619a319f5c0e227c956f47c9b9bdd653ea7c41a8e09f1d88a95f724bf57679e9`,
+aggregate SHA
+`3451f84ed5279718ac145ac2694c2f74f843db98efd78729881eb81f1d17720d`.
+Each count/source has3seeds and240/240 initial heldout states; early motion uses
+24/24 fixed response-blind trajectories(count/source aggregated across seeds).
+
+The count transition is not monotonic. Seed-mean squared z0/z1 shared initial
+variation for node is.954,.519,.995,.200,.196,.330,.229,.272 at counts
+1,2,4,8,10,12,14,20; stiffness is.997,.492,.922,.352,.201,.075,.298,.191.
+Mean effective dimension at count20 is1.536±.266 node and1.485±.170 stiffness,
+versus count1 1.012±.016/1.001±.002. Count4 often collapses back to a line;
+counts8–20 generally use more of the plane but retain seed variability. Hence
+broader exposure makes a richer2D solution available but does not enforce a
+smooth or unique coordinate decomposition. Notebook03 now contains seed123
+raw-z small multiples for all eight counts, multi-seed mean/SD curves, the
+early-turn analysis and the actual-graph edge maps. It executes23cells,
+11inline PNG outputs,0errors; builder SHA
+`adb48ec0fcdd44842f6a20e0a94b7c33f630009a761e7a3a66044cc730e30b0b`.
+
+### Notebook03 stiffness-low focus — 2026-09-15
+
+Notebook03 was reduced to the stiffness-optimized low-temperature source for
+the one-versus-20 mechanism analysis. Mixed-temperature and node-optimized
+rows are absent from its correlation dataframe, displayed tables and plots;
+this is a presentation/analysis-scope change and does not retrain or select a
+model. The notebook retains raw z0/z1 initial structure, frozen-input static
+attribution, the complete count-morph sequence, early-turn analysis,
+framewise motion/p-ratio correlations and the graph-utils stiffness-edge map,
+all for stiffness-low only. It executes21cells,10inline PNG outputs,0errors;
+builder SHA
+`8add638355d7da510af0abae9b5a6be6a6fb010f9c774b02813681c153ce2158`.
+
+### Notebook03 matched early trajectory — 2026-09-15
+
+Notebook03 now ends with a response-blind matched visualization for heldout
+stiffness-low networkID40. The identical physical200-frame trajectory is
+passed through the frozen one-each and twenty-each encoders. Full raw z0/z1
+paths, frames0–20 zooms, eventual latent direction, physical transverse-versus-
+axial boundary-length change and per-frame latent/box increments are shown
+together. Boundary lengths use fixed frame-0 side-node sets selected by
+`graph_utils.directional_side_indices_from_box` at quantile.10:
+Lx=mean(right x)-mean(left x), Ly=mean(top y)-mean(bottom y). Stored
+x/y-deformation columns are cumulative delta Lx/delta Ly, not normalized
+strains; p=-delta Ly/delta Lx for this cohort. The one-each
+angle to its eventual latent direction is1.078,1.074,1.020degrees at frames
+1,10,20; twenty-each is22.701,9.809,7.574degrees. The identical physical
+p-ratios are+.159,-.035,-.061 at those frames. For network40 frames1–20,
+twenty-each corr(delta z0,-delta Ly/delta Lx)=.9659 and
+corr(delta z1,-delta Ly/delta Lx)=.9909, versus-.8459/.8389 one-each;
+corr(delta z0,delta z1) is.9232 twenty-each versus-.9999 one-each. Mean
+per-frame delta Lx is-.0016609 with SD.00000596, confirming essentially
+prescribed axial increments, while delta Ly SD is.0000970 around mean
+-.0001016. Thus the curve resolves the changing transverse response under
+controlled axial compression; z still retains internal displacement
+information because the AE reconstructs every node. Notebook
+executes23cells,11inline PNG outputs,0errors; builder SHA
+`ac90e03684e53e4b7fa1c869de9235d91dea4b1474fd5505a84865555db84c66`.
+
+### Notebook03 correlation-scope separation — 2026-09-15
+
+The former single feature/final-p heatmap conflated statistical units and was
+replaced by three explicitly distinct views, stiffness-low only. Global static
+correlations are computed once across80 heldout networks between initial z and
+frame199 p-ratio; global motion correlations are computed across the same80
+networks between endpoint delta-z/full-path slope and frame199 p-ratio.
+Within-trajectory correlations are instead computed separately inside each
+network over frames1–20. Their primary dynamic comparison is per-frame
+delta-z=z(t)-z(t-1) against the simultaneous incremental boundary response
+-delta-Ly/delta-Lx; a secondary table retains cumulative
+z(t)-z(0) versus frame p-ratio and labels it separately.
+
+All within-trajectory cells are80/80 valid. Median absolute per-frame
+correlation for one-each is.786 z0/.779 z1; twenty-each is.956/.986.
+Corresponding10–90% intervals are.228–.894/.243–.889 one-each and
+.467–.992/.733–.998 twenty-each. Global initial-z/final-p absolute
+correlations remain.858/.848 one-each versus.478/.055 twenty-each; global
+endpoint delta-z/final-p is.019/.140 versus.886/.978. Notebook executes
+23cells,11inline PNG outputs,0errors; builder SHA
+`9c95c0b6166c063c7b0d23484aeca4375d6032d76464709a5b827af92f4ce971`.
+
+Notebook03 presentation was subsequently stripped of narrative interpretation
+at user request. Markdown now contains section headings only; plots, axis
+definitions, code, exact tables and valid/total counts remain. The concluding
+takeaway cell and interpretive print statements were removed. The notebook
+executes22cells,11inline PNG outputs,0errors; builder SHA
+`c222acfd9387f464cf8e5d84163cf23b8323522b683be040142735143d9a497b`.
+
+Notebook03 headings and panel titles were made self-identifying without
+restoring narrative prose. The correlation section now names both targets:
+final p-ratio for across-network statistics and -delta-Ly/delta-Lx for
+within-trajectory framewise statistics. The matched network40 figure now
+enlarges frames0–20 directly in centered coordinates normalized by the
+frame20 latent-displacement norm. Its one-each panel visibly follows the
+frame199 ray(frame1 turn1.1degrees), while the twenty-each panel visibly
+curves away from that ray(frame1 turn22.7degrees); cumulative boundary-length
+change and standardized framewise response remain below. Notebook executes
+22cells,11inline PNG outputs,0errors; builder SHA
+`3d3c1aa0cd94b907879974a62c8d603ea8d629ac8ec7cf1f4490b306082096e0`.
+
+Notebook03's final matched-network figure was simplified for supervisor-facing
+presentation. It now shows only the raw z0-versus-z1 path over frames0–20 and,
+for each frozen encoder, the frame-to-frame z0 and z1 changes beside the true
+framewise p-ratio. Frame20 displacement
+normalization, the frame199 direction, cumulative boundary-length change,
+the colorbar and auxiliary direction/increment tables were removed. This is a
+source-only presentation change: the notebook was deliberately not executed,
+and its outputs were cleared pending the requested manual rerun. Builder SHA
+`84eece346e65afd69b396b8888932fa9ebeba2578d03c6642053d65c335c4cf0`.
+
+Notebook03's endpoint-motion/final-p-ratio analysis was removed because it
+mixed an across-network endpoint statistic with the intended within-trajectory
+motion question. The remaining correlation figure separates (1) initial z
+versus final p-ratio across 80 networks from (2) latent change since frame 0
+versus y-deformation within frames 1–20 and (3) latent change since frame 0
+versus the same-frame p-ratio. The across-network delta-z curves, endpoint
+delta-z/slope bars, all frame-199 direction diagnostics and their extra tables
+were removed. The matched example likewise overlays z0/z1 change since frame 0
+with the ground-truth frame p-ratio. This was a source-only edit; outputs remain
+cleared for manual rerun. Builder SHA
+`22450e1da3077dbc6cbad2eab5ef98d5c218eb76c7cfe4d0cd30b3e3d8c68c59`.
+
+Notebook03 now ends with a concise supervisor-facing interpretation of the
+learned mapping. It states that a complete graph frame (positions,
+connectivity, edge geometry and stiffnesses) is encoded into z0/z1 without an
+optimization-class or p-ratio input; one-network training can rely on broad
+source identity and dominant deformation, whereas twenty-network training
+must also resolve within-source structural and response variation. It also
+explains the node- versus stiffness-optimized separation through their
+different geometry/edge-length and stiffness-pattern inputs while warning
+that latent axes have no fixed physical names. Source was rebuilt and checked
+without notebook execution; outputs remain cleared. Builder SHA
+`2edc16e2cb60ad7c918eecf929983ca233a7c42231fec30d8901f0af5df8dc10`.
+
+Notebook03 stiffness-edge rendering now compares the completed mini_shared
+original-only arms on the identical held-out stiffness-optimized network40 at
+frame0: stiffness_only trained on20 stiffness originals(job4682401, AE SHA
+78d2eb176be0dbf825a1d743db5db3efb9a00826f7ff84c384d77b4052dc858b)
+versus joint_original trained on20 stiffness+20 node originals(job4682402, AE
+SHA429dbcf558cfe3b39047c1cd48cb2c502c7c2ab56bbf7dd1ee5677a2433ebb1c).
+No mixed-T data, source label or p-ratio enters either fit or this attribution.
+For each of830 undirected model edges, the response-blind score is the L2 norm
+across z0/z1 of gradient times normalized stiffness input, combining current
+and reference edge routes. Panels percentile-rank scores separately; edge
+width still shows physical stiffness, and periodic drawing edges are removed
+through graph_utils. Rank correlation between the two complete edge score
+vectors is.988552 and their top10% overlap is65/83(.7831). This is local
+sensitivity, not causal deletion. Artifacts are under
+notebooks/results/edge_attribution_stiffness_vs_joint; CSV SHA
+509ffb7206cad050c04c81cef8980496247f8a13ba366f919930d107b223642f and
+exporter SHA91e6bd743a4a0bb98d929a00dce55d40f5e2a6a3ca4b6035a642e9e99fc1fdb9.
+Notebook source was rebuilt and outputs cleared without execution; builder SHA
+`30d372d938537a0da93e5c6ee59e603ad24b491c69431f38578a1e7f7d0ddebe`.
+
+Notebook03 feature attribution and full count-morph paths were extended at user
+request. The earlier stiffness-vs-joint edge export incorrectly combined
+compact current-edge channel3(relative stretch) with reference-edge
+channel3(stiffness) under a stiffness label. It is superseded: edge colors now
+use reference-stiffness only. A response-blind gradient-times-input audit on
+the same heldout stiffness-original network40 ranks eight actual input
+families at frames0 and20, L2 aggregated across z0/z1 and displayed as a share
+of the sum of family scores. At frame0, stiffness-only influence shares are
+reference node positions61.66%, stiffness26.42%, reference edge directions
+8.13%, reference edge lengths3.79%; joint-original shares are84.40%,3.41%,
+6.31%,5.87%, respectively. At frame20, stiffness-only is reference positions
+51.25%, relative stretch13.89%, edge-length change10.49%, stiffness9.22%, node
+displacement7.42%; joint-original is reference positions58.86%, node
+displacement12.44%, relative stretch8.91%, edge-length change6.31%, reference
+edge length5.42%, reference edge direction5.33%, stiffness2.09%. These are
+single-graph local sensitivities and family sizes differ; they are not causal
+deletions or population estimates. Feature CSV SHA
+`1f8e0afe36002648d9ad440a56d77afa804d7fd32d7c0fe53f7039cbc1a4030e`;
+exporter SHA
+`42e46a1361426401db25653e9438929cf294901730bf3d3d0d3afd219a6b8b1a`.
+
+The previous count-morph cache held only8 fixed paths/source/cell. Frozen seed
+123 checkpoints were evaluated post-fit on the same20 heldout stiffness-low
+IDs40..59 for all200 frames and counts1,2,4,8,10,12,14,20:32000/32000 finite
+latent rows, no training, response input, selection or alignment. First PBS
+attempt4687102 exited1 after count1 because intermediate ae_only bundles were
+passed to the full experiment loader; no artifact was retained. Corrected
+attempt4687109 used the repository ae_only loader and exited0 in15:35,
+45:17CPU,3384164KiB peak memory on8CPU/16GB shared. Output SHA
+`5a9789408d0d1f3bd22ddaa714c2a65336831ced4a122bb5bd99a66b38017de0`;
+exporter SHA
+`e3b7e928187e1248ab459e4ad5453a1478cbd628bd6d76004c5341184352135f`.
+Notebook03 now plots all20 complete matched paths in every count panel and the
+top-five feature-family ranking above corrected stiffness-edge maps. It was
+rebuilt but not executed; outputs cleared. Builder SHA
+`b0e34f32af5019f14851ae0bace8532cfc982cc9a948579c115baf45cfff1035`.
+
+Notebook03 feature-family gradient-times-input attribution was extended from
+frames0/20 to0,1,2,3,4,5,20 for the same heldout stiffness-original network40
+and the same frozen stiffness_only/joint_original AEs. The bar small multiples
+were replaced with one heatmap per model; cells at or above5% are annotated.
+Reference positions remain the largest single family through frame5: their
+shares for stiffness-only are61.66,59.94,55.01,52.12,50.60,49.91%, while
+reference stiffness falls26.42,25.71,23.02,20.58,18.52,16.82%. Joint-original
+reference-position shares are84.40,82.24,76.03,71.82,68.90,66.84%, with
+stiffness3.41,3.30,2.96,2.72,2.55,2.43%. Summed dynamic-family shares rise
+from0 at frame0 to24.22% stiffness-only and20.30% joint-original by frame5.
+Same local/single-graph/non-causal and unequal-family-size qualifications
+apply. Feature CSV SHA
+`753f4816bf95c6622bc5ac449ab6940d75d65f99fb58189cdebf1af75913f7cc`;
+exporter SHA
+`bfa5abda923a74e436348d1211523163af0a14d81dcc9fedf065c490b5e5edc0`.
+Notebook was rebuilt without execution and outputs cleared; builder SHA
+`ae87a9f7e42443294a6bc150d083b449aa2afcfd26debc11e13061b4620cd4f1`.
+### Declared 200-MD-step, 500-frame rerun — 2026-09-15
+
+User requested repeating the notebook01-03 mini-temperature studies on the
+equivalent MetaForge family stored every200MDsteps, training on exact frames
+0..499. The four declared inputs are the node/stiffness x low/mixed branches of
+`mini_temperature_200_1500frames`, each200 trajectories x1500 frames. The
+predeclared cached prefix ends at MD step99800 and strain.00998; this is denser
+but only half the physical horizon of the prior200-frame x1000-step experiment
+ending at199000/strain.0199, so results will not be called horizon-matched.
+
+The frozen reproduction scope is: all-four one and20 trajectories/source,
+joint low-T, node-low-only, stiffness-low-only, joint mixed-T-only, plus the
+nested counts1/2/4/8/10/12/14/20 x seeds123/456/786 AE latent-morphology
+matrix. All retain the response-blind fresh2D message-passing AE, exact uniform
+post-warmup frame weights, frozen one-step delta propagator, and coordinate or
+latent validation selection. Train IDs are nested0..19, validation20..39
+(the all-four arms retain their prior30-trajectory validation allocation), and
+heldout-development IDs40..119. Low-T primary p-ratio is the physical frame499
+endpoint. Mixed-T primary p-ratio is normalized boundary-strain affine OLS over
+frames150..499: frame150 is MD step30000, preserving the previous fit window's
+physical start. AE reconstruction and autonomous rollout are always separate,
+source-wise, with valid/total counts. No response enters training or selection.
+The completed cached artifacts will populate separate executed notebooks under
+`notebooks/dynamics/200_md_step/`; notebooks01-03 are not overwritten. The
+duplicates emphasize complete500-frame/99,800-MD-step paths and early
+transients rather than merely transplanting the old plots.
+
+Data preparation streams and verifies every selected per-trajectory SHA rather
+than loading the24.1GB of monolithic files together. It checks all240,000
+selected frames for finite coordinates, exact time=200xframe, fixed topology,
+reference positions and stiffness; it also checks paired low/mixed identities
+and no cross-family topology overlap before writing four120-trajectory caches.
+`CONTRIBUTING.md` was requested by repository policy but is absent from this
+checkout; AGENTS.md and the experiment index/logs were followed. Exact protocol
+is `hpc/experiments/mini_temperature200_frames500/protocol.json`. Data audit and
+cache job4687224 is accepted on mendels_q with2CPU,16GB and
+place=free:shared. Prepare/PBS/protocol SHA256 are respectively
+`d2754fec575ff534cc60dcc18f14c3a140f64f102be9fc06cb6604b663638de6`,
+`38f2dd1381342c9dac1d6f29db32355326589a6b29b53ceb1387d4609b6c0b6e`,
+and `cfa06218edf3683b07b454ac29365e7def7bb270025b6ce30dd328a76255bf8b`.
+Training is not released until this job succeeds; no result exists yet.
+
+Preparation job4687224 failed safely after seven seconds on the first graph,
+before any cache or model fitting: the auditor incorrectly expected converted
+`reference_context_positions` on raw MetaForge graphs. The raw schema has x,
+edge_index and four-channel edge_attr; the standard repository loader derives
+reference fields from frame0. The schema-only correction audits raw frame0 x
+implicitly through finite coordinates and verifies fixed topology plus the
+stored last edge-attribute stiffness channel. It does not alter any graph
+tensor, split, frame, model or metric. The six fit jobs4687251..4687256 and
+collectors4687257..4687262 were terminalized by the failed afterok dependency
+and provide no result; they remain recorded for provenance. A corrected data
+job and fresh dependent fits will be recorded below.
+
+Corrected data retry4687263 also failed safely at the first graph after ten
+seconds, before caches/fits, because PyG reports a present but None `pos`
+attribute on this raw schema; coordinates are the tensor `x`. This is another
+auditor-only schema error. Retry1 fits4687264..4687269, collectors4687270..
+4687275, morph array4687276 and reuse jobs4687277/4687278 were terminalized by
+their afterok dependencies and have no result. The next auditor requires a
+tensor-valued pos and otherwise uses x[:,0:2]; a four-source 500-frame local
+smoke audit precedes another submission.
+
+Data retry2 job4687289 then completed exit0 in00:03:47 with2644884KB reported
+memory (Python peak2861980KiB). Four caches contain exact IDs0..119 and frames
+0..499; SHA256 node-low/node-mixed/stiffness-low/stiffness-mixed are
+`7b011b3d28ad7ffa2ec5ac76f1072265ee8bd502e0aa8aec13ea05c5d6e49f14`,
+`6ad055cc9a3b8ef1342d2f6da41c2eda65595d841db694c6dbb81f594ed9f815`,
+`6609601352f2577b7001acae9e1a8cd1a94deb9ef61e6ac392fb3e64ca78385c`,
+and `38a253595bca5163409d4375ccec2c2010c4c96e734a111981798d2d7fcf40d6`.
+All240,000 frames passed the declared checks, paired low/mixed provenance
+matched, and standard-loader plus compact-batch smoke produced112x2 nodes,
+644 directed message entries and four reference-edge channels.
+
+Full-matrix snapshot code_v4 was submitted only after this audit. Its six base
+fits4687313..4687318 and dependent collectors4687319..4687324, morphology
+array4687325 plus reuse jobs4687326/4687327, and attribution4687328 were then
+cancelled or failed before usable fitting after a packaging-only root error was
+found: copied evaluate.py formed `notebooks/notebooks/...` when locating the
+frozen historical evaluator. Array tasks15..21 exited1 in9-12seconds; remaining
+active work was cancelled rather than knowingly wasting compute. All logs and
+job identities are preserved. Root discovery is corrected to locate the parent
+containing both src/lss and notebooks; the scientific protocol is unchanged.
+
+Clean packaging retry code_v5 passed static recipe parity and the frozen
+evaluator root check. Six fits4687329..4687334 are running; collectors
+4687335..4687340 are held afterok. Morphology array4687341 has all22 fresh
+cells running; reuse cells4687342/4687343 are held on the matching one-/twenty-
+source fits. Four-model attribution4687344 is held on all required fits. Every
+job uses mendels_q,8CPU,16GB,placefree:shared without a host pin. Frozen code
+manifest SHA256 is
+`b0755d5480360df0972c6f115014b0689ddbde65fc3e9fee891c8393a4395825`;
+data manifest `347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87`,
+protocol `af38299d5496d8782973b3e49315f1b53f1d87727bb14abe76982680ecf471ef`,
+and morph matrix
+`6cada93be5c090f389efbfd6f8af0b00356e18e5f8bf922122f7cb4300291f7d`.
+The morphology output saves all80 heldout initial states and full500-frame
+paths for fixed IDs40..59 per low-T source/cell. Results and executed duplicate
+notebooks remain pending.
+
+Later status audit found code_v5 base jobs4687329..4687334 exited1 only after
+every arm completed its AE and propagator smoke fit. The collector smoke chose
+node_low alone, wrote its endpoint evaluation, then grouped an empty mixed-fit
+table and raised KeyError(source). Production training never started and the
+dependent collectors/attribution did not run. This is an evaluator-smoke bug,
+not a model result. All six smoke checkpoints and histories are preserved. The
+correction evaluates node_low plus node_mixed during smoke and constructs an
+explicitly schematized mixed-fit table. Corrected smoke collectors will gate
+production-only fits, avoiding duplicate smoke training.
+
+Morphology is independent of that collector: array cells0..19 completed exit0
+with receipts; cells20/21(count20 seeds456/786) remain running. Count1/count20
+seed123 reuse jobs were terminalized only because their base-fit dependencies
+failed and will be resubmitted after repaired production fits.
+
+### Notebook01 focused initial-state and temperature audit — 2026-09-15
+
+At user request, original notebook01 no longer contains the secondary AE/
+autonomous-rollout section; those diagnostics remain notebook02's role. The
+trajectory plot now selects the stronger raw initial coordinate using only
+heldout stiffness-low correlations. It selects z0, Pearson r=-.858 versus the
+slightly weaker z1, and the focused stiffness-low/mixed scatter plots show the
+actual training ID0 as a star without including it in the heldout correlation.
+
+The exact source-appropriate position-derived training responses are all
+negative: node-low endpoint -.250347, node-mixed frames30..199 strain-OLS
+-.258283, stiffness-low endpoint -.028005, and stiffness-mixed strain-OLS
+-.027369. Thus the frozen historical model was not trained on a positive
+p-ratio example. It was not replaced with a response-selected positive network,
+which would violate the response-blind sample-selection rule.
+
+For each mixed-T heldout trajectory, physical transverse fluctuation is the SD
+of residual y-displacement after affine removal of its response to x-displacement
+over frames30..199. Fluctuation correlates with temperature: Pearson versus
+log10(T)/Spearman versus T is .700/.841 node and .754/.901 stiffness, all80/80.
+The sole mixed training example is0.1K while heldout data span.1..30K. This
+confirms a temperature-dependent fluctuation signal and documents evaluation
+outside the training temperature, but alone is not causal proof of temperature
+extrapolation because network identity also varies. Notebook executes17cells,
+4inline PNGs,0errors. Exporter/builder/notebook SHA256 are
+`ad610cbfeb8d6449aa552949b9e864fad4d6580230b85550b9d49cbd7d50ddce`,
+`4eb33d3dbc9ea5ab90004e59529e7e5a46153929ebff4cea39c41ca7b97c836c`,
+and `2fba3f8274f7241941c087fccc5c17252df5c713e3aebdd368e620b7062c5c27`.
+
+### Notebook02 cumulative mixed-T horizon estimator — 2026-09-15
+
+The existing mixed-T R2 horizon curves used a noisy single-frame endpoint
+ratio even though the final table used the frames30..199 linear strain fit.
+Post-fit job4687484 completed the same cumulative normalized boundary-strain
+affine fit over frames30..horizon for every horizon37..199, separately for AE
+and autonomous rollout. Frame199 reproduces the existing final-fit artifact to
+<1.2e-16, and before/after checkpoint hashes are identical. No fitting,
+selection, or checkpoint mutation occurred. Job used mendels_q,8CPU,16GB,
+placefree:shared.
+
+Per user clarification, autonomous rollout from the one-trajectory model is
+not part of the scientific comparison and is omitted from notebook02 plots and
+tables; that model is used only for latent-organization interpretation. The
+position-prediction diagnostic reports only the 20-per-source model. Its mixed
+node AE/rollout R2 at horizons100/150/199 is .526/.591, .883/.900, and
+.938/.958. Mixed stiffness AE/rollout is .613/.407, .581/.488, and .640/.527,
+all80/80. Early prefix fits remain unstable because the initial fit windows are
+short: displayed values are clipped at0 while CSVs preserve negatives. Low-T
+curves retain the physical endpoint estimator; mixed-T curves use cumulative
+fits. Notebook02 executes14cells,4inline PNGs,0errors. Exporter/builder/notebook
+SHA256 are `23356303123777c30550765a06375cf27b39d5a9fc3a0c380572433d22f1e62f`,
+`62251217f093d07685d5d697b04cfb66d8024db1ecb9b96d972c25d0201bfa10`,
+and `29199ece806bf4303a791b0fc20014b9cc4f739c471c73626b2bb914b8ea2730`.
+
+### All-four AE with low-T-only propagator — 2026-09-15
+
+User identified the missing hybrid behind the historical06b interpretation:
+expose the AE to both low/mixed trajectories but prevent stochastic mixed-T
+increments from supervising a deterministic propagator. Freeze the completed
+all4-twenty AE seed123 (SHA256
+`3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb`),
+then fit the otherwise identical deltaMLP64/reference-mean16 propagator on
+node_low+stiffness_low IDs0..19 and select only by low-T latent-delta validation
+loss on IDs20..39. Temperature/sourceID/p-ratio/strain remain absent. Evaluate
+all four heldout-development sources IDs40..119 with the endpoint metric and
+the normalized boundary-strain OLS over frames30..horizon37..199.
+
+Low/mixed same-ID trajectories share topology, but no train/validation identity
+overlaps heldout IDs40..119. The AE has mixed-T exposure; the propagator does
+not. In addition to mean-response p-ratio R2, predeclared post-fit diagnostics
+measure true-versus-predicted transverse residual SD, its temperature
+association, and framewise residual waveform correlation. These distinguish
+predicting through thermal noise from predicting its stochastic realization.
+
+Frozen snapshot `all4_ae_low_prop_1000/code_v1`, code-manifest SHA256
+`44273f41d3ec5ca9666cbae12ff330b744fd4618f0ce454ce16344920326ed9a`,
+protocol SHA256
+`3147e788b34b6e8f5a579aff21f8368268f5d46de506119818c4509d6f17c6ea`,
+and unchanged data-manifest SHA256
+`c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a`.
+Initial sandboxed qsub failed before job creation because PBS could not write
+its `/var/tmp` script; frozen files were retained. Direct retry submitted fit
+4687497 and afterok collector4687510, each mendels_q,8CPU,16GB,
+placefree:shared,8h, without host pins. Fit4687497 completed its one-epoch smoke
+propagator but failed while exporting the smoke exposure receipt because direct
+MetaForge graphs lack optional `source_sim_id`; production never started and
+collector4687510 cannot run. This is an identity-schema failure, not a model
+result. Code_v2 derives receipt IDs from the exact frozen split, changes no
+scientific setting, and uses a distinct retry output so the failed smoke is
+preserved. Retry code-manifest SHA256
+`9a150377314efb46ff6f201ddfddf8af22c0173f78f7be7cd35d67a676237bae`;
+fit4687511 and afterok collector4687512 submitted with the same resources.
+Results pending.
+
+### Two-frame mixed-temperature extrapolation pilot — 2026-09-15
+
+At user request, this focused pilot observes only frame0 (reference) and frame1
+(first displacement), then stochastically forecasts frames2..199. Both the 2D
+MP2/reference-context16 AE and Gaussian latent propagator train only on the
+mixed-T node/stiffness sources at0.1K and1K. The model receives no temperature,
+source label, p-ratio, or strain. The heldout-development evaluation comprises
+the remaining81 IDs per source at5/10/20/30K; IDs120..199 remain untouched
+final test. Because network identity changes with temperature, the declared
+claim is combined temperature-and-unseen-structure extrapolation, not isolated
+temperature causality.
+
+The primary metric is decoded-position normalized-boundary-strain p-ratio R2
+from frames30..199, reported separately for AE reconstruction and the mean of
+8 autonomous stochastic rollouts, source-wise and temperature-wise with
+valid/total counts. Predeclared fluctuation checks are transverse affine-fit
+residual SD, latent-increment jitter, temperature trend, and stochastic interval
+coverage. Training has29 IDs/source (17 at0.1K,12 at1K), validation has10
+(4/6), and high-T evaluation counts are25/17/19/20 at5/10/20/30K.
+
+Frozen snapshot `mixed_temperature_extrapolation_2frame/code_v1`, code-manifest
+SHA256 `b71dae11f0c3a7475e78118fcde1e31bd9be0e457f34f8a3de4521d62f980809`,
+protocol SHA256
+`fe5ab1f20e7f0f61c998b09fe75d8b21a70395671f8ab58e5cd861436d3a208a`,
+data-manifest SHA256
+`c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a`,
+and split-audit SHA256
+`04ad927a797d87b731d5b86dcea15bf22d48672b6c9817a62a215b9a3326f3a7`.
+Smoke4687537 gates AE4687538 and dynamics/evaluation4687539. Jobs use
+mendels_q,8CPU,16GB,placefree:shared without host pins. Results pending.
+
+Smoke4687537 completed its AE smoke fit, then exited1 before dynamics fitting:
+the generic capacity loader expected a `spec` field that the standard
+`ae_only` checkpoint does not contain. This is a loader-schema failure, not a
+model result; the AE smoke artifact and failed log are preserved. Code_v2 uses
+the matching standard AE-cache loader and distinct retry smoke paths, with no
+scientific change. Its code-manifest SHA256 is
+`470a6c3e0e370917c20be81c2d7f6f941f5563df7710d859eac1f2d6ef92e872`.
+Retry smoke4687543 gates AE4687544 and dynamics/evaluation4687545 with the
+same resources. All three completed successfully. On high-T development IDs,
+AE reconstruction/8-sample autonomous rollout fitted-p-ratio R2 is
+.7993/.6325 for node_mixed and .6251/-.0043 for stiffness_mixed, all81/81
+valid. Source-temperature rollout R2 for node is .6804/.6086/.5693/.6315 at
+5/10/20/30K; stiffness is -.0911/.2396/-.3952/.1733 with25/17/19/20 valid.
+The stochastic interval contains true p-ratio for .765 node and .691 stiffness.
+However, autonomous transverse-residual SD is only .481 and .393 of truth,
+and latent-increment jitter only .289 and .324 of truth. Thus the two-frame
+model retains useful unseen-high-T mean-response signal for node networks but
+does not establish stiffness mean-response extrapolation or correct thermal
+fluctuation scaling. AE high-T values are representation tests because the AE
+encodes observed high-T frames; they are not autonomous forecasts. Final IDs
+120..199 remain untouched. AE/dynamics SHA256 are
+`f00ffb454aaa50366c1ab871633d787d1913ea7e4568f3c45968fb7b57ed93aa`
+and `53625042c65cd21a8b6cd24360b6673644bb88d1d23e039385ee916d4c83dce4`.
+
+### Executed 200-MD-step dynamics notebooks — 2026-09-16
+
+The completed dense-cadence study is presented separately under
+`notebooks/dynamics/200_md_step/`; the original notebook01-03 files remain the
+1,000-MD-step study. The dense data use frames0..499 at200MDsteps/frame and end
+at99,800MDsteps, whereas the originals use frames0..199 at1,000MDsteps/frame
+and end at199,000MDsteps. The new notebooks are
+`01_one_trajectory_per_source.ipynb`,
+`02_twenty_trajectories_and_rollout.ipynb`, and
+`03_latent_morph_and_attribution.ipynb`.
+
+For the all-four 20-per-source model, frame499 low-T endpoint p-ratio R2 is
+.827602/.782599 AE/rollout for node and .389430/.317415 for stiffness, all
+80/80 valid. Mixed-T frames150..499 strain-OLS p-ratio R2 is
+.409609/.324559 for node and .291957/.273409 for stiffness, all80/80. The
+joint-low model reaches low-T .954697/.957321 node and .935150/.801898
+stiffness, while its mixed-T transfer is .188018/.612441 node and
+.145180/.373889 stiffness. One-per-source is approximately zero, and the
+joint-mixed-only arm does not recover useful post-fit R2 on this shortened
+physical horizon. The true mixed-T trajectory-fit median R2 is only .255970
+node and .195556 stiffness; predicted paths are considerably smoother. This
+supports the interpretation that denser sampling does not replace sufficient
+total deformation.
+
+Notebook01 has11cells/3inline plots, notebook02 13cells/4plots, and notebook03
+11cells/4plots; all code cells executed with zero errors. Notebook01 executed
+locally after loopback permission was granted. Shared render job4687720 exited0
+for notebooks02/03 using mendels_q,2CPU,8GB,placefree:shared. Builder SHA256 is
+`c215a034fe6345c8f33656f2ba8b225d209b758a8f2a90bfaa8047048f205e1f`.
+Notebook SHA256 values in order are
+`8615c6041abf1339fdd19433208832187678d1bd11976c39a95ff413c776df1e`,
+`d72c84243660384a2c4e1e4c4bd252ac250520153c1f052646a73dc617022e4e`,
+and `32e481a5258890bb08cda46521f72d72a0e500951079d78f636436485a60e653`.
+
+### Declared first-50-frame ablation on 200-MD-step data — 2026-09-16
+
+At user request, this matched ablation trains only on frames0..49 (MD steps
+0..9,800) of the audited 200-MD-step caches, while evaluating heldout IDs40..119
+through frame499 (MD step99,800). It includes the all-four one-per-source and
+20-per-source arms at seeds123/456/786. Architecture, train/validation IDs,
+coordinate-only objectives, uniform frame weights, optimization budgets and
+checkpoint rules remain unchanged. AE limits are50frames; propagator limits
+are49 one-step transitions. p-ratio and strain remain absent from inputs,
+losses and selection.
+
+Predeclared reporting separates endpoint p-ratio at frames49 and499, AE
+reconstruction from autonomous rollout, and every source with valid/total
+counts. Mixed-T additionally retains the original frames150..499 normalized
+boundary-strain OLS as a strict extrapolation diagnostic and records a
+frames0..49 in-window fit. Full latent paths for both low- and mixed-T sources
+are exported from the frozen checkpoints. Seed123 gives the direct matched
+comparison to the completed 500-frame training; three first-50 seeds quantify
+its stability. No final-test IDs120..199 are used.
+
+The frozen protocol is
+`hpc/experiments/mini_temperature200_train50/protocol.json`. A single smoke
+fit/collection gates all six production fits; each job requests mendels_q,
+8CPU,16GB and placefree:shared without host pins. Jobs and frozen hashes are
+recorded under `notebooks/results/mini_temperature200_train50/job_ledger.json`.
+
+### Mixed-T 1,000-MD-step rollout metric audit — 2026-09-16
+
+At user request, the frozen all-four 20-per-source seed123 model was audited
+without changing any notebook or checkpoint. Existing cumulative prefix
+artifacts show that autonomous predicted-prefix versus final true frames30..199
+p-ratio R2 is already .960 at horizon37 and .958 at199 for node mixed-T. For
+stiffness mixed-T it is .595 at37 and .527 at199. In contrast, same-horizon
+predicted-prefix versus noisy true-prefix R2 rises .114 to .958 node and .083
+to .527 stiffness. True-prefix versus final-truth R2 itself rises from strongly
+negative to1.0. All comparisons use the same80/80 heldout IDs40..119.
+
+Post-fit job4687761 then evaluated a fixed30-frame rolling strain window for
+horizons59..199. Same-horizon R2 does not improve: node is .221 at59, .020 at
+100 and .223 at199; stiffness is .059, .102 and -.037, all80/80. Meanwhile
+rolling predicted p-ratio versus final true p-ratio remains high and nearly
+constant: node .960/.959/.952 and stiffness .586/.537/.473 at those horizons.
+The true rolling-window fits are intrinsically weak (median physical fit R2 at
+horizon199 .123 node and .072 stiffness), whereas predicted paths are nearly
+perfectly linear. Therefore the increasing cumulative-horizon R2 is dominated
+by maturation/averaging of the mixed-T truth estimator, not improvement of the
+autonomous rollout later in time. The rollout has largely selected its smooth
+network-specific response much earlier.
+
+Job4687761 exited0 in00:03:50 using mendels_q,8CPU,16GB,
+placefree:shared; peak memory3404724KB. Checkpoint SHA256 values were unchanged
+before/after: AE
+`3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb`
+and propagator
+`9ab4b2c4c7e630f368fc24b3a105a751bba2e97b153b212e6229cd30133dcb47`.
+Audit script SHA256 is
+`74e0671fd9a0fbc6b988cc203c21a867d23ad07be163d80916c8cde432d07798`;
+artifacts are under `notebooks/results/all4_coverage_1000/rollout_metric_audit`.
+
+### Mixed-T 200-MD-step rollout metric audit and notebook update — 2026-09-16
+
+The same post-fit decomposition was applied to the frozen all-four
+20-per-source 200-MD-step model, all80/80 heldout IDs40..119. Cumulative
+same-horizon rollout R2 rises from -.015/.010 at horizon157 to .325/.273 at
+499 for node/stiffness mixed-T, but the true prefix versus final truth estimate
+also matures from extremely unstable values to1.0. Rollout-prefix versus final
+truth is already .466 node and .101 stiffness at157, becoming .325 and .273 at
+499. Thus node does not genuinely improve with horizon; stiffness gains some
+final-response information, but far less than the raw cumulative curve implies.
+
+A fixed150-frame window spans29,800MDsteps, matching the physical duration of
+the 30-frame window in the 1,000-MD-step audit. Same-horizon R2 at horizons299/
+400/499 is .068/-.164/-.085 node and -.001/.121/.109 stiffness. Fixed-window
+rollout versus final truth is .404/.295/.202 node and .179/.286/.312 stiffness.
+The cumulative rise is therefore again dominated by the improving truth
+estimate and growing averaging window. The physical rolling fits remain weak
+at frame499: median truth fit R2 .089 node and .184 stiffness, versus essentially
+1.0 for the smooth predicted paths. Checkpoints were hash-identical before and
+after. Audit script SHA256 is
+`2e1230df3ccd146dba180b0b2c1dec8d488e0e2b90a37768c23ff273aedc255a`;
+artifacts are under
+`notebooks/results/mini_temperature200_frames500/rollout_metric_audit`.
+
+Frozen-checkpoint jobs4687754/4687755 exported complete mixed-T latent paths
+for the one-/20-per-source models: two sources x80 heldout trajectories x500
+frames each, with output SHA256 values
+`6f4d001535c538d50c2ab2ad3c2ef25594b81bd657923b5b24a06010411fc170`
+and `3e33f99a6279fc7a283fb469ced762483707d4b0c9b9f285c9d56e3476718e02`.
+The 200-MD notebook01/02 latent displays now use these mixed-T paths. After the
+audit, the user requested a simpler presentation: notebook02 for both 1,000-
+and200-MD studies now shows endpoint p-ratio R2 against MD step with prediction
+and truth evaluated at the same frame, followed by the final network-wise
+scatter. The estimator-maturity/fixed-window panels were removed from the
+notebooks but their frozen audit artifacts above remain preserved. Curves clip
+negative R2 visually at zero while the endpoint tables retain exact values.
+Both revised notebook02 files executed with every code cell complete and zero
+errors. Their SHA256 values are
+`2d136ae37d38e838c842fb1a2ca9f8431a755a8c8dad941f1d2d729c0a78bcac`
+(1,000-MD) and
+`c2a375e7c6b7f7c65c4fae189fcfd21192c8ae3ac9464315f6dd00f8a950fdad`
+(200-MD). The 1,000-MD latent-path display uses a centered three-frame vector
+average, keeps frames0/199 exact and shows the raw path faintly; this supersedes
+the global quadratic z0/z1 display without changing any metric.
+
+The mixed-T network-wise scatter plots in the 1,000-MD notebook now use a
+shared logarithmic temperature colour scale (0.1--30K), with source/model
+identity retained by subplot or marker. Temperature comes from the hashed
+MetaForge manifests and remains a display-only diagnostic; it is not supplied
+to either model. The revised notebook executed all8 code cells with zero errors.
+
+The corresponding final frame-499 true-versus-predicted p-ratio scatter in the
+200-MD notebook now uses the same shared logarithmic 0.1--30K temperature
+colour scale. Sources remain separated by subplot; the endpoint estimator and
+frozen predictions are unchanged. Temperature is joined
+from `mini_temperature200_frames500/data_manifest.json` by source and trajectory
+ID and is display-only. The revised notebook executed all6 code cells with zero
+errors; SHA256
+`3bd036a26c61c9631f224bf89f93ea5cae049d0fd726c25dd07546471611e792`.
+
+### Mixed-T initial-latent anchor pilot -- 2026-09-16
+
+At user request, one seed tests whether explicitly retaining frame-zero latent
+identity improves the underperforming stiffness mixed-T propagator. Baseline is
+the completed mixed-only seed123 model with frozen AE SHA256
+`358a57bf22e5fb7548ebc5375ae54efdb2a037d8f76ceb4cf69be5e127d1f8a6`.
+The intervention appends the normalized frame-zero2D latent after the unchanged
+mean16 static-context projection at every delta step. Current-z input, static
+context, splits,20 trajectories/source, frames0--199, one-step delta loss,
+optimizer and validation latent-loss selection remain fixed. The first MLP
+layer gains exactly128 parameters; local configuration, forward-shape and
+parameter-difference checks passed. No p-ratio, strain, temperature or source
+label enters fitting or selection.
+
+The single predeclared anchored run uses seed123 and a smoke gate. Heldout
+development IDs40--69 (30/source) are evaluated regardless of outcome with
+post-fit normalized boundary-strain OLS frames30--199 as the primary p-ratio
+R2 and physical frame199 endpoint R2 as secondary. PBS fit job
+`4688055.zeus-master` is running; dependent collector `4688056.zeus-master` is
+held afterok. Both request mendels_q,8CPU,16GB,placefree:shared without host
+pins. Frozen snapshot and ledger:
+`notebooks/results/mini_temperature1000_initial_anchor_pilot/`; code manifest
+SHA256 `62f6643363f34c33662ddc4193f94475486bbe5e48913059651ef89be812c87f`.
+
+### Dynamics code and notebook simplification -- 2026-09-16
+
+No model, checkpoint, estimator, split, or result artifact changed. The active
+API now exposes one recommended pair through `lss.dynamics.canonical`: the
+message-passing reference16 AE (2D by default) and the one-step delta-MLP with
+mean16 static context. The historical configurable implementations retain their
+old `lss.dynamics.training` and `lss.dynamics.experiment` import paths through
+thin compatibility modules and are isolated under `dynamics/_compat/`.
+Completed direct/factorized/path/static, broad-trajectory, local-dynamics,
+observed-history/acceleration and radical propagator studies moved under
+`lss.past_experiments.dynamics`; their old module paths remain compatibility
+imports for frozen runners. After the moves, focused compatibility coverage
+passed24 tests and22 subtests, and the final full suite passed92 tests and28
+subtests.
+
+Paper-facing notebooks01--03 for both1,000- and200-MD cadence now use shorter
+section and plot titles. Both notebook02 variants display autonomous rollout
+only: AE reconstruction curves, scatter panels and tables were removed from the
+presentation while their frozen result rows remain untouched. All six notebooks
+executed with every code cell complete and zero errors. SHA256 values are
+`2e862b23e19d575385533a2089c8938a337ac565383d6e077ab93582be744639`,
+`cf86a0ca765ed06d388f4dfc95f8fa7b319c56fd3482c992af5a87bfff3bc255`,
+`a717c5e393bb2290a4fb7e5659fdb8aa647dc5d172d7e4352686872214eb6c1e`
+for the1,000-MD notebooks01--03 and
+`7438858d16b1b3fdc27201dd6b7d57a95b6a40f563594ced858544601e75e51a`,
+`89fd6d006de25acf18fcc4c8bbc59783911d0ece1fadf407a66440a82ffde255`,
+`ca04beb809ae0247920e1b2ad2076ba849f36fc5b9578b204a923f34fcf9ec77`
+for the200-MD notebooks01--03.
+
+Notebook03's paper-facing mechanism analysis now uses only the held-out
+stiffness-optimized low-T source (IDs40--119;80/80 for each frozen one- and
+twenty-per-source model). Final response is the physical frame199 endpoint
+p-ratio, not the mixed-T fitted estimator. Gyration radius and position
+anisotropy were removed from the static-descriptor panel; all displayed
+correlations are absolute. The mixed-T feature-attribution panel was also
+removed, and the edge rendering now uses the frozen low-T attribution artifact.
+The rebuilt notebook completed all7 code cells with zero errors.
+Its initial-latent panel now overlays node- and stiffness-optimized low-T
+networks on the same z0/z1 axes, with marker denoting family and colour denoting
+physical frame199 p-ratio. The later mechanism correlations remain focused on
+stiffness-optimized low-T trajectories.
+
+### Raw two-frame temperature-rollout p-ratio export -- 2026-09-16
+
+Notebook08 is being replaced with a raw physical frame-wise p-ratio analysis:
+frame199 true-versus-autonomous scatter, p-ratio R2 versus frame, per-temperature
+endpoint statistics, and representative true/predicted trajectories, with
+temperature encoded consistently in every panel. Prediction is computed from
+the mean decoded physical positions across the same eight frozen stochastic
+rollouts; no trajectory line fit enters these panels. This is post-fit
+evaluation of the completed seed123 AE/dynamics checkpoints, not retraining or
+selection, and final IDs120--199 remain untouched. Initial job4688130 failed
+before inference because it used an environment without graph_utils; its log is
+preserved. Corrected job4688131 used mendels_q,8CPU,16GB,placefree:shared and
+completed exit0 in00:15:06. Raw frame199 R2 is.612353 for node_mixed and
+.089240 for stiffness_mixed,81/81 valid each. Node temperature-specific R2 is
+.637331/.628417/.670464/.511393 at5/10/20/30K; stiffness is
+-.008409/.297348/-.288063/.145136. The executed notebook completed5/5 code
+cells with zero errors; SHA256 is
+`8b48c0548d993f5754cd5a761c468ab76c9642b472fe0415971feab6ab20f86e`.
+Export-script SHA256 is
+`12382cb4c630c222ab054d974a5030a2edf5cabfef85f88143608371dc60d5e7`.
+
+### High-temperature AE to low-temperature transfer -- 2026-09-16
+
+This new smoke-gated three-seed experiment tests whether a2D reference-MP2 AE
+trained only on noisy20K/30K node- and stiffness-optimized trajectories retains
+the clean low-T response. Training uses20 IDs/source (10 per temperature),
+validation uses10/source (5 per temperature), and checkpoint selection remains
+coordinate reconstruction MSE only. Frozen evaluation covers the20 matched
+low-T structures and9 wholly unseen low-T structures, reporting primary
+post-fit p-ratio R2 over frames30--199 and secondary raw frame199 endpoint R2,
+source-wise with valid/total counts. Temperature, source label, p-ratio and
+strain remain absent from inputs/losses/selection; final IDs120--199 are
+reserved. Smoke job4688140 gated seed123/456/786 jobs4688141--4688143.
+All use mendels_q,8CPU,16GB,placefree:shared. Protocol/script
+SHA256 values are
+`29a348372ab66f2ce4770378505cf2a258d709789cf98818e1fa0da85dc7b9de`
+and `744e9534bac3a7a5103b28eaaae40944bc053265a5fadcc8fffa8976fc6ec788`.
+
+Smoke4688140 subsequently passed the one-epoch training and both matched/unseen
+low-T evaluation paths with exit0 in00:02:47; the three production seeds were
+released and are running. Notebook01's initial-latent/p-ratio diagnostic now
+uses one panel per latent coordinate and overlays node/stiffness mixed-T
+heldout points, source-specific trend lines, and both actual training markers.
+Its displayed Pearson and Spearman correlations are absolute.
+# Five-seed p-ratio estimation at 200/1000-MD cadence — 2026-09-16
+
+User generated five matched thermal-velocity replicas for every low/mixed,
+node/stiffness dataset at both 1,000-MD-step spacing (200 frames) and
+200-MD-step spacing (1,500 frames). MetaForge arrays 4688160[]/4688163[] and
+their validation collectors 4688161/4688164 were still running/held at
+submission. A post-fit-only analysis array 4688169[] is held after both
+collectors; collector 4688170 and notebook-09 finalizer 4688171 are chained
+after it. All use mendels_q, place=free:shared, no host pins. Exact resources,
+dependencies, code hashes and job identities are in
+`notebooks/results/five_seed_pratio/job_ledger.json`.
+
+The predeclared primary estimator does not average five noisy ratios. It fixes
+q=.10 boundary-node groups from the same network's first low-T frame, computes
+normalized x/y boundary strain relative to each replica's own frame 0, removes
+one intercept per thermal seed, and pools a single OLS transverse-versus-axial
+slope across all five replicas; p is minus that shared slope. The analysis also
+retains five separate slopes with sample SD/SEM/95% t interval, the
+ensemble-mean-trajectory slope, and raw ensemble endpoint p-ratio. This is
+compared against recorded source response and source-rollout response with
+source/temperature valid-total counts. The 1,000-MD window is frames30..199.
+The 200-MD analysis reports frames150..499, a cadence-matched physical horizon
+frames150..995 (30,000..199,000 MD steps), and frames150..1499. Prefix summaries
+every10,000MDsteps will test whether apparent late R2 improvement is signal or
+endpoint noise. No p-ratio/temperature/source label enters training or model
+selection; no model is retrained, and no final-test split is used. Shared-slope
+unit tests passed3/3. Results are pending.
+
+### 200-MD stride-five propagator pilot — 2026-09-16
+
+User requested trying a larger dynamics step after the first-50-frame dense
+training failed even near its training boundary. This pilot isolates transition
+signal-to-noise without retraining the representation: the completed all-four,
+20-per-source 500-frame AE is frozen byte-identically, and only propagator
+`frame_skip` changes from1 (200MD) to5 (1,000MD). Training/validation sources,
+IDs, architecture, static context, delta loss, optimizer,60epoch/patience12
+budget and validation latent-loss selection are unchanged. Each trajectory now
+supplies99 transitions 0→5 through490→495. Temperature, source label, strain
+and p-ratio remain absent from inputs/losses/selection.
+
+Three seeds123/456/786 are gated by smoke4688462; production jobs4688463--
+4688465 are held afterok, and collector4688466 is held after all three. All
+fits/evaluations use mendels_q,8CPU,16GB,place=free:shared; collector uses
+1CPU/4GB shared. Heldout-development IDs40..119/source are always evaluated.
+Matched reporting uses low-T physical endpoint p-ratio R2 at common stored
+frame495 and mixed-T normalized-strain OLS on common stored frames150,155,...,
+495, compared with the existing stride-one checkpoint on exactly those frames.
+Exact hashes, dependencies and resources are in
+`notebooks/results/mini_temperature200_stride5_pilot/job_ledger.json`.
+Results pending; no final-test IDs are used.
+
+Smoke4688462 subsequently completed all four training/evaluation source paths,
+kept the frozen AE hash unchanged, and exited0 after about2.5minutes. Production
+seeds4688463--4688465 were released and verified running; collector4688466
+remains held afterok. Smoke propagator SHA256
+`d572b64dcd797c5f6f3d050af1cf97a06237ea4ea59a8ba8a91370aa87ec3982`.
+
+Notebook02 now adds one response-blind matched low-T latent-path comparison for
+10 evenly spaced heldout IDs40..119 in each node/stiffness family. Each identical physical
+trajectory is encoded by the frozen one- and20-per-source models. At user
+request, the final display overlays each encoder's raw z0/z1 outputs without
+centering, scaling, rotation or alignment. Their independently learned absolute
+offsets and orientations therefore are not physically comparable. All four
+groups now share one axis: the1-per-source paths remain orange, while only the
+20-per-source paths use the common frame199-p-ratio heatmap. Solid/dashed lines
+denote node/stiffness optimization, and frame0/199 are filled/open.
+
+Notebook02 now also contains a compact endpoint-movement comparison using the
+same frozen seed123 models and all80/80 heldout low-T IDs40--119 per family.
+Endpoint rays are centered at zero, rotated so each model/source mean direction
+is horizontal, and normalized by that cohort's median displacement magnitude;
+this response-blind display exposes direction spread without comparing arbitrary
+raw latent axes or scales. The final presentation uses a shared equal axis scale
+across the four training/source ray panels, so the near-zero transverse spread
+of one-source training is not magnified; endpoint colour denotes frame199
+p-ratio. Paired bar panels show initial-coordinate, movement-distance and
+movement-coordinate absolute Pearson correlations. In the one-per-source model, absolute Pearson
+correlation of movement distance with frame199 p-ratio is.845 node and.115
+stiffness, while absolute correlations for delta-z0/delta-z1 are.848/.844 and
+.019/.140. In the20-per-source model, distance correlation is.587 node and.116
+stiffness, while delta-z0/delta-z1 correlations are.977/.982 and.886/.978.
+Thus one-source paths are essentially a common direction with varying distance;
+twenty-source paths spread in direction, and stiffness response is represented
+by the two-dimensional movement components rather than total distance. This is
+descriptive frozen-model analysis, not response-supervised fitting or selection.
+The executed notebook has20cells,10code cells and zero errors. Updated
+builder/notebook SHA256 are
+superseded by the final hashes below.
+
+Notebook02 now tests whether the frozen20-per-source encoder uses a shared
+low-T response representation across node- and stiffness-optimized families.
+For all heldout IDs40--119, the left panel shows raw endpoint delta-z0/delta-z1
+with source encoded by marker and physical frame199 p-ratio by colour. A single
+post-hoc affine p-ratio readout fitted on both families gives R2=.971 over
+160/160 networks. The stricter cross-family test fits this two-coordinate
+readout on one family only and applies it unchanged to the other: stiffness to
+node gives R2=.942 and node to stiffness R2=.917, each80/80. The transfer
+scatter reveals a modest family-dependent calibration offset, so the supported
+claim is a shared latent response coordinate, not an exactly identical mapping.
+This response-calibrated linear readout is diagnostic only; it did not enter AE
+training, loss, checkpoint selection or autonomous position rollout. The
+corresponding builder/notebook hashes are superseded below.
+
+Notebook02 now adds a negative-response early-turn zoom for the frozen
+20-per-source encoder. It preselects the six most negative frame199-p heldout
+networks in each low-T family and shows each complete raw-z path beside frames
+0--20 translated by its own frame-zero z only; there is no rotation or scaling.
+The same figure now adds a source-wise frames1--20 overlay of the six-network
+median latent turn angle relative to the eventual frame199 direction and the
+actual cumulative framewise physical p(t)=-deltaLy(t)/deltaLx(t), with separate
+degree and p-ratio axes and10--90% bands. This compares temporal shape without
+claiming that either latent coordinate equals the physical ratio.
+Across all80/80 heldout networks/source, the frame1 angle relative to each
+trajectory's eventual frame199 displacement has median46.0degrees for negative
+versus3.1degrees for nonnegative node networks, and34.1 versus5.3degrees for
+stiffness networks. Thus the strong initial bend is specifically associated
+with negative response in this frozen seed, while the endpoint delta-z remains
+the separate final-response summary. This is descriptive heldout analysis, not
+checkpoint selection. The executed notebook has24cells,12code cells and zero
+errors. Final builder/notebook SHA256 are
+`46b1668eb780b82b8e57e77f22e92f810a8ba342736b72778fdfabbbb5dea2e4`
+and `227da9d2409d9e433dea471312e19d7fdf8efbd95d33fe84d90fc72a9d640452`.
+
+At user correction, notebook02 removed the entire normalized endpoint-ray and
+bar section `Movement: one versus twenty`; its results remain historical above
+but are no longer presented. The negative-p early analysis also removed the
+abstract turn-angle proxy. For the same six preselected most-negative heldout
+networks/source, frames0--20 now show (1) delta-z1 versus delta-z0 from each
+network's own frame0, (2) the measured delta-Ly versus delta-Lx physical path,
+and (3) the direct cumulative latent slope delta-z1/delta-z0 against physical
+p(t)=-delta-Ly/delta-Lx. Both paths share the framewise-p colour scale. Median
+within-network Pearson r between these two slopes is.950 node and.990
+stiffness,6/6 each. An independent all-heldout check gives median r=.974/.991
+over80/80 node/stiffness trajectories across frames1--20; fixed-frame pooled
+correlation across both families is.948,.977,.930 at frames1,5,20. Thus the
+early latent curve is most directly described as the evolving physical
+deformation ratio, while neither raw latent coordinate individually equals p.
+Notebook02 executes22cells,11code cells,zero errors. Final builder/notebook
+SHA256 are
+`d4fad92790ecbefd1a531a0b4d7a6f8bc81355f82ee5454b9c73487d3d5422fb`
+and `c0d72f8d2378a731d3eab3bcd80e1fc81424a44a077f4fa71dac786a5d518488`.
+
+Notebook02 now replaces the weaker component overlay with the closest simple
+physical matches found by a systematic scan of the frozen seed123,
+20-networks-per-source low-T heldout trajectories (IDs40--119, frames1--20,
+1000 MD steps/frame). Within each network, delta-z0 follows the deformation
+difference delta-Ly-delta-Lx with median absolute Pearson r=.9999 for both
+node and stiffness sources; delta-z1 follows the deformation sum
+delta-Lx+delta-Ly with median absolute r rounding to1.0000 for both sources
+(80/80 each). The ratio relation remains strong but visibly nonlinear:
+median r(delta-z1/delta-z0, -delta-Ly/delta-Lx)=.9739 node and.9910
+stiffness (80/80). The inline plot normalizes each displayed curve by its own
+frame20 value, so it establishes near-identical temporal shape rather than
+equality of units or a universal cross-network calibration. Notebook execution
+completed with22cells,11code cells, zero errors and zero warnings. Final
+builder/notebook SHA256 are
+`a36162164a4df10a961f6623047b8fbd850d8ad912e7a595555bcbeb2176a492`
+and `41897017295f098d0fb5f1953b697a1d79dc12d36e8a0fb6eb54cd60abcd631d`.
+
+Notebook02 now exposes all six selected negative-p trajectories individually in
+the early physical/latent shape comparison, using one colour per network and
+solid/dashed styles for latent/physical quantities. A third column shows raw,
+unscaled delta-Lx, demonstrating that it is not identical across networks. Over
+all80 heldout networks/source and frames0--20, every source has80 distinct
+delta-Lx curves; the maximum same-frame across-network range is.00952 for node
+and.02047 for stiffness. Among the six displayed networks the corresponding
+maxima are.00771 and.00824. What is nearly shared is the normalized temporal
+shape, not the delta-Lx magnitude. Notebook execution remains22cells,
+11code cells, zero errors and zero warnings. Final builder/notebook SHA256 are
+`36ade3ac6c41f9fe9014d9b78f5009cebdc9b9c5d9410faa06bf0a17da47440f`
+and `ec3bc182838e3b5b2cdb604f462732c129f8f70850c90d575ef631cf386cf00b`.
+
+Notebook02 now distinguishes subtracting versus normalizing the initial box.
+The cached x_deformation already equals Lx(t)-Lx(0) using fixed frame-zero
+boundary nodes. Initial Lx nevertheless varies from9.73--13.86 for node and
+9.85--19.64 for stiffness. Dividing by each network's own Lx(0) collapses the
+six displayed compression curves strongly. Across all80/source over
+frames0--20, the maximum same-frame raw delta-Lx range is.00952 node/.02047
+stiffness, whereas the delta-Lx/Lx(0) range is.000316/.000243. The notebook
+shows raw and normalized curves side by side. Widths were recovered from the
+exact hash-verified source datasets with fixed quantile-.10 boundary nodes and
+cached as160 unique rows in `test/initial_box_widths.csv`.
+
+Notebook02 also adds the requested centered-change diagnostic, defining
+delta-z(t)=z(t+1)-z(t-1) and applying the same centered operation to physical
+deformations at frames1--19. Median within-network absolute correlations over
+80/80 trajectories are .992/.935 for delta-z0 versus centered
+(delta-Ly-delta-Lx), .987/.976 for delta-z1 versus centered
+(delta-Lx+delta-Ly), and .963/.972 for their latent/physical ratios
+(node/stiffness). Pooled across networks, the component correlations fall to
+.860/.016 and.862/.372, showing network-specific component calibration; the
+centered ratio is more consistent across networks within each family at
+.882/.976. Thus the derivative test supports local physical tracking within
+each trajectory but not a universal raw-coordinate identity, especially for
+stiffness. Notebook execution has
+22cells,11code cells, zero errors and zero warnings. SHA256 for the width
+collector, width cache, builder and notebook are respectively
+`0b709ec05b153b7de997f2217353ded804b8ad244ee21f859f6e99a0c8e99391`,
+`c776272d2c35ba94caee278d8616c9c70532f00f85e9bc91488af9d2d17cb8bd`,
+`04111f87835fa8c123b5f998cc3987373a0ca1b1b0cde676fb23651f271fbeb4`
+and `40f6117f192b81a4bd320b68716f59bf4a3b2cc1ed3543a6376bb423c46072ef`.
+
+Follow-up frozen-data diagnostic: OLS slope of x deformation versus frame does
+not correlate with frame199 low-T p-ratio once each network's initial box width
+is accounted for. Over frames0--20, Pearson r for the strain slope
+(delta-Lx/Lx0)/frame is.016 node and.026 stiffness (80/80); over frames0--199
+it is-.032 and-.011. The raw stiffness delta-Lx slope has r=-.266, but this
+disappears after Lx0 normalization and is therefore an initial-size artifact.
+In contrast, the frames0--20 transverse strain slope
+(delta-Ly/Ly0)/frame correlates strongly with final p-ratio: r=.997 node and
+.993 stiffness (80/80). This is consistent with x compression being imposed
+while the y response carries the mechanical variation.
+
+A stricter cross-family calibration test shows that the centered latent ratio
+must not yet be called fully transferable. Fitting one affine map from
+delta-z1/delta-z0 to -delta-Ly/delta-Lx on all node low-T centered samples and
+applying it unchanged to stiffness gives R2=.698; fitting on stiffness and
+applying to node gives R2=-.141. The asymmetry reflects the narrower stiffness
+latent-ratio range (SD.360 versus1.044 for node), so the reverse direction is
+an extrapolation. A pooled two-family affine calibration gives source-wise
+R2=.768 node/.748 stiffness. The supported claim is a shared, strongly ordered
+instantaneous-response signal with family/range-dependent calibration, not a
+universal transferable equality.
+
+At user request, notebook02 removes the deformation-sum/difference overlays and
+compares both latent coordinates directly with delta-Ly. For frames1--20,
+median within-network absolute correlation is .9939/.9965 for delta-z0 versus
+delta-Ly and .9992/.9986 for delta-z1 versus delta-Ly (node/stiffness,80/80).
+However, the frame20-normalized curves do not coincide: high correlation here
+largely reflects shared monotonic progress. The centered-change diagnostic is
+therefore retained as the stricter test. For delta-z(t)=z(t+1)-z(t-1), pooled
+absolute correlation with centered delta-Ly is .959/.555 for z0 and.956/.903
+for z1; median within-network values are.990/.940 and.988/.981. This simpler
+view shows that z1 is the more consistently shared transverse-response
+coordinate, while z0 calibration is family dependent. The physical-ratio panel
+is retained separately. Notebook execution has22cells,11code cells, zero
+errors and zero warnings. Final builder/notebook SHA256 are
+`6f56fdb4c37f008d0ff5f8415093e293fa64d009f9b45feca5d9075039069a69`
+and `48a05c00f1a4623007da94690e5a9c0787714271a56bdf1e99627c1dece3358d`.
+
+Notebook02 now presents both interpretations side by side rather than choosing
+one: delta-z0/delta-z1 versus delta-Ly directly, and delta-z0 versus
+delta-Ly-delta-Lx / delta-z1 versus delta-Ly+delta-Lx. All four trajectory
+panels divide each curve by its own frame20 value and therefore compare only
+temporal shape, not magnitude or a universal calibration. The direct delta-Ly
+correlations remain .9939/.9965 for z0 and.9992/.9986 for z1, whereas the
+x-adjusted combinations reach .9999/.9999 and approximately1.0000/1.0000
+(node/stiffness,80/80). The centered-difference scatter remains raw and
+unnormalized. Notebook execution has22cells,11code cells, zero errors and zero
+warnings. Final builder/notebook SHA256 are
+`40f1980a4168f55650dff92a1ea4b28697d2d3310d81a2c7fca45513c98551da`
+and `bf0a541a5ed07ffd9d6b944648366ad1472682027b3e7667ab00cdfac8a3bcb9`.
+
+## Cold-rubber global-context pilot — 2026-09-17
+
+Completed a separate small simulator study on the original serialized files in
+`/rg/mendels_prj/s.sergey/graphs_cold`. The directory has2300 `.pt` trajectories;
+`clean_400.json` declares1706 complete trajectories. Each file is a list of400
+PyG frames with252--588 nodes, fixed topology/IDs, dynamic3D positions, five
+edge channels and a centered orthorhombic box. The first three edge channels
+are minimum-image source-minus-target vectors, followed by length and stiffness.
+No explicit plastic-event frame or label exists, so no event target was invented.
+
+Frozen NumPy split seed20260917 selected12train/4validation/8final-test IDs from
+`clean_400`; model seeds123/456/786. Frames1and2 are observed and frames3--399
+are autonomous. Inputs are reference/current positions and minimum-image velocity
+normalized only from training data, atom type, and rebuilt dynamic edge features.
+Targets/checkpoint selection use positions/box dynamics only; p-ratio and strain
+never enter fitting or selection. Matched processors have four64D MPNN blocks;
+the global arm inserts two four-head full-node attention layers between the first
+and last two blocks. Full attention is appropriate for the observed maximum588
+nodes. A targeted follow-up kept the global architecture and trained through
+20-step autonomous windows, selecting mean validation state MSE at horizons
+20/50/100. It was the only post-pilot training change.
+
+Smoke jobs4689383/4689384 and production jobs4689386--4689391 all exited0.
+Periodic-coordinate evaluation job4689596 exited0. Multistep smoke4689599 and
+production jobs4689640/4689641/4689642 exited0. Two pre-submission attempts
+created no PBS job: local qsub could not write `/var/tmp`, and the login-node SSH
+fallback lacked a UID mapping. Production one-step peak memory was0.96GB and
+walltime5:07--15:08; multistep peak memory1.22GB and walltime3:32--4:47.
+
+The initially predeclared raw affine diagnostic was invalid when a predicted node
+crossed a periodic boundary; those unaltered results remain in `aggregate.csv`.
+Frozen checkpoints were re-evaluated without retraining or reselection by mapping
+each predicted and true node to its nearest reference-frame periodic image before
+the same independent affine fits. This is the reported physical-coordinate
+estimator. At frame399, final-test mean±SD position MSE is
+`.021110±.034326` local one-step, `.000597±.000410` global one-step, and
+`.000208±.000004` global multistep. Thus global context and multistep training
+substantially stabilize coordinates. They do not solve response prediction:
+y/x p-ratio R2 is `-1.471±1.805`, `-6.300±9.352`, and `-2.241±3.215`;
+z/x is `-2218.516±3736.092`, `-2.716±1.937`, and `-.868±.425`, respectively.
+Every component has24/24 valid network-seed predictions. The best isolated final
+multistep y/x seed is only `.030`; no reliable p-ratio claim is supported.
+
+Results and ledgers are in `notebooks/results/graphs_cold_global/`, including
+`periodic_aggregate.csv`, `multistep_aggregate.csv`, per-network/per-frame CSVs,
+checkpoints, recipes and exact trajectory hashes. Executed notebook:
+`notebooks/dynamics/cold_graphs/01_global_context_rollout.ipynb`. Frozen SHA256:
+loader `1648ff8d...e9894`, model `7e5fd561...ed9f`, one-step runner
+`fc7aaf64...5997`, multistep runner `da1c31e2...6e0`, periodic evaluator
+`109b4f1a...6ca`; full hashes are in each recipe and job ledger. Notebook has
+11cells/5code cells, all executed with zero errors; notebook SHA256
+`ccafcc850b7a551f88157b0190444eb1ba3f64b56e8d3d5f7b64da235789f7fd`.
+
+## Cold-rubber fractional/contact and anchored-state validation screens — 2026-09-17
+
+Two validation-only follow-ups were completed after the global-context pilot.
+Frozen NumPy split seed `20260918` contains 48 train, 12 validation and 12
+untouched final-test trajectories, excludes all 24 earlier pilot trajectories,
+and has manifest SHA256
+`1a0e8ffb6e8a5aef9339009acca7a394cabada3c70ee5ba0e667268e0c765541`.
+Only seed 123 was used for these screens; no seed-robust or final-test claim is
+made. Frames 1--2 are observed and frames 3--399 are autonomous. Neither
+p-ratio, strain nor event labels enter inputs, objectives or checkpoint
+selection. All reported validation p-ratio entries are 12/12 valid.
+
+The v2 screen used fractional coordinates, prescribed constant-velocity x-box
+loading, learned yz-box acceleration, and 20-step autonomous fine-tuning. It
+compared permanent bonds with the same model plus dynamic minimum-image
+nonbonded contacts at cutoff 1.5. Smoke jobs 4690044/4690045 and production
+jobs 4690046/4690047 exited 0. Production walltime/peak memory were 14:48/1.49
+GB and 35:16/3.36 GB. At frame 399, bond/contact physical minimum-image
+position MSE was `.0001366/.0001214`; y/x R2 was `-.155/-.319`, and z/x R2
+was `-1.641/-.687`. At frame 100 the respective y/x values were `.317/.199`
+and z/x `-1.318/-.989`. Thus fractional coordinates and contacts made rollout
+coordinates stable, but did not recover mechanical ranking. A frozen replay
+showed high teacher-forced one-step p-ratio ceilings in the preceding models
+but immediate autonomous response drift. In v2 specifically, frame-399 global
+box response was already inaccurate; fractional-position drift further harmed
+z/x. Results and exact checkpoint/trajectory hashes are under
+`notebooks/results/graphs_cold_global_v2/`, with diagnostics in its
+`diagnostics/` subdirectory. Frozen protocol/runner/model SHA256 are
+`e5eedda5fb8f68f25958e7259aad2a0ae6c4d07429dbccf473e7e585a91f141a`,
+`efec78ad5f69688579bf81e401d866b3a9c56a3005c7027c8925af4dedd27fce`
+and `6207d9204ec7de940cc4384213ed1fbf6f47be1698b0ec6ef7dac833e16172da`.
+
+The v3 screen replaced integrated accelerations with reference-anchored total
+fractional/node and yz-box displacement. It compared contact models without
+and with recurrent memory. Before results, promotion required frame-399 R2 at
+least .3 on each transverse axis, mean R2 at least .5, and position MSE at most
+`.001`; checkpoints were still chosen only by state MSE. Smoke jobs
+4690059/4690060 and production jobs 4690061/4690062 exited 0. A submit-ledger
+path error occurred only after both smoke qsub calls; exact job IDs and hashes
+were recovered without duplicate submission and the path was corrected.
+Production walltime/peak memory were 22:30/5.80 GB and 32:30/5.42 GB. At frame
+399, nonrecurrent/recurrent MSE was `.0001353/.0001401`, y/x R2
+`-5.485/-8.488`, and z/x R2 `-8.829/-12.907`; neither passed promotion.
+
+Frozen v3 replay then separated predicted box deformation from node residual
+affine modes. Removing all constant/reference-affine fractional residual modes
+made position p-ratio equal box-only p-ratio but did not improve it: frame-399
+box y/x and z/x R2 were `-5.576/-9.982` nonrecurrent and
+`-8.171/-12.528` recurrent. The position-versus-box p gaps were only
+`.00345/.00341` and `.00658/.00249`. The failure is therefore the learned
+global box/affine response, not recurrent memory or late node-residual leakage.
+As a physical ceiling check on the same validation data, using the true box
+with purely affine reference positions gives frame-399 MSE `.0001207` and
+position-derived p-ratio R2 `.902/.914`; learning global box response is a
+well-defined next target. V3 artifacts and diagnostic hashes are under
+`notebooks/results/graphs_cold_global_v3/`. Frozen protocol/runner SHA256 are
+`fcaf37abff18af39c998431e49047319541eded1ad86ce8ca1eebab22ef973b5`
+and `52d0e0b37f2dedcfb82062c3131536cad6865235fa89a61f5668ebbeaa01754a`.
+
+## Cold-rubber direct-response iterations — 2026-09-17
+
+All iterations below retained the same disjoint48/12/12 v2 split and seed123,
+used only positions, graph structure and box/loading state for fitting, and
+kept the12-network final-test split unopened. P-ratio and strain were absent
+from inputs, losses and checkpoint selection. Every reported validation
+p-ratio component has12/12 valid networks. These are single-seed screens, not
+seed-robust final-test claims.
+
+V4 tested static reference-graph mean/token attention encoders that directly
+predicted total yz-box displacement under prescribed x loading. The initial
+smokes4690067/4690068 exited1 after unconstrained one-epoch predictions made a
+box non-positive. Positivity-constrained smokes4690069/4690070 exposed a
+one-graph normalizer problem; corrected four-graph smokes4690073/4690074 and
+production4690077/4690078 exited0. Full-horizon confirmation smokes
+4690080/4690081 and productions4690083/4690084 also exited0. At frame399 the
+full-horizon mean/token variants had position MSE `.00012939/.00012935` and
+y/x R2 `-3.546/-3.561`, z/x `-5.469/-5.403`. Training-network replay was also
+poor, so the failure was optimization/representation rather than only heldout
+generalization. A coordinate-only OLS loading control reached frame399 R2
+`.015/-.071` with position MSE `.00012234`, establishing a stronger neutral
+baseline. Frozen final V4 protocol/runner SHA256 are
+`d80c8f070dc39d7e8eba649deed79c3fce1d6b5120f0d5f06a20e9d8197541c4`
+and `e6ee71d753da9b4f2e34a144d8ad6b39fc933eb0644218ae9b3e5b17617db832`.
+
+V5 added a frozen train-fit OLS response and a zero-initialized token-GNN
+residual, scaled by train residual variance. Smoke4690086 and production
+4690087 exited0; production used1.13GB and1:11. The selected epoch6 checkpoint
+had frame399 MSE `.00012232`, yz-box MSE `.00002355`, and p-ratio R2
+`.042/-.053`. Residual training MSE stayed near one, so the GNN learned little
+beyond OLS. A separate fixed-alpha structure/initial-motion ridge screen also
+failed, and a temporal-slope evaluation of the frozen predictions remained
+negative; estimator noise did not explain the failure. Frozen V5
+protocol/runner/model SHA256 are
+`86167d10c9a4ae49d2ddf556fa261bdc4430a8cb0208a17c0f7922711c45265b`,
+`cbff012734e76e5c5357a4826e84c3e0bfe65921ee887325b254329e6cff8c1c`
+and `6337921c191756548df86a8b826b9d61082798940298851043f175d2973676db`.
+
+V6 changed only optimization: deterministic per-epoch graph shuffling and
+balanced eight-trajectory gradient accumulation. Smoke4690091 and production
+4690092 exited0; an incorrect submit-ledger hash path failed only after the
+smoke qsub succeeded, so its job identity/hashes were recovered without a
+duplicate submission and the path was corrected. Production used1.17GB and
+2:40. The selected epoch77 checkpoint improved frame399 yz-box MSE by4.8% to
+`.00002242`, with position MSE `.00012224` and p-ratio R2 `.089/~.000`.
+Training residual loss fell only1.3%; the predeclared response gate still
+failed. Frozen V6 protocol/runner SHA256 are
+`2eb22391138c13279d2661f6fa157c73927a52e625256c679d79e84119840bfd`
+and `2072e10496f9ba961bc07078ad2e72b328316fb56583dc23d6991e9425157ad2`.
+
+At user direction, V7 made frame50/100 acceptable endpoints. It conditioned a
+short-horizon token GNN on the reference graph plus the observed frame0-to-1
+fractional node motion and full box velocity, then directly predicted frames
+3--100. Smoke4690095 and production4690096 exited0; production used1.18GB and
+2:12. The selected epoch79 checkpoint substantially improved yz-box error but
+failed the predeclared frame100 response gate. At frame50/100, position MSE was
+`.000001621/.000006153`; y/x R2 was `-2.205/-.139` and z/x
+`-1.362/-.228`. Independent strain-versus-frame fits with intercept gave R2
+`-.091/-.149` through frame50 and `-.135/-.205` through frame100, so thermal
+noise reduction did not rescue response ranking. In comparison, the earlier
+v2 bond/contact dynamics remain the best short-horizon compromise: frame50 MSE
+`.000000586/.000000556`, y/x R2 `.394/.353`, z/x `-.731/-.690`; frame100 MSE
+`.000003509/.000003147`, y/x `.317/.199`, z/x `-1.318/-.989`. Thus coordinate
+rollout is good by frames50--100 and one transverse direction has modest
+signal, but no model predicts both p-ratio components reliably. Frozen V7
+protocol/runner/model SHA256 are
+`26dd4681adaead76cfaebd8d49eab249508a304dc1056c06143f67f79105826d`,
+`c5885eb7bffc94cd065c3e9125f9bf59881f5b5581b630f9c8ddbfdd751451da`
+and `4c073f8e9b17d0b8361691ad82871370241c4dfb922a02f8d8052a5aa9eb4f7d`.
+
+The executed validation notebook is
+`notebooks/dynamics/cold_graphs/02_short_horizon_validation.ipynb`:9 cells,
+4 code cells, zero errors. It shows rollout MSE and spatial p-ratio R2 versus
+horizon, frame100 scatter, and the time-fitted frame50/100 diagnostic. Notebook
+SHA256 is
+`fd2e2b99c9b89cc2a46e0bc7c435e9e8cc594968d584d5653bfe8fc75f522d40`.
+Exact summaries, per-network/per-frame CSVs, checkpoints, recipes, scheduler
+ledgers and diagnostic JSONs are under
+`notebooks/results/graphs_cold_global_v4/` through
+`notebooks/results/graphs_cold_global_v8/`.
+
+V8 returned to the faithful node-only formulation requested by the user. The
+3D local--global--local GNN observes frame0/reference positions and frame1
+velocity, predicts only node acceleration, and has no box decoder, box target
+or box loss. Zero model output is exactly constant-velocity motion. Dynamic
+bond/contact edges use prescribed x and fixed reference y/z solely for
+minimum-image geometry; y/x p-ratio is computed afterward from affine fits of
+rolled-out node positions. The first smoke4690131 exited1 on a CLI variable
+typo before loading data or training. Corrected smoke4690133 and production
+4690134 exited0 without changing the scientific recipe. Production used
+6.19GB and28:06. Phase1 selected epoch9 with one-step position MSE
+`1.52e-9`; 20-step training selected epoch2 and stopped after epoch6. At
+frames5/10/20/50/100, position MSE was respectively
+`8.78e-9/4.27e-8/2.13e-7/1.65e-6/6.42e-6`, while y/x p-ratio R2 was
+`-2.909/-1.535/-1.931/-1.603/-2.015` (12/12 valid each). Thus the faithful
+global-context simulator rolls coordinates accurately but does not recover
+network-to-network transverse response. Phase2 normalized position loss was
+highly variable, so a phase1-only v9 recovery harness was prepared, but it was
+deliberately not submitted when work returned to the original 200/1,000-MD
+study. V8 frozen protocol/runner/model/global-context SHA256 are
+`f0295c6b1d873e63174f142f9efcd774471849c5df9ac578144f5aecca9109e2`,
+`fee0bc73860d40fffd263000b8cdac1c4564290cfd3f0307b3363a7dcbd8ea77`,
+`1c264395a482db08a574393310536df9b88da802749bc170484fa342a29d90e1`
+and `7e5fd5617530473571bbd65ed1ad9603a641cf41362c74b2df6a99dceb72ed9f`.
+### Declared modest early-frame weighting on 200-MD-step dynamics — 2026-09-18
+
+User hypothesizes that uniform per-frame coordinate MSE still lets the larger
+late-deformation residuals dominate the 500-frame AE objective, weakening the
+beginning of autonomous rollouts. A matched single-seed pilot changes only the
+post-warmup AE frame weights for the completed `joint_low` recipe: frames0..99
+receive four times the raw weight of frames100..499, then all500 weights are
+normalized to mean one. The same weighted coordinate objective selects the AE
+checkpoint. This deliberately avoids the historical inverse-energy schedule's
+roughly100-fold early amplification. The fresh2D message-passing/reference16
+AE,20node-low+20stiffness-low train IDs0..19/source, validation20..39,
+seed123,500-frame horizon, optimizer/budget and frozen one-step499-transition
+delta propagator are otherwise unchanged. P-ratio, strain and temperature are
+absent from inputs, losses and checkpoint selection. Heldout-development
+IDs40..119 are opened only after both checkpoints freeze; report AE and
+autonomous rollout p-ratio R2 separately by source/horizon with valid/total.
+This pilot tests the weighting hypothesis but cannot establish seed stability.
+Protocol `hpc/experiments/mini_temperature200_early_weight/protocol.json` SHA256
+`0c016588de11c37922c216e784292289ca79bd4353e77fb8b28c2c105dce939b`;
+runner SHA256
+`6ab0bc19e36cbfd0e4eb7d02ec3c4c37ba0575fdededc0a69b43899b0ef325ce`.
+An end-to-end smoke gates production and frozen evaluation; exact job IDs and
+the immutable code manifest will be recorded after submission.
+
+Smoke4690288, production fit4690289 and frozen collector4690290 all completed
+exit0 on `mendels_q`,8CPU,16GB,shared placement. Production used4:54:04 and
+4.68GB; collection used0:51:44 and4.13GB. Code-manifest SHA256 is
+`b457e8d030a01c83fd0eea149d7f93b6680f06bc03ad77c5fac1abb56afa7928`.
+The weighted AE selected epoch3 and stopped after epoch15; its frozen one-step
+propagator selected epoch9 and stopped after epoch21. AE and propagator SHA256
+are respectively
+`77dff93b61c2af8aca5fdc8b371725c98f87a8ba6bfb050476e7ecb2370bfd80`
+and
+`4245563df64040a5b39e67fb651b39b4ec9daee2ca8bf7b8d49c9935bd9e9d70`.
+
+Matched uniform->early-weighted autonomous rollout p-ratio R2 for node-low at
+frames25/50/100/499 is `.7362/.8585/.9492/.9573` ->
+`.7336/.8637/.9238/.9500`; there is no consistent improvement. For
+stiffness-low it is `.0645/.5994/.7495/.8019` ->
+`.7379/.7899/.8252/.8397`, a large early and persistent improvement. All
+entries are80/80 valid. At frame499 mixed-T same-frame endpoint rollout is
+node `.7103`->`.7091` and stiffness `.3390`->`.3843`,80/80 each. The
+predeclared frames150..499 mixed-T fit is node `.6124`->`.6214` and stiffness
+`.3739`->`.3843`,80/80. AE reconstruction was also evaluated separately:
+node-low frames25/50/100/499 `.6748/.8824/.9737/.9547` ->
+`.7887/.9449/.9694/.9560`; stiffness-low `.2150/.8416/.9555/.9351` ->
+`.7909/.9297/.9669/.9330`, all80/80. Thus modest early weighting specifically
+helps the stiffness family and does not justify replacing uniform weighting
+globally. This is one matched seed, not a seed-stability claim.
+
+The executed 200-MD notebook02 now includes the baseline four-source rollout
+R2-versus-horizon plot/table and a direct uniform-versus-weighted comparison;
+all15cells completed with zero errors. Notebook SHA256 is
+`c36698cd3727bedc39a96a67e862ec8095eb7275118908bb28a2b8b9e4c8dd5d`.
+
+### Frozen 200-MD latent–boundary correlation analysis — 2026-09-18
+
+The executed 200-MD notebook03 now mirrors the useful low-temperature physical
+correlation analysis from the 1,000-MD study without retraining or opening a new
+split. It joins the frozen heldout latent paths to the AE-reconstruction rows of
+the frozen evaluator by source, trajectory ID and frame. The physical variables
+are the evaluator's normalized boundary strains, epsilon_x=deltaLx/Lx(0) and
+epsilon_y=deltaLy/Ly(0); p-ratio, strain and temperature remain absent from
+training, loss and checkpoint selection. Both all-four seed123 encoders are
+shown: one and20 training trajectories/source, heldout-development IDs40..119,
+80/80 valid networks/source. Every new trajectory plot is capped at frame200.
+The correlation summaries retain frames0..20,0..100 and0..200, covering
+0..4,000,0..20,000 and0..40,000MDsteps respectively; frame100 matches the
+physical window of frames0..20 in the1,000-MD study.
+
+For the20/source encoder at frames0..100, median within-network absolute
+Pearson correlations for node/stiffness are: delta-z0 versus epsilon-y
+`.995/.995`, delta-z1 versus epsilon-y `.997/.996`, delta-z0 versus
+epsilon-y-minus-epsilon-x `1.000/1.000`, delta-z1 versus
+epsilon-y-plus-epsilon-x `1.000/1.000`, and the cumulative deformation-direction
+ratio delta-z1/delta-z0 versus minus-epsilon-y/epsilon-x `.992/.993`. Centered
+per-step changes q(t+1)-q(t-1), frames1..99, give pooled absolute correlation
+`.957/.974` for delta-z1/delta-z0 versus minus-delta-epsilon-y/delta-epsilon-x;
+median within-network values are `.892/.898`. Extending through frame200 gives
+cumulative direction-ratio medians `.956/.937`; centered frames1..199 give
+pooled `.949/.963` and within-network medians `.577/.542`. The pooled ratio
+therefore remains strong while longer-window within-trajectory correlations
+fall as later local fluctuations accumulate. The component-wise pooled
+correlations are coordinate-dependent and weaker, so the ratio is the clearer
+cross-family quantity. These are correlations with ground-truth boundary
+response, not extra supervision and not rollout metrics.
+
+Frozen input SHA256 values are one/source latent
+`2320a3945780799dc60da3d402494903fedeed1cf75599e07c89a25d7dc91261`,
+one/source evaluator
+`b27d6c85f69a0c201a6fbfb0bf98a00174e4dba08f69441420516be5a207789d`,
+20/source latent
+`e8f60216fba51ef6767b7345ad5dc7f31b9f6eec8cf8006105d6b1765cf2fd55`,
+and20/source evaluator
+`0cc648c8a649afebbd21cb1f9d32917439a5ec2dbb74bc70bd6ff353ab7ff6b3`.
+Notebook03 executed all9 code cells with zero errors; the final Markdown-only
+result update gives notebook SHA256
+`d6a412f049981be4e184e4e37bbc2c2faaf78837a4da2998474fe8cfc60c5df2`.
+
+### Declared low-T-only one-network AE at 200-MD cadence — 2026-09-22
+
+The existing one/source200-MD encoder includes node/stiffness mixed-T sources,
+so it cannot isolate the paper narrative that one low-T network per family can
+organize unseen low-T initial states by final response. A fresh matched
+ablation trains exactly node_low ID0 and stiffness_low ID0, with no mixed-T
+frames, validates on IDs20..39/source, and opens heldout-development
+IDs40..119/source only after each checkpoint freezes. It uses all500 stored
+frames0..499 at200MDsteps/frame, the established fresh2D
+message-passing/reference-context16 AE, one warmup epoch plus at most60 uniform
+all-frame epochs/patience12, and seeds123/456/786. Coordinate reconstruction
+validation selects checkpoints. No propagator is trained because the question
+concerns initial latent organization only. Temperature, source labels,
+p-ratio and strain are absent from inputs, loss and selection.
+
+Post-fit reporting is source-wise initial z0/z1 Pearson and Spearman
+correlation with physical frame499 endpoint p-ratio, signed and absolute, with
+80/80 valid/total and three-seed mean/SD. Full latent paths for IDs40..59 are
+also exported for notebook01. Protocol SHA256
+`3eb98128c721ce81ea49f865c1485fe6428c1bc40d0c0c4efbc61b359ed02311`;
+runner/PBS SHA256
+`9676e51e202b6e1c6ee8eaa460d735938bce33a66e658df85c60e5033d313a49`/
+`fad31c3015d959f5b18111decd6c9397b3a43dcf81e1db31c8610994398a9555`.
+The new runner imports the previously frozen200-MD code_v6 manifest SHA256
+`8ac7a606bb1e88d2332ff3114fe6c0e3eb16552da51453a23d9438c1254dc718`;
+unchanged data-manifest SHA256 is
+`347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87`.
+End-to-end smoke4696553 was submitted to `mendels_q`,8CPU,16GB,
+`place=free:shared`,12h, without host pins. It gates production seeds123/456/786
+jobs4696557/4696555/4696556 with identical resources. Smoke completed exit0 in
+8m36s using4.0GB; checkpoint SHA256
+`c8d3a45872bd05c947ddac01e0e125c634a10c15c824c1fcb2334b652d36fab1`.
+All three production jobs completed exit0 on `mendels_q` with the declared
+8CPU,16GB and `place=free:shared` resources. Jobs4696557/4696555/4696556
+(seeds123/456/786) used respectively55m32s/41m59s/48m14s and
+4,237,584/4,384,376/4,138,780KiB. Checkpoint SHA256 values are respectively
+`ceab58b8f6eab5f44f39142759b1f678d6ab6f5df3a7d3465a3893ac018cf81a`,
+`9798763fcc2881733a087176f46aece959db890e5ff702f17bebb5d00c6e2afd`,
+and `9016893b45871b85afc15c03e459981c97a8ecf37dfbdf409d8eb625eef354b8`.
+
+For node-low, the strongest absolute raw-coordinate Pearson correlations by
+seed are `.891/.961/.165`, giving mean `.673` and sample SD `.441`; strongest
+absolute Spearman values are `.884/.945/.121`, mean `.650`, SD `.459`. For
+stiffness-low, Pearson values are `.860/.913/.911`, mean `.895`, SD `.030`, and
+Spearman values are `.782/.824/.829`, mean `.812`, SD `.026`. Every entry is
+80/80 valid. Thus the one-network initial-latent ordering is strong and stable
+for stiffness-low, but not seed-stable for node-low: two seeds organize node
+response strongly while seed786 does not. Because independently trained raw
+latent axes may rotate, the predeclared statistic takes the stronger absolute
+z0/z1 correlation within each seed; this is an association diagnostic, not
+response supervision or an autonomous-rollout claim.
+
+The strict low-T notebook01 uses seed456 for the displayed trajectories and
+shows all three frozen seeds in its summary. All7 code cells executed with zero
+errors before the final plot-parity rewrite below.
+
+### 200-MD notebook02/03 plot-parity rebuild — 2026-09-22
+
+At user request, the 200-MD notebooks now retain their cadence-specific plots
+and also reproduce the corresponding plot families and ordering from the
+1,000-MD notebooks using frozen200-MD artifacts. Notebook02 adds initial latent
+state, three-frame-smoothed mixed-T paths, matched one-versus20 low-T paths,
+shared cross-family response, early latent/physical response and normalized
+shape, response-free latent dimensionality, all-four rollout/final scatter, and
+joint-mixed-only rollout. Raw deltaL was not exported at200-MD cadence, so the
+physical panels explicitly use the frozen normalized boundary strains
+epsilon_x=deltaLx/Lx(0) and epsilon_y=deltaLy/Ly(0). The 200-MD mixed-only run
+lacks the historical fitted-prefix artifact, so its panel uses the available
+direct framewise physical p-ratio R2 and is labelled accordingly; no value was
+invented.
+
+Notebook03 adds the initial z0-z1 endpoint-p plane, static frame0 descriptor
+heatmaps, global endpoint versus within-frames0..5 absolute correlations, the
+literal two-panel low-T edge-importance comparison, and matched-ID40 early
+response. Static descriptors were derived once from all120 frozen frame0
+stiffness-low graphs and are thereafter required as a concrete read-only CSV;
+descriptor SHA256 is
+`0ce7bcec5c2b73d31f6f77cb179fec3222426ecd88fb522fd353656e2e054ce6`.
+No model fitting, checkpoint selection, split, or response definition changed.
+At the user's clarification, the extra 200-MD-only sections were removed: the
+200-MD notebooks now follow the same section and plot sequence as notebooks
+01--03 at1,000-MD cadence. Notebook01 remains the explicitly requested
+low-T-only exception and retains its three-seed summary; seed456 was selected
+post hoc for display because it has strong ordering in both families, while
+all three seeds remain visible. A plain raw z0(frame)/z1(frame) panel for five
+deterministically sampled heldout networks from each low-T family, restricted
+to frames0..99, was also added to both notebook01 versions. The
+seed456 training-marker collector and derived CSV SHA256 values are
+`eb874de4ea415fec829124f273d60cb0d4d9e73af1d996930e37ae9d1db11166`
+and `064ce29f1c718d879cb7bf31db9660bf400e3c5aabe8a8e2305b93ac3f6222fc`.
+
+The notebook-parity rewrite script SHA256 is
+`d7644a3b765395bc9d786a81bbcc9f3990071326a27c1db390469985778b9042`.
+The executed 1,000-MD notebook01 and 200-MD notebooks01/02/03 have respectively
+9/9/10/7 executed code cells and zero error outputs. SHA256 values are
+`81c74fd0ab2322ed0be1a5de5a5bb147838f78b1efc6893fa80de639a975fb52`,
+`f10ab60665c88de250974997039e7ce8ee5c569d7011de6950e1fac7d8b019c5`,
+`25ae749062a37b73c640311cd6a3a2d7fd2ed60e13f1bd070e8669e0e0ceecd4`,
+and `28497dafb9d9394e4587bd61e354f8b6805003d0cf22d8b90e925fd8503acc6a`.
+
+### Declared one-step-displacement AE study at 200-MD cadence — 2026-09-22
+
+This matched low-temperature study asks how the 2D latent representation changes
+when the decoder predicts the normalized stored-frame increment
+`x[t+1]-x[t]` instead of reconstructing displacement `x[t]-x[0]`. The encoder
+still receives the current normalized displacement and the same graph/reference
+features. It compares 1 and 20 training networks per source for node-low and
+stiffness-low, with validation IDs 20..39 and heldout-development IDs 40..119.
+Seeds 123/456/786 are predeclared. The architecture, optimizer, uniform
+transition weighting, 60-epoch maximum, patience 12 and source-wise validation
+rule are fixed. P-ratio, strain, temperature and source labels are absent from
+inputs, losses and checkpoint selection.
+
+Frozen evaluation reports one-step position-reconstruction endpoint p-ratio R2
+and normalized increment MSE at target frames 1/5/20/100/499, source-wise
+with valid/total. Display seed 456 additionally exports all 500 latent frames
+for fixed heldout IDs 40..59. Protocol/runner/PBS SHA256 values are
+`c8a340dfdc544b89100455040d66d4d55e66dfdbead63d26c8fea361e84da1d1`,
+`82d938f4e671a087becca6a14082210fbcf001506b319d908e2f84be10ebcaa6`,
+and `4066a9d1676db5441c04fdcafa6f77039d65f6ad9ce2712e3fe75b66eee109bd`.
+The frozen base/data manifests retain SHA256
+`8ac7a606bb1e88d2332ff3114fe6c0e3eb16552da51453a23d9438c1254dc718`
+and `347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87`.
+End-to-end smoke 4696712 completed exit 0 in 2m19s using 3,570,848 KiB;
+checkpoint SHA256 is
+`6eace46d5d5f82f7f066392f4869ac185c9a46e81a131e55455929905d370f6d`.
+Production count 1 seeds 123/456/786 are jobs 4696722/4696721/4696720 and
+count 20 seeds 123/456/786 are jobs 4696723/4696718/4696719. All use
+`mendels_q`, 8 CPU, 16 GB, `place=free:shared`, no host pins, and are gated on
+the successful smoke. All six completed; checkpoint SHA256 in the same order:
+`ffb38037c17d49e65ad462c60b354578b4e83e26a3a1c8d9ee708fa040b67f91`,
+`51044611e2910f8aaa0c57034a252679dfb96736fe6e9b11a996071909834d1e`,
+`0c297f56c37ac0f576d7010dd62759f580c7650b1689a4de5734f844f1ddff08`,
+`9bd8a78a401e39c57187f69ca9370a198fecb91cd185ff4af0e5637849628bc6`,
+`d62bc26a730d1b046b47446e2a28908e37dcc66f1dc4de2fdda3426d2137b4ec`,
+`36e42b45822e0d0e28e2e78eebb9a0b79ed0cb2430793bb83ccd41fa37ea68e7`.
+
+Frozen heldout-development results below are mean ± SD over three seeds; each
+source/seed/horizon has 80/80 valid networks (240/240 pooled). Values are
+teacher-forced one-step endpoint p-ratio R2 and normalized increment MSE,
+**not** post-fit p-ratio R2 or autonomous rollout R2. The true current position
+is supplied at every prediction, so late-frame endpoint R2 near one must not
+be interpreted as long-horizon forecasting.
+
+| Train/source | Source | Target frame | Endpoint p-ratio R2 | Increment MSE |
+|---:|---|---:|---:|---:|
+| 1 | node-low | 1 | −244.307 ± 8.694 | 1.741 ± 0.068 |
+| 1 | node-low | 5 | −2.869 ± 0.472 | 1.194 ± 0.049 |
+| 1 | node-low | 20 | 0.993 ± 0.001 | 0.881 ± 0.017 |
+| 1 | node-low | 100 | 1.000 ± 0.000 | 1.244 ± 0.027 |
+| 1 | node-low | 499 | 1.000 ± 0.000 | 1.380 ± 0.026 |
+| 1 | stiffness-low | 1 | −69.225 ± 8.685 | 0.836 ± 0.139 |
+| 1 | stiffness-low | 5 | −0.022 ± 0.288 | 0.544 ± 0.111 |
+| 1 | stiffness-low | 20 | 0.993 ± 0.002 | 0.471 ± 0.064 |
+| 1 | stiffness-low | 100 | 1.000 ± 0.000 | 0.629 ± 0.050 |
+| 1 | stiffness-low | 499 | 1.000 ± 0.000 | 0.892 ± 0.030 |
+| 20 | node-low | 1 | −94.467 ± 36.530 | 0.408 ± 0.146 |
+| 20 | node-low | 5 | 0.070 ± 0.570 | 0.191 ± 0.070 |
+| 20 | node-low | 20 | 0.999 ± 0.000 | 0.174 ± 0.033 |
+| 20 | node-low | 100 | 1.000 ± 0.000 | 0.217 ± 0.010 |
+| 20 | node-low | 499 | 1.000 ± 0.000 | 0.276 ± 0.022 |
+| 20 | stiffness-low | 1 | −12.164 ± 3.635 | 0.099 ± 0.023 |
+| 20 | stiffness-low | 5 | 0.910 ± 0.019 | 0.046 ± 0.009 |
+| 20 | stiffness-low | 20 | 0.999 ± 0.000 | 0.099 ± 0.011 |
+| 20 | stiffness-low | 100 | 1.000 ± 0.000 | 0.152 ± 0.018 |
+| 20 | stiffness-low | 499 | 1.000 ± 0.000 | 0.277 ± 0.004 |
+
+The [one-step AE notebook](../dynamics/200_md_step/04_one_step_displacement_ae.ipynb)
+uses all three seeds for initial-latent correlations and display seed 456 for
+matched raw latent paths (fixed IDs 40, 42, ..., 58, including a shared-axis
+one-versus-twenty view) and slope associations. Exact unrounded metrics and
+valid/total counts are in each
+`notebooks/results/mini_temperature200_one_step_ae/count{1,20}_seed{123,456,786}/summary.csv`;
+the matching `completed.json` files hold checkpoint hashes and resource usage.
+No final-test IDs were used.
+
+### Declared noisy-LJ latent-influence edge pilot — 2026-09-22
+
+Follow-up sparse-edge test (2026-09-23): keep the successful frozen seed123
+AE/latent simulator, centered perturbations±0.001 and horizons5/10/20.
+Rank the original top-four symmetric-union candidates by the unchanged score;
+keep only ceil(10% of candidates) per graph, with canonical-pair tie breaking.
+No per-node minimum, existing edges excluded. Train seed123 sparse-latent and
+equal-count random GNNs with the original60/20 split/normalization/recipe;
+reuse old seed123 base/dense-latent results. Post-fit strain-time-OLS p-ratio
+R² at50/100 is primary; other horizons and MSE are diagnostics. Selection uses
+no future response or p-ratio. This tests sparsity, not causal edge importance.
+New code/artifacts: `hpc/experiments/lj_sparse_influence/` and
+`notebooks/results/lj_sparse_influence/`. No notebook or old-result edits.
+Frozen `code_v1` jobs: sparse-latent4698612 and random4698610, both completed
+training and post-fit evaluation (completion artifacts verified). Live-path4698607 was cancelled;
+first frozen attempt4698609 failed on its leftover output directory. Partial
+artifacts/logs preserved under `runs/aborted_before_snapshot/`; replacement
+uses the unchanged snapshot. Validation edge budget averages60.05 versus596.15.
+Outcome: sparsifying to the strongest10% did not preserve the benefit. Noisy-LJ
+autonomous post-fit p-ratio R² at frames50/100: sparse-latent -0.746/-2.154,
+equal-count random 0.002/-1.024; frozen seed123 base 0.660/0.454 and original
+dense-latent 0.700/0.521. All20/20 valid at each horizon, one seed (SD unavailable),
+60 train/20 validation, no final test. Sparse-latent coordinate MSE50/100:
+3.450e-5/2.407e-4; random4.020e-5/2.810e-4. This rejects this particular
+global score cutoff, not sparse augmentation generally; high shared-response
+scores alone do not establish critical edges.
+
+This response-blind pilot tests whether a frozen latent simulator can discover
+useful nonlocal edges for a physical-node dynamics GNN. The accepted simulator
+has one global 2D latent rather than one latent per node, so the study does not
+claim a literal node-latent Jacobian. Instead, it perturbs each normalized
+global latent coordinate by plus/minus0.001, propagates through the frozen
+history-attention/mean seed123 simulator, decodes physical-node positions at
+horizons5/10/20, and joins nodes with strong common participation in those
+responses. The symmetric union of each node's top-four nonphysical partners is
+frozen before downstream GNN fitting.
+
+Three seed123 arms use exactly the same normalized acceleration GNN and noisy-LJ
+60-train/20-validation split: the mandatory graph-distance-two/three base graph,
+that graph plus size-matched deterministic random nonedges, and that graph plus
+latent-influence nonedges. Each GNN has four residual message-passing blocks,
+training-only input/target scaling, and LayerNorm in both encoders and every
+node/edge block. It observes frames0..3 and rolls autonomously through frame100.
+Validation acceleration MSE selects checkpoints; p-ratio, strain, and response
+labels do not enter training or selection. Frozen reporting is post-fit physical
+endpoint p-ratio R2 at frames50/100 with valid/total, plus physical-coordinate
+MSE. No final-test data are used. The frozen AE/cache and latent-propagator
+SHA256 values are respectively
+`756486f394798a6d51cfef3427a5a2a8845bcc9446c70f4f1c37e805af2619b9`,
+`7b0becdc13fcac093034518ff74cf61168e64ff4b4dfc481b27642c528253fa9`,
+and `924708b8758c22afea5de8b2124d990ca51658a7419aea52f93a3d9977da61b8`.
+The normalized GNN passed three focused tests, including node-permutation
+equivariance and LayerNorm coverage. A local two-validation-network end-to-end
+functional check completed; its response numbers are not scientific results.
+Frozen protocol/runner/PBS/GNN-source/manifest SHA256 values are
+`8d122bb76949c285c1412ab192d48a2bb08a774f732e2fb51a7cf7e9205693b9`,
+`4f06e069deda3e5d4f28c32544be54173940458d966beb177733652b2350bf6f`,
+`f8d8adf747ee6710926060ee6c3605c197b7cc4f6e9a811cdcd874e5a2be9186`,
+`a99332ca3507e4f317c4dd8abd53183c1ecfbe9b6a606845cd5ad0ab915cb492`,
+and `f1bb046d3704c1519fd86a4a21fd3763485ade5396a8b00129fad02a941770bd`.
+All three end-to-end smoke jobs completed exit0: base4696918,
+random4696920, and latent4696921. The two-network smoke response values are
+only plumbing checks. Production base/random/latent jobs are respectively
+4696922/4696924/4696923 on `mendels_q`,8CPU,16GB,
+`place=free:shared`, with no host pin. All three completed exit0 in
+1m58s/2m46s/2m37s using2.63/3.08/3.03GB. Their checkpoint SHA256 values are
+`b2d4097f464dfc3ca2504e85efe25947fb967aa8be573e3bc0e5e889ca2c3327`,
+`ba29b8afaec21a237a1d04d7039ea8e9f169eb44813ed0bb759d1cea432a6e24`,
+and `e4985c9856e2192f86b68c903bc95c42c7e87628bb193d65e32ed9bd2df6997d`.
+
+For seed123, the primary post-fit p-ratio R2 at frames50/100 is
+`.660/.454` for base, `.084/-.287` for size-matched random, and `.700/.521`
+for latent-influence edges, with20/20 valid in every cell. Endpoint R2 gives
+the same ordering: `.681/.455`, `.100/-.151`, and `.718/.530`. Coordinate MSE
+at frames50/100 is base `3.4e-5/2.29e-4`, random `3.0e-5/1.99e-4`, and latent
+`3.1e-5/2.10e-4`; random edges therefore have the best coordinate MSE while
+the worst response R2. The latent improvement over base is promising but small,
+and a paired20-network bootstrap of response squared-error improvement crosses
+zero at both horizons. It is not yet a robust success claim.
+
+The exact post-fit evaluator SHA256 is
+`a05df7a7ee678a69a9ac653a76961f531a91571f8eb43ab7090402031fb8875f`.
+It uses two physical-strain OLS fits with intercept over frames0..horizon and
+takes `-slope_y/slope_x`; it is applied only after frozen checkpoint selection.
+Validation latent edges are longer than random controls on average
+(`1.344` versus `1.134` in normalized reference coordinates), and their mean
+per-network Jaccard overlap is only `.034`. To test initialization robustness
+without changing the seed123-discovered graph, matched downstream seeds456/786
+were submitted for every arm as jobs4696939/4696941 (base),
+4696938/4696936 (random), and4696937/4696940 (latent). These six jobs use the
+same declared resources. All completed exit0. Their walltimes were respectively
+1m44s/2m18s,3m22s/2m14s, and2m47s/2m11s, with peak memory2.39--3.11GB.
+The seed456/786 checkpoint SHA256 values are base
+`a45cec14cabd05d9055fcdbbc8624185a571025dc33bb61fc603a47ac253c27a`/
+`c3e41debc2e039ad7e01fa50f9b7bbd3e43a3f053945fe5d6a118ba1d3dc45af`,
+random
+`cd9f073e4362ebf2b9dceae60a0252b1e8bc5321808f97eca5153fd273bd3592`/
+`a7521883e975bff05b9a65d5a2b662482d59ff8db57169ffdb325e317bf783fd`,
+and latent
+`0b38196cb0471948b531bca9a5554b25f22f8b5f8d9410e6a535337c4f037c40`/
+`3c94a92a29b42c5b685f35684506f04fd61757f096939fcc7d45249e0c8a9602`.
+
+Across downstream seeds123/456/786, post-fit p-ratio R2 mean plus/minus sample
+SD at frame50 is base `.652+-.053`, random `.425+-.296`, and latent
+`.696+-.012`; at frame100 it is base `.397+-.196`, random `.096+-.354`, and
+latent `.497+-.027`. Every cell is60/60 valid. Coordinate MSE mean at
+frames50/100 is base `3.354e-5/2.270e-4`, random `3.312e-5/2.226e-4`, and
+latent `3.135e-5/2.103e-4`. Thus this pilot supports the hypothesis: the
+latent-influence graph improves mean response R2 by `.044` at50 and `.099`
+at100 relative to the base while sharply reducing seed variability, and it
+also beats size-matched random edges. This remains one fixed edge-discovery
+simulator seed and one20-network validation split, not a final generalization
+claim.
+
+The exact code_v2 protocol/runner/PBS/manifest SHA256 values are
+`0584800560dfe795f65569766382d82b476296479a0c9c1d6305db0ebd4988a9`,
+`5d86b0319f5c46195c90b2be64ee7ad0c3a7538ba1f2be255b3af13e433a3b18`,
+`221189fa6b794369d932e5c941c1540e51a22a5afcbf3ab8fc1b24b8a8ad1d2f`,
+and `c39515ba13e6b090d35c759c1921b040b675b59f158314a74384978a690a18db`.
+The final post-fit evaluator/seed-summary/per-network/edge-list SHA256 values are
+`8fe3196e9e1c826bc5f660e0c3a164c654447fbc33910141de6d06f33566f76b`,
+`05d11a2efe89ff89e293fff814bb2151d27d2b6dfb9ac65795fa137f31fc130e`,
+`a73bc921d500fcacecb596302f1d239cb2646a507f7d8e59fa550e7fea20fa22`,
+and `a7efc07139c3d0f265a8dd00483a355ad787b43605cfe8dd36e444492f70db1a`.
+
+### Declared LJ-only latent-influence edge replication — 2026-09-22
+
+At user request, this replication removes Reid/low-temperature exposure from
+the edge-discovery representation. It reuses the exact existing
+LJ-only seed123 4D attention-reference16 AE checkpoint rather than duplicating
+its3h08m fit. That AE was trained on60 noisy-LJ trajectories x200 frames and
+validated on20 noisy-LJ trajectories; it contains no Reid/de Pablo examples and
+used no response supervision. Checkpoint SHA256 is
+`42d36dc32c6a4bee95f242e7f13f8be6947fb1a49870d26cdf00a9417395164a`.
+
+A fresh seed123 history-attention/mean latent propagator will fit frames0..100
+of the same60 training trajectories and use decoded coordinate validation MSE
+on the same20 validation identities for checkpoint selection. After freezing,
+centered latent perturbations plus/minus.001 at horizons5/10/20 will select the
+symmetric union of each node's top-five nonphysical partners. On heldout graphs,
+edge discovery may read only the frame0 reference graph and z0; validation
+future positions and p-ratio are forbidden. The mandatory graph-distance2/3 LJ
+relations remain in every arm.
+
+Downstream base/random/latent acceleration GNNs retain the prior architecture,
+normalization,60-train/20-validation split, frames0..3 initialization,
+frames4..100 autonomous rollout, seeds123/456/786, response-blind checkpointing,
+and post-fit p-ratio R2 at50/100. A new notebook will include seed summaries,
+scatter plots, and an unseen validation graph with physical and selected latent
+edges visually distinguished. No final test data are used.
+
+Frozen protocol/preparation/PBS/downstream/PBS/manifest SHA256 values are
+`6fe344e99a210c816ad654c9c8499c9926610dc27a0059a3f5000f4bd1604e4c`,
+`b2b0975fcbf22dba1b1794049bbc20cfa6c8dcaaaf43ada08a0b1fba38252490`,
+`821cdae54ba20eb48df39cc8c73c10dd77ffcadee8e5ea31d9907d980b08b2c3`,
+`b7096d6f92dbe1dd869cd4cbcd4c5a51893f176039f5814215a3301b2f1a55d7`,
+`9191f94d035cc3799fbac26abfa3031f9d8c66d28fe73050a88dd45df6ed8f2f`,
+and `9b69006092110bed1230518a4c8d806ef48c453c3971957e28d71b208ed0b400`.
+The four-train/two-validation end-to-end latent smoke job4696979 completed
+exit0 and preserved the AE hash; its response-free numerical values are plumbing
+only. Full60/20 latent-cache and propagator job4696984 was submitted to
+`mendels_q`,8CPU,16GB, `place=free:shared`, with no host pin. Job4696984
+completed exit0: encoding plus fitting used the declared60/20 split, stopped
+after15 epochs with best response-blind decoded validation MSE `.0410562`, and
+preserved the frozen AE hash. Cache and latent-model SHA256 values are
+`f5e1f378e5fef7478a0fdd5a6fd7f458cbc05f271a931d6880482514db87d1ec`
+and `ae5f2b145d46ef1e6bf47d520fd0f2e9547fff016e793046f3bb1f23f437d904`.
+The downstream latent-arm smoke job4696992 completed exit0; its two-network
+response values are plumbing only. Top-five selection added an average832.5
+unique undirected edges on those two smoke graphs. The physical base arm is
+mathematically unchanged, so its existing seed123/456/786 frozen checkpoints
+are reused rather than retrained. New top-five random jobs are
+4696997/4696994/4696999 and LJ-only latent-edge jobs are
+4696996/4696998/4696995 for seeds123/456/786. All use the declared shared PBS
+resources and completed exit0. Across the20 unseen validation graphs, Top5
+selection adds741.75 unique undirected edges/graph on average (physical plus
+distance2/3 base mean1997.45). Primary post-fit p-ratio R2 mean plus/minus
+sample SD at frame50 is base `.652+-.053`, random `.547+-.175`, and LJ-only
+latent `.516+-.283`; at frame100 it is `.397+-.196`, `.061+-.610`, and
+`.291+-.289`. Every cell is60/60 valid. Coordinate MSE at50/100 is base
+`3.354e-5/2.270e-4`, random `3.428e-5/2.443e-4`, and latent
+`3.273e-5/2.228e-4`. Thus this LJ-only4D-attention replication does not beat
+the base response result and does not reproduce the earlier shared-MP2D latent
+edge gain. Architecture, latent dimension, normalization and AE exposure differ,
+so this contrast cannot establish that cross-family exposure is causal.
+
+Post-fit evaluator SHA256 is
+`5a316127fb501f0dcc365f1a440a1fc08ff909614991f88be4307c373827716e`.
+Executed notebook `notebooks/dynamics/11_ljonly_latent_influence_edges.ipynb`
+(SHA256 `1866748ef47d497f54ba1a08da6cd19d856b0516f95d4ea1db35ea0680d0a5cc`)
+contains the three-seed response curve, frame100 scatter and an unseen graph
+visualization with all selected edges plus the60 strongest highlighted. It has
+three executed code cells and zero errors; no figure files were exported.
+
+### Declared matched noisy-LJ AE-scope edge study — 2026-09-22
+
+The prior shared-MP2D versus LJ-only-attention observation is confounded and is
+not used to claim that other source families improve the noisy-LJ AE.  At the
+user's request, the new `lj_matched_scope` study changes only the composition of
+four training trajectories: `ljonly4` sees four noisy-LJ graphs, while
+`shared4` sees one Reid, one low-T, one mixed-T and one noisy-LJ graph.  Both
+use the same 2D attention AE, hidden size128,32 tokens, five edge channels,
+frames0..100,12120 sampled frame rows per epoch,40-epoch/patience8 budget, and
+the same20 unseen noisy-LJ validation graphs for response-blind coordinate
+checkpointing.  All LJ stages retain physical plus graph-distance-two/three
+relations.  Seeds123/456/786 are paired.  No p-ratio, strain, source label or
+final-test result enters fitting or selection.
+
+Code_v1 smoke jobs4697019 (`ljonly4`) and4697018 (`shared4`) exited1 in2s
+before experiment import because the PBS launcher selected the repository venv,
+which lacks torch; dependent4697021--4697026 did not run.  This is a launcher
+failure, not a model result.  Code_v2 changes only the interpreter to the
+established torch environment.  Replacement smokes are4697032/4697031 and
+production jobs, held `afterok` both, are ljonly4 seeds123/456/786 =
+4697035/4697034/4697037 and shared4 =4697038/4697039/4697036.  Every job uses
+`mendels_q`,8CPU,16GB, `place=free:shared`, no host pin.  Frozen code is under
+`notebooks/results/lj_matched_scope/code_v2`; jobs and dependencies are in
+`jobs.json`.  After AE completion, each frozen AE will receive the same
+response-blind latent-dynamics/Top5 influence-edge and normalized-acceleration
+GNN evaluation on unseen noisy-LJ graphs.  Frozen stage-two code_v3 manifest is
+`6d4824fe63b41524a1e4ab7b62977667b4b723789c35a06b53ae8d8bdbc04b36`.
+Latent smokes4697045/4697046 gate paired full propagators: ljonly4
+4697050/4697051/4697049 and shared4 4697048/4697052/4697053.  Downstream smokes
+4697055/4697054 gate paired latent-edge GNN jobs: ljonly4
+4697058/4697057/4697059 and shared4 4697056/4697061/4697060.  Dependencies and
+exact mappings are in `jobs.json`. Results are pending.
+
+The first code_v3 latent smoke4697045 failed before fitting because the inherited
+propagator assumed16D reference embeddings plus2D positions, while the matched
+attention AE supplies128D reference embeddings plus2D positions.  Its downstream
+dependency chain4697046/4697048--4697061 produced no scientific result.  Code_v4
+changes only the propagator token-width constructor to read the frozen AE output;
+its manifest SHA256 is
+`7d3a5f04c244983877a06b7fcdc79cb48ccda5e419862af8e2d21318e948842a`.
+Replacement latent smokes are4697075/4697074; full latent jobs are ljonly4
+4697082/4697076/4697079 and shared4 4697080/4697077/4697078.  Replacement GNN
+smokes are4697087/4697086 and full GNN jobs are ljonly4
+4697088/4697093/4697089 and shared4 4697091/4697090/4697092.  The final notebook
+will live in the dedicated `notebooks/lj_matched_scope/` folder and report
+post-fit p-ratio R2 every10 frames from10 through100, with three-seed SD and
+valid/total counts.
+### Declared matched MP2D cross-family regularization study — 2026-09-22
+
+The user rejected the preceding four-trajectory screen as too data-poor and
+requested at least20 networks/source.  New `lj_mp2_scope20` isolates source
+composition at equal total trajectory/frame exposure: `ljonly60` trains on60
+noisy-LJ trajectories, while `shared3x20` trains on20 Reid +20 low-temperature
+de Pablo +20 noisy-LJ trajectories.  Both use the same2D
+message-passing-reference16 AE, two message-passing steps, hidden96,32 latent
+tokens, all200 frames,12000 frame samples/epoch,60-epoch/patience12 budget and
+seeds123/456/786.  Both select checkpoints using coordinate reconstruction on
+the same20 unseen noisy-LJ validation trajectories only.  Graph-distance2/3 LJ
+relations and the five-channel edge schema remain consistent.  P-ratio/strain,
+source labels and final-test data do not enter fitting or selection.
+
+Smokes4697196/4697197 gate production ljonly60 jobs4697201/4697200/4697203
+and shared3x20 jobs4697204/4697199/4697202.  All use `mendels_q`,8CPU,16GB,
+`place=free:shared`, no host pin.  Frozen code_v1 manifest SHA256 is
+`cc3e1970f2624d9c2fc71c8bf6a4f148934e5e119be6c4cf9697bbaa44cb2874`;
+exact mapping is in `notebooks/results/lj_mp2_scope20/jobs.json`.  Post-fit
+physical reconstruction p-ratio R2 on the common LJ validation split is the
+primary comparison; downstream edge tests are gated on that result.
+
+At 2026-09-22 19:01 IDT, all three `shared3x20` runs and `ljonly60` seed123
+had completed successfully; `ljonly60` seeds456/786 remained healthy and
+running.  Frozen-checkpoint reconstruction evaluation job4697375 is held
+`afterok` those two jobs and will compute the predeclared physical post-fit
+p-ratio R2 horizons and coordinate-MSE secondary diagnostic automatically.
+
+All six AE jobs subsequently completed successfully: `ljonly60` seeds
+123/456/786 trained for20/60/48 epochs and `shared3x20` seeds123/456/786 for
+19/17/19 epochs.  Evaluation job4697375 failed before producing metrics because
+the decoded graph intentionally omitted the reference-box metadata needed for
+physical-coordinate inversion.  The evaluator now takes this frozen metadata
+from the original reference graph; replacement job4697566 was submitted with
+unchanged checkpoints, split and metric.
+
+Replacement evaluation4697566 completed successfully in10m51s.  On the common
+20-network unseen noisy-LJ validation split, three-seed AE reconstruction
+post-fit p-ratio R2 (mean +/- SD; valid/total aggregated across seeds) strongly
+favours `shared3x20`: at frame50,0.220+/-0.283 versus
+`ljonly60` -1.379+/-1.185 (60/60 each); frame100,0.527+/-0.150 versus
+-2.312+/-2.361 (60/60 each); frame199,0.252+/-0.144 versus
+-3.544+/-3.148 (60/60 each).  Yet physical coordinate MSE is nearly matched:
+at frame100,0.000381 shared versus0.000391 LJ-only; at frame199,0.001921 versus
+0.001999.  Thus cross-family exposure improves preservation of the small
+mechanical-response signal rather than merely lowering average position error.
+These are frozen AE reconstructions, not autonomous latent/GNN rollouts.
+Exact per-network, per-seed and aggregate tables are in
+`notebooks/results/lj_mp2_scope20/evaluation/`; checkpoint hashes and the
+response-blind evaluation contract are in `evaluation.json`.
+
+The downstream latent-influence study then froze a2D history-attention
+propagator with mean reference context for each of the six AEs.  Smokes
+4697589 (LJ-only) and4697593 (shared) passed.  Initial shared smoke4697588
+failed because Reid/de Pablo graphs lack LJ-specific `source_sim_id`; the
+bookkeeping was corrected to use exact recipe split indices, without changing
+data or learning.  Full latent jobs are LJ-only seeds123/456/786 =
+4697600/4697597/4697598 and shared seeds123/456/786 =
+4697601/4697599/4697596.  The latent objective and checkpointing remain
+response-blind decoded-position/latent losses; final-test data are unused.
+
+The matched downstream protocol uses the exact same canonical60 noisy-LJ
+training and20 held-out noisy-LJ validation trajectories for every arm; it
+does not incorrectly reduce the shared-AE GNN to its20 LJ AE-training graphs.
+For each paired seed, canonical LJ graphs are re-encoded through the matching
+frozen AE/latent model.  The physical GNN is unchanged (normalized
+acceleration, hidden64, four MP blocks), and compares base, exactly
+count-matched random nonedges, and top-five-per-node propagated latent
+influence nonedges (epsilon0.001; horizons5/10/20), excluding the existing
+physical plus distance-two/three relations.  Smokes4697608/4697607 gate18
+production jobs4697610--4697627; exact mapping is in `jobs.json`.  Selection
+uses one-step acceleration MSE only, while full physical paths through frame100
+are saved for post-fit p-ratio R2 at10/20/30/40/50/75/100.
+
+Operational update: all six latent models completed.  The downstream pilot
+found a package import conflict and then a saved-path field error; neither
+affected the learned models.  The incomplete runs were cancelled and retained
+under `downstream/aborted_before_output_fix`.  Corrected18-job GNN matrix
+4697663--4697680 and post-fit evaluator4697681 are running/queued; exact
+scope/arm/seed mapping and failure identities are in `jobs.json`.
+
+Final: all18 corrected GNN jobs and post-fit evaluator4697681 finished with
+exit0.  On the same20 unseen LJ graphs, frame50/100 autonomous post-fit p-ratio
+R2 (three-seed mean +/- SD,60/60 valid per cell) was base
+0.679+/-0.037 / 0.444+/-0.083; LJ-only latent edges
+0.414+/-0.289 / 0.117+/-0.312; shared-AE latent edges
+0.615+/-0.145 / 0.336+/-0.282.  Count-matched random edges were
+0.560+/-0.226 / 0.102+/-0.671 for LJ-only and
+0.522+/-0.291 / 0.311+/-0.309 for shared.  Shared training improved its
+learned-edge arm relative to LJ-only, but neither learned-edge arm beat the
+physical baseline.  Mean added undirected edges/network were739.8 and740.9
+for LJ-only and shared, respectively.  Full horizon/seed/per-network metrics,
+coordinate MSE, valid counts, artifact hashes, and estimator are under
+`notebooks/results/lj_mp2_scope20/downstream/evaluation/`.  The executed
+`notebooks/lj_mp2_scope20/01_augmented_gnn_comparison.ipynb` shows the curves,
+frame100 scatter and edges on held-out network15; eight cells, no errors.
+The final-test split was not used.

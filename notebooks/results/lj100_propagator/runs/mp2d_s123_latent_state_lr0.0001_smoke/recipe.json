@@ -1,0 +1,33 @@
+{
+  "seed": 123,
+  "objective": "latent_state",
+  "lr": 0.0001,
+  "smoke": true,
+  "ae_checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s123_code_v4/ae.pt",
+  "ae_sha256": "756486f394798a6d51cfef3427a5a2a8845bcc9446c70f4f1c37e805af2619b9",
+  "one_step_checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_one_step_s123/propagator_bundle.pt",
+  "one_step_sha256": "92f99af78d3ba2b6f85a2b6b9d5f74769d3c60fa08c93bb5730527e033730d89",
+  "supervision_steps": [
+    1,
+    2,
+    3,
+    5,
+    10,
+    25,
+    50,
+    75,
+    100
+  ],
+  "selection": "validation normalized latent-state MSE only",
+  "final_test_used": false,
+  "response_selection": false,
+  "architecture": "deltaMLP64/staticmeancontext16",
+  "source_mixture": "30Reid30lowT60LJ; LJ graph distance 2/3 from frozen AE recipe",
+  "batch_networks": 4,
+  "lj_network_weight": 0.5,
+  "frozen_ae_state_sha256": "76ed524c79fe0fc2613f576be6ce779204feca5d125de4642c0187fa3b9062eb",
+  "decoder_gradient_sum": 0.0,
+  "epochs": 1,
+  "best_val_latent_state": 0.4880538433790207,
+  "seconds": 80.24590063095093
+}

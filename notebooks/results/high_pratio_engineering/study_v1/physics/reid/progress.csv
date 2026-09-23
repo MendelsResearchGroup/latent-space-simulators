@@ -1,0 +1,2 @@
+index,variant,simulation_id,scale_x,compression_steps,physical_p_ratio,status,run_dir,protocol,box_p_ratio
+93,joint_b4,93_joint_b4_7582f4e041b0,0.9700107,120,0.3353513748739491,completed,/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/high_pratio_engineering/study_v1/physics/reid/93_joint_b4_7582f4e041b0,2D quasistatic compression; first/last unwrapped boundary-node ratio,0.33968237947128355

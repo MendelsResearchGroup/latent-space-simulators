@@ -1,0 +1,293 @@
+{
+  "audit_scope": "Read-only frame-zero overlap audit. Compared the six fixed mixed-temperature validation originals only with the frozen AE declared train IDs and historical readout calibration IDs. No final-test rows, model fitting, physics, or notebook/log writes.",
+  "selected_mixed_temperature_originals": {
+    "source": "depablo_mixed_temp",
+    "ids": [
+      47,
+      68,
+      140,
+      161,
+      242,
+      268
+    ],
+    "valid": 6,
+    "total": 6,
+    "data_path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-10k-mix-temp.pt",
+    "data_sha256": "b5c10f48a03df0822ddc4decb5792afa83b73fee755fa83cc588bbfdaa0d3a67"
+  },
+  "frozen_model_provenance": {
+    "artifact": "network_design/reid_lowT_2d_s786/ae.pt",
+    "checkpoint_sha256": "62d9476c47f4024df0395d7dc14d4942a86f5c1baafb438ceb3ec6681be6dcc7",
+    "model_seed": 786,
+    "architecture": "attention AE, latent_dim=2, latent_tokens=32, hidden_size=96",
+    "training_recipe": "reconstruction-selected, source_mean objective; checkpoint metric val_max_source_reconstruction; p-ratio callback disabled (pratio_eval_every=0); no propagator or rollout training",
+    "provenance_artifact": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/calibrated_direction_v1/depablo_low_temp/prepare/preparation.json",
+    "preparation_job_id": "4671400.zeus-master",
+    "split_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+    "historical_calibration_code_manifest_sha256": "f2519f660259fbdb1e9bcea333e3088844a32fe68c2c654397fd3671bcf1d319",
+    "historical_calibration_runner_sha256": "fb4230ff9b9bca39c91f681fb194109166a30c54dbbb429b1ea87f6489f88021",
+    "frozen_ae_recipe_source": "calibrated_direction_v1/*/prepare/preparation.json previous_recipe"
+  },
+  "actual_ae_training_initial_graphs": {
+    "sources": {
+      "reid": {
+        "data_path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+        "ids": [
+          60,
+          45,
+          43,
+          73,
+          85,
+          22,
+          47,
+          27,
+          87,
+          67,
+          71,
+          36,
+          65,
+          9,
+          81,
+          90,
+          68,
+          21,
+          24,
+          48
+        ],
+        "valid": 20,
+        "total": 20,
+        "data_sha256": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659"
+      },
+      "depablo_low_temp": {
+        "data_path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+        "ids": [
+          99,
+          145,
+          7,
+          133,
+          198,
+          13,
+          21,
+          107,
+          14,
+          77,
+          130,
+          50,
+          85,
+          104,
+          55,
+          54,
+          147,
+          117,
+          3,
+          67
+        ],
+        "valid": 20,
+        "total": 20,
+        "data_sha256": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09"
+      }
+    },
+    "valid": 40,
+    "total": 40,
+    "frame_access": "frame 0 only"
+  },
+  "historical_readout_calibration_initial_graphs": {
+    "sources": {
+      "reid": {
+        "data_path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+        "ids": [
+          41,
+          49,
+          25,
+          93,
+          84,
+          96,
+          97,
+          13,
+          28,
+          52
+        ],
+        "valid": 10,
+        "total": 10,
+        "physics_subselection_ids": [
+          25,
+          28,
+          84,
+          93
+        ],
+        "data_sha256": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659"
+      },
+      "depablo_low_temp": {
+        "data_path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+        "ids": [
+          161,
+          47,
+          191,
+          66,
+          118,
+          98,
+          2,
+          136,
+          131,
+          124
+        ],
+        "valid": 10,
+        "total": 10,
+        "physics_subselection_ids": [
+          98,
+          66,
+          47,
+          191
+        ],
+        "data_sha256": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09"
+      }
+    },
+    "valid": 20,
+    "total": 20,
+    "frame_access": "frame 0 only",
+    "definition": "The 10 validation IDs/source recorded as calibration_ids for the downstream affine latent readout. The four physical calibration IDs/source are a subset."
+  },
+  "hash_method": {
+    "topology_hash": "SHA-256(node count; lexicographically sorted canonical undirected node-label pairs).",
+    "topology_stiffness_hash": "SHA-256(node count; sorted canonical undirected node-label pairs; one exact float64 stiffness value per pair from edge_attr column 3). Reciprocal duplicate edges are coalesced after checking stiffness consistency.",
+    "geometry_hash": "Separate SHA-256 of the topology/stiffness payload plus frame-zero x/y coordinates in stored node order.",
+    "interpretation": "A topology/stiffness hash match establishes equality under stored node labels and exact stored stiffness values. It does not prove graph isomorphism under a different node permutation; a nonmatch also does not rule out an isomorphic relabelling. The geometry hash is only a stricter node-labelled equality check."
+  },
+  "overlap_result": {
+    "ae_train_total_matches": 0,
+    "historical_readout_calibration_total_matches": 2,
+    "selected_valid": 6,
+    "selected_total": 6,
+    "per_selected_id": [
+      {
+        "selected_mixed_temp_id": 47,
+        "selected_frame": 0,
+        "node_count": 112,
+        "unique_undirected_edge_count": 318,
+        "topology_hash_sha256": "d2ec7d9376fed9b761dbe2b5eb77b04e43ca3f934e682c9b2bb7fc70f932532c",
+        "topology_stiffness_hash_sha256": "dc1849d06f81b238f663bee52b599737cbf38de4407f9f9f20bf6163b77bb7c1",
+        "node_labelled_geometry_hash_sha256": "c087986630d962577fbc7bc669428315b1e2ee76327a6fc77fbe8eb892290389",
+        "ae_train_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 40,
+          "matches": []
+        },
+        "historical_readout_calibration_topology_stiffness_matches": {
+          "count": 1,
+          "valid_compared": 20,
+          "matches": [
+            {
+              "source": "depablo_low_temp",
+              "id": 47,
+              "topology_stiffness_hash_sha256": "dc1849d06f81b238f663bee52b599737cbf38de4407f9f9f20bf6163b77bb7c1",
+              "node_labelled_geometry_hash_equal": false
+            }
+          ]
+        }
+      },
+      {
+        "selected_mixed_temp_id": 68,
+        "selected_frame": 0,
+        "node_count": 188,
+        "unique_undirected_edge_count": 541,
+        "topology_hash_sha256": "743d3eea3b83d7d395b25a8b7d90a9dbfd1004d9264c5b2099c501b84a006625",
+        "topology_stiffness_hash_sha256": "a1618a7de8d7534790f99e91b87b71368f3b46af8d725b57cf281dabc6c6142c",
+        "node_labelled_geometry_hash_sha256": "df64c7eccea4a6fb3ba7a198aee5be96ceadca00d2b7a17e31d220317b37661e",
+        "ae_train_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 40,
+          "matches": []
+        },
+        "historical_readout_calibration_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 20,
+          "matches": []
+        }
+      },
+      {
+        "selected_mixed_temp_id": 140,
+        "selected_frame": 0,
+        "node_count": 212,
+        "unique_undirected_edge_count": 614,
+        "topology_hash_sha256": "1f5d1b55651069b749a9070f043160a443342bcb669a0ada8299f1767cd3d20a",
+        "topology_stiffness_hash_sha256": "f61be5685b70e77d04e7683071d962d766a0caf8aa1f9ae4c4bf7d27e2335fbf",
+        "node_labelled_geometry_hash_sha256": "d29de7ac1c9695688beedaaf1963bcef86221bdc600d504829b1767688750524",
+        "ae_train_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 40,
+          "matches": []
+        },
+        "historical_readout_calibration_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 20,
+          "matches": []
+        }
+      },
+      {
+        "selected_mixed_temp_id": 161,
+        "selected_frame": 0,
+        "node_count": 104,
+        "unique_undirected_edge_count": 300,
+        "topology_hash_sha256": "a34cdc99dddbf4dc24ecde7ff9b2832d9c8ced31ae59e9b8db38feefa08d4179",
+        "topology_stiffness_hash_sha256": "e35d0344be961ccdfc183a0e8e6a0ed2ed4dbc489b7ac7859ee3a42889547865",
+        "node_labelled_geometry_hash_sha256": "039115fdbaacd3ea80f66a065c45aa9beaa3bb56266181140ea013f3b18eb88c",
+        "ae_train_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 40,
+          "matches": []
+        },
+        "historical_readout_calibration_topology_stiffness_matches": {
+          "count": 1,
+          "valid_compared": 20,
+          "matches": [
+            {
+              "source": "depablo_low_temp",
+              "id": 161,
+              "topology_stiffness_hash_sha256": "e35d0344be961ccdfc183a0e8e6a0ed2ed4dbc489b7ac7859ee3a42889547865",
+              "node_labelled_geometry_hash_equal": false
+            }
+          ]
+        }
+      },
+      {
+        "selected_mixed_temp_id": 242,
+        "selected_frame": 0,
+        "node_count": 268,
+        "unique_undirected_edge_count": 772,
+        "topology_hash_sha256": "aacc47e884dce4146e77606e6cbdaea0d631a6fe8e722030d8c5b693e65dbe29",
+        "topology_stiffness_hash_sha256": "ecc402fbcafbb2509b8838ebd42aa5d621e8177979a6403c4799cd7bf9fce2dd",
+        "node_labelled_geometry_hash_sha256": "47a048ff51023e71ec479435742321e6eddd1eb601121d888dc0fb059f2fa5c4",
+        "ae_train_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 40,
+          "matches": []
+        },
+        "historical_readout_calibration_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 20,
+          "matches": []
+        }
+      },
+      {
+        "selected_mixed_temp_id": 268,
+        "selected_frame": 0,
+        "node_count": 264,
+        "unique_undirected_edge_count": 752,
+        "topology_hash_sha256": "4a9505828dd5f7c7de04286a00616ba9954829962efe7c6aeb7f9cbd8011cb01",
+        "topology_stiffness_hash_sha256": "8b1b498b83c39d0d4f89f3ffe3cfc598e5bb27ea2749389c5372b5ab54672b36",
+        "node_labelled_geometry_hash_sha256": "8f300b87c80019f393734a240e151c5a879e722b400722ce1ce1fc39c973fd27",
+        "ae_train_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 40,
+          "matches": []
+        },
+        "historical_readout_calibration_topology_stiffness_matches": {
+          "count": 0,
+          "valid_compared": 20,
+          "matches": []
+        }
+      }
+    ]
+  },
+  "claim_boundary": "Source exclusion alone does not establish held-out-network generalization. This audit reports only exact node-labelled topology/stiffness overlap against declared AE-train and readout-calibration initial graphs."
+}

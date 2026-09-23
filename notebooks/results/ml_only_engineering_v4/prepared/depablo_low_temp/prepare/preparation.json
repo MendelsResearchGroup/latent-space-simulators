@@ -1,0 +1,274 @@
+{
+  "source": "depablo_low_temp",
+  "calibration_ids": [
+    161,
+    47,
+    191,
+    66,
+    118,
+    98,
+    2,
+    136,
+    131,
+    124
+  ],
+  "physics_calibration_ids": [
+    98,
+    66,
+    47,
+    191
+  ],
+  "design_ids": [
+    78,
+    70,
+    96
+  ],
+  "diagnostics": {
+    "z0": {
+      "weights": [
+        -0.1086607426404953,
+        0.36327800154685974,
+        0.0
+      ],
+      "pearson": 0.9824263043704689,
+      "calibration_mae": 0.0542394624365648
+    },
+    "z1": {
+      "weights": [
+        -0.1086607426404953,
+        -0.0,
+        -0.36800503730773926
+      ],
+      "pearson": 0.9952097459416233,
+      "calibration_mae": 0.02412302435645154
+    },
+    "pc1": {
+      "weights": [
+        -0.1086607426404953,
+        0.18387606739997864,
+        -0.18387606739997864
+      ],
+      "pearson": 0.9914214286102497,
+      "calibration_mae": 0.03871480785458466
+    },
+    "ridge2d": {
+      "weights": [
+        -0.1086607426404953,
+        -0.02203226462006569,
+        -0.38978439569473267
+      ],
+      "pearson": 0.9953128445925781,
+      "calibration_mae": 0.023844824863979135
+    }
+  },
+  "source_coordinate_correlations": {
+    "z0": 0.9824263047878542,
+    "z1": -0.9952097444915914,
+    "p_ratio": 1.0
+  },
+  "checkpoint_sha256": "62d9476c47f4024df0395d7dc14d4942a86f5c1baafb438ceb3ec6681be6dcc7",
+  "split_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+  "previous_recipe": {
+    "source": {
+      "dataset_name": "network_design_reid_lowT",
+      "source_name": "reid_lowT",
+      "label": "Reid + low-T 2D AE",
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+      "dataset_mixture": [
+        {
+          "name": "reid",
+          "label": "reid",
+          "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+          "train_count": 20,
+          "val_count": 20,
+          "split_indices": {
+            "train": [
+              60,
+              45,
+              43,
+              73,
+              85,
+              22,
+              47,
+              27,
+              87,
+              67,
+              71,
+              36,
+              65,
+              9,
+              81,
+              90,
+              68,
+              21,
+              24,
+              48
+            ],
+            "val": [
+              41,
+              49,
+              25,
+              93,
+              84,
+              96,
+              97,
+              13,
+              28,
+              52,
+              59,
+              57,
+              15,
+              53,
+              2,
+              88,
+              74,
+              31,
+              69,
+              19
+            ],
+            "test": []
+          }
+        },
+        {
+          "name": "depablo_low_temp",
+          "label": "depablo_low_temp",
+          "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+          "train_count": 20,
+          "val_count": 20,
+          "split_indices": {
+            "train": [
+              99,
+              145,
+              7,
+              133,
+              198,
+              13,
+              21,
+              107,
+              14,
+              77,
+              130,
+              50,
+              85,
+              104,
+              55,
+              54,
+              147,
+              117,
+              3,
+              67
+            ],
+            "val": [
+              161,
+              47,
+              191,
+              66,
+              118,
+              98,
+              2,
+              136,
+              131,
+              124,
+              105,
+              96,
+              152,
+              70,
+              169,
+              168,
+              126,
+              196,
+              138,
+              78
+            ],
+            "test": []
+          }
+        }
+      ]
+    },
+    "config": {
+      "ae_config": {
+        "model": "attention",
+        "latent_dim": 2,
+        "latent_tokens": 32,
+        "hidden_size": 96,
+        "node_feature_mode": "normalized_delta",
+        "target_mode": "normalized_delta",
+        "edge_feature_dim": 4,
+        "max_train_frames_per_sim": 101,
+        "max_val_frames_per_sim": 101,
+        "max_epochs": 40,
+        "patience": 8,
+        "lr": 0.0001,
+        "weight_decay": 1e-05,
+        "mix_sources": true,
+        "balance_sources": false,
+        "gradient_method": "source_mean",
+        "checkpoint_metric": "val_max_source_reconstruction",
+        "checkpoint_mode": "min",
+        "pratio_eval_every": 0
+      },
+      "coordinate_normalization": "position_normalization",
+      "edge_mode": "compact_stored",
+      "static_context_use_physical_reference": true,
+      "pos_dim": 2,
+      "batch_graphs": 32,
+      "frame_skip": 1,
+      "early_stop_min_delta": 1e-05,
+      "split_seed": 123,
+      "model_seed": 786,
+      "should_rollout": false,
+      "should_train_propagator": false,
+      "cache_require_matching_config": true,
+      "cache_path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/reid_lowT_2d_s786/ae.pt"
+    },
+    "seed": 786,
+    "design_source": "depablo_low_temp",
+    "calibration_ids": [
+      161,
+      47,
+      191,
+      66,
+      118,
+      98,
+      2,
+      136,
+      131,
+      124
+    ],
+    "design_ids": [
+      78,
+      70,
+      96
+    ],
+    "edited_parameters": "positive spring stiffness; fixed nodes/topology; zero springs unchanged",
+    "log_stiffness_bound": 0.25,
+    "steps": 150,
+    "random_controls": 5,
+    "checkpoint_sha256": "62d9476c47f4024df0395d7dc14d4942a86f5c1baafb438ceb3ec6681be6dcc7",
+    "split_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+    "helper_sha256": "b1d38cd51014bb02d431578a0d9a26edb0f6ac003ee8c5596423bfbd9c3b84c9",
+    "response_frames": "first and last only",
+    "uniform_scale_control": true,
+    "job_id": "4670996.zeus-master",
+    "endpoint_helper_sha256": "9efc6d4306264ed8f9180c83aec9c3fba222515ad903f6342fcd12be9b5f1d4c",
+    "physical_validation": "2D quasistatic matched compression; unwrapped first/last boundary-node ratio"
+  },
+  "new_engineering_validation_ids": [
+    105,
+    152
+  ],
+  "preprocessing_parity": {
+    "x": 0.0,
+    "edge_index": 0.0,
+    "edge_attr": 0.0,
+    "reference_context_positions": 0.0,
+    "reference_context_edge_attr": 0.0,
+    "reference_box_center": 0.0,
+    "reference_box_half_extent": 0.0
+  },
+  "original_dataset": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+  "original_dataset_sha256": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09",
+  "old_prepared_sha256": "770be3c341973dabff8c6f0c76f0cd2b27ce6f097293df7cc0c4ea5f95b2b058",
+  "split": "previously unengineered original AE validation networks, disjoint from readout calibration and previous design IDs; not final test",
+  "frame_access": "only original frame0; compression scale fixed from prior protocol; no new response observations"
+}

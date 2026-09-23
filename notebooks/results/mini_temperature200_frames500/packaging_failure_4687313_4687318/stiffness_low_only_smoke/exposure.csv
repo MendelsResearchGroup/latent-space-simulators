@@ -1,0 +1,3 @@
+split,source,trajectory_id,temperature_K,frames,first_md_step,last_md_step
+train,stiffness_low,0,1e-07,500,0,99800
+validation,stiffness_low,20,1e-07,500,0,99800

@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "job_id": "4674026.zeus-master",
+  "error": "AssertionError: ",
+  "runner_sha256": "0115ba7d827198fc83a1920d61e6c074da3c59df009dc8a11c06fe4b369cd2f3"
+}

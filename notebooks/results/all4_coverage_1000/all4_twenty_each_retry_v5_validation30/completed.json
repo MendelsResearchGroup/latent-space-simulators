@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "job_id": "4685262.zeus-master",
+  "ae_sha256": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+  "propagator_sha256": "9ab4b2c4c7e630f368fc24b3a105a751bba2e97b153b212e6229cd30133dcb47",
+  "test_used_for_selection": false
+}

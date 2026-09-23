@@ -1,0 +1,52 @@
+{
+  "ae_sha256": "a5ae3d3672111b281d6d22943f69cefe3a46d8233d9b839ec335e4c47028f554",
+  "final_test_used": false,
+  "job_id": "4688141.zeus-master",
+  "protocol_sha256": "29a348372ab66f2ce4770378505cf2a258d709789cf98818e1fa0da85dc7b9de",
+  "script_sha256": "744e9534bac3a7a5103b28eaaae40944bc053265a5fadcc8fffa8976fc6ec788",
+  "seed": 123,
+  "smoke": false,
+  "status": "complete",
+  "train_ids": [
+    9,
+    10,
+    12,
+    24,
+    25,
+    27,
+    28,
+    31,
+    32,
+    35,
+    39,
+    44,
+    52,
+    53,
+    54,
+    55,
+    57,
+    60,
+    70,
+    71
+  ],
+  "train_temperatures_K": [
+    20.0,
+    30.0
+  ],
+  "validation_ids": [
+    72,
+    73,
+    79,
+    80,
+    81,
+    84,
+    87,
+    89,
+    91,
+    94
+  ],
+  "validation_temperatures_K": [
+    20.0,
+    30.0
+  ]
+}

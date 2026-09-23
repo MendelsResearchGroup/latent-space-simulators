@@ -1,0 +1,10 @@
+{
+  "jobs": {
+    "optimize": "4675877.zeus-master",
+    "verify": "4675878.zeus-master"
+  },
+  "resources": {
+    "optimize": "4CPU4GB60min",
+    "verify": "1CPU2GB60min"
+  }
+}

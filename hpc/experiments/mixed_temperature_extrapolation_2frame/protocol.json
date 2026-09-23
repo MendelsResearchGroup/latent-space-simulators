@@ -1,0 +1,20 @@
+{
+  "study": "mixed_temperature_extrapolation_2frame",
+  "claim_boundary": "combined temperature-and-unseen-structure extrapolation; not isolated temperature causality",
+  "sources": ["node_mixed", "stiffness_mixed"],
+  "train_temperatures_K": [0.1, 1.0],
+  "evaluation_temperatures_K": [5.0, 10.0, 20.0, 30.0],
+  "train_ids": [0, 2, 3, 4, 5, 6, 11, 16, 17, 19, 20, 21, 22, 29, 30, 37, 40, 42, 46, 47, 50, 51, 56, 61, 67, 68, 69, 74, 76],
+  "validation_ids": [88, 90, 92, 95, 100, 104, 105, 106, 110, 117],
+  "evaluation_ids": [1, 7, 8, 9, 10, 12, 13, 14, 15, 18, 23, 24, 25, 26, 27, 28, 31, 32, 33, 34, 35, 36, 38, 39, 41, 43, 44, 45, 48, 49, 52, 53, 54, 55, 57, 58, 59, 60, 62, 63, 64, 65, 66, 70, 71, 72, 73, 75, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 89, 91, 93, 94, 96, 97, 98, 99, 101, 102, 103, 107, 108, 109, 111, 112, 113, 114, 115, 116, 118, 119],
+  "reserved_ids": [120, 200],
+  "observed_frames": [0, 1],
+  "forecast_frames": [2, 199],
+  "latent_dimension": 2,
+  "stochastic_samples": 8,
+  "seed": 123,
+  "selection": "coordinate reconstruction for AE; teacher-forced latent Gaussian NLL for propagator",
+  "primary_metric": "decoded physical normalized-boundary-strain p-ratio R2, frames30..199",
+  "fluctuation_metrics": ["transverse fit-residual SD", "latent increment jitter", "temperature trend", "sample interval coverage"],
+  "excluded_from_inputs_losses_and_selection": ["p-ratio", "strain", "temperature", "source ID"]
+}

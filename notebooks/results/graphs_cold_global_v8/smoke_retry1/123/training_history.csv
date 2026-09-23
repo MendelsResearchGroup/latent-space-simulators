@@ -1,0 +1,3 @@
+phase,epoch,train_acceleration_mse,validation_position_mse,train_position_loss
+one_step,1,1.6919812597334385,3.0069037260105347e-09,
+autonomous,1,,6.934190444063404e-10,24.191362380981445

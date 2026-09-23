@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#PBS -N mt200_early4_smoke
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=01:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export LSS_RESULT_DIR=notebooks/results/mini_temperature200_early_weight
+export PYTHONPATH="${LSS_CODE_ROOT}:${LSS_CODE_ROOT}/src:/rg/mendels_prj/alexander.z/MetaForge/src"
+export MPLCONFIGDIR="/tmp/mt200-early4-smoke-${PBS_JOBID}"
+mkdir -p "${LSS_RESULT_DIR}/logs"
+exec >"${LSS_RESULT_DIR}/logs/${PBS_JOBID}.log" 2>&1
+PYTHON=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+"$PYTHON" -u "${LSS_CODE_ROOT}/train.py" --assert-config --arm joint_low
+"$PYTHON" -u "${LSS_CODE_ROOT}/train.py" --arm joint_low --seed 123 --tag _early4 --smoke
+exec "$PYTHON" -u "${LSS_CODE_ROOT}/collect.py" --arm joint_low --tag _early4 --smoke

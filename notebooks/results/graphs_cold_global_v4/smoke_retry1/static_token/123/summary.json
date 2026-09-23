@@ -1,0 +1,108 @@
+{
+  "best_validation_raw_yz_box_length_mse": 556986290667520.0,
+  "epochs_completed": 1,
+  "evaluation_split": "smoke_validation_1",
+  "seed": 123,
+  "smoke": true,
+  "test": {
+    "10": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 2.6841142177581787,
+      "yz_box_length_mse": 48.182533264160156
+    },
+    "100": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 2.688690662384033,
+      "yz_box_length_mse": 48.25834655761719
+    },
+    "20": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 2.6846141815185547,
+      "yz_box_length_mse": 48.19084548950195
+    },
+    "200": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 2.693895101547241,
+      "yz_box_length_mse": 48.345184326171875
+    },
+    "399": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 2.7041215896606445,
+      "yz_box_length_mse": 48.52033233642578
+    },
+    "5": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 2.683868885040283,
+      "yz_box_length_mse": 48.178462982177734
+    },
+    "50": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 2.68609356880188,
+      "yz_box_length_mse": 48.21540832519531
+    }
+  },
+  "variant": "static_token"
+}

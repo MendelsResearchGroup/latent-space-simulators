@@ -1,0 +1,20 @@
+{
+  "cohort": "clean_400.json",
+  "split_manifest": "../graphs_cold_global/split_manifest_v2.json",
+  "variants": {
+    "fractional_bond": {"contact_cutoff": null, "recurrent": false},
+    "fractional_contact": {"contact_cutoff": 1.5, "recurrent": false}
+  },
+  "seeds": [123],
+  "observed_frames": [1, 2],
+  "autonomous_prediction_frames": [3, 399],
+  "cadence_dt": 200.0,
+  "normalization": {"split": "train", "centers_per_trajectory": 16, "seed": 20260918},
+  "architecture": {"hidden_dim": 64, "attention_heads": 4, "attention_layers": 2, "message_steps_each_side": 2, "node_feature_dim": 9, "global_feature_dim": 9, "edge_feature_dim": 6},
+  "phase1": {"epochs": 10, "centers_per_train_trajectory_epoch": 24, "validation_centers_per_trajectory": 32, "validation_seed": 20260919, "gradient_accumulation": 4, "optimizer": "Adam", "learning_rate": 0.0003, "weight_decay": 0.000001, "gradient_clip_norm": 1.0, "selection": "validation one-step physical state MSE on a fixed validation-centre sample"},
+  "phase2": {"max_epochs": 10, "patience": 4, "unroll_steps": 20, "windows_per_train_trajectory_epoch": 3, "optimizer": "Adam", "learning_rate": 0.0001, "weight_decay": 0.000001, "gradient_clip_norm": 1.0, "selection_horizons": [20, 50, 100], "selection": "mean validation autonomous physical state MSE at horizons 20, 50, 100"},
+  "evaluation": {"split": "validation", "horizons": [5, 10, 20, 50, 100, 200, 399], "position_mse": "physical minimum-image", "p_ratio": "periodic-reference-aligned independent affine y/x and z/x fits"},
+  "smoke": {"train_ids": "train[0]", "validation_ids": "validation[0]", "evaluation_ids": "validation[1]", "phase1_epochs": 1, "phase2_epochs": 1, "phase1_centers": 2, "phase2_windows": 1, "phase2_unroll_steps": 2},
+  "forbidden": ["final_test loading", "p-ratio targets", "strain targets", "p-ratio checkpoint selection", "strain checkpoint selection"],
+  "pbs": {"queue": "mendels_q", "place": "free:shared", "ncpus": 8, "mem": "16gb"}
+}

@@ -1,0 +1,3 @@
+source,path,total,train,val,test,split_indices,excluded
+node_low,/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_temperature200_frames500/data/node_low_ids000_119_frames000_499.pt,120,1,1,0,"{'train': [0], 'val': [20], 'test': []}",118
+stiffness_low,/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_temperature200_frames500/data/stiffness_low_ids000_119_frames000_499.pt,120,1,1,0,"{'train': [0], 'val': [20], 'test': []}",118

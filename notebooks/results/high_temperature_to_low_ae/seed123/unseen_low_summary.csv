@@ -1,0 +1,3 @@
+cohort,source,total,fit_p_ratio_r2,fit_p_ratio_mae,endpoint_p_ratio_r2,endpoint_p_ratio_mae,valid/total
+unseen_low,node_low,9,0.8497559260329927,0.09925626644064302,0.8060817634744255,0.1300322863517986,9/9
+unseen_low,stiffness_low,9,0.6288296502978642,0.10413892509557006,-0.1413698442101834,0.20087443979617392,9/9

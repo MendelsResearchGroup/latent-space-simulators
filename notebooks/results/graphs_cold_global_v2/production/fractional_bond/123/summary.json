@@ -1,0 +1,102 @@
+{
+  "best_phase1_validation_one_step_physical_state_mse": 1.1961610831405533e-08,
+  "best_phase2_validation_autonomous_physical_state_mse": 1.8372187212801883e-06,
+  "evaluation_split": "validation",
+  "phase2_epochs_completed": 10,
+  "seed": 123,
+  "smoke": false,
+  "test": {
+    "10": {
+      "p_ratio_r2_y_over_x": 0.35782546009740557,
+      "p_ratio_r2_z_over_x": -0.22425066492309087,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 5.3364415201577015e-09
+    },
+    "100": {
+      "p_ratio_r2_y_over_x": 0.31662914688587074,
+      "p_ratio_r2_z_over_x": -1.3179823497002294,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 3.508591551811454e-06
+    },
+    "20": {
+      "p_ratio_r2_y_over_x": 0.4122099359673731,
+      "p_ratio_r2_z_over_x": -0.5623672811360592,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 4.040776668823298e-08
+    },
+    "200": {
+      "p_ratio_r2_y_over_x": 0.005058985566525287,
+      "p_ratio_r2_z_over_x": -1.351273654769174,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 2.4149606588252936e-05
+    },
+    "399": {
+      "p_ratio_r2_y_over_x": -0.15539363766951975,
+      "p_ratio_r2_z_over_x": -1.6406679266492996,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 0.0001366364585919655
+    },
+    "5": {
+      "p_ratio_r2_y_over_x": 0.44193607632134,
+      "p_ratio_r2_z_over_x": -0.48551631148502294,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 9.053985096374451e-10
+    },
+    "50": {
+      "p_ratio_r2_y_over_x": 0.3939733427213049,
+      "p_ratio_r2_z_over_x": -0.7313302706524574,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 5.858287093947941e-07
+    }
+  },
+  "variant": "fractional_bond"
+}

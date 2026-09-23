@@ -1,0 +1,38 @@
+{
+  "status": "approved",
+  "protocol_sha256": "82cd088d7a3eef75520b9efa072d08fcfd2abc20a4905b29a4ba677d1f5a0d84",
+  "snapshot_manifest_sha256": "90b90dcfecbb817fd9ab68c0dfc3f655144c179c634c1e50b82bce05658c0432",
+  "submitter_sha256": "982db112511b8b53ce07bb15737d971f48bef8289350754c0f344ca57436081d",
+  "smokes": {
+    "latent_state": {
+      "job_id": "4678474.zeus-master",
+      "completed": {
+        "status": "completed",
+        "rows": 600,
+        "seconds": 85.13426303863525,
+        "job_id": "4678474.zeus-master"
+      },
+      "baseline_parity": {
+        "true_p_ratio": 1.5552329966084244e-06,
+        "pred_p_ratio": 2.551566236352887e-06
+      },
+      "frozen_invariant": true,
+      "pure_position_gradient": "not measured outside smoke"
+    },
+    "decoded_positions": {
+      "job_id": "4678475.zeus-master",
+      "completed": {
+        "status": "completed",
+        "rows": 600,
+        "seconds": 75.69595670700073,
+        "job_id": "4678475.zeus-master"
+      },
+      "baseline_parity": {
+        "true_p_ratio": 1.5552329966084244e-06,
+        "pred_p_ratio": 2.551566236352887e-06
+      },
+      "frozen_invariant": true,
+      "pure_position_gradient": 9.685128211975098
+    }
+  }
+}

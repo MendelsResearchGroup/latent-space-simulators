@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=12:00:00
+#PBS -j oe
+set -euo pipefail
+: "${LSS_VARIANT:?}" "${LSS_SEED:?}" "${LSS_OUTPUT:?}"
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8
+smoke_arg=()
+if [ "${LSS_SMOKE:-0}" = "1" ]; then smoke_arg=(--smoke); fi
+/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python hpc/experiments/graphs_cold_global_v4/run.py --variant "$LSS_VARIANT" --seed "$LSS_SEED" --output "$LSS_OUTPUT" "${smoke_arg[@]}"

@@ -1,0 +1,102 @@
+{
+  "best_phase1_validation_one_step_physical_state_mse": 1.196220990835045e-08,
+  "best_phase2_validation_autonomous_physical_state_mse": 1.7163317269394994e-06,
+  "evaluation_split": "validation",
+  "phase2_epochs_completed": 10,
+  "seed": 123,
+  "smoke": false,
+  "test": {
+    "10": {
+      "p_ratio_r2_y_over_x": 0.33752655328983017,
+      "p_ratio_r2_z_over_x": -0.2273540342733884,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 5.353039766083552e-09
+    },
+    "100": {
+      "p_ratio_r2_y_over_x": 0.19917002956994634,
+      "p_ratio_r2_z_over_x": -0.9888662088276226,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 3.1469318505135866e-06
+    },
+    "20": {
+      "p_ratio_r2_y_over_x": 0.36497171079295554,
+      "p_ratio_r2_z_over_x": -0.5787480688405735,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 3.9717873379085944e-08
+    },
+    "200": {
+      "p_ratio_r2_y_over_x": -0.15091021148385986,
+      "p_ratio_r2_z_over_x": -0.6903408876430657,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 2.1298904319640617e-05
+    },
+    "399": {
+      "p_ratio_r2_y_over_x": -0.3194967160457247,
+      "p_ratio_r2_z_over_x": -0.6872456629503345,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 0.00012141846552064332
+    },
+    "5": {
+      "p_ratio_r2_y_over_x": 0.4474973841793898,
+      "p_ratio_r2_z_over_x": -0.5001552473907969,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 9.086009907418221e-10
+    },
+    "50": {
+      "p_ratio_r2_y_over_x": 0.35325123206686926,
+      "p_ratio_r2_z_over_x": -0.6899355642759659,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 5.557412550890225e-07
+    }
+  },
+  "variant": "fractional_contact"
+}

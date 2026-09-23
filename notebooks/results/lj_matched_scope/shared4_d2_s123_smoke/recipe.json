@@ -1,0 +1,129 @@
+{
+  "scope": "shared4",
+  "seed": 123,
+  "smoke": true,
+  "source": {
+    "dataset_name": "lj_matched_scope",
+    "source_name": "shared4",
+    "label": "shared4",
+    "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+    "dataset_mixture": [
+      {
+        "name": "reid",
+        "label": "reid",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+        "train_count": 1,
+        "val_count": 0,
+        "split_indices": {
+          "train": [
+            60
+          ],
+          "val": [],
+          "test": []
+        },
+        "append_lj_indicator": true,
+        "lj_max_graph_distance": null
+      },
+      {
+        "name": "depablo_low_temp",
+        "label": "depablo_low_temp",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+        "train_count": 1,
+        "val_count": 0,
+        "split_indices": {
+          "train": [
+            99
+          ],
+          "val": [],
+          "test": []
+        },
+        "append_lj_indicator": true,
+        "lj_max_graph_distance": null
+      },
+      {
+        "name": "depablo_mixed_temp",
+        "label": "depablo_mixed_temp",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-10k-mix-temp.pt",
+        "train_count": 1,
+        "val_count": 0,
+        "split_indices": {
+          "train": [
+            109
+          ],
+          "val": [],
+          "test": []
+        },
+        "append_lj_indicator": true,
+        "lj_max_graph_distance": null
+      },
+      {
+        "name": "lj_noisy",
+        "label": "lj_noisy",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+        "train_count": 1,
+        "val_count": 1,
+        "split_indices": {
+          "train": [
+            178
+          ],
+          "val": [
+            15
+          ],
+          "test": []
+        },
+        "append_lj_indicator": true,
+        "lj_max_graph_distance": 3
+      }
+    ]
+  },
+  "config": {
+    "split_seed": 123,
+    "model_seed": 123,
+    "pos_dim": 2,
+    "batch_graphs": 32,
+    "frame_skip": 1,
+    "coordinate_normalization": "position_normalization",
+    "edge_mode": "compact_stored",
+    "static_context_use_physical_reference": true,
+    "should_rollout": false,
+    "should_train_propagator": false,
+    "force_train": true,
+    "cache_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_matched_scope/shared4_d2_s123_smoke/ae.pt",
+    "early_stop_min_delta": 1e-05,
+    "ae_config": {
+      "model": "attention",
+      "latent_dim": 2,
+      "latent_tokens": 32,
+      "hidden_size": 128,
+      "target_mode": "normalized_delta",
+      "node_feature_mode": "normalized_delta",
+      "edge_feature_dim": 5,
+      "max_train_frames_per_sim": 4,
+      "max_val_frames_per_sim": 4,
+      "train_frame_skip": 1,
+      "val_frame_skip": 1,
+      "max_epochs": 1,
+      "patience": 1,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "mix_sources": true,
+      "balance_sources": true,
+      "train_rows_per_source": 8,
+      "gradient_method": "source_mean",
+      "checkpoint_metric": "val_max_source_reconstruction",
+      "checkpoint_mode": "min"
+    }
+  },
+  "question": "Does cross-family exposure improve a matched four-trajectory 2D AE for unseen noisy-LJ graphs?",
+  "matching": {
+    "unique_training_trajectories": 4,
+    "frame_samples_per_epoch": 32,
+    "validation": "same 20 unseen noisy-LJ graphs; coordinate reconstruction only",
+    "response_supervision": false,
+    "final_test_used": false
+  },
+  "manifest_sha256": "f34492ab4d75195c0fe35de2deba5a2038dc64fc71d4547d1bafd7c4602b1804",
+  "runner_sha256": "9d693622fd22632cbf4484032b1178d69b2fbfc89d264a4796e814a2a650dd3e",
+  "job_id": "4697031.zeus-master",
+  "host": "n152.zeus.technion.ac.il"
+}

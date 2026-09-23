@@ -1,13 +1,10 @@
-"""Latent-space autoencoders, propagators, training, and rollout utilities."""
+"""Canonical latent-space dynamics API and stable workflow utilities."""
 
-from .autoencoder import (
-    NodeDeltaAttentionAutoEncoder,
-    NodeDeltaDirectAttentionAutoEncoder,
-    NodeDeltaMessagePassingAutoEncoder,
-    NodeDeltaOrientationCorrectedAttentionAutoEncoder,
-    NodeDeltaSingleStageAttentionAutoEncoder,
+from .canonical import (
+    CanonicalDynamicsConfig,
+    make_canonical_autoencoder,
+    make_canonical_propagator,
 )
-from .propagator import LatentDynamicsMLP, make_latent_propagator
 from .simulator import LatentSpaceSimulator
 from .transfer_strain_bundle import DirectionalStrainTransferBundle
 from .physics import PhysicsLossConfig, elastic_implicit_euler_energy
@@ -29,20 +26,16 @@ from .training import (
 )
 
 __all__ = [
-    "LatentDynamicsMLP",
+    "CanonicalDynamicsConfig",
     "LatentNormalizer",
     "LatentSpaceSimulator",
     "DirectionalStrainTransferBundle",
-    "NodeDeltaAttentionAutoEncoder",
-    "NodeDeltaDirectAttentionAutoEncoder",
-    "NodeDeltaMessagePassingAutoEncoder",
-    "NodeDeltaOrientationCorrectedAttentionAutoEncoder",
-    "NodeDeltaSingleStageAttentionAutoEncoder",
     "PhysicsLossConfig",
     "TrainingConfig",
     "TrainingResult",
     "initial_latent_analysis",
-    "make_latent_propagator",
+    "make_canonical_autoencoder",
+    "make_canonical_propagator",
     "prepare_source_spec",
     "result_tables",
     "rollout_curve_summary",

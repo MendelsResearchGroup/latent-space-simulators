@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 from graph_utils import calc_p_ratio_rollout_sides, directional_side_indices_from_box
+from lss.dynamics.response_metrics import scalar_prediction_metrics
 
 
 def strain(reference, graph):
@@ -29,13 +30,12 @@ def summarize(rows, keys):
     for key, g in rows.groupby(keys, dropna=False):
         if not isinstance(key, tuple): key = (key,)
         row = dict(zip(keys, key))
-        valid = np.isfinite(g.true_p_ratio) & np.isfinite(g.pred_p_ratio)
-        y, p = g.loc[valid, 'true_p_ratio'].to_numpy(), g.loc[valid, 'pred_p_ratio'].to_numpy()
-        denominator = np.square(y-y.mean()).sum() if len(y) else 0
-        row.update(total=len(g), valid=int(valid.sum()), true_valid=int(np.isfinite(g.true_p_ratio).sum()),
-            p_ratio_r2=1-np.square(y-p).sum()/denominator if denominator > 0 else np.nan,
-            p_ratio_mae=np.abs(y-p).mean() if len(y) else np.nan,
-            target_variance=np.var(y) if len(y) else np.nan)
+        score = scalar_prediction_metrics(g.true_p_ratio, g.pred_p_ratio)
+        row.update(
+            total=score['total'], valid=score['valid'], true_valid=score['true_valid'],
+            p_ratio_r2=score['p_ratio_r2'], p_ratio_mae=score['mae'],
+            target_variance=score['target_variance'],
+        )
         for col in ('position_mse', 'strain_x_error', 'strain_y_error', 'latent_mse', 'normalized_latent_mse'):
             if col in g: row[col] = g[col].mean()
         out.append(row)

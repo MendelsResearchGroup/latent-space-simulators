@@ -1,0 +1,11 @@
+{
+  "job_id": "4675329.zeus-master",
+  "manifest_sha256": "1ad50aaddfe514e6edeb7c6846e90713bf703f76c6f36e3e5169e4c39d1b322f",
+  "script_sha256": "98e1b3b142c95af07bfbc7146e33143c4716724798563ee609b65025b714d3b1",
+  "endpoint_helper": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/network_design/endpoint_physics.py",
+  "endpoint_helper_sha256": "3d5ea68a5c790ff77baab376ec29c7df07cb3de96b3cfabeb26727b139dbbee0",
+  "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+  "steps": 120,
+  "feedback_to_optimizer": false,
+  "report_all_frozen_designs": true
+}

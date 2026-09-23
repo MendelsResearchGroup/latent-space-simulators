@@ -1,0 +1,137 @@
+"""Build the concise validation notebook for cold-rubber rollout iterations."""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+import nbformat as nbf
+
+
+ROOT = Path(__file__).resolve().parents[2]
+OUTPUT = ROOT / "notebooks/dynamics/cold_graphs/02_short_horizon_validation.ipynb"
+
+
+def markdown(text: str):
+    return nbf.v4.new_markdown_cell(text.strip())
+
+
+def code(text: str):
+    return nbf.v4.new_code_cell(text.strip())
+
+
+def main() -> None:
+    notebook = nbf.v4.new_notebook()
+    notebook["metadata"]["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+    notebook["metadata"]["language_info"] = {"name": "python", "version": "3.10"}
+    notebook["cells"] = [
+        markdown("""
+# Cold graphs: short rollouts
+
+Validation-only comparison on 12 unseen networks. Models observe two frames and use positions, graph structure and box state only. P-ratio and strain are excluded from inputs, losses and checkpoint selection. The final-test split remains unopened.
+"""),
+        code("""
+from pathlib import Path
+import json, sys
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+ROOT=Path.cwd().resolve()
+while not (ROOT/'src').is_dir(): ROOT=ROOT.parent
+sys.path.insert(0,str(ROOT/'src'))
+from lss.plotting import apply_editorial_style, PAPER_COLORS, style_axes
+apply_editorial_style('light')
+
+RUNS={
+    'Bond dynamics': ROOT/'notebooks/results/graphs_cold_global_v2/production/fractional_bond/123',
+    'Contact dynamics': ROOT/'notebooks/results/graphs_cold_global_v2/production/fractional_contact/123',
+    'Initial-motion response': ROOT/'notebooks/results/graphs_cold_global_v7/production/123',
+}
+COLORS={'Bond dynamics':PAPER_COLORS['blue'],'Contact dynamics':PAPER_COLORS['red'],'Initial-motion response':PAPER_COLORS['slate']}
+"""),
+        markdown("""
+## Rollout metrics
+
+Position MSE is minimum-image physical-coordinate error. At each frame, p-ratio is computed from independent affine fits of predicted positions against the reference positions. Early single-frame R² is sensitive because axial strain is still small, so the following section also reports a time fit.
+"""),
+        code("""
+records=[]
+for model,path in RUNS.items():
+    summary=json.loads((path/'summary.json').read_text())
+    for frame,values in summary['test'].items():
+        records.append({
+            'model':model,'frame':int(frame),
+            'position MSE':values['position_mse_physical_minimum_image'],
+            'p-ratio R² y/x':values['p_ratio_r2_y_over_x'],
+            'p-ratio R² z/x':values['p_ratio_r2_z_over_x'],
+            'valid y':f"{values['p_ratio_y_valid_total'][0]}/{values['p_ratio_y_valid_total'][1]}",
+            'valid z':f"{values['p_ratio_z_valid_total'][0]}/{values['p_ratio_z_valid_total'][1]}",
+        })
+metrics=pd.DataFrame(records).sort_values(['model','frame'])
+
+fig,axes=plt.subplots(1,3,figsize=(12.0,3.6),constrained_layout=True)
+for model,values in metrics.groupby('model',sort=False):
+    values=values.sort_values('frame')
+    axes[0].plot(values.frame,values['position MSE'],marker='o',ms=4,color=COLORS[model],label=model)
+    axes[1].plot(values.frame,values['p-ratio R² y/x'],marker='o',ms=4,color=COLORS[model])
+    axes[2].plot(values.frame,values['p-ratio R² z/x'],marker='o',ms=4,color=COLORS[model])
+axes[0].set_yscale('log')
+for ax in axes[1:]:
+    ax.axhline(0,color=PAPER_COLORS['ink'],ls=':',lw=.9)
+    ax.set_yscale('symlog',linthresh=.2)
+axes[0].set_title('Position error'); axes[1].set_title('p-ratio y/x'); axes[2].set_title('p-ratio z/x')
+style_axes(axes[0],xlabel='frame',ylabel='position MSE',legend=True)
+style_axes(axes[1],xlabel='frame',ylabel='R²')
+style_axes(axes[2],xlabel='frame',ylabel='R²')
+plt.show()
+
+display(metrics.query('frame in [50,100]').round(4))
+"""),
+        markdown("""
+## Frame 100
+"""),
+        code("""
+fig,axes=plt.subplots(1,2,figsize=(8.8,3.8),constrained_layout=True)
+for model,path in RUNS.items():
+    values=pd.read_csv(path/'per_network_per_frame.csv').query('frame==100')
+    for ax,component in zip(axes,['y','z']):
+        truth=values[f'true_p_{component}_over_x']; prediction=values[f'pred_p_{component}_over_x']
+        ax.scatter(truth,prediction,s=28,alpha=.72,color=COLORS[model],label=model)
+for ax,component in zip(axes,['y','z']):
+    limits=np.array([ax.get_xlim(),ax.get_ylim()]); low=limits.min(); high=limits.max()
+    ax.plot([low,high],[low,high],color=PAPER_COLORS['ink'],ls=':',lw=1)
+    ax.set_title(f'{component}/x')
+    style_axes(ax,xlabel='true p-ratio',ylabel='predicted p-ratio' if ax is axes[0] else '',legend=ax is axes[1])
+plt.show()
+"""),
+        markdown("""
+## Time-fitted response
+
+For each network, axial and transverse fitted strains are regressed separately against frame with an intercept, then their slope ratio is taken. This reduces early-frame thermal noise but is evaluation only.
+"""),
+        code("""
+diagnostics={
+    'Bond dynamics': ROOT/'notebooks/results/graphs_cold_global_v2/diagnostics/temporal_pratio_bond.json',
+    'Contact dynamics': ROOT/'notebooks/results/graphs_cold_global_v2/diagnostics/temporal_pratio_contact.json',
+    'Initial-motion response': ROOT/'notebooks/results/graphs_cold_global_v7/diagnostics/temporal_pratio_model.json',
+}
+rows=[]
+for model,path in diagnostics.items():
+    values=json.loads(path.read_text())['windows']
+    for window in ('3:50','3:100'):
+        value=values[window]
+        rows.append({'model':model,'frames':window,'R² y/x':value['p_ratio_r2_y'],'R² z/x':value['p_ratio_r2_z'],'valid':f"{value['valid_total_y'][0]}/{value['valid_total_y'][1]}"})
+display(pd.DataFrame(rows).round(3))
+"""),
+        markdown("""
+## Result
+
+Short-horizon coordinate rollout is accurate. The best frame-50 MSE is `5.56×10⁻⁷` and the best frame-100 MSE is `3.15×10⁻⁶`, both from contact dynamics. The y/x response has modest positive R² in the dynamics models, but z/x remains negative. Initial-motion conditioning improves box MSE but not p-ratio ranking, and the time fit does not rescue it. No model passes the two-axis response gate, so no final-test evaluation was run.
+"""),
+    ]
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    nbf.write(notebook, OUTPUT)
+
+
+if __name__ == "__main__":
+    main()

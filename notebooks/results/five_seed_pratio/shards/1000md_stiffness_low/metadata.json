@@ -1,0 +1,32 @@
+{
+  "boundary": "fixed frame-0 q=0.10 side nodes from the first low-T replica of the same network",
+  "branch": "stiffness",
+  "cadence": "1000md",
+  "estimator": "fixed-effects OLS of normalized transverse boundary strain on normalized axial boundary strain; one intercept per thermal seed and one shared slope; p=-slope",
+  "final_test_used": false,
+  "frames_per_trajectory": 200,
+  "job_id": "4688169[2].zeus-master",
+  "manifest_sha256": {
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_104729/low/mini_stiff_optimized_200_1500/manifest.json": "9d9e202f4bd1722d32a210a598dc49eda1c6f2d3941f3828d7d68f8ec31d4b10",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_224737/low/mini_stiff_optimized_200_1500/manifest.json": "8d846e2f9c99994daa70931296a27ff72db7a83bf056041e1c4a29f0ae0236ac",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_350377/low/mini_stiff_optimized_200_1500/manifest.json": "36b450ab9ebe3fc76a0e76f59a1f0ce845f350eb5f6ca6f87b2c07c6ffff3b0f",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_479909/low/mini_stiff_optimized_200_1500/manifest.json": "16a032bea2b6241d9aa72e7b44dfa76455e59c0d68126e874dac0e0ac2b32d0a",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_611953/low/mini_stiff_optimized_200_1500/manifest.json": "16db72e54389ba2cca5f4036f1ca36250b84f0d321a0c6f021d6a84810304cb1"
+  },
+  "md_steps_between_frames": 1000,
+  "membership_mismatch_networks": 0,
+  "networks": 200,
+  "profile": "low",
+  "replica_uncertainty": "single-replica OLS mean, sample SD, SEM, and two-sided 95% t interval with df=4",
+  "replicates": 5,
+  "script_sha256": "475f8bf7bd611ba90fa3e27ff83b0435c4504caf5fd39f08cab2e4d941c04f2e",
+  "status": "complete",
+  "temperature_assignment_seed": 904297,
+  "thermostat_seed_bases": [
+    104729,
+    224737,
+    350377,
+    479909,
+    611953
+  ]
+}

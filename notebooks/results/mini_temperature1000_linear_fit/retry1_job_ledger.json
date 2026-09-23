@@ -1,0 +1,68 @@
+{
+  "code_manifest_sha256": "d4fd2275a2f99e2448867cf1e1951f8bd97a6c6e80ea326d7da83e6b6ae9d594",
+  "cohort": "mixed only; direct full200 IDs40:119; joint=node_mixed+stiffness_mixed; node-only=node_mixed",
+  "jobs": {
+    "joint_low_uniform_retry1": "4685004.zeus-master",
+    "node_low_uniform_retry1": "4685005.zeus-master"
+  },
+  "job_accounting": {
+    "joint_low_uniform_retry1": {
+      "exit_status": 0,
+      "memory_kb": 2775128,
+      "walltime": "00:09:10"
+    },
+    "node_low_uniform_retry1": {
+      "exit_status": 0,
+      "memory_kb": 1824288,
+      "walltime": "00:03:41"
+    }
+  },
+  "output_tag": "retry1",
+  "parent_study": "mini_temperature1000_linear_fit",
+  "pre_freeze_incident": "hash-helper local-variable typo; corrected before code_v2 manifest was created or jobs submitted",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "retry_scope": "schema-only cached[\"mode\"] column access; no estimator/data/checkpoint change",
+  "snapshot": "notebooks/results/mini_temperature1000_linear_fit/code_v2",
+  "results": {
+    "estimator": "normalized fixed-side boundary strains; affine OLS epsilon_y versus epsilon_x on frames 30..199 inclusive; p=-slope; all 170 finite pairs required",
+    "joint_low_uniform_retry1": {
+      "node_mixed": {
+        "ae_r2": 0.5973942169920232,
+        "ae_valid_total": "80/80",
+        "rollout_r2": 0.9525582168755138,
+        "rollout_valid_total": "80/80"
+      },
+      "stiffness_mixed": {
+        "ae_r2": 0.181996278265665,
+        "ae_valid_total": "80/80",
+        "rollout_r2": 0.6346609768756917,
+        "rollout_valid_total": "80/80"
+      }
+    },
+    "node_low_uniform_retry1": {
+      "node_mixed": {
+        "ae_r2": -0.12595399819511677,
+        "ae_valid_total": "80/80",
+        "rollout_r2": 0.9440684165261657,
+        "rollout_valid_total": "80/80"
+      }
+    },
+    "time_ols_rollout_r2": {
+      "joint_node_mixed": 0.9505253564372439,
+      "joint_stiffness_mixed": 0.6422731220386013,
+      "node_only_node_mixed": 0.9456052498130173
+    }
+  },
+  "status": "completed",
+  "study": "mini_temperature1000_linear_fit_retry1",
+  "submitted_at": "2026-09-14T08:01:17.783662+00:00",
+  "v1_failure_jobs": {
+    "joint_low_uniform_retry1": "4684994.zeus-master",
+    "node_low_uniform_retry1": "4684995.zeus-master"
+  }
+}

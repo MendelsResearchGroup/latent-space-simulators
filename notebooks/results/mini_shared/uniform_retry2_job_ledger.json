@@ -1,0 +1,84 @@
+{
+  "code_manifest_sha256": "3ffdedb155ece2c339bdb7d59d0513b2693bb066ac4067c7e6c7b6102ce615ae",
+  "collector_dependency": "afterok:4682637.zeus-master",
+  "data_manifest_sha256": "22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae",
+  "frame_weights": "all 200 post-warmup source/frame weights exactly 1",
+  "jobs": {
+    "fit_with_smoke_gate": "4682637.zeus-master",
+    "postfit_collector": "4682638.zeus-master"
+  },
+  "mixed_excluded": true,
+  "postfit_primary": "physical endpoint fixed-frame0 sides q0.10 p-ratio R2 at frame199; AE reconstruction and autonomous rollout separately",
+  "prior_failed_run": {
+    "cause": "smoke propagator parity assertion incorrectly compared intentional dyn_max_epochs/dyn_patience 1/1 to production 60/12",
+    "exit_status": 1,
+    "fit_job": "4682630.zeus-master"
+  },
+  "protocol_sha256": "42ad7396e411b73ae8e3e8f903a005bf710e342d462043da3e3ed2902a138116",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "completed_accounting": {
+    "fit": {
+      "exit_status": 0,
+      "job_id": "4682637.zeus-master",
+      "memory_kb": 2589592,
+      "walltime": "03:25:40"
+    },
+    "postfit_collector": {
+      "exit_status": 0,
+      "job_id": "4682638.zeus-master",
+      "memory_kb": 2231656,
+      "walltime": "00:17:09"
+    }
+  },
+  "frame199_endpoint_results": {
+    "node_mixed": {
+      "ae_p_ratio_r2": -0.026687,
+      "ae_valid_total": "80/80",
+      "rollout_p_ratio_r2": 0.387178,
+      "rollout_valid_total": "80/80"
+    },
+    "node_original": {
+      "ae_p_ratio_r2": 0.964865,
+      "ae_valid_total": "80/80",
+      "rollout_p_ratio_r2": 0.950210,
+      "rollout_valid_total": "80/80"
+    },
+    "stiffness_mixed": {
+      "ae_p_ratio_r2": -0.302444,
+      "ae_valid_total": "80/80",
+      "rollout_p_ratio_r2": 0.035497,
+      "rollout_valid_total": "80/80"
+    },
+    "stiffness_original": {
+      "ae_p_ratio_r2": 0.978978,
+      "ae_valid_total": "80/80",
+      "rollout_p_ratio_r2": 0.836946,
+      "rollout_valid_total": "80/80"
+    }
+  },
+  "selected_epochs": {
+    "ae_post_warmup": 9,
+    "propagator": 58
+  },
+  "checkpoint_sha256": {
+    "ae": "54356df4072e7d8a5fa9457ef27a762f3a1e0a61afa2b934d44fc8587e1b5a3b",
+    "propagator": "0880795f4157ff1efc8f70a16025afc949eb4171b125f48aca1519ff899e5f6f"
+  },
+  "seed": 123,
+  "selection": "ordinary uniform validation coordinate MSE and latent-delta validation loss only; p-ratio never used",
+  "smoke_gate": "same job: train smoke, endpoint diagnostic collection through frame199, then full fit only after both succeed",
+  "snapshot": "notebooks/results/mini_shared/code_uniform_v3",
+  "sources": [
+    "stiffness_original",
+    "node_original"
+  ],
+  "status": "completed",
+  "study": "joint_original_uniform_retry2",
+  "submission_attempts": [],
+  "submitted_at": "2026-09-13T08:41:13.796517+00:00"
+}

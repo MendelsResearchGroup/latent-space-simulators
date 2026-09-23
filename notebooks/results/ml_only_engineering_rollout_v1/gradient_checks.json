@@ -1,0 +1,44 @@
+[
+  {
+    "model_seed": 786,
+    "index": 70,
+    "autograd": 0.014282428659498692,
+    "finite_difference": 0.014442028739111712,
+    "relative_error": 0.011051084476850093
+  },
+  {
+    "model_seed": 123,
+    "index": 70,
+    "autograd": 0.03862335905432701,
+    "finite_difference": 0.03866016346568135,
+    "relative_error": 0.0009519983376948773
+  },
+  {
+    "model_seed": 786,
+    "index": 78,
+    "autograd": 0.015184838324785233,
+    "finite_difference": 0.015114641635893822,
+    "relative_error": 0.004622814375101591
+  },
+  {
+    "model_seed": 123,
+    "index": 78,
+    "autograd": 0.0410669706761837,
+    "finite_difference": 0.04111883386655191,
+    "relative_error": 0.0012613001267624618
+  },
+  {
+    "model_seed": 786,
+    "index": 96,
+    "autograd": 0.030053386464715004,
+    "finite_difference": 0.029945726082239443,
+    "relative_error": 0.0035823045300389772
+  },
+  {
+    "model_seed": 123,
+    "index": 96,
+    "autograd": 0.05778435245156288,
+    "finite_difference": 0.05786138377025796,
+    "relative_error": 0.001331307923794787
+  }
+]

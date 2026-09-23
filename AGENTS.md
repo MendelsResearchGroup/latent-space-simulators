@@ -1,6 +1,8 @@
 # Repository instructions
 
-Follow the research and notebook conventions in `CONTRIBUTING.md`. Before proposing or launching experiments, read `notebooks/latent_space/experiment_results_index.md` and the relevant logs. Preserve exact recipes, splits, seeds, code hashes, job identities, failures, and source-wise metrics with valid/total counts. Update the index after collecting results. For notebook 07b, also update `notebooks/latent_space/07b_experiment_log.md`.
+Follow the research and notebook conventions below and `docs/project_structure.md`. Before proposing or launching experiments, read `notebooks/latent_space/experiment_results_index.md` and the relevant logs. Preserve exact recipes, splits, seeds, code hashes, job identities, failures, and source-wise metrics with valid/total counts. Update the index after collecting results. For notebook 07b, also update `notebooks/latent_space/07b_experiment_log.md`.
+
+Keep experiment handling lean. Run a smoke test only when a specific compatibility or resource risk justifies it; otherwise run the experiment directly. Keep human-readable result logs short: the question, recipe/split/seeds/job IDs, outcome, primary metrics with valid/total counts, and any failure. Store detailed provenance in machine-readable run artifacts instead of repeating it in prose.
 
 Prefer broad, hypothesis-driven matrices and multiple seeds when they resolve an open question. Reuse existing evidence and avoid needless duplication. Treat latent size as an empirical question: matched 2D/4D and, for noisy-LJ, 6D/8D comparisons. Do not introduce expert observable supervision or selection. Keep LJ graph-distance-two/three augmentation consistent in all stages.
 
@@ -13,6 +15,12 @@ Engineering must optimize using ML only. Freeze the model, objective, constraint
 Keep notebook Markdown minimal, plots inline, and use the Editorial theme. Do not save figure files unless requested. Implement requested features directly rather than introducing optional switches without a reason.
 
 The engineering goal is reliable gradient-guided modification of an original network using the frozen learned model only, including negative-p-ratio designs. Differentiate the downstream objective to spring stiffnesses and/or initial positions. Prefer the AE alone when sufficient; use the learned propagator if future-response prediction is needed. Follow `docs/research/engineering_goal.md`; an AE's reconstruction performance does not guarantee useful intervention gradients.
+
+## Maintenance
+
+Keep backward compatibility minimal, and only when critical to a current workflow or essential saved artifact. Do not add legacy aliases, fallback branches, or compatibility layers just to keep retired experiments runnable. Prefer recreating retired experiments from their recorded recipes/logs and saved artifacts. Any necessary compatibility exception must name the active dependency and why it cannot yet be removed. Preserve frozen run snapshots, data, checkpoints, and code used by running jobs; logs alone do not replace those artifacts.
+
+Notebooks are the editable source of truth, not outputs to regenerate with competing builder/patch scripts. Edit their cells directly; put repeated plotting, loading, and scoring logic in small shared functions under `src/lss/`. Keep source/horizon/estimator choices explicit in the notebook. Reuse the shared HPC submission helpers instead of copying launchers; from zeus-post submit through normal zeus. Archive retired notebook writers as records, without forwarding shims.
 
 ## Agent roles
 

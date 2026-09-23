@@ -911,6 +911,94 @@ def pearson_r(y_true, y_pred) -> float:
     return float(np.corrcoef(y_true[mask], y_pred[mask])[0, 1])
 
 
+def replicate_fixed_effects_p_ratio(
+    driven_strains,
+    transverse_strains,
+    *,
+    eps: float = 1e-12,
+) -> dict[str, object]:
+    """Estimate one p-ratio from matched noisy trajectory replicates.
+
+    Each replicate receives its own intercept, while all replicates share the
+    transverse-versus-driven slope. Centering within each replicate removes
+    thermal frame-zero offsets before pooling the slope information. The
+    returned p-ratio is the negative shared slope.
+    """
+
+    driven = np.asarray(driven_strains, dtype=float)
+    transverse = np.asarray(transverse_strains, dtype=float)
+    if driven.ndim != 2 or transverse.ndim != 2 or driven.shape != transverse.shape:
+        raise ValueError("driven_strains and transverse_strains must have equal 2D shapes")
+    if driven.shape[0] < 2 or driven.shape[1] < 2:
+        raise ValueError("At least two replicates and two frames are required")
+
+    centered_x = []
+    centered_y = []
+    per_replicate = np.full(driven.shape[0], np.nan, dtype=float)
+    for replica in range(driven.shape[0]):
+        valid = np.isfinite(driven[replica]) & np.isfinite(transverse[replica])
+        x = driven[replica, valid]
+        y = transverse[replica, valid]
+        if len(x) < 2:
+            continue
+        x = x - x.mean()
+        y = y - y.mean()
+        denominator = float(np.dot(x, x))
+        if denominator <= eps:
+            continue
+        centered_x.append(x)
+        centered_y.append(y)
+        per_replicate[replica] = -float(np.dot(x, y) / denominator)
+
+    if len(centered_x) < 2:
+        return {
+            "p_ratio": float("nan"),
+            "fit_r2": float("nan"),
+            "per_replicate_p_ratio": per_replicate,
+            "replicate_mean_p_ratio": float("nan"),
+            "replicate_sd_p_ratio": float("nan"),
+            "replicate_sem_p_ratio": float("nan"),
+            "ensemble_mean_p_ratio": float("nan"),
+            "valid_replicates": int(np.isfinite(per_replicate).sum()),
+        }
+
+    pooled_x = np.concatenate(centered_x)
+    pooled_y = np.concatenate(centered_y)
+    denominator = float(np.dot(pooled_x, pooled_x))
+    slope = float(np.dot(pooled_x, pooled_y) / denominator) if denominator > eps else float("nan")
+    residual = pooled_y - slope * pooled_x
+    total = float(np.dot(pooled_y, pooled_y))
+    fit_r2 = 1.0 - float(np.dot(residual, residual)) / total if total > eps else float("nan")
+
+    valid_ratios = per_replicate[np.isfinite(per_replicate)]
+    replica_sd = float(valid_ratios.std(ddof=1)) if len(valid_ratios) > 1 else float("nan")
+    common = np.isfinite(driven).all(axis=0) & np.isfinite(transverse).all(axis=0)
+    if common.sum() >= 2:
+        mean_x = driven[:, common].mean(axis=0)
+        mean_y = transverse[:, common].mean(axis=0)
+        mean_x = mean_x - mean_x.mean()
+        mean_y = mean_y - mean_y.mean()
+        mean_denominator = float(np.dot(mean_x, mean_x))
+        ensemble_p = (
+            -float(np.dot(mean_x, mean_y) / mean_denominator)
+            if mean_denominator > eps
+            else float("nan")
+        )
+    else:
+        ensemble_p = float("nan")
+
+    return {
+        "p_ratio": -slope if np.isfinite(slope) else float("nan"),
+        "fit_r2": float(fit_r2),
+        "per_replicate_p_ratio": per_replicate,
+        "replicate_mean_p_ratio": float(valid_ratios.mean()),
+        "replicate_sd_p_ratio": replica_sd,
+        "replicate_sem_p_ratio": replica_sd / np.sqrt(len(valid_ratios)),
+        "ensemble_mean_p_ratio": ensemble_p,
+        "valid_replicates": int(len(valid_ratios)),
+    }
+
+
 def trajectory_p_ratio_sides_strain_gated(
     trajectory: list,
     last_index: int = -1,
@@ -1299,6 +1387,7 @@ __all__ = [
     "make_frame_index",
     "make_transition_index",
     "pearson_r",
+    "replicate_fixed_effects_p_ratio",
     "reference_positions_for_model",
     "r2_score",
     "safe_linear_fit_1d",

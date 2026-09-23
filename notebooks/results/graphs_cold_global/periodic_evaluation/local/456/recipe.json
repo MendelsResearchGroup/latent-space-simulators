@@ -1,0 +1,20 @@
+{
+  "checkpoint_sha256": "2c204680c53fb06f139eea6acddf6145b968cd327f633258815351b6ddac6d22",
+  "evaluation_ids": [
+    "rubber_0694",
+    "rubber_1265",
+    "rubber_1960",
+    "rubber_1141",
+    "rubber_0199",
+    "rubber_0621",
+    "rubber_1043",
+    "rubber_1687"
+  ],
+  "evaluation_split": "final_test",
+  "evaluator_sha256": "109b4f1a720cf33b104de4dfe2c1f3890d69423df0cd8b4b449d9c72ce7476ca",
+  "model": "local",
+  "protocol_sha256": "5d67a6a982fb9ec24e74a35816c0f499c6f113a579ec50d6971c1b2eab9f1fb1",
+  "runner_sha256": "fc7aaf64debcca546df72f1a2edd4347305675a7c6a4662c0d0055a15afb5997",
+  "seed": 456,
+  "split_manifest_sha256": "5b90a7a1f03428764b4c138e6606760eee4f2259cbc44b3939cc7915919aa7dc"
+}

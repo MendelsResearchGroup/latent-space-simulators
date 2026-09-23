@@ -1,0 +1,109 @@
+{
+  "study": "mini_shared",
+  "seed": 123,
+  "arms": {
+    "single_stiffness": [
+      "stiffness_original"
+    ],
+    "single_node": [
+      "node_original"
+    ],
+    "stiffness_only": [
+      "stiffness_original"
+    ],
+    "joint_original": [
+      "stiffness_original",
+      "node_original"
+    ],
+    "joint_all": [
+      "stiffness_original",
+      "node_original",
+      "stiffness_mixed",
+      "node_mixed"
+    ]
+  },
+  "mixed_training": "Original arms remain original-only. User additionally authorized joint_all: fit and validation on all four sources, paired identities kept in the same split; mixed-T results for joint_all are supervised held-out evaluation, not unseen-temperature transfer.",
+  "split": {
+    "train": [
+      0,
+      20
+    ],
+    "validation": [
+      20,
+      40
+    ],
+    "test": [
+      40,
+      120
+    ],
+    "unused": [
+      120,
+      200
+    ],
+    "ranges": "half-open, identical paired identities across temperatures"
+  },
+  "single_network_training": "Only identity0 per original source; validation20..39; plot identity0 explicitly in-sample, not generalization.",
+  "frames": {
+    "train": [
+      0,
+      199
+    ],
+    "evaluation": [
+      0,
+      199
+    ],
+    "ranges": "inclusive; all200 frames with no subsampling"
+  },
+  "architecture": {
+    "model": "message_passing_reference16",
+    "latent_dim": 2,
+    "message_passing_steps": 2,
+    "reference_node_dim": 16,
+    "hidden_size": 96,
+    "latent_tokens": 32
+  },
+  "ae": {
+    "initialization": "fresh seed123, no prior checkpoint",
+    "warmup_epochs": 1,
+    "balanced_epochs": 60,
+    "patience": 12,
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "balanced_optimizer": "Adam",
+    "warmup_optimizer": "AdamW",
+    "gradient_clip": 1,
+    "batch_graphs": 32,
+    "loss": "training-source/frame inverse normalized displacement energy weighted coordinate MSE",
+    "weight_floor": "0.04 times source training median energy frames1..19",
+    "weight_normalization": "source mean1 over200frames",
+    "selection": "mean source weighted validation coordinate MSE; minimum improvement1e-8",
+    "normalizers": "training-only, frozen after warmup"
+  },
+  "propagator": {
+    "model": "delta_mlp",
+    "hidden_size": 64,
+    "context": "mean16 static reference embedding",
+    "temperature_input": false,
+    "source_id_input": false,
+    "objective": "one-step latent delta MSE",
+    "selection": "validation latent loss",
+    "max_epochs": 60,
+    "patience": 12,
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "transitions": 199,
+    "ae_frozen": true
+  },
+  "postfit": {
+    "primary": "physical_endpoint_fixed_frame0_sides_quantile_0.10 p-ratioR2, source-wise AE versus autonomous rollout",
+    "secondary": "physical displacement MSE=SSE/coordinate count; raw2D latents and correlations to boundary width/height change and p-ratio",
+    "expert_supervision": false,
+    "test_selection": false,
+    "test_status": "held-out development identities already used in previous mini studies; not fresh blind test",
+    "latent_comparison": "same source and original identity40..119; raw coordinates have arbitrary rotation/sign/scale across models",
+    "single_seed": "No seed SD or convergence/reliability claim"
+  },
+  "budget_comparison": "Equal epochs and per-source counts; joint model sees more training graphs than stiffness-only, so this does not isolate total-data exposure from source diversity. joint_all uses20training trajectories per source (80trajectories,40underlying networks), same epoch cap but more updates; no total-exposure-matched causal claim.",
+  "evaluation_gate": "Original four collectors retain their frozen all-four-fit dependency. Additional joint_all collector runs after its own fit completes; no test feedback to fitting or selection.",
+  "single_network_transfer": "Frozen single-network AEs/propagators evaluated on paired mixed identity0 (response trace, no across-network R2) and20unseen original/mixed identities40..59, frames0..199; no fitting or selection from transfer."
+}

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#PBS -N all4ae_lowprop_fit
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=08:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="${LSS_CODE_ROOT}/src:${LSS_CODE_ROOT}:/rg/mendels_prj/alexander.z/MetaForge/src"
+export MPLCONFIGDIR="/tmp/all4ae-lowprop-fit-${PBS_JOBID}"
+mkdir -p notebooks/results/all4_ae_low_prop_1000/logs
+exec >"notebooks/results/all4_ae_low_prop_1000/logs/${PBS_JOBID}.log" 2>&1
+PYTHON=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+"$PYTHON" -u "${LSS_CODE_ROOT}/train.py" --assert-config
+"$PYTHON" -u "${LSS_CODE_ROOT}/train.py" --smoke
+"$PYTHON" -u "${LSS_CODE_ROOT}/collect.py" --smoke
+exec "$PYTHON" -u "${LSS_CODE_ROOT}/train.py"

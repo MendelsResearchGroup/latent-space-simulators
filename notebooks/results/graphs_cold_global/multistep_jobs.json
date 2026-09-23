@@ -1,0 +1,12 @@
+{
+  "jobs": {
+    "123": "4689642.zeus-master",
+    "456": "4689640.zeus-master",
+    "786": "4689641.zeus-master"
+  },
+  "protocol_sha256": "717a6c671e06484269f90a3f2188b902cb0ca9c54ffd42769ad7cff0377db5c4",
+  "pbs_sha256": "19d45e98ce6a34a39cdb3448a688ccad2d571cfc3495402fbb4b9cccb3d677f0",
+  "runner_sha256": "da1c31e21f9b3c931705ab44f713d9d0769a614ffbf5600833090075d13886e0",
+  "smoke_job_id": "4689599.zeus-master",
+  "split_manifest_sha256": "5b90a7a1f03428764b4c138e6606760eee4f2259cbc44b3939cc7915919aa7dc"
+}

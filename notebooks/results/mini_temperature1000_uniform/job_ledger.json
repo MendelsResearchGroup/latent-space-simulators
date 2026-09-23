@@ -1,0 +1,41 @@
+{
+  "code_manifest_sha256": "05b6ca2efa2e12d7cd608569c4e3645b74b6cc345f35b9ae20cb1dc0bddc0bb8",
+  "data_manifest_sha256": "fcf9ca1a95e81aaa8a13ab098d91d611163cbdf10df74b2ac0d8ea06de4bebb2",
+  "frames": "0..199000 step1000; 1.99% compression",
+  "data_audit": {
+    "all_frames_checked": 160000,
+    "checks": "finite coordinates; exact source_index ordering; time stride; fixed topology/stiffness; monotone axial compression; low/mixed source_index and source_chunk pairing",
+    "mixed_vs_low_endpoint_r2_all200": {
+      "node": 0.8871306736275429,
+      "stiffness": 0.7120788708107129
+    },
+    "status": "passed"
+  },
+  "jobs": {
+    "joint_low_uniform": {
+      "collector": "4683624.zeus-master",
+      "fit": "4683622.zeus-master"
+    },
+    "node_low_uniform": {
+      "collector": "4683625.zeus-master",
+      "fit": "4683623.zeus-master"
+    }
+  },
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "snapshot": "notebooks/results/mini_temperature1000_uniform/code_v1",
+  "static_config_preflight": {
+    "command": "frozen train.py --assert-config",
+    "coverage": "AE and propagator configurations; smoke and production budgets",
+    "status": "passed before submission and independently repeated after submission"
+  },
+  "split": "direct full200: train0:20,val20:40,test40:120",
+  "status": "failed",
+  "failure": {"fit_jobs":{"4683622.zeus-master":1,"4683623.zeus-master":1},"collectors":{"4683624.zeus-master":"afterok dependency failed","4683625.zeus-master":"afterok dependency failed"},"cause":"direct MetaForge graphs lack source_sim_id; smoke collector accessed it before validation identity assignment"},
+  "study": "mini_temperature1000_uniform",
+  "submitted_at": "2026-09-13T17:47:57.962777+00:00"
+}

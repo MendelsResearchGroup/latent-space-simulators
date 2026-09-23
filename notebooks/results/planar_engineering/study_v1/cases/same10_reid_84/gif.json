@@ -1,0 +1,16 @@
+{
+  "source": "reid",
+  "index": 84,
+  "temperature": null,
+  "thermal_seed": 0,
+  "status": "completed",
+  "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/engineering/Planar Adam engineering/reid_84.gif",
+  "sha256": "937fcd93bd0094a947a31d4b6a2fb70e594d80256d35a7626a6eb653fe5eb04d",
+  "frames": 121,
+  "duration_ms": 4000,
+  "trajectory_contact_frames_original": 0,
+  "trajectory_contact_frames_optimized": 37,
+  "renderer_sha256": "93a765b98582bec59535cf5bf9ef70fe1220f02bd120fb47201c56ec15262d73",
+  "original_p_ratio": 0.1453638548993366,
+  "optimized_p_ratio": -0.1901358179661763
+}

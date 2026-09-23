@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N mt200_stride5
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=08:00:00
+#PBS -j oe
+
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export LSS_PROJECT_ROOT="$PWD"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="$PWD/src:$PWD/../MetaForge/src"
+export MPLCONFIGDIR="/tmp/mt200-stride5-${PBS_JOBID}"
+mkdir -p "$MPLCONFIGDIR" notebooks/results/mini_temperature200_stride5_pilot/logs
+exec >"notebooks/results/mini_temperature200_stride5_pilot/logs/${PBS_JOBID}.log" 2>&1
+args=(--seed "${LSS_SEED:?LSS_SEED is required}")
+if [ "${LSS_SMOKE:-0}" = 1 ]; then args+=(--smoke); fi
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u \
+  hpc/experiments/mini_temperature200_stride5_pilot/run.py "${args[@]}"

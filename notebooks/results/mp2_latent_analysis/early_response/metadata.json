@@ -1,0 +1,176 @@
+{
+  "status": "completed",
+  "frames": [
+    1,
+    5,
+    10,
+    25
+  ],
+  "sources": [
+    "reid",
+    "depablo_low_temp",
+    "lj_noisy"
+  ],
+  "seeds": [
+    3456456,
+    123,
+    456,
+    786,
+    2026
+  ],
+  "rows": 1200,
+  "summary_rows": 60,
+  "checkpoint_training_recipe": "frozen MP2D code_v4 ae.pt and recipe.json per seed",
+  "source_preprocessing": "raw selected validation trajectories and frames 0/1/5/10/25; canonical snapshot edges, LJ augmentation, then reference-box normalization",
+  "frame_mapping": {
+    "0": 0,
+    "1": 1,
+    "5": 2,
+    "10": 3,
+    "25": 4
+  },
+  "frame25_max_abs_truth_or_prediction_delta": {
+    "3456456": 9.8879238130678e-17,
+    "123": 9.8879238130678e-17,
+    "456": 9.8879238130678e-17,
+    "786": 9.8879238130678e-17,
+    "2026": 9.8879238130678e-17
+  },
+  "metric": "physical endpoint sides quantile=0.10",
+  "metric_module_sha256": "3c39486956b340ca91e535ffd64dd33e170ec83ad824a64d0f8f23c6af04ff0c",
+  "runner_sha256": "d88dda76bf84f08c837f1dd4e7a7b1d8c604adedcf94306a4f595dc6891b433c",
+  "canonical_code": "/rg/mendels_prj/alexander.z/latent-space-simulators/src/lss/dynamics",
+  "python": "3.10.13 | packaged by conda-forge | (main, Dec 23 2023, 15:36:39) [GCC 12.3.0]",
+  "torch_version": "2.8.0+cu128",
+  "platform": "Linux-4.18.0-513.18.1.el8_9.x86_64-x86_64-with-glibc2.28",
+  "source_files": {
+    "reid": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+      "sha256": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659",
+      "validation_ids": [
+        41,
+        49,
+        25,
+        93,
+        84,
+        96,
+        97,
+        13,
+        28,
+        52,
+        59,
+        57,
+        15,
+        53,
+        2,
+        88,
+        74,
+        31,
+        69,
+        19
+      ]
+    },
+    "depablo_low_temp": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+      "sha256": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09",
+      "validation_ids": [
+        161,
+        47,
+        191,
+        66,
+        118,
+        98,
+        2,
+        136,
+        131,
+        124,
+        105,
+        96,
+        152,
+        70,
+        169,
+        168,
+        126,
+        196,
+        138,
+        78
+      ]
+    },
+    "lj_noisy": {
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+      "sha256": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+      "validation_ids": [
+        15,
+        79,
+        75,
+        181,
+        31,
+        142,
+        157,
+        12,
+        152,
+        29,
+        95,
+        183,
+        147,
+        43,
+        13,
+        40,
+        132,
+        61,
+        188,
+        67
+      ]
+    }
+  },
+  "training_runs": {
+    "3456456": {
+      "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s3456456_code_v4/ae.pt",
+      "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s3456456_code_v4/recipe.json",
+      "training_job_id": "4674650.zeus-master"
+    },
+    "123": {
+      "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s123_code_v4/ae.pt",
+      "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s123_code_v4/recipe.json",
+      "training_job_id": "4674651.zeus-master"
+    },
+    "456": {
+      "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s456_code_v4/ae.pt",
+      "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s456_code_v4/recipe.json",
+      "training_job_id": "4674652.zeus-master"
+    },
+    "786": {
+      "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s786_code_v4/ae.pt",
+      "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s786_code_v4/recipe.json",
+      "training_job_id": "4674653.zeus-master"
+    },
+    "2026": {
+      "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s2026_code_v4/ae.pt",
+      "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/mp2_r16_d2_s2026_code_v4/recipe.json",
+      "training_job_id": "4674654.zeus-master"
+    }
+  },
+  "max_rss_kb": 2553172,
+  "seconds": 41.26320695877075,
+  "training_performed": false,
+  "selection_performed": false,
+  "final_test_used": false,
+  "failures": [
+    {
+      "job_id": "4676379.zeus-master",
+      "stage": "preflight",
+      "reason": "The initial completion guard rejected the already-existing early_response directory that contains the PBS launcher before data loading or metric evaluation.",
+      "result_rows_written": false,
+      "log": "attempt_logs/4676379_preflight_failure.log",
+      "log_sha256": "5c068849cd26f966a12c33a3cd2aa3ebe101e1f410aa44a2ca6c6e644af89d83"
+    },
+    {
+      "job_id": "4676380.zeus-master",
+      "stage": "post_inference_write",
+      "reason": "All selected cohorts and five seeds had completed inference, but the final out.mkdir(parents=True) call rejected the existing launcher directory before parity or CSV writing.",
+      "result_rows_written": false,
+      "log": "attempt_logs/4676380_post_inference_write_failure.log",
+      "log_sha256": "4d0545f24cd0f3284e2fd75456899755e83746c71f7be0cc7568aa545a7d5dca"
+    }
+  ]
+}

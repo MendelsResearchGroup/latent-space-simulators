@@ -1,0 +1,32 @@
+{
+  "boundary": "fixed frame-0 q=0.10 side nodes from the first low-T replica of the same network",
+  "branch": "stiffness",
+  "cadence": "200md",
+  "estimator": "fixed-effects OLS of normalized transverse boundary strain on normalized axial boundary strain; one intercept per thermal seed and one shared slope; p=-slope",
+  "final_test_used": false,
+  "frames_per_trajectory": 1500,
+  "job_id": "4688169[7].zeus-master",
+  "manifest_sha256": {
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_200_1500frames_replicates/seed_104729/mixed/mini_stiff_optimized_200_1500/manifest.json": "a7692661b6b9943581cda91911d20f3c5cb289a0ab5fc1bffefcad5ef7af2d4f",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_200_1500frames_replicates/seed_224737/mixed/mini_stiff_optimized_200_1500/manifest.json": "e859ec7321a8e37ab8ef12e4efd8d05c4119901c72dbc2ad32f68de05f0d1b72",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_200_1500frames_replicates/seed_350377/mixed/mini_stiff_optimized_200_1500/manifest.json": "c4f1409ce84bf6733d3ff31d4d24794b15f65b0f1c231bb7494202da8b247bcb",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_200_1500frames_replicates/seed_479909/mixed/mini_stiff_optimized_200_1500/manifest.json": "baed026d3ecbe6b981f333eb649567c7a0787fcafbf30121d1c153d35919c612",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_200_1500frames_replicates/seed_611953/mixed/mini_stiff_optimized_200_1500/manifest.json": "ef5e93ad5e9b3549795bea152aa4452e43e60c1caba9883c700780df1ea4f582"
+  },
+  "md_steps_between_frames": 200,
+  "membership_mismatch_networks": 170,
+  "networks": 200,
+  "profile": "mixed",
+  "replica_uncertainty": "single-replica OLS mean, sample SD, SEM, and two-sided 95% t interval with df=4",
+  "replicates": 5,
+  "script_sha256": "475f8bf7bd611ba90fa3e27ff83b0435c4504caf5fd39f08cab2e4d941c04f2e",
+  "status": "complete",
+  "temperature_assignment_seed": 904297,
+  "thermostat_seed_bases": [
+    104729,
+    224737,
+    350377,
+    479909,
+    611953
+  ]
+}

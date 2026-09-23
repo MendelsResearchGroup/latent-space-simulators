@@ -1,0 +1,16 @@
+{
+  "recipe_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_221/frozen/frozen_recipe.json",
+  "recipe_sha256": "e9489a8142aef6459092022bab85949ad534977b220191052c1a21426f6d53bc",
+  "designs": [
+    {
+      "name": "original",
+      "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_221/frozen/original.pt",
+      "graph_sha256": "1af7bcb7abbcae364a503b0ee112e88721f4ba3d8b2688aa6d9c63c438a041dd"
+    },
+    {
+      "name": "optimized",
+      "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_221/frozen/optimized.pt",
+      "graph_sha256": "04ce28882dc39eb41d9e3df4cb5b1b09c5f8009a8a964bb40ad231c4c09e4729"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+source,trajectory_id,temperature_K,initial_z0,initial_z1,training_p_ratio,estimator,within_trajectory_fit_r2,positive_p_ratio
+node_low,0,1e-07,1.652176022529602,-2.374192714691162,-0.25034728419413804,physical endpoint frame 199,,False
+node_mixed,0,0.1,1.652145504951477,-2.3741354942321777,-0.2582831044763119,normalized boundary-strain OLS frames 30-199,0.9800747416333716,False
+stiffness_low,0,1e-07,0.606761634349823,-0.4464549422264099,-0.02800478606215063,physical endpoint frame 199,,False
+stiffness_mixed,0,0.1,0.6067923307418823,-0.44651758670806885,-0.027368667377728906,normalized boundary-strain OLS frames 30-199,0.4929275213217865,False

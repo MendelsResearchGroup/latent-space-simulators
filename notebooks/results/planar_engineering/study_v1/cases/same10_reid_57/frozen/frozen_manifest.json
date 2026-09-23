@@ -1,0 +1,16 @@
+{
+  "recipe_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_57/frozen/frozen_recipe.json",
+  "recipe_sha256": "777c072dbf4f5bc24f4bbc56bc0bfb6663921df29a3c2941ba981d6a1e674eae",
+  "designs": [
+    {
+      "name": "original",
+      "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_57/frozen/original.pt",
+      "graph_sha256": "8bdb01aa8d20d4ce7bc9c21e6a1d80309e372ce2080e5403866d601b00ff1bb2"
+    },
+    {
+      "name": "optimized",
+      "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_57/frozen/optimized.pt",
+      "graph_sha256": "b4870af5a5ae1f096e0d76bee7dd59b88be68787ae91fa2c88ddb961e2b2dd3e"
+    }
+  ]
+}

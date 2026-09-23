@@ -1,0 +1,98 @@
+[
+  {
+    "source": "depablo_low_temp",
+    "policy": "ridge2d",
+    "bound": 0.7,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.020853510717906466,
+    "mean_physical_p": 0.2715704604392066
+  },
+  {
+    "source": "depablo_low_temp",
+    "policy": "ridge2d",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.02084653877628706,
+    "mean_physical_p": 0.27157743238082593
+  },
+  {
+    "source": "depablo_low_temp",
+    "policy": "z1",
+    "bound": 0.7,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.03112266812636985,
+    "mean_physical_p": 0.26130130303074317
+  },
+  {
+    "source": "depablo_low_temp",
+    "policy": "z1",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.031375450000341996,
+    "mean_physical_p": 0.261048521156771
+  },
+  {
+    "source": "reid",
+    "policy": "ridge2d",
+    "bound": 0.7,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.06751116415223567,
+    "mean_physical_p": 0.09198965827946448
+  },
+  {
+    "source": "reid",
+    "policy": "ridge2d",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.06751100698006338,
+    "mean_physical_p": 0.09198981545163676
+  },
+  {
+    "source": "reid",
+    "policy": "z1",
+    "bound": 0.7,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.07371322534561091,
+    "mean_physical_p": 0.08578759708608924
+  },
+  {
+    "source": "reid",
+    "policy": "z1",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.07370173315752236,
+    "mean_physical_p": 0.08579908927417777
+  }
+]

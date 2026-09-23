@@ -1,0 +1,12 @@
+{
+  "artifact": "notebooks/results/lj_mp2_scope20/downstream/evaluation/edge_example.pt",
+  "sha256": "b1460c5b957407101970d872d6ec630a58ff393af0971ffed2a37ed7f867ea66",
+  "network_id": 15,
+  "seed": 123,
+  "spring_edges": 371,
+  "gnn_base_edges": 2397,
+  "added_edges": {
+    "ljonly60": 901,
+    "shared3x20": 903
+  }
+}

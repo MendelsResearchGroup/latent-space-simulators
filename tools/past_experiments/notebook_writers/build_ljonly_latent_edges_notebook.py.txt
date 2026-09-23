@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""Build the compact Editorial notebook for the LJ-only edge experiment."""
+from pathlib import Path
+import nbformat as nbf
+
+ROOT = Path(__file__).resolve().parents[2]
+NOTEBOOK = ROOT / "notebooks/dynamics/11_ljonly_latent_influence_edges.ipynb"
+
+nb = nbf.v4.new_notebook()
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nb.cells = [
+    nbf.v4.new_markdown_cell("""# LJ-only latent edges
+
+The AE and latent dynamics use noisy-LJ training trajectories only. For each held-out graph, added edges are selected from its frame-0 reference structure and frame-0 latent state; future validation frames and p-ratio are not used."""),
+    nbf.v4.new_code_cell("""from pathlib import Path
+import sys
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.collections import LineCollection
+ROOT=Path.cwd().resolve().parents[1] if Path.cwd().name=='dynamics' else Path.cwd().resolve()
+sys.path.insert(0,str(ROOT/'src'))
+from lss.plotting import apply_editorial_style, PAPER_COLORS, style_axes
+apply_editorial_style('light')
+RESULTS=ROOT/'notebooks/results/ljonly_latent_influence_edges'
+summary=pd.read_csv(RESULTS/'postfit_seed_summary.csv')
+per_network=pd.read_csv(RESULTS/'postfit_per_network.csv')
+nodes=pd.read_csv(RESULTS/'visualization_nodes.csv')
+edges=pd.read_csv(RESULTS/'visualization_edges.csv')
+latent_scores=pd.read_csv(RESULTS/'validation_latent_edges.csv')
+display(summary.round(4))"""),
+    nbf.v4.new_markdown_cell("## Rollout response"),
+    nbf.v4.new_code_cell("""labels={'base':'base graph','random':'random edges','latent':'latent edges'}
+colors={'base':PAPER_COLORS['slate'],'random':PAPER_COLORS['orange'],'latent':PAPER_COLORS['blue']}
+fig,axes=plt.subplots(1,2,figsize=(10.2,4),constrained_layout=True)
+for arm,g in summary.groupby('arm'):
+    axes[0].errorbar(g.frame,g.postfit_p_ratio_r2_mean,yerr=g.postfit_p_ratio_r2_sd,
+                     marker='o',capsize=3,label=labels[arm],color=colors[arm])
+style_axes(axes[0],xlabel='rollout frame',ylabel='post-fit p-ratio R²',legend=True)
+frame=100
+for arm,marker in [('base','o'),('random','s'),('latent','^')]:
+    g=per_network.query('frame==@frame and arm==@arm and seed==123')
+    axes[1].scatter(g.true_p_ratio,g.pred_p_ratio,s=24,alpha=.72,marker=marker,
+                    color=colors[arm],label=labels[arm])
+limits=np.array([per_network.query('frame==@frame').true_p_ratio.min(),per_network.query('frame==@frame').true_p_ratio.max()])
+axes[1].plot(limits,limits,color=PAPER_COLORS['ink'],lw=1)
+style_axes(axes[1],xlabel='true fitted p-ratio',ylabel='predicted fitted p-ratio',legend=True)
+axes[1].set_title('Frame 100 · seed 123')
+plt.show()"""),
+    nbf.v4.new_markdown_cell("## Added edges on an unseen graph"),
+    nbf.v4.new_code_cell("""position=nodes.set_index('node')[['x','y']]
+physical=edges.query("edge_type=='physical'")
+added=edges.query("edge_type=='latent'").merge(
+    latent_scores[['original_index','source_node','target_node','influence_score']],
+    on=['original_index','source_node','target_node'],how='left')
+top=added.nlargest(min(60,len(added)),'influence_score')
+def segments(frame):
+    return [[position.loc[int(row.source_node)].to_numpy(),position.loc[int(row.target_node)].to_numpy()]
+            for row in frame.itertuples()]
+fig,ax=plt.subplots(figsize=(7.2,6.5),constrained_layout=True)
+ax.add_collection(LineCollection(segments(physical),colors=PAPER_COLORS['light'],linewidths=.35,alpha=.28,label='physical + distance-2/3'))
+ax.add_collection(LineCollection(segments(added),colors=PAPER_COLORS['orange'],linewidths=.45,alpha=.10,label='all latent additions'))
+ax.add_collection(LineCollection(segments(top),colors=PAPER_COLORS['blue'],linewidths=1.0,alpha=.72,label='60 strongest additions'))
+ax.scatter(nodes.x,nodes.y,s=7,color=PAPER_COLORS['ink'],zorder=3)
+ax.set_aspect('equal'); ax.autoscale(); ax.axis('off'); ax.legend(frameon=False,loc='upper right')
+ax.set_title(f"Held-out graph {int(nodes.original_index.iloc[0])}")
+plt.show()
+print(f'{len(added)} unique latent edges were added to this unseen graph; all are shown faintly and the 60 strongest are emphasized.')"""),
+]
+NOTEBOOK.parent.mkdir(parents=True, exist_ok=True)
+nbf.write(nb, NOTEBOOK)
+print(NOTEBOOK)

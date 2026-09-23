@@ -3,6 +3,38 @@ from __future__ import annotations
 import matplotlib.pyplot as plt
 
 
+def plot_latent_coordinates(frame_table, selected_ids, source_labels, source_colors, *, frame_stop, title):
+    """Plot raw z0/z1 versus saved frame for explicitly selected trajectories.
+
+    Selection and cadence remain visible in the calling notebook. No alignment,
+    scaling, smoothing or implicit trajectory selection is performed here.
+    """
+    required = {'source', 'trajectory_id', 'frame', 'z0', 'z1'}
+    missing = required - set(frame_table.columns)
+    if missing:
+        raise ValueError(f'Missing latent-table columns: {sorted(missing)}')
+    if frame_stop <= 0 or not selected_ids:
+        raise ValueError('Require a positive exclusive frame_stop and selected trajectories.')
+    fig, axes = plt.subplots(1, 2, figsize=(10.8, 3.8), constrained_layout=True)
+    for source, ids in selected_ids.items():
+        for index, trajectory_id in enumerate(ids):
+            trajectory = frame_table.loc[
+                frame_table.source.eq(source) & frame_table.trajectory_id.eq(trajectory_id)
+                & frame_table.frame.ge(0) & frame_table.frame.lt(frame_stop)
+            ].sort_values('frame')
+            if trajectory.empty or trajectory.frame.duplicated().any():
+                raise ValueError(f'Missing or duplicate frames: {source}/{trajectory_id}')
+            label = source_labels[source] if index == 0 else None
+            for ax, coordinate in zip(axes, ('z0', 'z1')):
+                ax.plot(trajectory.frame, trajectory[coordinate], color=source_colors[source],
+                        lw=1.15, alpha=.72, label=label)
+    for ax, coordinate in zip(axes, ('z0', 'z1')):
+        ax.set(title=coordinate, xlabel='frame', ylabel=coordinate)
+        ax.legend(fontsize=8)
+    fig.suptitle(title)
+    return fig, axes
+
+
 PAPER_COLORS = {
     # Darkened Okabe-Ito derivatives: color-vision-safe and sufficiently
     # contrasted against the white paper background for lines and markers.
@@ -57,14 +89,40 @@ STATE_COLORS = {
 }
 
 
-def apply_editorial_style() -> None:
+_LIGHT_COLORS = dict(PAPER_COLORS)
+_DARK_COLORS = dict(PAPER_COLORS, ink="#E6EDF3", blue="#56B4E9", red="#F08A62",
+                    green="#56C9A5", orange="#E9B65C", gold="#D8C76A",
+                    purple="#D99BC7", sky="#83BCDE", slate="#AAB8C2",
+                    light="#647581", grid="#3C4856")
+
+
+def apply_editorial_style(mode: str = "light") -> None:
+    """Apply the shared light/dark theme before creating figures.
+
+    Notebook switch: ``PLOT_THEME = "dark"`` followed by
+    ``apply_editorial_style(PLOT_THEME)``. Rerun plotting cells after switching.
+    """
+    palette = {"light": _LIGHT_COLORS, "dark": _DARK_COLORS}[mode]
+    replacements = {PAPER_COLORS[key]: palette[key] for key in PAPER_COLORS}
+    for mapping in (DATASET_COLORS, LATENT_DIMENSION_COLORS, STATE_COLORS):
+        mapping.update({key: replacements[value] for key, value in mapping.items()})
+    PAPER_COLORS.update(palette)
+    global NETWORK_NODE_COLOR, NETWORK_EDGE_COLOR
+    NETWORK_NODE_COLOR = palette["red"]
+    NETWORK_EDGE_COLOR = palette["slate"]
+    background = {"light": "white", "dark": "#171D26"}[mode]
     plt.rcParams.update(
         {
             "figure.dpi": 120,
             "savefig.dpi": 300,
-            "figure.facecolor": "white",
+            "figure.facecolor": background,
+            "savefig.facecolor": background,
+            "savefig.edgecolor": background,
+            "text.color": PAPER_COLORS["ink"],
+            "legend.facecolor": background,
+            "legend.edgecolor": PAPER_COLORS["grid"],
             "figure.constrained_layout.use": False,
-            "axes.facecolor": "white",
+            "axes.facecolor": background,
             "axes.edgecolor": PAPER_COLORS["ink"],
             "axes.grid": False,
             "axes.axisbelow": True,

@@ -1,0 +1,49 @@
+{
+  "study": "ljonly_latent_influence_edges_v1",
+  "status": "frozen protocol",
+  "question": "Do edges discovered by an LJ-only latent simulator improve physical-node noisy-LJ rollout?",
+  "reuse_reason": "The exact requested LJ-only AE already exists and took 11289.6 seconds to train; it is reused without changing weights.",
+  "frozen_ae": {
+    "path": "notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s123_code_v2/ae.pt",
+    "sha256": "42d36dc32c6a4bee95f242e7f13f8be6947fb1a49870d26cdf00a9417395164a",
+    "architecture": "attention_reference16_corrected",
+    "latent_dim": 4,
+    "seed": 123,
+    "training_source": "noisy-LJ only",
+    "train_trajectories": 60,
+    "training_frames_per_trajectory": 200,
+    "validation_trajectories": 20,
+    "p_ratio_or_strain_supervision": false
+  },
+  "latent_dynamics": {
+    "architecture": "history_attention with mean reference context",
+    "seed": 123,
+    "train_trajectories": 60,
+    "validation_trajectories": 20,
+    "frames": 101,
+    "supervision_frames": [1, 2, 3, 5, 10, 25, 50, 75, 100],
+    "checkpoint_metric": "decoded normalized-position validation MSE",
+    "p_ratio_or_strain_supervision": false
+  },
+  "edge_discovery": {
+    "perturbation": 0.001,
+    "latent_horizons": [5, 10, 20],
+    "top_partners_per_node": 5,
+    "exclude_existing_distance_two_three_relations": true,
+    "validation_graph_information": "frame-0 reference graph and frame-0 latent only",
+    "validation_future_positions_used": false
+  },
+  "downstream": {
+    "arms": ["base", "random", "latent"],
+    "seeds": [123, 456, 786],
+    "train_trajectories": 60,
+    "validation_trajectories": 20,
+    "observed_frames": [0, 1, 2, 3],
+    "autonomous_prediction_frames": [4, 100],
+    "evaluation_horizons": [50, 100],
+    "final_test_used": false,
+    "checkpoint_metric": "validation one-step normalized acceleration MSE",
+    "primary_metric": "post-fit physical-coordinate p-ratio R2",
+    "secondary_metric": "physical-coordinate MSE"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "arm": "all4_twenty_each_retry_v5_validation30",
+  "checkpoint_sha256_after": {
+    "ae": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+    "propagator": "9ab4b2c4c7e630f368fc24b3a105a751bba2e97b153b212e6229cd30133dcb47"
+  },
+  "checkpoint_sha256_before": {
+    "ae": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+    "propagator": "9ab4b2c4c7e630f368fc24b3a105a751bba2e97b153b212e6229cd30133dcb47"
+  },
+  "fit_window": "frames30..horizon inclusive",
+  "horizons": [
+    37,
+    199
+  ],
+  "job_id": "4687484.zeus-master",
+  "parity_at_frame199": [
+    {
+      "mode": "ae_reconstruction",
+      "pred": 8.673617379884035e-17,
+      "rows": 80,
+      "source": "node_mixed",
+      "true": 1.1102230246251565e-16
+    },
+    {
+      "mode": "autonomous_delta_mlp",
+      "pred": 8.326672684688674e-17,
+      "rows": 80,
+      "source": "node_mixed",
+      "true": 1.1102230246251565e-16
+    },
+    {
+      "mode": "ae_reconstruction",
+      "pred": 9.020562075079397e-17,
+      "rows": 80,
+      "source": "stiffness_mixed",
+      "true": 9.71445146547012e-17
+    },
+    {
+      "mode": "autonomous_delta_mlp",
+      "pred": 9.71445146547012e-17,
+      "rows": 80,
+      "source": "stiffness_mixed",
+      "true": 9.71445146547012e-17
+    }
+  ],
+  "postfit_only": true,
+  "script_sha256": "23356303123777c30550765a06375cf27b39d5a9fc3a0c380572433d22f1e62f",
+  "status": "completed"
+}

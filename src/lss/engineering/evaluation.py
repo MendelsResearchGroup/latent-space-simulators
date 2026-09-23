@@ -31,13 +31,13 @@ def sha256(path: Path) -> str:
 
 def _source_hashes() -> dict[str, str]:
     root = Path(__file__).parent
-    paths = [root / name for name in ("model.py", "geometry.py", "optimization.py", "evaluation.py", "animation.py")]
+    paths = [root / name for name in ("model.py", "geometry.py", "planarity.py", "optimization.py", "evaluation.py", "animation.py")]
     paths.extend([root.parent / "data.py", root.parent / "graph.py"])
     paths.extend(sorted((root.parent / "dynamics").glob("*.py")))
     return {str(path.resolve()): sha256(path) for path in paths}
 
 
-def freeze_final_designs(result: OptimizationResult, output: Path, *, dataset_path: Path, known_case_refactor_verification: bool) -> dict:
+def freeze_final_designs(result: OptimizationResult, output: Path, *, dataset_path: Path, known_case_refactor_verification: bool, verification_protocol: dict) -> dict:
     """Write and hash the predeclared original and ML-selected final graphs."""
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
@@ -65,12 +65,8 @@ def freeze_final_designs(result: OptimizationResult, output: Path, *, dataset_pa
         "steps": result.steps,
         "stop_reason": result.stop_reason,
         "selection": "strict lowest frozen z1 score among initial and all feasible post-update iterates",
-        "verification": {
-            "protocol": "Reid athermal x compression with y box relaxation",
-            "scale_x": COMPRESSION_SCALE,
-            "increments": COMPRESSION_STEPS,
-            "feedback_to_optimizer": False,
-        },
+        "geometry_constraints": result.geometry_summary,
+        "verification": deepcopy(verification_protocol),
         "designs": records,
         "history_path": str(history_path.resolve()),
         "history_sha256": sha256(history_path),
@@ -137,6 +133,13 @@ def verify_frozen_designs(output: Path, lammps_path: Path) -> dict:
     """Run the fixed final-only LAMMPS protocol and retain all 121 frames."""
     output = Path(output)
     manifest = json.loads((output / "frozen_manifest.json").read_text())
+    verification = json.loads(Path(manifest["recipe_path"]).read_text())["verification"]
+    if verification["protocol"] != "Reid athermal x compression with y box relaxation":
+        raise ValueError("This verifier requires the declared Reid athermal protocol")
+    if verification["scale_x"] != COMPRESSION_SCALE or verification["increments"] != COMPRESSION_STEPS:
+        raise ValueError("Declared Reid protocol does not match this verifier")
+    if verification["feedback_to_optimizer"]:
+        raise ValueError("Final verification cannot feed back to optimization")
     if sha256(Path(manifest["recipe_path"])) != manifest["recipe_sha256"]:
         raise RuntimeError("Frozen recipe hash mismatch")
     results = {}

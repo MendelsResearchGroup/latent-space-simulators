@@ -1,0 +1,2 @@
+epoch,training_standardized_total_yz_box_state_mse,validation_raw_yz_box_length_mse,selection_horizons
+1,1.0132092833518982,5.912657070439309e-05,"[100, 200, 399]"

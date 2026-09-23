@@ -1,0 +1,12 @@
+{
+  "index": 53,
+  "variant": "joint_r4_b0.25_permuted",
+  "simulation_id": "53_joint_r4_b0.25_permuted_65d541c346c7",
+  "scale_x": 0.9700107,
+  "compression_steps": 120,
+  "physical_p_ratio": 0.06880149330954129,
+  "status": "completed",
+  "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/study_v1_retry/physics/reid/53_joint_r4_b0.25_permuted_65d541c346c7",
+  "protocol": "2D quasistatic compression; first/last unwrapped boundary-node ratio",
+  "box_p_ratio": 0.06349412999378667
+}

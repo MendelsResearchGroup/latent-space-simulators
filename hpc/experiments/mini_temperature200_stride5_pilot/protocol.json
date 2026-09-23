@@ -1,0 +1,29 @@
+{
+  "study": "mini_temperature200_stride5_pilot",
+  "hypothesis": "A 1000-MD latent transition has better deformation-to-thermal-noise ratio than an adjacent 200-MD transition at the same physical horizon.",
+  "intervention": "Reuse the frozen all-four 500-frame AE and replace propagator frame_skip=1 by frame_skip=5.",
+  "sources": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"],
+  "training_ids_per_source": [0, 19],
+  "validation_ids": {
+    "node_low": [20, 27],
+    "node_mixed": [20, 27],
+    "stiffness_low": [20, 26],
+    "stiffness_mixed": [20, 26]
+  },
+  "heldout_development_ids_per_source": [40, 119],
+  "seeds": [123, 456, 786],
+  "stored_frame_interval_md_steps": 200,
+  "propagator_frame_skip": 5,
+  "effective_transition_md_steps": 1000,
+  "training_stored_frames": [0, 499],
+  "training_transition_targets": [5, 495],
+  "transitions_per_trajectory": 99,
+  "primary_metrics": {
+    "low_temperature": "physical fixed-side endpoint p-ratio R2 at stored frame 495",
+    "mixed_temperature": "normalized boundary-strain OLS p-ratio R2 over stored frames 150,155,...,495"
+  },
+  "baseline": "same frozen AE and splits with the completed frame_skip=1 all4_twenty_each propagator",
+  "selection": "validation latent-delta loss only",
+  "prohibited_inputs": ["p-ratio", "strain", "temperature", "source label"],
+  "final_test_used": false
+}

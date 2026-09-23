@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+"""Build the Editorial notebook for the matched noisy-LJ AE-scope study."""
+from pathlib import Path
+import nbformat as nbf
+
+ROOT = Path(__file__).resolve().parents[2]
+NOTEBOOK = ROOT / "notebooks/lj_matched_scope/01_ae_scope_edge_comparison.ipynb"
+
+nb = nbf.v4.new_notebook()
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nb.cells = [
+    nbf.v4.new_markdown_cell("""# Noisy-LJ latent-edge comparison
+
+Both 2D AEs see four training trajectories and the same number of frame updates. One sees four noisy-LJ networks; the other sees one network from each of four sources. Edges come directly from frame-zero decoder sensitivity, without latent propagation. Future frames and p-ratio are not used."""),
+    nbf.v4.new_code_cell("""from pathlib import Path
+import sys
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.collections import LineCollection
+HERE=Path.cwd().resolve()
+ROOT=HERE.parents[1] if HERE.parent.name=='notebooks' else HERE
+sys.path.insert(0,str(ROOT/'src'))
+from lss.plotting import apply_editorial_style, PAPER_COLORS, style_axes
+apply_editorial_style('light')
+RESULTS=ROOT/'notebooks/results/lj_matched_scope'
+summary=pd.read_csv(RESULTS/'direct_postfit_seed_summary.csv')
+per_network=pd.read_csv(RESULTS/'direct_postfit_per_network.csv')
+nodes=pd.read_csv(RESULTS/'direct_visualization_nodes.csv')
+edges=pd.read_csv(RESULTS/'direct_visualization_edges.csv')
+latent_scores=pd.read_csv(RESULTS/'direct_validation_edges.csv')
+display(summary.round(4))"""),
+    nbf.v4.new_markdown_cell("## Rollout response"),
+    nbf.v4.new_code_cell("""labels={'base':'base graph','ljonly4_direct':'LJ-only AE edges','shared4_direct':'four-source AE edges'}
+colors={'base':PAPER_COLORS['slate'],'ljonly4_direct':PAPER_COLORS['orange'],'shared4_direct':PAPER_COLORS['blue']}
+fig,axes=plt.subplots(1,2,figsize=(10.2,4),constrained_layout=True)
+for arm,g in summary.groupby('arm'):
+    axes[0].errorbar(g.frame,g.postfit_p_ratio_r2_mean,yerr=g.postfit_p_ratio_r2_sd,
+                     marker='o',capsize=3,label=labels[arm],color=colors[arm])
+style_axes(axes[0],xlabel='rollout frame',ylabel='post-fit p-ratio R²',legend=True)
+frame=100
+for arm,marker in [('base','o'),('ljonly4_direct','s'),('shared4_direct','^')]:
+    g=per_network.query('frame==@frame and arm==@arm and seed==123')
+    axes[1].scatter(g.true_p_ratio,g.pred_p_ratio,s=24,alpha=.72,marker=marker,
+                    color=colors[arm],label=labels[arm])
+limits=np.array([per_network.query('frame==@frame').true_p_ratio.min(),per_network.query('frame==@frame').true_p_ratio.max()])
+axes[1].plot(limits,limits,color=PAPER_COLORS['ink'],lw=1)
+style_axes(axes[1],xlabel='true fitted p-ratio',ylabel='predicted fitted p-ratio',legend=True)
+axes[1].set_title('Frame 100 · seed 123')
+plt.show()"""),
+    nbf.v4.new_markdown_cell("## Added edges on an unseen graph"),
+    nbf.v4.new_code_cell("""fig,axes=plt.subplots(1,2,figsize=(11,5.2),constrained_layout=True)
+for ax,scope in zip(axes,['ljonly4','shared4']):
+    scope_nodes=nodes.query('scope==@scope')
+    position=scope_nodes.set_index('node')[['x','y']]
+    physical=edges.query("scope==@scope and edge_type=='physical'")
+    added=edges.query("scope==@scope and edge_type=='latent'").merge(
+        latent_scores.query('scope==@scope and seed==123')[['original_index','source_node','target_node','influence_score']],
+        on=['original_index','source_node','target_node'],how='left')
+    top=added.nlargest(min(60,len(added)),'influence_score')
+    def segments(frame):
+        return [[position.loc[int(row.source_node)].to_numpy(),position.loc[int(row.target_node)].to_numpy()]
+                for row in frame.itertuples()]
+    ax.add_collection(LineCollection(segments(physical),colors=PAPER_COLORS['light'],linewidths=.35,alpha=.28,label='physical + distance-2/3'))
+    ax.add_collection(LineCollection(segments(added),colors=PAPER_COLORS['orange'],linewidths=.45,alpha=.10,label='all additions'))
+    ax.add_collection(LineCollection(segments(top),colors=PAPER_COLORS['blue'],linewidths=1.0,alpha=.72,label='60 strongest'))
+    ax.scatter(scope_nodes.x,scope_nodes.y,s=7,color=PAPER_COLORS['ink'],zorder=3)
+    ax.set_aspect('equal'); ax.autoscale(); ax.axis('off')
+    ax.set_title('LJ-only AE' if scope=='ljonly4' else 'Four-source AE')
+axes[0].legend(frameon=False,loc='upper right')
+plt.show()
+display(edges.query("edge_type=='latent'").groupby('scope').size().rename('added edges on shown unseen graph'))"""),
+]
+NOTEBOOK.parent.mkdir(parents=True, exist_ok=True)
+nbf.write(nb, NOTEBOOK)
+print(NOTEBOOK)

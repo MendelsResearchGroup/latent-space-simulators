@@ -1,0 +1,5 @@
+{
+  "script_sha256": "6b51bf9be3b2667aedae32e199db874ee27a4c235614131fa3a6cf18f3c4dbe0",
+  "method": "minimum-image fractional-coordinate increments, then map through each evolving box; assumes true per-frame fractional displacements below half a box",
+  "scope": "same20 validation trajectories/source; no model fitting/final test"
+}

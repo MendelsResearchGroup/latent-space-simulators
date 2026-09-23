@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#PBS -N ljonly_latent
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=04:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export MPLCONFIGDIR="/tmp/ljonly-latent-${PBS_JOBID}"
+mkdir -p notebooks/results/ljonly_latent_influence_edges/logs
+exec >"notebooks/results/ljonly_latent_influence_edges/logs/${PBS_JOBID}.log" 2>&1
+args=(); if [[ "${LSS_SMOKE:-0}" == 1 ]]; then args+=(--smoke); fi
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "${LSS_CODE_ROOT:?}/prepare_latent.py" "${args[@]}"

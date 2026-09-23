@@ -1,0 +1,419 @@
+{
+  "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s3456456_code_v1/ae.pt",
+  "training_recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s3456456_code_v1/recipe.json",
+  "checkpoint_sha256": "897fb0e63f19c4d4613bda5dec83471d8861490b5db801e9f4354d162bc82578",
+  "training_recipe_sha256": "cdf1de1641f778d0967bf2ff4e3fb6fbead7c0dbd62d8db9447a7f59f0b929ac",
+  "runner_sha256": "65b2da9aa5e34df1d56b05a8e717696b11e3667974fb50275514485fc7daef7f",
+  "metric_module_sha256": "3c39486956b340ca91e535ffd64dd33e170ec83ad824a64d0f8f23c6af04ff0c",
+  "source_code_root": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_pratio/snapshots/runner_65b2da9aa5e34df1_broad",
+  "torch_version": "2.8.0+cu128",
+  "frames": [
+    25,
+    50,
+    100,
+    150,
+    199
+  ],
+  "metric": "physical-coordinate endpoint sides, quantile0.10, eps1e-12",
+  "near_zero_strain_flag": "max(abs(relative_side_strains)) <1e-5; flag only, never filters",
+  "final_test_used": false,
+  "training_performed": false,
+  "selection_performed": false,
+  "schema_checks": [
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 15,
+      "inverse_reference_max_abs_error": 2.290997258569405e-07,
+      "half_extent": [
+        7.8125104904174805,
+        7.760910511016846
+      ],
+      "edge_count": 2397
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 79,
+      "inverse_reference_max_abs_error": 2.1556022034019406e-07,
+      "half_extent": [
+        7.199738025665283,
+        7.238997936248779
+      ],
+      "edge_count": 1980
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 75,
+      "inverse_reference_max_abs_error": 1.7061526591533038e-07,
+      "half_extent": [
+        5.726038455963135,
+        5.731752872467041
+      ],
+      "edge_count": 1244
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 181,
+      "inverse_reference_max_abs_error": 2.2112135411589406e-07,
+      "half_extent": [
+        7.433015823364258,
+        7.339367866516113
+      ],
+      "edge_count": 2213
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 31,
+      "inverse_reference_max_abs_error": 2.0700923641925328e-07,
+      "half_extent": [
+        6.99519681930542,
+        6.896083354949951
+      ],
+      "edge_count": 1876
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 142,
+      "inverse_reference_max_abs_error": 2.399084451099043e-07,
+      "half_extent": [
+        8.053372383117676,
+        8.08318042755127
+      ],
+      "edge_count": 2623
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 157,
+      "inverse_reference_max_abs_error": 2.3515045199928863e-07,
+      "half_extent": [
+        7.7495551109313965,
+        7.892246723175049
+      ],
+      "edge_count": 2316
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 12,
+      "inverse_reference_max_abs_error": 1.6386252355005126e-07,
+      "half_extent": [
+        5.672832489013672,
+        5.678319931030273
+      ],
+      "edge_count": 1316
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 152,
+      "inverse_reference_max_abs_error": 2.1735127120336983e-07,
+      "half_extent": [
+        7.32609224319458,
+        7.314810276031494
+      ],
+      "edge_count": 2276
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 29,
+      "inverse_reference_max_abs_error": 2.206345470767701e-07,
+      "half_extent": [
+        7.479763031005859,
+        7.34693717956543
+      ],
+      "edge_count": 2177
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 95,
+      "inverse_reference_max_abs_error": 1.8705509319261182e-07,
+      "half_extent": [
+        6.205662250518799,
+        6.284720420837402
+      ],
+      "edge_count": 1536
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 183,
+      "inverse_reference_max_abs_error": 2.4025587208598154e-07,
+      "half_extent": [
+        8.120485305786133,
+        8.030508995056152
+      ],
+      "edge_count": 2607
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 147,
+      "inverse_reference_max_abs_error": 1.9613082713476615e-07,
+      "half_extent": [
+        6.385802268981934,
+        6.5965166091918945
+      ],
+      "edge_count": 1644
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 43,
+      "inverse_reference_max_abs_error": 2.3242452584781859e-07,
+      "half_extent": [
+        7.765030860900879,
+        7.871323108673096
+      ],
+      "edge_count": 2386
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 13,
+      "inverse_reference_max_abs_error": 2.1864963173356955e-07,
+      "half_extent": [
+        7.356790542602539,
+        7.412955284118652
+      ],
+      "edge_count": 2141
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 40,
+      "inverse_reference_max_abs_error": 2.083506842609495e-07,
+      "half_extent": [
+        7.024499893188477,
+        6.98337459564209
+      ],
+      "edge_count": 1881
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 132,
+      "inverse_reference_max_abs_error": 1.6857131868164288e-07,
+      "half_extent": [
+        5.752313613891602,
+        5.694689750671387
+      ],
+      "edge_count": 1246
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 61,
+      "inverse_reference_max_abs_error": 2.3859416842242354e-07,
+      "half_extent": [
+        8.009177207946777,
+        8.146470069885254
+      ],
+      "edge_count": 2595
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 188,
+      "inverse_reference_max_abs_error": 1.9505813497744384e-07,
+      "half_extent": [
+        6.556369304656982,
+        6.431527614593506
+      ],
+      "edge_count": 1637
+    },
+    {
+      "source": "lj_noisy",
+      "split": "validation",
+      "original_index": 67,
+      "inverse_reference_max_abs_error": 2.0859005189777236e-07,
+      "half_extent": [
+        7.076998710632324,
+        6.903616428375244
+      ],
+      "edge_count": 1858
+    }
+  ],
+  "original_training_recipe": {
+    "code_hashes_sha256": "42802bfb7aa67402172555b8116f0c85af617b9f79450e87c4cc80a36a41d88e",
+    "code_root": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_spatial_decoder/code_v1",
+    "code_version": "code_v1",
+    "config": {
+      "ae_config": {
+        "balance_sources": false,
+        "checkpoint_metric": "val_max_source_reconstruction",
+        "checkpoint_mode": "min",
+        "edge_feature_dim": 5,
+        "gradient_method": "source_mean",
+        "hidden_size": 96,
+        "latent_dim": 4,
+        "latent_tokens": 32,
+        "lr": 0.0001,
+        "max_epochs": 60,
+        "max_train_frames_per_sim": 200,
+        "max_val_frames_per_sim": 200,
+        "mix_sources": true,
+        "model": "attention_reference16_spatial_decoder",
+        "node_feature_mode": "normalized_delta",
+        "patience": 12,
+        "pratio_eval_every": 0,
+        "target_mode": "normalized_delta",
+        "weight_decay": 1e-05
+      },
+      "batch_graphs": 32,
+      "cache_path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s3456456_code_v1/ae.pt",
+      "cache_require_matching_config": true,
+      "coordinate_normalization": "position_normalization",
+      "early_stop_min_delta": 1e-05,
+      "edge_mode": "compact_stored",
+      "force_train": true,
+      "frame_skip": 1,
+      "model_seed": 3456456,
+      "pos_dim": 2,
+      "should_rollout": false,
+      "should_train_propagator": false,
+      "split_seed": 123,
+      "static_context_use_physical_reference": true
+    },
+    "dataset_sha256": {
+      "depablo_low_temp": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09",
+      "depablo_mixed_temp": "b5c10f48a03df0822ddc4decb5792afa83b73fee755fa83cc588bbfdaa0d3a67",
+      "lj_noisy": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+      "reid": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659"
+    },
+    "final_test_used": false,
+    "job_id": "4673352.zeus-master",
+    "lj_only_caveat": "LJ-only differs in normalization and update budget from shared fitting; it is a diagnostic comparison, not causal matched proof.",
+    "manifest_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+    "mixed_evaluation": null,
+    "raw_lj_edge_control": {
+      "added_edge_count": 2032,
+      "all_added_stiffness_zero": true,
+      "all_original_indicator_zero": true,
+      "augmented_edge_count": 2408,
+      "declared_train_id": 178,
+      "edge_feature_schema": "vector_length_stiffness_is_lj_v1",
+      "raw_edge_count": 376,
+      "trajectory_length": 200
+    },
+    "response_selection": false,
+    "runner_sha256": "b8bf643b66cb5bfc0caa1f02ce50afcbdba315e52ec9b33f19b2c1cd378ea751",
+    "seed": 3456456,
+    "selection": "worst retained-source validation coordinate reconstruction only",
+    "shared_fit": true,
+    "smoke": false,
+    "source": {
+      "coordinate_normalization": "position_normalization",
+      "dataset_mixture": [
+        {
+          "append_lj_indicator": true,
+          "label": "lj_noisy",
+          "lj_max_graph_distance": 3,
+          "name": "lj_noisy",
+          "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+          "split_indices": {
+            "test": [],
+            "train": [
+              178,
+              199,
+              42,
+              102,
+              99,
+              174,
+              96,
+              70,
+              93,
+              104,
+              103,
+              73,
+              36,
+              160,
+              25,
+              114,
+              52,
+              198,
+              180,
+              54,
+              32,
+              184,
+              56,
+              53,
+              158,
+              110,
+              122,
+              0,
+              82,
+              176,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              14,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              26,
+              27,
+              28,
+              30,
+              33,
+              34,
+              35,
+              37,
+              38
+            ],
+            "val": [
+              15,
+              79,
+              75,
+              181,
+              31,
+              142,
+              157,
+              12,
+              152,
+              29,
+              95,
+              183,
+              147,
+              43,
+              13,
+              40,
+              132,
+              61,
+              188,
+              67
+            ]
+          },
+          "train_count": 60,
+          "val_count": 20
+        }
+      ],
+      "dataset_name": "compact_lj_spatial_decoder_lj_only",
+      "label": "spatial-decoder noisy-LJ only",
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+      "source_name": "lj_only"
+    },
+    "variant": "ljonly_spatial_r16_d4"
+  }
+}

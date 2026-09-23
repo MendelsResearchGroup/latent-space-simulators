@@ -1,0 +1,13 @@
+{
+  "imported_bundle": "model_bundles/reid.pt",
+  "reference_bundle": "models/engineering/reid_frozen_ae.pt",
+  "ae_state_tensor_count": 45,
+  "ae_state_keys_equal": true,
+  "ae_state_max_abs_difference": 0.0,
+  "normalizer_keys_equal": true,
+  "normalizer_max_abs_difference": 0.0,
+  "z1_readout_mean_max_abs_difference": 0.0,
+  "z1_readout_scale_max_abs_difference": 0.0,
+  "z1_readout_weights_max_abs_difference": 0.0,
+  "all_policy_tensor_max_abs_difference": 0.0
+}

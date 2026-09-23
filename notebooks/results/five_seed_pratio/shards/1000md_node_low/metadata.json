@@ -1,0 +1,32 @@
+{
+  "boundary": "fixed frame-0 q=0.10 side nodes from the first low-T replica of the same network",
+  "branch": "node",
+  "cadence": "1000md",
+  "estimator": "fixed-effects OLS of normalized transverse boundary strain on normalized axial boundary strain; one intercept per thermal seed and one shared slope; p=-slope",
+  "final_test_used": false,
+  "frames_per_trajectory": 200,
+  "job_id": "4688169[0].zeus-master",
+  "manifest_sha256": {
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_104729/low/mini_node_optimized_200_500/manifest.json": "00cef86b2c61dfe0c5752b5084d8e3c41fd7f2a017f724f7165f2f3fcb5957e3",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_224737/low/mini_node_optimized_200_500/manifest.json": "a782ed01a6ce4f125847a8d94ac5b1c888c19a1d7adb120dded0b561a58bbd3f",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_350377/low/mini_node_optimized_200_500/manifest.json": "f00f5a0dfe413d6228b5b6b2359f0ebe86146a6f0556bdc29df10b9d0a280dc1",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_479909/low/mini_node_optimized_200_500/manifest.json": "8a62f91fa442512a2c2bea7d30b2eb55cdb11d5546551d2d56083404247e39e5",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_611953/low/mini_node_optimized_200_500/manifest.json": "65c5b6d98a0f07cd5e7dae36b2c07b9a2e1b92081d36fa5ff1183e4f5c8a3b3f"
+  },
+  "md_steps_between_frames": 1000,
+  "membership_mismatch_networks": 0,
+  "networks": 200,
+  "profile": "low",
+  "replica_uncertainty": "single-replica OLS mean, sample SD, SEM, and two-sided 95% t interval with df=4",
+  "replicates": 5,
+  "script_sha256": "475f8bf7bd611ba90fa3e27ff83b0435c4504caf5fd39f08cab2e4d941c04f2e",
+  "status": "complete",
+  "temperature_assignment_seed": 904297,
+  "thermostat_seed_bases": [
+    104729,
+    224737,
+    350377,
+    479909,
+    611953
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-09-12",
+  "scope": "mini_100 live operational harness only",
+  "decision": "Stop the multistep8 propagator path for future mini_100 executions; retain one_step training and validation/test evaluation.",
+  "live_harness_changes": {
+    "hpc/experiments/mini_100/propagate.py": "Trains and evaluates only one_step; removes the multistep horizon configuration.",
+    "hpc/experiments/mini_100/check_smoke.py": "Checks only the one_step propagator."
+  },
+  "frozen_snapshot": {
+    "path": "notebooks/results/mini_100/code_v1",
+    "action": "unchanged",
+    "reason": "It is the immutable snapshot used by the completed original jobs."
+  },
+  "jobs": [
+    {"job_id": "4682342.zeus-master", "study": "mini_stiffness", "mode": "uniform", "state": "finished", "exit_status": 0},
+    {"job_id": "4682343.zeus-master", "study": "mini_stiffness", "mode": "balanced", "state": "finished", "exit_status": 0},
+    {"job_id": "4682344.zeus-master", "study": "mini_node", "mode": "uniform", "state": "finished", "exit_status": 0},
+    {"job_id": "4682345.zeus-master", "study": "mini_node", "mode": "balanced", "state": "finished", "exit_status": 0}
+  ],
+  "cancellation": {
+    "attempted": false,
+    "reason": "All four jobs were already terminal and had completed their one_step fits and evaluations; cancellation would have no effect and could not recover or protect useful work."
+  },
+  "artifact_policy": "Existing one_step and multistep8 run directories, logs, recipes, checkpoints, and evaluations are preserved as completed historical artifacts."
+}

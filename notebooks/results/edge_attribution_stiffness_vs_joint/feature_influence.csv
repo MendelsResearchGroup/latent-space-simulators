@@ -1,0 +1,113 @@
+training,source,trajectory_id,frame,feature,influence,influence_fraction
+20 stiffness only,stiffness_original,40,0,reference node positions,0.16280104219913483,0.6165544617884083
+20 stiffness only,stiffness_original,40,0,reference edge directions,0.0214593056589365,0.08126993827665344
+20 stiffness only,stiffness_original,40,0,reference edge lengths,0.01001519151031971,0.03792918600484132
+20 stiffness only,stiffness_original,40,0,spring stiffnesses,0.06977419555187225,0.2642464139300969
+20 stiffness only,stiffness_original,40,0,node displacement,0.0,0.0
+20 stiffness only,stiffness_original,40,0,edge direction change,0.0,0.0
+20 stiffness only,stiffness_original,40,0,edge length change,0.0,0.0
+20 stiffness only,stiffness_original,40,0,relative edge stretch,0.0,0.0
+20 stiffness only,stiffness_original,40,1,reference node positions,0.16203702986240387,0.5994018562655845
+20 stiffness only,stiffness_original,40,1,reference edge directions,0.021404288709163666,0.07917801502046651
+20 stiffness only,stiffness_original,40,1,reference edge lengths,0.010254916734993458,0.037934638347936554
+20 stiffness only,stiffness_original,40,1,spring stiffnesses,0.0694975033402443,0.25708279486077773
+20 stiffness only,stiffness_original,40,1,node displacement,0.002050542738288641,0.007585297784869507
+20 stiffness only,stiffness_original,40,1,edge direction change,2.706950544961728e-05,0.0001001345916329748
+20 stiffness only,stiffness_original,40,1,edge length change,0.002306154929101467,0.008530849686107298
+20 stiffness only,stiffness_original,40,1,relative edge stretch,0.00275370548479259,0.01018641344262488
+20 stiffness only,stiffness_original,40,2,reference node positions,0.16366751492023468,0.5501223718223848
+20 stiffness only,stiffness_original,40,2,reference edge directions,0.021295858547091484,0.07158004579973966
+20 stiffness only,stiffness_original,40,2,reference edge lengths,0.011139258742332458,0.037441488878606724
+20 stiffness only,stiffness_original,40,2,spring stiffnesses,0.06849648803472519,0.23023170161489362
+20 stiffness only,stiffness_original,40,2,node displacement,0.010048957541584969,0.033776747693721486
+20 stiffness only,stiffness_original,40,2,edge direction change,0.00012619320477824658,0.00042416300604497113
+20 stiffness only,stiffness_original,40,2,edge length change,0.010361558757722378,0.034827468861815744
+20 stiffness only,stiffness_original,40,2,relative edge stretch,0.01237527560442686,0.04159601232279307
+20 stiffness only,stiffness_original,40,3,reference node positions,0.17095358669757843,0.5211809414029217
+20 stiffness only,stiffness_original,40,3,reference edge directions,0.021341653540730476,0.06506364270162729
+20 stiffness only,stiffness_original,40,3,reference edge lengths,0.011987453326582909,0.03654578023463349
+20 stiffness only,stiffness_original,40,3,spring stiffnesses,0.06750309467315674,0.20579460840212205
+20 stiffness only,stiffness_original,40,3,node displacement,0.01694849506020546,0.05167035557122811
+20 stiffness only,stiffness_original,40,3,edge direction change,0.00022535183234140277,0.0006870231996614162
+20 stiffness only,stiffness_original,40,3,edge length change,0.017775630578398705,0.05419201818367948
+20 stiffness only,stiffness_original,40,3,relative edge stretch,0.021276703104376793,0.06486563030412651
+20 stiffness only,stiffness_original,40,4,reference node positions,0.18179038166999817,0.5059663471647822
+20 stiffness only,stiffness_original,40,4,reference edge directions,0.02150239236652851,0.05984632861790083
+20 stiffness only,stiffness_original,40,4,reference edge lengths,0.012780153192579746,0.03557023956742743
+20 stiffness only,stiffness_original,40,4,spring stiffnesses,0.06653524935245514,0.185183598622234
+20 stiffness only,stiffness_original,40,4,node displacement,0.02250230312347412,0.06262932070216266
+20 stiffness only,stiffness_original,40,4,edge direction change,0.00032557753729633987,0.0009061605776468931
+20 stiffness only,stiffness_original,40,4,edge length change,0.02447328343987465,0.06811503288265172
+20 stiffness only,stiffness_original,40,4,relative edge stretch,0.029384084045886993,0.08178297186519431
+20 stiffness only,stiffness_original,40,5,reference node positions,0.19456520676612854,0.4991270068252302
+20 stiffness only,stiffness_original,40,5,reference edge directions,0.02175764925777912,0.05581589087838418
+20 stiffness only,stiffness_original,40,5,reference edge lengths,0.013500802218914032,0.034634224244244984
+20 stiffness only,stiffness_original,40,5,spring stiffnesses,0.06558465212583542,0.1682473020399297
+20 stiffness only,stiffness_original,40,5,node displacement,0.026618806645274162,0.06828643983651964
+20 stiffness only,stiffness_original,40,5,edge direction change,0.0004261916037648916,0.0010933287767987895
+20 stiffness only,stiffness_original,40,5,edge length change,0.030547654256224632,0.07836529196491339
+20 stiffness only,stiffness_original,40,5,relative edge stretch,0.03681005537509918,0.09443051543397908
+20 stiffness only,stiffness_original,40,20,reference node positions,0.29833680391311646,0.5124605497232029
+20 stiffness only,stiffness_original,40,20,reference edge directions,0.026143496856093407,0.0449073349142071
+20 stiffness only,stiffness_original,40,20,reference edge lengths,0.01651766523718834,0.028372804483279588
+20 stiffness only,stiffness_original,40,20,spring stiffnesses,0.05369972437620163,0.09224135243410002
+20 stiffness only,stiffness_original,40,20,node displacement,0.043173324316740036,0.07415989318963809
+20 stiffness only,stiffness_original,40,20,edge direction change,0.0023714962881058455,0.004073578169132574
+20 stiffness only,stiffness_original,40,20,edge length change,0.06106172129511833,0.10488723768407171
+20 stiffness only,stiffness_original,40,20,relative edge stretch,0.0808611735701561,0.13889724940236806
+20 stiffness + 20 node,stiffness_original,40,0,reference node positions,0.30452296137809753,0.8440404904278395
+20 stiffness + 20 node,stiffness_original,40,0,reference edge directions,0.022781500592827797,0.06314305117103554
+20 stiffness + 20 node,stiffness_original,40,0,reference edge lengths,0.021180780604481697,0.05870636607547787
+20 stiffness + 20 node,stiffness_original,40,0,spring stiffnesses,0.012306644581258297,0.03411009232564708
+20 stiffness + 20 node,stiffness_original,40,0,node displacement,0.0,0.0
+20 stiffness + 20 node,stiffness_original,40,0,edge direction change,0.0,0.0
+20 stiffness + 20 node,stiffness_original,40,0,edge length change,0.0,0.0
+20 stiffness + 20 node,stiffness_original,40,0,relative edge stretch,0.0,0.0
+20 stiffness + 20 node,stiffness_original,40,1,reference node positions,0.311393678188324,0.8223745924533091
+20 stiffness + 20 node,stiffness_original,40,1,reference edge directions,0.023534726351499557,0.06215399459750598
+20 stiffness + 20 node,stiffness_original,40,1,reference edge lengths,0.021742697805166245,0.05742133992696292
+20 stiffness + 20 node,stiffness_original,40,1,spring stiffnesses,0.012484612874686718,0.03297121664283934
+20 stiffness + 20 node,stiffness_original,40,1,node displacement,0.003975467290729284,0.010499003422438596
+20 stiffness + 20 node,stiffness_original,40,1,edge direction change,8.629355579614639e-05,0.00022789681599214853
+20 stiffness + 20 node,stiffness_original,40,1,edge length change,0.002281890017911792,0.00602635347133983
+20 stiffness + 20 node,stiffness_original,40,1,relative edge stretch,0.0031525050289928913,0.008325602669612084
+20 stiffness + 20 node,stiffness_original,40,2,reference node positions,0.3370485305786133,0.760311699862945
+20 stiffness + 20 node,stiffness_original,40,2,reference edge directions,0.02623126283288002,0.05917229782838934
+20 stiffness + 20 node,stiffness_original,40,2,reference edge lengths,0.023826410993933678,0.053747449998763935
+20 stiffness + 20 node,stiffness_original,40,2,spring stiffnesses,0.013120757415890694,0.029597712107629025
+20 stiffness + 20 node,stiffness_original,40,2,node displacement,0.018305866047739983,0.041294243616274366
+20 stiffness + 20 node,stiffness_original,40,2,edge direction change,0.0004167305596638471,0.0009400578594985299
+20 stiffness + 20 node,stiffness_original,40,2,edge length change,0.010238959453999996,0.02309697257523803
+20 stiffness + 20 node,stiffness_original,40,2,relative edge stretch,0.014114578254520893,0.03183956615126179
+20 stiffness + 20 node,stiffness_original,40,3,reference node positions,0.36251580715179443,0.7181530591541704
+20 stiffness + 20 node,stiffness_original,40,3,reference edge directions,0.028858814388513565,0.05717004728567687
+20 stiffness + 20 node,stiffness_original,40,3,reference edge lengths,0.025938216596841812,0.051384268576806016
+20 stiffness + 20 node,stiffness_original,40,3,spring stiffnesses,0.013724944554269314,0.027189465187217807
+20 stiffness + 20 node,stiffness_original,40,3,node displacement,0.03140930086374283,0.062222626037781545
+20 stiffness + 20 node,stiffness_original,40,3,edge direction change,0.0007077811751514673,0.0014021325584126156
+20 stiffness + 20 node,stiffness_original,40,3,edge length change,0.017509670928120613,0.03468710465512846
+20 stiffness + 20 node,stiffness_original,40,3,relative edge stretch,0.024124523624777794,0.04779129654480632
+20 stiffness + 20 node,stiffness_original,40,4,reference node positions,0.3864994943141937,0.6889589652220321
+20 stiffness + 20 node,stiffness_original,40,4,reference edge directions,0.03133619204163551,0.05585867707618173
+20 stiffness + 20 node,stiffness_original,40,4,reference edge lengths,0.028042884543538094,0.049988155227056935
+20 stiffness + 20 node,stiffness_original,40,4,spring stiffnesses,0.014301388524472713,0.025493098914766484
+20 stiffness + 20 node,stiffness_original,40,4,node displacement,0.042982812970876694,0.07661949053592806
+20 stiffness + 20 node,stiffness_original,40,4,edge direction change,0.0009770645992830396,0.0017416773506303694
+20 stiffness + 20 node,stiffness_original,40,4,edge length change,0.023905102163553238,0.04261230530030159
+20 stiffness + 20 node,stiffness_original,40,4,relative edge stretch,0.032945647835731506,0.05872763037310266
+20 stiffness + 20 node,stiffness_original,40,5,reference node positions,0.4083135426044464,0.6684198612375353
+20 stiffness + 20 node,stiffness_original,40,5,reference edge directions,0.03361381217837334,0.05502668250633774
+20 stiffness + 20 node,stiffness_original,40,5,reference edge lengths,0.030064426362514496,0.04921624585174658
+20 stiffness + 20 node,stiffness_original,40,5,spring stiffnesses,0.014842976815998554,0.024298338086995566
+20 stiffness + 20 node,stiffness_original,40,5,node displacement,0.052829474210739136,0.08648321972363025
+20 stiffness + 20 node,stiffness_original,40,5,edge direction change,0.0011894740164279938,0.0019471998208412972
+20 stiffness + 20 node,stiffness_original,40,5,edge length change,0.02942979708313942,0.04817734125859644
+20 stiffness + 20 node,stiffness_original,40,5,relative edge stretch,0.04058036580681801,0.06643111151431678
+20 stiffness + 20 node,stiffness_original,40,20,reference node positions,0.4413582682609558,0.5886037252566051
+20 stiffness + 20 node,stiffness_original,40,20,reference edge directions,0.039953380823135376,0.053282583516004026
+20 stiffness + 20 node,stiffness_original,40,20,reference edge lengths,0.04067523404955864,0.05424526061693469
+20 stiffness + 20 node,stiffness_original,40,20,spring stiffnesses,0.015685072168707848,0.02091790858659407
+20 stiffness + 20 node,stiffness_original,40,20,node displacement,0.09328143298625946,0.12440188142238062
+20 stiffness + 20 node,stiffness_original,40,20,edge direction change,0.004764033947139978,0.0063534056801164565
+20 stiffness + 20 node,stiffness_original,40,20,edge length change,0.04729850962758064,0.06307818606316161
+20 stiffness + 20 node,stiffness_original,40,20,relative edge stretch,0.06682347506284714,0.08911704885820347

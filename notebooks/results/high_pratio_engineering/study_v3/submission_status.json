@@ -1,0 +1,10 @@
+{
+  "study": "high_pratio_engineering/study_v3",
+  "status": "completed",
+  "prepared_input": "../study_v1/prepared (read-only)",
+  "relationship": "Separate reused-development budget test, predeclared after v2 positions-only ML histories continued improving at 400 steps; v2 partial physics was known at declaration.",
+  "optimization": {"job_id": "4675486.zeus-master", "stage": "optimize", "resources": "select=1:ncpus=4:mem=4gb, place=free:shared, walltime=00:30:00", "stdout": "logs/optimize_4675486.zeus-master.log", "matrix": "8 ML (4 networks x two position radii, 1,200 steps) + 4 geometry controls + 4 originals = 16 frozen finals"},
+  "verification": {"job_id": "4675487.zeus-master", "stage": "verify", "dependency": "afterok:4675486.zeus-master", "resources": "select=1:ncpus=1:mem=2gb, place=free:shared, walltime=00:30:00", "stdout": "logs/verify_4675487.zeus-master.log", "physics_gate": "all 16 frozen graph/edit hashes before endpoint physics"},
+  "snapshots": {"code/run.py": "eaa62747a598d428050a1becd22c6430d36fbc70f508504ef989ece266973d4f", "code/run.pbs": "9e9d11d97ed65e2d039746c7549dc5b0db492a236b5076e38aab8ebd02f9f5ab"},
+  "completion": {"job_id": "4675487.zeus-master", "exit_status": 0, "walltime": "00:03:20", "max_rss_kb": 743640, "final_designs": 16, "valid": 16, "manifest_sha256": "50ba6dab486089f0a7542a24f3520c75daa933a0e2a2c3b6ce2590ac1b39ed4b", "outputs": ["results.csv", "verification_completed.json"]}
+}

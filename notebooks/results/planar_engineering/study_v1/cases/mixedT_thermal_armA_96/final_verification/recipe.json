@@ -1,0 +1,63 @@
+{
+  "job_id": "4677389.zeus-master",
+  "global_manifest_sha256": "86b6908a3f53853535cc9d502e19e42869f3b70a32a82ef812b193b8b517665f",
+  "frozen_manifest_sha256": "b333a79a2645533c00d8974f767cba13d3d5c85bd0ab9584fb9b4c4d39387781",
+  "verification": {
+    "simulation_kind": "new_declared_thermal_protocol_not_dataset_reproduction",
+    "reason": "original mixed-T generator protocol unavailable; user requested continuation; separately specified finite-temperature final test",
+    "temperatures_K": [
+      0.1,
+      1,
+      5,
+      10,
+      20,
+      30
+    ],
+    "thermal_seeds": [
+      786,
+      123,
+      456
+    ],
+    "thermal_seed_definition": "independent initial Maxwell velocity seeds, paired by ID and seed across originals and all edits; deterministic Nose-Hoover thereafter",
+    "model_seed": 786,
+    "units": "metal",
+    "dimension": 2,
+    "boundary": "p p p",
+    "mass_amu": 1000000.0,
+    "bond_style": "harmonic; original or edited positive stiffness and geometry-derived rest lengths; zero angle coefficients",
+    "timestep_ps": 0.001,
+    "initial_minimization": "fixed x, y box relaxation to0 pressure, ftol1e-10 maxiter10000 maxeval100000",
+    "thermostat": "Nose-Hoover chain3",
+    "thermostat_damping_ps": 1.0,
+    "barostat": "Nose-Hoover y0 pressure only; fixed shear; chain3",
+    "barostat_damping_ps": 10.0,
+    "equilibration_steps": 100000,
+    "compression_steps": 299893,
+    "dump_every": 1507,
+    "frames": 200,
+    "scale_x": 0.9700107,
+    "deformation": "constant engineering x compression via fix deform x scale remap x; y remains stress-controlled",
+    "per_simulation_timeout_seconds": 600,
+    "measurement": "all200 physical xu/yu frames, initial frozen-graph q.1 sidegroups, two OLS strain-vs-frame fits with intercept; p=-slope_y/slope_x; >=8finitepairedframes andabsfittedaxialtotalstrain>=1e-3",
+    "expected_designs": 2,
+    "expected_evaluations": 6,
+    "feedback_to_optimizer": false,
+    "manifest_sha256": "63e537a7ab85b99a2c7610d0da554e5f7847158968e662050814d74f1fe4a116",
+    "metric_sha256": "e4b2a6af2ba9927a5ff8547eee58b34457674941b1efea2dcfa714cefba910bd",
+    "verifier_sha256": "4f179da9b57f54d48c24f5a75d59a1106549b0fbaca03c2c782addb41616a9b6",
+    "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+    "elastic_script_sha256": "1548fc0c24b07e2cf3fe23507948bec58ff6971209c60c4b79c214ad8eb0ec6c",
+    "network_export_sha256": "68b9577011023606130591dbdc329db305521fd53e5d2a43c61bada44f41d13c",
+    "documentation": [
+      "https://docs.lammps.org/fix_nh.html",
+      "https://docs.lammps.org/fix_deform.html",
+      "https://docs.lammps.org/fix_enforce2d.html"
+    ],
+    "limitations": "New kinetic/thermostat/barostat choices, not a recovered original data-generation protocol. Thirty frozen development networks, five per temperature; mixed-T training/calibration overlap audit is reported separately. Velocity seeds are within-network thermal replicates, not independent network/model replications. Preserve failures; no final-physics selection.",
+    "protocol_name": "thermal_armA_200frame_ols_v1"
+  },
+  "runner_sha256": "e64f06acdb7f13d60227f5d914710b3c93128adb10e57318050c3cdd422003b8",
+  "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+  "feedback_to_optimizer": false,
+  "started_at": 1788952859.7075255
+}

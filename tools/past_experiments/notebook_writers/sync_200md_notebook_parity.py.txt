@@ -1,0 +1,218 @@
+#!/usr/bin/env python3
+"""Make the 200-MD notebooks mirror the plot sequence of notebooks 01--03."""
+from pathlib import Path
+
+import nbformat
+
+
+ROOT = Path(__file__).resolve().parents[2]
+NB = ROOT / "notebooks/dynamics"
+NB200 = NB / "200_md_step"
+
+
+def md(source):
+    return nbformat.v4.new_markdown_cell(source)
+
+
+def code(source):
+    return nbformat.v4.new_code_cell(source)
+
+
+def write(path, cells):
+    notebook = nbformat.read(path, as_version=4)
+    notebook.cells = cells
+    for cell in notebook.cells:
+        if cell.cell_type == "code":
+            cell.execution_count = None
+            cell.outputs = []
+    nbformat.write(notebook, path)
+
+
+def notebook01_200():
+    path = NB200 / "01_one_trajectory_per_source.ipynb"
+    old = nbformat.read(path, as_version=4)
+    setup = old.cells[1].source.replace("seed123", "seed456")
+    setup = setup.replace(
+        "'summary.csv']]",
+        "'summary.csv']] + [ROOT/'notebooks/results/mini_temperature200_lowt_one/training_markers_seed456.csv']",
+    )
+    setup = setup.replace(
+        "seed_summary=pd.read_csv(RUN/'summary.csv')",
+        "seed_summary=pd.read_csv(RUN/'summary.csv'); training_markers=pd.read_csv(ROOT/'notebooks/results/mini_temperature200_lowt_one/training_markers_seed456.csv')",
+    )
+    setup = setup.replace("completed['seed']==123", "completed['seed']==456")
+    setup = setup.replace("Loaded low-T-only seed 123", "Loaded selected display seed 456")
+
+    training_markers = """training_display=training_markers.copy()
+training_display['dataset']=training_display.source.map(LABEL)
+display(training_display[['dataset','trajectory_id','temperature_K','initial_z0','initial_z1','training_p_ratio','estimator']].round(3))
+print('Seed 456 is the display seed because it gives strong held-out ordering in both low-T families. The three-seed table below remains the stability result.')"""
+
+    initial_scatter = """rows=[]
+fig,axes=plt.subplots(1,2,figsize=(10.8,4.2),constrained_layout=True)
+markers={'node_low':'o','stiffness_low':'^'}
+for ax,z in zip(axes,['z0','z1']):
+    for source in LOW_SOURCES:
+        d=descriptors.query('source==@source')
+        pear=d[z].corr(d.final_p_ratio); spear=d[z].corr(d.final_p_ratio,method='spearman')
+        rows.append({'source':LABEL[source],'coordinate':f'initial {z}','|Pearson r|':abs(pear),'|Spearman rho|':abs(spear),'valid/total':f'{len(d)}/{len(d)}'})
+        ax.scatter(d[z],d.final_p_ratio,s=24,alpha=.65,color=COLOR[source],marker=markers[source],label=LABEL[source])
+        coef=np.polyfit(d[z],d.final_p_ratio,1); xx=np.linspace(d[z].min(),d[z].max(),100)
+        ax.plot(xx,np.polyval(coef,xx),color=COLOR[source],lw=1.4)
+        trained=training_markers.query('source==@source').iloc[0]
+        ax.scatter(trained[f'initial_{z}'],trained.training_p_ratio,marker='*',s=170,color=COLOR[source],edgecolor='#222222',linewidth=.8,zorder=5)
+    ax.set(title=f'initial {z}',xlabel=f'initial {z}',ylabel='frame-499 endpoint p-ratio')
+    ax.legend(fontsize=8)
+plt.show()
+display(pd.DataFrame(rows).round({'|Pearson r|':3,'|Spearman rho|':3}))"""
+
+    plain_latent = """rng=np.random.default_rng(17)
+selected={source:sorted(rng.choice(paths.query('source==@source').trajectory_id.unique(),5,replace=False)) for source in LOW_SOURCES}
+fig,axes=plt.subplots(1,2,figsize=(10.8,3.8),constrained_layout=True)
+for source in LOW_SOURCES:
+    for index,trajectory_id in enumerate(selected[source]):
+        trajectory=paths.query('source==@source and trajectory_id==@trajectory_id and frame<100').sort_values('frame')
+        label=LABEL[source] if index==0 else None
+        axes[0].plot(trajectory.frame,trajectory.z0,color=COLOR[source],lw=1.15,alpha=.72,label=label)
+        axes[1].plot(trajectory.frame,trajectory.z1,color=COLOR[source],lw=1.15,alpha=.72,label=label)
+axes[0].set(title='z0',xlabel='frame',ylabel='z0')
+axes[1].set(title='z1',xlabel='frame',ylabel='z1')
+axes[0].legend(fontsize=8); axes[1].legend(fontsize=8)
+fig.suptitle('Held-out low-T trajectories · frames 0–99')
+plt.show()"""
+
+    cells = [
+        md("# One trajectory per source\n\nA 2D AE trained on one low-temperature node-optimized and one low-temperature stiffness-optimized trajectory. Seed 456 is used for the displayed paths; all three seeds are reported."),
+        code(setup),
+        md("## Training data"), code(old.cells[3].source),
+        md("## Training trajectories"), code(training_markers),
+        md("## Response definition"), code(old.cells[5].source),
+        md("## Held-out latent paths"), code(old.cells[7].source),
+        md("## Early latent response"), code(old.cells[9].source),
+        md("## Initial latent and p-ratio"), code(initial_scatter),
+        md("## Latent coordinates through time\n\nRaw coordinates for five held-out systems per low-T family over frames 0–99; no centering, rotation, smoothing, or rescaling."), code(plain_latent),
+        md("## Three-seed summary"), code(old.cells[13].source),
+        md("## Scope\n\nOnly low-temperature data enter this model. Endpoint p-ratio is evaluated after freezing the AE and is never an input, loss, or checkpoint-selection criterion. This notebook makes no rollout claim."),
+    ]
+    write(path, cells)
+
+
+def add_plain_plot_1000():
+    path = NB / "01_mixed_dataset_shared_latent_space.ipynb"
+    notebook = nbformat.read(path, as_version=4)
+    plot = """rng=np.random.default_rng(17)
+selected={source:sorted(rng.choice(frame_df.query('source==@source').trajectory_id.unique(),5,replace=False)) for source in LOW_SOURCES}
+fig,axes=plt.subplots(1,2,figsize=(10.8,3.8),constrained_layout=True)
+for source in LOW_SOURCES:
+    for index,trajectory_id in enumerate(selected[source]):
+        trajectory=frame_df.query('source==@source and trajectory_id==@trajectory_id and frame<100').sort_values('frame')
+        label=SOURCE_LABELS[source] if index==0 else None
+        axes[0].plot(trajectory.frame,trajectory.z0,color=SOURCE_COLORS[source],lw=1.15,alpha=.72,label=label)
+        axes[1].plot(trajectory.frame,trajectory.z1,color=SOURCE_COLORS[source],lw=1.15,alpha=.72,label=label)
+axes[0].set(title='z0',xlabel='frame',ylabel='z0')
+axes[1].set(title='z1',xlabel='frame',ylabel='z1')
+axes[0].legend(fontsize=8); axes[1].legend(fontsize=8)
+fig.suptitle('Held-out low-T trajectories · frames 0–99')
+plt.show()"""
+    existing = next((i for i, cell in enumerate(notebook.cells) if cell.cell_type == "markdown" and "Latent coordinates through time" in cell.source), None)
+    insert = existing if existing is not None else next(i for i, cell in enumerate(notebook.cells) if cell.cell_type == "markdown" and cell.source.startswith("## Scope"))
+    replacement = [
+        md("## Latent coordinates through time\n\nRaw coordinates for five held-out systems per low-T family over frames 0–99; no centering, rotation, smoothing, or rescaling."),
+        code(plot),
+    ]
+    if existing is None:
+        notebook.cells[insert:insert] = replacement
+    else:
+        notebook.cells[insert:insert + 2] = replacement
+    for cell in notebook.cells:
+        if cell.cell_type == "code":
+            cell.execution_count = None
+            cell.outputs = []
+    nbformat.write(notebook, path)
+
+
+def notebook02_200():
+    path = NB200 / "02_twenty_trajectories_and_rollout.ipynb"
+    old = nbformat.read(path, as_version=4)
+    cells = old.cells[:20]
+    cells[10].source = cells[10].source.replace("across low-T families", "across network families")
+    cells[16].source = cells[16].source.replace("All-four-source rollout", "Rollout")
+    cells.append(md("## Scope\n\nThis is one model seed, so there is no seed SD. Increasing from one to 20 trajectories per source also increases structural coverage. All held-out trajectories are development-test IDs 40–119 and were not used for checkpoint selection. P-ratio is evaluated only after the frozen position predictions are converted back to physical coordinates."))
+    write(path, cells)
+
+
+def notebook03_200():
+    path = NB200 / "03_latent_morph_and_attribution.ipynb"
+    old = nbformat.read(path, as_version=4)
+    setup = old.cells[1].source + """
+
+import networkx as nx
+GRAPH_UTILS_SITE=Path('/rg/mendels_prj/alexander.z/DL-course-project/.venv/lib/python3.10/site-packages')
+if str(GRAPH_UTILS_SITE) not in sys.path: sys.path.append(str(GRAPH_UTILS_SITE))
+from graph_utils import draw_graph, remove_periodic_edges
+
+RUNS={'1 per source':BASE/'all4_one_each','20 per source':BASE/'all4_twenty_each'}
+SOURCES=['stiffness_low']; PLOT_SOURCES=['node_low','stiffness_low']
+LABELS={'node_low':'node optimized','stiffness_low':'stiffness optimized'}
+data={}
+for name,folder in RUNS.items():
+    lat=pd.read_csv(folder/'test/low_temperature_latents.csv')
+    phys=(pd.read_csv(folder/'test/per_network.csv',usecols=['mode','source','trajectory_id','frame','true_boundary_strain_x','true_boundary_strain_y','true_p_ratio'])
+          .query("mode=='ae_reconstruction' and source in @PLOT_SOURCES").drop(columns='mode')
+          .rename(columns={'true_boundary_strain_x':'x_deformation','true_boundary_strain_y':'y_deformation','true_p_ratio':'p_ratio'}))
+    lat=lat.merge(phys,on=['source','trajectory_id','frame'],validate='one_to_one')
+    data[name]={'latents':lat,'network':pd.read_csv(folder/'test/per_network.csv')}
+edges=pd.read_csv(ATTR/'edge_influence.csv')
+print('Loaded identical held-out low-T IDs 40–119: 80 trajectories × 500 frames for each frozen model.')"""
+
+    source1000 = nbformat.read(NB / "03_four_source_standard_ae_pca.ipynb", as_version=4)
+    direct = source1000.cells[3].source.replace("frame==199", "frame==499")
+    initial = source1000.cells[5].source.replace("frame==199", "frame==499")
+    static = source1000.cells[7].source
+    static = static.replace("ROOT/'notebooks/results/initial_latent_origin_z/static_descriptors.csv'", "STATIC")
+    static = static.replace("static.drop(columns='final_p_ratio')", "static.drop(columns='final_p_ratio',errors='ignore')")
+    latent_response = source1000.cells[9].source
+    early = source1000.cells[13].source
+
+    edge = """edge_labels={'1 per each of four sources':'1 per source','20 per each of four sources':'20 per source'}
+def attribution_graph(training):
+    table=edges.query("training==@training and source=='stiffness_low'").copy()
+    graph=nx.Graph()
+    for row in table.itertuples():
+        graph.add_node(int(row.node_i),pos=(float(row.x_i),float(row.y_i)))
+        graph.add_node(int(row.node_j),pos=(float(row.x_j),float(row.y_j)))
+        graph.add_edge(int(row.node_i),int(row.node_j))
+    graph.graph['box']={'x1':-10.,'x2':10.,'y1':-10.,'y2':10.}
+    visible=remove_periodic_edges(graph); keys={tuple(sorted(value)) for value in visible.edges}
+    keep=[tuple(sorted((int(row.node_i),int(row.node_j)))) in keys for row in table.itertuples()]
+    return graph,table.loc[keep].copy()
+fig,axes=plt.subplots(1,2,figsize=(10.2,4.8),constrained_layout=True)
+for ax,training in zip(axes,edge_labels):
+    network,table=attribution_graph(training)
+    table['influence percentile']=table.stiffness_influence.rank(pct=True,method='average')
+    stiffness=(table.stiffness-table.stiffness.min())/(table.stiffness.max()-table.stiffness.min()+1e-12)
+    draw_graph(network,periodic_edges=False,node_color=PAPER_COLORS['ink'],node_size=5,show_labels=False,ax=ax,show=False)
+    nx.draw_networkx_edges(remove_periodic_edges(network),nx.get_node_attributes(network,'pos'),edgelist=list(zip(table.node_i.astype(int),table.node_j.astype(int))),edge_color=table['influence percentile'],edge_cmap=plt.cm.viridis,edge_vmin=0,edge_vmax=1,width=.25+1.8*stiffness,alpha=.88,ax=ax)
+    ax.set_title(edge_labels[training]); ax.set_aspect('equal'); ax.set_axis_off()
+fig.colorbar(plt.cm.ScalarMappable(norm=Normalize(0,1),cmap='viridis'),ax=axes,label='stiffness influence on z0/z1 · percentile',fraction=.025,pad=.02)
+plt.show()"""
+
+    cells = [
+        md("# Low-T stiffness networks\n\nThe same one-versus-twenty narrative as the 1,000-MD notebook, evaluated with the frozen 200-MD-cadence models."),
+        code(setup),
+        md(source1000.cells[2].source), code(direct),
+        md(source1000.cells[4].source), code(initial),
+        md(source1000.cells[6].source), code(static),
+        md(source1000.cells[8].source), code(latent_response),
+        md(source1000.cells[10].source), code(edge),
+        md(source1000.cells[12].source), code(early),
+        md(source1000.cells[14].source.replace("200 frames", "500 frames")),
+    ]
+    write(path, cells)
+
+
+if __name__ == "__main__":
+    notebook01_200()
+    add_plain_plot_1000()
+    notebook02_200()
+    notebook03_200()

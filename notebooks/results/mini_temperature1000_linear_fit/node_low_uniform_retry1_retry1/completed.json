@@ -1,0 +1,36 @@
+{
+  "status": "completed",
+  "arm": "node_low_uniform_retry1",
+  "tag": "retry1",
+  "smoke": false,
+  "checkpoint_sha256_before": {
+    "ae": "f22ebf56c232e269c3466f38fa40706a045499b0601baff69476ef99413d92bd",
+    "propagator": "0547d98ceb07aec5235ea671c81358a6f9f8e4d172095a0c41062ad159b30e44"
+  },
+  "checkpoint_sha256_after": {
+    "ae": "f22ebf56c232e269c3466f38fa40706a045499b0601baff69476ef99413d92bd",
+    "propagator": "0547d98ceb07aec5235ea671c81358a6f9f8e4d172095a0c41062ad159b30e44"
+  },
+  "cached_endpoint_per_network_sha256": {
+    "node_mixed": "46ac3f8ea3f8752c1418abb746bfa4506eee9ec7394884bef4bee67345e543f0"
+  },
+  "data_manifest_sha256": "fcf9ca1a95e81aaa8a13ab098d91d611163cbdf10df74b2ac0d8ea06de4bebb2",
+  "endpoint_frame199_parity": [
+    {
+      "source": "node_mixed",
+      "mode": "ae_reconstruction",
+      "rows": 80,
+      "max_abs_true_p_error": 6.201480995393638e-09,
+      "max_abs_pred_p_error": 2.213928207428495e-09
+    },
+    {
+      "source": "node_mixed",
+      "mode": "autonomous_delta_mlp",
+      "rows": 80,
+      "max_abs_true_p_error": 6.201480995393638e-09,
+      "max_abs_pred_p_error": 5.961881432980931e-09
+    }
+  ],
+  "method": "normalized_boundary_strain OLS frames30..199; p=-slope; all170 finite pairs; fixed physical frame0",
+  "postfit_only": true
+}

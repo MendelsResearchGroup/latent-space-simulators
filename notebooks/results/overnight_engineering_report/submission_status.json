@@ -1,0 +1,5 @@
+{
+  "report_job": "4676102.zeus-master",
+  "dependency": "afterany:4676049.zeus-master:4676093.zeus-master",
+  "resources": "1CPU2GB20min mendels_q/free:shared"
+}

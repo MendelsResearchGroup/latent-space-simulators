@@ -1,0 +1,18 @@
+{
+  "recorded_after_submission": true,
+  "created_at": "2026-09-08T13:46:00+00:00",
+  "scope": "Retrospective exact matrix record; jobs were already submitted before this file was created.",
+  "variants": ["mp2_r16_d2", "mp2_r16_d4"],
+  "seeds": [3456456, 123, 456, 786, 2026],
+  "strategies": ["one_step", "multistep8"],
+  "runtime_snapshot": "notebooks/results/compact_lj_response_rollout/code_rollout_v4",
+  "runtime_snapshot_hashes": "notebooks/results/compact_lj_response_rollout/code_rollout_v4/hashes.json",
+  "frozen_lss_source": "notebooks/results/compact_lj_reconstruction/code_v2",
+  "d4_ae_recipe_pattern": "notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s{seed}_code_v2/recipe.json",
+  "d2_ae_recipe_pattern": "notebooks/results/compact_lj_mp2d/mp2_r16_d2_s{seed}_code_v4/recipe.json",
+  "d2_checkpoint_hash_status_at_submission": "pending: each runtime checks its completed AE hash, state dict, and normalizers after afterok.",
+  "d2_afterok": {"3456456": "4674650.zeus-master", "123": "4674651.zeus-master", "456": "4674652.zeus-master", "786": "4674653.zeus-master", "2026": "4674654.zeus-master"},
+  "full_job_ledger": "notebooks/results/compact_lj_response_rollout/jobs.jsonl",
+  "selection": "validation latent delta loss only; propagator checkpoint metric explicitly null",
+  "evaluation": "post-fit physical-coordinate reconstruction and frame-0 autonomous rollout at 25,50,100,150,199"
+}

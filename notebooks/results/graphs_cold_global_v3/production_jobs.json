@@ -1,0 +1,11 @@
+{
+  "base_v2_runner_sha256": "efec78ad5f69688579bf81e401d866b3a9c56a3005c7027c8925af4dedd27fce",
+  "jobs": {
+    "anchored_contact": "4690061.zeus-master",
+    "anchored_contact_recurrent": "4690062.zeus-master"
+  },
+  "kind": "production",
+  "protocol_sha256": "fcaf37abff18af39c998431e49047319541eded1ad86ce8ca1eebab22ef973b5",
+  "runner_sha256": "52d0e0b37f2dedcfb82062c3131536cad6865235fa89a61f5668ebbeaa01754a",
+  "split_manifest_sha256": "1a0e8ffb6e8a5aef9339009acca7a394cabada3c70ee5ba0e667268e0c765541"
+}

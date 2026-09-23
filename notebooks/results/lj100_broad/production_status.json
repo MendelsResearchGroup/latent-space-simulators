@@ -1,0 +1,9 @@
+{
+  "snapshot": "2026-09-09T19:42:16Z",
+  "qstat_batch": "4678654-4678693",
+  "cache_jobs": {"4678654": "running", "4678655": "running", "4678656": "running"},
+  "cache_resources": "8 CPUs, 16 GB, free:shared",
+  "fit_jobs": {"count": 36, "ids": "4678657-4678692", "state": "held", "dependency": "afterok on matching seed cache", "resources": "4 CPUs, 4 GB, free:shared"},
+  "collector": {"job_id": "4678693", "state": "held", "dependency": "afterany on all 36 fit jobs", "resources": "2 CPUs, 4 GB, free:shared"},
+  "verification": "All 40 jobs appeared in one qstat -f batch; cache 123/456/786 dependencies each cover 12 fits."
+}

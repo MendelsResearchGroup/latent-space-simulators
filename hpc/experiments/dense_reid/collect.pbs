@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#PBS -N dense_collect
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=1:mem=1gb
+#PBS -l place=free:shared
+#PBS -l walltime=00:10:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+exec >"notebooks/results/dense_reid/logs/${PBS_JOBID}.log" 2>&1
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "$LSS_COLLECTOR"

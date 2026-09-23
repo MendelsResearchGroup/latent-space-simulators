@@ -1,0 +1,144 @@
+{
+  "reid": {
+    "93": {
+      "original": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_93/original.pt",
+        "physical_p_ratio": 0.3819885924285668,
+        "sha256": "9c6e45074c3af0e6ffd6290b907e545b0547d60de11f6769b4aed6aa26200e60"
+      },
+      "optimized": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_93/joint_r4_b0.25.pt",
+        "physical_p_ratio": 0.0340600111222524,
+        "sha256": "3b9e1ccb273a04fb3eb267d7c36c6ebc003057e11ff78c22b88d0d3ddc75f6d1"
+      }
+    },
+    "84": {
+      "original": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_84/original.pt",
+        "physical_p_ratio": 0.1453638548993366,
+        "sha256": "acdac5a036f2760aafa6685d942d559aabb70f4947befb44255158007996594d"
+      },
+      "optimized": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_84/joint_r4_b0.25.pt",
+        "physical_p_ratio": -0.1890635266367446,
+        "sha256": "0bda17b42f9e4a6928ce7b3f3a305fb5eb73bb815cae6dfadcee4722c8386d91"
+      }
+    },
+    "96": {
+      "original": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_96/original.pt",
+        "physical_p_ratio": 0.0716396257364755,
+        "sha256": "3fcbdaf0dd9bb3c581121cf6923f9d923b08fd85c1b0bb637a2a2f6370d83c93"
+      },
+      "optimized": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_96/joint_r4_b0.25.pt",
+        "physical_p_ratio": -0.139818843595971,
+        "sha256": "12671cbf9fc4a91eefb40fff1adedf11065c3145449d0444134bb2896dc71467"
+      }
+    },
+    "97": {
+      "original": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_97/original.pt",
+        "physical_p_ratio": 0.1807480913531492,
+        "sha256": "90865a5471438de164a5c9f91a423e86a40b88b159859a4faf88efa533c5942e"
+      },
+      "optimized": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_97/joint_r4_b0.25.pt",
+        "physical_p_ratio": -0.1268600793350096,
+        "sha256": "f395a9d8d86555960476191ae93abb57c02604affd942234383841d42c760153"
+      }
+    },
+    "52": {
+      "original": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_52/original.pt",
+        "physical_p_ratio": 0.2781013473352418,
+        "sha256": "a1d1e7594f2d3a8efc06133b5bfbe56c1871c3704756369b59fad54659b52762"
+      },
+      "optimized": {
+        "physicalpath": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_52/joint_r4_b0.25.pt",
+        "physical_p_ratio": -0.0006710597086095,
+        "sha256": "1f151581864b28cd84d3b214a76aadc8688670ce67f045a29ed9f7815e1dd4a7"
+      }
+    }
+  },
+  "render": {
+    "93": {
+      "source": "reid",
+      "index": 93,
+      "title": "Reid 93: retrospective development recipe",
+      "original_p": 0.3819885924285668,
+      "optimized_p": 0.0340600111222524,
+      "filename": "reid_93.gif",
+      "original_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_93/original.pt",
+      "optimized_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_93/joint_r4_b0.25.pt"
+    },
+    "84": {
+      "source": "reid",
+      "index": 84,
+      "title": "Reid 84: retrospective development recipe",
+      "original_p": 0.1453638548993366,
+      "optimized_p": -0.1890635266367446,
+      "filename": "reid_84.gif",
+      "original_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_84/original.pt",
+      "optimized_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_84/joint_r4_b0.25.pt"
+    },
+    "96": {
+      "source": "reid",
+      "index": 96,
+      "title": "Reid 96: retrospective development recipe",
+      "original_p": 0.0716396257364755,
+      "optimized_p": -0.139818843595971,
+      "filename": "reid_96.gif",
+      "original_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_96/original.pt",
+      "optimized_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_96/joint_r4_b0.25.pt"
+    },
+    "97": {
+      "source": "reid",
+      "index": 97,
+      "title": "Reid 97: retrospective development recipe",
+      "original_p": 0.1807480913531492,
+      "optimized_p": -0.1268600793350096,
+      "filename": "reid_97.gif",
+      "original_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_97/original.pt",
+      "optimized_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_97/joint_r4_b0.25.pt"
+    },
+    "52": {
+      "source": "reid",
+      "index": 52,
+      "title": "Reid 52: retrospective development recipe",
+      "original_p": 0.2781013473352418,
+      "optimized_p": -0.0006710597086095,
+      "filename": "reid_52.gif",
+      "original_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_52/original.pt",
+      "optimized_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_52/joint_r4_b0.25.pt"
+    },
+    "thermal_234": {
+      "source": "depablo_mixed_temp",
+      "index": 234,
+      "temperature": 20.0,
+      "thermal_seed": 786,
+      "title": "T=20, seed 786 (actual replay)",
+      "original_p": 0.1199562758709989,
+      "optimized_p": -0.1505157963509981,
+      "filename": "thermal_234.gif",
+      "original_trajectory": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id234/234_original_s786/trajectory.npz",
+      "optimized_trajectory": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id234/234_joint_A_r4_b0.25_s786/trajectory.npz",
+      "original_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/depablo_mixed_temp_234/original.pt",
+      "optimized_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/depablo_mixed_temp_234/joint_A_r4_b0.25.pt"
+    },
+    "thermal_262": {
+      "source": "depablo_mixed_temp",
+      "index": 262,
+      "temperature": 30.0,
+      "thermal_seed": 786,
+      "title": "T=30, seed 786 (actual replay)",
+      "original_p": 0.1019793923687989,
+      "optimized_p": -0.1600349337265163,
+      "filename": "thermal_262.gif",
+      "original_trajectory": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id262/262_original_s786/trajectory.npz",
+      "optimized_trajectory": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id262/262_joint_A_r4_b0.25_s786/trajectory.npz",
+      "original_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/depablo_mixed_temp_262/original.pt",
+      "optimized_graph": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/depablo_mixed_temp_262/joint_A_r4_b0.25.pt"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "study": "latent_count_morph",
+  "status": "complete_24_of_24_collected",
+  "counts_per_source": [1, 2, 4, 8, 10, 12, 14, 20],
+  "model_seeds": [123, 456, 786],
+  "matrix_cells": 24,
+  "training_ids": "nested IDs 0..count-1 per each of four sources",
+  "validation_ids": {
+    "node_low": "20..27",
+    "node_mixed": "20..27",
+    "stiffness_low": "20..26",
+    "stiffness_mixed": "20..26"
+  },
+  "heldout_development_ids": "40..119 per source",
+  "gate": {
+    "job_id": "4685881.zeus-master",
+    "cell": {"count": 1, "seed": 123},
+    "status": "completed",
+    "exit_status": 0,
+    "walltime": "00:02:17",
+    "peak_mem_kb": 3201468,
+    "reused_checkpoint": true
+  },
+  "production_array": {
+    "job_id": "4685887[].zeus-master",
+    "indices": "1-23",
+    "status_at_submission_check": "23/23 running",
+    "later_audit": "9/24 matrix cells completed; 15 tasks were still or formerly active after the parent-only qstat query returned Unknown Job Id"
+  },
+  "clean_rerun_2026-09-14": {
+    "completed_cells_preserved": "indices 0,1,2,7,8,10,16,17,18 (9/24)",
+    "missing_indices": "3-6,9,11-15,19-23 (15/24)",
+    "original_partial_artifacts": "notebooks/results/latent_count_morph/partial_4685887",
+    "overlap_window_artifacts": "notebooks/results/latent_count_morph/overlap_window_4685947_4685950",
+    "scheduler_correction": "parent-only qstat was misleading for array state; old duplicate writers and first brief rerun were cancelled, all partial outputs preserved, and a final clean rerun began only after no relevant old/new task remained active",
+    "cancelled_old_duplicate_tasks": "4685887 indices 4,5,9,11-15,19-21,23; other missing indices were already X",
+    "cancelled_overlap_window_jobs": ["4685947[19-23]", "4685948[11-15]", "4685949", "4685950[3-6]"],
+    "final_jobs": {
+      "4685958[].zeus-master": "indices 3-6",
+      "4685957.zeus-master": "index 9 via LSS_MATRIX_INDEX",
+      "4685956[].zeus-master": "indices 11-15",
+      "4685959[].zeus-master": "indices 19-23"
+    },
+    "status_at_submission_check": "15/15 running",
+    "final_status": "15/15 completed; full matrix 24/24",
+    "collector_gate": "accepted only completed.json status=completed with matching count, seed, runner and data hashes",
+    "collector_output": "notebooks/results/latent_count_morph/collected",
+    "collector_sha256": "bfaffd69398f31bb0e138ec45a45e34aba31c03d9cae96c57f151dc59b085421"
+  },
+  "submission_failure": {
+    "command": "qsub -J 0-0",
+    "reason": "PBS rejected single-element array syntax before accepting a job"
+  },
+  "resources": {"queue": "mendels_q", "ncpus": 8, "mem": "16gb", "place": "free:shared", "walltime": "24:00:00"},
+  "model": "2D message_passing_reference16, hidden96, tokens32",
+  "objective": "coordinate reconstruction only; one warmup epoch plus up to 60 uniform all-frame epochs",
+  "selection": "same 30-trajectory coordinate validation; no p-ratio or strain",
+  "alignment": "centered Frobenius-normalized orthogonal Procrustes on identical heldout initial latents; response blind",
+  "runner_sha256": "f0746dc2da6e315a0dc9e99d93f9833acaf754be7e7571d39d489ce23eb332e0",
+  "matrix_sha256": "7e757a706d2efd9b474203b9a4faa252d1d977efe46a53c2a54e897f48fe30a2",
+  "pbs_sha256": "f082d230923161874fc35869abfd137d14c7f1ac8c8e3b34e15edb1b491d0650",
+  "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a"
+}

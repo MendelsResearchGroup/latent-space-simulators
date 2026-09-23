@@ -1,0 +1,18 @@
+{
+  "script_sha256": "b65269780dccbe1f6ac957816987c0480716dcf77e28fc738c05119f8efe3861",
+  "sources": ["node_low", "stiffness_low"],
+  "heldout_development_ids_per_source": [40, 119],
+  "frames": [1, 99],
+  "definition": "RMS Euclidean node displacement from frame0, minimum-image corrected with current box lengths, divided by initial box width; relative pair gap = abs(a-b)/mean(a,b).",
+  "crossing_definition": "Strict z0 sign change between consecutive saved frames; linearly interpolate both RMS traces to the crossing time.",
+  "crossings_valid": 3237,
+  "crossings_total": 3237,
+  "same_frame_cross_source_pairs": 633600,
+  "crossing_relative_rms_gap_median": 0.07269328825076316,
+  "crossing_relative_rms_gap_10_90": [0.013182014632813766, 0.18125531130807276],
+  "nearest_latent_relative_rms_gap_median": 0.06129904383142486,
+  "all_same_frame_relative_rms_gap_median": 0.05622462465792575,
+  "median_frame_spearman_latent_distance_vs_relative_rms_gap": -0.0920937537284852,
+  "final_test_used": false,
+  "training_performed": false
+}

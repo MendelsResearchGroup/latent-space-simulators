@@ -1,0 +1,84 @@
+{
+  "submitted_date": "2026-09-22",
+  "queue": "mendels_q",
+  "placement": "free:shared",
+  "resources": {"ncpus": 8, "memory_gb": 16, "walltime": "02:00:00"},
+  "code_snapshot": "notebooks/results/lj_matched_scope/code_v2",
+  "manifest_sha256": "a029636ecaaf35bc74e2b98fabc3cc83a291fb8f69d5af7d7c4a5435deb977ac",
+  "failed_launch": {
+    "cause": "code_v1 PBS used the repository .venv, which lacks torch; both smokes exited before importing experiment code",
+    "smokes": ["4697018.zeus-master", "4697019.zeus-master"],
+    "dependent_production": ["4697021.zeus-master", "4697022.zeus-master", "4697023.zeus-master", "4697024.zeus-master", "4697025.zeus-master", "4697026.zeus-master"]
+  },
+  "smoke": {
+    "ljonly4_seed123": "4697032.zeus-master",
+    "shared4_seed123": "4697031.zeus-master"
+  },
+  "production_dependency": "afterok:4697031.zeus-master:4697032.zeus-master",
+  "production": {
+    "ljonly4_seed123": "4697035.zeus-master",
+    "ljonly4_seed456": "4697034.zeus-master",
+    "ljonly4_seed786": "4697037.zeus-master",
+    "shared4_seed123": "4697038.zeus-master",
+    "shared4_seed456": "4697039.zeus-master",
+    "shared4_seed786": "4697036.zeus-master"
+  },
+  "latent_code_snapshot": "notebooks/results/lj_matched_scope/code_v3",
+  "latent_manifest_sha256": "6d4824fe63b41524a1e4ab7b62977667b4b723789c35a06b53ae8d8bdbc04b36",
+  "latent_smoke": {
+    "ljonly4_seed123": "4697045.zeus-master",
+    "shared4_seed123": "4697046.zeus-master"
+  },
+  "latent_full": {
+    "ljonly4_seed123": "4697050.zeus-master",
+    "ljonly4_seed456": "4697051.zeus-master",
+    "ljonly4_seed786": "4697049.zeus-master",
+    "shared4_seed123": "4697048.zeus-master",
+    "shared4_seed456": "4697052.zeus-master",
+    "shared4_seed786": "4697053.zeus-master"
+  },
+  "gnn_smoke": {
+    "ljonly4_seed123": "4697055.zeus-master",
+    "shared4_seed123": "4697054.zeus-master"
+  },
+  "gnn_full": {
+    "ljonly4_seed123": "4697058.zeus-master",
+    "ljonly4_seed456": "4697057.zeus-master",
+    "ljonly4_seed786": "4697059.zeus-master",
+    "shared4_seed123": "4697056.zeus-master",
+    "shared4_seed456": "4697061.zeus-master",
+    "shared4_seed786": "4697060.zeus-master"
+  },
+  "failed_latent_code_v3": {
+    "job": "4697045.zeus-master",
+    "scope": "ljonly4_seed123_smoke",
+    "cause": "the inherited propagator assumed 18-wide tokens (16 reference + 2 position), while the matched attention AE emits 130-wide tokens (128 + 2); failure occurred before fitting",
+    "invalidated_or_dependency_finished": ["4697046.zeus-master", "4697048.zeus-master", "4697049.zeus-master", "4697050.zeus-master", "4697051.zeus-master", "4697052.zeus-master", "4697053.zeus-master", "4697054.zeus-master", "4697055.zeus-master", "4697056.zeus-master", "4697057.zeus-master", "4697058.zeus-master", "4697059.zeus-master", "4697060.zeus-master", "4697061.zeus-master"]
+  },
+  "active_code_snapshot": "notebooks/results/lj_matched_scope/code_v4",
+  "active_manifest_sha256": "7d3a5f04c244983877a06b7fcdc79cb48ccda5e419862af8e2d21318e948842a",
+  "active_latent_smoke": {
+    "ljonly4_seed123": "4697075.zeus-master",
+    "shared4_seed123": "4697074.zeus-master"
+  },
+  "active_latent_full": {
+    "ljonly4_seed123": "4697082.zeus-master",
+    "ljonly4_seed456": "4697076.zeus-master",
+    "ljonly4_seed786": "4697079.zeus-master",
+    "shared4_seed123": "4697080.zeus-master",
+    "shared4_seed456": "4697077.zeus-master",
+    "shared4_seed786": "4697078.zeus-master"
+  },
+  "active_gnn_smoke": {
+    "ljonly4_seed123": "4697087.zeus-master",
+    "shared4_seed123": "4697086.zeus-master"
+  },
+  "active_gnn_full": {
+    "ljonly4_seed123": "4697088.zeus-master",
+    "ljonly4_seed456": "4697093.zeus-master",
+    "ljonly4_seed786": "4697089.zeus-master",
+    "shared4_seed123": "4697091.zeus-master",
+    "shared4_seed456": "4697090.zeus-master",
+    "shared4_seed786": "4697092.zeus-master"
+  }
+}

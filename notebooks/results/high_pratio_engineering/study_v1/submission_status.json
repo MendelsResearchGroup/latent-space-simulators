@@ -1,0 +1,11 @@
+{
+  "study": "high_pratio_engineering/study_v1",
+  "status": "completed",
+  "selected_development_ids": {"reid": [65, 93], "depablo_low_temp": [50, 13]},
+  "preparation": {"job_id": "4675403.zeus-master", "stage": "prepare", "resources": "select=1:ncpus=4:mem=2gb, place=free:shared, walltime=01:00:00", "stdout": "logs/prepare_4675403.zeus-master.log", "scope": "pure frame-0 preparation and preprocessing parity only"},
+  "optimization": {"job_id": "4675413.zeus-master", "stage": "optimize", "resources": "select=1:ncpus=4:mem=4gb, place=free:shared, walltime=01:00:00", "stdout": "logs/optimize_4675413.zeus-master.log", "matrix": "4 networks x stiffness_b2, stiffness_b4, positions_b0, joint_b4 = 16 ML; plus 8 stiffness signed-permutation controls and 4 originals = 28 frozen finals", "user_requested_positions_only": true},
+  "verification": {"job_id": "4675414.zeus-master", "stage": "verify", "dependency": "afterok:4675413.zeus-master", "resources": "select=1:ncpus=1:mem=2gb, place=free:shared, walltime=01:00:00", "stdout": "logs/verify_4675414.zeus-master.log", "physics_gate": "all 28 frozen graph/edit hashes are validated before any physics"},
+  "snapshots": {"code/prepare_high.py": "0995e9005b14ca3a2f3665fad8629fd373ca5027fd46deb2ce0768cd21b67111", "code/run.py": "15fbecee7ebbab249ec5ab31457c1663c5ff8a47fbc8c7d61a83bc70e2a98da6", "code/run.pbs": "9e9d11d97ed65e2d039746c7549dc5b0db492a236b5076e38aab8ebd02f9f5ab"},
+  "screening_provenance": {"failed_attempt": "4675379.zeus-master", "repaired_attempt": "4675384.zeus-master"}
+  ,"completion": {"job_id": "4675414.zeus-master", "exit_status": 0, "walltime": "00:07:18", "max_rss_kb": 745396, "final_designs": 28, "valid": 28, "manifest_sha256": "e59399182e9c719fa484dd112efd3f5da11bc0b930640ebfe5dc75b8c7f0e373", "outputs": ["results.csv", "summary.json", "verification_completed.json"]}
+}

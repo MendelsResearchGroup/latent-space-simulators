@@ -1,0 +1,10 @@
+{
+  "optimize": "4675889.zeus-master",
+  "verify": "4675890.zeus-master",
+  "dependency": "afterok:4675889.zeus-master",
+  "resources": {
+    "optimize": "4CPU 4GB 60m",
+    "verify": "1CPU 2GB 60m"
+  },
+  "status": "chain_submitted"
+}

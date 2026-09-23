@@ -1,0 +1,12 @@
+{
+  "base_v2_runner_sha256": "efec78ad5f69688579bf81e401d866b3a9c56a3005c7027c8925af4dedd27fce",
+  "jobs": {
+    "static_mean": "4690073.zeus-master",
+    "static_token": "4690074.zeus-master"
+  },
+  "kind": "smoke_retry2",
+  "model_source_sha256": "6337921c191756548df86a8b826b9d61082798940298851043f175d2973676db",
+  "protocol_sha256": "1b63cc76d8edc558aaf741548f68d853c97c84e7a4d34c535acc35f84882465a",
+  "runner_sha256": "dbe0c28cadc11d28f5feb51b460d2220559bd8071e2c595220aa33cb50695c10",
+  "split_manifest_sha256": "1a0e8ffb6e8a5aef9339009acca7a394cabada3c70ee5ba0e667268e0c765541"
+}

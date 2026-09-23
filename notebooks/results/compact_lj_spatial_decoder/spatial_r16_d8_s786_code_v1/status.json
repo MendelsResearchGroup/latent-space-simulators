@@ -1,4 +1,17 @@
 {
-  "stage": "preflight",
-  "status": "running"
+  "ae_file_sha256": "7d2fa1d67a9f4de10e134b8ace65d29b0f0941c176680cef61baa826bf5aaa4a",
+  "approx_optimizer_steps_per_epoch": 750,
+  "bundle_reload": null,
+  "epochs_completed": 14,
+  "job_id": "4673350.zeus-master",
+  "max_rss_kb": 6314468,
+  "output_horizon": 199,
+  "parameters": 310522,
+  "seconds": 6164.781982183456,
+  "seed": 786,
+  "smoke": false,
+  "stage": "complete",
+  "status": "completed",
+  "total_train_frame_samples": 24000,
+  "variant": "spatial_r16_d8"
 }

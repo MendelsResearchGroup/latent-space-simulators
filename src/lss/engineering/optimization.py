@@ -17,6 +17,7 @@ from .geometry import (
     valid_geometry,
 )
 from .model import FrozenModel, Network, score
+from .planarity import PlanarConstraints
 
 
 @dataclass(frozen=True)
@@ -28,6 +29,7 @@ class OptimizationConfig:
     min_delta: float = 1e-5
     position_radius: float = 4.0
     mask_blocking_nodes: bool = True
+    spring_clearance_fraction: float = 0.05
 
 
 @dataclass(frozen=True)
@@ -44,6 +46,7 @@ class OptimizationResult:
     config: OptimizationConfig
     model: FrozenModel
     network: Network
+    geometry_summary: dict
 
 
 def _export_physical(network: Network, log_stiffness: torch.Tensor, position_q: torch.Tensor):
@@ -73,7 +76,9 @@ def optimize_network(model: FrozenModel, network: Network, config: OptimizationC
     movable = (~fixed)[:, None].expand_as(position0)
     log_stiffness = torch.zeros_like(stiffness0, requires_grad=True)
     position_q = torch.zeros_like(position0, requires_grad=True)
-    if not valid_geometry(reference, physical, log_stiffness, position_q, sides):
+    planar = PlanarConstraints(position0.cpu().numpy(), reference.edge_index.cpu().numpy(),
+                               [physical.box.x, physical.box.y], config.spring_clearance_fraction)
+    if not valid_geometry(reference, physical, log_stiffness, position_q, sides, planar, position0):
         raise RuntimeError("Pristine geometry invalid")
     optimizer = torch.optim.Adam([log_stiffness, position_q], lr=config.learning_rate)
     initial_score = float(score(model, reference, model_geometry(reference, physical, log_stiffness, position_q)[0]).detach())
@@ -98,6 +103,7 @@ def optimize_network(model: FrozenModel, network: Network, config: OptimizationC
         optimizer.step()
 
         with torch.no_grad():
+            previous_position = model_geometry(reference, physical, last_u, last_q)[1]
             proposal_u, proposal_q = log_stiffness.detach().clone(), position_q.detach().clone()
             project_log_stiffness_(proposal_u, active, config.stiffness_bound)
             project_positions_(proposal_q, position0, scales, fixed, lower, upper, config.position_radius)
@@ -110,14 +116,14 @@ def optimize_network(model: FrozenModel, network: Network, config: OptimizationC
                 candidate_q = last_q + (proposal_q - last_q) * factor
                 project_log_stiffness_(candidate_u, active, config.stiffness_bound)
                 project_positions_(candidate_q, position0, scales, fixed, lower, upper, config.position_radius)
-                if valid_geometry(reference, physical, candidate_u, candidate_q, sides):
+                if valid_geometry(reference, physical, candidate_u, candidate_q, sides, planar, previous_position):
                     log_stiffness.copy_(candidate_u)
                     position_q.copy_(candidate_q)
                     accepted, accepted_scale, halvings = True, factor, halve
                     break
             if not accepted and config.mask_blocking_nodes:
                 for mask_passes in range(1, 17):
-                    offenders = blocking_nodes(reference, physical, candidate_u, candidate_q)
+                    offenders = blocking_nodes(reference, physical, candidate_u, candidate_q, planar, previous_position)
                     new = offenders & ~masked & ~fixed
                     if not new.any():
                         break
@@ -130,7 +136,7 @@ def optimize_network(model: FrozenModel, network: Network, config: OptimizationC
                         candidate_q = last_q + (proposal_q - last_q) * factor
                         project_log_stiffness_(candidate_u, active, config.stiffness_bound)
                         project_positions_(candidate_q, position0, scales, fixed, lower, upper, config.position_radius)
-                        if valid_geometry(reference, physical, candidate_u, candidate_q, sides):
+                        if valid_geometry(reference, physical, candidate_u, candidate_q, sides, planar, previous_position):
                             log_stiffness.copy_(candidate_u)
                             position_q.copy_(candidate_q)
                             accepted, accepted_scale, halvings = True, factor, halve
@@ -164,4 +170,4 @@ def optimize_network(model: FrozenModel, network: Network, config: OptimizationC
     return OptimizationResult(original=original, optimized=optimized, history=pd.DataFrame(history),
                               log_stiffness=best_u, position_q=best_q, initial_score=initial_score,
                               best_score=best_score, steps=len(history), stop_reason=stop_reason,
-                              config=config, model=model, network=network)
+                              config=config, model=model, network=network, geometry_summary=planar.summary())

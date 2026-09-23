@@ -1,0 +1,11 @@
+{
+  "base_v5_runner_sha256": "cbff012734e76e5c5357a4826e84c3e0bfe65921ee887325b254329e6cff8c1c",
+  "jobs": {
+    "static_token_residual": "4690092.zeus-master"
+  },
+  "kind": "production",
+  "model_source_sha256": "6337921c191756548df86a8b826b9d61082798940298851043f175d2973676db",
+  "protocol_sha256": "2eb22391138c13279d2661f6fa157c73927a52e625256c679d79e84119840bfd",
+  "runner_sha256": "2072e10496f9ba961bc07078ad2e72b328316fb56583dc23d6991e9425157ad2",
+  "split_manifest_sha256": "1a0e8ffb6e8a5aef9339009acca7a394cabada3c70ee5ba0e667268e0c765541"
+}

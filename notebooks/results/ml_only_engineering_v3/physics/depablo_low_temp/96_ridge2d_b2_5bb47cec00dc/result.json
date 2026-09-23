@@ -1,0 +1,12 @@
+{
+  "index": 96,
+  "variant": "ridge2d_b2",
+  "simulation_id": "96_ridge2d_b2_5bb47cec00dc",
+  "scale_x": 0.9700107,
+  "compression_steps": 120,
+  "physical_p_ratio": 0.12919265963128196,
+  "status": "completed",
+  "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/ml_only_engineering_v3/physics/depablo_low_temp/96_ridge2d_b2_5bb47cec00dc",
+  "protocol": "2D quasistatic compression; first/last unwrapped boundary-node ratio",
+  "box_p_ratio": 0.12453270950132322
+}

@@ -1,0 +1,16 @@
+{
+  "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s3456456_code_v1/ae.pt",
+  "checkpoint_sha256": "61577efc27d426a340c2fc526fc0a4cabb9c916d84a35723c9b014f79af48650",
+  "name": "compact_lj_spatial_decoder__spatial_r16_d8__s3456456",
+  "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s3456456_code_v1/recipe.json",
+  "recipe_sha256": "a12bbd650b388b1e4a11fa959ea76d34551be258f3c7f7e9054fab6de33ac7eb",
+  "resources": {
+    "memory_gb": 16,
+    "ncpus": 1,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "runner_sha256": "65b2da9aa5e34df1d56b05a8e717696b11e3667974fb50275514485fc7daef7f",
+  "snapshot": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_pratio/snapshots/runner_65b2da9aa5e34df1_broad",
+  "study": "compact_lj_spatial_decoder"
+}

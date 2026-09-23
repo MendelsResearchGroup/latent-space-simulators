@@ -1,0 +1,17 @@
+{
+  "seed": 123,
+  "objective": "decoded_positions",
+  "lr": 0.0001,
+  "smoke": true,
+  "protocol_sha256": "82cd088d7a3eef75520b9efa072d08fcfd2abc20a4905b29a4ba677d1f5a0d84",
+  "ae_sha256": "756486f394798a6d51cfef3427a5a2a8845bcc9446c70f4f1c37e805af2619b9",
+  "init_sha256": "92f99af78d3ba2b6f85a2b6b9d5f74769d3c60fa08c93bb5730527e033730d89",
+  "ae_digest": "76ed524c79fe0fc2613f576be6ce779204feca5d125de4642c0187fa3b9062eb",
+  "normalizer_digest": "447e07f97e5c0d83ecb9104929bc8ba39e54dc23713888048b4bb0ad7fb0531d",
+  "latent_stats_digest": "3bac0f894769d29dfd82d2c7920a5a965a88f95f384dace7a96216672c25970a",
+  "warm_start_parity_max_abs": 0.0,
+  "pure_position_gradient": 9.685127258300781,
+  "best_epoch": 0,
+  "best_val_decoded_position": 0.033101581037044525,
+  "seconds": 87.84459471702576
+}

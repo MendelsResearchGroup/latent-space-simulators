@@ -1,0 +1,353 @@
+{
+  "base_matrix": {
+    "code_manifest_sha256": "d1db979e7fade01173ff9b0c3a5f9fe1a6fc78a5ab313b9c2165d856f4a91945",
+    "data_dependency": "4687224.zeus-master",
+    "jobs": {
+      "all4_one_each": {
+        "collector": "4687257.zeus-master",
+        "fit": "4687251.zeus-master"
+      },
+      "all4_twenty_each": {
+        "collector": "4687258.zeus-master",
+        "fit": "4687252.zeus-master"
+      },
+      "joint_low": {
+        "collector": "4687259.zeus-master",
+        "fit": "4687253.zeus-master"
+      },
+      "joint_mixed_only": {
+        "collector": "4687262.zeus-master",
+        "fit": "4687256.zeus-master"
+      },
+      "node_low_only": {
+        "collector": "4687260.zeus-master",
+        "fit": "4687254.zeus-master"
+      },
+      "stiffness_low_only": {
+        "collector": "4687261.zeus-master",
+        "fit": "4687255.zeus-master"
+      }
+    },
+    "protocol_sha256": "cfa06218edf3683b07b454ac29365e7def7bb270025b6ce30dd328a76255bf8b",
+    "resources_each": {
+      "memory": "16gb",
+      "ncpus": 8,
+      "placement": "place=free:shared",
+      "queue": "mendels_q",
+      "walltime": "24:00:00"
+    },
+    "snapshot": "notebooks/results/mini_temperature200_frames500/code_v1",
+    "submitted_at": "2026-09-15T14:20:44.411856+00:00"
+  },
+  "data_preparation_job": "4687224.zeus-master",
+  "data_preparation_retry1": {
+    "job": "4687263.zeus-master",
+    "prepare_script_sha256": "c47da027d13bd10dcbeeb6cef79208d813fd42c31b9af6e2ffd6307860b27136"
+  },
+  "data_preparation_retry2": {
+    "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+    "job": "4687289.zeus-master",
+    "prepare_script_sha256": "3c4a2e79b2541ae547568c06296f30d96f7fe0b507711037621e85de4a21e581",
+    "status": "complete"
+  },
+  "initial_submission_failure": "Sandboxed qsub could not create /var/tmp temporary script; escalated retry was accepted. No first job ID existed.",
+  "latent_count_matrix": {
+    "cells": 24,
+    "code_manifest_sha256": "a0ab07426540daa9fb0c6bf37fcf9b46c61f55f8d6dbe6582348a3ef2a3bf7ee",
+    "fresh_fits": 22,
+    "jobs": {
+      "fresh_22_cell_array": "4687276[].zeus-master",
+      "reuse_count1_seed123": "4687277.zeus-master",
+      "reuse_count20_seed123": "4687278.zeus-master"
+    },
+    "matrix_sha256": "6cada93be5c090f389efbfd6f8af0b00356e18e5f8bf922122f7cb4300291f7d",
+    "outputs": "all80 heldout initial states plus complete500-frame paths for fixed IDs40..59 for each low-T source/cell",
+    "protocol_sha256": "cfa06218edf3683b07b454ac29365e7def7bb270025b6ce30dd328a76255bf8b",
+    "resources_each": {
+      "memory": "16gb",
+      "ncpus": 8,
+      "placement": "place=free:shared",
+      "queue": "mendels_q",
+      "walltime": "24:00:00"
+    },
+    "reuse": "count1/seed123 and count20/seed123 reuse the matching base all4 checkpoints after their fit jobs complete",
+    "snapshot": "notebooks/results/mini_temperature200_frames500/code_v3_morph",
+    "status": "submitted",
+    "submitted_at": "2026-09-15T14:26:02.321740+00:00"
+  },
+  "prepare_pbs_sha256": "38f2dd1381342c9dac1d6f29db32355326589a6b29b53ceb1387d4609b6c0b6e",
+  "prepare_script_sha256": "d2754fec575ff534cc60dcc18f14c3a140f64f102be9fc06cb6604b663638de6",
+  "protocol_sha256": "cfa06218edf3683b07b454ac29365e7def7bb270025b6ce30dd328a76255bf8b",
+  "resources": {
+    "memory": "16gb",
+    "ncpus": 2,
+    "placement": "place=free:shared",
+    "queue": "mendels_q",
+    "walltime": "08:00:00"
+  },
+  "retries": [
+    {
+      "code_manifest_sha256": "acfe58f22fe9d12be8edb52184ba1403c5a333fba8e039db888586d67295360c",
+      "data_dependency": "4687263.zeus-master",
+      "failed_data_job": "4687224.zeus-master",
+      "jobs": {
+        "all4_one_each": {
+          "collector": "4687270.zeus-master",
+          "fit": "4687264.zeus-master"
+        },
+        "all4_twenty_each": {
+          "collector": "4687271.zeus-master",
+          "fit": "4687265.zeus-master"
+        },
+        "joint_low": {
+          "collector": "4687272.zeus-master",
+          "fit": "4687266.zeus-master"
+        },
+        "joint_mixed_only": {
+          "collector": "4687275.zeus-master",
+          "fit": "4687269.zeus-master"
+        },
+        "node_low_only": {
+          "collector": "4687273.zeus-master",
+          "fit": "4687267.zeus-master"
+        },
+        "stiffness_low_only": {
+          "collector": "4687274.zeus-master",
+          "fit": "4687268.zeus-master"
+        }
+      },
+      "prepare_script_sha256": "c47da027d13bd10dcbeeb6cef79208d813fd42c31b9af6e2ffd6307860b27136",
+      "protocol_sha256": "cfa06218edf3683b07b454ac29365e7def7bb270025b6ce30dd328a76255bf8b",
+      "reason": "Schema-only data-preparation correction: raw MetaForge graphs derive reference fields in the standard loader.",
+      "resources_each": {
+        "memory": "16gb",
+        "ncpus": 8,
+        "placement": "place=free:shared",
+        "queue": "mendels_q",
+        "walltime": "24:00:00"
+      },
+      "snapshot": "notebooks/results/mini_temperature200_frames500/code_v2",
+      "submitted_at": "2026-09-15T14:23:57.145149+00:00",
+      "terminalized_collector_jobs": [
+        "4687257.zeus-master",
+        "4687258.zeus-master",
+        "4687259.zeus-master",
+        "4687262.zeus-master",
+        "4687260.zeus-master",
+        "4687261.zeus-master"
+      ],
+      "terminalized_fit_jobs": [
+        "4687251.zeus-master",
+        "4687252.zeus-master",
+        "4687253.zeus-master",
+        "4687256.zeus-master",
+        "4687254.zeus-master",
+        "4687255.zeus-master"
+      ]
+    },
+    {
+      "attribution": "four-model response-blind feature and physical-edge gradients on fixed stiffness-low ID40, frames0-5/20/50",
+      "base_arms": 6,
+      "code_manifest_sha256": "03c787571069d16a16a4216c7afe2a9349045c2103396688e1371e07badceb1f",
+      "data_job": "4687289.zeus-master",
+      "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+      "fresh_morph_fits": 22,
+      "jobs": {
+        "attribution": "4687328.zeus-master",
+        "base": {
+          "all4_one_each": {
+            "collector": "4687319.zeus-master",
+            "fit": "4687313.zeus-master"
+          },
+          "all4_twenty_each": {
+            "collector": "4687320.zeus-master",
+            "fit": "4687314.zeus-master"
+          },
+          "joint_low": {
+            "collector": "4687321.zeus-master",
+            "fit": "4687315.zeus-master"
+          },
+          "joint_mixed_only": {
+            "collector": "4687324.zeus-master",
+            "fit": "4687318.zeus-master"
+          },
+          "node_low_only": {
+            "collector": "4687322.zeus-master",
+            "fit": "4687316.zeus-master"
+          },
+          "stiffness_low_only": {
+            "collector": "4687323.zeus-master",
+            "fit": "4687317.zeus-master"
+          }
+        },
+        "morph": {
+          "fresh_22_cell_array": "4687325[].zeus-master",
+          "reuse_count1_seed123": "4687326.zeus-master",
+          "reuse_count20_seed123": "4687327.zeus-master"
+        }
+      },
+      "matrix_sha256": "6cada93be5c090f389efbfd6f8af0b00356e18e5f8bf922122f7cb4300291f7d",
+      "morph_cells": 24,
+      "protocol_sha256": "af38299d5496d8782973b3e49315f1b53f1d87727bb14abe76982680ecf471ef",
+      "resources_each": {
+        "memory": "16gb",
+        "ncpus": 8,
+        "placement": "place=free:shared",
+        "queue": "mendels_q",
+        "walltime": "24:00:00"
+      },
+      "snapshot": "notebooks/results/mini_temperature200_frames500/code_v4",
+      "status": "submitted",
+      "submitted_at": "2026-09-15T14:39:31.112128+00:00"
+    },
+    {
+      "attribution": "four-model response-blind feature and physical-edge gradients on fixed stiffness-low ID40, frames0-5/20/50",
+      "base_arms": 6,
+      "code_manifest_sha256": "b0755d5480360df0972c6f115014b0689ddbde65fc3e9fee891c8393a4395825",
+      "data_job": "4687289.zeus-master",
+      "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+      "fresh_morph_fits": 22,
+      "jobs": {
+        "attribution": "4687344.zeus-master",
+        "base": {
+          "all4_one_each": {
+            "collector": "4687335.zeus-master",
+            "fit": "4687329.zeus-master"
+          },
+          "all4_twenty_each": {
+            "collector": "4687336.zeus-master",
+            "fit": "4687330.zeus-master"
+          },
+          "joint_low": {
+            "collector": "4687337.zeus-master",
+            "fit": "4687331.zeus-master"
+          },
+          "joint_mixed_only": {
+            "collector": "4687340.zeus-master",
+            "fit": "4687334.zeus-master"
+          },
+          "node_low_only": {
+            "collector": "4687338.zeus-master",
+            "fit": "4687332.zeus-master"
+          },
+          "stiffness_low_only": {
+            "collector": "4687339.zeus-master",
+            "fit": "4687333.zeus-master"
+          }
+        },
+        "morph": {
+          "fresh_22_cell_array": "4687341[].zeus-master",
+          "reuse_count1_seed123": "4687342.zeus-master",
+          "reuse_count20_seed123": "4687343.zeus-master"
+        }
+      },
+      "matrix_sha256": "6cada93be5c090f389efbfd6f8af0b00356e18e5f8bf922122f7cb4300291f7d",
+      "morph_cells": 24,
+      "protocol_sha256": "af38299d5496d8782973b3e49315f1b53f1d87727bb14abe76982680ecf471ef",
+      "reason": "Packaging-only retry after robust repository-root discovery; no scientific setting changed.",
+      "resources_each": {
+        "memory": "16gb",
+        "ncpus": 8,
+        "placement": "place=free:shared",
+        "queue": "mendels_q",
+        "walltime": "24:00:00"
+      },
+      "snapshot": "notebooks/results/mini_temperature200_frames500/code_v5",
+      "status": "submitted",
+      "submitted_at": "2026-09-15T14:43:28.721900+00:00"
+    },
+    {
+      "code_manifest_sha256": "8ac7a606bb1e88d2332ff3114fe6c0e3eb16552da51453a23d9438c1254dc718",
+      "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+      "jobs": {
+        "attribution": "4687479.zeus-master",
+        "base": {
+          "all4_one_each": {
+            "collector": "4687466.zeus-master",
+            "fit": "4687465.zeus-master"
+          },
+          "all4_twenty_each": {
+            "collector": "4687468.zeus-master",
+            "fit": "4687467.zeus-master"
+          },
+          "joint_low": {
+            "collector": "4687470.zeus-master",
+            "fit": "4687469.zeus-master"
+          },
+          "joint_mixed_only": {
+            "collector": "4687476.zeus-master",
+            "fit": "4687475.zeus-master"
+          },
+          "node_low_only": {
+            "collector": "4687472.zeus-master",
+            "fit": "4687471.zeus-master"
+          },
+          "stiffness_low_only": {
+            "collector": "4687474.zeus-master",
+            "fit": "4687473.zeus-master"
+          }
+        },
+        "morph_reuse": {
+          "count1_seed123": "4687477.zeus-master",
+          "count20_seed123": "4687478.zeus-master"
+        },
+        "smoke_collectors": {
+          "all4_one_each": "4687459.zeus-master",
+          "all4_twenty_each": "4687460.zeus-master",
+          "joint_low": "4687461.zeus-master",
+          "joint_mixed_only": "4687464.zeus-master",
+          "node_low_only": "4687462.zeus-master",
+          "stiffness_low_only": "4687463.zeus-master"
+        }
+      },
+      "protocol_sha256": "af38299d5496d8782973b3e49315f1b53f1d87727bb14abe76982680ecf471ef",
+      "reason": "post-smoke evaluator-only repair; reuse completed smoke checkpoints; production-only fits gated on corrected smoke collectors",
+      "resources_each": {
+        "memory": "16gb",
+        "ncpus": 8,
+        "placement": "place=free:shared",
+        "queue": "mendels_q"
+      },
+      "snapshot": "notebooks/results/mini_temperature200_frames500/code_v6",
+      "status": "submitted",
+      "submitted_at": "2026-09-15T17:29:28.616450+00:00"
+    }
+  ],
+  "presentation": {
+    "builder_sha256": "890ef39819a82ac23a70ed88da62ed84c3c0fbe945a8908b23d5949373108610",
+    "folder": "notebooks/dynamics/200_md_step",
+    "notebooks": {
+      "01_one_trajectory_per_source.ipynb": "4d9389e1d365d7228b7f057fedaf0b6672eaeb98491a34b6ce85f6b6e404c89c",
+      "02_twenty_trajectories_and_rollout.ipynb": "ce49344aa515daab7f45fcac1ef00de8f0cf1cca6ae3b76fc9e50c55cb6fafc1",
+      "03_latent_morph_and_attribution.ipynb": "77add53dcff50b4305504880e32fba4ddfeb215065bea85d22b2e30b7f78c6b6"
+    },
+    "render_job": "4687764.zeus-master",
+    "render_resources": {
+      "memory": "8gb",
+      "ncpus": 2,
+      "placement": "place=free:shared",
+      "queue": "mendels_q",
+      "walltime": "01:00:00"
+    },
+    "render_status": "completed_exit_0",
+    "rendered_at": "2026-09-16",
+    "mixed_latent_exports": {
+      "all4_one_each": {
+        "job": "4687754.zeus-master",
+        "output_sha256": "6f4d001535c538d50c2ab2ad3c2ef25594b81bd657923b5b24a06010411fc170"
+      },
+      "all4_twenty_each": {
+        "job": "4687755.zeus-master",
+        "output_sha256": "3e33f99a6279fc7a283fb469ced762483707d4b0c9b9f285c9d56e3476718e02"
+      }
+    },
+    "mixed_rollout_metric_audit": {
+      "artifact": "notebooks/results/mini_temperature200_frames500/rollout_metric_audit",
+      "script_sha256": "2e1230df3ccd146dba180b0b2c1dec8d488e0e2b90a37768c23ff273aedc255a",
+      "status": "complete"
+    }
+  },
+  "status": "complete",
+  "study": "mini_temperature200_frames500",
+  "submitted_at": "2026-09-15"
+}

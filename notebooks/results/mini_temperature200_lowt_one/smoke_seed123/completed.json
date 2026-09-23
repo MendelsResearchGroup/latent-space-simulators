@@ -1,0 +1,51 @@
+{
+  "checkpoint_sha256": "c8d3a45872bd05c947ddac01e0e125c634a10c15c824c1fcb2334b652d36fab1",
+  "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+  "heldout_ids_per_source": [
+    40
+  ],
+  "job_id": "4696553.zeus-master",
+  "max_rss_kib": 4413580,
+  "mixed_temperature_exposure": false,
+  "path_ids": [
+    40
+  ],
+  "propagator_trained": false,
+  "protocol_sha256": "3eb98128c721ce81ea49f865c1485fe6428c1bc40d0c0c4efbc61b359ed02311",
+  "response_used_for_training_or_selection": false,
+  "script_sha256": "9676e51e202b6e1c6ee8eaa460d735938bce33a66e658df85c60e5033d313a49",
+  "seconds": 507.0150076765567,
+  "seed": 123,
+  "smoke": true,
+  "status": "completed",
+  "training_ids_per_source": [
+    0
+  ],
+  "training_sources": [
+    "node_low",
+    "stiffness_low"
+  ],
+  "valid_per_source": 1,
+  "validation_ids_per_source": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ]
+}

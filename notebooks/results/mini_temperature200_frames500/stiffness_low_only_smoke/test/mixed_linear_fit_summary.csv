@@ -1,0 +1,3 @@
+source,mode,p_ratio_r2,p_ratio_mae,valid,total,true_fit_r2_median,pred_fit_r2_median
+node_mixed,ae_reconstruction,,0.3439240244492609,1,1,0.9912919533602592,0.9832829168546132
+node_mixed,autonomous_delta_mlp,,0.33426289574387663,1,1,0.9912919533602592,0.1200018694142001

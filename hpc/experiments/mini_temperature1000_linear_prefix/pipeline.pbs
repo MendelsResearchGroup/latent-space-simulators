@@ -1,0 +1,15 @@
+#PBS -N mini_t1000_prefix
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$LSS_CODE_ROOT/src:/rg/mendels_prj/alexander.z/MetaForge/src" MPLCONFIGDIR="/tmp/mini-t1000-prefix-${PBS_JOBID}"
+mkdir -p notebooks/results/mini_temperature1000_linear_prefix/logs
+exec >"notebooks/results/mini_temperature1000_linear_prefix/logs/${PBS_JOBID}.log" 2>&1
+PYTHON=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+"$PYTHON" -u "$LSS_CODE_ROOT/run.py" --arm "$LSS_ARM" --smoke
+exec "$PYTHON" -u "$LSS_CODE_ROOT/run.py" --arm "$LSS_ARM"

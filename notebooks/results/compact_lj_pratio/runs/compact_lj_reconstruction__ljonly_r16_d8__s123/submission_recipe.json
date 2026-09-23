@@ -1,0 +1,16 @@
+{
+  "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s123_code_v2/ae.pt",
+  "checkpoint_sha256": "7d6c31ea6c8af1304342771b9c1657dabedb3e916a6969a2b09959ec26d3c23d",
+  "name": "compact_lj_reconstruction__ljonly_r16_d8__s123",
+  "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s123_code_v2/recipe.json",
+  "recipe_sha256": "bff5d4a5be1fffeba49ab70527f901d951392b0ad12210d1e4b187d925026165",
+  "resources": {
+    "memory_gb": 16,
+    "ncpus": 1,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "runner_sha256": "65b2da9aa5e34df1d56b05a8e717696b11e3667974fb50275514485fc7daef7f",
+  "snapshot": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_pratio/snapshots/runner_65b2da9aa5e34df1_broad",
+  "study": "compact_lj_reconstruction"
+}

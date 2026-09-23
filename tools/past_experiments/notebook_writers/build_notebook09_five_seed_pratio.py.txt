@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""Build the five-seed p-ratio comparison notebook."""
+from pathlib import Path
+
+import nbformat as nbf
+
+
+ROOT = Path(__file__).resolve().parents[2]
+TARGET = ROOT / "notebooks/dynamics/09_five_seed_pratio.ipynb"
+
+
+def md(value: str):
+    return nbf.v4.new_markdown_cell(value.strip() + "\n")
+
+
+def code(value: str):
+    return nbf.v4.new_code_cell(value.strip() + "\n")
+
+
+cells = [
+    md("""
+# Five-seed p-ratio
+
+Five independent thermal-velocity seeds are combined without averaging ratios. Each seed has its own intercept, while one transverse-versus-axial strain slope is fitted across all seeds. The reported p-ratio is minus that shared slope.
+"""),
+    code("""
+%matplotlib inline
+from pathlib import Path
+import json,sys
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from IPython.display import display
+
+ROOT=Path.cwd().resolve()
+while not (ROOT/'notebooks').exists():
+    if ROOT.parent==ROOT: raise RuntimeError('Run inside the repository')
+    ROOT=ROOT.parent
+if str(ROOT/'src') not in sys.path: sys.path.insert(0,str(ROOT/'src'))
+from lss.plotting import apply_editorial_style, PAPER_COLORS, style_axes
+RESULTS=ROOT/'notebooks/results/five_seed_pratio'
+required=[RESULTS/'completed.json',RESULTS/'per_network_window.csv',
+          RESULTS/'summary_by_group.csv',RESULTS/'summary_by_horizon.csv',
+          RESULTS/'matched_horizon_cadence_comparison.csv']
+missing=[str(path) for path in required if not path.exists()]
+if missing: raise FileNotFoundError('Missing five-seed results:\n'+'\n'.join(missing))
+metadata=json.loads((RESULTS/'completed.json').read_text())
+window=pd.read_csv(RESULTS/'per_network_window.csv')
+summary=pd.read_csv(RESULTS/'summary_by_group.csv',dtype={'temperature_K':str})
+horizon=pd.read_csv(RESULTS/'summary_by_horizon.csv')
+cadence=pd.read_csv(RESULTS/'matched_horizon_cadence_comparison.csv')
+assert metadata['status']=='complete' and metadata['final_test_used'] is False
+apply_editorial_style('light')
+COLORS={'node':PAPER_COLORS['blue'],'stiffness':PAPER_COLORS['orange']}
+LABELS={'node':'node optimized','stiffness':'stiffness optimized'}
+print('Loaded five seeds for 200 networks in every cadence, source and temperature profile.')
+"""),
+    md("""
+## Estimator
+
+Boundary nodes are fixed from frame 0. Width and height changes are normalized by each seed's own frame-0 dimensions. The fit starts after 30,000 MD steps. Single-seed spread and a 95% confidence interval are retained beside the shared estimate.
+"""),
+    code("""
+display(window.groupby(['cadence','branch','profile','window']).agg(
+    networks=('source_index','size'),valid=('valid_replicates','count'),
+    median_fit_R2=('fit_r2','median'),median_seed_SD=('replicate_sd_p_ratio','median')
+).reset_index().round(3))
+"""),
+    md("""
+## Accuracy with horizon
+"""),
+    code("""
+fig,axes=plt.subplots(2,2,figsize=(10.8,7.0),sharex='col',sharey=True,constrained_layout=True)
+methods={'p_ratio':('five-seed fit','-'),'replicate_mean_p_ratio':('mean of five fits','--'),
+         'endpoint_ensemble_p_ratio':('raw ensemble endpoint',':')}
+for row,profile in enumerate(['low','mixed']):
+    for col,cadence_name in enumerate(['1000md','200md']):
+        ax=axes[row,col]
+        for branch in ['node','stiffness']:
+            for estimator,(label,linestyle) in methods.items():
+                values=horizon.query('profile==@profile and cadence==@cadence_name and branch==@branch and estimator==@estimator').sort_values('stop_md_step')
+                ax.plot(values.stop_md_step,values.r2.clip(lower=0),color=COLORS[branch],linestyle=linestyle,
+                        lw=1.8,label=f'{LABELS[branch]} · {label}')
+        ax.set_title(f'{profile} · {cadence_name}')
+        style_axes(ax,xlabel='MD step' if row==1 else '',ylabel='p-ratio R²' if col==0 else '',legend=row==0 and col==1)
+        ax.set_ylim(0,1.03)
+plt.show()
+"""),
+    md("""
+## Final response
+"""),
+    code("""
+selection=window.query("(cadence=='1000md' and window=='standard') or (cadence=='200md' and window=='matched_199k')")
+fig,axes=plt.subplots(2,2,figsize=(10.8,8.0),constrained_layout=True)
+for row,profile in enumerate(['low','mixed']):
+    for col,cadence_name in enumerate(['1000md','200md']):
+        ax=axes[row,col]; values=selection.query('profile==@profile and cadence==@cadence_name')
+        for branch,marker in [('node','o'),('stiffness','^')]:
+            group=values.query('branch==@branch')
+            if profile=='mixed':
+                scatter=ax.scatter(group.recorded_ground_truth_p_ratio,group.p_ratio,c=group.temperature_K,
+                                   cmap='plasma',s=20,alpha=.7,marker=marker,label=LABELS[branch])
+            else:
+                ax.scatter(group.recorded_ground_truth_p_ratio,group.p_ratio,color=COLORS[branch],
+                           s=20,alpha=.7,marker=marker,label=LABELS[branch])
+        low=min(values.recorded_ground_truth_p_ratio.min(),values.p_ratio.min())
+        high=max(values.recorded_ground_truth_p_ratio.max(),values.p_ratio.max())
+        ax.plot([low,high],[low,high],'--',color=PAPER_COLORS['slate'],lw=1)
+        ax.set_title(f'{profile} · {cadence_name}')
+        style_axes(ax,xlabel='recorded p-ratio',ylabel='five-seed p-ratio' if col==0 else '',legend=True)
+fig.colorbar(scatter,ax=axes[1,:],label='temperature (K)',fraction=.025,pad=.02)
+plt.show()
+"""),
+    md("""
+## 200 versus 1000 MD steps
+"""),
+    code("""
+fig,axes=plt.subplots(1,2,figsize=(10.8,4.5),constrained_layout=True)
+for ax,profile in zip(axes,['low','mixed']):
+    values=cadence.query('profile==@profile')
+    for branch,marker in [('node','o'),('stiffness','^')]:
+        group=values.query('branch==@branch')
+        ax.scatter(group['1000md'],group['200md'],s=20,alpha=.7,color=COLORS[branch],marker=marker,label=LABELS[branch])
+    low=min(values['1000md'].min(),values['200md'].min()); high=max(values['1000md'].max(),values['200md'].max())
+    ax.plot([low,high],[low,high],'--',color=PAPER_COLORS['slate'],lw=1)
+    ax.set_title(profile)
+    style_axes(ax,xlabel='1000-MD cadence p-ratio',ylabel='200-MD cadence p-ratio',legend=True)
+plt.show()
+display(cadence.groupby(['branch','profile']).agg(
+    networks=('source_index','size'),mean_difference=('difference_200md_minus_1000md','mean'),
+    SD_difference=('difference_200md_minus_1000md','std')
+).reset_index().round(4))
+"""),
+    md("""
+## Source-wise results
+"""),
+    code("""
+primary=summary.query("temperature_K=='all' and truth=='recorded_ground_truth_p_ratio' and estimator=='p_ratio'")
+display(primary[['cadence','branch','profile','window','r2','pearson_r','mae','valid','total']].round(4))
+"""),
+]
+
+notebook = nbf.v4.new_notebook(cells=cells)
+notebook.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+notebook.metadata["language_info"] = {"name": "python", "version": "3"}
+nbf.write(notebook, TARGET)
+print(TARGET)

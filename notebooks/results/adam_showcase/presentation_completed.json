@@ -1,0 +1,17 @@
+{
+  "notebook": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/network_design/01_adam_engineering.ipynb",
+  "inline_pngs": 1,
+  "embedded_gifs": 7,
+  "notebook_megabytes": 37.783191,
+  "gif_duration_ms": 4000,
+  "replay_valid": 10,
+  "replay_total": 10,
+  "max_endpoint_parity_error": 5.551115123125783e-17,
+  "hashes": {
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/network_design/01_adam_engineering.ipynb": "47113678c33ac3ae0160334f3c5cc52a1ae66d81b1f23bdfd3ea9fd5c58ac229",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/network_design/_adam_showcase.py": "5e6b489288b0a6def9605edd8b61b1573a3cd2867099cd87d38d830f9c279de5",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/index.json": "9aaa8508379cf9793b5746f2cc9f79d226669615f48c7ffff96a2a063489a305",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/provenance.json": "17d803a30a38ba686c288f8c2132bdf421d0505be6869cf05ae3420b068691e9",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/hpc/experiments/adam_showcase/compact_gifs.py": "ffcf2e647f51c121cac348850762e0be99175f22ac3f5a16a7cf6741d724f5a8"
+  }
+}

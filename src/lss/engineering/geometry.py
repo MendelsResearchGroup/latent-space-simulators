@@ -82,7 +82,7 @@ def project_positions_(position_q, position0, scales, fixed, lower, upper, radiu
     position_q[fixed] = 0
 
 
-def valid_geometry(reference, physical, log_stiffness, position_q, sides) -> bool:
+def valid_geometry(reference, physical, log_stiffness, position_q, sides, planar, previous_position) -> bool:
     _, position, _, lengths, box = model_geometry(reference, physical, log_stiffness, position_q)
     original_lengths = reference.reference_context_edge_attr[:, 2]
     if not torch.isfinite(position).all() or (lengths < 0.25 * original_lengths).any() or (lengths > 1.75 * original_lengths).any():
@@ -95,6 +95,8 @@ def valid_geometry(reference, physical, log_stiffness, position_q, sides) -> boo
     original_distances -= torch.round(original_distances / box) * box
     if distances.norm(dim=1).min() < 0.1 * original_distances.norm(dim=1).min():
         return False
+    if planar.blocked_nodes(previous_position.detach().cpu().numpy(), position.detach().cpu().numpy()).any():
+        return False
     probe = deepcopy(physical)
     probe.x = position.detach()
     current_sides = directional_side_indices_from_box(probe, quantile=0.1)
@@ -104,7 +106,7 @@ def valid_geometry(reference, physical, log_stiffness, position_q, sides) -> boo
     )
 
 
-def blocking_nodes(reference, physical, log_stiffness, position_q) -> torch.Tensor:
+def blocking_nodes(reference, physical, log_stiffness, position_q, planar, previous_position) -> torch.Tensor:
     _, position, _, lengths, box = model_geometry(reference, physical, log_stiffness, position_q)
     edge_index = reference.edge_index.long()
     original_lengths = reference.reference_context_edge_attr[:, 2]
@@ -119,4 +121,5 @@ def blocking_nodes(reference, physical, log_stiffness, position_q) -> torch.Tens
     original_distances -= torch.round(original_distances / box) * box
     invalid_pairs = distances.norm(dim=1) < 0.1 * original_distances.norm(dim=1).min()
     blocked[pairs[:, invalid_pairs].flatten()] = True
+    blocked |= torch.from_numpy(planar.blocked_nodes(previous_position.detach().cpu().numpy(), position.detach().cpu().numpy()))
     return blocked

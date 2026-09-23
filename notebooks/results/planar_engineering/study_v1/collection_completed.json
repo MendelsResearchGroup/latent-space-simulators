@@ -1,0 +1,9 @@
+{
+  "expected_networks": 40,
+  "observed_networks": 40,
+  "status_counts": "source              status             \ndepablo_mixed_temp  cancelled_by_user       2\n                    completed               3\n                    trajectory_crossing    25\nreid                trajectory_crossing    10",
+  "valid_networks": 3,
+  "completed_gifs": 38,
+  "summary_sha256": "564b2b259828d6a5eca3dcfc07012a13f5dc652e08e9021d01b999cacf77bc2c",
+  "feedback_to_optimizer": false
+}

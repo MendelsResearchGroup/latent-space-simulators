@@ -1,0 +1,9 @@
+{
+  "study": "high_pratio_engineering/study_v2",
+  "status": "completed",
+  "prepared_input": "../study_v1/prepared (read-only)",
+  "optimization": {"job_id": "4675464.zeus-master", "stage": "optimize", "resources": "select=1:ncpus=4:mem=4gb, place=free:shared, walltime=00:30:00", "stdout": "logs/optimize_4675464.zeus-master.log", "matrix": "12 ML + 4 geometry permutation controls + 4 originals = 20 final designs", "global_freeze_gate": "all 20 designs frozen only after both source substudies complete"},
+  "verification": {"job_id": "4675465.zeus-master", "stage": "verify", "dependency": "afterok:4675464.zeus-master", "resources": "select=1:ncpus=1:mem=2gb, place=free:shared, walltime=00:30:00", "stdout": "logs/verify_4675465.zeus-master.log", "physics_gate": "recipe and all 20 graph/edit hashes must validate before endpoint physics"},
+  "snapshots": {"code/run.py": "b83fdb9bb8e7b0cfff0f9260ba365a6e125508ab5940a6ac76d64a08635c3907", "code/run.pbs": "9e9d11d97ed65e2d039746c7549dc5b0db492a236b5076e38aab8ebd02f9f5ab"},
+  "completion": {"job_id": "4675465.zeus-master", "exit_status": 0, "walltime": "00:04:02", "max_rss_kb": 743868, "final_designs": 20, "valid": 20, "manifest_sha256": "d4ddd07c734f522bf98ffa1ff3f6d871493b4c2da996ef118dfd52470c267d59", "outputs": ["results.csv", "verification_completed.json"]}
+}

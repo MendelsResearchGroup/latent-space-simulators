@@ -1,0 +1,26 @@
+[
+  {
+    "family": "graph_operator",
+    "job_id": "4678766.zeus-master",
+    "checks": {
+      "pure_position_gradient": 0.007111785467714071,
+      "reload_max_abs": 0.0
+    }
+  },
+  {
+    "family": "soft_experts",
+    "job_id": "4678767.zeus-master",
+    "checks": {
+      "pure_position_gradient": 0.1582648903131485,
+      "reload_max_abs": 0.0
+    }
+  },
+  {
+    "family": "trajectory_flow",
+    "job_id": "4678768.zeus-master",
+    "checks": {
+      "pure_position_gradient": 7.612598896026611,
+      "reload_max_abs": 0.0
+    }
+  }
+]

@@ -1,0 +1,2 @@
+epoch,train_objective,val_objective,train_mse_norm,train_source_reid_dense_reconstruction,train_macro_source_reconstruction,train_max_source_reconstruction,val_mse_norm,val_source_reid_dense_reconstruction,val_macro_source_reconstruction,val_max_source_reconstruction,dataset,latent_dim,target_mode,hidden_size
+1,1.1856841817498207,0.8965692871383258,1.1781494223645754,1.1856841817498207,1.1856841817498207,1.1856841817498207,0.889846037541117,0.8965692871383258,0.8965692871383258,0.8965692871383258,Dense Reid with angles,4,normalized_delta,96

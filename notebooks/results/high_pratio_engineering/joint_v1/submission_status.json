@@ -1,0 +1,8 @@
+{
+  "study": "high_pratio_engineering/joint_v1",
+  "status": "completed",
+  "prepared_input": "../study_v1/prepared (read-only)",
+  "optimization": {"job_id": "4675575.zeus-master", "stage": "optimize", "resources": "select=1:ncpus=4:mem=4gb, place=free:shared, walltime=00:30:00", "stdout": "logs/optimize_4675575.zeus-master.log", "matrix": "8 ML (4 networks x joint radius4 bounds0.25/1, 1200 steps) + 4 permuted joint controls + 4 originals = 16 frozen finals", "global_freeze_gate": "all 16 designs freeze after both source substudies finish"},
+  "verification": {"job_id": "4675579.zeus-master", "stage": "verify", "dependency": "afterok:4675575.zeus-master", "resources": "select=1:ncpus=1:mem=2gb, place=free:shared, walltime=00:30:00", "stdout": "logs/verify_4675579.zeus-master.log", "physics_gate": "all 16 frozen graph/edit hashes before physics", "exit_status": 0, "walltime": "00:03:53", "max_rss_kb": 742956, "total": 16, "valid": 16, "manifest_sha256": "b5093507438100be4019ea6fe02a41023aa9cab2618292fed37f6339a5a15fb3", "feedback_to_optimizer": false},
+  "snapshots": {"code/run.py": "91ce35cb81dc4167684727b6512696d838dac506b6944985315d0c4ed48c53bb", "code/run.pbs": "9e9d11d97ed65e2d039746c7549dc5b0db492a236b5076e38aab8ebd02f9f5ab"}
+}

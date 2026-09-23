@@ -1,0 +1,163 @@
+"""Build the executed-results notebook for the cold-graph global-context study."""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+import nbformat as nbf
+
+
+ROOT = Path(__file__).resolve().parents[2]
+OUTPUT = ROOT / "notebooks/dynamics/cold_graphs/01_global_context_rollout.ipynb"
+
+
+def code(source: str):
+    return nbf.v4.new_code_cell(source.strip())
+
+
+def markdown(source: str):
+    return nbf.v4.new_markdown_cell(source.strip())
+
+
+def main() -> None:
+    notebook = nbf.v4.new_notebook()
+    notebook["metadata"]["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+    notebook["metadata"]["language_info"] = {"name": "python", "version": "3.10"}
+    notebook["cells"] = [
+        markdown("""
+# Cold graphs: global-context rollout
+
+Local message passing, full-node attention, then local refinement, following the local–global–local idea in [MeshGraphNet-Transformer](https://arxiv.org/abs/2601.23177). The cold graphs have at most 588 nodes, so this pilot uses full attention rather than token slicing.
+"""),
+        code("""
+from pathlib import Path
+import json, sys
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+ROOT=Path.cwd().resolve()
+while not (ROOT/'src').is_dir(): ROOT=ROOT.parent
+sys.path.insert(0,str(ROOT/'src'))
+from lss.plotting import apply_editorial_style, PAPER_COLORS, style_axes
+PLOT_THEME='light'; apply_editorial_style(PLOT_THEME)
+RESULTS=ROOT/'notebooks/results/graphs_cold_global'
+PROTOCOL=json.loads((ROOT/'hpc/experiments/graphs_cold_global/protocol.json').read_text())
+SPLIT=json.loads((ROOT/'hpc/experiments/graphs_cold_global/split_manifest.json').read_text())
+"""),
+        markdown("""
+## Experiment
+
+Each serialized trajectory contains 400 three-dimensional PyG frames with fixed topology. The model observes frames 1 and 2, then predicts frames 3–399 autonomously. No p-ratio, strain, source label, or event label enters training or checkpoint selection.
+"""),
+        code("""
+display(pd.DataFrame({
+    'split':['train','validation','final test'],
+    'trajectories':[len(SPLIT['train']),len(SPLIT['validation']),len(SPLIT['final_test'])],
+}))
+display(pd.DataFrame([
+    {'model':'Local','processor':'2 local + 2 local','training':'one-step acceleration'},
+    {'model':'Global','processor':'2 local + 2 attention + 2 local','training':'one-step acceleration'},
+    {'model':'Global multistep','processor':'2 local + 2 attention + 2 local','training':'20-step autonomous state'},
+]))
+"""),
+        markdown("""
+## Rollout metrics
+
+Position MSE uses minimum-image physical displacement. For p-ratio, every current position is first mapped to its nearest periodic image relative to the same node at the reference frame. Independent affine coordinate fits give the strains, then `p_y = -ε_y/ε_x` and `p_z = -ε_z/ε_x`. R² is `1 − SSE/SST` across the eight final-test networks. All curves show seed mean ± one SD; each point has 24/24 valid network-seed predictions.
+"""),
+        code("""
+one=pd.read_csv(RESULTS/'periodic_aggregate.csv')
+one['model']=one.model.map({'local':'Local','global':'Global'})
+multi=pd.read_csv(RESULTS/'multistep_aggregate.csv')
+multi['model']='Global multistep'
+aggregate=pd.concat([one,multi],ignore_index=True)
+ORDER=['Local','Global','Global multistep']
+COLORS={'Local':PAPER_COLORS['slate'],'Global':PAPER_COLORS['blue'],'Global multistep':PAPER_COLORS['red']}
+MARKERS={'Local':'o','Global':'s','Global multistep':'^'}
+
+fig,axes=plt.subplots(1,3,figsize=(12.2,3.7),constrained_layout=True)
+for model in ORDER:
+    values=aggregate.query('model==@model').sort_values('horizon')
+    x=values.horizon.to_numpy()
+    mse=values.position_mse_physical_minimum_image_mean.to_numpy()
+    mse_sd=values.position_mse_physical_minimum_image_sd.to_numpy()
+    axes[0].plot(x,mse,marker=MARKERS[model],color=COLORS[model],label=model)
+    axes[0].fill_between(x,np.maximum(mse-mse_sd,1e-12),mse+mse_sd,color=COLORS[model],alpha=.13)
+    for ax,component in zip(axes[1:],['y','z']):
+        mean=values[f'p_ratio_r2_{component}_over_x_mean'].to_numpy()
+        sd=values[f'p_ratio_r2_{component}_over_x_sd'].to_numpy()
+        ax.plot(x,mean,marker=MARKERS[model],color=COLORS[model],label=model)
+        ax.fill_between(x,mean-sd,mean+sd,color=COLORS[model],alpha=.13)
+axes[0].set_yscale('log')
+for ax in axes[1:]:
+    ax.axhline(0,color=PAPER_COLORS['ink'],lw=.8,ls=':')
+    ax.set_yscale('symlog',linthresh=1)
+axes[0].set_title('Position error'); axes[1].set_title('p-ratio y/x'); axes[2].set_title('p-ratio z/x')
+style_axes(axes[0],xlabel='frame',ylabel='position MSE',legend=True)
+style_axes(axes[1],xlabel='frame',ylabel='p-ratio R²')
+style_axes(axes[2],xlabel='frame',ylabel='p-ratio R²')
+plt.show()
+"""),
+        markdown("""
+## MSE through the full rollout
+
+The data do not contain a plastic-event timestamp. These curves therefore show prediction error against every frame without assigning an event label.
+"""),
+        code("""
+frames=[]
+for model,folder in [('Local','periodic_evaluation/local'),('Global','periodic_evaluation/global')]:
+    for seed in PROTOCOL['seeds']:
+        values=pd.read_csv(RESULTS/folder/str(seed)/'per_network_per_frame.csv')
+        values['model']=model; values['seed']=seed; frames.append(values)
+for seed in PROTOCOL['seeds']:
+    values=pd.read_csv(RESULTS/'multistep_global'/str(seed)/'per_network_per_frame.csv')
+    values['model']='Global multistep'; values['seed']=seed; frames.append(values)
+rollouts=pd.concat(frames,ignore_index=True)
+
+fig,ax=plt.subplots(figsize=(8.8,4.1),constrained_layout=True)
+for model in ORDER:
+    grouped=rollouts.query('model==@model').groupby('frame').position_mse_physical_minimum_image
+    median=grouped.median(); lower=grouped.quantile(.25); upper=grouped.quantile(.75)
+    ax.plot(median.index,median,color=COLORS[model],label=model)
+    ax.fill_between(median.index,lower,upper,color=COLORS[model],alpha=.14)
+ax.set_yscale('log')
+style_axes(ax,xlabel='frame',ylabel='position MSE · median and IQR',legend=True)
+plt.show()
+"""),
+        markdown("""
+## Final p-ratio
+"""),
+        code("""
+final=rollouts.query('frame==399')
+fig,axes=plt.subplots(1,3,figsize=(11.8,3.6),constrained_layout=True)
+for ax,model in zip(axes,ORDER):
+    values=final.query('model==@model')
+    for seed,seed_values in values.groupby('seed'):
+        ax.scatter(seed_values.true_p_y_over_x,seed_values.pred_p_y_over_x,s=24,alpha=.65,label=str(seed))
+    low=min(values.true_p_y_over_x.min(),values.pred_p_y_over_x.min())
+    high=max(values.true_p_y_over_x.max(),values.pred_p_y_over_x.max())
+    ax.plot([low,high],[low,high],color=PAPER_COLORS['ink'],ls=':',lw=1)
+    ax.set_title(model)
+    style_axes(ax,xlabel='true p-ratio y/x',ylabel='predicted p-ratio y/x' if ax is axes[0] else '',legend=ax is axes[-1])
+plt.show()
+
+final_table=aggregate.query('horizon==399')[[
+    'model','position_mse_physical_minimum_image_mean','position_mse_physical_minimum_image_sd',
+    'p_ratio_r2_y_over_x_mean','p_ratio_r2_y_over_x_sd','p_ratio_r2_z_over_x_mean','p_ratio_r2_z_over_x_sd',
+    'p_ratio_y_valid_total','p_ratio_z_valid_total'
+]].copy()
+display(final_table.round(4))
+"""),
+        markdown("""
+## Result
+
+Global attention improves long-horizon coordinate stability, and 20-step training improves it further. It does **not** yet recover reliable network-to-network p-ratio: the final three-seed mean R² remains negative. This pilot supports the global processor as a stability component, not a successful mechanical-response simulator.
+"""),
+    ]
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    nbf.write(notebook, OUTPUT)
+
+
+if __name__ == "__main__":
+    main()

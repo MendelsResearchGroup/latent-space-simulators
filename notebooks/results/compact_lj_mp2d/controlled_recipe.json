@@ -1,0 +1,45 @@
+{
+  "checked_fields": {
+    "checkpoint_metric": "val_max_source_reconstruction",
+    "edge_feature_dim": 5,
+    "hidden_size": 96,
+    "latent_dim": 4,
+    "latent_tokens": 32,
+    "max_train_frames_per_sim": 200,
+    "max_val_frames_per_sim": 200,
+    "message_passing_steps": 2,
+    "model": "message_passing_reference16",
+    "pratio_eval_every": 0
+  },
+  "donor_code_hashes_sha256": "3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9",
+  "donor_job_id": "4672467.zeus-master",
+  "donor_recipe_sha256": "8297622dba26419e64e7ce815eeb0b4315430089c32e3e77cb15248aad27e2f4",
+  "evaluation_frames": [
+    25,
+    50,
+    100,
+    150,
+    199
+  ],
+  "final_test_used": false,
+  "frames": 200,
+  "protocol": "same as compact_lj_reconstruction/mp2_r16_d4 except latent_dim=2 and output paths",
+  "resources": {
+    "memory_gb": 16,
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q",
+    "walltime": "24:00:00"
+  },
+  "response_selection": false,
+  "seeds": [
+    3456456,
+    123,
+    456,
+    786,
+    2026
+  ],
+  "selection": "worst retained-source validation coordinate reconstruction only",
+  "study": "compact_lj_mp2d",
+  "variant": "mp2_r16_d2"
+}

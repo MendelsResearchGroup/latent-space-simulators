@@ -1,0 +1,28 @@
+{
+  "code_manifest_sha256": "91b12b43b2c88071793248d652482803b0526bdb47e6e02dd53e12e495edea8d",
+  "cohort": "mixed only; direct full200 IDs40:119; joint=node_mixed+stiffness_mixed; node-only=node_mixed",
+  "endpoint_parity": "historical physical fixed-frame0 q0.10 at frame199 recomputed only as parity guard",
+  "failure": {
+    "artifacts_preserved": true,
+    "cause": "schema-only endpoint parity bug: cached.mode resolved DataFrame method instead of cached[\"mode\"], yielding empty join",
+    "jobs": {
+      "joint_low_uniform_retry1": "4684994.zeus-master",
+      "node_low_uniform_retry1": "4684995.zeus-master"
+    }
+  },
+  "jobs": {
+    "joint_low_uniform_retry1": "4684994.zeus-master",
+    "node_low_uniform_retry1": "4684995.zeus-master"
+  },
+  "method": "post-fit normalized boundary strain OLS frames30..199 (all170 finite/nondegenerate x); time-OLS auxiliary comparison only",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "snapshot": "notebooks/results/mini_temperature1000_linear_fit/code_v1",
+  "status": "failed",
+  "study": "mini_temperature1000_linear_fit",
+  "submitted_at": "2026-09-14T07:55:55.541338+00:00"
+}

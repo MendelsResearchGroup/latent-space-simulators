@@ -1,0 +1,25 @@
+{
+  "study": "mini_shared",
+  "arm": "joint_all",
+  "source_order": [
+    "stiffness_original",
+    "node_original",
+    "stiffness_mixed",
+    "node_mixed"
+  ],
+  "snapshot": "notebooks/results/mini_shared/code_v2",
+  "code_manifest_sha256": "26a82b1596f6a6052107cb6b9d077f873e3a0eb21ad7f27f143c7ba997b01acc",
+  "protocol_sha256": "11d3b9c73a80166384a1a8dcb6873db074cf677432becfa21d2963795d8a2fbd",
+  "data_manifest_sha256": "22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae",
+  "data_audit_dependency": "afterok:4682393.zeus-master",
+  "resources": {
+    "queue": "mendels_q",
+    "ncpus": 8,
+    "mem": "16gb",
+    "place": "free:shared"
+  },
+  "status": "submitted",
+  "submitted_at": "2026-09-12T17:45:14.464905+00:00",
+  "fit_job": "4682407.zeus-master",
+  "collector_job": "4682408.zeus-master"
+}

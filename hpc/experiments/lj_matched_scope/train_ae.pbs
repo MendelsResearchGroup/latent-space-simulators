@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=02:00:00
+#PBS -j oe
+
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export LSS_PROJECT_ROOT="$PWD"
+export OMP_NUM_THREADS=8
+export MKL_NUM_THREADS=8
+export PYTHONPATH="$PWD/notebooks/results/latent_matched_study/code_v1/src"
+args=(--scope "$LSS_SCOPE" --seed "$LSS_SEED")
+if [[ "${LSS_SMOKE:-0}" == "1" ]]; then args+=(--smoke); fi
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python "$LSS_CODE_ROOT/train_ae.py" "${args[@]}"

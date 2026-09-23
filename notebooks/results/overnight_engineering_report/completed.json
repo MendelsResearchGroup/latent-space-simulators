@@ -1,0 +1,23 @@
+{
+  "job_id": "4676102.zeus-master",
+  "notebook": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/network_design/05_joint_adam_sweeps.ipynb",
+  "notebook_sha256": "7d21d8181d14a006dc9e395ff6596b2fc8fc805cb999b82ad26dc512c7f721c2",
+  "inline_pngs": 0,
+  "reid": {
+    "total": 490,
+    "valid": 490,
+    "retrospective_ranking_only": true,
+    "global_manifest_sha256": "47939c234c26f629693b3f679edee0857e0da5166b62fe664fb426b53989bc88"
+  },
+  "thermal": {
+    "expected": 630,
+    "observed": 630,
+    "valid": 630,
+    "missing_ids": [],
+    "missing_keys": 0,
+    "manifest_sha256": "63e537a7ab85b99a2c7610d0da554e5f7847158968e662050814d74f1fe4a116",
+    "protocol_sha256": "45c58529e337c20f7bda21160a29ba6444f53a491447c668160bfeb91c161500",
+    "feedback_to_optimizer": false
+  },
+  "report_sha256": "10a520fe53cad4af7912ce29c920bf0d2339820a83f534d7a4b453a194610d8e"
+}

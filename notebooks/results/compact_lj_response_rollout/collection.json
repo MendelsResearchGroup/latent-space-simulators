@@ -1,0 +1,41 @@
+{
+  "expected_new_ae": 5,
+  "expected_propagators": 20,
+  "status_counts": {
+    "completed": 25
+  },
+  "complete": true,
+  "metric": "physical-coordinate endpoint directional-side p-ratio R2",
+  "count_qualification": "20 unique validation networks/source repeated across five model seeds",
+  "final_test_used": false,
+  "checkpoint_selection": "state loss only; target 0.4 is a reporting goal",
+  "collector_sha256": "c3f5d95e964102c5529e0d61bd5120156d426f6f86a21fcb0b215852b4894225",
+  "input_sha256": {
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_pratio/collection/per_network_rows.csv": "4bfcde677ab0ac03a888a358748b3822b36cb78154fdb3360319fefd2d7fe439",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/pratio/mp2_r16_d2_s123_code_v4/per_network_rows.csv": "1a2e62574641b5943ef68cc052987ef189f44acdb39080d8f9841b8fe881943e",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/pratio/mp2_r16_d2_s456_code_v4/per_network_rows.csv": "4ac98cc6aab198193208bb9db240fc6f6bb4ac587e53c7cd8562492f7427147d",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/pratio/mp2_r16_d2_s786_code_v4/per_network_rows.csv": "2b8e76819435331959271673a6a24f2d7c492bb5f2fe1eb9009be606b1719a45",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/pratio/mp2_r16_d2_s2026_code_v4/per_network_rows.csv": "8348ed89f3640270c8021db1fb6d2a560d83949b4d2ae703ff9c3303d1d38de2",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_mp2d/pratio/mp2_r16_d2_s3456456_code_v4/per_network_rows.csv": "6ab22547650cf5b38e2436df82b4d36806a16d6d827e8b052cb76b657095cc92",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_one_step_s123/per_network_rows.csv": "89d04859eb7c2d8b9991c91c82164bcace8faa11f57c7f86e4c8ffa61e4bda83",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_one_step_s456/per_network_rows.csv": "f3d8073daabb0f42adefe120b783999c293d8fec81c16d7a6bd983c320a62b43",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_one_step_s786/per_network_rows.csv": "883c9fa80544bd50d588cf80695ca7220afde44c1f4c117f960b3a91efc915b9",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_one_step_s2026/per_network_rows.csv": "9e3a790bd4dd4588a41750a7b85a2d71f8754ff43316f7d72c6de413b7bfd619",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_one_step_s3456456/per_network_rows.csv": "5739b18f7c8eb3610920bb1bbd5cd074c3249c15c33cf1df69aac620c656725b",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_multistep8_s123/per_network_rows.csv": "8fd40d45db84c175a6c0ba7f98a281d53f50ac151c67c355d3f65a6b00e424be",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_multistep8_s456/per_network_rows.csv": "dc9dcac2088f29c647ae8a2bc5b39690bc1975450915488e4f602e195544f54c",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_multistep8_s786/per_network_rows.csv": "15552e3ddb8d247954cfa3db48854a356ce443f3d3283d9b2064c30a210bff26",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_multistep8_s2026/per_network_rows.csv": "28d3cfc11d5fb1ac12f929cc0b5157413b83de20b3fa98f92e838daaa6d58e79",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d2_multistep8_s3456456/per_network_rows.csv": "a282eba465e1e2e31668ea28a30c2686d0269ddd16e0d4c6d5224c711daa7fd3",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_one_step_s123/per_network_rows.csv": "e40972f7757bd8ea77b1c3febdde8e33a4ec6d566a9c41b525144feb32faf6de",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_one_step_s456/per_network_rows.csv": "79d91ab1efa712c3fc3726f2a25bfba8bb4d6b27d77091d4b940745f689e62dc",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_one_step_s786/per_network_rows.csv": "49b148eb5ba5131a0e730ed05d9854be2c61770005e9fab5c8b8251281004437",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_one_step_s2026/per_network_rows.csv": "69d2a7c7f4d27da48cd71a2703937bcf288f9fecf120213fb4ea07c925c87652",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_one_step_s3456456/per_network_rows.csv": "a99277613fffeb765c9e1c99414d7c96d85bd61cfb20c3fa1b4c927b05bea409",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_multistep8_s123/per_network_rows.csv": "aed5484d9bf2bb8be2d269120a456c9baadbeb8c008ef691883d9572831d9a82",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_multistep8_s456/per_network_rows.csv": "5fec330f7837bfe3293726db161fabbb2ae1337b8e65e0c7598e45c9a08cf760",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_multistep8_s786/per_network_rows.csv": "f26dc22605ef926a5c2d36b7db526d95e9b432853bb4e1231f04b193d1f48b8d",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_multistep8_s2026/per_network_rows.csv": "ae64fc461679866a1299db1bfb5c64c8849844770f5749e3c1b2df8e59837f27",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_response_rollout/runs/mp2_r16_d4_multistep8_s3456456/per_network_rows.csv": "5705e71c77810d23de4a1c568d6e6d1d47bd030233513b555a8ff1de6f575407"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "auxiliary_postfit": "normalized boundary-strain OLS frames30..199 with strict endpoint parity on node_mixed and stiffness_mixed only; not fitting/selection",
+  "code_manifest_sha256": "aefc3fe6b50956f06d5e8c9759984e2818f47f224f64e16b7a701b515165cfcb",
+  "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+  "endpoint": "physical fixed-frame0 q0.10 at frame199",
+  "frames": "0..199000 step1000; 1.99% compression",
+  "jobs": {
+    "all4_one_each": {
+      "collector": "4685194.zeus-master",
+      "fit": "4685192.zeus-master"
+    },
+    "all4_twenty_each": {
+      "collector": "4685195.zeus-master",
+      "fit": "4685193.zeus-master"
+    }
+  },
+  "mixed_temperature_qualification": "all4_one_each mixed ID0 is one trajectory only; no mixed-temperature-distribution coverage claim",
+  "paired_topology_qualification": "low/mixed same-ID records are paired topology/source identities; one_each has 4 trajectories but 2 unique structures, twenty_each has 80 trajectories but 40 unique structures; comparison changes both structure and thermal-trajectory coverage.",
+  "postfit_repairs": [
+    {
+      "reason": "Frozen v5 collector passed a tag beginning with an underscore to a script that adds its own underscore, so both primary collectors completed endpoint/latent artifacts but failed only the auxiliary path lookup.",
+      "scientific_change": "none; rerun only frozen-checkpoint post-fit normalized boundary-strain OLS evaluation with the corrected tag string",
+      "script": "notebooks/results/all4_coverage_1000/repair_linear_v5.pbs",
+      "jobs": {
+        "all4_one_each": "4685853.zeus-master",
+        "all4_twenty_each": "4685855.zeus-master"
+      },
+      "resources": {
+        "mem": "16gb",
+        "ncpus": 8,
+        "place": "free:shared",
+        "queue": "mendels_q"
+      },
+      "status": "completed",
+      "completed": {
+        "all4_one_each": {
+          "walltime": "00:08:04",
+          "peak_mem_kb": 3223052,
+          "exit_status": 0,
+          "artifact": "all4_one_each_retry_v5_validation30/auxiliary_linear_fit/completed.json"
+        },
+        "all4_twenty_each": {
+          "walltime": "00:08:38",
+          "peak_mem_kb": 3418076,
+          "exit_status": 0,
+          "artifact": "all4_twenty_each_retry_v5_validation30/auxiliary_linear_fit/completed.json"
+        }
+      }
+    }
+  ],
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "retries": [
+    {
+      "code_manifest_sha256": "5ae03a4cdc5685149e907515e72db3e32468922a72e79a593389505059eca501",
+      "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+      "fixed_in": "train.py source-wise exposure filtering with exact split/source/ID coverage assertion",
+      "jobs": {
+        "all4_one_each": {
+          "collector": "4685211.zeus-master",
+          "fit": "4685209.zeus-master"
+        },
+        "all4_twenty_each": {
+          "collector": "4685212.zeus-master",
+          "fit": "4685210.zeus-master"
+        }
+      },
+      "reason": "v2 exposure export wrongly zipped a flat interleaved source mixture; no model/data/objective/selection change",
+      "resources": {
+        "mem": "16gb",
+        "ncpus": 8,
+        "place": "free:shared",
+        "queue": "mendels_q"
+      },
+      "snapshot": "notebooks/results/all4_coverage_1000/code_v3",
+      "submitted_at": "2026-09-14T11:18:42.056514+00:00",
+      "tag": "_retry_v3"
+    },
+    {
+      "code_manifest_sha256": "b6d3abc79bee7e4f4498ce3555fa2216675709d56af4ce742eb47fe15f36429f",
+      "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+      "fixed_in": "train.py uses effective_train_count=1 for smoke exposure while retaining declared production training_ids in recipe",
+      "jobs": {
+        "all4_twenty_each": {
+          "collector": "4685238.zeus-master",
+          "fit": "4685237.zeus-master"
+        }
+      },
+      "reason": "v3 twenty-each smoke exposure used declared 20 production IDs although smoke intentionally loads one ID0/source; no model/data/objective/selection change",
+      "resources": {
+        "mem": "16gb",
+        "ncpus": 8,
+        "place": "free:shared",
+        "queue": "mendels_q"
+      },
+      "snapshot": "notebooks/results/all4_coverage_1000/code_v4",
+      "submitted_at": "2026-09-14T11:29:54.356714+00:00",
+      "tag": "_retry_v4"
+    },
+    {
+      "cancelled_jobs": [
+        "4685209.zeus-master",
+        "4685211.zeus-master",
+        "4685237.zeus-master",
+        "4685238.zeus-master"
+      ],
+      "code_manifest_sha256": "7555cdce89d21d542eb492f03f5be37b58941e323c6ea3093e3b7b926f99259a",
+      "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+      "fixed_in": "validation IDs node_low20:27,node_mixed20:27,stiffness_low20:26,stiffness_mixed20:26 (30 trajectories / 15 paired unique structures); heldout remains40:119/source",
+      "jobs": {
+        "all4_one_each": {
+          "collector": "4685261.zeus-master",
+          "fit": "4685259.zeus-master"
+        },
+        "all4_twenty_each": {
+          "collector": "4685262.zeus-master",
+          "fit": "4685260.zeus-master"
+        }
+      },
+      "reason": "user-directed matched restart: validation budget changed to exactly 30 trajectories; v3/v4 active fits cancelled",
+      "resources": {
+        "mem": "16gb",
+        "ncpus": 8,
+        "place": "free:shared",
+        "queue": "mendels_q"
+      },
+      "snapshot": "notebooks/results/all4_coverage_1000/code_v5",
+      "submitted_at": "2026-09-14T11:40:35.383092+00:00",
+      "tag": "_retry_v5_validation30"
+    }
+  ],
+  "snapshot": "notebooks/results/all4_coverage_1000/code_v2",
+  "split": {
+    "all4_one_each": {
+      "heldout_development": "IDs40:119",
+      "train": "IDs0",
+      "validation": "IDs20:39"
+    },
+    "all4_twenty_each": {
+      "heldout_development": "IDs40:119",
+      "train": "IDs0:19",
+      "validation": "IDs20:39"
+    }
+  },
+  "status": "submitted",
+  "study": "all4_coverage_1000",
+  "submission_attempt_failure": {
+    "preserved_snapshot": "notebooks/results/all4_coverage_1000/code_v1",
+    "reason": "sandbox qsub could not create /var/tmp PBS script"
+  },
+  "submitted_at": "2026-09-14T11:07:46.073929+00:00"
+}

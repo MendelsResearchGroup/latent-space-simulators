@@ -1,0 +1,5 @@
+{
+  "status": "completed",
+  "smoke": true,
+  "networks_per_source": 1
+}

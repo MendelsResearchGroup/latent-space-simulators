@@ -1,0 +1,24 @@
+{
+  "source": "reid",
+  "index": 84,
+  "original_p": 0.1453638548993366,
+  "optimized_p": -0.1890635266367446,
+  "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/assets/reid_84.gif",
+  "gif_sha256": "af2d3f6114e4ab23533fb044f944c47fd05b34b26b0b720b33137817ef1c0e07",
+  "source_frames": 121,
+  "gif_frames": 121,
+  "duration_ms": 4000,
+  "pbs_job_id": "4676272.zeus-master",
+  "render_sha256": "3c0882ee042549aa51fcd9e1cb9f2f4bccfd9760912e093ecd62dfdf9a463ad7",
+  "trajectory_sha256": {
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/assets/reid_84_original.npz": "5752fb9addc2d6f39a531b7dfeb644c6153ffeef9f5b630d930ef4fffd46aa53",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/assets/reid_84_optimized.npz": "309933a0bea20d0c675f541726df5dc7f4bda40ea5e09623a17f6596bceb2929"
+  },
+  "deformation_scale": 1,
+  "precompression_gif_sha256": "53d6aca3e78f1fe5afce5c86ad401c316bcc5e7aab412a784a901b91b1872b20",
+  "display_dimensions": [
+    640,
+    336
+  ],
+  "encoding": "64-color palette, no dithering, differential frames; all physical frame times retained"
+}

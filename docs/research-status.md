@@ -2,8 +2,14 @@
 
 The project is an ongoing shared dynamics and ML-only engineering study. The
 primary scientific metric is post-fit p-ratio R-squared from reconstructed or
-autonomously predicted positions. All conclusions remain validation findings;
-the reserved final test is untouched.
+autonomously predicted positions. The shared noisy-LJ studies remain validation
+development; their reserved final test is untouched.
+
+The current priority is **noisy-LJ propagation through step 100**. Keep the
+existing 2D message-passing AE frozen as the accepted reconstruction reference
+and improve the shared predictor while retaining Reid and low-T performance.
+Mixed-T remains excluded from training and checkpoint selection, with transfer
+evaluated afterward. See the [dynamics goal](research/dynamics_goal.md).
 
 Shared AEs retain useful response information for Reid and dePablo sources.
 The completed five-seed checkpoint backfill found standard shared 2D LJ
@@ -16,11 +22,13 @@ autonomous rollout scores. The full,
 source-wise evaluation and estimator conventions are in the
 [p-ratio review](../notebooks/results/compact_lj_pratio/review.md).
 
-Noisy-LJ reconstruction and long-horizon response remain open. A five-seed
-training/validation audit found late response generalization uncertainty, and
-the matched 2D/4D comparisons do not yet establish a robust full-horizon LJ
-solution. The [results index](../notebooks/latent_space/experiment_results_index.md)
-records completed matrices, failures, and the next evidence required.
+The current matched three-seed MP2D reconstruction reference at step 100 is
+0.594 ± 0.064 for noisy LJ, with 20/20 valid networks per seed. This is accepted
+for the current propagator-focused phase; autonomous LJ response remains below
+the target. Historical late-horizon reconstruction limitations are retained as
+evidence, but extending to step 199 is not the immediate requirement. The
+[results index](../notebooks/latent_space/experiment_results_index.md) records
+completed matrices, failures, and the next evidence required.
 
 Joint-Adam engineering gives development evidence, not held-out reliability.
 The frozen-model procedure, final-design boundary, and required reporting are

@@ -1,0 +1,915 @@
+{
+  "checked_at_epoch": 1788865264,
+  "jobs": {
+    "4674041.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 13,
+        "cput": "00:00:35",
+        "mem": "4406452kb",
+        "ncpus": 1,
+        "vmem": "8592624kb",
+        "walltime": "00:02:12"
+      },
+      "obittime": "Tue Sep  8 13:58:02 2026"
+    },
+    "4674042.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 13,
+        "cput": "00:00:36",
+        "mem": "4393060kb",
+        "ncpus": 1,
+        "vmem": "8580140kb",
+        "walltime": "00:02:13"
+      },
+      "obittime": "Tue Sep  8 13:58:04 2026"
+    },
+    "4674043.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 13,
+        "cput": "00:00:34",
+        "mem": "4400300kb",
+        "ncpus": 1,
+        "vmem": "8582540kb",
+        "walltime": "00:02:11"
+      },
+      "obittime": "Tue Sep  8 13:58:01 2026"
+    },
+    "4674044.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 14,
+        "cput": "00:00:34",
+        "mem": "4085516kb",
+        "ncpus": 1,
+        "vmem": "8268364kb",
+        "walltime": "00:02:10"
+      },
+      "obittime": "Tue Sep  8 13:58:01 2026"
+    },
+    "4674045.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 14,
+        "cput": "00:00:34",
+        "mem": "3636820kb",
+        "ncpus": 1,
+        "vmem": "7824632kb",
+        "walltime": "00:02:10"
+      },
+      "obittime": "Tue Sep  8 13:58:00 2026"
+    },
+    "4674046.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 14,
+        "cput": "00:00:36",
+        "mem": "4397816kb",
+        "ncpus": 1,
+        "vmem": "8579100kb",
+        "walltime": "00:02:11"
+      },
+      "obittime": "Tue Sep  8 13:58:02 2026"
+    },
+    "4674047.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 13,
+        "cput": "00:00:36",
+        "mem": "4393440kb",
+        "ncpus": 1,
+        "vmem": "8580188kb",
+        "walltime": "00:02:12"
+      },
+      "obittime": "Tue Sep  8 13:58:04 2026"
+    },
+    "4674048.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 13,
+        "cput": "00:00:35",
+        "mem": "4400852kb",
+        "ncpus": 1,
+        "vmem": "8587820kb",
+        "walltime": "00:02:12"
+      },
+      "obittime": "Tue Sep  8 13:58:04 2026"
+    },
+    "4674049.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 14,
+        "cput": "00:00:35",
+        "mem": "4394492kb",
+        "ncpus": 1,
+        "vmem": "8579012kb",
+        "walltime": "00:02:10"
+      },
+      "obittime": "Tue Sep  8 13:58:01 2026"
+    },
+    "4674050.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 13,
+        "cput": "00:00:37",
+        "mem": "4401232kb",
+        "ncpus": 1,
+        "vmem": "8588940kb",
+        "walltime": "00:02:12"
+      },
+      "obittime": "Tue Sep  8 13:58:04 2026"
+    },
+    "4674051.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:19",
+        "mem": "5812116kb",
+        "ncpus": 1,
+        "vmem": "10021776kb",
+        "walltime": "00:03:56"
+      },
+      "obittime": "Tue Sep  8 13:59:48 2026"
+    },
+    "4674052.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:02:27",
+        "mem": "5818664kb",
+        "ncpus": 1,
+        "vmem": "10027692kb",
+        "walltime": "00:04:02"
+      },
+      "obittime": "Tue Sep  8 13:59:54 2026"
+    },
+    "4674053.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:03",
+        "mem": "5817228kb",
+        "ncpus": 1,
+        "vmem": "10026980kb",
+        "walltime": "00:03:37"
+      },
+      "obittime": "Tue Sep  8 13:59:29 2026"
+    },
+    "4674054.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:06",
+        "mem": "5810492kb",
+        "ncpus": 1,
+        "vmem": "10018980kb",
+        "walltime": "00:03:42"
+      },
+      "obittime": "Tue Sep  8 13:59:35 2026"
+    },
+    "4674055.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 33,
+        "cput": "00:02:06",
+        "mem": "5825204kb",
+        "ncpus": 1,
+        "vmem": "10036836kb",
+        "walltime": "00:03:43"
+      },
+      "obittime": "Tue Sep  8 13:59:35 2026"
+    },
+    "4674056.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:29",
+        "mem": "5815868kb",
+        "ncpus": 1,
+        "vmem": "10018580kb",
+        "walltime": "00:04:06"
+      },
+      "obittime": "Tue Sep  8 13:59:59 2026"
+    },
+    "4674057.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:07",
+        "mem": "5809928kb",
+        "ncpus": 1,
+        "vmem": "10020924kb",
+        "walltime": "00:03:40"
+      },
+      "obittime": "Tue Sep  8 13:59:33 2026"
+    },
+    "4674058.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:09",
+        "mem": "5814256kb",
+        "ncpus": 1,
+        "vmem": "10026548kb",
+        "walltime": "00:03:43"
+      },
+      "obittime": "Tue Sep  8 13:59:36 2026"
+    },
+    "4674059.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:04",
+        "mem": "5827820kb",
+        "ncpus": 1,
+        "vmem": "10039116kb",
+        "walltime": "00:03:36"
+      },
+      "obittime": "Tue Sep  8 13:59:30 2026"
+    },
+    "4674060.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 33,
+        "cput": "00:02:04",
+        "mem": "5813740kb",
+        "ncpus": 1,
+        "vmem": "10024812kb",
+        "walltime": "00:03:39"
+      },
+      "obittime": "Tue Sep  8 13:59:33 2026"
+    },
+    "4674061.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:02:20",
+        "mem": "5821044kb",
+        "ncpus": 1,
+        "vmem": "10014488kb",
+        "walltime": "00:03:53"
+      },
+      "obittime": "Tue Sep  8 13:59:47 2026"
+    },
+    "4674062.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:20",
+        "mem": "5820688kb",
+        "ncpus": 1,
+        "vmem": "10013660kb",
+        "walltime": "00:03:55"
+      },
+      "obittime": "Tue Sep  8 13:59:49 2026"
+    },
+    "4674063.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:02:08",
+        "mem": "5816080kb",
+        "ncpus": 1,
+        "vmem": "10013492kb",
+        "walltime": "00:03:41"
+      },
+      "obittime": "Tue Sep  8 13:59:35 2026"
+    },
+    "4674064.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 33,
+        "cput": "00:02:04",
+        "mem": "5814228kb",
+        "ncpus": 1,
+        "vmem": "10011552kb",
+        "walltime": "00:03:37"
+      },
+      "obittime": "Tue Sep  8 13:59:32 2026"
+    },
+    "4674065.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 33,
+        "cput": "00:02:05",
+        "mem": "5809816kb",
+        "ncpus": 1,
+        "vmem": "10003176kb",
+        "walltime": "00:03:39"
+      },
+      "obittime": "Tue Sep  8 13:59:34 2026"
+    },
+    "4674066.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:07",
+        "mem": "5815332kb",
+        "ncpus": 1,
+        "vmem": "10010908kb",
+        "walltime": "00:03:41"
+      },
+      "obittime": "Tue Sep  8 13:59:36 2026"
+    },
+    "4674067.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 36,
+        "cput": "00:02:17",
+        "mem": "5809440kb",
+        "ncpus": 1,
+        "vmem": "9999484kb",
+        "walltime": "00:03:49"
+      },
+      "obittime": "Tue Sep  8 13:59:45 2026"
+    },
+    "4674068.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 33,
+        "cput": "00:02:05",
+        "mem": "5817132kb",
+        "ncpus": 1,
+        "vmem": "10009812kb",
+        "walltime": "00:03:39"
+      },
+      "obittime": "Tue Sep  8 13:59:33 2026"
+    },
+    "4674069.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:02:14",
+        "mem": "5810000kb",
+        "ncpus": 1,
+        "vmem": "9998604kb",
+        "walltime": "00:03:49"
+      },
+      "obittime": "Tue Sep  8 13:59:43 2026"
+    },
+    "4674070.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:03",
+        "mem": "5815520kb",
+        "ncpus": 1,
+        "vmem": "10011816kb",
+        "walltime": "00:03:37"
+      },
+      "obittime": "Tue Sep  8 13:59:31 2026"
+    },
+    "4674071.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:05",
+        "mem": "5818708kb",
+        "ncpus": 1,
+        "vmem": "10016756kb",
+        "walltime": "00:03:37"
+      },
+      "obittime": "Tue Sep  8 13:59:31 2026"
+    },
+    "4674072.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:02:23",
+        "mem": "5816904kb",
+        "ncpus": 1,
+        "vmem": "10009308kb",
+        "walltime": "00:03:55"
+      },
+      "obittime": "Tue Sep  8 13:59:51 2026"
+    },
+    "4674073.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:19",
+        "mem": "5819440kb",
+        "ncpus": 1,
+        "vmem": "10014112kb",
+        "walltime": "00:03:53"
+      },
+      "obittime": "Tue Sep  8 13:59:48 2026"
+    },
+    "4674074.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 36,
+        "cput": "00:02:17",
+        "mem": "5812284kb",
+        "ncpus": 1,
+        "vmem": "10004192kb",
+        "walltime": "00:03:47"
+      },
+      "obittime": "Tue Sep  8 13:59:43 2026"
+    },
+    "4674075.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:01",
+        "mem": "5819744kb",
+        "ncpus": 1,
+        "vmem": "10016368kb",
+        "walltime": "00:03:34"
+      },
+      "obittime": "Tue Sep  8 13:59:29 2026"
+    },
+    "4674076.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:03",
+        "mem": "5822100kb",
+        "ncpus": 1,
+        "vmem": "10012016kb",
+        "walltime": "00:03:33"
+      },
+      "obittime": "Tue Sep  8 13:59:29 2026"
+    },
+    "4674077.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:02:23",
+        "mem": "5816520kb",
+        "ncpus": 1,
+        "vmem": "10010616kb",
+        "walltime": "00:03:55"
+      },
+      "obittime": "Tue Sep  8 13:59:52 2026"
+    },
+    "4674078.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:01",
+        "mem": "5822452kb",
+        "ncpus": 1,
+        "vmem": "10009920kb",
+        "walltime": "00:03:32"
+      },
+      "obittime": "Tue Sep  8 13:59:28 2026"
+    },
+    "4674079.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 34,
+        "cput": "00:02:20",
+        "mem": "5816368kb",
+        "ncpus": 1,
+        "vmem": "10008808kb",
+        "walltime": "00:03:52"
+      },
+      "obittime": "Tue Sep  8 13:59:49 2026"
+    },
+    "4674080.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:01:59",
+        "mem": "5811324kb",
+        "ncpus": 1,
+        "vmem": "9997936kb",
+        "walltime": "00:03:31"
+      },
+      "obittime": "Tue Sep  8 13:59:28 2026"
+    },
+    "4674081.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 33,
+        "cput": "00:02:00",
+        "mem": "5820996kb",
+        "ncpus": 1,
+        "vmem": "10014996kb",
+        "walltime": "00:03:33"
+      },
+      "obittime": "Tue Sep  8 13:59:29 2026"
+    },
+    "4674082.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:02:03",
+        "mem": "5805332kb",
+        "ncpus": 1,
+        "vmem": "10003356kb",
+        "walltime": "00:03:36"
+      },
+      "obittime": "Tue Sep  8 13:59:33 2026"
+    },
+    "4674083.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 35,
+        "cput": "00:02:02",
+        "mem": "5805544kb",
+        "ncpus": 1,
+        "vmem": "9996180kb",
+        "walltime": "00:03:35"
+      },
+      "obittime": "Tue Sep  8 13:59:31 2026"
+    },
+    "4674084.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:51",
+        "mem": "5808840kb",
+        "ncpus": 1,
+        "vmem": "9999372kb",
+        "walltime": "00:03:03"
+      },
+      "obittime": "Tue Sep  8 13:59:00 2026"
+    },
+    "4674085.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:43",
+        "mem": "5816808kb",
+        "ncpus": 1,
+        "vmem": "10007988kb",
+        "walltime": "00:02:52"
+      },
+      "obittime": "Tue Sep  8 13:58:49 2026"
+    },
+    "4674086.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:43",
+        "mem": "5818848kb",
+        "ncpus": 1,
+        "vmem": "10006632kb",
+        "walltime": "00:02:52"
+      },
+      "obittime": "Tue Sep  8 13:58:49 2026"
+    },
+    "4674087.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:44",
+        "mem": "5816032kb",
+        "ncpus": 1,
+        "vmem": "10009372kb",
+        "walltime": "00:02:56"
+      },
+      "obittime": "Tue Sep  8 13:58:54 2026"
+    },
+    "4674088.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 30,
+        "cput": "00:01:54",
+        "mem": "5811516kb",
+        "ncpus": 1,
+        "vmem": "9999332kb",
+        "walltime": "00:03:02"
+      },
+      "obittime": "Tue Sep  8 13:58:59 2026"
+    },
+    "4674089.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 31,
+        "cput": "00:01:43",
+        "mem": "5808336kb",
+        "ncpus": 1,
+        "vmem": "9998072kb",
+        "walltime": "00:02:52"
+      },
+      "obittime": "Tue Sep  8 13:58:50 2026"
+    },
+    "4674090.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:44",
+        "mem": "5821572kb",
+        "ncpus": 1,
+        "vmem": "10013988kb",
+        "walltime": "00:02:54"
+      },
+      "obittime": "Tue Sep  8 13:58:52 2026"
+    },
+    "4674091.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 11,
+        "cput": "00:00:32",
+        "mem": "4392356kb",
+        "ncpus": 1,
+        "vmem": "8577736kb",
+        "walltime": "00:01:43"
+      },
+      "obittime": "Tue Sep  8 13:57:42 2026"
+    },
+    "4674092.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 12,
+        "cput": "00:00:32",
+        "mem": "1449228kb",
+        "ncpus": 1,
+        "vmem": "5637332kb",
+        "walltime": "00:01:40"
+      },
+      "obittime": "Tue Sep  8 13:57:38 2026"
+    },
+    "4674093.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 11,
+        "cput": "00:00:32",
+        "mem": "4400516kb",
+        "ncpus": 1,
+        "vmem": "8581896kb",
+        "walltime": "00:01:41"
+      },
+      "obittime": "Tue Sep  8 13:57:40 2026"
+    },
+    "4674094.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 14,
+        "cput": "00:00:31",
+        "mem": "1449312kb",
+        "ncpus": 1,
+        "vmem": "5637320kb",
+        "walltime": "00:01:40"
+      },
+      "obittime": "Tue Sep  8 13:57:38 2026"
+    },
+    "4674095.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 11,
+        "cput": "00:00:32",
+        "mem": "4401816kb",
+        "ncpus": 1,
+        "vmem": "8587496kb",
+        "walltime": "00:01:43"
+      },
+      "obittime": "Tue Sep  8 13:57:42 2026"
+    },
+    "4674096.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:43",
+        "mem": "5821660kb",
+        "ncpus": 1,
+        "vmem": "10009232kb",
+        "walltime": "00:02:51"
+      },
+      "obittime": "Tue Sep  8 13:58:50 2026"
+    },
+    "4674097.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:44",
+        "mem": "5818964kb",
+        "ncpus": 1,
+        "vmem": "10012820kb",
+        "walltime": "00:02:55"
+      },
+      "obittime": "Tue Sep  8 13:58:54 2026"
+    },
+    "4674098.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:43",
+        "mem": "5817768kb",
+        "ncpus": 1,
+        "vmem": "10013220kb",
+        "walltime": "00:02:53"
+      },
+      "obittime": "Tue Sep  8 13:58:53 2026"
+    },
+    "4674099.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:44",
+        "mem": "5816816kb",
+        "ncpus": 1,
+        "vmem": "10011112kb",
+        "walltime": "00:02:54"
+      },
+      "obittime": "Tue Sep  8 13:58:53 2026"
+    },
+    "4674100.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:43",
+        "mem": "5825076kb",
+        "ncpus": 1,
+        "vmem": "10018964kb",
+        "walltime": "00:02:55"
+      },
+      "obittime": "Tue Sep  8 13:58:54 2026"
+    },
+    "4674101.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:43",
+        "mem": "5824768kb",
+        "ncpus": 1,
+        "vmem": "10018204kb",
+        "walltime": "00:02:52"
+      },
+      "obittime": "Tue Sep  8 13:58:51 2026"
+    },
+    "4674102.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:47",
+        "mem": "5827036kb",
+        "ncpus": 1,
+        "vmem": "10020952kb",
+        "walltime": "00:02:54"
+      },
+      "obittime": "Tue Sep  8 13:58:54 2026"
+    },
+    "4674103.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:44",
+        "mem": "5823312kb",
+        "ncpus": 1,
+        "vmem": "10017792kb",
+        "walltime": "00:02:51"
+      },
+      "obittime": "Tue Sep  8 13:58:51 2026"
+    },
+    "4674104.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:46",
+        "mem": "5819360kb",
+        "ncpus": 1,
+        "vmem": "10011460kb",
+        "walltime": "00:02:55"
+      },
+      "obittime": "Tue Sep  8 13:58:56 2026"
+    },
+    "4674105.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:44",
+        "mem": "5826136kb",
+        "ncpus": 1,
+        "vmem": "10020084kb",
+        "walltime": "00:02:51"
+      },
+      "obittime": "Tue Sep  8 13:58:52 2026"
+    },
+    "4674106.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:45",
+        "mem": "5812252kb",
+        "ncpus": 1,
+        "vmem": "10005092kb",
+        "walltime": "00:02:53"
+      },
+      "obittime": "Tue Sep  8 13:58:53 2026"
+    },
+    "4674107.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:46",
+        "mem": "5820236kb",
+        "ncpus": 1,
+        "vmem": "10012872kb",
+        "walltime": "00:02:54"
+      },
+      "obittime": "Tue Sep  8 13:58:54 2026"
+    },
+    "4674108.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:44",
+        "mem": "5809620kb",
+        "ncpus": 1,
+        "vmem": "10004744kb",
+        "walltime": "00:02:53"
+      },
+      "obittime": "Tue Sep  8 13:58:54 2026"
+    },
+    "4674109.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 28,
+        "cput": "00:01:43",
+        "mem": "5810392kb",
+        "ncpus": 1,
+        "vmem": "10005004kb",
+        "walltime": "00:02:54"
+      },
+      "obittime": "Tue Sep  8 13:58:55 2026"
+    },
+    "4674110.zeus-master": {
+      "job_state": "F",
+      "Exit_status": 0,
+      "resources_used": {
+        "cpupercent": 29,
+        "cput": "00:01:45",
+        "mem": "5813116kb",
+        "ncpus": 1,
+        "vmem": "10009464kb",
+        "walltime": "00:02:52"
+      },
+      "obittime": "Tue Sep  8 13:58:53 2026"
+    }
+  }
+}

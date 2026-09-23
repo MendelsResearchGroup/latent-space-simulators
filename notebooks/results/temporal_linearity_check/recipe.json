@@ -1,0 +1,104 @@
+{
+  "scope": "20 existing validation trajectories/source, no fitting models or final-test analysis",
+  "definition": "per-node coordinate linear regression against saved frame index, pooled temporal R2 with each coordinate centered separately; descriptive fitted-line test",
+  "source_wise": {
+    "reid": {
+      "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/reid_200_frames.pt",
+      "validation_ids": [
+        41,
+        49,
+        25,
+        93,
+        84,
+        96,
+        97,
+        13,
+        28,
+        52,
+        59,
+        57,
+        15,
+        53,
+        2,
+        88,
+        74,
+        31,
+        69,
+        19
+      ],
+      "total": 20,
+      "dataset_sha256_from_split_manifest": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659"
+    },
+    "depablo_low_temp": {
+      "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/depablo-near-zero-temp.pt",
+      "validation_ids": [
+        161,
+        47,
+        191,
+        66,
+        118,
+        98,
+        2,
+        136,
+        131,
+        124,
+        105,
+        96,
+        152,
+        70,
+        169,
+        168,
+        126,
+        196,
+        138,
+        78
+      ],
+      "total": 20,
+      "dataset_sha256_from_split_manifest": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09"
+    },
+    "depablo_mixed_temp": {
+      "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/depablo-10k-mix-temp.pt",
+      "validation_ids": [
+        268,
+        161,
+        47,
+        191,
+        242,
+        208,
+        221,
+        140,
+        118,
+        158,
+        250,
+        136,
+        68,
+        96,
+        262,
+        70,
+        78,
+        44,
+        36,
+        39
+      ],
+      "total": 20,
+      "dataset_sha256_from_split_manifest": "b5c10f48a03df0822ddc4decb5792afa83b73fee755fa83cc588bbfdaa0d3a67"
+    }
+  },
+  "script_sha256": "581fa2fde47bc33a75c56505e17a0bf12ab07964e9556d1d98b8198438ab1953",
+  "manifest_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+  "criterion": "Earliest 20-frame window start for which every remaining 20-frame window has temporal coordinate-fit R2 >= threshold in all20 trajectories; thresholds0.99 and0.999",
+  "onset_frames": {
+    "reid": {
+      "0.99": 0,
+      "0.999": 6
+    },
+    "depablo_low_temp": {
+      "0.99": 0,
+      "0.999": 2
+    },
+    "depablo_mixed_temp": {
+      "0.99": null,
+      "0.999": null
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "boundary": "fixed frame-0 q=0.10 side nodes from the first low-T replica of the same network",
+  "branch": "stiffness",
+  "cadence": "1000md",
+  "estimator": "fixed-effects OLS of normalized transverse boundary strain on normalized axial boundary strain; one intercept per thermal seed and one shared slope; p=-slope",
+  "final_test_used": false,
+  "frames_per_trajectory": 200,
+  "job_id": "4688169[3].zeus-master",
+  "manifest_sha256": {
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_104729/mixed/mini_stiff_optimized_200_1500/manifest.json": "671464216a17185e7c62f8d362eef233d1568564a525e2e2955bf1fff800c527",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_224737/mixed/mini_stiff_optimized_200_1500/manifest.json": "156b5da71a37c99f14c4ed53c09c6840dad00a1a1a1db3a895fea29155e0e337",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_350377/mixed/mini_stiff_optimized_200_1500/manifest.json": "7b8f4fc7748779fd9016212597a847363642ac81d4d084ec908c29ece2b9f7de",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_479909/mixed/mini_stiff_optimized_200_1500/manifest.json": "6bd99bdb6825d1db9d12bfbf4a37de5bb92ed22bd0100a5a4c9514877e66e705",
+    "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000_replicates/seed_611953/mixed/mini_stiff_optimized_200_1500/manifest.json": "1abf87eaa37c0200f0eb4d1b9852b48e5d5603e4f2daaf23f85269c289a5fb36"
+  },
+  "md_steps_between_frames": 1000,
+  "membership_mismatch_networks": 170,
+  "networks": 200,
+  "profile": "mixed",
+  "replica_uncertainty": "single-replica OLS mean, sample SD, SEM, and two-sided 95% t interval with df=4",
+  "replicates": 5,
+  "script_sha256": "475f8bf7bd611ba90fa3e27ff83b0435c4504caf5fd39f08cab2e4d941c04f2e",
+  "status": "complete",
+  "temperature_assignment_seed": 904297,
+  "thermostat_seed_bases": [
+    104729,
+    224737,
+    350377,
+    479909,
+    611953
+  ]
+}

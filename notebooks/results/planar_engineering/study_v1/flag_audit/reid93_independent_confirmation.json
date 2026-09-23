@@ -1,0 +1,35 @@
+{
+  "case": "same10_reid_93",
+  "kind": "optimized",
+  "trajectory_sha256": "dc7145d0e96b2630c1019ff324d828e92341e313974a1488a944ef5eff559f2a",
+  "edges": [
+    [
+      18,
+      32
+    ],
+    [
+      33,
+      47
+    ]
+  ],
+  "method": "Independent longdouble signed-orientation test on raw physical positions: o1*o2<0 and o3*o4<0; edges share no node. Same-cell intersection.",
+  "frames": [
+    {
+      "frame": 59,
+      "proper_crossing": true,
+      "first_edge_fraction": 0.9999040462232929,
+      "second_edge_fraction": 0.7181996363451235,
+      "distance_from_node32": 9.546479097612537e-05,
+      "box_width": 14.809609102551159
+    },
+    {
+      "frame": 120,
+      "proper_crossing": true,
+      "first_edge_fraction": 0.8975784614887702,
+      "second_edge_fraction": 0.6464602147664583,
+      "distance_from_node32": 0.1022504188465648,
+      "box_width": 14.582153392907454
+    }
+  ],
+  "scope": "Confirms one saved trajectory only, not all35 flagged cases. No simulations or design edits."
+}

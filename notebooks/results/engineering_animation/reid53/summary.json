@@ -1,0 +1,23 @@
+{
+  "source": "reid",
+  "index": 53,
+  "mode": "stiffness",
+  "status": "completed",
+  "target_achieved": true,
+  "original_p_ratio": 0.09049821989813585,
+  "start_p_ratio": -0.006012175384968586,
+  "best_p_ratio": -0.10344072333493298,
+  "confirmed_p_ratio": -0.10344072336031537,
+  "confirmation_valid": true,
+  "rounds": 5,
+  "accepted_rounds": 5,
+  "valid": 34,
+  "total": 34,
+  "proposals": 34,
+  "geometry_rejected": 0,
+  "elapsed_seconds": 100.50218915939331,
+  "max_rss_kb": 732036,
+  "max_abs_log_edit": 2.0,
+  "max_node_displacement": 0.0,
+  "engineered_sha256": "b410ac79404d44b561989e5dee854c1d28ed999b6ab713bd268224c79bc4d90e"
+}

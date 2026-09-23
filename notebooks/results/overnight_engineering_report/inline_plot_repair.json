@@ -1,0 +1,6 @@
+{
+  "reason": "PBS Agg backend did not embed overnight plots; explicit %matplotlib inline and re-execution",
+  "inline_pngs": 3,
+  "notebook_sha256": "b1f1f2d4974a698e7684ad5cfe317b79f7271f187dc5e240113cecbf38c70c29",
+  "scientific_results_changed": false
+}

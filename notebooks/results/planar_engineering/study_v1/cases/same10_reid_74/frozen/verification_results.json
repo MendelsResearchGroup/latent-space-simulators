@@ -1,0 +1,30 @@
+{
+  "original": {
+    "name": "original",
+    "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/original.pt",
+    "graph_sha256": "981fcdd90d0c026e46f0e7367c26921e723ea3ddd9bda9fc0788b166114378fb",
+    "trajectory_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/original_trajectory.npz",
+    "trajectory_sha256": "db8fb827ea4947f201f8fc888fbc9e0650e7bcd2507aa01c9ecf9a2a672ed130",
+    "physical_p_ratio": 0.037355479779490226,
+    "endpoint_parity_error": 0.0,
+    "frame_count": 121,
+    "lammps_path": "/rg/mendels_prj/alexander.z/DL-course-project/.runtime/lammps/bin/lmp",
+    "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+    "pbs_job_id": "4677382.zeus-master",
+    "verification_source_sha256": "08ba5a9997cb9fbb04dbe66a43977e5fcf2af14b9a6ec6f4b23336096c7908e1"
+  },
+  "optimized": {
+    "name": "optimized",
+    "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/optimized.pt",
+    "graph_sha256": "472b3f99bea0002a8e7945a2504d59d68d464f67d2f9c5647d869a4d56c3e86c",
+    "trajectory_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/optimized_trajectory.npz",
+    "trajectory_sha256": "8122be17336112d486506561a5a899f8e0c24b70304bb8db791aea7b502add57",
+    "physical_p_ratio": -0.1381231649172456,
+    "endpoint_parity_error": 0.0,
+    "frame_count": 121,
+    "lammps_path": "/rg/mendels_prj/alexander.z/DL-course-project/.runtime/lammps/bin/lmp",
+    "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+    "pbs_job_id": "4677382.zeus-master",
+    "verification_source_sha256": "08ba5a9997cb9fbb04dbe66a43977e5fcf2af14b9a6ec6f4b23336096c7908e1"
+  }
+}

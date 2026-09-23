@@ -1,0 +1,13 @@
+seed,objective,lr,run_name,status,job_id
+123,latent_state,0.0001,mp2d_s123_latent_state_lr0.0001,completed,4678481.zeus-master
+123,latent_state,0.0003,mp2d_s123_latent_state_lr0.0003,completed,4678482.zeus-master
+123,decoded_positions,0.0001,mp2d_s123_decoded_positions_lr0.0001,completed,4678483.zeus-master
+123,decoded_positions,0.0003,mp2d_s123_decoded_positions_lr0.0003,completed,4678484.zeus-master
+456,latent_state,0.0001,mp2d_s456_latent_state_lr0.0001,completed,4678485.zeus-master
+456,latent_state,0.0003,mp2d_s456_latent_state_lr0.0003,completed,4678486.zeus-master
+456,decoded_positions,0.0001,mp2d_s456_decoded_positions_lr0.0001,completed,4678487.zeus-master
+456,decoded_positions,0.0003,mp2d_s456_decoded_positions_lr0.0003,completed,4678488.zeus-master
+786,latent_state,0.0001,mp2d_s786_latent_state_lr0.0001,completed,4678489.zeus-master
+786,latent_state,0.0003,mp2d_s786_latent_state_lr0.0003,completed,4678490.zeus-master
+786,decoded_positions,0.0001,mp2d_s786_decoded_positions_lr0.0001,completed,4678491.zeus-master
+786,decoded_positions,0.0003,mp2d_s786_decoded_positions_lr0.0003,completed,4678492.zeus-master

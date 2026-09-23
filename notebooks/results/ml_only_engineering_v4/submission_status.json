@@ -1,0 +1,10 @@
+{
+  "study": "ml_only_engineering_v4",
+  "status": "completed",
+  "scope": "Predeclared previously unengineered validation originals: Reid 57/15 and low-T 105/152; no final-test claim.",
+  "preparation": {"job_id": "4675313.zeus-master", "stage": "prepare", "resources": "4 CPU, 8 GB, shared", "stdout": "logs/prepare_4675313.zeus-master.log", "gate": "initial-frame normalization and exact old-reference preprocessing parity"},
+  "optimization": {"job_id": "4675314.zeus-master", "dependency": "afterok:4675313.zeus-master", "stage": "optimize", "resources": "4 CPU, 2 GB, shared", "stdout": "logs/optimize_4675314.zeus-master.log"},
+  "verification": {"job_id": "4675315.zeus-master", "dependency": "afterok:4675314.zeus-master", "stage": "verify", "resources": "1 CPU, 2 GB, shared", "stdout": "logs/verify_4675315.zeus-master.log", "gate": "all frozen-design hashes before physics"},
+  "snapshots": {"code/prepare_new.py": "69197571fcd876768ff5f881c8604664b33ab7ab02c87fa50b5b5c73277021b1", "code/run.py": "2c7452a52330c469a3680c533e2dfea81b2e7b63b85f17ac0c810ec71d2401db", "code/run.pbs": "453682369a08c3ea9bf9e6ec4e5b8dfcb82c3a352e559fb9f285a19f328b2d48"},
+  "completion": {"job_id": "4675315.zeus-master", "exit_status": 0, "walltime": "00:10:24", "max_rss_kb": 743428, "final_designs": 16, "outputs": ["results.csv", "summary.json", "verification_completed.json"]}
+}

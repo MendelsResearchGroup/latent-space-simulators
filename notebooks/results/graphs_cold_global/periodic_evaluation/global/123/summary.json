@@ -1,0 +1,98 @@
+{
+  "estimator": "nearest-reference periodic image, then independent affine coordinate fits",
+  "model": "global",
+  "seed": 123,
+  "test": {
+    "10": {
+      "p_ratio_r2_y_over_x": -0.1556354841939227,
+      "p_ratio_r2_z_over_x": -0.536843871576538,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 3.8386344658469795e-08
+    },
+    "100": {
+      "p_ratio_r2_y_over_x": -2.3480247556422564,
+      "p_ratio_r2_z_over_x": -4.631284471922797,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 1.2061833047027903e-05
+    },
+    "20": {
+      "p_ratio_r2_y_over_x": -5.040685425429998,
+      "p_ratio_r2_z_over_x": -3.594229970635836,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 2.9337452378541684e-07
+    },
+    "200": {
+      "p_ratio_r2_y_over_x": -1.5736116298893892,
+      "p_ratio_r2_z_over_x": -5.109853414551027,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 0.00011132634836030775
+    },
+    "399": {
+      "p_ratio_r2_y_over_x": -1.1752697259183997,
+      "p_ratio_r2_z_over_x": -3.294929166163894,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 0.0003121922418358736
+    },
+    "5": {
+      "p_ratio_r2_y_over_x": 0.5217676522291883,
+      "p_ratio_r2_z_over_x": -0.9325754332441938,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 2.1225892987697392e-09
+    },
+    "50": {
+      "p_ratio_r2_y_over_x": -2.661049934051798,
+      "p_ratio_r2_z_over_x": -4.481653891518264,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 2.6822387297897876e-06
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "code_manifest_sha256": "94cb298e078e24e3e75fbaccf848e0f39f7af10bca079f53f59a07d40e854766",
+  "data_manifest_sha256": "fcf9ca1a95e81aaa8a13ab098d91d611163cbdf10df74b2ac0d8ea06de4bebb2",
+  "endpoint": "physical fixed-frame0 q0.10 at frame199",
+  "frames": "0..199000 step1000; 1.99% compression",
+  "jobs": {
+    "joint_low_uniform_retry1": {
+      "collector": "4683635.zeus-master",
+      "fit": "4683633.zeus-master"
+    },
+    "node_low_uniform_retry1": {
+      "collector": "4683636.zeus-master",
+      "fit": "4683634.zeus-master"
+    }
+  },
+  "mixed_excluded_from_fit_selection": true,
+  "prior_failure": "source_sim_id absent on direct graphs; retry assigns validation identity20 before smoke evaluation",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "completed_accounting": {
+    "joint_fit": {"job_id": "4683633.zeus-master", "exit_status": 0, "walltime": "02:29:32", "memory_kb": 3491624},
+    "joint_collector": {"job_id": "4683635.zeus-master", "exit_status": 0, "walltime": "00:18:54", "memory_kb": 2813884},
+    "node_fit": {"job_id": "4683634.zeus-master", "exit_status": 0, "walltime": "01:38:23", "memory_kb": 2060780},
+    "node_collector": {"job_id": "4683636.zeus-master", "exit_status": 0, "walltime": "00:09:43", "memory_kb": 1849116}
+  },
+  "frame199_endpoint_results": {
+    "joint_low_uniform_retry1": {
+      "node_low": {"ae_p_ratio_r2": 0.952517, "rollout_p_ratio_r2": 0.958657, "valid_total_each": "80/80"},
+      "node_mixed": {"ae_p_ratio_r2": 0.745768, "rollout_p_ratio_r2": 0.883940, "valid_total_each": "80/80"},
+      "stiffness_low": {"ae_p_ratio_r2": 0.927525, "rollout_p_ratio_r2": 0.835224, "valid_total_each": "80/80"},
+      "stiffness_mixed": {"ae_p_ratio_r2": 0.482135, "rollout_p_ratio_r2": 0.566453, "valid_total_each": "80/80"}
+    },
+    "node_low_uniform_retry1": {
+      "node_low": {"ae_p_ratio_r2": 0.959749, "rollout_p_ratio_r2": 0.960070, "valid_total_each": "80/80"},
+      "node_mixed": {"ae_p_ratio_r2": 0.529379, "rollout_p_ratio_r2": 0.873666, "valid_total_each": "80/80"}
+    }
+  },
+  "selected_epochs": {
+    "joint_ae_post_warmup": 6,
+    "joint_ae_stopped_after": 18,
+    "joint_propagator": 20,
+    "joint_propagator_stopped_after": 32,
+    "node_ae_post_warmup": 13,
+    "node_ae_stopped_after": 25,
+    "node_propagator": 60,
+    "node_propagator_stopped_after": 60
+  },
+  "checkpoint_sha256": {
+    "joint_ae": "6724f375c0f23781647631e5e9d07c3e92807e772f8a3eb89d2b626b24583040",
+    "joint_propagator": "fe3785ca90b192da783eda59e94c2f8ee31f89f74785e1125c11a0e13179ea6f",
+    "node_ae": "f22ebf56c232e269c3466f38fa40706a045499b0601baff69476ef99413d92bd",
+    "node_propagator": "0547d98ceb07aec5235ea671c81358a6f9f8e4d172095a0c41062ad159b30e44"
+  },
+  "snapshot": "notebooks/results/mini_temperature1000_uniform_retry1/code_v2",
+  "split": "direct full200: train0:20,val20:40,test40:120",
+  "status": "completed",
+  "study": "mini_temperature1000_uniform_retry1",
+  "submitted_at": "2026-09-13T17:54:03.262883+00:00"
+}

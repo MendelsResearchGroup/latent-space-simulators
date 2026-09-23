@@ -1,0 +1,9 @@
+{
+  "study": "thermal_joint_engineering/study_v1",
+  "status": "optimization_failed_before_design_generation",
+  "cohort": {"source": "depablo_mixed_temp", "ids": [47, 68, 140, 161, 242, 268], "temperatures": [0.1, 1.0, 5.0, 10.0, 20.0, 30.0], "selection": "fixed first validation ID per temperature; no response screening"},
+  "preparation": {"job_id": "4675596.zeus-master", "stage": "prepare", "resources": "select=1:ncpus=4:mem=2gb, place=free:shared, walltime=00:20:00", "stdout": "logs/prepare_4675596.zeus-master.log", "scope": "frame 0 only; normalization and physical-coordinate inversion assertions; no fitting", "exit_status": 0, "walltime": "00:00:31", "max_rss_kb": 1128664},
+  "optimization": {"job_id": "4675597.zeus-master", "stage": "optimize", "dependency": "afterok:4675596.zeus-master", "resources": "select=1:ncpus=4:mem=4gb, place=free:shared, walltime=01:00:00", "stdout": "logs/optimize_4675597.zeus-master.log", "matrix": "12 ML + 6 controls + 6 originals = 24 frozen finals", "no_physics": true, "exit_status": 1, "walltime": "00:00:15", "max_rss_kb": 628548, "failure": "initial finite-difference check failed before any design generation, manifest freeze, or physics"},
+  "verification": {"status": "not submitted; thermal physical protocol unresolved"},
+  "snapshots": {"code/prepare_thermal.py": "22738c246378cf50694551eb307622c0d01c16429fb4fb155ea19e005aa3f615", "code/run.py": "a876f3f49af23d1fb8be162541b597e479caa7f55df0a370b63673bed1d0f624", "code/run.pbs": "9e9d11d97ed65e2d039746c7549dc5b0db492a236b5076e38aab8ebd02f9f5ab"}
+}

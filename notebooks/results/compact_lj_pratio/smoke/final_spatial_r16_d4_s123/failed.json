@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "job_id": "4674011.zeus-master",
+  "error": "ValueError: Expected saved reference-box position normalization",
+  "runner_sha256": "2ab45fd72ca260761edb2ae67dae15cf3c4599a225e759856543a001d490b681"
+}

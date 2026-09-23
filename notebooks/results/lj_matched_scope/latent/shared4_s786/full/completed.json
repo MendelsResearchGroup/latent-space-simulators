@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "job_id": "4697078.zeus-master",
+  "seconds": 483.45178294181824,
+  "best_validation_position_mse": 0.28107876777648927,
+  "cache_sha256": "cb18936b40e4565a9e1bab0761275ebe8a67bddc815ee652a0400be83d7986df",
+  "latent_model_sha256": "ca7fb9a2fd053763811d3202e8e22dae3836cc0198455b8ffcca3c715648aa50",
+  "scope": "shared4",
+  "seed": 786,
+  "token_dim": 130,
+  "ae_sha256": "20e6e7e62b355120b9b32f47f5fdaf10d5c222ef78b4cf236ad46524edc858fe",
+  "train_count": 60,
+  "validation_count": 20,
+  "final_test_used": false
+}

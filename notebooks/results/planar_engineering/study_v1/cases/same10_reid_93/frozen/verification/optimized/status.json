@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "name": "optimized",
+  "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/optimized.pt",
+  "graph_sha256": "0f54cea76f27013117c1ef5d97230b6f2b8b0bc41fe0bc9eac6bcaa98390154b",
+  "trajectory_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/optimized_trajectory.npz",
+  "trajectory_sha256": "dc7145d0e96b2630c1019ff324d828e92341e313974a1488a944ef5eff559f2a",
+  "physical_p_ratio": 0.040227884794061385,
+  "endpoint_parity_error": 0.0,
+  "frame_count": 121,
+  "lammps_path": "/rg/mendels_prj/alexander.z/DL-course-project/.runtime/lammps/bin/lmp",
+  "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+  "pbs_job_id": "4677373.zeus-master",
+  "verification_source_sha256": "08ba5a9997cb9fbb04dbe66a43977e5fcf2af14b9a6ec6f4b23336096c7908e1"
+}

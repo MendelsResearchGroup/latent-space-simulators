@@ -1,0 +1,2 @@
+epoch,train_loss,val_loss,train_dz_mse_norm,train_loss_raw,val_dz_mse_norm,val_dz_mse_raw,dataset,latent_dim,target_mode,hidden_size,propagator_loss,propagator_objective,propagator_multistep_horizons,propagator_multistep_loss,propagator_step_stride,initial_velocity
+1,9.781506909264458,12.606897416322127,9.781506909264458,2.020459047953288,12.606897416322127,2.591681558152904,shared Reid + low-T + noisy-LJ,4,normalized_delta,96,delta,multistep,"[1, 2, 3, 4, 5, 6, 7, 8]",final_horizon,1,zero

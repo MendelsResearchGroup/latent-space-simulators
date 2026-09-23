@@ -1,0 +1,75 @@
+{
+  "arm": "shared4_latent",
+  "scope": "shared4",
+  "seed": 456,
+  "smoke": false,
+  "job_id": "4697117.zeus-master",
+  "protocol": {
+    "study": "lj_matched_scope",
+    "question": "Does cross-family exposure improve a matched four-trajectory 2D AE and its learned top-5 influence edges on unseen noisy-LJ graphs?",
+    "seeds": [
+      123,
+      456,
+      786
+    ],
+    "ae_scopes": {
+      "ljonly4": "four noisy-LJ training trajectories",
+      "shared4": "one trajectory from each of Reid, low-T, mixed-T, and noisy-LJ"
+    },
+    "matched": {
+      "architecture": "2D attention AE, hidden 128, 32 tokens, five edge channels",
+      "unique_training_trajectories": 4,
+      "unique_training_frames": 404,
+      "frame_samples_per_epoch": 12120,
+      "maximum_epochs": 40,
+      "patience": 8,
+      "validation": "same 20 unseen noisy-LJ graphs",
+      "selection": "coordinate reconstruction only",
+      "response_supervision": false,
+      "final_test_used": false
+    },
+    "lj_graph_augmentation": "physical graph plus graph-distance-two/three relations at every stage",
+    "planned_edge_rule": "top five nonphysical partners per node from frozen latent perturbation response",
+    "planned_downstream": "same normalized acceleration GNN; observe frames 0..3 and autonomously predict through frame 100"
+  },
+  "protocol_sha256": "705b615f3e52c288f8793881fe99b3651b0de756aa6d551372bacc5d0a9973b9",
+  "code_manifest_sha256": "890ffaa774cb6b040bccae43a3926b37501757967f2eb00370a70620f4cf9130",
+  "latent_cache_sha256": "c883d06a2bf73574adde027eddb7f78df58bbb4ceaafb4ab9b2330aa02b0f729",
+  "latent_model_sha256": "d7653056975ca799eaddc79ae323dfe246a8636485f627889264a6be97efae99",
+  "final_test_used": false,
+  "response_supervision_or_selection": false,
+  "validation_edge_inputs": "frame-0 reference graph and z0 only",
+  "frozen_before": {
+    "ae": "59597b4ecc4cb25fdf003cf13e01b075ba748d78888dcaa961b463c6fcc7ca51",
+    "latent": "15ed775ca40dea12cee4617aaf010cd9ea3839b4b966bef7278edd6d971888da"
+  },
+  "frozen_after": {
+    "ae": "59597b4ecc4cb25fdf003cf13e01b075ba748d78888dcaa961b463c6fcc7ca51",
+    "latent": "15ed775ca40dea12cee4617aaf010cd9ea3839b4b966bef7278edd6d971888da"
+  },
+  "checkpoint_sha256": "51c4624b2778433e5a5cf8c90bb5d20e82bd047933c51d9f71780a54fc8cfb89",
+  "summary": [
+    {
+      "arm": "shared4_latent",
+      "seed": 456,
+      "split": "validation",
+      "frame": 50,
+      "p_ratio_r2": 0.6986698769738238,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 3.214752575129935e-05,
+      "added_edges_mean": 741.7
+    },
+    {
+      "arm": "shared4_latent",
+      "seed": 456,
+      "split": "validation",
+      "frame": 100,
+      "p_ratio_r2": 0.4881958743913184,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 0.00021603084535972247,
+      "added_edges_mean": 741.7
+    }
+  ]
+}

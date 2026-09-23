@@ -1,0 +1,102 @@
+{
+  "best_phase1_validation_one_step_physical_state_mse": 3.761305420442914e-05,
+  "best_phase2_validation_autonomous_physical_state_mse": 1.491956986557044e-05,
+  "evaluation_split": "validation",
+  "phase2_epochs_completed": 9,
+  "seed": 123,
+  "smoke": false,
+  "test": {
+    "10": {
+      "p_ratio_r2_y_over_x": -8404.23401856061,
+      "p_ratio_r2_z_over_x": -8632.210267287666,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 2.970717446260096e-06
+    },
+    "100": {
+      "p_ratio_r2_y_over_x": -2.396045819708882,
+      "p_ratio_r2_z_over_x": -1.7090269054656302,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 6.6693276229064695e-06
+    },
+    "20": {
+      "p_ratio_r2_y_over_x": -1040.2862967659592,
+      "p_ratio_r2_z_over_x": -356.4509812446059,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 1.8972560174764415e-06
+    },
+    "200": {
+      "p_ratio_r2_y_over_x": -3.3969733131717526,
+      "p_ratio_r2_z_over_x": -8.6450590887422,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 2.9857486348798073e-05
+    },
+    "399": {
+      "p_ratio_r2_y_over_x": -8.487740892845505,
+      "p_ratio_r2_z_over_x": -12.907201385838633,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 0.00014006345554662403
+    },
+    "5": {
+      "p_ratio_r2_y_over_x": -23949.494653385806,
+      "p_ratio_r2_z_over_x": -19417.40172584309,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 2.410054264601058e-06
+    },
+    "50": {
+      "p_ratio_r2_y_over_x": -60.653485833111866,
+      "p_ratio_r2_z_over_x": -17.96198842173647,
+      "p_ratio_y_valid_total": [
+        12,
+        12
+      ],
+      "p_ratio_z_valid_total": [
+        12,
+        12
+      ],
+      "position_mse_physical_minimum_image": 2.510596829097267e-06
+    }
+  },
+  "variant": "anchored_contact_recurrent"
+}

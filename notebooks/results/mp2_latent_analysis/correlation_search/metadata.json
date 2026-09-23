@@ -1,0 +1,116 @@
+{
+  "model_seed": 786,
+  "sampling_unit": "network, 20 per source",
+  "source_names": [
+    "reid",
+    "depablo_low_temp",
+    "lj_noisy"
+  ],
+  "frames_for_slopes": [
+    0,
+    199
+  ],
+  "slope_definition": "OLS latent coordinate versus trajectory step, with intercept; latent_path_slope is OLS z1 versus z0",
+  "physical_response": "p_ratio_final: established endpoint physical side estimator at199; p_ratio_strain_fit: minus OLS strain_y versus strain_x over frames0..199, descriptive alternative only",
+  "initial_line": {
+    "reid": {
+      "center": [
+        2.778186094760895,
+        1.5668439447879792
+      ],
+      "direction": [
+        0.7782472548117414,
+        0.6279579686396125
+      ],
+      "variance_fraction": 0.9098652405537403
+    },
+    "depablo_low_temp": {
+      "center": [
+        3.183479595184326,
+        0.9521329440176487
+      ],
+      "direction": [
+        0.6112633452021969,
+        -0.7914272694393464
+      ],
+      "variance_fraction": 0.8528157314364042
+    },
+    "lj_noisy": {
+      "center": [
+        2.2130316615104677,
+        0.3798402750864625
+      ],
+      "direction": [
+        0.45675611879415545,
+        0.8895919558674636
+      ],
+      "variance_fraction": 0.943812092779233
+    }
+  },
+  "candidate_latents": [
+    "z0_initial",
+    "z1_initial",
+    "initial_line_coordinate",
+    "z0_step_slope",
+    "z1_step_slope",
+    "latent_path_slope"
+  ],
+  "candidate_observables": [
+    "p_ratio_final",
+    "p_ratio_strain_fit",
+    "strain_x_final",
+    "strain_y_final",
+    "mean_stiffness",
+    "mean_degree",
+    "node_count",
+    "edge_count",
+    "std_degree",
+    "std_stiffness",
+    "mean_edge_length",
+    "std_edge_length",
+    "box_width",
+    "box_height",
+    "box_area",
+    "box_aspect",
+    "node_density",
+    "edge_density",
+    "mean_x",
+    "mean_y",
+    "gyration_radius",
+    "position_anisotropy",
+    "position_xy",
+    "edge_anisotropy",
+    "edge_xy",
+    "stiffness_anisotropy",
+    "stiffness_xy",
+    "degree_stiffness_covariance",
+    "boundary_fraction",
+    "boundary_x_fraction",
+    "boundary_y_fraction",
+    "stiffness_x_moment",
+    "stiffness_y_moment",
+    "registry_poisson_ratio"
+  ],
+  "permutation_seed": 20260909,
+  "permutations": 20000,
+  "multiplicity": "max absolute Pearson correlation across all tested source/latent/observable pairs; independent within-source network permutations",
+  "final_test_used": false,
+  "new_training": false,
+  "exploratory": true,
+  "input_sha256": {
+    "notebooks/results/mp2_latent_analysis/frame_rows.csv": "cb5cd173abca7402e6a5480ad505f8913274e1b655d25deac26a3029156af29a",
+    "notebooks/results/mp2_latent_analysis/network_rows.csv": "f3b9840bb68c645eb36b58a2af3952e471b7017d1d85c61790aae301a3675382",
+    "notebooks/results/mp2_latent_analysis/structure_descriptors/descriptor_rows.csv": "479d17ee50456e1345bb9b49de22b97d0a5621d6beebd78ef210681596176a81"
+  },
+  "runner_sha256": "0bc66c3ea8144148fcc52eff5464de5f3f8d219e7b6696d029e06a6a00256bf9",
+  "selected_relationships": 4,
+  "correlation_rows": 612,
+  "evaluated_correlations": 600,
+  "bootstrap": {
+    "seed": 20260909,
+    "resamples": 5000,
+    "interval": "percentile95%, paired network resampling"
+  },
+  "selection": "Strongest initial-line-coordinate association for LJ; strongest of z0/z1 step-rate correlations with final p-ratio for each source. Each selected relation passes global max-correlation permutation p<0.05 and keeps its sign under leave-one-network-out. All candidates retained; descriptive discovery, not independent validation.",
+  "notebook_executed": false
+}

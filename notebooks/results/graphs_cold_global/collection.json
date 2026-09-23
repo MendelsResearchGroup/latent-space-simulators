@@ -1,0 +1,16 @@
+{
+  "final_test_networks": 8,
+  "job_ids": {
+    "global_123": "4689389.zeus-master",
+    "global_456": "4689390.zeus-master",
+    "global_786": "4689391.zeus-master",
+    "local_123": "4689386.zeus-master",
+    "local_456": "4689387.zeus-master",
+    "local_786": "4689388.zeus-master"
+  },
+  "protocol_sha256": "5d67a6a982fb9ec24e74a35816c0f499c6f113a579ec50d6971c1b2eab9f1fb1",
+  "run_count": 6,
+  "runner_sha256": "fc7aaf64debcca546df72f1a2edd4347305675a7c6a4662c0d0055a15afb5997",
+  "split_manifest_sha256": "5b90a7a1f03428764b4c138e6606760eee4f2259cbc44b3939cc7915919aa7dc",
+  "status": "complete"
+}

@@ -1,0 +1,16 @@
+{
+  "ae_file_sha256": "f65b9316ac3e200f482fb081065d1de7c5c0250c64b85266df7c972f3a65adf3",
+  "approx_optimizer_steps_per_epoch": 750,
+  "bundle_reload": null,
+  "epochs_completed": 14,
+  "job_id": "4673343.zeus-master",
+  "max_rss_kb": 6317736,
+  "output_horizon": 199,
+  "parameters": 297462,
+  "seconds": 8703.22133731842,
+  "seed": 123,
+  "smoke": false,
+  "status": "completed",
+  "total_train_frame_samples": 24000,
+  "variant": "spatial_r16_d4"
+}

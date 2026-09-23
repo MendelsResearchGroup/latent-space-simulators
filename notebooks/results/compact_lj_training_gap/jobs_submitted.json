@@ -1,0 +1,62 @@
+[
+  {
+    "seed": 3456456,
+    "job_id": "4674805.zeus-master",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s3456456_code_v2/ae.pt",
+    "checkpoint_sha256": "310ad925c62ac4179019c2ca3ceb17846e09b64130085a4d4c3857ac4c993495",
+    "training_recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s3456456_code_v2/recipe.json",
+    "training_recipe_sha256": "bef52aaa4bf68dfff620433089820ce51a5c934c6203be2b8a2a13bd05b65142",
+    "frozen_runner": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.py",
+    "frozen_runner_sha256": "6497c5a6d17e88f2ca99a1e1955959e52b3fd99f235238245d6663a9b6250394",
+    "pbs": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.pbs",
+    "split": "train"
+  },
+  {
+    "seed": 123,
+    "job_id": "4674806.zeus-master",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s123_code_v2/ae.pt",
+    "checkpoint_sha256": "3aa39224af057c3b2adb63c41e16852b1b42a36883d922fc5ed942db08e1f3a4",
+    "training_recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s123_code_v2/recipe.json",
+    "training_recipe_sha256": "8297622dba26419e64e7ce815eeb0b4315430089c32e3e77cb15248aad27e2f4",
+    "frozen_runner": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.py",
+    "frozen_runner_sha256": "6497c5a6d17e88f2ca99a1e1955959e52b3fd99f235238245d6663a9b6250394",
+    "pbs": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.pbs",
+    "split": "train"
+  },
+  {
+    "seed": 456,
+    "job_id": "4674807.zeus-master",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s456_code_v2/ae.pt",
+    "checkpoint_sha256": "cca8ab805224a2507f9c374637a3fbe8d9f731dfd945720d8a57f9d214a30730",
+    "training_recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s456_code_v2/recipe.json",
+    "training_recipe_sha256": "2cb4153a46d49779bdb0c3419ea342e7f27adffc18bd91bc38ea4d71e8f266fc",
+    "frozen_runner": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.py",
+    "frozen_runner_sha256": "6497c5a6d17e88f2ca99a1e1955959e52b3fd99f235238245d6663a9b6250394",
+    "pbs": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.pbs",
+    "split": "train"
+  },
+  {
+    "seed": 786,
+    "job_id": "4674808.zeus-master",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s786_code_v2/ae.pt",
+    "checkpoint_sha256": "ef2aa9bbda62786e4b12bd1e3a87903690f8306466a1c9493d0b9b7e855ea8ea",
+    "training_recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s786_code_v2/recipe.json",
+    "training_recipe_sha256": "a7174d9216f7ec98916ad51494b0d7364e226bc649dc72426e1b2e00a7dc1555",
+    "frozen_runner": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.py",
+    "frozen_runner_sha256": "6497c5a6d17e88f2ca99a1e1955959e52b3fd99f235238245d6663a9b6250394",
+    "pbs": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.pbs",
+    "split": "train"
+  },
+  {
+    "seed": 2026,
+    "job_id": "4674809.zeus-master",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s2026_code_v2/ae.pt",
+    "checkpoint_sha256": "7d5785dd5c6723d48e9ca4ec795fe2b88dac7ca5ff5b6ac085c2be5a07d40236",
+    "training_recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s2026_code_v2/recipe.json",
+    "training_recipe_sha256": "cc97aec4d890716753557adf0e7fb16238cd8fd288db11d2c395255812a8ac1d",
+    "frozen_runner": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.py",
+    "frozen_runner_sha256": "6497c5a6d17e88f2ca99a1e1955959e52b3fd99f235238245d6663a9b6250394",
+    "pbs": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1/run_train_pratio.pbs",
+    "split": "train"
+  }
+]

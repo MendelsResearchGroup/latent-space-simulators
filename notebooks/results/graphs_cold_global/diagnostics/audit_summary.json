@@ -1,0 +1,44 @@
+{
+  "scope": "frozen final-test checkpoints only; no fitting, selection, or model/protocol changes",
+  "estimator": "nearest-reference periodic image followed by independent affine coordinate fits (identical to periodic evaluator)",
+  "first_growth_definition": "first of three consecutive frames whose error is >=10% of that model-seed-network series terminal (frame399) error",
+  "geometry_proxy": "maximum robust-z across GT-only minimum-image centered-acceleration RMS, nonaffine displacement RMS, mean edge-length change, and affine-strain increment; a geometry-event peak is a local maximum >=3 robust-z; descriptive, not a label",
+  "final_test_ids": [
+    "rubber_0694",
+    "rubber_1265",
+    "rubber_1960",
+    "rubber_1141",
+    "rubber_0199",
+    "rubber_0621",
+    "rubber_1043",
+    "rubber_1687"
+  ],
+  "horizons": [
+    5,
+    10,
+    20,
+    50,
+    100,
+    200,
+    399
+  ],
+  "checkpoint_sha256": {
+    "local/123": "ce3476a4a9f78459af127b75dcf45d51a06be58ff7185c07a63fa6658821c08a",
+    "local/456": "2c204680c53fb06f139eea6acddf6145b968cd327f633258815351b6ddac6d22",
+    "local/786": "041d34905d7f3f0b05d4f59c5e7ba05229b3db06578265f40ebc59a31e5e2c5d",
+    "global/123": "fa9e1acbd6cbfc96c86200c693de49b97a09d8c651d5d223282bbcf1e814957b",
+    "global/456": "d372ac4a10487285e46179ba6358ed810838fd9bf4c09b03058e7e0b3e30e88f",
+    "global/786": "b1e2d2a3c8287d25b94bc852f764715eeaa29ae9273fbe7b7dee414038113571",
+    "multistep_global/123": "27ccd56ff36fbb07cd7b4abab3265798eaefc7cc96543669504636c426958bd8",
+    "multistep_global/456": "cab9c965d353fca28fe310baeb080950fdfda04e14d1b8d478ec4fc9ba2ada7d",
+    "multistep_global/786": "cae91bbb6caf3a7919a3a8e297a4574391093ef40e73e4eb905e32af873a5eda"
+  },
+  "outputs": [
+    "rollout_strain_and_error_per_frame.csv",
+    "first_growth_and_geometry_alignment.csv",
+    "geometry_proxy_per_network_frame.csv",
+    "variance_compression_by_seed_horizon.csv",
+    "strain_component_error_by_seed_horizon.csv",
+    "teacher_forced_one_step_pratio_ceiling.csv"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "baseline_ae_sha256_before_after": "11a4a3f73154ef711d657e0bc1ef2a615e424d141382846bd3f6dcab1aa9f561",
+  "final_test_used": false,
+  "heldout_per_source": 80,
+  "job_id": "4688464.zeus-master",
+  "propagator_sha256": "b3e6013e06f302464615ca41540265806f95c26604dd12645e7a8aabff4386ed",
+  "seed": 456,
+  "smoke": false,
+  "status": "complete",
+  "valid_sources": [
+    "node_low",
+    "node_mixed",
+    "stiffness_low",
+    "stiffness_mixed"
+  ]
+}

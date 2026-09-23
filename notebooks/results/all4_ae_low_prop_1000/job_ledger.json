@@ -1,0 +1,32 @@
+{
+  "code_manifest_sha256": "44273f41d3ec5ca9666cbae12ff330b744fd4618f0ce454ce16344920326ed9a",
+  "code_v1_failure": {
+    "cause": "direct graph lacks optional source_sim_id",
+    "collector": "4687510.zeus-master",
+    "fit": "4687497.zeus-master",
+    "model_result": false,
+    "stage": "post-smoke exposure receipt"
+  },
+  "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+  "jobs": {
+    "collector": "4687510.zeus-master",
+    "fit": "4687497.zeus-master",
+    "retry_collector": "4687512.zeus-master",
+    "retry_fit": "4687511.zeus-master"
+  },
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "retry_code_manifest_sha256": "9a150377314efb46ff6f201ddfddf8af22c0173f78f7be7cd35d67a676237bae",
+  "retry_snapshot": "notebooks/results/all4_ae_low_prop_1000/code_v2",
+  "snapshot": "notebooks/results/all4_ae_low_prop_1000/code_v1",
+  "source_ae": "notebooks/results/all4_coverage_1000/all4_twenty_each_retry_v5_validation30/ae.pt",
+  "source_ae_sha256": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+  "split": "propagator low-T train IDs0..19, validation IDs20..39; all-four heldout-development IDs40..119",
+  "status": "retry_submitted",
+  "study": "all4_ae_low_prop_1000",
+  "submitted_at": "2026-09-15T18:33:59.257362+00:00"
+}

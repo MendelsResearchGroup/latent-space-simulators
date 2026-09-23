@@ -1,0 +1,45 @@
+{
+  "audit_date": "2026-09-17",
+  "scope": "Read-only historical NN_Simulator and minimum graphs_cold registry audit.",
+  "historical_model": {
+    "state_dimension": 2,
+    "state_convention": "Coordinate frames x_t=[x,y]; input is v_t=x_t-x_{t-1}; target is delta_v_t=(x_{t+1}-x_t)-v_t; output is 2D delta velocity.",
+    "edge_convention": "Fixed bond topology; edge_attr=[periodic_dx, periodic_dy, bond_length, bond_stiffness]; geometry is rebuilt after every predicted step.",
+    "message_passing_depth": {"default": 2, "identified_saved_run": 4},
+    "hidden_size": 128,
+    "rollout": "Autonomous explicit second-order rollout after two ground-truth seed frames.",
+    "box_deformation": "Box carried unchanged; not predicted or prescribed per predicted step; only used for periodic geometry."
+  },
+  "identified_training_recipe": {
+    "dataset": "/rg/mendels_prj/s.sergey/prj/NN_Simulator/data/data_aux_opt_lowT_448sims_noang.pt",
+    "dataset_name_implies_trajectories": 448,
+    "epochs": 15,
+    "skip": 1,
+    "trajectory_split": {"train_size": 0.9, "validation_size": 0.1, "shuffle": true, "random_state": 42, "expected_counts_for_448": {"train": 403, "validation": 45}},
+    "node_features": "velocity",
+    "n_layers": 4,
+    "launch_source": "/rg/mendels_prj/s.sergey/prj/NN_Simulator/run_ddp_script.sh"
+  },
+  "prior_metrics": {
+    "historical_low_temperature_rollout_diagnostics_exist": true,
+    "historical_p_ratio_method": "Custom inferred box-span ratio from positions, not post-fit R2.",
+    "tabulated_reproducible_aggregate_metrics_exist": false,
+    "cold_rubber_metrics_linked_to_current_graphs_cold_registry_exist": false
+  },
+  "spatial_edges": {
+    "helper_exists": true,
+    "helper": "add_dummy_edges: periodic-image radius max(existing bond length)+0.5; zero-stiffness added edges.",
+    "included_in_identified_training": false,
+    "included_in_identified_notebook_rollouts": false,
+    "general_nonbonded_or_contact_model_found": false
+  },
+  "current_graphs_cold": {
+    "registry_data_rows": 2300,
+    "clean_400_trajectory_count": 1706,
+    "frames_per_clean_trajectory": 400,
+    "position_shape": "float32 [nodes,3]",
+    "edge_attribute_shape": "float32 [edges,5]",
+    "frame_fields": ["x", "pos", "edge_index", "edge_attr", "time", "box", "box_tensor", "atom_ids", "atom_types", "molecule_ids", "bond_types"],
+    "schema_match_to_historical_2d_model": false
+  }
+}

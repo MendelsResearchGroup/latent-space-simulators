@@ -1,0 +1,299 @@
+{
+  "checked_at_utc": "2026-09-08T10:17:37.000Z",
+  "jobs": [
+    {
+      "job": "4673337.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:07:31 2026",
+      "resources_used": {
+        "cpupercent": 763,
+        "cput": "15:45:46",
+        "mem": "6327228kb",
+        "ncpus": 8,
+        "vmem": "11853104kb",
+        "walltime": "02:10:16"
+      }
+    },
+    {
+      "job": "4673338.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 10:48:59 2026",
+      "resources_used": {
+        "cpupercent": 766,
+        "cput": "13:52:57",
+        "mem": "6077348kb",
+        "ncpus": 8,
+        "vmem": "11638532kb",
+        "walltime": "01:51:39"
+      }
+    },
+    {
+      "job": "4673339.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:23:38 2026",
+      "resources_used": {
+        "cpupercent": 760,
+        "cput": "17:43:52",
+        "mem": "6085068kb",
+        "ncpus": 8,
+        "vmem": "11642824kb",
+        "walltime": "02:26:19"
+      }
+    },
+    {
+      "job": "4673340.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:25:42 2026",
+      "resources_used": {
+        "cpupercent": 755,
+        "cput": "17:46:47",
+        "mem": "6091792kb",
+        "ncpus": 8,
+        "vmem": "11641012kb",
+        "walltime": "02:28:23"
+      }
+    },
+    {
+      "job": "4673341.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:20:27 2026",
+      "resources_used": {
+        "cpupercent": 754,
+        "cput": "17:07:22",
+        "mem": "6136552kb",
+        "ncpus": 8,
+        "vmem": "11702780kb",
+        "walltime": "02:23:07"
+      }
+    },
+    {
+      "job": "4673342.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:41:08 2026",
+      "resources_used": {
+        "cpupercent": 766,
+        "cput": "19:49:59",
+        "mem": "6114976kb",
+        "ncpus": 8,
+        "vmem": "11691292kb",
+        "walltime": "02:43:43"
+      }
+    },
+    {
+      "job": "4673343.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:22:36 2026",
+      "resources_used": {
+        "cpupercent": 759,
+        "cput": "17:27:56",
+        "mem": "6099708kb",
+        "ncpus": 8,
+        "vmem": "11723192kb",
+        "walltime": "02:25:11"
+      }
+    },
+    {
+      "job": "4673344.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:37:11 2026",
+      "resources_used": {
+        "cpupercent": 756,
+        "cput": "19:12:51",
+        "mem": "6069492kb",
+        "ncpus": 8,
+        "vmem": "11640048kb",
+        "walltime": "02:39:46"
+      }
+    },
+    {
+      "job": "4673345.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:05:54 2026",
+      "resources_used": {
+        "cpupercent": 766,
+        "cput": "15:41:44",
+        "mem": "6131032kb",
+        "ncpus": 8,
+        "vmem": "11706672kb",
+        "walltime": "02:08:23"
+      }
+    },
+    {
+      "job": "4673346.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:05:46 2026",
+      "resources_used": {
+        "cpupercent": 766,
+        "cput": "15:57:03",
+        "mem": "6096448kb",
+        "ncpus": 8,
+        "vmem": "11651760kb",
+        "walltime": "02:08:11"
+      }
+    },
+    {
+      "job": "4673347.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 10:47:05 2026",
+      "resources_used": {
+        "cpupercent": 768,
+        "cput": "13:39:35",
+        "mem": "6089288kb",
+        "ncpus": 8,
+        "vmem": "11644516kb",
+        "walltime": "01:49:26"
+      }
+    },
+    {
+      "job": "4673348.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:28:56 2026",
+      "resources_used": {
+        "cpupercent": 748,
+        "cput": "18:09:02",
+        "mem": "6078692kb",
+        "ncpus": 8,
+        "vmem": "11644936kb",
+        "walltime": "02:31:20"
+      }
+    },
+    {
+      "job": "4673349.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 10:57:05 2026",
+      "resources_used": {
+        "cpupercent": 763,
+        "cput": "14:40:30",
+        "mem": "6091376kb",
+        "ncpus": 8,
+        "vmem": "11647936kb",
+        "walltime": "01:59:30"
+      }
+    },
+    {
+      "job": "4673350.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 10:40:29 2026",
+      "resources_used": {
+        "cpupercent": 767,
+        "cput": "12:45:18",
+        "mem": "6082616kb",
+        "ncpus": 8,
+        "vmem": "11637008kb",
+        "walltime": "01:42:53"
+      }
+    },
+    {
+      "job": "4673351.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 10:40:12 2026",
+      "resources_used": {
+        "cpupercent": 767,
+        "cput": "12:44:54",
+        "mem": "6074752kb",
+        "ncpus": 8,
+        "vmem": "11624276kb",
+        "walltime": "01:42:34"
+      }
+    },
+    {
+      "job": "4673352.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:10:57 2026",
+      "resources_used": {
+        "cpupercent": 765,
+        "cput": "16:29:57",
+        "mem": "4790360kb",
+        "ncpus": 8,
+        "vmem": "10327032kb",
+        "walltime": "02:13:14"
+      }
+    },
+    {
+      "job": "4673353.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 10:49:05 2026",
+      "resources_used": {
+        "cpupercent": 766,
+        "cput": "13:59:13",
+        "mem": "4691500kb",
+        "ncpus": 8,
+        "vmem": "10230796kb",
+        "walltime": "01:51:18"
+      }
+    },
+    {
+      "job": "4673354.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 12:47:14 2026",
+      "resources_used": {
+        "cpupercent": 767,
+        "cput": "28:17:01",
+        "mem": "4751108kb",
+        "ncpus": 8,
+        "vmem": "10278288kb",
+        "walltime": "03:49:20"
+      }
+    },
+    {
+      "job": "4673355.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 12:45:53 2026",
+      "resources_used": {
+        "cpupercent": 771,
+        "cput": "28:14:36",
+        "mem": "4754192kb",
+        "ncpus": 8,
+        "vmem": "10284568kb",
+        "walltime": "03:47:59"
+      }
+    },
+    {
+      "job": "4673356.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 11:28:20 2026",
+      "resources_used": {
+        "cpupercent": 765,
+        "cput": "18:30:23",
+        "mem": "4725872kb",
+        "ncpus": 8,
+        "vmem": "10282948kb",
+        "walltime": "02:30:26"
+      }
+    },
+    {
+      "job": "4673357.zeus-master",
+      "state": "F",
+      "exit_status": 0,
+      "finished": "Tue Sep  8 12:47:34 2026",
+      "resources_used": {
+        "cpupercent": 10,
+        "cput": "00:00:01",
+        "mem": "49716kb",
+        "ncpus": 1,
+        "vmem": "670736kb",
+        "walltime": "00:00:12"
+      }
+    }
+  ]
+}

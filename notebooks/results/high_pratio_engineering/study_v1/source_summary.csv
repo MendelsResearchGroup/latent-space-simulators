@@ -1,0 +1,9 @@
+source,mode,bound,model_seed,valid,total,improved,negative,target,mean_change
+depablo_low_temp,joint,4.0,786,2,2,1,0,0,-0.002530782168542951
+depablo_low_temp,positions,0.0,786,2,2,2,0,0,-0.05213320396085065
+depablo_low_temp,stiffness,2.0,786,2,2,0,0,0,0.1018919716991851
+depablo_low_temp,stiffness,4.0,786,2,2,0,0,0,0.1031243490898462
+reid,joint,4.0,786,2,2,2,0,0,-0.0399773585429284
+reid,positions,0.0,786,2,2,2,0,0,-0.0695542747104521
+reid,stiffness,2.0,786,2,2,0,0,0,0.0513194469270253
+reid,stiffness,4.0,786,2,2,0,0,0,0.0545497825554296

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2030" height="730" viewBox="0 0 2030 730">
+<title>Encoder, latent propagator, and decoder</title>
+<rect width="100%" height="100%" fill="white"/>
+<defs>
+<marker id="a334155" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#334155"/></marker>
+<marker id="a3D796D" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3D796D"/></marker>
+<marker id="a94632B" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#94632B"/></marker>
+</defs>
+<polyline points="210,270 255,270" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#a334155)"/>
+<polyline points="430,270 480,270" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#a334155)"/>
+<polyline points="670,270 730,270" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#a334155)"/>
+<polyline points="910,270 965,270" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#a334155)"/>
+<polyline points="1050,270 1540,270" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#a334155)"/>
+<polyline points="1007,310 1007,550 1110,550" fill="none" stroke="#94632B" stroke-width="2" marker-end="url(#a94632B)"/>
+<polyline points="1330,550 1395,550" fill="none" stroke="#94632B" stroke-width="2" marker-end="url(#a94632B)"/>
+<polyline points="1480,550 1635,550 1635,345" fill="none" stroke="#94632B" stroke-width="2" marker-end="url(#a94632B)"/>
+<polyline points="1730,270 1790,270" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#a334155)"/>
+<polyline points="1100,97 342,97 342,225" fill="none" stroke="white" stroke-width="7"/>
+<polyline points="1100,97 342,97 342,225" fill="none" stroke="#3D796D" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#a3D796D)"/>
+<polyline points="1220,130 1220,490" fill="none" stroke="white" stroke-width="7"/>
+<polyline points="1220,130 1220,490" fill="none" stroke="#3D796D" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#a3D796D)"/>
+<polyline points="1345,97 1635,97 1635,195" fill="none" stroke="white" stroke-width="7"/>
+<polyline points="1345,97 1635,97 1635,195" fill="none" stroke="#3D796D" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#a3D796D)"/>
+<polyline points="1437,590 1437,655 1220,655 1220,610" fill="none" stroke="#94632B" stroke-width="2" marker-end="url(#a94632B)"/>
+<polygon points="42,225 210,225 198,315 30,315" fill="#E5EEFF" stroke="#48678C" stroke-width="2"/>
+<text x="120.0" y="257.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">Displacement</text>
+<text x="120.0" y="282.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">uₜ = xₜ − x_ref</text>
+<rect x="255" y="225" width="175" height="90" rx="12" fill="#E5EEFF" stroke="#48678C" stroke-width="2"/>
+<text x="342.5" y="257.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">Node embeddings</text>
+<text x="342.5" y="282.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">hᵢ⁽⁰⁾</text>
+<rect x="480" y="225" width="190" height="90" rx="12" fill="#E5EEFF" stroke="#48678C" stroke-width="2"/>
+<text x="575.0" y="257.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">Message passing</text>
+<text x="575.0" y="282.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">hᵢ⁽⁰⁾ → hᵢ⁽²⁾</text>
+<polygon points="730,195 910,225 910,315 730,345" fill="#E5EEFF" stroke="#48678C" stroke-width="2"/>
+<text x="820.0" y="270.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#334155">Encoder</text>
+<ellipse cx="1007.5" cy="270.0" rx="42.5" ry="40.0" fill="#F0E9FF" stroke="#78639C" stroke-width="2"/>
+<text x="1007.5" y="270.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#334155">zₜ</text>
+<rect x="1110" y="490" width="220" height="120" rx="12" fill="#FFF2D9" stroke="#94632B" stroke-width="2"/>
+<text x="1220.0" y="535.625" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#334155">Propagator</text>
+<text x="1220.0" y="564.375" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#334155">Predicts Δẑₜ</text>
+<ellipse cx="1437.5" cy="550.0" rx="42.5" ry="40.0" fill="#F0E9FF" stroke="#78639C" stroke-width="2"/>
+<text x="1437.5" y="550.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#334155">ẑₜ₊₁</text>
+<polygon points="1540,225 1730,195 1730,345 1540,315" fill="#E5EEFF" stroke="#48678C" stroke-width="2"/>
+<text x="1635.0" y="270.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#334155">Decoder</text>
+<polygon points="1802,225 1980,225 1968,315 1790,315" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1885.0" y="257.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">Displacement</text>
+<text x="1885.0" y="282.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">ûₜ or ûₜ₊₁</text>
+<rect x="1100" y="65" width="245" height="65" rx="12" fill="#E3F5ED" stroke="#3D796D" stroke-width="2"/>
+<text x="1222.5" y="85.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">Static node embeddings</text>
+<text x="1222.5" y="110.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155">H_ref</text>
+<text x="1222" y="40.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#3D796D">From reference structure x_ref</text>
+<text x="1885" y="355.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#48678C">x̂ = x_ref + û</text>
+<text x="630" y="155.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#48678C">1 · Train the autoencoder</text>
+<text x="1340" y="455.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#94632B">2 · Train propagator · AE frozen</text>
+<text x="1355" y="245.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#48678C">Reconstruction</text>
+<text x="1325" y="410.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#3D796D">Pooled context c</text>
+<text x="1640" y="75.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#3D796D">H_ref</text>
+<text x="342" y="352.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#48678C">Displacement features +</text>
+<text x="342" y="375.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#48678C">adjacent-edge embeddings</text>
+<text x="575" y="352.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#48678C">2 local update rounds</text>
+<text x="820" y="375.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#48678C">Global attention</text>
+<text x="1420" y="625.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#94632B">ẑₜ₊₁ = zₜ + Δẑₜ</text>
+<text x="1328" y="685.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#94632B">Repeat for rollout</text>
+</svg>

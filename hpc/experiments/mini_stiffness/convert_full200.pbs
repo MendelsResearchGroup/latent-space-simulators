@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#PBS -N mini_full200
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=64gb
+#PBS -l place=free:shared
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export PYTHONPATH="${LSS_CONVERSION_CODE:?}:/rg/mendels_prj/alexander.z/MetaForge/src"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+mkdir -p notebooks/results/mini_stiffness/logs
+exec >"notebooks/results/mini_stiffness/logs/${PBS_JOBID}.full200.log" 2>&1
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "${LSS_CONVERSION_CODE}/convert_data_mini_full.py"

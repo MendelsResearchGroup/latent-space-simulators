@@ -1,0 +1,53 @@
+{
+  "code_manifest_sha256": "b71dae11f0c3a7475e78118fcde1e31bd9be0e457f34f8a3de4521d62f980809",
+  "code_snapshot": "notebooks/results/mixed_temperature_extrapolation_2frame/code_v1",
+  "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+  "failure": {
+    "exit_status": 1,
+    "job": "4687537.zeus-master",
+    "reason": "generic capacity loader expected a spec key absent from the standard ae_only checkpoint",
+    "scientific_result": false,
+    "stage": "dynamics checkpoint load"
+  },
+  "jobs": {
+    "ae": "4687538.zeus-master",
+    "dynamics": "4687539.zeus-master",
+    "smoke": "4687537.zeus-master"
+  },
+  "model_seed": 123,
+  "protocol_sha256": "fe5ab1f20e7f0f61c998b09fe75d8b21a70395671f8ab58e5cd861436d3a208a",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "retry1": {
+    "change": "loader-only: use the matching standard ae_only cache loader; add distinct retry smoke output names",
+    "code_manifest_sha256": "470a6c3e0e370917c20be81c2d7f6f941f5563df7710d859eac1f2d6ef92e872",
+    "code_snapshot": "notebooks/results/mixed_temperature_extrapolation_2frame/code_v2",
+    "jobs": {
+      "ae": "4687544.zeus-master",
+      "dynamics": "4687545.zeus-master",
+      "smoke": "4687543.zeus-master"
+    },
+    "submitted_at": "2026-09-15T19:29:08.421647+00:00"
+  },
+  "split_audit_sha256": "04ad927a797d87b731d5b86dcea15bf22d48672b6c9817a62a215b9a3326f3a7",
+  "result": {
+    "ae_job": "4687544.zeus-master",
+    "dynamics_job": "4687545.zeus-master",
+    "node_high_T_ae_p_ratio_r2": 0.7993172616297198,
+    "node_high_T_rollout_p_ratio_r2": 0.6324632669090348,
+    "node_rollout_residual_sd_ratio": 0.4810554601375661,
+    "stiffness_high_T_ae_p_ratio_r2": 0.6250602014472615,
+    "stiffness_high_T_rollout_p_ratio_r2": -0.004348402526788808,
+    "stiffness_rollout_residual_sd_ratio": 0.39286420387175924,
+    "valid_total_per_source": "81/81",
+    "final_test_used": false
+  },
+  "status": "completed",
+  "stochastic_samples": 8,
+  "study": "mixed_temperature_extrapolation_2frame",
+  "submitted_at": "2026-09-15T19:25:24.566854+00:00"
+}

@@ -1,0 +1,3 @@
+source,pearson_fluctuation_vs_log10_temperature,spearman_fluctuation_vs_temperature,valid,total,training_mixed_temperature_K,heldout_temperature_min_K,heldout_temperature_max_K
+node_mixed,0.6995786773957836,0.8407925580238842,80,80,0.1,0.1,30.0
+stiffness_mixed,0.7535438127968153,0.9005982849586727,80,80,0.1,0.1,30.0

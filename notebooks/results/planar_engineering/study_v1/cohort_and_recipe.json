@@ -1,0 +1,394 @@
+{
+  "study": "planar_engineering/study_v1",
+  "outcomes_expected": 40,
+  "selection": "exact pre-existing cohorts, originals only; no physics screening or restart selection",
+  "reid": {
+    "ids": [
+      93,
+      84,
+      96,
+      97,
+      52,
+      59,
+      57,
+      53,
+      2,
+      74
+    ],
+    "dataset": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+    "bundle": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/model_bundles/reid.pt",
+    "optimization": {
+      "learning_rate": 0.08,
+      "stiffness_bound": 0.25,
+      "max_steps": 1200,
+      "patience": 50,
+      "min_delta": 1e-05,
+      "position_radius": 4.0,
+      "mask_blocking_nodes": true,
+      "spring_clearance_fraction": 0.05
+    }
+  },
+  "thermal_arm_a": {
+    "temperatures_to_ids": {
+      "0.1": [
+        47,
+        44,
+        36,
+        39,
+        13
+      ],
+      "1.0": [
+        68,
+        96,
+        70,
+        78,
+        77
+      ],
+      "5.0": [
+        140,
+        118,
+        136,
+        109,
+        145
+      ],
+      "10.0": [
+        161,
+        191,
+        158,
+        198,
+        151
+      ],
+      "20.0": [
+        242,
+        208,
+        221,
+        229,
+        234
+      ],
+      "30.0": [
+        268,
+        250,
+        262,
+        265,
+        290
+      ]
+    },
+    "dataset": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-10k-mix-temp.pt",
+    "bundle": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/model_bundles/thermal_arm_a.pt",
+    "optimization": {
+      "learning_rate": 0.02,
+      "stiffness_bound": 0.25,
+      "max_steps": 1200,
+      "patience": 50,
+      "min_delta": 1e-05,
+      "position_radius": 4.0,
+      "mask_blocking_nodes": true,
+      "spring_clearance_fraction": 0.05
+    }
+  },
+  "thermal_final_protocol": {
+    "velocity_seeds": [
+      786,
+      123,
+      456
+    ],
+    "frames": 200,
+    "estimator": "two intercept OLS over frame indices; p=-slope_y/slope_x"
+  },
+  "bundle_imports": {
+    "reid": {
+      "source": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/calibrated_direction_v1/reid/prepare/prepared.pt",
+      "source_sha256": "dc51e1e64771ce10971adb763cc5ed75432aae430b1ad1573877a89bd18a67c0",
+      "destination": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/model_bundles/reid.pt",
+      "destination_sha256": "0c6e808fcbaf0bdcd7621ef088f6f218d278e94da36886b9e5ef131c78dcf8e8",
+      "converter_sha256": "93c11d3bb17819477f49a7c1176457d9a975cff8a7d7b1d508c912bb911effdf",
+      "globals_changed": [
+        {
+          "from": "lss.latent.models.NodeDeltaAttentionAutoEncoder",
+          "to": "lss.dynamics.autoencoder.NodeDeltaAttentionAutoEncoder"
+        },
+        {
+          "from": "lss.latent.models.PyramidAttentionPool",
+          "to": "lss.dynamics.autoencoder.PyramidAttentionPool"
+        },
+        {
+          "from": "lss.latent.models.SimpleAttentionPool",
+          "to": "lss.dynamics.autoencoder.SimpleAttentionPool"
+        },
+        {
+          "from": "lss.latent.models.DirectLatentAttentionPool",
+          "to": "lss.dynamics.autoencoder.DirectLatentAttentionPool"
+        }
+      ],
+      "all_other_zip_members_unchanged": true
+    },
+    "thermal_arm_a": {
+      "source": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/calibrated_direction_v1/depablo_low_temp/prepare/prepared.pt",
+      "source_sha256": "770be3c341973dabff8c6f0c76f0cd2b27ce6f097293df7cc0c4ea5f95b2b058",
+      "destination": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/model_bundles/thermal_arm_a.pt",
+      "destination_sha256": "0f515bd570d3ee52f1cb5b9a24f497d5b96424de0beefb7b3e459122e16e7ddb",
+      "converter_sha256": "93c11d3bb17819477f49a7c1176457d9a975cff8a7d7b1d508c912bb911effdf",
+      "globals_changed": [
+        {
+          "from": "lss.latent.models.NodeDeltaAttentionAutoEncoder",
+          "to": "lss.dynamics.autoencoder.NodeDeltaAttentionAutoEncoder"
+        },
+        {
+          "from": "lss.latent.models.PyramidAttentionPool",
+          "to": "lss.dynamics.autoencoder.PyramidAttentionPool"
+        },
+        {
+          "from": "lss.latent.models.SimpleAttentionPool",
+          "to": "lss.dynamics.autoencoder.SimpleAttentionPool"
+        },
+        {
+          "from": "lss.latent.models.DirectLatentAttentionPool",
+          "to": "lss.dynamics.autoencoder.DirectLatentAttentionPool"
+        }
+      ],
+      "all_other_zip_members_unchanged": true
+    }
+  },
+  "rows": [
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 93,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 84,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 96,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 97,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 52,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 59,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 57,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 53,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 2,
+      "temperature": null
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 74,
+      "temperature": null
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 47,
+      "temperature": 0.1
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 44,
+      "temperature": 0.1
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 36,
+      "temperature": 0.1
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 39,
+      "temperature": 0.1
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 13,
+      "temperature": 0.1
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 68,
+      "temperature": 1.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 96,
+      "temperature": 1.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 70,
+      "temperature": 1.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 78,
+      "temperature": 1.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 77,
+      "temperature": 1.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 140,
+      "temperature": 5.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 118,
+      "temperature": 5.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 136,
+      "temperature": 5.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 109,
+      "temperature": 5.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 145,
+      "temperature": 5.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 161,
+      "temperature": 10.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 191,
+      "temperature": 10.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 158,
+      "temperature": 10.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 198,
+      "temperature": 10.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 151,
+      "temperature": 10.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 242,
+      "temperature": 20.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 208,
+      "temperature": 20.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 221,
+      "temperature": 20.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 229,
+      "temperature": 20.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 234,
+      "temperature": 20.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 268,
+      "temperature": 30.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 250,
+      "temperature": 30.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 262,
+      "temperature": 30.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 265,
+      "temperature": 30.0
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 290,
+      "temperature": 30.0
+    }
+  ]
+}

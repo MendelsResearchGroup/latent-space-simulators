@@ -1,0 +1,200 @@
+{
+  "expected": 40,
+  "observed": 10,
+  "valid": 10,
+  "invalid": 0,
+  "rows": [
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 140,
+      "temperature": 5.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05899121385146464,
+        "minimum_pair_clearance": 0.05899121385146464,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 118,
+      "temperature": 5.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06191530258394552,
+        "minimum_pair_clearance": 0.05957266565027808,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 136,
+      "temperature": 5.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06581635154303342,
+        "minimum_pair_clearance": 0.06581635154303342,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 109,
+      "temperature": 5.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06039960293693637,
+        "minimum_pair_clearance": 0.06039960293693637,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 145,
+      "temperature": 5.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06668531136309083,
+        "minimum_pair_clearance": 0.06668531136309083,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 161,
+      "temperature": 10.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05896855907095005,
+        "minimum_pair_clearance": 0.05896855907095005,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 191,
+      "temperature": 10.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.058960202639706985,
+        "minimum_pair_clearance": 0.058960202639706985,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 158,
+      "temperature": 10.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06024566864345682,
+        "minimum_pair_clearance": 0.06024566864345682,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 198,
+      "temperature": 10.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06507495941534783,
+        "minimum_pair_clearance": 0.06507495941534783,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 151,
+      "temperature": 10.0,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06534884423374025,
+        "minimum_pair_clearance": 0.06534884423374025,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    }
+  ],
+  "no_optimization": true,
+  "no_physics": true
+}

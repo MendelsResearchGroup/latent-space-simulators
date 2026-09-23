@@ -1,0 +1,33 @@
+{
+  "study": "mini_temperature200_early_weight",
+  "purpose": "Matched test of modest early-frame AE weighting on the 500-frame, 200-MD-step joint low-temperature dynamics recipe.",
+  "arm": "joint_low",
+  "sources": ["node_low", "stiffness_low"],
+  "seed": 123,
+  "base_arms": {
+    "joint_low": {
+      "sources": ["node_low", "stiffness_low"],
+      "train_per_source": 20
+    }
+  },
+  "split": {
+    "train_ids": [0, 19],
+    "validation_ids": [20, 39],
+    "heldout_development_ids": [40, 119]
+  },
+  "frames": {
+    "train_and_validation": [0, 499],
+    "saved_md_step_stride": 200,
+    "physical_range": [0, 99800]
+  },
+  "intervention": {
+    "target": "AE normalized coordinate reconstruction loss only",
+    "raw_frame_weight": "4 for frames 0-99 and 1 for frames 100-499",
+    "normalization": "divide all weights by their mean, preserving a 4:1 early-to-late ratio and mean weight 1",
+    "validation": "the same weighted coordinate objective is used for checkpoint selection"
+  },
+  "fixed": "Fresh 2D message-passing reference16 AE, one ordinary warmup epoch, at most 60 weighted epochs with patience 12, Adam 1e-4 and weight decay 1e-5; frozen one-step delta-MLP propagator over all 499 transitions, same optimizer, budget, graph context and coordinate-only selection as the completed joint_low seed123 baseline.",
+  "response_supervision": false,
+  "primary_evaluation": "Post-fit AE reconstruction and autonomous rollout p-ratio R2 from physical positions, source-wise by horizon with valid/total counts.",
+  "qualification": "Single-seed matched pilot. Heldout development IDs are evaluated only after both checkpoints freeze and do not select the model."
+}

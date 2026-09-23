@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=02:00:00
+#PBS -j oe
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/matplotlib-${PBS_JOBID:-local}"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8
+mkdir -p "$MPLCONFIGDIR"
+/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python hpc/experiments/graphs_cold_global/evaluate_periodic.py

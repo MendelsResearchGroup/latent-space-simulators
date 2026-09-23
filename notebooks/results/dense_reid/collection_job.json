@@ -1,0 +1,16 @@
+{
+  "job_id": "4677445.zeus-master",
+  "dependency": "afterany",
+  "training_jobs": [
+    "4677439.zeus-master",
+    "4677440.zeus-master",
+    "4677441.zeus-master",
+    "4677442.zeus-master",
+    "4677443.zeus-master",
+    "4677444.zeus-master"
+  ],
+  "code_hashes": {
+    "collect.py": "99a5ea4121c8dc7a004e4e5539b8739ce8ce2ca5859c8ed499a81f4342b9eb05",
+    "collect.pbs": "e38b22b40e8b89c0b964e5577044ca72eff65b68ea944168750c4a5fe779cc3b"
+  }
+}

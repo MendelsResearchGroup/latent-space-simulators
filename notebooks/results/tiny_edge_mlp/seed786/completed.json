@@ -1,0 +1,10 @@
+{
+  "best_validation_normalized_displacement_mse": 1.2243188144365946,
+  "checkpoint_sha256": "6c796632d3620c8390d04ded875a27aab7539076d16b515d8db177736b5fa130",
+  "epochs": 58,
+  "max_rss_kib": 2933968,
+  "p_ratio_used_for_training_or_selection": false,
+  "seconds": 154.4973258432001,
+  "seed": 786,
+  "status": "completed"
+}

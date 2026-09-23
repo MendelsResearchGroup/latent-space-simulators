@@ -1,0 +1,20 @@
+{
+  "checkpoint_sha256": "c98bb2439afce3bc9426632478c592b591745de5b44036c48f614353f7215a3a",
+  "folder": "all4_one_each",
+  "frames": [
+    0,
+    499
+  ],
+  "heldout_ids": [
+    40,
+    119
+  ],
+  "job_id": "4687754.zeus-master",
+  "output_sha256": "6f4d001535c538d50c2ab2ad3c2ef25594b81bd657923b5b24a06010411fc170",
+  "rows": 80000,
+  "sources": [
+    "node_mixed",
+    "stiffness_mixed"
+  ],
+  "status": "completed"
+}

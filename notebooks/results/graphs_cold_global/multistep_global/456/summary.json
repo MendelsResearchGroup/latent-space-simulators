@@ -1,0 +1,101 @@
+{
+  "best_validation_autonomous_state_mse": 9.772935920674778e-06,
+  "epochs_completed": 5,
+  "evaluation_split": "final_test",
+  "model": "global_multistep20",
+  "seed": 456,
+  "smoke": false,
+  "test": {
+    "10": {
+      "p_ratio_r2_y_over_x": -4.000135120198165,
+      "p_ratio_r2_z_over_x": -6.085499687270867,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 1.8885883114327928e-08
+    },
+    "100": {
+      "p_ratio_r2_y_over_x": -1.7375621038737665,
+      "p_ratio_r2_z_over_x": -3.235209976353617,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 4.222199493142398e-06
+    },
+    "20": {
+      "p_ratio_r2_y_over_x": -7.937970205226508,
+      "p_ratio_r2_z_over_x": -5.584505250231585,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 1.1339616245997775e-07
+    },
+    "200": {
+      "p_ratio_r2_y_over_x": -7.5763792334075255,
+      "p_ratio_r2_z_over_x": -3.815486354713908,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 8.089999346339027e-05
+    },
+    "399": {
+      "p_ratio_r2_y_over_x": -5.920327712457898,
+      "p_ratio_r2_z_over_x": -1.3570962721494149,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 0.00021216984077909729
+    },
+    "5": {
+      "p_ratio_r2_y_over_x": -6.742712557185037,
+      "p_ratio_r2_z_over_x": -1.6205681187931327,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 1.9336773744715874e-09
+    },
+    "50": {
+      "p_ratio_r2_y_over_x": 0.2668467924941914,
+      "p_ratio_r2_z_over_x": -3.196036631601701,
+      "p_ratio_y_valid_total": [
+        8,
+        8
+      ],
+      "p_ratio_z_valid_total": [
+        8,
+        8
+      ],
+      "position_mse_physical_minimum_image": 7.9617219661543e-07
+    }
+  }
+}

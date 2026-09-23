@@ -1,0 +1,249 @@
+{
+  "historical_metric": "endpoint fixed-side displacement; min(|-dy/dx|,|-dx/dy|) branch by magnitude",
+  "historical_original_limitation": "The exact historical 0.901 checkpoint/code is absent; the preserved five-seed reconstruction is auditable.",
+  "mini_endpoint_formula_parity": {
+    "all_nan_patterns_equal": true,
+    "input": {
+      "path": "notebooks/results/mini_shared/thermal_fit/joint_original/test/per_network.csv",
+      "sha256": "d0a7ac2b479d121914269ade4943fe35e2ed4b147ace8d699b72b3598afdab0c"
+    },
+    "max_abs_error": 8.637403725586523e-07,
+    "methods": [
+      "physical_strain_time_ols_intercept_min8_axial1e-3_fixed_sides_q0.10"
+    ],
+    "rows": 64000,
+    "selected_horizon_max_abs_error": 2.0738966099997924e-13,
+    "selected_horizon_scores": [
+      {
+        "endpoint_p_ratio_r2": 0.08578228819472766,
+        "endpoint_valid": 80,
+        "frame": 99,
+        "mode": "ae_reconstruction",
+        "source": "node_mixed",
+        "total": 80
+      },
+      {
+        "endpoint_p_ratio_r2": 0.09499824256835032,
+        "endpoint_valid": 80,
+        "frame": 199,
+        "mode": "ae_reconstruction",
+        "source": "node_mixed",
+        "total": 80
+      },
+      {
+        "endpoint_p_ratio_r2": -0.010704953983573517,
+        "endpoint_valid": 80,
+        "frame": 99,
+        "mode": "ae_reconstruction",
+        "source": "stiffness_mixed",
+        "total": 80
+      },
+      {
+        "endpoint_p_ratio_r2": -0.08696818827013497,
+        "endpoint_valid": 80,
+        "frame": 199,
+        "mode": "ae_reconstruction",
+        "source": "stiffness_mixed",
+        "total": 80
+      },
+      {
+        "endpoint_p_ratio_r2": 0.10892253029318155,
+        "endpoint_valid": 80,
+        "frame": 99,
+        "mode": "autonomous_delta_mlp",
+        "source": "node_mixed",
+        "total": 80
+      },
+      {
+        "endpoint_p_ratio_r2": 0.33209590826001667,
+        "endpoint_valid": 80,
+        "frame": 199,
+        "mode": "autonomous_delta_mlp",
+        "source": "node_mixed",
+        "total": 80
+      },
+      {
+        "endpoint_p_ratio_r2": 0.08886543951311199,
+        "endpoint_valid": 80,
+        "frame": 99,
+        "mode": "autonomous_delta_mlp",
+        "source": "stiffness_mixed",
+        "total": 80
+      },
+      {
+        "endpoint_p_ratio_r2": 0.05746621930077611,
+        "endpoint_valid": 80,
+        "frame": 199,
+        "mode": "autonomous_delta_mlp",
+        "source": "stiffness_mixed",
+        "total": 80
+      }
+    ],
+    "selected_horizons": [
+      {
+        "frame": 99,
+        "mode": "ae_reconstruction",
+        "pred_max_abs_error": 8.129608097817709e-14,
+        "pred_nan_pattern_equal": true,
+        "pred_valid": 80,
+        "source": "node_mixed",
+        "total": 80,
+        "true_max_abs_error": 1.5165646516379638e-13,
+        "true_nan_pattern_equal": true,
+        "true_valid": 80
+      },
+      {
+        "frame": 199,
+        "mode": "ae_reconstruction",
+        "pred_max_abs_error": 1.0791367799356522e-13,
+        "pred_nan_pattern_equal": true,
+        "pred_valid": 80,
+        "source": "node_mixed",
+        "total": 80,
+        "true_max_abs_error": 8.473777235451507e-14,
+        "true_nan_pattern_equal": true,
+        "true_valid": 80
+      },
+      {
+        "frame": 99,
+        "mode": "ae_reconstruction",
+        "pred_max_abs_error": 1.0622058788101185e-13,
+        "pred_nan_pattern_equal": true,
+        "pred_valid": 80,
+        "source": "stiffness_mixed",
+        "total": 80,
+        "true_max_abs_error": 1.4587636654184166e-13,
+        "true_nan_pattern_equal": true,
+        "true_valid": 80
+      },
+      {
+        "frame": 199,
+        "mode": "ae_reconstruction",
+        "pred_max_abs_error": 9.289791158550997e-14,
+        "pred_nan_pattern_equal": true,
+        "pred_valid": 80,
+        "source": "stiffness_mixed",
+        "total": 80,
+        "true_max_abs_error": 1.3605783166781293e-13,
+        "true_nan_pattern_equal": true,
+        "true_valid": 80
+      },
+      {
+        "frame": 99,
+        "mode": "autonomous_delta_mlp",
+        "pred_max_abs_error": 2.0738966099997924e-13,
+        "pred_nan_pattern_equal": true,
+        "pred_valid": 80,
+        "source": "node_mixed",
+        "total": 80,
+        "true_max_abs_error": 1.5165646516379638e-13,
+        "true_nan_pattern_equal": true,
+        "true_valid": 80
+      },
+      {
+        "frame": 199,
+        "mode": "autonomous_delta_mlp",
+        "pred_max_abs_error": 6.658562590189376e-14,
+        "pred_nan_pattern_equal": true,
+        "pred_valid": 80,
+        "source": "node_mixed",
+        "total": 80,
+        "true_max_abs_error": 8.473777235451507e-14,
+        "true_nan_pattern_equal": true,
+        "true_valid": 80
+      },
+      {
+        "frame": 99,
+        "mode": "autonomous_delta_mlp",
+        "pred_max_abs_error": 1.4599432773820809e-13,
+        "pred_nan_pattern_equal": true,
+        "pred_valid": 80,
+        "source": "stiffness_mixed",
+        "total": 80,
+        "true_max_abs_error": 1.4587636654184166e-13,
+        "true_nan_pattern_equal": true,
+        "true_valid": 80
+      },
+      {
+        "frame": 199,
+        "mode": "autonomous_delta_mlp",
+        "pred_max_abs_error": 1.099120794378905e-13,
+        "pred_nan_pattern_equal": true,
+        "pred_valid": 80,
+        "source": "stiffness_mixed",
+        "total": 80,
+        "true_max_abs_error": 1.3605783166781293e-13,
+        "true_nan_pattern_equal": true,
+        "true_valid": 80
+      }
+    ]
+  },
+  "old_reconstructed_score": {
+    "all_endpoint_columns_equal": true,
+    "inputs": [
+      {
+        "path": "notebooks/results/06b_4d_reconstruction/d2_s3456456/validation_rollout_rows.csv",
+        "sha256": "0bb823088da4a474766a259e392c9928c53494d9b5f9f07dd3a585b54d5b49f4"
+      },
+      {
+        "path": "notebooks/results/06b_4d_reconstruction/d2_s123/validation_rollout_rows.csv",
+        "sha256": "c0e4dc95abd6e5af464327d65b207fdedc51c0c1d3c25c5fa87426c67467b521"
+      },
+      {
+        "path": "notebooks/results/06b_4d_reconstruction/d2_s456/validation_rollout_rows.csv",
+        "sha256": "4bd3dbe6dc0f1ae665a9df119130788f9740a018a4f8a079c4668301827ead03"
+      },
+      {
+        "path": "notebooks/results/06b_4d_reconstruction/d2_s786/validation_rollout_rows.csv",
+        "sha256": "965745d364fd9666b9c1d71cf3d3f7b41d4190bb74bea9a3c3f9008340930d76"
+      },
+      {
+        "path": "notebooks/results/06b_4d_reconstruction/d2_s2026/validation_rollout_rows.csv",
+        "sha256": "33b609f7ae42b297a996b95f0d362cc348d3cd7abf8419fb3f5b0d936bd23ffa"
+      }
+    ],
+    "mean_r2": 0.9041634848003035,
+    "per_seed": [
+      {
+        "endpoint_columns_equal": true,
+        "r2": 0.8946244089064335,
+        "seed": 3456456,
+        "total": 20,
+        "valid": 20
+      },
+      {
+        "endpoint_columns_equal": true,
+        "r2": 0.9225579711710908,
+        "seed": 123,
+        "total": 20,
+        "valid": 20
+      },
+      {
+        "endpoint_columns_equal": true,
+        "r2": 0.8992934878525412,
+        "seed": 456,
+        "total": 20,
+        "valid": 20
+      },
+      {
+        "endpoint_columns_equal": true,
+        "r2": 0.8961061339930102,
+        "seed": 786,
+        "total": 20,
+        "valid": 20
+      },
+      {
+        "endpoint_columns_equal": true,
+        "r2": 0.9082354220784414,
+        "seed": 2026,
+        "total": 20,
+        "valid": 20
+      }
+    ],
+    "sample_sd_r2": 0.011560380002990684
+  },
+  "scope": "cached-position metric parity only; no training or model inference",
+  "status": "passed",
+  "thermal_ols_is_equivalent": false,
+  "thermal_ols_reason": "The OLS estimator fits normalized side strains over a trajectory prefix and applies validity gates; it is a separately labelled metric."
+}

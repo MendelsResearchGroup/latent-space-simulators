@@ -1,0 +1,182 @@
+[
+  {
+    "index": 93,
+    "block": "spring",
+    "autograd": 0.0889834389090538,
+    "finite_difference": 0.08897781372070312,
+    "relative_error": 6.321612672698295e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 93,
+    "block": "position",
+    "autograd": 0.03870644047856331,
+    "finite_difference": 0.038711726665496826,
+    "relative_error": 0.0001365526001770661,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 84,
+    "block": "spring",
+    "autograd": 0.29412999749183655,
+    "finite_difference": 0.2941262125968933,
+    "relative_error": 1.28681024564397e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 84,
+    "block": "position",
+    "autograd": 0.033147480338811874,
+    "finite_difference": 0.03314204514026642,
+    "relative_error": 0.00016397018687094422,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 96,
+    "block": "spring",
+    "autograd": 0.33785808086395264,
+    "finite_difference": 0.3378570079803467,
+    "relative_error": 3.1755451970055314e-06,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 96,
+    "block": "position",
+    "autograd": 0.046856388449668884,
+    "finite_difference": 0.04685632884502411,
+    "relative_error": 1.27207082635947e-06,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 97,
+    "block": "spring",
+    "autograd": 0.2054348886013031,
+    "finite_difference": 0.20543374121189117,
+    "relative_error": 5.585173091767586e-06,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 97,
+    "block": "position",
+    "autograd": 0.03938044235110283,
+    "finite_difference": 0.03937855362892151,
+    "relative_error": 4.79609183787469e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 52,
+    "block": "spring",
+    "autograd": 0.1573663353919983,
+    "finite_difference": 0.1573696732521057,
+    "relative_error": 2.121031351494664e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 52,
+    "block": "position",
+    "autograd": 0.04477269574999809,
+    "finite_difference": 0.044758617877960205,
+    "relative_error": 0.0003144298506503972,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 59,
+    "block": "spring",
+    "autograd": 0.23371167480945587,
+    "finite_difference": 0.23369789123535156,
+    "relative_error": 5.897683166896464e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 59,
+    "block": "position",
+    "autograd": 0.03449024260044098,
+    "finite_difference": 0.03447979688644409,
+    "relative_error": 0.0003028599745701311,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 57,
+    "block": "spring",
+    "autograd": 0.42650172114372253,
+    "finite_difference": 0.4265047609806061,
+    "relative_error": 7.12732227550245e-06,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 57,
+    "block": "position",
+    "autograd": 0.04076502472162247,
+    "finite_difference": 0.040762871503829956,
+    "relative_error": 5.2820225357765644e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 53,
+    "block": "spring",
+    "autograd": 0.3242644965648651,
+    "finite_difference": 0.32425934076309204,
+    "relative_error": 1.5899988520759733e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 53,
+    "block": "position",
+    "autograd": 0.04614100232720375,
+    "finite_difference": 0.046138837933540344,
+    "relative_error": 4.690824980475753e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 2,
+    "block": "spring",
+    "autograd": 0.15735119581222534,
+    "finite_difference": 0.15734881162643433,
+    "relative_error": 1.5152003000096594e-05,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 2,
+    "block": "position",
+    "autograd": 0.05446270853281021,
+    "finite_difference": 0.05447268486022949,
+    "relative_error": 0.00018314366998577525,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 74,
+    "block": "spring",
+    "autograd": 0.33623090386390686,
+    "finite_difference": 0.33623307943344116,
+    "relative_error": 6.470420869855018e-06,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  },
+  {
+    "index": 74,
+    "block": "position",
+    "autograd": 0.0383649617433548,
+    "finite_difference": 0.0383598729968071,
+    "relative_error": 0.00013264046975311784,
+    "probe": "projected block gradient direction",
+    "epsilon": 0.01
+  }
+]

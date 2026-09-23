@@ -1,0 +1,10 @@
+seed,family,context_mode,run_name,status,job_id,transfer_status
+123,graph_operator,attention,graph_operator_attention_s123,completed,4678881.zeus-master,completed
+456,graph_operator,attention,graph_operator_attention_s456,completed,4678882.zeus-master,completed
+786,graph_operator,attention,graph_operator_attention_s786,completed,4678883.zeus-master,completed
+123,soft_experts,attention,soft_experts_attention_s123,completed,4678884.zeus-master,completed
+456,soft_experts,attention,soft_experts_attention_s456,completed,4678885.zeus-master,completed
+786,soft_experts,attention,soft_experts_attention_s786,completed,4678886.zeus-master,completed
+123,trajectory_flow,attention,trajectory_flow_attention_s123,completed,4678887.zeus-master,completed
+456,trajectory_flow,attention,trajectory_flow_attention_s456,completed,4678888.zeus-master,completed
+786,trajectory_flow,attention,trajectory_flow_attention_s786,completed,4678889.zeus-master,completed

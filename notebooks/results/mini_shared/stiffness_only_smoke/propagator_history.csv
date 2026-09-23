@@ -1,0 +1,2 @@
+epoch,train_loss,val_loss,train_dz_mse_norm,train_loss_raw,train_source_stiffness_original_loss_norm,val_dz_mse_norm,val_dz_mse_raw,val_source_stiffness_original_loss_norm,dataset,latent_dim,target_mode,hidden_size,propagator_loss,propagator_objective,propagator_multistep_horizons,propagator_multistep_loss,propagator_step_stride,initial_velocity
+1,1.0954234940665108,37478.23939732143,1.0954234940665108,5.958451246052781e-07,1.0954234940665108,37478.23939732143,0.028137683336223875,37478.23939732143,mini_shared,2,normalized_delta,96,delta,one_step,,final_horizon,1,zero

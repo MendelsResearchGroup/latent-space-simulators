@@ -1,0 +1,45 @@
+{
+  "recipe": "lr0.08_b0.25_p50_mask_blocking_nodes",
+  "reid_ids": [
+    93,
+    84,
+    96,
+    97,
+    52
+  ],
+  "thermal_ids": [
+    234,
+    262
+  ],
+  "dependencies": {
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/inputs.json": "bde969ae3894daf9373564f089e76bf8bf4fc2c6fcfb47faa415aab54acb01c0",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/code/replay.py": "fe7f016e4a586425bcc28b38c946f35ae3372cf62e591ea9ed2eedbb0ce59768",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/code/render.py": "3c0882ee042549aa51fcd9e1cb9f2f4bccfd9760912e093ecd62dfdf9a463ad7",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/results.csv": "0b4a61d03fec6d36e96c4e7f11b54063ad9327b67317965692e4131cb1325f09",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_results.csv": "d6859016c4bb676af167bc1114d35f8a891501b5a92aab58c914e8786d3ae61e",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/../DL-course-project/notebooks/network_design/endpoint_physics.py": "3d5ea68a5c790ff77baab376ec29c7df07cb3de96b3cfabeb26727b139dbbee0",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/../DL-course-project/.runtime/lammps/bin/lmp": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/../MetaForge/src/auxetic/utils.py": "68b9577011023606130591dbdc329db305521fd53e5d2a43c61bada44f41d13c",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_93/original.pt": "9c6e45074c3af0e6ffd6290b907e545b0547d60de11f6769b4aed6aa26200e60",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_93/joint_r4_b0.25.pt": "3b9e1ccb273a04fb3eb267d7c36c6ebc003057e11ff78c22b88d0d3ddc75f6d1",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_84/original.pt": "acdac5a036f2760aafa6685d942d559aabb70f4947befb44255158007996594d",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_84/joint_r4_b0.25.pt": "0bda17b42f9e4a6928ce7b3f3a305fb5eb73bb815cae6dfadcee4722c8386d91",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_96/original.pt": "3fcbdaf0dd9bb3c581121cf6923f9d923b08fd85c1b0bb637a2a2f6370d83c93",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_96/joint_r4_b0.25.pt": "12671cbf9fc4a91eefb40fff1adedf11065c3145449d0444134bb2896dc71467",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_97/original.pt": "90865a5471438de164a5c9f91a423e86a40b88b159859a4faf88efa533c5942e",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_97/joint_r4_b0.25.pt": "f395a9d8d86555960476191ae93abb57c02604affd942234383841d42c760153",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/reid_52/original.pt": "a1d1e7594f2d3a8efc06133b5bfbe56c1871c3704756369b59fad54659b52762",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.08_b0.25_p50_mask_blocking_nodes/reid_52/joint_r4_b0.25.pt": "1f151581864b28cd84d3b214a76aadc8688670ce67f045a29ed9f7815e1dd4a7",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/depablo_mixed_temp_234/original.pt": "b6b07093cae0608405d2bebe052f62a6e924e387e7bd7de1fa97dd5f6c52ee09",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/depablo_mixed_temp_234/joint_A_r4_b0.25.pt": "632df5926644a0db4f2c2df9f873efe09ef1b066c22e6c9926a3a3e8e271fac7",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id234/234_original_s786/trajectory.npz": "6a37a30578f0136ea4b1abe782045bfd026a5d0a66e6572167bdd504ab40b443",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id234/234_joint_A_r4_b0.25_s786/trajectory.npz": "805b3854942ae63c6d5f673c4ae98781434530f4e9a72056bd95220a7bbcb572",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/depablo_mixed_temp_262/original.pt": "e02512827db3df52d38fbbc442dbe97ed5c2bc4abeec1802e2fad0e154fb653b",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/depablo_mixed_temp_262/joint_A_r4_b0.25.pt": "c07637eaf8f5c540e62368c4a5253e7f396be6d9c0f4497ba523821cdd91ed42",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id262/262_original_s786/trajectory.npz": "efd7272b02c731113394e9586b1033a557bbe9ddbd513f9625e9c389144d8919",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id262/262_joint_A_r4_b0.25_s786/trajectory.npz": "052156ab32238dca7d4c9a81acf6d7426cd42cc81111ddb2b2de6d8a14ec750e"
+  },
+  "duration_seconds": 4,
+  "reid_frames": 121,
+  "thermal_frames": 200
+}

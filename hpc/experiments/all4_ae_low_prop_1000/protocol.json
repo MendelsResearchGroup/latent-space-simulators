@@ -1,0 +1,16 @@
+{
+  "study": "all4_ae_low_prop_1000",
+  "hypothesis": "An AE exposed to low- and mixed-temperature frames can retain their shared mechanical manifold while a low-temperature-only deterministic propagator learns the smooth response without fitting stochastic thermal increments.",
+  "frozen_ae": "notebooks/results/all4_coverage_1000/all4_twenty_each_retry_v5_validation30/ae.pt",
+  "propagator_training_sources": ["node_low", "stiffness_low"],
+  "propagator_training_ids": [0, 20],
+  "propagator_validation_ids": [20, 40],
+  "heldout_development_ids": [40, 120],
+  "frames": 200,
+  "frame_cadence_md_steps": 1000,
+  "seed": 123,
+  "primary_metric": "source-wise physical p-ratio R2 from normalized boundary-strain OLS over frames 30 through horizon",
+  "thermal_diagnostic": "true-versus-predicted transverse residual amplitude and framewise residual waveform after the same affine strain fit",
+  "selection": "low-temperature validation latent-delta MSE only",
+  "forbidden_training_signals": ["p-ratio", "strain", "temperature label", "source label"]
+}

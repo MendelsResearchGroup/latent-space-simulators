@@ -1,0 +1,38 @@
+{
+  "notebook": "notebooks/dynamics/04_shared_ae_response_and_latents.ipynb",
+  "notebook_sha256": "c503485e90c56f320656af505c8d55d02e49c26da2314f57302b343d19e3cc27",
+  "inline_pngs": 9,
+  "executed_code_cells": 9,
+  "helper_sha256": "24969f3496873bd43a66d6f3dc32db545badd91af62fb75cf15b42878ec66864",
+  "displayed_sources": [
+    "reid",
+    "depablo_low_temp",
+    "lj_noisy"
+  ],
+  "displayed_networks": 60,
+  "displayed_latent_frames": 12000,
+  "mixed_temp_excluded_from_all_plots": true,
+  "all_frame_scatter": {
+    "observables": [
+      "p_ratio",
+      "strain_y"
+    ],
+    "latents": [
+      "z0",
+      "z1"
+    ],
+    "frame_range": [
+      0,
+      199
+    ],
+    "color": "frame",
+    "per_source_p_ratio_valid_total": [
+      3980,
+      4000
+    ],
+    "per_source_strain_valid_total": [
+      4000,
+      4000
+    ]
+  }
+}

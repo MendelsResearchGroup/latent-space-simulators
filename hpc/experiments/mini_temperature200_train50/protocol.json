@@ -1,0 +1,40 @@
+{
+  "study": "mini_temperature200_train50",
+  "purpose": "Matched first-50-frame training ablation on the 200-MD-step data, with heldout evaluation through frame 499.",
+  "base_arms": {
+    "all4_one_each": {
+      "sources": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"],
+      "train_per_source": 1
+    },
+    "all4_twenty_each": {
+      "sources": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"],
+      "train_per_source": 20
+    }
+  },
+  "seeds": [123, 456, 786],
+  "training": {
+    "frames": [0, 49],
+    "md_steps": [0, 9800],
+    "ae_post_warmup_weighting": "uniform_exactly_1_per_frame",
+    "propagator_transitions": 49
+  },
+  "evaluation": {
+    "frames": [0, 499],
+    "md_steps": [0, 99800],
+    "endpoint_frames": [49, 499],
+    "mixed_training_window_fit_frames": [0, 49],
+    "mixed_extrapolation_fit_frames": [150, 499]
+  },
+  "split": {
+    "train_ids": [0, 19],
+    "all4_validation_by_source": {
+      "node_low": [20, 27],
+      "node_mixed": [20, 27],
+      "stiffness_low": [20, 26],
+      "stiffness_mixed": [20, 26]
+    },
+    "heldout_development_ids": [40, 119]
+  },
+  "model": "Matched 2D message_passing_reference16 AE and frozen one-step delta_mlp propagator.",
+  "selection": "Coordinate-only AE and latent-delta validation; p-ratio and strain excluded from inputs, losses and checkpoint selection."
+}

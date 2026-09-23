@@ -1,0 +1,27 @@
+{
+  "checks": [
+    {
+      "displacement_sse_equal": true,
+      "old_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/single_stiffness/paired_transfer/per_network.csv",
+      "pred_p_ratio_equal": true,
+      "rows": 400,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-10
+      },
+      "true_p_ratio_equal": true
+    },
+    {
+      "displacement_sse_equal": true,
+      "old_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/single_stiffness/unseen_transfer/mixed/per_network.csv",
+      "pred_p_ratio_equal": true,
+      "rows": 8000,
+      "tolerance": {
+        "atol": 1e-10,
+        "rtol": 1e-10
+      },
+      "true_p_ratio_equal": true
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,41 @@
+{
+  "code_manifest_sha256": "2406c9e25c31fa801c8719771c63dccfc4a7850ef99eaed53da8282e30669704",
+  "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+  "jobs": {
+    "inverse_energy_cap100_seed123": {
+      "fit": "4687505.zeus-master",
+      "smoke": "4687504.zeus-master"
+    },
+    "inverse_energy_cap100_seed456": {
+      "fit": "4687507.zeus-master",
+      "smoke": "4687506.zeus-master"
+    },
+    "inverse_energy_cap100_seed786": {
+      "fit": "4687509.zeus-master",
+      "smoke": "4687508.zeus-master"
+    },
+    "uniform_seed123": {
+      "fit": "4687499.zeus-master",
+      "smoke": "4687498.zeus-master"
+    },
+    "uniform_seed456": {
+      "fit": "4687501.zeus-master",
+      "smoke": "4687500.zeus-master"
+    },
+    "uniform_seed786": {
+      "fit": "4687503.zeus-master",
+      "smoke": "4687502.zeus-master"
+    }
+  },
+  "protocol_sha256": "f4b33c3ad78fdc66171816635e74c40beca263b20bc712ceb00c56b1b2b91847",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "snapshot": "notebooks/results/mini_temperature200_frames500_size_weighted/v1/code_v1",
+  "status": "submitted",
+  "study": "mini_temperature200_frames500_size_weighted",
+  "submitted_at": "2026-09-15T18:34:26.409712+00:00"
+}

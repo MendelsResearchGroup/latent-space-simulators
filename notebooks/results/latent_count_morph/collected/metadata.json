@@ -1,0 +1,31 @@
+{
+  "collector_sha256": "bfaffd69398f31bb0e138ec45a45e34aba31c03d9cae96c57f151dc59b085421",
+  "coordinate_rule": "raw z0/z1 retained per model/seed; no PCA coordinate replacement or response-based alignment",
+  "counts": [
+    1,
+    2,
+    4,
+    8,
+    10,
+    12,
+    14,
+    20
+  ],
+  "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+  "early_motion": "fixed response-blind trajectory IDs 40,50,...110; angle of z(frame)-z(0) to z(199)-z(0)",
+  "matrix_cells_total": 24,
+  "matrix_cells_valid": 24,
+  "matrix_sha256": "7e757a706d2efd9b474203b9a4faa252d1d977efe46a53c2a54e897f48fe30a2",
+  "response_use": "none in collected morphology metrics",
+  "runner_sha256": "f0746dc2da6e315a0dc9e99d93f9833acaf754be7e7571d39d489ce23eb332e0",
+  "seeds": [
+    123,
+    456,
+    786
+  ],
+  "sources": [
+    "node_low",
+    "stiffness_low"
+  ],
+  "status": "complete"
+}

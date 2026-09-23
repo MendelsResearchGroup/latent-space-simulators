@@ -1,0 +1,22 @@
+{
+  "name": "mini_temperature200_lowt_one",
+  "question": "Does a 2D AE trained on exactly one low-temperature network per family recover the initial-latent to final-p-ratio organization without any mixed-temperature exposure?",
+  "data": {
+    "manifest": "notebooks/results/mini_temperature200_frames500/data_manifest.json",
+    "sources": ["node_low", "stiffness_low"],
+    "stored_frames": [0, 499],
+    "md_steps_per_frame": 200
+  },
+  "split": {
+    "train_ids_per_source": [0],
+    "validation_ids_per_source": [20, 39],
+    "heldout_development_ids_per_source": [40, 119]
+  },
+  "seeds": [123, 456, 786],
+  "model": "fresh 2D message-passing reference-context16 AE; exact mini_temperature200_frames500 recipe",
+  "training": "one ordinary warmup epoch followed by at most 60 uniformly weighted all-frame epochs with patience 12",
+  "selection": "equal-source validation coordinate reconstruction loss only",
+  "excluded": ["mixed-temperature frames", "temperature inputs", "source labels", "p-ratio inputs", "strain inputs", "response-supervised loss", "propagator"],
+  "postfit": "source-wise Pearson and Spearman correlation of initial z0/z1 with physical frame-499 endpoint p-ratio on heldout-development IDs 40-119; full paths exported for IDs 40-59",
+  "primary_reporting": "all three seeds separately plus mean/SD; signed and absolute correlations; valid/total counts"
+}

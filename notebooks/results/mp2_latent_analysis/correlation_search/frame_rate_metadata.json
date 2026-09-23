@@ -1,0 +1,24 @@
+{
+  "model_seed": 786,
+  "frames": [
+    5,
+    199
+  ],
+  "slope": "(z[t]-z[t-1])/(step[t]-step[t-1]); compute before filtering to preserve frame4\u21925",
+  "target": "p_ratio[t], established physical endpoint side estimator relative to frame0",
+  "smoothing": false,
+  "correlation": "Pearson across20networks within each source and step; median across195steps in plot",
+  "frame_network_pairs": 11700,
+  "coefficients": 1170,
+  "valid_total_per_coefficient": [
+    20,
+    20
+  ],
+  "inference": "descriptive; repeated frames are not independent observations; no pooled significance claim",
+  "input_sha256": "cb5cd173abca7402e6a5480ad505f8913274e1b655d25deac26a3029156af29a",
+  "runner_sha256": "522859a40bad16564f6946ea93f8836e7d77dd28838e75727024b80ad32068df",
+  "training": false,
+  "new_model_inference": false,
+  "final_test_used": false,
+  "notebook_executed": false
+}

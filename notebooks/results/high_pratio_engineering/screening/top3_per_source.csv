@@ -1,0 +1,7 @@
+source,index,cohort,initial_p_ratio,status,frames,side_quantile,left_nodes,right_nodes,bottom_nodes,top_nodes
+depablo_low_temp,50,train,0.36857892196166503,completed,200,0.1,15,15,15,15
+depablo_low_temp,13,train,0.36422406771614696,completed,200,0.1,12,12,12,12
+depablo_low_temp,78,val,0.3569084914649074,completed,200,0.1,21,21,21,21
+reid,65,train,0.3872926595203451,completed,200,0.1,12,12,12,12
+reid,93,val,0.3812882530435859,completed,200,0.1,19,19,19,19
+reid,73,train,0.3544276081306285,completed,200,0.1,15,15,15,15

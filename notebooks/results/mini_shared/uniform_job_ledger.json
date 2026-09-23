@@ -1,0 +1,42 @@
+{
+  "code_manifest_sha256": "53bccc7ff285bfee315e6013cbc0a826b0d191860747f4a397e6c1ad14e478e3",
+  "collector_dependency": "afterok:4682630.zeus-master",
+  "data_manifest_sha256": "22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae",
+  "frame_weights": "all 200 post-warmup source/frame weights exactly 1",
+  "jobs": {
+    "fit_with_smoke_gate": "4682630.zeus-master",
+    "postfit_collector": "4682631.zeus-master"
+  },
+  "mixed_excluded": true,
+  "postfit_primary": "physical endpoint fixed-frame0 sides q0.10 p-ratio R2 at frame199; AE reconstruction and autonomous rollout separately",
+  "protocol_sha256": "259f51f15b0231a5c41c18e31099a5644d40506461048ed0f01ba33f1c343bd1",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "seed": 123,
+  "selection": "ordinary uniform validation coordinate MSE and latent-delta validation loss only; p-ratio never used",
+  "smoke_gate": "same job: train smoke, endpoint diagnostic collection through frame199, then full fit only after both succeed",
+  "snapshot": "notebooks/results/mini_shared/code_uniform_v1",
+  "sources": [
+    "stiffness_original",
+    "node_original"
+  ],
+  "status": "submitted",
+  "study": "joint_original_uniform",
+  "submission_attempts": [
+    {
+      "at": "2026-09-13T08:29:48+00:00",
+      "command_context": "workspace compute node",
+      "error": "qsub refused: jobs must be submitted on ZEUS login server",
+      "status": "not_accepted"
+    },
+    {
+      "at": "2026-09-13T08:30:34.916374+00:00",
+      "status": "retrying_after_unaccepted_submission"
+    }
+  ],
+  "submitted_at": "2026-09-13T08:29:48.400474+00:00"
+}

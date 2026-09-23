@@ -1,0 +1,462 @@
+"""Build notebook 01 as a cached reader for the 1,000-MD-step one-each study."""
+
+from pathlib import Path
+
+import nbformat as nbf
+
+
+ROOT = Path(__file__).resolve().parents[2]
+TARGET = ROOT / "notebooks/dynamics/01_mixed_dataset_shared_latent_space.ipynb"
+
+
+def code(source: str):
+    return nbf.v4.new_code_cell(source.strip() + "\n")
+
+
+def markdown(source: str):
+    return nbf.v4.new_markdown_cell(source.strip() + "\n")
+
+
+cells = [
+    markdown(
+        """
+# One trajectory per source
+
+This notebook is the paper-facing view of the new **1,000-MD-step** data. One shared autoencoder sees exactly one trajectory from each of four sources: node-optimized and stiffness-optimized networks, each at near-zero and mixed temperature. Its primary question is whether the **initial 2D latent state orders the final mechanical p-ratio on unseen networks**. Autonomous rollout is not expected to succeed in this one-network limit and is retained only as a secondary diagnostic.
+
+The stiffness-optimized mini collection is a separate dataset from the historical Reid collection. The labels below follow the recorded source provenance rather than renaming it Reid.
+
+All plots read frozen post-fit artifacts. p-ratio never entered the model inputs, loss, checkpoint selection, or training split.
+"""
+    ),
+    code(
+        """
+%matplotlib inline
+from pathlib import Path
+import json
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.colors import Normalize
+from matplotlib.lines import Line2D
+from IPython.display import display
+
+PROJECT_ROOT = Path.cwd().resolve()
+while not (PROJECT_ROOT / 'notebooks').exists():
+    if PROJECT_ROOT.parent == PROJECT_ROOT:
+        raise RuntimeError('Run this notebook from inside the repository.')
+    PROJECT_ROOT = PROJECT_ROOT.parent
+
+RESULTS = PROJECT_ROOT / 'notebooks/results/all4_coverage_1000/all4_one_each_retry_v5_validation30'
+LINEAR = RESULTS / 'auxiliary_linear_fit'
+INTERPRETATION = PROJECT_ROOT / 'notebooks/results/all4_coverage_1000/notebook01_training_temperature'
+required = [
+    RESULTS / 'recipe.json', RESULTS / 'completed.json', RESULTS / 'exposure.csv',
+    RESULTS / 'test/latents.csv', RESULTS / 'test/per_network.csv', RESULTS / 'test/per_step.csv',
+    LINEAR / 'per_network.csv', LINEAR / 'summary.csv', LINEAR / 'completed.json',
+    INTERPRETATION / 'training_trajectory_markers.csv',
+    INTERPRETATION / 'mixed_temperature_fluctuation.csv',
+    INTERPRETATION / 'mixed_temperature_fluctuation_summary.csv',
+    INTERPRETATION / 'metadata.json',
+]
+missing = [str(path) for path in required if not path.exists()]
+if missing:
+    raise FileNotFoundError('Missing required frozen artifacts:\\n' + '\\n'.join(missing))
+
+recipe = json.loads((RESULTS / 'recipe.json').read_text())
+completed = json.loads((RESULTS / 'completed.json').read_text())
+linear_completed = json.loads((LINEAR / 'completed.json').read_text())
+exposure = pd.read_csv(RESULTS / 'exposure.csv')
+frame_df = pd.read_csv(RESULTS / 'test/latents.csv')
+per_network = pd.read_csv(RESULTS / 'test/per_network.csv')
+per_step = pd.read_csv(RESULTS / 'test/per_step.csv')
+linear_network = pd.read_csv(LINEAR / 'per_network.csv')
+linear_summary = pd.read_csv(LINEAR / 'summary.csv')
+training_markers = pd.read_csv(INTERPRETATION / 'training_trajectory_markers.csv')
+temperature_fluctuation = pd.read_csv(INTERPRETATION / 'mixed_temperature_fluctuation.csv')
+temperature_fluctuation_summary = pd.read_csv(INTERPRETATION / 'mixed_temperature_fluctuation_summary.csv')
+
+SOURCES = ['node_low', 'node_mixed', 'stiffness_low', 'stiffness_mixed']
+MIXED_SOURCES = ['node_mixed', 'stiffness_mixed']
+LOW_SOURCES = ['node_low', 'stiffness_low']
+SOURCE_LABELS = {
+    'node_low': 'node optimized · low-T',
+    'node_mixed': 'node optimized · mixed-T',
+    'stiffness_low': 'stiffness optimized · low-T',
+    'stiffness_mixed': 'stiffness optimized · mixed-T',
+}
+SOURCE_COLORS = {
+    'node_low': '#2166ac', 'node_mixed': '#67a9cf',
+    'stiffness_low': '#b2182b', 'stiffness_mixed': '#ef8a62',
+}
+MODE_LABELS = {'ae_reconstruction': 'AE reconstruction', 'autonomous_delta_mlp': 'autonomous rollout'}
+PAPER_WIDE_FIGSIZE = (11.4, 5.4)
+
+plt.rcParams.update({
+    'figure.dpi': 115, 'savefig.dpi': 160, 'axes.spines.top': False,
+    'axes.spines.right': False, 'axes.grid': True, 'grid.alpha': .18,
+    'axes.titleweight': 'semibold', 'font.size': 9.5, 'legend.frameon': False,
+})
+
+assert completed['status'] == 'completed' and linear_completed['status'] == 'completed'
+assert recipe['config']['ae_config']['latent_dim'] == 2
+assert set(frame_df.source.unique()) == set(SOURCES)
+assert set(frame_df.trajectory_id.unique()) == set(range(40, 120))
+assert frame_df.groupby(['source', 'trajectory_id']).size().eq(200).all()
+print('Loaded one frozen 2D model and 320 held-out trajectories (80 per source × 200 stored frames).')
+"""
+    ),
+    markdown(
+        """
+## Training data
+
+Low/mixed pairs with the same ID share the underlying network identity. Therefore four training trajectories correspond to **two unique network structures**, observed once at each temperature profile. This is deliberately an extreme low-data representation experiment, not a claim about temperature-distribution coverage.
+"""
+    ),
+    code(
+        """
+train_exposure = exposure.query("split == 'train'").copy()
+train_exposure['dataset'] = train_exposure.source.map(SOURCE_LABELS)
+train_exposure['temperature (K)'] = train_exposure.temperature
+train_exposure['stored MD range'] = train_exposure.apply(
+    lambda row: f"{int(row.first_time):,}–{int(row.last_time):,}", axis=1
+)
+display(train_exposure[['dataset', 'trajectory_id', 'temperature (K)', 'frames', 'stored MD range']].reset_index(drop=True))
+print('Training total: 4 trajectories, 800 frames, 2 unique structures. Validation: 30 trajectories / 15 paired structures. Held-out development evaluation: IDs 40–119, never used for selection.')
+"""
+    ),
+    markdown(
+        """
+## Response definition
+
+For low-T trajectories, “final p-ratio” is the physical frame-199 fixed-side endpoint estimator. For mixed-T trajectories, thermal fluctuations are reduced by fitting normalized transverse strain against normalized axial strain over frames 30–199 and taking the negative fitted slope. This is the same post-fit mixed-T estimator used in the dedicated evaluation. The two estimators are shown together only to colour/order trajectories; source-wise statistics are reported separately.
+"""
+    ),
+    code(
+        """
+low_response = (
+    per_network.query("mode == 'ae_reconstruction' and frame == 199 and source in ['node_low', 'stiffness_low']")
+    [['source', 'trajectory_id', 'true_p_ratio']]
+    .rename(columns={'true_p_ratio': 'final_p_ratio'})
+)
+mixed_response = (
+    linear_network.query("mode == 'ae_reconstruction'")
+    [['source', 'trajectory_id', 'linear_true_p']]
+    .rename(columns={'linear_true_p': 'final_p_ratio'})
+)
+responses = pd.concat([low_response, mixed_response], ignore_index=True)
+responses['estimator'] = np.where(responses.source.str.endswith('_mixed'), 'strain OLS, frames 30–199', 'physical endpoint, frame 199')
+assert len(responses) == 320 and responses.final_p_ratio.notna().all()
+
+initial = frame_df.query('frame == 0')[['source', 'trajectory_id', 'z0', 'z1']]
+test_descriptors = initial.merge(responses, on=['source', 'trajectory_id'], validate='one_to_one')
+display(
+    test_descriptors.query('source in @MIXED_SOURCES').groupby('source').agg(
+        networks=('trajectory_id', 'size'), p_min=('final_p_ratio', 'min'),
+        p_median=('final_p_ratio', 'median'), p_max=('final_p_ratio', 'max')
+    ).rename(index=SOURCE_LABELS).round(3)
+)
+"""
+    ),
+    markdown("## Held-out latent paths"),
+    code(
+        """
+fig, axes = plt.subplots(1, 2, figsize=PAPER_WIDE_FIGSIZE, constrained_layout=True)
+for source in MIXED_SOURCES:
+    source_values = test_descriptors.query('source == @source').sort_values('final_p_ratio')
+    chosen = source_values.iloc[np.linspace(0, len(source_values)-1, 10).round().astype(int)]
+    for trajectory_id in chosen.trajectory_id:
+        trajectory = frame_df.query('source == @source and trajectory_id == @trajectory_id').sort_values('frame')
+        axes[0].plot(trajectory.z0, trajectory.z1, color=SOURCE_COLORS[source], alpha=.45, lw=1.0)
+    axes[0].scatter(chosen.z0, chosen.z1, color=SOURCE_COLORS[source], s=18, label=SOURCE_LABELS[source], zorder=3)
+
+for source in MIXED_SOURCES:
+    points = test_descriptors.query('source == @source')
+    axes[1].scatter(points.z0, points.z1, s=17, color=SOURCE_COLORS[source], alpha=.70, label=SOURCE_LABELS[source])
+
+axes[0].set(title='Held-out latent paths', xlabel='z0', ylabel='z1')
+axes[1].set(title='Initial latent states', xlabel='initial z0', ylabel='initial z1')
+axes[1].legend(fontsize=8, loc='best')
+plt.show()
+"""
+    ),
+    markdown("## Early latent response"),
+    code(
+        """
+print('Held-out z0 trajectories: colour denotes final p-ratio and line style denotes dataset. The right column enlarges the initial segment of the same trajectories.')
+line_style_cycle = ['-', '--', ':', '-.']
+line_styles = {source: line_style_cycle[index] for index, source in enumerate(MIXED_SOURCES)}
+plot_values = test_descriptors.query('source in @MIXED_SOURCES').final_p_ratio.replace([np.inf, -np.inf], np.nan).dropna()
+norm = Normalize(vmin=plot_values.quantile(.01), vmax=plot_values.quantile(.99))
+cmap = plt.get_cmap('cividis_r')
+INITIAL_ZOOM_FRAME = 20
+
+trajectory_figsize = (PAPER_WIDE_FIGSIZE[0], max(PAPER_WIDE_FIGSIZE[1], 1.75*len(MIXED_SOURCES)))
+fig = plt.figure(figsize=trajectory_figsize, constrained_layout=True)
+grid = fig.add_gridspec(len(MIXED_SOURCES), 2, width_ratios=[4.7, 1.9], hspace=.08, wspace=.07)
+ax = fig.add_subplot(grid[:, 0])
+zoom_axes = [fig.add_subplot(grid[row, 1]) for row in range(len(MIXED_SOURCES))]
+selected_rows, selected_trajectories = [], []
+
+for source in MIXED_SOURCES:
+    networks = test_descriptors.query('source == @source').sort_values('final_p_ratio')
+    fit = np.polyfit(networks.final_p_ratio, networks[TRAJECTORY_LATENT], 1)
+    networks = networks.assign(
+        fit_residual=(networks[TRAJECTORY_LATENT]-np.polyval(fit, networks.final_p_ratio)).abs(),
+        response_quartile=pd.qcut(networks.final_p_ratio, 4, labels=False),
+    )
+    selected_indices = [group.fit_residual.idxmin() for _, group in networks.groupby('response_quartile')]
+    selected = networks.loc[selected_indices].sort_values('final_p_ratio')
+    for rank, (_, network) in enumerate(selected.iterrows(), start=1):
+        trajectory_id = int(network.trajectory_id)
+        trajectory = frame_df.query('source == @source and trajectory_id == @trajectory_id').sort_values('frame')
+        color = cmap(norm(network.final_p_ratio))
+        ax.plot(trajectory.frame*1000, trajectory.z0, color=color, linestyle=line_styles[source], lw=1.75, alpha=.92)
+        entry = {'source': source, 'rank': rank, 'final_p_ratio': float(network.final_p_ratio), 'trajectory': trajectory, 'color': color}
+        selected_trajectories.append(entry)
+        selected_rows.append({'source': source, 'rank': rank, 'trajectory_id': trajectory_id, 'final_p_ratio': float(network.final_p_ratio), 'initial_z0': float(trajectory.z0.iloc[0])})
+
+ax.axvspan(0, INITIAL_ZOOM_FRAME*1000, color='#58606b', alpha=.10, lw=0)
+for source in MIXED_SOURCES:
+    ax.plot([], [], color='#222222', linestyle=line_styles[source], lw=1.75, label=SOURCE_LABELS[source])
+ax.set(xlabel='MD step', ylabel='z0')
+ax.legend(fontsize=8, ncol=2)
+
+for zoom_ax, source in zip(zoom_axes, MIXED_SOURCES):
+    entries = [entry for entry in selected_trajectories if entry['source'] == source]
+    initial_values = []
+    for entry in entries:
+        initial_part = entry['trajectory'].query('frame <= @INITIAL_ZOOM_FRAME')
+        initial_values.extend(initial_part.z0.tolist())
+        zoom_ax.plot(initial_part.frame*1000, initial_part.z0, color=entry['color'], linestyle=line_styles[source], lw=1.8, alpha=.96)
+        label_point = initial_part.iloc[min(entry['rank']-1, len(initial_part)-1)]
+        zoom_ax.annotate(f"{entry['final_p_ratio']:.2f}", xy=(float(label_point.frame*1000), float(label_point.z0)), xytext=(4, 0), textcoords='offset points', ha='left', va='center', fontsize=7.2, color=entry['color'], fontweight='semibold')
+    low, high = min(initial_values), max(initial_values)
+    pad = .12*max(high-low, 1e-6)
+    zoom_ax.set_ylim(low-pad, high+pad)
+    zoom_ax.set_xlim(-1000, (INITIAL_ZOOM_FRAME+4)*1000)
+    zoom_ax.set_title(SOURCE_LABELS[source], fontsize=8.5, loc='left')
+    if zoom_ax is not zoom_axes[-1]:
+        zoom_ax.tick_params(axis='x', labelbottom=False)
+    else:
+        zoom_ax.set_xlabel('initial MD steps')
+
+fig.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=cmap), ax=[ax, *zoom_axes], label='final p-ratio (source-appropriate post-fit estimator)', pad=.012, fraction=.035)
+selected_z0_trajectories = pd.DataFrame(selected_rows)
+plt.show()
+display(selected_z0_trajectories.assign(source=lambda x: x.source.map(SOURCE_LABELS)).round(3))
+"""
+    ),
+    markdown(
+        """
+## Initial latent and p-ratio
+
+These are descriptive held-out correlations within each source. They are not supervised probes and do not alter the model. Source-wise reporting avoids manufacturing a pooled correlation from between-dataset offsets.
+"""
+    ),
+    code(
+        """
+corr_rows = []
+fig, axes = plt.subplots(len(SOURCES), 2, figsize=(10.8, 10.2), sharey='row', constrained_layout=True)
+for row, source in enumerate(SOURCES):
+    values = test_descriptors.query('source == @source')
+    for col, latent in enumerate(['z0', 'z1']):
+        pearson = values[latent].corr(values.final_p_ratio, method='pearson')
+        spearman = values[latent].corr(values.final_p_ratio, method='spearman')
+        corr_rows.append({'source': SOURCE_LABELS[source], 'latent': f'initial {latent}', 'Pearson r': pearson, 'Spearman ρ': spearman, 'valid/total': f'{len(values)}/{len(values)}'})
+        axc = axes[row, col]
+        axc.scatter(values[latent], values.final_p_ratio, s=18, alpha=.72, color=SOURCE_COLORS[source])
+        coef = np.polyfit(values[latent], values.final_p_ratio, 1)
+        xx = np.linspace(values[latent].min(), values[latent].max(), 100)
+        axc.plot(xx, np.polyval(coef, xx), color='#222222', lw=1.2)
+        axc.set_title(f"{SOURCE_LABELS[source]} · r={pearson:+.2f}, ρ={spearman:+.2f}", fontsize=9)
+        axc.set_xlabel(f'initial {latent}')
+        if col == 0:
+            axc.set_ylabel('final p-ratio')
+plt.show()
+
+correlations = pd.DataFrame(corr_rows)
+display(correlations.round({'Pearson r': 3, 'Spearman ρ': 3}))
+"""
+    ),
+    markdown(
+        """
+## Secondary diagnostic: AE and autonomous rollout
+
+This section is not the success test for notebook 01. It records what the same frozen model reconstructs and rolls out so that representation ordering is not conflated with autonomous prediction. Low-T performance is shown as a function of prediction horizon using the physical endpoint estimator at every stored frame. Mixed-T is summarized with the less noisy post-fit strain-OLS estimator over frames 30–199. AE reconstruction encodes each observed frame; autonomous rollout receives only frame 0 and repeatedly advances the learned propagator.
+"""
+    ),
+    code(
+        """
+fig, axes = plt.subplots(1, 2, figsize=PAPER_WIDE_FIGSIZE, constrained_layout=True)
+for source in ['node_low', 'stiffness_low']:
+    for mode, linestyle in [('ae_reconstruction', '-'), ('autonomous_delta_mlp', '--')]:
+        values = per_step.query('source == @source and mode == @mode and frame > 0').sort_values('frame')
+        axes[0].plot(values.frame*1000, values.p_ratio_r2, color=SOURCE_COLORS[source], linestyle=linestyle, lw=1.7, label=f"{SOURCE_LABELS[source]} · {MODE_LABELS[mode]}")
+axes[0].axhline(0, color='#555555', lw=.8)
+axes[0].set(title='Low-T endpoint p-ratio', xlabel='MD step', ylabel='held-out p-ratio R²')
+axes[0].legend(fontsize=7.7)
+
+mixed_plot = linear_summary.copy()
+mixed_plot['label'] = mixed_plot.source.map(SOURCE_LABELS)
+x = np.arange(2)
+width = .34
+for offset, mode in [(-width/2, 'ae_reconstruction'), (width/2, 'autonomous_delta_mlp')]:
+    values = mixed_plot.query('mode == @mode').set_index('source').loc[['node_mixed', 'stiffness_mixed']]
+    axes[1].bar(x+offset, values.linear_p_r2, width, label=MODE_LABELS[mode], color=['#67a9cf', '#ef8a62'], alpha=.95 if mode == 'ae_reconstruction' else .55, hatch='' if mode == 'ae_reconstruction' else '//')
+    for xpos, value, valid, total in zip(x+offset, values.linear_p_r2, values.linear_valid, values.linear_total):
+        axes[1].text(xpos, value, f'{value:.2f}\\n{int(valid)}/{int(total)}', ha='center', va='bottom' if value >= 0 else 'top', fontsize=8)
+axes[1].axhline(0, color='#555555', lw=.8)
+axes[1].set(title='Mixed-T strain-OLS p-ratio · frames 30–199', ylabel='held-out p-ratio R²', xticks=x, xticklabels=['node optimized', 'stiffness optimized'])
+axes[1].legend(fontsize=8)
+plt.show()
+"""
+    ),
+    code(
+        """
+low_final = per_step.query("frame == 199 and source in ['node_low', 'stiffness_low']")[['source', 'mode', 'p_ratio_r2', 'p_ratio_valid', 'p_ratio_total']].copy()
+low_final['estimator'] = 'endpoint frame 199'
+low_final = low_final.rename(columns={'p_ratio_r2': 'p-ratio R²', 'p_ratio_valid': 'valid', 'p_ratio_total': 'total'})
+mixed_final = linear_summary[['source', 'mode', 'linear_p_r2', 'linear_valid', 'linear_total']].copy()
+mixed_final['estimator'] = 'normalized strain OLS frames 30–199'
+mixed_final = mixed_final.rename(columns={'linear_p_r2': 'p-ratio R²', 'linear_valid': 'valid', 'linear_total': 'total'})
+final_table = pd.concat([low_final, mixed_final], ignore_index=True)
+final_table['dataset'] = final_table.source.map(SOURCE_LABELS)
+final_table['prediction'] = final_table['mode'].map(MODE_LABELS)
+display(final_table[['dataset', 'prediction', 'estimator', 'p-ratio R²', 'valid', 'total']].sort_values(['dataset', 'prediction']).round(3))
+print('Single model seed 123: no seed SD is available. All values are post-fit, source-wise, and position-derived.')
+"""
+    ),
+    markdown(
+        """
+## Scope
+
+The one-each model is a deliberately severe data limit: four trajectories, only two unique structures, and one mixed temperature (0.1 K) per branch. Its intended positive result is a coherent held-out ordering from initial latent state to final p-ratio; successful free rollout is neither required nor expected here. The experiment cannot establish broad mixed-temperature coverage. Notebook 02 uses the matched 20-per-source model to test whether additional structure and temperature coverage make the latent organization richer.
+
+Do not infer success or failure from coordinate error alone. The paper metric here is the separately reported, position-derived p-ratio R² for AE reconstruction and autonomous rollout.
+"""
+    ),
+]
+
+# Keep notebook 01 focused on the initial-state representation.  Rollout
+# diagnostics live in notebook 02 and are removed here.
+secondary_start = next(i for i, cell in enumerate(cells) if cell.cell_type == "markdown" and "## Secondary diagnostic" in cell.source)
+reading_start = next(i for i, cell in enumerate(cells) if cell.cell_type == "markdown" and "## Scope" in cell.source)
+cells = cells[:secondary_start] + cells[reading_start:]
+cells[0].source = cells[0].source.replace(
+    "Autonomous rollout is not expected to succeed in this one-network limit and is retained only as a secondary diagnostic.\n\n",
+    "",
+)
+
+training_cells = [
+    markdown(
+        """
+## Training trajectories
+
+The markers below are the actual position-derived responses of training ID 0. They are shown for context only; p-ratio did not enter fitting or selection. All four happen to have negative p-ratio. Choosing a positive training network using its response would be response-based sample selection, so this frozen experiment is not rewritten that way.
+"""
+    ),
+    code(
+        """
+training_display = training_markers.copy()
+training_display['dataset'] = training_display.source.map(SOURCE_LABELS)
+display(training_display[['dataset','trajectory_id','temperature_K','initial_z0','initial_z1','training_p_ratio','estimator','positive_p_ratio']].round(3))
+assert not training_display.positive_p_ratio.any()
+print('The one-example model was trained in a narrow negative-response region; the held-out correlation below tests whether its latent ordering extends beyond that point.')
+"""
+    ),
+]
+cells[4:4] = training_cells
+
+trajectory_cell = next(cell for cell in cells if cell.cell_type == "code" and "Held-out z0 trajectories" in cell.source)
+trajectory_cell.source = trajectory_cell.source.replace("MIXED_SOURCES", "LOW_SOURCES")
+trajectory_cell.source = trajectory_cell.source.replace(
+    "print('Held-out z0 trajectories: colour denotes final p-ratio and line style denotes dataset. The right column enlarges the initial segment of the same trajectories.')",
+    """stiffness_low_values = test_descriptors.query(\"source == 'stiffness_low'\")
+stiffness_initial_r = {latent: stiffness_low_values[latent].corr(stiffness_low_values.final_p_ratio) for latent in ['z0','z1']}
+TRAJECTORY_LATENT = max(stiffness_initial_r, key=lambda latent: abs(stiffness_initial_r[latent]))
+print(f'Held-out low-T {TRAJECTORY_LATENT} trajectories: this raw coordinate has the stronger initial correlation with final endpoint p-ratio in stiffness-optimized low-T data (r={stiffness_initial_r[TRAJECTORY_LATENT]:+.3f}). One representative closest to the all-80 regression line is selected from each p-ratio quartile. Colour denotes endpoint p-ratio; line style denotes source. The right column enlarges frames 0–20.')""",
+)
+trajectory_cell.source = trajectory_cell.source.replace("trajectory.z0", "trajectory[TRAJECTORY_LATENT]")
+trajectory_cell.source = trajectory_cell.source.replace("initial_part.z0", "initial_part[TRAJECTORY_LATENT]")
+trajectory_cell.source = trajectory_cell.source.replace("label_point.z0", "label_point[TRAJECTORY_LATENT]")
+trajectory_cell.source = trajectory_cell.source.replace("ylabel='z0'", "ylabel=TRAJECTORY_LATENT")
+trajectory_cell.source = trajectory_cell.source.replace("'initial_z0': float(trajectory[TRAJECTORY_LATENT].iloc[0])", "'latent_coordinate': TRAJECTORY_LATENT, 'initial_latent': float(trajectory[TRAJECTORY_LATENT].iloc[0])")
+trajectory_cell.source = trajectory_cell.source.replace("selected_z0_trajectories", "selected_latent_trajectories")
+
+correlation_markdown = next(cell for cell in cells if cell.cell_type == "markdown" and "## Initial latent and p-ratio" in cell.source)
+correlation_markdown.source = """## Initial latent and p-ratio
+
+Node-optimized and stiffness-optimized mixed-T held-out networks are overlaid on the same axes. The p-ratio is the thermal-noise-reduced strain fit over frames 30–199. Circles and triangles are unseen networks; stars are the actual ID 0 training trajectories. Correlations use held-out networks only.\n"""
+correlation_cell = next(cell for cell in cells if cell.cell_type == "code" and "corr_rows = []" in cell.source)
+correlation_cell.source = """corr_rows = []
+fig,axes=plt.subplots(1,2,figsize=(10.8,4.2),constrained_layout=True)
+markers={'node_mixed':'o','stiffness_mixed':'^'}
+for ax,latent in zip(axes,['z0','z1']):
+    for source in MIXED_SOURCES:
+        values=test_descriptors.query('source==@source')
+        corr_rows.append({'source':SOURCE_LABELS[source],'latent':f'initial {latent}',
+                          '|Pearson r|':abs(values[latent].corr(values.final_p_ratio)),
+                          '|Spearman rho|':abs(values[latent].corr(values.final_p_ratio,method='spearman')),
+                          'valid/total':f'{len(values)}/{len(values)}'})
+        ax.scatter(values[latent],values.final_p_ratio,s=24,alpha=.65,
+                   color=SOURCE_COLORS[source],marker=markers[source],label=SOURCE_LABELS[source])
+        coef=np.polyfit(values[latent],values.final_p_ratio,1)
+        xx=np.linspace(values[latent].min(),values[latent].max(),100)
+        ax.plot(xx,np.polyval(coef,xx),color=SOURCE_COLORS[source],lw=1.4)
+        trained=training_markers.query('source==@source').iloc[0]
+        ax.scatter(trained[f'initial_{latent}'],trained.training_p_ratio,marker='*',s=170,
+                   color=SOURCE_COLORS[source],edgecolor='#222222',linewidth=.8,zorder=5)
+    ax.set(title=f'initial {latent}',xlabel=f'initial {latent}',ylabel='final p-ratio')
+    ax.legend(fontsize=8)
+plt.show()
+correlations=pd.DataFrame(corr_rows)
+display(correlations.round({'|Pearson r|':3,'|Spearman rho|':3}))
+"""
+
+temperature_cells = [
+    markdown(
+        """
+## Temperature and fluctuation
+
+For each held-out mixed-T trajectory, fluctuation is the standard deviation of transverse-displacement residuals after removing the fitted response to axial displacement over frames 30–199. The model's only mixed-T training trajectory was at 0.1 K; held-out trajectories span 0.1–30 K.
+"""
+    ),
+    code(
+        """
+fig,axes=plt.subplots(1,2,figsize=(10.8,4.0),sharey=True,constrained_layout=True)
+for ax,source in zip(axes,['node_mixed','stiffness_mixed']):
+    values=temperature_fluctuation.query('source==@source')
+    summary=temperature_fluctuation_summary.query('source==@source').iloc[0]
+    ax.scatter(values.temperature_K,values.transverse_fluctuation_sd,s=20,alpha=.55,color=SOURCE_COLORS[source])
+    medians=values.groupby('temperature_K',as_index=False).transverse_fluctuation_sd.median()
+    ax.plot(medians.temperature_K,medians.transverse_fluctuation_sd,'o-',color='#222222',lw=1.2,label='temperature median')
+    ax.axvline(.1,color='#f0b429',linestyle='--',lw=1.4,label='mixed-T training value')
+    ax.set_xscale('log')
+    ax.set(title=SOURCE_LABELS[source],xlabel='temperature (K)',ylabel='transverse fluctuation')
+    ax.legend(fontsize=8)
+plt.show()
+display(temperature_fluctuation_summary.rename(columns={'pearson_fluctuation_vs_log10_temperature':'Pearson r vs log10(T)','spearman_fluctuation_vs_temperature':'Spearman rho vs T'}).round(3))
+print('The positive correlations show that the held-out data contain a real temperature-dependent fluctuation signal. Evaluation up to 30 K is therefore outside the single 0.1 K mixed-T training example. This supports temperature generalization, but the association alone is not proof of causal temperature extrapolation because network identity also varies across held-out trajectories.')
+"""
+    ),
+]
+reading_index = next(i for i, cell in enumerate(cells) if cell.cell_type == "markdown" and "## Scope" in cell.source)
+cells[reading_index:reading_index] = temperature_cells
+cells[-1].source = cells[-1].source.replace(
+    "Its intended positive result is a coherent held-out ordering from initial latent state to final p-ratio; successful free rollout is neither required nor expected here.",
+    "Its result is the held-out ordering from initial latent state to final p-ratio, with the actual negative-response training point shown explicitly.",
+).replace(
+    "\n\nDo not infer success or failure from coordinate error alone. The paper metric here is the separately reported, position-derived p-ratio R² for AE reconstruction and autonomous rollout.",
+    "",
+)
+
+notebook = nbf.v4.new_notebook(
+    cells=cells,
+    metadata={
+        "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
+        "language_info": {"name": "python", "version": "3"},
+    },
+)
+nbf.write(notebook, TARGET)
+print(f"Wrote {TARGET} with {len(cells)} cells")

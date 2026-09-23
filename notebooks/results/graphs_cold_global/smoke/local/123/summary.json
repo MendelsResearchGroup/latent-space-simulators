@@ -1,0 +1,101 @@
+{
+  "best_validation_one_step_combined_state_mse": 6.336434731464666e-09,
+  "epochs_completed": 1,
+  "evaluation_split": "smoke_eval",
+  "model": "local",
+  "seed": 123,
+  "smoke": true,
+  "test": {
+    "10": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 8.932311557074968e-10
+    },
+    "100": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 1.1473109680082416e-06
+    },
+    "20": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 4.813114884427705e-08
+    },
+    "200": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 1.0929700692940969e-05
+    },
+    "399": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 0.0001260151038877666
+    },
+    "5": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 2.2135797361766407e-10
+    },
+    "50": {
+      "p_ratio_r2_y_over_x": null,
+      "p_ratio_r2_z_over_x": null,
+      "p_ratio_y_valid_total": [
+        1,
+        1
+      ],
+      "p_ratio_z_valid_total": [
+        1,
+        1
+      ],
+      "position_mse_physical_minimum_image": 1.6800935043193022e-07
+    }
+  }
+}

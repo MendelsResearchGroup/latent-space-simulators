@@ -1,0 +1,51 @@
+{
+  "code_manifest_sha256": "4e18506dc2f156a6dffd64aee6ca097d2ccfe1d9dcd73862ac94276d5b5fe9a0",
+  "evaluation_frames": [
+    0,
+    499
+  ],
+  "jobs": {
+    "runs": {
+      "all4_one_each_s123": {
+        "collector": "4687742.zeus-master",
+        "fit": "4687741.zeus-master"
+      },
+      "all4_one_each_s456": {
+        "collector": "4687744.zeus-master",
+        "fit": "4687743.zeus-master"
+      },
+      "all4_one_each_s786": {
+        "collector": "4687746.zeus-master",
+        "fit": "4687745.zeus-master"
+      },
+      "all4_twenty_each_s123": {
+        "collector": "4687748.zeus-master",
+        "fit": "4687747.zeus-master"
+      },
+      "all4_twenty_each_s456": {
+        "collector": "4687750.zeus-master",
+        "fit": "4687749.zeus-master"
+      },
+      "all4_twenty_each_s786": {
+        "collector": "4687752.zeus-master",
+        "fit": "4687751.zeus-master"
+      }
+    },
+    "smoke": "4687740.zeus-master"
+  },
+  "protocol_sha256": "5d890a3daf24a926e130f1e0ecdbc10642e7cce621c60415f4d7f2c2b32e173b",
+  "resources_each": {
+    "memory": "16gb",
+    "ncpus": 8,
+    "placement": "place=free:shared",
+    "queue": "mendels_q"
+  },
+  "source_data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+  "status": "submitted",
+  "study": "mini_temperature200_train50",
+  "submitted_at": "2026-09-16T07:04:06.994210+00:00",
+  "training_frames": [
+    0,
+    49
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "study": "mini_temperature200_frames500",
+  "purpose": "Repeat the notebook 01-03 2D AE/propagator and latent-coverage experiments on MetaForge trajectories saved every 200 MD steps, using exact frames 0-499.",
+  "seed": 123,
+  "sources": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"],
+  "base_arms": {
+    "all4_one_each": {"sources": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"], "train_per_source": 1},
+    "all4_twenty_each": {"sources": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"], "train_per_source": 20},
+    "joint_low": {"sources": ["node_low", "stiffness_low"], "train_per_source": 20},
+    "node_low_only": {"sources": ["node_low"], "train_per_source": 20},
+    "stiffness_low_only": {"sources": ["stiffness_low"], "train_per_source": 20},
+    "joint_mixed_only": {"sources": ["node_mixed", "stiffness_mixed"], "train_per_source": 20}
+  },
+  "latent_count_matrix": {"counts_per_source": [1, 2, 4, 8, 10, 12, 14, 20], "seeds": [123, 456, 786], "sources": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"]},
+  "data": {"source_frames": 1500, "used_frames": [0, 499], "saved_md_step_stride": 200, "used_md_step_range": [0, 99800], "used_axial_strain": 0.00998},
+  "split": {"train": [0, 20], "validation_default": [20, 40], "all4_validation_by_source": {"node_low": [20, 28], "node_mixed": [20, 28], "stiffness_low": [20, 27], "stiffness_mixed": [20, 27]}, "heldout_development": [40, 120]},
+  "model": "Fresh 2D message_passing_reference16 AE and frozen one-step delta_mlp propagator; same architecture, coordinate-only objective, optimizer and checkpoint rules as the 1000-step study.",
+  "training": "One ordinary warmup epoch followed by at most 60 uniformly weighted all-frame AE epochs; no early-frame upweighting. Propagator uses all 499 one-step transitions and at most 60 epochs.",
+  "postfit": {"low_temperature_primary": "physical fixed-frame0 quantile-0.10 endpoint p-ratio at frame499", "mixed_temperature_primary": "normalized boundary-strain affine OLS over frames150-499, p=-slope", "mixed_fit_window_reason": "frame150 is MD step30000, preserving the previous estimator's physical start point", "retained_diagnostics": "AE reconstruction and autonomous rollout separately at every frame, source-wise valid/total; mixed endpoint also retained"},
+  "qualification": "The requested 500-frame prefix ends at MD step99800 and is not a horizon-matched replacement for the earlier 200x1000 run ending at199000."
+  ,"duplicate_notebooks": [
+    "notebooks/dynamics/01b_mixed_dataset_shared_latent_space_200step_500frames.ipynb",
+    "notebooks/dynamics/02b_mixed_dataset_shared_latent_rollout_200step_500frames.ipynb",
+    "notebooks/dynamics/03b_four_source_latent_morph_200step_500frames.ipynb"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "scope": "ljonly60",
+  "arm": "latent",
+  "seed": 786,
+  "smoke": false,
+  "job_id": "4697643.zeus-master",
+  "protocol": {
+    "study": "lj_mp2_scope20_downstream",
+    "question": "Do frozen 2D AE-scope influence edges improve a matched physical noisy-LJ GNN on a canonical 60/20 split?",
+    "scopes": [
+      "ljonly60",
+      "shared3x20"
+    ],
+    "seeds": [
+      123,
+      456,
+      786
+    ],
+    "arms": {
+      "base": "physical plus frozen LJ graph-distance-two/three relations",
+      "random": "same count of nonphysical pairs as latent for that graph",
+      "latent": "top five nonphysical partners/node from frozen latent perturbation"
+    },
+    "canonical_raw_split": "Reload ljonly60 seed-matched raw cache: exactly 60 noisy-LJ train and 20 held-out noisy-LJ validation trajectories for both scopes; shared3x20 latent cache is never used as the downstream trajectory split.",
+    "influence": {
+      "latent_perturbation": 0.001,
+      "propagated_horizons": [
+        5,
+        10,
+        20
+      ],
+      "top_partners_per_node": 5,
+      "exclude_existing_relations": "physical and graph-distance-two/three"
+    },
+    "physical_gnn": {
+      "architecture": "normalized acceleration GNN",
+      "hidden_dim": 64,
+      "message_passing_blocks": 4,
+      "epochs": 45,
+      "training_frames_per_trajectory_per_epoch": 2,
+      "batch_graphs": 4,
+      "selection": "validation one-step normalized acceleration MSE"
+    },
+    "evaluation": {
+      "split": "same held-out 20 noisy-LJ trajectories",
+      "autonomous_frames": [
+        4,
+        100
+      ],
+      "saved_physical_paths": true,
+      "postfit_horizons": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        75,
+        100
+      ]
+    },
+    "response_supervision": false,
+    "final_test_used": false,
+    "frozen_autoencoders": {
+      "ljonly60": {
+        "123": {
+          "sha256": "89dcc0b19ae40049405d6c595552a8488e2ffdfe3c4f85cc47b3d1e49987075e"
+        },
+        "456": {
+          "sha256": "75ebfe8b8304e24d98b69d4921b6ea89e1883dce559d1be5880a3b512f96718b"
+        },
+        "786": {
+          "sha256": "a408dc69a467b5d2a0b62b12ed6e034fefbb1684ad5005e0f9ccf6ebac915ba4"
+        }
+      },
+      "shared3x20": {
+        "123": {
+          "sha256": "81a3786895c743a17cf3d8cb5bfb71b3a2c7a7aeb92f3a33cf4e46caf0919237"
+        },
+        "456": {
+          "sha256": "af8535feff8e7438339bed63a5e13822efb1b2e81d4ca0e1050a0836d54c00f2"
+        },
+        "786": {
+          "sha256": "af3c59e80bd1c188dde9e4806e46952bfa4d7753500aa9e2fc8335efd3d5244b"
+        }
+      }
+    }
+  },
+  "protocol_sha256": "bcd3ad807cede3c08f4dc61930488cf680d04d9f21f58c15dbc71bb462fca5fd",
+  "code_manifest_sha256": "0884fb265fb455f52b022023ebb6e0db00cd89eefc10acf403c3eaa29f99bf88",
+  "canonical_lj_ae_checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_mp2_scope20/ljonly60_s786/full/ae.pt",
+  "canonical_lj_ae_sha256": "a408dc69a467b5d2a0b62b12ed6e034fefbb1684ad5005e0f9ccf6ebac915ba4",
+  "scope_ae_checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_mp2_scope20/ljonly60_s786/full/ae.pt",
+  "scope_ae_sha256": "a408dc69a467b5d2a0b62b12ed6e034fefbb1684ad5005e0f9ccf6ebac915ba4",
+  "latent_cache": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_mp2_scope20/latent/ljonly60_s786/full/cache.pt",
+  "latent_cache_sha256": "f6e3d03d80401a35c1582265f7a4888bcdfdb8e4e74c97e9e4e0b58393a73c76",
+  "latent_model": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_mp2_scope20/latent/ljonly60_s786/full/latent_model.pt",
+  "latent_model_sha256": "3a38ff0d6c9fd9902e399aa3566cb7930fed23ed31296bc84f8fef34e433ca29",
+  "final_test_used": false,
+  "response_supervision_or_selection": false,
+  "validation_selection": "one-step normalized acceleration MSE",
+  "frozen_before": {
+    "ae": "4173bc0325d6e9bbdd3f3cfc7f9a04502975f719b0214c25478639e8cb9c8358",
+    "latent": "b4d2a83821a6ec16a675f428a40e65e8f57b882796347f064931934451459d2f"
+  }
+}

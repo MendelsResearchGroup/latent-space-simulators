@@ -1,0 +1,6 @@
+arm,split,source,trajectory_id,temperature,frames,first_time,last_time
+all4_twenty_each,train,node_low,0,1e-07,200,0,199000
+all4_twenty_each,train,node_mixed,1,0.1,200,0,199000
+all4_twenty_each,train,stiffness_low,2,1e-07,200,0,199000
+all4_twenty_each,train,stiffness_mixed,3,0.1,200,0,199000
+all4_twenty_each,validation,node_low,20,1e-07,200,0,199000

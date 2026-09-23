@@ -1,0 +1,13 @@
+{
+  "jobs": {
+    "93": "Please do NOT submit jobs on compute nodes!\nJobs should be submitted on login server, i.e. ZEUS.",
+    "84": "Please do NOT submit jobs on compute nodes!\nJobs should be submitted on login server, i.e. ZEUS.",
+    "96": "Please do NOT submit jobs on compute nodes!\nJobs should be submitted on login server, i.e. ZEUS.",
+    "97": "Please do NOT submit jobs on compute nodes!\nJobs should be submitted on login server, i.e. ZEUS.",
+    "52": "Please do NOT submit jobs on compute nodes!\nJobs should be submitted on login server, i.e. ZEUS.",
+    "thermal_234": "Please do NOT submit jobs on compute nodes!\nJobs should be submitted on login server, i.e. ZEUS.",
+    "thermal_262": "Please do NOT submit jobs on compute nodes!\nJobs should be submitted on login server, i.e. ZEUS."
+  },
+  "collection_job": "Please do NOT submit jobs on compute nodes!\nJobs should be submitted on login server, i.e. ZEUS.",
+  "status": "submitted"
+}

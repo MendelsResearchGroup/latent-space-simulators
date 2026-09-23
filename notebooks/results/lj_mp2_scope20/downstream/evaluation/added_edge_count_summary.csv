@@ -1,0 +1,7 @@
+scope,arm,seeds,networks,added_edges_mean,added_edges_sd,added_edges_min,added_edges_max
+ljonly60,base,3,60,0.0,0.0,0,0
+ljonly60,latent,3,60,739.8,164.58286254670566,461,968
+ljonly60,random,3,60,739.8,164.58286254670566,461,968
+shared3x20,base,3,60,0.0,0.0,0,0
+shared3x20,latent,3,60,740.9,165.33445302154118,459,968
+shared3x20,random,3,60,740.9,165.33445302154118,459,968

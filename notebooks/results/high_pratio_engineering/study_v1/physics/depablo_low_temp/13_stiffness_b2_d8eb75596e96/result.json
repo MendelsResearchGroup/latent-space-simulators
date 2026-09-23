@@ -1,0 +1,12 @@
+{
+  "index": 13,
+  "variant": "stiffness_b2",
+  "simulation_id": "13_stiffness_b2_d8eb75596e96",
+  "scale_x": 0.9700106999999999,
+  "compression_steps": 120,
+  "physical_p_ratio": 0.48164314661204377,
+  "status": "completed",
+  "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/high_pratio_engineering/study_v1/physics/depablo_low_temp/13_stiffness_b2_d8eb75596e96",
+  "protocol": "2D quasistatic compression; first/last unwrapped boundary-node ratio",
+  "box_p_ratio": 0.48976783134260315
+}

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#PBS -N notebook02_mixed
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=1:mem=4gb
+#PBS -l place=free:shared
+#PBS -l walltime=01:00:00
+#PBS -j oe
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
+export MPLCONFIGDIR="/tmp/notebook02-mixed-${PBS_JOBID}"
+export PYTHONPATH="$PWD/src:/rg/mendels_prj/alexander.z/MetaForge/src"
+mkdir -p notebooks/results/mini_temperature1000_mixed_only/prefix_linear_fit/logs
+exec >"notebooks/results/mini_temperature1000_mixed_only/prefix_linear_fit/logs/notebook02-${PBS_JOBID}.log" 2>&1
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python tools/analysis/execute_notebook.py notebooks/dynamics/02_mixed_dataset_shared_latent_rollout.ipynb

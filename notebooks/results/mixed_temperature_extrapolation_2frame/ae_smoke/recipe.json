@@ -1,0 +1,89 @@
+{
+  "ae_sha256": "43b99fdced478f57cc46cf1b24b4ad5dff6fa4a808f4625459e318162f566fd2",
+  "config": {
+    "ae_config": {
+      "balance_sources": false,
+      "checkpoint_metric": "val_max_source_reconstruction",
+      "checkpoint_mode": "min",
+      "edge_feature_dim": 4,
+      "gradient_method": "source_mean",
+      "hidden_size": 96,
+      "latent_dim": 2,
+      "latent_tokens": 32,
+      "lr": 0.0001,
+      "max_epochs": 1,
+      "max_train_frames_per_sim": 200,
+      "max_val_frames_per_sim": 200,
+      "message_passing_steps": 2,
+      "mix_sources": true,
+      "model": "message_passing_reference16",
+      "node_feature_mode": "normalized_delta",
+      "patience": 1,
+      "pratio_eval_every": 0,
+      "target_mode": "normalized_delta",
+      "weight_decay": 1e-05
+    },
+    "batch_graphs": 32,
+    "cache_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mixed_temperature_extrapolation_2frame/ae_smoke/ae.pt",
+    "cache_require_matching_config": true,
+    "coordinate_normalization": "position_normalization",
+    "early_stop_min_delta": 1e-08,
+    "edge_mode": "compact_stored",
+    "force_train": true,
+    "frame_skip": 1,
+    "model_seed": 123,
+    "pos_dim": 2,
+    "should_rollout": false,
+    "should_train_propagator": false,
+    "split_seed": 123,
+    "static_context_use_physical_reference": true
+  },
+  "job_id": "4687537.zeus-master",
+  "protocol_sha256": "fe5ab1f20e7f0f61c998b09fe75d8b21a70395671f8ab58e5cd861436d3a208a",
+  "response_selection": false,
+  "seed": 123,
+  "selection": "coordinate validation MSE only",
+  "source": {
+    "coordinate_normalization": "position_normalization",
+    "dataset_mixture": [
+      {
+        "label": "node_mixed",
+        "name": "node_mixed",
+        "path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_node_optimized_200_500/dataset.pt",
+        "split_indices": {
+          "test": [],
+          "train": [
+            0
+          ],
+          "val": [
+            88
+          ]
+        },
+        "train_count": 1,
+        "val_count": 1
+      },
+      {
+        "label": "stiffness_mixed",
+        "name": "stiffness_mixed",
+        "path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_stiff_optimized_200_1500/dataset.pt",
+        "split_indices": {
+          "test": [],
+          "train": [
+            0
+          ],
+          "val": [
+            88
+          ]
+        },
+        "train_count": 1,
+        "val_count": 1
+      }
+    ],
+    "dataset_name": "mixed_low_temperature",
+    "label": "mixed_low_temperature",
+    "name": "mixed_low_temperature",
+    "path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_node_optimized_200_500/dataset.pt",
+    "source_name": "mixed_low_temperature"
+  },
+  "status": "completed"
+}

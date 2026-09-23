@@ -1,0 +1,123 @@
+{
+  "submitted_date": "2026-09-22",
+  "resources": {"queue": "mendels_q", "placement": "free:shared", "ncpus": 8, "memory_gb": 16, "walltime": "06:00:00"},
+  "code_snapshot": "notebooks/results/lj_mp2_scope20/code_v1",
+  "manifest_sha256": "cc3e1970f2624d9c2fc71c8bf6a4f148934e5e119be6c4cf9697bbaa44cb2874",
+  "smoke": {"ljonly60_seed123": "4697196.zeus-master", "shared3x20_seed123": "4697197.zeus-master"},
+  "dependency": "afterok:4697196.zeus-master:4697197.zeus-master",
+  "production": {
+    "ljonly60_seed123": "4697201.zeus-master",
+    "ljonly60_seed456": "4697200.zeus-master",
+    "ljonly60_seed786": "4697203.zeus-master",
+    "shared3x20_seed123": "4697204.zeus-master",
+    "shared3x20_seed456": "4697199.zeus-master",
+    "shared3x20_seed786": "4697202.zeus-master"
+  },
+  "reconstruction_evaluation": {
+    "failed_job": "4697375.zeus-master",
+    "failed_reason": "decoded graph omitted reference-box metadata required by physical-coordinate inversion",
+    "replacement_job": "4697566.zeus-master",
+    "replacement_exit_status": 0,
+    "replacement_walltime": "00:10:51",
+    "dependency": "replacement submitted after all six AEs completed",
+    "script": "hpc/experiments/lj_mp2_scope20/evaluate_reconstruction.py",
+    "pbs": "hpc/experiments/lj_mp2_scope20/evaluate_reconstruction.pbs"
+  },
+  "latent_dynamics": {
+    "smoke": {
+      "ljonly60_seed123": "4697589.zeus-master",
+      "shared3x20_seed123_failed_metadata": "4697588.zeus-master",
+      "shared3x20_seed123_retry": "4697593.zeus-master"
+    },
+    "failure_reason": "Reid/de Pablo graphs lack the LJ-only source_sim_id attribute; retry uses exact frozen split indices from the recipe for provenance.",
+    "production": {
+      "ljonly60_seed123": "4697600.zeus-master",
+      "ljonly60_seed456": "4697597.zeus-master",
+      "ljonly60_seed786": "4697598.zeus-master",
+      "shared3x20_seed123": "4697601.zeus-master",
+      "shared3x20_seed456": "4697599.zeus-master",
+      "shared3x20_seed786": "4697596.zeus-master"
+    }
+  },
+  "downstream_gnn": {
+    "smoke": {
+      "ljonly60_latent_seed123": "4697608.zeus-master",
+      "shared3x20_latent_seed123": "4697607.zeus-master"
+    },
+    "production": {
+      "ljonly60_base_seed123": "4697611.zeus-master",
+      "ljonly60_base_seed456": "4697613.zeus-master",
+      "ljonly60_base_seed786": "4697612.zeus-master",
+      "ljonly60_random_seed123": "4697618.zeus-master",
+      "ljonly60_random_seed456": "4697614.zeus-master",
+      "ljonly60_random_seed786": "4697610.zeus-master",
+      "ljonly60_latent_seed123": "4697615.zeus-master",
+      "ljonly60_latent_seed456": "4697617.zeus-master",
+      "ljonly60_latent_seed786": "4697616.zeus-master",
+      "shared3x20_base_seed123": "4697619.zeus-master",
+      "shared3x20_base_seed456": "4697626.zeus-master",
+      "shared3x20_base_seed786": "4697621.zeus-master",
+      "shared3x20_random_seed123": "4697620.zeus-master",
+      "shared3x20_random_seed456": "4697627.zeus-master",
+      "shared3x20_random_seed786": "4697623.zeus-master",
+      "shared3x20_latent_seed123": "4697624.zeus-master",
+      "shared3x20_latent_seed456": "4697622.zeus-master",
+      "shared3x20_latent_seed786": "4697625.zeus-master"
+    },
+    "dependency": "first production attempt required both smokes and the matching latent model",
+    "first_attempt_failure": "LJ smoke 4697608 failed at checkpoint load because the broad pilot package shadowed the compact AE dataset resolver; dependent production jobs did not run.",
+    "corrected_production": {
+      "ljonly60_base_seed123": "4697642.zeus-master",
+      "ljonly60_base_seed456": "4697639.zeus-master",
+      "ljonly60_base_seed786": "4697640.zeus-master",
+      "ljonly60_random_seed123": "4697641.zeus-master",
+      "ljonly60_random_seed456": "4697650.zeus-master",
+      "ljonly60_random_seed786": "4697651.zeus-master",
+      "ljonly60_latent_seed123": "4697644.zeus-master",
+      "ljonly60_latent_seed456": "4697649.zeus-master",
+      "ljonly60_latent_seed786": "4697643.zeus-master",
+      "shared3x20_base_seed123": "4697645.zeus-master",
+      "shared3x20_base_seed456": "4697648.zeus-master",
+      "shared3x20_base_seed786": "4697647.zeus-master",
+      "shared3x20_random_seed123": "4697646.zeus-master",
+      "shared3x20_random_seed456": "4697652.zeus-master",
+      "shared3x20_random_seed786": "4697654.zeus-master",
+      "shared3x20_latent_seed123": "4697656.zeus-master",
+      "shared3x20_latent_seed456": "4697655.zeus-master",
+      "shared3x20_latent_seed786": "4697653.zeus-master"
+    },
+    "corrected_code_sha256": "9967232d9f7d42b95900e9bcb8b1debeae654f3015b92f39f83bee07edbba5ed",
+    "postfit_evaluation_job": "4697657.zeus-master",
+    "cancelled_for_output_fix": "4697642/4697639/4697640/4697641/4697650/4697651/4697644/4697649/4697643/4697645/4697648/4697647/4697646/4697652/4697654/4697656/4697655/4697653; all exit 271; 4697657 also cancelled",
+    "cancelled_artifacts": "notebooks/results/lj_mp2_scope20/downstream/aborted_before_output_fix",
+    "final_code_sha256": "c1a88066d7318cd97800401788024e29d0c1910c3c619ab79379260605aaa59c",
+    "final_production": {
+      "ljonly60_base_seed123": "4697667.zeus-master",
+      "ljonly60_base_seed456": "4697663.zeus-master",
+      "ljonly60_base_seed786": "4697664.zeus-master",
+      "ljonly60_random_seed123": "4697665.zeus-master",
+      "ljonly60_random_seed456": "4697668.zeus-master",
+      "ljonly60_random_seed786": "4697674.zeus-master",
+      "ljonly60_latent_seed123": "4697666.zeus-master",
+      "ljonly60_latent_seed456": "4697673.zeus-master",
+      "ljonly60_latent_seed786": "4697669.zeus-master",
+      "shared3x20_base_seed123": "4697670.zeus-master",
+      "shared3x20_base_seed456": "4697671.zeus-master",
+      "shared3x20_base_seed786": "4697672.zeus-master",
+      "shared3x20_random_seed123": "4697678.zeus-master",
+      "shared3x20_random_seed456": "4697675.zeus-master",
+      "shared3x20_random_seed786": "4697676.zeus-master",
+      "shared3x20_latent_seed123": "4697680.zeus-master",
+      "shared3x20_latent_seed456": "4697677.zeus-master",
+      "shared3x20_latent_seed786": "4697679.zeus-master"
+    },
+    "final_postfit_evaluation_job": "4697681.zeus-master",
+    "final_postfit_exit_status": 0,
+    "final_production_status": "all 18 completed with exit 0",
+    "final_notebook": "notebooks/lj_mp2_scope20/01_augmented_gnn_comparison.ipynb",
+    "final_notebook_sha256": "431e3914b1965d137220ce2f5dd5413317bd150a03914fa63496391854f5ce15",
+    "final_notebook_builder_sha256": "045f8a8df43c47c2df92ea8c123a87723fe8be39a22250f0bdd43eb1576006d6",
+    "edge_example_exporter_sha256": "602f2af3d771b2f3f2f351f81475f44805149ad513fef4995f77b2ce1e119a49",
+    "edge_example_sha256": "b1460c5b957407101970d872d6ec630a58ff393af0971ffed2a37ed7f867ea66"
+  }
+}

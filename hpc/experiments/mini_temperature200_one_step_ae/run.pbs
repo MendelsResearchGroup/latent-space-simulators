@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#PBS -N mt200_stepae
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=12:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="${LSS_FROZEN_BASE}:${LSS_FROZEN_BASE}/src:/rg/mendels_prj/alexander.z/MetaForge/src"
+export MPLCONFIGDIR="/tmp/mt200-stepae-${PBS_JOBID}"
+mkdir -p notebooks/results/mini_temperature200_one_step_ae/logs
+exec >"notebooks/results/mini_temperature200_one_step_ae/logs/${PBS_JOBID}.log" 2>&1
+PYTHON=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+args=(--count "$LSS_COUNT" --seed "$LSS_SEED")
+if [[ "${LSS_SMOKE:-0}" == "1" ]]; then args+=(--smoke); fi
+exec "$PYTHON" -u "${LSS_CODE_ROOT}/run.py" "${args[@]}"

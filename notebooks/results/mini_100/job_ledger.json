@@ -1,0 +1,35 @@
+{
+  "version": "code_v1",
+  "snapshot": "notebooks/results/mini_100/code_v1",
+  "manifest_sha256": "433fa444d79375991148e729d12ccb487c23c024f8ff242333e96f202025a050",
+  "protocol_sha256": "19fc12a7a2d8a6d63d46db7bbb720e1b28db0c0a23997a8272d947f9d20b2646",
+  "preparation_job": "4682337.zeus-master",
+  "dependency": "afterok:4682337.zeus-master",
+  "resources": {
+    "ncpus": 8,
+    "mem": "16gb",
+    "place": "free:shared"
+  },
+  "jobs": [
+    {
+      "study": "mini_stiffness",
+      "mode": "uniform",
+      "job_id": "4682342.zeus-master"
+    },
+    {
+      "study": "mini_stiffness",
+      "mode": "balanced",
+      "job_id": "4682343.zeus-master"
+    },
+    {
+      "study": "mini_node",
+      "mode": "uniform",
+      "job_id": "4682344.zeus-master"
+    },
+    {
+      "study": "mini_node",
+      "mode": "balanced",
+      "job_id": "4682345.zeus-master"
+    }
+  ]
+}

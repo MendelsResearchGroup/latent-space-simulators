@@ -1,0 +1,91 @@
+{
+  "config": {
+    "ae_config": {
+      "model": "message_passing_reference16",
+      "latent_dim": 2,
+      "latent_tokens": 32,
+      "hidden_size": 96,
+      "edge_feature_dim": 4,
+      "message_passing_steps": 2,
+      "node_feature_mode": "normalized_delta",
+      "target_mode": "normalized_delta",
+      "max_train_frames_per_sim": 200,
+      "max_val_frames_per_sim": 200,
+      "max_epochs": 1,
+      "patience": 1,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "mix_sources": true,
+      "balance_sources": false,
+      "gradient_method": "source_mean",
+      "checkpoint_metric": "val_max_source_reconstruction",
+      "checkpoint_mode": "min",
+      "pratio_eval_every": 0
+    },
+    "coordinate_normalization": "position_normalization",
+    "edge_mode": "compact_stored",
+    "static_context_use_physical_reference": true,
+    "pos_dim": 2,
+    "batch_graphs": 32,
+    "frame_skip": 1,
+    "early_stop_min_delta": 1e-08,
+    "split_seed": 123,
+    "model_seed": 123,
+    "should_train_propagator": false,
+    "should_rollout": false,
+    "force_train": true,
+    "cache_require_matching_config": true,
+    "cache_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/joint_original_smoke/ae.pt"
+  },
+  "source": {
+    "name": "mini_shared",
+    "dataset_name": "mini_shared",
+    "source_name": "mini_shared",
+    "label": "mini_shared",
+    "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/data/mini_stiffness_original_trainval40_200frames.pt",
+    "dataset_mixture": [
+      {
+        "name": "stiffness_original",
+        "label": "stiffness_original",
+        "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/data/mini_stiffness_original_trainval40_200frames.pt",
+        "train_count": 1,
+        "val_count": 1,
+        "split_indices": {
+          "train": [
+            0
+          ],
+          "val": [
+            20
+          ],
+          "test": []
+        }
+      },
+      {
+        "name": "node_original",
+        "label": "node_original",
+        "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/data/mini_node_original_trainval40_200frames.pt",
+        "train_count": 1,
+        "val_count": 1,
+        "split_indices": {
+          "train": [
+            0
+          ],
+          "val": [
+            20
+          ],
+          "test": []
+        }
+      }
+    ],
+    "coordinate_normalization": "position_normalization"
+  },
+  "arm": "joint_original",
+  "seed": 123,
+  "job_id": "4682402.zeus-master",
+  "protocol_sha256": "3c2259382e905c968cd9513b60db2ecc9bf850754d44e6507cb84fed68b5e617",
+  "code_sha256": "459cf061ce9f6ce0e3149d7c6c2a1229ddbbda91ae209bf11edbcef7e60d59bc",
+  "data_manifest_sha256": "22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae",
+  "ae_objective": "one ordinary warmup epoch, then training-motion-balanced displacement MSE",
+  "selection": "weighted validation displacement MSE; propagator validation latent delta MSE",
+  "test_selection": false
+}

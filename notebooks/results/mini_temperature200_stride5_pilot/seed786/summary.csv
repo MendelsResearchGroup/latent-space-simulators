@@ -1,0 +1,5 @@
+seed,source,metric,p_ratio_r2,p_ratio_mae,valid,total
+786,node_low,physical_endpoint_frame495,0.7798007547869883,0.1288366616857311,80,80
+786,node_mixed,strain_OLS_frames150:5:495,0.3481634673177705,0.2289281032975774,80,80
+786,stiffness_low,physical_endpoint_frame495,0.28588560841641175,0.1618105036205543,80,80
+786,stiffness_mixed,strain_OLS_frames150:5:495,0.20140513409587157,0.1969425028838117,80,80

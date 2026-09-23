@@ -1,0 +1,70 @@
+{
+  "status": "completed",
+  "jobs": {
+    "smoke": "4696553.zeus-master",
+    "production": {
+      "123": "4696557.zeus-master",
+      "456": "4696555.zeus-master",
+      "786": "4696556.zeus-master"
+    }
+  },
+  "smoke_result": {
+    "status": "completed",
+    "exit_status": 0,
+    "walltime": "00:08:36",
+    "memory_kib": 4156112,
+    "checkpoint_sha256": "c8d3a45872bd05c947ddac01e0e125c634a10c15c824c1fcb2334b652d36fab1"
+  },
+  "production_results": {
+    "123": {
+      "status": "completed",
+      "exit_status": 0,
+      "walltime": "00:55:32",
+      "memory_kib": 4237584,
+      "checkpoint_sha256": "ceab58b8f6eab5f44f39142759b1f678d6ab6f5df3a7d3465a3893ac018cf81a"
+    },
+    "456": {
+      "status": "completed",
+      "exit_status": 0,
+      "walltime": "00:41:59",
+      "memory_kib": 4384376,
+      "checkpoint_sha256": "9798763fcc2881733a087176f46aece959db890e5ff702f17bebb5d00c6e2afd"
+    },
+    "786": {
+      "status": "completed",
+      "exit_status": 0,
+      "walltime": "00:48:14",
+      "memory_kib": 4138780,
+      "checkpoint_sha256": "9016893b45871b85afc15c03e459981c97a8ecf37dfbdf409d8eb625eef354b8"
+    }
+  },
+  "result_summary": {
+    "metric": "strongest absolute correlation between frame-0 raw latent coordinate and physical frame-499 endpoint p-ratio",
+    "valid_total_per_source_seed": "80/80",
+    "node_low": {
+      "pearson_by_seed": [0.8913396599700317, 0.9614233385073283, 0.16538950216118634],
+      "pearson_mean": 0.6727175002128488,
+      "pearson_sample_sd": 0.4407536169337218,
+      "spearman_by_seed": [0.8840131270511019, 0.9448898265353963, 0.12074542897327709],
+      "spearman_mean": 0.6498827941865918,
+      "spearman_sample_sd": 0.4592555997138996
+    },
+    "stiffness_low": {
+      "pearson_by_seed": [0.859683720129197, 0.91302247351033, 0.910991023348169],
+      "pearson_mean": 0.8945657396625654,
+      "pearson_sample_sd": 0.0302257662825574,
+      "spearman_by_seed": [0.7815283638068449, 0.8241443975621191, 0.8294186591654946],
+      "spearman_mean": 0.8116971401781529,
+      "spearman_sample_sd": 0.0262596619145799
+    }
+  },
+  "resources": {
+    "queue": "mendels_q",
+    "placement": "place=free:shared",
+    "ncpus": 8,
+    "memory": "16gb",
+    "walltime": "12:00:00"
+  },
+  "seeds": [123, 456, 786],
+  "snapshot": "notebooks/results/mini_temperature200_lowt_one/code_v1"
+}

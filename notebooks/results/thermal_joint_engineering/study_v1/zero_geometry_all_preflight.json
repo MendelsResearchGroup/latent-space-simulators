@@ -1,0 +1,32 @@
+[
+  {
+    "index": 47,
+    "valid_zero_geometry": true,
+    "zero_encoder_error": 0.0
+  },
+  {
+    "index": 68,
+    "valid_zero_geometry": true,
+    "zero_encoder_error": 0.0
+  },
+  {
+    "index": 140,
+    "valid_zero_geometry": true,
+    "zero_encoder_error": 0.0
+  },
+  {
+    "index": 161,
+    "valid_zero_geometry": true,
+    "zero_encoder_error": 0.0
+  },
+  {
+    "index": 242,
+    "valid_zero_geometry": true,
+    "zero_encoder_error": 0.0
+  },
+  {
+    "index": 268,
+    "valid_zero_geometry": true,
+    "zero_encoder_error": 0.0
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "study": "mini_temperature200_one_step_ae",
+  "question": "How does the 2D latent representation change when the AE predicts x_(t+1)-x_t rather than reconstructing x_t-x_0?",
+  "sources": ["node_low", "stiffness_low"],
+  "counts_per_source": [1, 20],
+  "seeds": [123, 456, 786],
+  "training_ids": {"1": [0], "20": [0, 19]},
+  "validation_ids": [20, 39],
+  "heldout_development_ids": [40, 119],
+  "frames": [0, 499],
+  "transition_inputs": [0, 498],
+  "saved_md_step_stride": 200,
+  "model": "Fresh 2D message_passing_reference16 AE; current normalized displacement remains the encoder input and normalized x_(t+1)-x_t becomes the decoder target.",
+  "selection": "Coordinate-only maximum source-wise validation MSE; p-ratio, strain, temperature, and source labels are absent from inputs, losses, and checkpoint selection.",
+  "evaluation": "Frozen heldout-development IDs 40-119; one-step position reconstruction p-ratio R2 and displacement diagnostics at target frames 1,5,20,100,499; complete latent paths for IDs 40-59 for display seed 456."
+}

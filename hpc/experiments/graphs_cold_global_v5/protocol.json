@@ -1,0 +1,10 @@
+{
+  "cohort":"clean_400.json", "split_manifest":"../graphs_cold_global/split_manifest_v2.json", "variant":"static_token_residual", "seed":123, "contact_cutoff":1.5, "softplus_beta":10.0,
+  "encoder":"v4 static global-token encoder: frame-0 fractional positions, atom types, reference bonds plus cutoff-1.5 contacts", "loading_context":"initial box xyz, constant-velocity prescribed target x length, observed frame-1-to-2 x-box velocity", "targets":"total yz box displacement from frame-0",
+  "ols":{"training_frames":[3,399],"features":"train-standardized loading context plus intercept","target":"raw total yz displacement","frozen":true}, "residual":{"target":"truth minus frozen OLS displacement","standardize":"train only","decoder_final_layer":"zero initialized"},
+  "training":{"max_epochs":100,"min_epochs":30,"patience":10,"target_frames_per_train_graph_epoch":397,"optimizer":"Adam","learning_rate":0.001,"weight_decay":0.000001,"gradient_clip_norm":1.0,"selection_horizons":[100,200,399],"selection":"validation raw yz box-length MSE"},
+  "evaluation":{"split":"validation","horizons":[5,10,20,50,100,200,399],"position_mse":"physical minimum-image affine reference-position reconstruction","p_ratio":"periodic-reference-aligned independent affine y/x and z/x fits"},
+  "promotion_gate":{"frame":399,"minimum_r2_each_transverse_axis":0.3,"minimum_mean_r2_across_transverse_axes":0.5,"maximum_position_mse_physical_minimum_image":0.001,"checkpoint_selection_note":"p-ratio is used only for validation-level promotion, never for fitting or checkpoint selection"},
+  "smoke":{"train_ids":"train[:4]","validation_ids":"validation[0]","evaluation_ids":"validation[1]","epochs":1,"target_frames_per_train_graph_epoch":2,"ols_normalizers_use_all_train_frames":true},
+  "forbidden":["final_test loading","current y/z box inputs","predicted y/z box inputs","node motion inputs","p-ratio targets","strain targets","event labels","p-ratio checkpoint selection","strain checkpoint selection"], "pbs":{"queue":"mendels_q","place":"free:shared","ncpus":8,"mem":"16gb"}
+}

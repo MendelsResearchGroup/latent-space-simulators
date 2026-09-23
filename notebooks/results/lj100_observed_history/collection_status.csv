@@ -1,0 +1,13 @@
+seed,family,observed_frames,run_name,status,job_id
+123,history_mlp,1,history_mlp_h1_s123,completed,4679056.zeus-master
+456,history_mlp,1,history_mlp_h1_s456,completed,4679057.zeus-master
+786,history_mlp,1,history_mlp_h1_s786,completed,4679058.zeus-master
+123,history_mlp,3,history_mlp_h3_s123,completed,4679059.zeus-master
+456,history_mlp,3,history_mlp_h3_s456,completed,4679060.zeus-master
+786,history_mlp,3,history_mlp_h3_s786,completed,4679061.zeus-master
+123,velocity_residual,1,velocity_residual_h1_s123,completed,4679062.zeus-master
+456,velocity_residual,1,velocity_residual_h1_s456,completed,4679063.zeus-master
+786,velocity_residual,1,velocity_residual_h1_s786,completed,4679064.zeus-master
+123,velocity_residual,3,velocity_residual_h3_s123,completed,4679065.zeus-master
+456,velocity_residual,3,velocity_residual_h3_s456,completed,4679066.zeus-master
+786,velocity_residual,3,velocity_residual_h3_s786,completed,4679067.zeus-master

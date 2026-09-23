@@ -1,0 +1,28 @@
+#!/bin/bash
+#PBS -N five_seed_pratio
+#PBS -q mendels_q
+#PBS -J 0-7
+#PBS -l select=1:ncpus=1:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=12:00:00
+#PBS -j oe
+
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+export MPLCONFIGDIR="/tmp/mpl-five-seed-${PBS_JOBID}"
+mkdir -p "$MPLCONFIGDIR" notebooks/results/five_seed_pratio/shards notebooks/results/five_seed_pratio/logs
+exec >"notebooks/results/five_seed_pratio/logs/${PBS_JOBID}.log" 2>&1
+
+cadences=(1000md 1000md 1000md 1000md 200md 200md 200md 200md)
+branches=(node node stiffness stiffness node node stiffness stiffness)
+profiles=(low mixed low mixed low mixed low mixed)
+task="${PBS_ARRAY_INDEX:?PBS array index is required}"
+cadence="${cadences[$task]}"
+branch="${branches[$task]}"
+profile="${profiles[$task]}"
+output="notebooks/results/five_seed_pratio/shards/${cadence}_${branch}_${profile}"
+
+/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u \
+  tools/analysis/export_five_seed_pratio.py \
+  --cadence "$cadence" --branch "$branch" --profile "$profile" --output "$output"

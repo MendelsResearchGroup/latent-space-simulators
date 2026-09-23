@@ -1,0 +1,8 @@
+{
+  "cohort": "clean_400.json",
+  "numpy_seed": 20260918,
+  "excluded_previous_pilot": ["rubber_0199", "rubber_0417", "rubber_0526", "rubber_0557", "rubber_0621", "rubber_0694", "rubber_0706", "rubber_0771", "rubber_0836", "rubber_1043", "rubber_1076", "rubber_1141", "rubber_1265", "rubber_1634", "rubber_1684", "rubber_1686", "rubber_1687", "rubber_1819", "rubber_1960", "rubber_2092", "rubber_2146", "rubber_2183", "rubber_2222", "rubber_2289"],
+  "train": ["rubber_1548", "rubber_0436", "rubber_1910", "rubber_2169", "rubber_2252", "rubber_0467", "rubber_1101", "rubber_1188", "rubber_0804", "rubber_1363", "rubber_2229", "rubber_1279", "rubber_1873", "rubber_0752", "rubber_0685", "rubber_2161", "rubber_1193", "rubber_0998", "rubber_0171", "rubber_2118", "rubber_0509", "rubber_1908", "rubber_0889", "rubber_0475", "rubber_0243", "rubber_0554", "rubber_0282", "rubber_1938", "rubber_0497", "rubber_0813", "rubber_1600", "rubber_0623", "rubber_2050", "rubber_1975", "rubber_0864", "rubber_0839", "rubber_1006", "rubber_1883", "rubber_1770", "rubber_1508", "rubber_1556", "rubber_1342", "rubber_1515", "rubber_0988", "rubber_1744", "rubber_2182", "rubber_1431", "rubber_1619"],
+  "validation": ["rubber_1168", "rubber_1248", "rubber_1197", "rubber_0690", "rubber_0792", "rubber_0926", "rubber_0465", "rubber_2001", "rubber_0439", "rubber_0339", "rubber_1133", "rubber_1228"],
+  "final_test": ["rubber_1801", "rubber_0964", "rubber_1939", "rubber_1870", "rubber_1589", "rubber_1788", "rubber_0705", "rubber_1206", "rubber_1537", "rubber_1811", "rubber_0668", "rubber_1382"]
+}

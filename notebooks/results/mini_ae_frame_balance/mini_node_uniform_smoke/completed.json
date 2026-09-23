@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "job_id": "4682325.zeus-master",
+  "best_epoch": 0,
+  "epochs": 1,
+  "seconds": 1.7849767208099365,
+  "ae_sha256": "22698d554a64e510a9fa15d8f733454c9aab41a1b890df5e563a8a90eee8d6ba",
+  "normalizers_unchanged": true,
+  "original_ae_unchanged": true
+}

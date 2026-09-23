@@ -1,0 +1,37 @@
+{
+  "code_manifest_sha256": "7db89a6c9053b34a86f60fa0377434455e9a420c6beba49f89bbf60a8bc36a41",
+  "collector_dependency": "afterok:4682633.zeus-master",
+  "data_manifest_sha256": "22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae",
+  "frame_weights": "all 200 post-warmup source/frame weights exactly 1",
+  "jobs": {
+    "fit_with_smoke_gate": "4682633.zeus-master",
+    "postfit_collector": "4682634.zeus-master"
+  },
+  "mixed_excluded": true,
+  "postfit_primary": "physical endpoint fixed-frame0 sides q0.10 p-ratio R2 at frame199; AE reconstruction and autonomous rollout separately",
+  "prior_failed_run": {
+    "cause": "smoke propagator parity assertion incorrectly compared intentional dyn_max_epochs/dyn_patience 1/1 to production 60/12",
+    "exit_status": 1,
+    "fit_job": "4682630.zeus-master"
+  },
+  "protocol_sha256": "458cf1334910d88162dc813ae01738ac7e186622a88d72ee5f8158ba5734224b",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "seed": 123,
+  "selection": "ordinary uniform validation coordinate MSE and latent-delta validation loss only; p-ratio never used",
+  "smoke_gate": "same job: train smoke, endpoint diagnostic collection through frame199, then full fit only after both succeed",
+  "snapshot": "notebooks/results/mini_shared/code_uniform_v2",
+  "sources": [
+    "stiffness_original",
+    "node_original"
+  ],
+  "status": "failed",
+  "failure": {"fit_job": "4682633.zeus-master", "exit_status": 1, "collector_job": "4682634.zeus-master", "collector_status": "dependency_failed", "cause": "PBS logger created the production result directory before trainer out.mkdir(exist_ok=False)"},
+  "study": "joint_original_uniform_retry1",
+  "submission_attempts": [],
+  "submitted_at": "2026-09-13T08:37:21.632517+00:00"
+}

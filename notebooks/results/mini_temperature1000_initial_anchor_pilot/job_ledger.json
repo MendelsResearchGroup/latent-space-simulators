@@ -1,0 +1,33 @@
+{
+  "baseline": "mini_temperature1000_mixed_only/joint_mixed_only seed123",
+  "code_manifest_sha256": "62f6643363f34c33662ddc4193f94475486bbe5e48913059651ef89be812c87f",
+  "evaluation": "heldout development IDs40:69; post-fit OLS frames30:199 primary; endpoint199 secondary",
+  "hypothesis": "explicit frame-zero latent anchoring improves mixed-T stiffness rollout",
+  "intervention": "append frame-zero latent to existing static context at every delta step",
+  "jobs": {
+    "collector": "4688056.zeus-master",
+    "collector_dependency": "afterok:4688055.zeus-master",
+    "fit": "4688055.zeus-master"
+  },
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "snapshot": "notebooks/results/mini_temperature1000_initial_anchor_pilot/code_v1",
+  "status": "submitted",
+  "study": "mini_temperature1000_initial_anchor_pilot",
+  "submitted_at": "2026-09-16T09:24:18.966326+00:00",
+  "unchanged": [
+    "frozen AE",
+    "split",
+    "seed",
+    "20 trajectories/source",
+    "frames0:199",
+    "delta MLP",
+    "one-step loss",
+    "optimizer",
+    "validation latent-loss selection"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "cells": [
+    {
+      "dimension": 2,
+      "seed": 123,
+      "completed": true
+    },
+    {
+      "dimension": 2,
+      "seed": 456,
+      "completed": true
+    },
+    {
+      "dimension": 2,
+      "seed": 786,
+      "completed": true
+    },
+    {
+      "dimension": 4,
+      "seed": 123,
+      "completed": true
+    },
+    {
+      "dimension": 4,
+      "seed": 456,
+      "completed": true
+    },
+    {
+      "dimension": 4,
+      "seed": 786,
+      "completed": true
+    }
+  ],
+  "complete": true
+}

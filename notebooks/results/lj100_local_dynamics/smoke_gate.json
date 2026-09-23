@@ -1,0 +1,56 @@
+[
+  {
+    "family": "state32",
+    "observed_frames": 3,
+    "job_id": "4680467.zeus-master",
+    "checks": {
+      "pure_position_gradient": 0.0015166234225034714,
+      "reload_max_abs": 0.0
+    }
+  },
+  {
+    "family": "state64",
+    "observed_frames": 3,
+    "job_id": "4680468.zeus-master",
+    "checks": {
+      "pure_position_gradient": 0.002097095362842083,
+      "reload_max_abs": 0.0
+    }
+  },
+  {
+    "family": "state128",
+    "observed_frames": 3,
+    "job_id": "4680469.zeus-master",
+    "checks": {
+      "pure_position_gradient": 0.0027760877273976803,
+      "reload_max_abs": 0.0
+    }
+  },
+  {
+    "family": "velocity64",
+    "observed_frames": 3,
+    "job_id": "4680470.zeus-master",
+    "checks": {
+      "pure_position_gradient": 0.0020839283242821693,
+      "reload_max_abs": 0.0
+    }
+  },
+  {
+    "family": "velocity128",
+    "observed_frames": 3,
+    "job_id": "4680471.zeus-master",
+    "checks": {
+      "pure_position_gradient": 0.002828432945534587,
+      "reload_max_abs": 0.0
+    }
+  },
+  {
+    "family": "velocity_node64",
+    "observed_frames": 3,
+    "job_id": "4680472.zeus-master",
+    "checks": {
+      "pure_position_gradient": 0.0020404523238539696,
+      "reload_max_abs": 0.0
+    }
+  }
+]

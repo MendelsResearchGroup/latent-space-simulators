@@ -1,0 +1,26 @@
+{
+  "source": "depablo_mixed_temp",
+  "index": 234,
+  "temperature": 20.0,
+  "original_p": 0.1199562758709989,
+  "optimized_p": -0.1505157963509981,
+  "thermal_seed": 786,
+  "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/adam_showcase/assets/thermal_234.gif",
+  "gif_sha256": "ceae5c7e2a624e1c3b5724391982e2ac898bf4a4a3c6a03c3a8eb8cfa8968a54",
+  "source_frames": 200,
+  "gif_frames": 200,
+  "duration_ms": 4000,
+  "pbs_job_id": "4676276.zeus-master",
+  "render_sha256": "3c0882ee042549aa51fcd9e1cb9f2f4bccfd9760912e093ecd62dfdf9a463ad7",
+  "trajectory_sha256": {
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id234/234_original_s786/trajectory.npz": "6a37a30578f0136ea4b1abe782045bfd026a5d0a66e6572167bdd504ab40b443",
+    "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/thermal_adam30/study_v1/thermal_physics/id234/234_joint_A_r4_b0.25_s786/trajectory.npz": "805b3854942ae63c6d5f673c4ae98781434530f4e9a72056bd95220a7bbcb572"
+  },
+  "deformation_scale": 1,
+  "precompression_gif_sha256": "ec2a8f6469c041ec0719c8a0fbc30f03170bba5fca9c2b3bab6e5ae506f050ef",
+  "display_dimensions": [
+    640,
+    336
+  ],
+  "encoding": "64-color palette, no dithering, differential frames; all physical frame times retained"
+}

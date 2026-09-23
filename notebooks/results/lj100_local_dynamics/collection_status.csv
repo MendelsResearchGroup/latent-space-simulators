@@ -1,0 +1,7 @@
+seed,family,observed_frames,run_name,status,job_id
+123,state32,3,state32_h3_s123,completed,4680482.zeus-master
+123,state64,3,state64_h3_s123,completed,4680483.zeus-master
+123,state128,3,state128_h3_s123,completed,4680484.zeus-master
+123,velocity64,3,velocity64_h3_s123,completed,4680485.zeus-master
+123,velocity128,3,velocity128_h3_s123,completed,4680486.zeus-master
+123,velocity_node64,3,velocity_node64_h3_s123,completed,4680487.zeus-master

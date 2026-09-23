@@ -1,0 +1,10 @@
+{
+  "jobs": {
+    "fractional_bond": "4690046.zeus-master",
+    "fractional_contact": "4690047.zeus-master"
+  },
+  "kind": "production",
+  "protocol_sha256": "e5eedda5fb8f68f25958e7259aad2a0ae6c4d07429dbccf473e7e585a91f141a",
+  "runner_sha256": "efec78ad5f69688579bf81e401d866b3a9c56a3005c7027c8925af4dedd27fce",
+  "split_manifest_sha256": "1a0e8ffb6e8a5aef9339009acca7a394cabada3c70ee5ba0e667268e0c765541"
+}

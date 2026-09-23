@@ -1,0 +1,30 @@
+[
+  {
+    "index": 65,
+    "block": "spring",
+    "autograd": 0.002457917667925358,
+    "finite_difference": 0.002428889274597168,
+    "relative_error": 0.011810156909239235
+  },
+  {
+    "index": 65,
+    "block": "position",
+    "autograd": -0.003038360271602869,
+    "finite_difference": -0.003144144779071212,
+    "relative_error": 0.03364492251517495
+  },
+  {
+    "index": 93,
+    "block": "spring",
+    "autograd": 0.006052120588719845,
+    "finite_difference": 0.006020068656653166,
+    "relative_error": 0.005295983712951543
+  },
+  {
+    "index": 93,
+    "block": "position",
+    "autograd": -0.001723389606922865,
+    "finite_difference": -0.001743435743264854,
+    "relative_error": 0.011498064336142116
+  }
+]

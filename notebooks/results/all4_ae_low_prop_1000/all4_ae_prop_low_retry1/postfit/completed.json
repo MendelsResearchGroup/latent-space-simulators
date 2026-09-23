@@ -1,0 +1,16 @@
+{
+  "checkpoint_sha256_after": {
+    "ae": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+    "propagator": "4462bbd5912adf3b85407df65e8a18cd8f2fa24b6bb690dcb10fbc06fbed94a7"
+  },
+  "checkpoint_sha256_before": {
+    "ae": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+    "propagator": "4462bbd5912adf3b85407df65e8a18cd8f2fa24b6bb690dcb10fbc06fbed94a7"
+  },
+  "endpoint_parity_max_abs_pred": 7.230143372893849e-09,
+  "endpoint_parity_max_abs_true": 6.201480995393638e-09,
+  "interpretation": "p-ratio tests mean response; residual amplitude and waveform separately test thermal fluctuation reproduction",
+  "job_id": "4687512.zeus-master",
+  "method": "normalized boundary-strain OLS frames30..horizon; residual diagnostics use transverse residual after identical fit",
+  "status": "completed"
+}

@@ -1,0 +1,10 @@
+{
+  "job_id": "4676069.zeus-master",
+  "manifest_sha256": "63e537a7ab85b99a2c7610d0da554e5f7847158968e662050814d74f1fe4a116",
+  "protocol_sha256": "45c58529e337c20f7bda21160a29ba6444f53a491447c668160bfeb91c161500",
+  "started_at_unix": 1788900982.9834878,
+  "temperature": 1.0,
+  "index": 96,
+  "expected": 21,
+  "feedback_to_optimizer": false
+}

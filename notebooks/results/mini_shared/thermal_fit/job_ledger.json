@@ -1,0 +1,94 @@
+{
+  "code_manifest_sha256": "d6e854751490f2ee3d05bddfbf52e62ab52823cb4bc74e8faede3ebf8d9680df",
+  "data_manifest_sha256": "22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae",
+  "frozen_model_sha256_before": {
+    "joint_all": {
+      "ae_sha256": "757374a0168c00e43fd626b38164808c537c14d57afcac7689d98fbf19850e17",
+      "propagator_sha256": "36bdd856ac52b1f52b85d9ed1467825fae9e3641832a3bf827c849a3c801492e"
+    },
+    "joint_original": {
+      "ae_sha256": "429dbcf558cfe3b39047c1cd48cb2c502c7c2ab56bbf7dd1ee5677a2433ebb1c",
+      "propagator_sha256": "2c96b915c5eb7dcd847e29c2339bac121bb3e7b20de81b37745ffe7df6e9a7d2"
+    },
+    "single_node": {
+      "ae_sha256": "d06c1dcada9f52b4c42767e2036958ef9f14ce955e1e53b432ee26eac71ffaef",
+      "propagator_sha256": "6aa7d240f2347cd3553fa008b84666139c79f5e491c826fe866804c9e34b6a1b"
+    },
+    "single_stiffness": {
+      "ae_sha256": "192ab3f294ce0dd2f2879eb599cfd0e436a23b1743cc69766295f868481b67e3",
+      "propagator_sha256": "3209f8b34e624acc7510b04061b37984aa7a2c1762f5934cfeef6ba8b071c8c5"
+    },
+    "stiffness_only": {
+      "ae_sha256": "78d2eb176be0dbf825a1d743db5db3efb9a00826f7ff84c384d77b4052dc858b",
+      "propagator_sha256": "2298b161eb0ad0463cfdcf494875a99bff1ba9ef792acdaf7f4fcf1cd9fc0dfd"
+    }
+  },
+  "graph_utils_main_commit_checked": "734c6b8",
+  "input_data_sha256": {
+    "node_mixed": {
+      "test": "f350d52d7b107f4e7500d78487b7116ad1e1537d19f13e32731b4aaad7864988",
+      "trainval": "86b6c3cb198850ccfcd32dc7aa03459523e00f69dddabd35d2755609579b3ac8"
+    },
+    "node_original": {
+      "test": "6ab61471ccf7e3b9a74a0c832a11d67584c71e7cf45c8221889b32fe2a671369",
+      "trainval": "f358d15e22609842ae260583555cb1c1a5a040f27332a8294b80c0247bd5fe62"
+    },
+    "stiffness_mixed": {
+      "test": "109341c81b040d0020552a3f04f32b874cbccbfd38b24ccfe0cdc0abd7fe2e29",
+      "trainval": "e739a87267c68588c9b02591cc38a5e9faa6f515ab4ec864f13c60a911aeb90d"
+    },
+    "stiffness_original": {
+      "test": "f33dfd4ad381cc1a1ff100b02c54486ee6614d81c7b2dc30163e29884fbb120b",
+      "trainval": "f5bd966ed9d6ca6734d14f80e92f4060b5b308a32a5b557ce5c61d434b60f3ee"
+    }
+  },
+  "jobs": {
+    "joint_all": "4682606.zeus-master",
+    "joint_original": "4682605.zeus-master",
+    "single_node": "4682603.zeus-master",
+    "single_stiffness": "4682602.zeus-master",
+    "stiffness_only": "4682604.zeus-master"
+  },
+  "failed_attempts": {
+    "joint_all": {"job_id": "4682606.zeus-master", "failure": "LSS_ARM expanded to an empty string before PBS execution; argparse rejected it before inference."},
+    "joint_original": {"job_id": "4682605.zeus-master", "failure": "LSS_ARM expanded to an empty string before PBS execution; argparse rejected it before inference."},
+    "single_node": {"job_id": "4682603.zeus-master", "failure": "LSS_ARM expanded to an empty string before PBS execution; argparse rejected it before inference."},
+    "single_stiffness": {"job_id": "4682602.zeus-master", "failure": "LSS_ARM expanded to an empty string before PBS execution; argparse rejected it before inference."},
+    "stiffness_only": {"job_id": "4682604.zeus-master", "failure": "LSS_ARM expanded to an empty string before PBS execution; argparse rejected it before inference."}
+  },
+  "recovery_jobs": {
+    "joint_all": "4682616.zeus-master",
+    "joint_original": "4682615.zeus-master",
+    "single_node": "4682613.zeus-master",
+    "single_stiffness": "4682612.zeus-master",
+    "stiffness_only": "4682614.zeus-master"
+  },
+  "legacy_thermal_metric": {
+    "snapshot_sha256": "e4b2a6af2ba9927a5ff8547eee58b34457674941b1efea2dcfa714cefba910bd",
+    "source": "hpc/experiments/ml_only_engineering/thermal_metric.py",
+    "source_sha256": "e4b2a6af2ba9927a5ff8547eee58b34457674941b1efea2dcfa714cefba910bd"
+  },
+  "operation": "mixed-only thermal p-ratio post-fit refresh; no training",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "snapshot": "notebooks/results/mini_shared/thermal_fit/code_thermal_fit_v1",
+  "submission_recovery": {
+    "first_local_attempt": "Rejected before any qsub acceptance because PBS requires submissions from the Zeus login host.",
+    "submitted_from": "zeus login host",
+    "submission_order": [
+      "single_stiffness",
+      "single_node",
+      "stiffness_only",
+      "joint_original",
+      "joint_all"
+    ],
+    "arm_binding_recovery": "Resubmitted on the Zeus login host with every LSS_ARM value passed explicitly to qsub; the failed frozen snapshot remains preserved."
+  },
+  "status": "recovery_submitted",
+  "study": "mini_shared",
+  "submitted_at": "2026-09-13T06:48:31.168205+00:00"
+}

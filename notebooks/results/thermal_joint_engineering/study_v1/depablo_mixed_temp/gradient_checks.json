@@ -1,0 +1,16 @@
+[
+  {
+    "index": 47,
+    "block": "spring",
+    "autograd": -0.028771594166755676,
+    "finite_difference": -0.028774140402674675,
+    "relative_error": 8.849042520005342e-05
+  },
+  {
+    "index": 47,
+    "block": "position",
+    "autograd": 7.253047078847885e-05,
+    "finite_difference": 8.940695988712832e-05,
+    "relative_error": 0.188760350647815
+  }
+]

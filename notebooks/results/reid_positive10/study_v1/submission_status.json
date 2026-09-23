@@ -1,0 +1,14 @@
+{
+  "prepare": "4675802.zeus-master",
+  "optimize": "4675803.zeus-master",
+  "verify": "4675804.zeus-master",
+  "dependencies": {
+    "optimize": "afterok:4675802.zeus-master",
+    "verify": "afterok:4675803.zeus-master"
+  },
+  "resources": {
+    "prepare": "4CPU 2GB 20m",
+    "optimize": "4CPU 4GB 60m",
+    "verify": "1CPU 2GB 60m"
+  }
+}

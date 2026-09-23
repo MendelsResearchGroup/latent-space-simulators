@@ -1,0 +1,58 @@
+{
+  "status": "submitted_waiting_for_metaforge",
+  "submitted_at": "2026-09-16T14:43:43+03:00",
+  "repository_commit_at_submission": "93ae9fdfb2b0d3431a6add0b441cb52686e9ade8",
+  "metaforge_inputs": {
+    "1000md_array": "4688160[].zeus-master",
+    "1000md_collector": "4688161.zeus-master",
+    "200md_array": "4688163[].zeus-master",
+    "200md_collector": "4688164.zeus-master",
+    "thermal_seed_bases": [104729, 224737, 350377, 479909, 611953],
+    "temperature_assignment_seed": 904297
+  },
+  "analysis": {
+    "array_job": "4688169[].zeus-master",
+    "dependency": "afterok:4688161.zeus-master:4688164.zeus-master",
+    "tasks": 8,
+    "task_matrix": "cadence {1000md,200md} x branch {node,stiffness} x profile {low,mixed}",
+    "resources_per_task": "mendels_q; select=1:ncpus=1:mem=16gb; place=free:shared; walltime=12:00:00",
+    "collector_job": "4688170.zeus-master",
+    "collector_dependency": "afterok:4688169[].zeus-master",
+    "collector_resources": "mendels_q; select=1:ncpus=1:mem=4gb; place=free:shared; walltime=01:00:00",
+    "notebook_job": "4688171.zeus-master",
+    "notebook_dependency": "afterok:4688170.zeus-master",
+    "notebook_resources": "mendels_q; select=1:ncpus=2:mem=8gb; place=free:shared; walltime=01:00:00"
+  },
+  "estimator": {
+    "primary": "fixed-effects OLS of normalized transverse boundary strain on normalized axial boundary strain; one intercept per thermal seed, one shared slope, p=-slope",
+    "boundary_nodes": "fixed frame-0 q=0.10 side groups from the first low-T replica of the same network",
+    "comparators": [
+      "mean and sample SD of five separately fitted seed slopes",
+      "slope of the ensemble-mean strain trajectory",
+      "raw p-ratio of ensemble-mean endpoint positions"
+    ],
+    "windows": {
+      "1000md": ["frames 30-199; MD steps 30000-199000"],
+      "200md": [
+        "frames 150-499; MD steps 30000-99800",
+        "frames 150-995; MD steps 30000-199000",
+        "frames 150-1499; MD steps 30000-299800"
+      ]
+    }
+  },
+  "sha256": {
+    "export_five_seed_pratio.py": "475f8bf7bd611ba90fa3e27ff83b0435c4504caf5fd39f08cab2e4d941c04f2e",
+    "collect_five_seed_pratio.py": "7ebe15afe8004ee568b00d97477eb776df3a4617c5618d9408549f2230db4211",
+    "export_five_seed_pratio.pbs": "c33a550641a7ee91a3ba7af6bbb6400ea27aaa43726acd9766620c5f22837fa9",
+    "collect_five_seed_pratio.pbs": "35a5cab57017c915bae560a6afe15e80336a78c6a8aaa6cb05ab4f1182ea6103",
+    "build_notebook09_five_seed_pratio.py": "d16a33583ebd4566b88667d39c618b10bd04c65277a194379d57f755cfaa1fab",
+    "build_notebook09_five_seed_pratio.pbs": "8ac736dcdec6f3e0e33fe30b53ce3784547ffff3af42629bedef400f012d739c",
+    "simulation.py_with_shared_estimator": "18e0ec4f8930b584898e93bd2dc1ce5f51d06b7c1c1429950a4cfcfaf2eeabfc",
+    "test_latent_pratio_estimators.py": "1a61f2549fde628f031e6c923a32c8335592a51c0024a8f0b4512206e427ddf8"
+  },
+  "tests": {
+    "command": "/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -m pytest -q tests/test_latent_pratio_estimators.py",
+    "result": "3 passed in 8.81s"
+  },
+  "final_test_used": false
+}

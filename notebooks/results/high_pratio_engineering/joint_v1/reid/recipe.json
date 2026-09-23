@@ -1,0 +1,316 @@
+{
+  "stage": "optimize",
+  "status": "completed",
+  "source": "reid",
+  "source_ids": [
+    65,
+    93
+  ],
+  "prepared_sha256": "8d62f549b63964343b68b739e01680cbdf3a6f2beb651ee7e9845cc054c8101c",
+  "script_sha256": "91ce35cb81dc4167684727b6512696d838dac506b6944985315d0c4ed48c53bb",
+  "code_manifest_sha256": "943fd615237c67cad58e95073b867c4abeb1fb3d7d89adbe69d5351fa7b85f17",
+  "model_seed": 786,
+  "policy": "z1",
+  "arms": [
+    "joint_r4_b0.25",
+    "joint_r4_b1"
+  ],
+  "steps": 1200,
+  "step_sizes": [
+    0.05,
+    0.025,
+    0.0125,
+    0.00625
+  ],
+  "selection": "lowest frozen z1 readout among valid ML-only iterates",
+  "counts": {
+    "ml": 4,
+    "random": 2,
+    "original": 2,
+    "total": 8
+  },
+  "job_id": "4675575.zeus-master",
+  "split": "highest original-response train/calibration/validation development cases; no final test",
+  "geometry_constraints": "fixed box/topology/boundary nodes; movement <=0.5 or1.0 shortest original incident bond; lengths 0.25..1.75 original; pair separation >=0.1 original minimum",
+  "gradient_scaling": "center stiffness; normalize spring and geometry blocks separately",
+  "preparation": {
+    "source": "reid",
+    "calibration_ids": [
+      41,
+      49,
+      25,
+      93,
+      84,
+      96,
+      97,
+      13,
+      28,
+      52
+    ],
+    "physics_calibration_ids": [
+      25,
+      28,
+      84,
+      93
+    ],
+    "design_ids": [
+      2,
+      59,
+      53
+    ],
+    "diagnostics": {
+      "z0": {
+        "weights": [
+          -0.01010013185441494,
+          -0.23238903284072876,
+          -0.0
+        ],
+        "pearson": 0.9759886579193466,
+        "calibration_mae": 0.04635143040252491
+      },
+      "z1": {
+        "weights": [
+          -0.01010013185441494,
+          -0.0,
+          -0.23142743110656738
+        ],
+        "pearson": 0.9719500835156107,
+        "calibration_mae": 0.04663166001495188
+      },
+      "pc1": {
+        "weights": [
+          -0.01010013185441494,
+          -0.11625679582357407,
+          -0.11625679582357407
+        ],
+        "pearson": 0.9749966504289523,
+        "calibration_mae": 0.04528802244497104
+      },
+      "ridge2d": {
+        "weights": [
+          -0.01010013185441494,
+          -0.20859390497207642,
+          -0.02391967922449112
+        ],
+        "pearson": 0.9759526717288067,
+        "calibration_mae": 0.046119166002996405
+      }
+    },
+    "source_coordinate_correlations": {
+      "z0": -0.9759886617206802,
+      "z1": -0.9719500849537215,
+      "p_ratio": 1.0
+    },
+    "checkpoint_sha256": "62d9476c47f4024df0395d7dc14d4942a86f5c1baafb438ceb3ec6681be6dcc7",
+    "split_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+    "previous_recipe": {
+      "source": {
+        "dataset_name": "network_design_reid_lowT",
+        "source_name": "reid_lowT",
+        "label": "Reid + low-T 2D AE",
+        "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+        "dataset_mixture": [
+          {
+            "name": "reid",
+            "label": "reid",
+            "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+            "train_count": 20,
+            "val_count": 20,
+            "split_indices": {
+              "train": [
+                60,
+                45,
+                43,
+                73,
+                85,
+                22,
+                47,
+                27,
+                87,
+                67,
+                71,
+                36,
+                65,
+                9,
+                81,
+                90,
+                68,
+                21,
+                24,
+                48
+              ],
+              "val": [
+                41,
+                49,
+                25,
+                93,
+                84,
+                96,
+                97,
+                13,
+                28,
+                52,
+                59,
+                57,
+                15,
+                53,
+                2,
+                88,
+                74,
+                31,
+                69,
+                19
+              ],
+              "test": []
+            }
+          },
+          {
+            "name": "depablo_low_temp",
+            "label": "depablo_low_temp",
+            "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+            "train_count": 20,
+            "val_count": 20,
+            "split_indices": {
+              "train": [
+                99,
+                145,
+                7,
+                133,
+                198,
+                13,
+                21,
+                107,
+                14,
+                77,
+                130,
+                50,
+                85,
+                104,
+                55,
+                54,
+                147,
+                117,
+                3,
+                67
+              ],
+              "val": [
+                161,
+                47,
+                191,
+                66,
+                118,
+                98,
+                2,
+                136,
+                131,
+                124,
+                105,
+                96,
+                152,
+                70,
+                169,
+                168,
+                126,
+                196,
+                138,
+                78
+              ],
+              "test": []
+            }
+          }
+        ]
+      },
+      "config": {
+        "ae_config": {
+          "model": "attention",
+          "latent_dim": 2,
+          "latent_tokens": 32,
+          "hidden_size": 96,
+          "node_feature_mode": "normalized_delta",
+          "target_mode": "normalized_delta",
+          "edge_feature_dim": 4,
+          "max_train_frames_per_sim": 101,
+          "max_val_frames_per_sim": 101,
+          "max_epochs": 40,
+          "patience": 8,
+          "lr": 0.0001,
+          "weight_decay": 1e-05,
+          "mix_sources": true,
+          "balance_sources": false,
+          "gradient_method": "source_mean",
+          "checkpoint_metric": "val_max_source_reconstruction",
+          "checkpoint_mode": "min",
+          "pratio_eval_every": 0
+        },
+        "coordinate_normalization": "position_normalization",
+        "edge_mode": "compact_stored",
+        "static_context_use_physical_reference": true,
+        "pos_dim": 2,
+        "batch_graphs": 32,
+        "frame_skip": 1,
+        "early_stop_min_delta": 1e-05,
+        "split_seed": 123,
+        "model_seed": 786,
+        "should_rollout": false,
+        "should_train_propagator": false,
+        "cache_require_matching_config": true,
+        "cache_path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/reid_lowT_2d_s786/ae.pt"
+      },
+      "seed": 786,
+      "design_source": "reid",
+      "calibration_ids": [
+        41,
+        49,
+        25,
+        93,
+        84,
+        96,
+        97,
+        13,
+        28,
+        52
+      ],
+      "design_ids": [
+        2,
+        59,
+        53
+      ],
+      "edited_parameters": "positive spring stiffness; fixed nodes/topology; zero springs unchanged",
+      "log_stiffness_bound": 0.25,
+      "steps": 150,
+      "random_controls": 5,
+      "checkpoint_sha256": "62d9476c47f4024df0395d7dc14d4942a86f5c1baafb438ceb3ec6681be6dcc7",
+      "split_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+      "helper_sha256": "b1d38cd51014bb02d431578a0d9a26edb0f6ac003ee8c5596423bfbd9c3b84c9",
+      "response_frames": "first and last only",
+      "uniform_scale_control": true,
+      "job_id": "4670995.zeus-master",
+      "endpoint_helper_sha256": "9efc6d4306264ed8f9180c83aec9c3fba222515ad903f6342fcd12be9b5f1d4c",
+      "physical_validation": "2D quasistatic matched compression; unwrapped first/last boundary-node ratio"
+    },
+    "high_response_development_ids": [
+      65,
+      93
+    ],
+    "preprocessing_parity": {
+      "x": 0.0,
+      "edge_index": 0.0,
+      "edge_attr": 0.0,
+      "reference_context_positions": 0.0,
+      "reference_context_edge_attr": 0.0,
+      "reference_box_center": 0.0,
+      "reference_box_half_extent": 0.0
+    },
+    "original_dataset": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+    "original_dataset_sha256": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659",
+    "old_prepared_sha256": "dc51e1e64771ce10971adb763cc5ed75432aae430b1ad1573877a89bd18a67c0",
+    "split": "highest two original-response networks per source within the original AE train/validation pool; includes training/calibration graphs; targeted development, not final test or generalization",
+    "frame_access": "preparation uses only original frame0; screening uses existing raw frame0/199 responses; compression scale fixed from prior protocol; no new physics before final verification"
+  },
+  "no_response_targets": true,
+  "no_external_processes": true,
+  "feasible_search": "up to16 node-mask retries per iteration; mask endpoints of invalid bonds/close pairs from smallest invalid backtrack; reset mask next iteration",
+  "control": "permuted q and centered log-stiffness fields from joint bound1; geometry-only q shrinking, stiffness norm preserved",
+  "prior_study": "user requested longer joint engineering; study_v2 joint400 and study_v3 positions1200 completed, all known; reuse pristine development originals, no final winner selection",
+  "max_rss_kb": 726476
+}

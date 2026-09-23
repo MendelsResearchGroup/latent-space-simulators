@@ -1,0 +1,7 @@
+{
+  "common_inverse_energy_validation_mse": 0.01324836079383361,
+  "common_unweighted_validation_mse": 0.23615765054619223,
+  "diagnostic_only": true,
+  "early_frames_1_to_50_physical_coordinate_mse": 20.157870178222655,
+  "early_frames_1_to_50_unweighted_validation_mse": 0.000943891821661964
+}

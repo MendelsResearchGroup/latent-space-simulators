@@ -1,0 +1,48 @@
+{
+  "study": "lj_mp2_scope20",
+  "question": "Does adding low-temperature Reid and de Pablo trajectories improve a matched 2D message-passing AE on unseen noisy-LJ graphs?",
+  "arms": {
+    "ljonly60": {"lj_noisy": 60},
+    "shared3x20": {"reid": 20, "depablo_low_temp": 20, "lj_noisy": 20}
+  },
+  "seeds": [123, 456, 786],
+  "training_frames_per_epoch": 12000,
+  "validation": "same 20 unseen noisy-LJ trajectories only",
+  "selection": "coordinate reconstruction only",
+  "primary_postfit_metric": "physical p-ratio R2",
+  "response_supervision": false,
+  "final_test_used": false,
+  "latent_dynamics": {
+    "architecture": "history_attention with mean reference context",
+    "latent_dim": 2,
+    "seeds": [123, 456, 786],
+    "frames": 101,
+    "supervision_frames": [1, 2, 3, 5, 10, 25, 50, 75, 100],
+    "optimizer": {"name": "Adam", "learning_rate": 0.0003, "weight_decay": 0.00001, "gradient_clip": 1.0},
+    "maximum_epochs": 60,
+    "patience": 12,
+    "checkpoint_metric": "decoded normalized-position validation MSE",
+    "p_ratio_or_strain_supervision": false,
+    "trajectory_contract": "Load each frozen AE cache without resplitting or replacing trajectories. ljonly60 retains 60 noisy-LJ train and 20 noisy-LJ validation trajectories; shared3x20 retains 20 Reid, 20 de Pablo low-temperature, and 20 noisy-LJ train trajectories plus the same 20 noisy-LJ validation trajectories.",
+    "lj_graph_augmentation": "The frozen cache is used unchanged; noisy-LJ retains physical plus graph-distance-two/three relations in reference encoding and every encoded frame.",
+    "outputs": "notebooks/results/lj_mp2_scope20/latent/{scope}_s{seed}/full/{cache.pt,latent_model.pt,history.csv,completed.json}",
+    "submission_recipe": "LSS_CODE_ROOT=$PWD/hpc/experiments/lj_mp2_scope20 LSS_SCOPE={ljonly60|shared3x20} LSS_SEED={123|456|786} qsub hpc/experiments/lj_mp2_scope20/latent.pbs",
+    "final_test_used": false
+  },
+  "frozen_autoencoders": {
+    "ljonly60": {
+      "123": {"path": "notebooks/results/lj_mp2_scope20/ljonly60_s123/full/ae.pt", "sha256": "89dcc0b19ae40049405d6c595552a8488e2ffdfe3c4f85cc47b3d1e49987075e"},
+      "456": {"path": "notebooks/results/lj_mp2_scope20/ljonly60_s456/full/ae.pt", "sha256": "75ebfe8b8304e24d98b69d4921b6ea89e1883dce559d1be5880a3b512f96718b"},
+      "786": {"path": "notebooks/results/lj_mp2_scope20/ljonly60_s786/full/ae.pt", "sha256": "a408dc69a467b5d2a0b62b12ed6e034fefbb1684ad5005e0f9ccf6ebac915ba4"}
+    },
+    "shared3x20": {
+      "123": {"path": "notebooks/results/lj_mp2_scope20/shared3x20_s123/full/ae.pt", "sha256": "81a3786895c743a17cf3d8cb5bfb71b3a2c7a7aeb92f3a33cf4e46caf0919237"},
+      "456": {"path": "notebooks/results/lj_mp2_scope20/shared3x20_s456/full/ae.pt", "sha256": "af8535feff8e7438339bed63a5e13822efb1b2e81d4ca0e1050a0836d54c00f2"},
+      "786": {"path": "notebooks/results/lj_mp2_scope20/shared3x20_s786/full/ae.pt", "sha256": "af3c59e80bd1c188dde9e4806e46952bfa4d7753500aa9e2fc8335efd3d5244b"}
+    }
+  },
+  "code_hashes": {
+    "trajectory_propagator": "hpc/experiments/lj_matched_scope/trajectory_propagator.py",
+    "trajectory_propagator_sha256": "b5696e07e465ca043fd5264970829e2b9271a34001f93dd1af5a0b60985a7703"
+  }
+}

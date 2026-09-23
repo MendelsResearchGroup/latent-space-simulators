@@ -1,0 +1,6 @@
+{
+  "expected": 40,
+  "observed": 40,
+  "outcomes_sha256": "86b6908a3f53853535cc9d502e19e42869f3b70a32a82ef812b193b8b517665f",
+  "verification_authorized_only_after_this_file": true
+}

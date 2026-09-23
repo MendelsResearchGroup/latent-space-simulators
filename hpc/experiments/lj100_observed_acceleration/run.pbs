@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#PBS -N lss_hist3
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=4:mem=4gb
+#PBS -l place=free:shared
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export LSS_PROJECT_ROOT="$PWD" OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 PYTHONDONTWRITEBYTECODE=1
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/lss-broad-${PBS_JOBID}"
+mkdir -p notebooks/results/lj100_observed_acceleration/logs
+exec >"notebooks/results/lj100_observed_acceleration/logs/${PBS_JOBID}.log" 2>&1
+args=(--seed "${LSS_SEED:?}" --family "${LSS_FAMILY:?}" --observed-frames "${LSS_OBSERVED:?}" --cache "${LSS_CACHE:?}")
+[[ "${LSS_SMOKE:?}" == 1 ]] && args+=(--smoke)
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "${LSS_CODE_ROOT:?}/run.py" "${args[@]}"

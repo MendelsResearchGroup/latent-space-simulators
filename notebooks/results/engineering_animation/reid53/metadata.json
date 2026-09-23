@@ -1,0 +1,71 @@
+{
+  "source": "reid",
+  "index": 53,
+  "frame_count": 121,
+  "compression_steps": 120,
+  "scale_x": 0.9700106999999999,
+  "physical_protocol": "2D quasistatic x compression; enforce2d; each increment change_box x scale 0.9700107**(1/120), y=0 box relaxation and LAMMPS minimization; frames written after initial relaxation and every minimization; p-ratio is first/each-frame unwrapped boundary-node ratio.",
+  "endpoint_parity_tolerance": 1e-06,
+  "endpoint_results": {
+    "original": {
+      "expected_p_ratio": 0.09049821989813585,
+      "observed_p_ratio": 0.09049821987696514,
+      "parity_error": 2.1170704078699032e-11,
+      "frame_count": 121,
+      "graph_sha256": "c8b8a0d4331e5608fba9a8a8c183f513c64e4353560596a0ce87f3721d45af10",
+      "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/engineering_animation/reid53/runs/original",
+      "lammps_binary": "/rg/mendels_prj/alexander.z/DL-course-project/.runtime/lammps/bin/lmp",
+      "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+      "pbs_job_id": "4674995.zeus-master",
+      "runner_sha256": "3d80248b982fe7c4e5fe6cdd4dff96f8b0ff7a5290ea4fcdd4ecee2fe8e0d252",
+      "donor_endpoint_physics_sha256": "3d5ea68a5c790ff77baab376ec29c7df07cb3de96b3cfabeb26727b139dbbee0",
+      "donor_auxetic_utils_sha256": "68b9577011023606130591dbdc329db305521fd53e5d2a43c61bada44f41d13c"
+    },
+    "engineered": {
+      "expected_p_ratio": -0.10344072336031537,
+      "observed_p_ratio": -0.10344072336031537,
+      "parity_error": 0.0,
+      "frame_count": 121,
+      "graph_sha256": "b410ac79404d44b561989e5dee854c1d28ed999b6ab713bd268224c79bc4d90e",
+      "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/engineering_animation/reid53/runs/engineered",
+      "lammps_binary": "/rg/mendels_prj/alexander.z/DL-course-project/.runtime/lammps/bin/lmp",
+      "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+      "pbs_job_id": "4674996.zeus-master",
+      "runner_sha256": "3d80248b982fe7c4e5fe6cdd4dff96f8b0ff7a5290ea4fcdd4ecee2fe8e0d252",
+      "donor_endpoint_physics_sha256": "3d5ea68a5c790ff77baab376ec29c7df07cb3de96b3cfabeb26727b139dbbee0",
+      "donor_auxetic_utils_sha256": "68b9577011023606130591dbdc329db305521fd53e5d2a43c61bada44f41d13c"
+    }
+  },
+  "valid_total": {
+    "original": "120/120 post-initial frames",
+    "engineered": "120/120 post-initial frames"
+  },
+  "finite_p_ratio_counts": {
+    "original": "120/120",
+    "engineered": "120/120"
+  },
+  "trajectories_npz_sha256": "0329991c55569d5184358eb4f2066894e4be33439dd06d6e327d1d7c5b832df9",
+  "provenance": {
+    "original": "pristine physical Reid trajectory 53 frame 0, saved as g.raw; not the continuation start graph",
+    "continuation_start": "negative_reid53_v1/engineered.pt (SHA-256 2bf3d8e5755d79d5ae6c354411dae6c845030f2257259bf8768a8a31be46960f), used only to initialize geometry_target_v1 search",
+    "final": "geometry_target_v1/reid_53_stiffness/engineered.pt, stiffness-only result; initial geometry and topology equal original"
+  },
+  "source_paths": {
+    "design": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/network_design/geometry_target_v1/reid_53_stiffness",
+    "raw_data": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt"
+  },
+  "hashes": {
+    "original.pt": "c8b8a0d4331e5608fba9a8a8c183f513c64e4353560596a0ce87f3721d45af10",
+    "engineered.pt": "b410ac79404d44b561989e5dee854c1d28ed999b6ab713bd268224c79bc4d90e",
+    "recipe.json": "7f96515938f822de434fa3e115ae1360b1be56956367e35ee2de620fcbb5a799",
+    "summary.json": "57fd9744b6ac1267dbf718533b11eca020aa667d16b82c2f3de7b1734f0811ac",
+    "confirmations.json": "13afc1bf59dc6b9eac973c8bf058558928c0076f93f032825a46d178dd080c25",
+    "final_edit.pt": "ae5a70e4f18c80d8059926e746efb51ff3d8ce1e77311b17860562ad443b86e3"
+  },
+  "checks": {
+    "geometry_fixed": true,
+    "topology_fixed": true,
+    "zero_stiffness_pattern_fixed": true,
+    "all_stiffness_nonnegative": true
+  }
+}

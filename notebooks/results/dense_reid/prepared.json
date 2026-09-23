@@ -1,0 +1,28 @@
+{
+  "prefix_sha256": "57acf561f3e263fa4e87c52d161fbc87bd94ef7b785de0efbc7f9dc88fa7851b",
+  "full_sha256": "f0ca7c612e3550fae8e52f58228d25f0bde369eb4ae04fc7cef07d7219d5dbcc",
+  "source": {
+    "dataset_name": "dense_reid",
+    "source_name": "reid_dense",
+    "label": "Dense Reid with angles",
+    "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/reid_with_angles_first101.pt",
+    "coordinate_normalization": "position_normalization",
+    "dataset_mixture": [
+      {
+        "name": "reid_dense",
+        "label": "Dense Reid with angles",
+        "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/reid_with_angles_first101.pt",
+        "train_count": 70,
+        "val_count": 10,
+        "split_indices": {
+          "train": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69],
+          "val": [70, 71, 72, 73, 74, 75, 76, 77, 78, 79],
+          "test": []
+        }
+      }
+    ]
+  },
+  "test_indices": [80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99],
+  "original_registry_sim_ids": [415, 40, 521, 988, 916, 104, 327, 715, 964, 708, 123, 915, 325, 819, 54, 195, 152, 699, 845, 479, 800, 192, 986, 693, 609, 992, 447, 36, 950, 175, 200, 1076, 542, 35, 902, 758, 652, 541, 736, 279, 427, 966, 618, 735, 593, 174, 334, 239, 740, 312, 1096, 1018, 493, 242, 436, 119, 857, 1021, 972, 194, 164, 752, 355, 631, 214, 231, 318, 969, 958, 187, 674, 473, 1007, 885, 116, 98, 1038, 498, 304, 431, 7, 176, 739, 1010, 797, 314, 981, 785, 41, 462, 813, 464, 718, 682, 667, 799, 936, 55, 774, 595],
+  "full_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/reid_with_angles_1000_frames.manifest.json"
+}

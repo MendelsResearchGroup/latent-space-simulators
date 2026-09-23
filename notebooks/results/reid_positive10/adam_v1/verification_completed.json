@@ -1,0 +1,8 @@
+{
+  "total": 40,
+  "valid": 40,
+  "new_physical_evaluations": 40,
+  "reused_physical_measurements": 0,
+  "feedback_to_optimizer": false,
+  "manifest_sha256": "1e048f27087d7302b631b2140e173db8374c7d6f24a0b1bb09de870c676751d6"
+}

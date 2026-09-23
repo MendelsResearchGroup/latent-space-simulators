@@ -1,0 +1,7 @@
+{
+  "initial_score": 0.28890010714530945,
+  "best_score": -0.17346012592315674,
+  "actual_steps": 316,
+  "stop_reason": "patience_150",
+  "patience": 150
+}

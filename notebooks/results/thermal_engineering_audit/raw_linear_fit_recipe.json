@@ -1,0 +1,22 @@
+{
+  "source": "depablo_mixed_temp",
+  "selected_validation_ids": {
+    "47": 0.1,
+    "68": 1.0,
+    "140": 5.0,
+    "161": 10.0,
+    "242": 20.0,
+    "268": 30.0
+  },
+  "split": "existing validation IDs only; no final-test rows",
+  "frames": "all 200 saved frames, index 0..199",
+  "estimator": "two OLS fits with intercept: eps_x=a_x+b_x*t; eps_y=a_y+b_y*t; p=-b_y/b_x; known x-driven",
+  "side_groups": "fixed original physical frame0 directional quantile=0.10",
+  "coordinates": "minimum-image fractional increments then map through each evolving physical box",
+  "validity": "all finite frames; >=8 frames; abs(fitted axial total strain)>=1e-3; otherwise NaN",
+  "time": "saved frame index; graph.time metadata retained separately but not used as the fit coordinate",
+  "dataset": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-10k-mix-temp.pt",
+  "dataset_sha256": "b5c10f48a03df0822ddc4decb5792afa83b73fee755fa83cc588bbfdaa0d3a67",
+  "script_sha256": "e4b2a6af2ba9927a5ff8547eee58b34457674941b1efea2dcfa714cefba910bd",
+  "selected_from": "notebooks/results/temporal_linearity_check/recipe.json"
+}

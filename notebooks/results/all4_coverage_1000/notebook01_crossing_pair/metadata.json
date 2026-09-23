@@ -1,0 +1,20 @@
+{
+  "box_definition": "Lx=x2-x1, Ly=y2-y1; delta is relative to each frame-0 box",
+  "frozen_model_recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/all4_coverage_1000/all4_one_each_retry_v5_validation30/recipe.json",
+  "frozen_model_recipe_sha256": "14c0ebaf39d6fc97f6ce3ba2cdba98e7437b0da7fc8fbc8618b2fa74dbaf8628",
+  "question": "Raw box response at a near-identical 2D latent point in notebook 01",
+  "rows": 400,
+  "selected_frame": 33,
+  "sources": {
+    "node_low": {
+      "path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_node_optimized_200_500/trajectories/network_00047.pt",
+      "sha256": "7c817cc2a26ce7961378342920d176c8770150ac8318497ce3fd204fc8b56096",
+      "trajectory_id": 47
+    },
+    "stiffness_low": {
+      "path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_stiff_optimized_200_1500/trajectories/network_00106.pt",
+      "sha256": "5f421d6c44f0d56c2d4fcf2192b4dcb32b2518a188e8d35ec84e12c61c899d0b",
+      "trajectory_id": 106
+    }
+  }
+}

@@ -1,0 +1,491 @@
+"""Build notebook 03: direct-z comparison of one versus twenty trajectories/source."""
+from pathlib import Path
+
+import nbformat as nbf
+
+ROOT = Path(__file__).resolve().parents[2]
+TARGET = ROOT / "notebooks/dynamics/03_four_source_standard_ae_pca.ipynb"
+
+
+def md(text):
+    return nbf.v4.new_markdown_cell(text.strip() + "\n")
+
+
+def code(text):
+    return nbf.v4.new_code_cell(text.strip() + "\n")
+
+
+cells = [
+    md("""
+# Low-T stiffness networks
+"""),
+    code("""
+%matplotlib inline
+from pathlib import Path
+import sys
+import json
+import numpy as np, pandas as pd, matplotlib.pyplot as plt
+from IPython.display import display
+
+ROOT=Path.cwd().resolve()
+while not (ROOT/'notebooks').exists(): ROOT=ROOT.parent
+if str(ROOT/'src') not in sys.path: sys.path.insert(0,str(ROOT/'src'))
+GRAPH_UTILS_SITE=Path('/rg/mendels_prj/alexander.z/DL-course-project/.venv/lib/python3.10/site-packages')
+if str(GRAPH_UTILS_SITE) not in sys.path: sys.path.append(str(GRAPH_UTILS_SITE))
+import networkx as nx
+from graph_utils import draw_graph, remove_periodic_edges
+from lss.plotting import apply_editorial_style, PAPER_COLORS, style_axes
+PLOT_THEME='light'
+apply_editorial_style(PLOT_THEME)
+
+BASE=ROOT/'notebooks/results/all4_coverage_1000'
+RUNS={'1 per source':BASE/'all4_one_each_retry_v5_validation30',
+      '20 per source':BASE/'all4_twenty_each_retry_v5_validation30'}
+SOURCES=['stiffness_low']
+PLOT_SOURCES=['node_low','stiffness_low']
+LABELS={'node_low':'node optimized','stiffness_low':'stiffness optimized'}
+data={}
+for name,path in RUNS.items():
+    required=[path/'test/latents.csv',path/'test/per_network.csv']
+    missing=[str(p) for p in required if not p.exists()]
+    if missing: raise FileNotFoundError('Missing frozen artifacts:\\n'+'\\n'.join(missing))
+    data[name]={'latents':pd.read_csv(required[0]),'network':pd.read_csv(required[1])}
+print('Loaded identical held-out stiffness-low IDs 40–119: 80 trajectories × 200 frames for each frozen model.')
+"""),
+    md("""
+## Direct z0/z1 descriptors
+"""),
+    code("""
+descriptor_rows=[]; frame_parts=[]; geometry_rows=[]
+for training,item in data.items():
+    response=(item['network'].query("mode=='ae_reconstruction' and source=='stiffness_low' and frame==199")
+              [['source','trajectory_id','true_p_ratio']].rename(columns={'true_p_ratio':'final_p_ratio'}))
+    for source in SOURCES:
+        frames=item['latents'].query('source==@source').sort_values(['trajectory_id','frame']).copy()
+        frames['training']=training; frame_parts.append(frames)
+        initial=frames.query('frame==0')[['trajectory_id','z0','z1']]
+        values=initial[['z0','z1']].to_numpy(); singular=np.linalg.svd(values-values.mean(0),compute_uv=False); eig=singular**2
+        zcorr=abs(initial.z0.corr(initial.z1))
+        geometry_rows.append({'training':training,'source':LABELS[source],
+            '|corr(initial z0,z1)|':zcorr,'shared initial variation r²':zcorr**2,
+            'initial effective dimension':eig.sum()**2/np.square(eig).sum(),
+            'networks':'80/80'})
+        p=response.query('source==@source').set_index('trajectory_id').final_p_ratio
+        for ident,g in frames.groupby('trajectory_id'):
+            g=g.sort_values('frame')
+            descriptor_rows.append({'training':training,'source':source,'trajectory_id':ident,
+                'final_p_ratio':p.loc[ident],'initial z0':g.z0.iloc[0],'initial z1':g.z1.iloc[0]})
+descriptors=pd.DataFrame(descriptor_rows); frame_df=pd.concat(frame_parts,ignore_index=True); geometry=pd.DataFrame(geometry_rows)
+display(geometry.round(3))
+"""),
+    md("""
+## Initial latent and p-ratio
+"""),
+    code("""
+initial_parts=[]
+for training,item in data.items():
+    latent=item['latents'].query("frame==0 and source in @PLOT_SOURCES") [['source','trajectory_id','z0','z1']]
+    truth=(item['network'].query("mode=='ae_reconstruction' and frame==199 and source in @PLOT_SOURCES")
+           [['source','trajectory_id','true_p_ratio']].rename(columns={'true_p_ratio':'final_p_ratio'}))
+    values=latent.merge(truth,on=['source','trajectory_id'],validate='one_to_one')
+    values['training']=training; initial_parts.append(values)
+initial_plot=pd.concat(initial_parts,ignore_index=True)
+norm=plt.Normalize(initial_plot.final_p_ratio.min(),initial_plot.final_p_ratio.max())
+markers={'node_low':'o','stiffness_low':'^'}
+fig,axes=plt.subplots(1,2,figsize=(10,4.1),constrained_layout=True)
+for ax,training in zip(axes,RUNS):
+    for source in PLOT_SOURCES:
+        g=initial_plot.query('training==@training and source==@source')
+        ax.scatter(g['z0'],g['z1'],c=g.final_p_ratio,cmap='cividis_r',norm=norm,
+                   marker=markers[source],s=27,alpha=.78,label=LABELS[source])
+    ax.set_title(training); style_axes(ax,xlabel='initial z0',ylabel='initial z1',legend=True)
+fig.colorbar(plt.cm.ScalarMappable(norm=norm,cmap='cividis_r'),ax=axes,label='final p-ratio',fraction=.026,pad=.02)
+plt.show()
+"""),
+    md("""
+## Static descriptors and frozen-input ablation
+"""),
+    code("""
+ATTR=ROOT/'notebooks/results/initial_latent_origin_z'
+required=[ATTR/'encoder_control_summary.csv',ATTR/'descriptor_correlations.csv',ATTR/'trained_input_attribution_summary.csv']
+missing=[str(p) for p in required if not p.exists()]
+if missing: raise FileNotFoundError('Missing completed attribution audit:\\n'+'\\n'.join(missing))
+encoder_controls=pd.read_csv(required[0]); simple=pd.read_csv(required[1]); ablation=pd.read_csv(required[2])
+descriptors_to_show=['mean_edge_length','std_edge_length','mean_stiffness','std_stiffness']
+descriptor_labels={'mean_edge_length':'mean edge length','std_edge_length':'edge-length spread',
+                   'mean_stiffness':'mean stiffness','std_stiffness':'stiffness spread'}
+variants=['baseline','edge_geometry_at_fitted_mean','stiffness_at_fitted_mean','all_reference_edges_at_fitted_mean']
+variant_labels={'baseline':'unaltered graph','edge_geometry_at_fitted_mean':'remove edge geometry',
+                'stiffness_at_fitted_mean':'remove stiffness variation',
+                'all_reference_edges_at_fitted_mean':'remove all edge variation'}
+abl=ablation[ablation.variant.isin(variants)].copy()
+abl['retained |r|']=abl[['z0_abs_pearson_with_p','z1_abs_pearson_with_p']].mean(axis=1)
+
+source='stiffness_low'
+fig,axes=plt.subplots(2,1,figsize=(7.8,7.2),constrained_layout=True)
+top=simple.query('source==@source and descriptor in @descriptors_to_show').set_index('descriptor').loc[descriptors_to_show]
+bars=axes[0].barh(range(4),top.abs_pearson,color=[PAPER_COLORS['blue'],PAPER_COLORS['sky'],PAPER_COLORS['red'],PAPER_COLORS['orange']])
+axes[0].set(title='stiffness optimized · low-T static association',yticks=range(4),
+            yticklabels=[descriptor_labels[v] for v in descriptors_to_show],xlim=(0,1))
+axes[0].bar_label(bars,fmt='%.2f',padding=2,fontsize=8); axes[0].invert_yaxis()
+style_axes(axes[0],xlabel='|correlation with final p-ratio|')
+bottom=abl.query('source==@source').set_index('variant').loc[variants]
+bars=axes[1].barh(range(4),bottom['retained |r|'],color=[PAPER_COLORS['ink'],PAPER_COLORS['blue'],PAPER_COLORS['red'],PAPER_COLORS['light']])
+axes[1].set(title='trained-encoder removal test',yticks=range(4),
+            yticklabels=[variant_labels[v] for v in variants],xlim=(0,1))
+axes[1].bar_label(bars,fmt='%.2f',padding=2,fontsize=8); axes[1].invert_yaxis()
+style_axes(axes[1],xlabel='retained mean |corr(z0/z1, p-ratio)|')
+plt.show()
+"""),
+    md("""
+## Initial latent versus static graph descriptors
+"""),
+    code("""
+static=pd.read_csv(ATTR/'static_descriptors.csv')
+initial=descriptors[['training','source','trajectory_id','initial z0','initial z1']].merge(
+    static.drop(columns='final_p_ratio'),on=['source','trajectory_id'],how='left',validate='many_to_one')
+candidate=['mean_edge_length','std_edge_length','mean_stiffness','std_stiffness','gyration_radius','position_anisotropy']
+static_corr=[]
+for (training,source),g in initial[initial.source.isin(SOURCES)].groupby(['training','source']):
+    for feature in candidate:
+        for latent in ['initial z0','initial z1']:
+            static_corr.append({'training':training,'source':source,'graph descriptor':feature,
+                                'latent':latent.replace('initial ',''),'correlation':g[latent].corr(g[feature]),'valid/total':'80/80'})
+static_corr=pd.DataFrame(static_corr)
+source='stiffness_mixed'
+fig,ax=plt.subplots(figsize=(7.2,4.4),constrained_layout=True)
+table=static_corr.query("training=='20 per source' and source==@source").pivot(index='graph descriptor',columns='latent',values='correlation').loc[candidate]
+image=ax.imshow(table,vmin=-1,vmax=1,cmap='coolwarm',aspect='auto')
+ax.set(title='20 per source · stiffness optimized · low-T',yticks=range(len(candidate)),yticklabels=[descriptor_labels.get(v,v.replace('_',' ')) for v in candidate],xticks=[0,1],xticklabels=table.columns)
+for i in range(len(candidate)):
+    for j in range(2): ax.text(j,i,f'{table.iloc[i,j]:+.2f}',ha='center',va='center',fontsize=8,color='white' if abs(table.iloc[i,j])>.55 else PAPER_COLORS['ink'])
+fig.colorbar(image,ax=ax,label='correlation with initial latent',fraction=.03,pad=.02)
+plt.show()
+display(static_corr.query("training=='20 per source'").round(3))
+"""),
+    md("""
+## Raw latent plane by training coverage
+"""),
+    code("""
+COUNT_DIR=ROOT/'notebooks/results/latent_count_morph/collected'
+required=[COUNT_DIR/'metadata.json',COUNT_DIR/'aggregate.csv',
+          COUNT_DIR/'trajectory_latents_20_seed123.csv',COUNT_DIR/'trajectory_latents_20_seed123.json']
+missing=[str(p) for p in required if not p.exists()]
+if missing: raise FileNotFoundError('Missing completed latent-count collection:\\n'+'\\n'.join(missing))
+count_metadata=json.loads(required[0].read_text())
+assert count_metadata['matrix_cells_valid']==count_metadata['matrix_cells_total']==24
+count_aggregate=pd.read_csv(required[1])
+count_trajectories=pd.read_csv(required[2])
+count_trajectory_metadata=json.loads(required[3].read_text())
+assert count_trajectory_metadata['heldout_ids']==list(range(40,60))
+COUNTS=[1,2,4,8,10,12,14,20]
+
+fig,axes=plt.subplots(2,4,figsize=(13.5,6.2),constrained_layout=True)
+for ax,count in zip(axes.flat,COUNTS):
+    h=count_trajectories.query("count==@count and source=='stiffness_low'")
+    for trajectory_id,path in h.groupby('trajectory_id'):
+        path=path.sort_values('frame')
+        color=plt.cm.cividis((trajectory_id-40)/19)
+        ax.plot(path.z0,path.z1,color=color,lw=.9,alpha=.72)
+        ax.scatter(path.z0.iloc[0],path.z1.iloc[0],s=9,color=color,zorder=3)
+    ax.set_title(f'{count} / source'); style_axes(ax,xlabel='z0',ylabel='z1')
+fig.suptitle('Twenty matched held-out stiffness trajectories · all 200 frames · seed 123',fontweight='semibold')
+plt.show()
+
+fig,axes=plt.subplots(1,2,figsize=(8.6,3.8),constrained_layout=True)
+specs=[('shared_initial_variation_mean','shared_initial_variation_sd','z0–z1 duplicated variation',(0,1.02)),
+       ('effective_dimension_mean','effective_dimension_sd','initial effective dimension',(1,2.02))]
+for ax,(mean_col,sd_col,title,ylim) in zip(axes,specs):
+    g=count_aggregate.query("source=='stiffness_low'").sort_values('count')
+    ax.plot(g['count'],g[mean_col],marker='o',color=PAPER_COLORS['red'])
+    ax.fill_between(g['count'],g[mean_col]-g[sd_col],g[mean_col]+g[sd_col],color=PAPER_COLORS['red'],alpha=.14)
+    ax.set(title=title,xticks=COUNTS,ylim=ylim); style_axes(ax,xlabel='training trajectories / source')
+axes[0].set_ylabel('fraction'); axes[1].set_ylabel('dimensions')
+plt.show()
+"""),
+    md("""
+## Latent response
+"""),
+    code("""
+STATIC_FEATURES=['initial z0','initial z1']
+global_rows=[]
+for training,g in descriptors.query("source=='stiffness_low'").groupby('training'):
+    for feature in STATIC_FEATURES:
+        global_rows.append({
+            'training':training,'descriptor':feature,
+            '|Pearson r|':abs(g[feature].corr(g.final_p_ratio)),
+        })
+global_correlations=pd.DataFrame(global_rows)
+
+within_rows=[]
+for (training,ident),trajectory in frame_df.query(
+    "source=='stiffness_low' and frame<=5"
+).sort_values('frame').groupby(['training','trajectory_id']):
+    trajectory=trajectory.copy()
+    trajectory['z0 change']=trajectory.z0-trajectory.z0.iloc[0]
+    trajectory['z1 change']=trajectory.z1-trajectory.z1.iloc[0]
+    trajectory=trajectory.query('frame>0')
+    for latent in ['z0','z1']:
+        latent_change=trajectory[latent+' change']
+        within_rows.extend([
+            {'training':training,'trajectory_id':ident,'latent':latent,
+             'comparison':'y-deformation','absolute correlation':abs(latent_change.corr(trajectory.y_deformation))},
+            {'training':training,'trajectory_id':ident,'latent':latent,
+             'comparison':'frame p-ratio','absolute correlation':abs(latent_change.corr(trajectory.p_ratio))},
+        ])
+within_correlations=pd.DataFrame(within_rows)
+
+fig,axes=plt.subplots(1,3,figsize=(14.4,4.2),constrained_layout=True)
+training_style={'1 per source':(PAPER_COLORS['slate'],-.18),'20 per source':(PAPER_COLORS['blue'],.18)}
+x=np.arange(len(STATIC_FEATURES))
+for training,(color,offset) in training_style.items():
+    values=global_correlations.query('training==@training').set_index('descriptor').loc[STATIC_FEATURES,'|Pearson r|']
+    bars=axes[0].bar(x+offset,values,width=.34,color=color,label=training)
+    axes[0].bar_label(bars,fmt='%.2f',padding=2,fontsize=7)
+axes[0].set(title='Initial latent and p-ratio',xticks=x,xticklabels=['z0','z1'],ylim=(0,1.06))
+style_axes(axes[0],ylabel='absolute correlation',legend=True)
+
+for ax,comparison in zip(axes[1:],['y-deformation','frame p-ratio']):
+    groups=[]; labels=[]; colors=[]
+    for training,color in [('1 per source',PAPER_COLORS['slate']),('20 per source',PAPER_COLORS['blue'])]:
+        for latent in ['z0','z1']:
+            groups.append(within_correlations.query('training==@training and latent==@latent and comparison==@comparison')['absolute correlation'].dropna())
+            labels.append(f'{training.split()[0]} · {latent}'); colors.append(color)
+    boxes=ax.boxplot(groups,labels=labels,patch_artist=True,showfliers=False,medianprops={'color':PAPER_COLORS['ink'],'lw':1.4})
+    for patch,color in zip(boxes['boxes'],colors): patch.set_facecolor(color); patch.set_alpha(.65)
+    ax.set(title=f'Latent change vs {comparison}',ylim=(0,1.03))
+    ax.tick_params(axis='x',rotation=22)
+    style_axes(ax,ylabel='absolute correlation')
+plt.show()
+"""),
+    md("""
+## Feature importance
+"""),
+    code("""
+EDGE_DIR=ROOT/'notebooks/results/edge_attribution_stiffness_vs_joint'
+required=[EDGE_DIR/'edge_influence.csv',EDGE_DIR/'feature_influence.csv',EDGE_DIR/'metadata.json']
+missing=[str(p) for p in required if not p.exists()]
+if missing: raise FileNotFoundError('Run tools/analysis/export_edge_attribution_stiffness_vs_joint.py first:\\n'+'\\n'.join(missing))
+edge_importance=pd.read_csv(required[0])
+feature_importance=pd.read_csv(required[1])
+edge_metadata=json.loads(required[2].read_text())
+ATTRIBUTION_RUNS=['20 stiffness only','20 stiffness + 20 node']
+
+FEATURE_ORDER=['reference node positions','reference edge directions','reference edge lengths','spring stiffnesses',
+               'node displacement','edge direction change','edge length change','relative edge stretch']
+FEATURE_FRAMES=[0,1,2,3,4,5,20]
+fig,axes=plt.subplots(2,1,figsize=(10.4,7.4),constrained_layout=True)
+for ax,training in zip(axes,ATTRIBUTION_RUNS):
+    matrix=(feature_importance.query('training==@training')
+            .pivot(index='feature',columns='frame',values='influence_fraction')
+            .loc[FEATURE_ORDER,FEATURE_FRAMES])
+    image=ax.imshow(matrix,vmin=0,vmax=.9,cmap='magma',aspect='auto')
+    ax.set(title=training,yticks=range(len(FEATURE_ORDER)),yticklabels=FEATURE_ORDER,
+           xticks=range(len(FEATURE_FRAMES)),xticklabels=FEATURE_FRAMES)
+    for row in range(len(FEATURE_ORDER)):
+        for column in range(len(FEATURE_FRAMES)):
+            value=matrix.iloc[row,column]
+            if value>=.05:
+                ax.text(column,row,f'{100*value:.0f}%',ha='center',va='center',fontsize=7,
+                        color='white' if value<.55 else 'black')
+    style_axes(ax,xlabel='frame',ylabel='')
+fig.colorbar(image,ax=axes,label='share of gradient-based influence',fraction=.025,pad=.02)
+fig.suptitle('Feature influence',fontweight='semibold')
+plt.show()
+
+def attribution_graph(training):
+    table=edge_importance.query('training==@training').copy()
+    graph=nx.Graph()
+    for edge in table.itertuples():
+        graph.add_node(int(edge.node_i),pos=(float(edge.x_i),float(edge.y_i)))
+        graph.add_node(int(edge.node_j),pos=(float(edge.x_j),float(edge.y_j)))
+        graph.add_edge(int(edge.node_i),int(edge.node_j))
+    box=edge_metadata['drawing_box']
+    graph.graph['box']={**box,'x':box['x2']-box['x1'],'y':box['y2']-box['y1']}
+    visible=remove_periodic_edges(graph)
+    visible_keys={tuple(sorted(edge)) for edge in visible.edges}
+    keep=[tuple(sorted((int(row.node_i),int(row.node_j)))) in visible_keys for row in table.itertuples()]
+    return graph,table.loc[keep].copy()
+
+fig,axes=plt.subplots(1,2,figsize=(10.2,4.8),constrained_layout=True)
+metric='stiffness_influence'
+for col,(ax,training) in enumerate(zip(axes,ATTRIBUTION_RUNS)):
+    network,graph=attribution_graph(training)
+    graph['influence percentile']=graph[metric].rank(pct=True,method='average')
+    stiffness=(graph.stiffness-graph.stiffness.min())/(graph.stiffness.max()-graph.stiffness.min()+1e-12)
+    graph['width']=.25+1.8*stiffness
+    graph=graph.sort_values('influence percentile')
+    draw_graph(network,periodic_edges=False,node_color=PAPER_COLORS['ink'],node_size=5,
+               show_labels=False,ax=ax,show=False)
+    nx.draw_networkx_edges(
+        remove_periodic_edges(network),nx.get_node_attributes(network,'pos'),
+        edgelist=list(zip(graph.node_i.astype(int),graph.node_j.astype(int))),
+        edge_color=graph['influence percentile'].to_numpy(),edge_cmap=plt.cm.viridis,
+        edge_vmin=0,edge_vmax=1,width=graph.width.to_numpy(),alpha=.88,ax=ax,
+    )
+    ax.set_title(training); ax.set_aspect('equal'); ax.set_axis_off()
+    if col==0:
+        ax.plot([],[],color=PAPER_COLORS['slate'],lw=.35,label='thin = softer spring')
+        ax.plot([],[],color=PAPER_COLORS['slate'],lw=2.0,label='thick = stiffer spring')
+        ax.legend(loc='lower left')
+fig.colorbar(plt.cm.ScalarMappable(norm=plt.Normalize(0,1),cmap='viridis'),ax=axes,label='stiffness influence on z0/z1 · percentile within model',fraction=.025,pad=.02)
+fig.suptitle('Edge influence',fontweight='semibold')
+plt.show()
+"""),
+    md("""
+## Early response
+"""),
+    code("""
+MATCHED_ID=40
+matched={}
+for training in RUNS:
+    matched[training]=(frame_df.query(
+        "training==@training and source=='stiffness_low' and trajectory_id==@MATCHED_ID"
+    ).sort_values('frame').reset_index(drop=True))
+for column in ['x_deformation','y_deformation','p_ratio']:
+    np.testing.assert_allclose(
+        matched['1 per source'][column].to_numpy(),
+        matched['20 per source'][column].to_numpy(),
+        equal_nan=True,
+    )
+
+def scaled(values):
+    return (values-values.mean())/values.std()
+
+fig,axes=plt.subplots(2,2,figsize=(10.4,7.4),constrained_layout=True)
+for column,training in enumerate(RUNS):
+    trajectory=matched[training].query('frame<=5').copy()
+    count='1 network' if training=='1 per source' else '20 networks'
+
+    ax=axes[0,column]
+    ax.plot(trajectory.z0,trajectory.z1,color=PAPER_COLORS['blue'],lw=2,marker='o',ms=3)
+    ax.scatter(trajectory.loc[0,'z0'],trajectory.loc[0,'z1'],color=PAPER_COLORS['ink'],s=30,zorder=3)
+    ax.scatter(trajectory.loc[5,'z0'],trajectory.loc[5,'z1'],color=PAPER_COLORS['red'],s=30,zorder=3)
+    ax.annotate('start',(trajectory.loc[0,'z0'],trajectory.loc[0,'z1']),xytext=(5,4),textcoords='offset points',fontsize=8)
+    ax.annotate('frame 5',(trajectory.loc[5,'z0'],trajectory.loc[5,'z1']),xytext=(5,4),textcoords='offset points',fontsize=8)
+    ax.set_title(count)
+    style_axes(ax,xlabel='z0',ylabel='z1')
+
+    steps=trajectory.query('frame>0').copy()
+    steps['z0 change']=steps.z0-trajectory.z0.iloc[0]
+    steps['z1 change']=steps.z1-trajectory.z1.iloc[0]
+
+    ax=axes[1,column]
+    ax.plot(steps.frame,scaled(steps['z0 change']),color=PAPER_COLORS['blue'],lw=1.8,label='z0 change since start')
+    ax.plot(steps.frame,scaled(steps['z1 change']),color=PAPER_COLORS['red'],lw=1.8,label='z1 change since start')
+    ax.plot(steps.frame,scaled(steps.p_ratio),color=PAPER_COLORS['ink'],lw=1.7,ls='--',label='ground-truth p-ratio')
+    ax.set_title(count)
+    style_axes(ax,xlabel='frame',ylabel='rescaled value',legend=True)
+
+fig.suptitle('Early response',fontweight='semibold')
+plt.show()
+"""),
+    md("""
+## Interpretation
+
+The encoder maps each complete graph frame—node positions, connectivity, edge geometry and spring stiffnesses—to two numbers, z0 and z1. It is not given the optimization label or the p-ratio.
+
+With one training network per source, the easiest solution is to encode the broad network type and the dominant compression motion. The two latent coordinates are therefore largely redundant and the trajectory is nearly a straight line.
+
+With twenty networks per source, network type alone is insufficient. The encoder must also represent differences among networks of the same type and changes in their transverse response during compression, so the two coordinates carry less duplicated information and the trajectory can curve.
+
+Node-optimized networks differ mainly through node geometry and edge lengths; stiffness-optimized networks differ mainly through their spring-stiffness pattern. Because those quantities enter the graph encoder, the two families are mapped to different latent ranges. The axes themselves are learned coordinates—not fixed physical labels such as “geometry” and “stiffness.”
+"""),
+]
+
+# Every paper-facing analysis in this notebook uses stiffness-optimized low-T trajectories.
+static_index = next(i for i, cell in enumerate(cells) if cell.cell_type == 'markdown' and '## Static descriptors and frozen-input ablation' in cell.source)
+cells[static_index].source = "## Static reference descriptors\n"
+cells[static_index + 1].source = """STATIC=ROOT/'notebooks/results/initial_latent_origin_z/static_descriptors.csv'
+if not STATIC.exists(): raise FileNotFoundError(STATIC)
+static=pd.read_csv(STATIC).query("source=='stiffness_low'").copy()
+candidate=['mean_edge_length','std_edge_length','mean_stiffness','std_stiffness']
+descriptor_labels={'mean_edge_length':'mean edge length','std_edge_length':'edge-length spread','mean_stiffness':'mean stiffness','std_stiffness':'stiffness spread'}
+initial=descriptors[['training','source','trajectory_id','initial z0','initial z1']].merge(static.drop(columns='final_p_ratio'),on=['source','trajectory_id'],validate='many_to_one')
+static_rows=[]
+for training,g in initial.groupby('training'):
+    for feature in candidate:
+        for latent in ['initial z0','initial z1']:
+            static_rows.append({'training':training,'descriptor':feature,'latent':latent.replace('initial ',''),'absolute correlation':abs(g[latent].corr(g[feature])),'valid/total':'80/80'})
+static_corr=pd.DataFrame(static_rows)
+fig,axes=plt.subplots(1,2,figsize=(10.2,4.5),constrained_layout=True)
+for ax,training in zip(axes,RUNS):
+    table=static_corr.query('training==@training').pivot(index='descriptor',columns='latent',values='absolute correlation').loc[candidate]
+    image=ax.imshow(table,vmin=0,vmax=1,cmap='magma',aspect='auto')
+    ax.set(title=training,yticks=range(len(candidate)),yticklabels=[descriptor_labels[v] for v in candidate],xticks=[0,1],xticklabels=table.columns)
+    for row in range(len(candidate)):
+        for column in range(2): ax.text(column,row,f'{table.iloc[row,column]:.2f}',ha='center',va='center',fontsize=8,color='white' if table.iloc[row,column]<.72 else 'black')
+fig.colorbar(image,ax=axes,label='absolute correlation with initial latent',fraction=.03,pad=.02)
+plt.show()
+display(static_corr.round(3))
+print('All latent states, responses and reference descriptors use stiffness-optimized low-T trajectories.')
+"""
+
+# Remove the redundant old static panel and the low-T-only count-morph cache.
+for heading in ('## Initial latent versus static graph descriptors', '## Raw latent plane by training coverage'):
+    index = next(i for i, cell in enumerate(cells) if cell.cell_type == 'markdown' and heading in cell.source)
+    del cells[index:index + 2]
+
+edge_index = next(i for i, cell in enumerate(cells) if cell.cell_type == 'markdown' and '## Feature importance' in cell.source)
+cells[edge_index].source = "## Low-T edge importance\n"
+cells[edge_index + 1].source = """EDGE_DIR=ROOT/'notebooks/results/edge_attribution_one_vs_twenty'
+required=[EDGE_DIR/'edge_influence.csv',EDGE_DIR/'metadata.json']
+missing=[str(p) for p in required if not p.exists()]
+if missing: raise FileNotFoundError('Missing low-T attribution artifacts:\\n'+'\\n'.join(missing))
+edge_importance=pd.read_csv(required[0]).query("source=='stiffness_low'")
+edge_metadata=json.loads(required[1].read_text())
+ATTRIBUTION_RUNS=['1 per source','20 per source']
+
+def attribution_graph(training):
+    table=edge_importance.query('training==@training').copy()
+    graph=nx.Graph()
+    for edge in table.itertuples():
+        graph.add_node(int(edge.node_i),pos=(float(edge.x_i),float(edge.y_i)))
+        graph.add_node(int(edge.node_j),pos=(float(edge.x_j),float(edge.y_j)))
+        graph.add_edge(int(edge.node_i),int(edge.node_j))
+    width,height=edge_metadata['drawing_box_by_source']['stiffness_low'].values()
+    graph.graph['box']={'x1':0.0,'x2':width,'y1':0.0,'y2':height}
+    visible=remove_periodic_edges(graph)
+    visible_keys={tuple(sorted(edge)) for edge in visible.edges}
+    keep=[tuple(sorted((int(row.node_i),int(row.node_j)))) in visible_keys for row in table.itertuples()]
+    return graph,table.loc[keep].copy()
+
+fig,axes=plt.subplots(1,2,figsize=(10.2,4.8),constrained_layout=True)
+for ax,training in zip(axes,ATTRIBUTION_RUNS):
+    network,graph=attribution_graph(training)
+    graph['influence percentile']=graph.stiffness_influence.rank(pct=True,method='average')
+    stiffness=(graph.stiffness-graph.stiffness.min())/(graph.stiffness.max()-graph.stiffness.min()+1e-12)
+    graph['width']=.25+1.8*stiffness
+    graph=graph.sort_values('influence percentile')
+    draw_graph(network,periodic_edges=False,node_color=PAPER_COLORS['ink'],node_size=5,
+               show_labels=False,ax=ax,show=False)
+    nx.draw_networkx_edges(
+        remove_periodic_edges(network),nx.get_node_attributes(network,'pos'),
+        edgelist=list(zip(graph.node_i.astype(int),graph.node_j.astype(int))),
+        edge_color=graph['influence percentile'].to_numpy(),edge_cmap=plt.cm.viridis,
+        edge_vmin=0,edge_vmax=1,width=graph.width.to_numpy(),alpha=.88,ax=ax,
+    )
+    ax.set_title(training); ax.set_aspect('equal'); ax.set_axis_off()
+fig.colorbar(plt.cm.ScalarMappable(norm=plt.Normalize(0,1),cmap='viridis'),ax=axes,
+             label='stiffness influence on z0/z1 · percentile',fraction=.025,pad=.02)
+plt.show()
+"""
+
+cells[-1].source = """## Interpretation
+
+The encoder receives each low-T graph frame's node displacements together with its static reference positions, edge geometry, connectivity and spring stiffnesses. It never receives optimization label or p-ratio.
+
+With one trajectory per source, z0 and z1 mostly encode the dominant structure-conditioned deformation direction. With twenty trajectories, the encoder must also organize variation among unseen stiffness patterns and their framewise responses, so the two coordinates become less redundant and the early path can bend.
+
+The initial coordinates describe the network's static mechanical identity; movement through latent space describes its observed deformation. Low-T data make that distinction visible without the mixed-temperature fluctuations dominating it.
+"""
+
+notebook = nbf.v4.new_notebook(
+    cells=cells,
+    metadata={
+        "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
+        "language_info": {"name": "python", "version": "3"},
+    },
+)
+nbf.write(notebook, TARGET)
+print("wrote", TARGET, len(cells))

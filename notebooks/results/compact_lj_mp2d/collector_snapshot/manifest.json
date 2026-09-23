@@ -1,0 +1,5 @@
+{
+  "collector_sha256": "c8350146b8119cd2ac25fd64b475e2a7226af4d172a96ddef4e8a75d49d16d1b",
+  "source": "/rg/mendels_prj/alexander.z/latent-space-simulators/hpc/experiments/compact_lj_response_rollout/collect.py",
+  "source_sha256": "c8350146b8119cd2ac25fd64b475e2a7226af4d172a96ddef4e8a75d49d16d1b"
+}

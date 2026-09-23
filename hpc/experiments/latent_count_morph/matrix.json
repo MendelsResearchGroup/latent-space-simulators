@@ -1,0 +1,5 @@
+[
+  {"count": 1, "seed": 123}, {"count": 2, "seed": 123}, {"count": 4, "seed": 123}, {"count": 8, "seed": 123}, {"count": 10, "seed": 123}, {"count": 12, "seed": 123}, {"count": 14, "seed": 123}, {"count": 20, "seed": 123},
+  {"count": 1, "seed": 456}, {"count": 2, "seed": 456}, {"count": 4, "seed": 456}, {"count": 8, "seed": 456}, {"count": 10, "seed": 456}, {"count": 12, "seed": 456}, {"count": 14, "seed": 456}, {"count": 20, "seed": 456},
+  {"count": 1, "seed": 786}, {"count": 2, "seed": 786}, {"count": 4, "seed": 786}, {"count": 8, "seed": 786}, {"count": 10, "seed": 786}, {"count": 12, "seed": 786}, {"count": 14, "seed": 786}, {"count": 20, "seed": 786}
+]

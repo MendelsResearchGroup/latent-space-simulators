@@ -1,0 +1,28 @@
+{
+  "checkpoint_sha256": {
+    "1 per source": "ee2eb5b1496df85c4211a0bcb20992ff1512bb6c13afe0f202f1dc56235a39fd",
+    "20 per source": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb"
+  },
+  "data_manifest_sha256": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+  "drawing_box_by_source": {
+    "node_low": {"x": 13.528756130052539, "y": 13.528756312286118},
+    "stiffness_low": {"x": 18.610159749283906, "y": 18.610157325529344}
+  },
+  "drawing_periodic_edges": "excluded inline with graph_utils.draw_graph(periodic_edges=False); attribution scores still include every model edge",
+  "frame": 0,
+  "geometry_channels": "normalized edge vector x/y and length",
+  "metric": "paired-undirected-edge L2 norm across z0/z1 of gradient times normalized input; current and reference edge routes combined",
+  "models": {
+    "1 per source": "notebooks/results/all4_coverage_1000/all4_one_each_retry_v5_validation30",
+    "20 per source": "notebooks/results/all4_coverage_1000/all4_twenty_each_retry_v5_validation30"
+  },
+  "qualification": "local response-blind sensitivity, not a causal deletion score; magnitudes are normalized within each panel for visualization",
+  "script_sha256": "97cd11c246ecc4aa1e77e3c17ed4b1b5d43087c385e21743a292e69f90ef3402",
+  "sources": [
+    "node_low",
+    "stiffness_low"
+  ],
+  "status": "complete",
+  "stiffness_channel": "normalized stored stiffness",
+  "trajectory_id": 40
+}

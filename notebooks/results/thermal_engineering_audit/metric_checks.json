@@ -1,0 +1,15 @@
+{
+  "negative_affine_expected": -0.3,
+  "negative_affine_observed": -0.3000000000000004,
+  "negative_affine_pass": true,
+  "degenerate_valid_flag": false,
+  "affine_expected": 0.3,
+  "affine_observed": 0.3000000000000002,
+  "affine_pass": true,
+  "noisy_numpy": 0.30013774823813805,
+  "noisy_torch": 0.3001377482381381,
+  "numpy_torch_abs_error": 5.551115123125783e-17,
+  "numpy_torch_pass": true,
+  "degenerate_is_nan": true,
+  "degenerate_valid_frames": 20
+}

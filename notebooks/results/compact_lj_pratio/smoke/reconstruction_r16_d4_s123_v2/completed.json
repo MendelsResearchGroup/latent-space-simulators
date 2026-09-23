@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "rows": 300,
+  "checkpoint_sha256": "582f1982109564a2a660f4e1dc643ecce3174c6adcd02d24e74819487ead09b3",
+  "checkpoint_sha256_after": "582f1982109564a2a660f4e1dc643ecce3174c6adcd02d24e74819487ead09b3",
+  "recipe_sha256": "f3db0cead003c7d52fe11d8f05d042b52e64bf3c4ee493428e02f2b4d36bfb7e"
+}

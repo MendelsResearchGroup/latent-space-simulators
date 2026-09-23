@@ -1,0 +1,30 @@
+{
+  "evaluation_job_id": "4676381.zeus-master",
+  "execution": {
+    "allocated": "mendels_q; select=1:ncpus=2:mem=6gb; place=free:shared",
+    "walltime_seconds": 54,
+    "cpu_seconds": 48,
+    "maximum_memory_kb": 2452440,
+    "exit_status": 0
+  },
+  "source_hash_verification": {
+    "reid": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659",
+    "depablo_low_temp": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09",
+    "lj_noisy": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+    "matches_each_training_recipe": true
+  },
+  "current_canonical_code_snapshot_sha256": {
+    "lss/dynamics/training.py": "d8d446da64bb5fa87685af35397a46dfb9c0e042a9aaf09117564e361a12e6c1",
+    "lss/dynamics/simulation.py": "be0a9eddf2e6fd567a219947956bad3fb1ac25a09ca298db2174772063a086e6",
+    "lss/dynamics/autoencoder.py": "6cb9f8adf53fb9f431ea1850d054a383bc19b579cc31d7187e6f966abe325601",
+    "lss/data.py": "f6af530aa9a5d65a6414a266660829cd3695e0a2dcbe251ff9f451b28a892f4f",
+    "lss/graph.py": "d9318ae7d99201bdec45f8446ee987befb26494ef7a28db864ec4d622e3135d1"
+  },
+  "training_recipe_snapshots": {
+    "3456456": "83959f1c1d2c2ff3d5a12236f6e655ef54bed266c635156ba6f6286de7cb0c0b",
+    "123": "8da34e0ffdf74b47a9af457fef63af3e766b370bcd992d30b950db9862b038dd",
+    "456": "1caadcae969b1b2e4d2daad1fbab65f0feedd83fe2d3bd0c66b09dfebc77c9dd",
+    "786": "b9f842f7b698a70f8a12c2ad06a72c971f1e9c358b25e3ce85336977ace16b10",
+    "2026": "b503f60e5995db7e3dceff9aa62398683b9efecc3715ba31f2414529f0c353ef"
+  }
+}

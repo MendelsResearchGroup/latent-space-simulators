@@ -1,0 +1,115 @@
+{
+  "arm": "base",
+  "seed": 786,
+  "smoke": false,
+  "job_id": "4696941.zeus-master",
+  "protocol": {
+    "study": "lj_latent_influence_edges_v1",
+    "status": "frozen three-downstream-seed pilot",
+    "question": "Do frozen latent-dynamical co-participation edges improve a normalized physical-node GNN on noisy LJ trajectories?",
+    "downstream_seeds": [
+      123,
+      456,
+      786
+    ],
+    "edge_discovery_seed": 123,
+    "arms": [
+      "base",
+      "random",
+      "latent"
+    ],
+    "training_source": "lj_noisy only",
+    "train_count": 60,
+    "validation_count": 20,
+    "final_test_used": false,
+    "frames": 101,
+    "observed_initial_frames": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "primary_horizons": [
+      50,
+      100
+    ],
+    "checkpoint_metric": "validation one-step normalized acceleration MSE",
+    "primary_metric": "post-fit physical-coordinate endpoint p-ratio R2",
+    "secondary_metric": "physical-coordinate rollout MSE",
+    "response_supervision_or_selection": false,
+    "base_graph": "the frozen AE noisy-LJ graph, including mandatory graph-distance-two/three augmentation",
+    "added_edges_per_node": 4,
+    "influence_horizons": [
+      5,
+      10,
+      20
+    ],
+    "influence_definition": "For each initial global-latent basis direction, estimate the centered perturbation response [decode(F^k(z+epsilon))-decode(F^k(z-epsilon))]/(2 epsilon), with epsilon=0.001 in normalized latent units. Concatenate absolute node response vectors over k=5,10,20 and score node pairs by their Gram product. Select the symmetric union of each node's top-four nonphysical partners.",
+    "limitation": "The accepted simulator has one global 2D latent, not per-node latent variables. These are shared learned-mode participation edges, not a literal per-node latent Jacobian.",
+    "random_control": "For every network, sample exactly as many nonphysical edges as its latent arm, using a deterministic graph-specific seed.",
+    "downstream_model": {
+      "target": "per-node acceleration",
+      "node_inputs": "current displacement plus three velocity histories",
+      "edge_inputs": "reference/current relative vectors and lengths, stretch, stiffness, physical-edge indicator, added-edge indicator",
+      "message_passing_steps": 4,
+      "hidden_dim": 64,
+      "normalization": "training-only feature/target standardization plus LayerNorm in encoders and every residual message block"
+    },
+    "training": {
+      "epochs": 45,
+      "frames_per_trajectory_per_epoch": 2,
+      "batch_graphs": 4,
+      "learning_rate": 0.0003,
+      "weight_decay": 1e-05,
+      "gradient_clip": 1.0,
+      "validation_every_epochs": 3,
+      "patience_validations": 5
+    },
+    "frozen_inputs": {
+      "cache": "notebooks/results/lj100_broad/cache/s123.pt",
+      "cache_sha256": "7b0becdc13fcac093034518ff74cf61168e64ff4b4dfc481b27642c528253fa9",
+      "autoencoder_sha256": "756486f394798a6d51cfef3427a5a2a8845bcc9446c70f4f1c37e805af2619b9",
+      "latent_propagator": "notebooks/results/lj100_broad/runs/history_attention_mean_s123/model.pt",
+      "latent_propagator_sha256": "924708b8758c22afea5de8b2124d990ca51658a7419aea52f93a3d9977da61b8",
+      "latent_propagator_recipe": "history_attention + mean context, seed 123"
+    }
+  },
+  "protocol_sha256": "0584800560dfe795f65569766382d82b476296479a0c9c1d6305db0ebd4988a9",
+  "code_manifest_sha256": "c39515ba13e6b090d35c759c1921b040b675b59f158314a74384978a690a18db",
+  "final_test_used": false,
+  "response_supervision_or_selection": false,
+  "frozen_before": {
+    "ae": "76ed524c79fe0fc2613f576be6ce779204feca5d125de4642c0187fa3b9062eb",
+    "latent": "d5c743cbc70e9f6c691844f604e958f8a1b51eb8123427aa20f3f6eb72836d9c"
+  },
+  "frozen_after": {
+    "ae": "76ed524c79fe0fc2613f576be6ce779204feca5d125de4642c0187fa3b9062eb",
+    "latent": "d5c743cbc70e9f6c691844f604e958f8a1b51eb8123427aa20f3f6eb72836d9c"
+  },
+  "seconds": 130.17126941680908,
+  "checkpoint_sha256": "c3e41debc2e039ad7e01fa50f9b7bbd3e43a3f053945fe5d6a118ba1d3dc45af",
+  "summary": [
+    {
+      "arm": "base",
+      "seed": 786,
+      "split": "validation",
+      "frame": 50,
+      "p_ratio_r2": 0.7188542156450886,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 3.376761671193489e-05,
+      "added_edges_mean": 0.0
+    },
+    {
+      "arm": "base",
+      "seed": 786,
+      "split": "validation",
+      "frame": 100,
+      "p_ratio_r2": 0.5834623462067412,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 0.0002223526951035205,
+      "added_edges_mean": 0.0
+    }
+  ]
+}

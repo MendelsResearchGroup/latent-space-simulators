@@ -1,0 +1,52 @@
+{
+  "study": "lj_sparse_influence",
+  "arm": "random_sparse",
+  "seed": 123,
+  "job_id": "4698610.zeus-master",
+  "frozen_runner": "notebooks/results/lj_latent_influence_edges/code_v2/run.py",
+  "frozen_runner_sha256": "5d86b0319f5c46195c90b2be64ee7ad0c3a7538ba1f2be255b3af13e433a3b18",
+  "frozen_protocol_sha256": "0584800560dfe795f65569766382d82b476296479a0c9c1d6305db0ebd4988a9",
+  "frozen_manifest_sha256": "c39515ba13e6b090d35c759c1921b040b675b59f158314a74384978a690a18db",
+  "sparse_runner_sha256": "30018a6ef0e09fc07c939c25cfccf89da28399dce93286fd97c17a1392eea6f3",
+  "selection": "original top4 symmetric-union candidates from frozen latent_score; globally strongest ceil(0.10*M), ties canonical (i,j); no per-node minimum",
+  "influence": "frozen global +/-0.001 normalized-latent propagation/decode response Gram score at horizons5/10/20",
+  "train_count": 60,
+  "validation_count": 20,
+  "architecture": "unchanged frozen NormalizedAccelerationGNN hidden64 steps4",
+  "normalization": "same frozen training-only per-arm normalizer fitting procedure",
+  "response_supervision_or_selection": false,
+  "final_test_used": false,
+  "frozen_before": {
+    "ae": "76ed524c79fe0fc2613f576be6ce779204feca5d125de4642c0187fa3b9062eb",
+    "latent": "d5c743cbc70e9f6c691844f604e958f8a1b51eb8123427aa20f3f6eb72836d9c"
+  },
+  "checkpoint_sha256": "043572ee11c8ca1e97a0a5d3eb0eba855b9e41300bfd91df526c193f99a33132",
+  "frozen_after": {
+    "ae": "76ed524c79fe0fc2613f576be6ce779204feca5d125de4642c0187fa3b9062eb",
+    "latent": "d5c743cbc70e9f6c691844f604e958f8a1b51eb8123427aa20f3f6eb72836d9c"
+  },
+  "summary": [
+    {
+      "arm": "random_sparse",
+      "seed": 123,
+      "split": "validation",
+      "frame": 50,
+      "p_ratio_r2": 0.00010274773732676934,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 4.0200774857187e-05,
+      "added_edges_mean": 60.05
+    },
+    {
+      "arm": "random_sparse",
+      "seed": 123,
+      "split": "validation",
+      "frame": 100,
+      "p_ratio_r2": -1.0136990269377724,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 0.00028099783348193745,
+      "added_edges_mean": 60.05
+    }
+  ]
+}

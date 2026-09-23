@@ -1,0 +1,33 @@
+{
+  "cohort": "same10_reid",
+  "index": 74,
+  "temperature": null,
+  "status": "frozen",
+  "periodic_pristine_violating_pairs": [],
+  "planar_constraints": {
+    "periodic": true,
+    "continuous_linear_step_check": true,
+    "target_clearance": 0.05911887704976853,
+    "minimum_pair_clearance": 0.05911887704976853,
+    "clearance_fraction": 0.05,
+    "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+    "shared_joints_allowed": true,
+    "collinear_overlap_forbidden": true
+  },
+  "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/frozen_manifest.json",
+  "frozen_manifest_sha256": "7378b42789bd13076266dc729a9c8fe411ccf42f71ca59071e73c93f704c653b",
+  "designs": [
+    {
+      "name": "original",
+      "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/original.pt",
+      "graph_sha256": "981fcdd90d0c026e46f0e7367c26921e723ea3ddd9bda9fc0788b166114378fb"
+    },
+    {
+      "name": "optimized",
+      "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/optimized.pt",
+      "graph_sha256": "472b3f99bea0002a8e7945a2504d59d68d464f67d2f9c5647d869a4d56c3e86c"
+    }
+  ],
+  "pbs_job_id": "4677340.zeus-master",
+  "physics_used": false
+}

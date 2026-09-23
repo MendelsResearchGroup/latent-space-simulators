@@ -1,0 +1,42 @@
+{
+  "scope": "Frozen final-test checkpoint audit only. No training, selection, protocol, model, notebook, or shared-log changes.",
+  "estimator": "Nearest-reference periodic image followed by independent affine coordinate fits; same physical-coordinate estimator as the frozen periodic evaluator.",
+  "final_test": {
+    "network_count": 8,
+    "seeds": [123, 456, 786],
+    "models": ["local", "global", "multistep_global"],
+    "valid_total_at_each_model_seed_horizon": "8/8"
+  },
+  "first_growth_definition": "First of three consecutive frames at or above 10% of that network/model/seed series' terminal (frame 399) absolute error. Exact network-by-network values are in first_growth_and_geometry_alignment.csv.",
+  "first_growth_median_frames_across_24_network_seed_cases": {
+    "local": {"position_mse": 231.0, "p_y_over_x_absolute_error": 3.0, "p_z_over_x_absolute_error": 146.5},
+    "global": {"position_mse": 160.0, "p_y_over_x_absolute_error": 3.0, "p_z_over_x_absolute_error": 3.0},
+    "multistep_global": {"position_mse": 163.0, "p_y_over_x_absolute_error": 3.0, "p_z_over_x_absolute_error": 3.0}
+  },
+  "geometry_event_proxy": "GT-only maximum of robust-z minimum-image centered-acceleration RMS, nonaffine-displacement RMS, mean edge-length change, and affine-strain increment. A peak is a local maximum >=3 robust-z; it is descriptive, not an event label.",
+  "position_growth_alignment_with_nearest_geometry_peak": {
+    "local": {"within_10_frames": "24/24", "median_signed_lag_frames": 0.5},
+    "global": {"within_10_frames": "23/24", "median_signed_lag_frames": 3.0},
+    "multistep_global": {"within_10_frames": "24/24", "median_signed_lag_frames": 0.0}
+  },
+  "p_ratio_growth_alignment_interpretation": "No consistent event-onset alignment: y/x first-error crossings are typically frame 3 and only 12/24 cases are within 10 frames of a geometry peak for every model. z/x is likewise frame 3 for global and multistep. Thus p-ratio failure precedes coordinate-error growth rather than being explained by a detected abrupt geometry event.",
+  "variance_compression_predicted_sd_over_gt_sd_seed_mean": {
+    "frame_399": {
+      "local": {"y_over_x": 0.726, "z_over_x": 9.279, "interpretation": "unstable; one seed has large z variance expansion"},
+      "global": {"y_over_x": 1.090, "z_over_x": 0.737, "interpretation": "seed-variable y variance, moderate z compression"},
+      "multistep_global": {"y_over_x": 0.177, "z_over_x": 0.107, "interpretation": "strong compression in all seeds"}
+    },
+    "frame_100": {
+      "local": {"y_over_x": 0.212, "z_over_x": 0.415},
+      "global": {"y_over_x": 0.356, "z_over_x": 0.776},
+      "multistep_global": {"y_over_x": 0.379, "z_over_x": 0.298}
+    }
+  },
+  "strain_error_dominance": "At frame 399 x-denominator MAE is not larger than transverse MAE: mean x/y and x/z MAE ratios are local 0.68/0.24, global 0.72/0.64, multistep 0.79/0.85. Therefore transverse-strain error is at least as important; the p-ratio failure cannot be attributed chiefly to x-strain denominator error.",
+  "teacher_forced_one_step_pratio_r2_seed_mean": {
+    "frame_5": {"local": {"y_over_x": -0.118, "z_over_x": 0.151}, "global": {"y_over_x": 0.720, "z_over_x": 0.583}, "multistep_global": {"y_over_x": -1.198, "z_over_x": -0.344}},
+    "frame_20": {"local": {"y_over_x": 0.857, "z_over_x": 0.928}, "global": {"y_over_x": 0.925, "z_over_x": 0.963}, "multistep_global": {"y_over_x": 0.626, "z_over_x": 0.882}},
+    "frame_100": {"local": {"y_over_x": 0.992, "z_over_x": 0.999}, "global": {"y_over_x": 0.997, "z_over_x": 0.997}, "multistep_global": {"y_over_x": 0.990, "z_over_x": 0.997}}
+  },
+  "conclusion": "The frozen dynamics has a high teacher-forced p-ratio ceiling after the earliest frames, while autonomous rollout p-ratio fails immediately and multistep has severe late variance compression. This points to accumulated autonomous state/response drift, not an irreducible one-step limitation or a single geometry-event onset."
+}

@@ -1,0 +1,3 @@
+arm,seed,split,frame,p_ratio_r2,p_ratio_valid,p_ratio_total,coordinate_mse,added_edges_mean
+latent,123,validation,50,0.2161111329768879,20,20,3.099805220980292e-05,741.75
+latent,123,validation,100,0.07727147916324062,20,20,0.00020458683327567896,741.75

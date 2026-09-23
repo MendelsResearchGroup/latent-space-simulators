@@ -1,0 +1,12 @@
+{
+  "cohort": "mixedT_thermal_armA",
+  "source": "depablo_mixed_temp",
+  "index": 268,
+  "temperature": 30.0,
+  "status": "cancelled_by_user",
+  "reason": "User requested dropping unfinished optimization and proceeding with the other designs.",
+  "pbs_job_id": "4677366.zeus-master",
+  "physics_used": false,
+  "periodic_pristine_violating_pairs": [],
+  "cancelled_at": "2026-09-09T11:20:06.189437+00:00"
+}

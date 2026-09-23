@@ -1,0 +1,77 @@
+{
+  "config": {
+    "ae_config": {
+      "model": "message_passing_reference16",
+      "latent_dim": 2,
+      "latent_tokens": 32,
+      "hidden_size": 96,
+      "edge_feature_dim": 4,
+      "message_passing_steps": 2,
+      "node_feature_mode": "normalized_delta",
+      "target_mode": "normalized_delta",
+      "max_train_frames_per_sim": 200,
+      "max_val_frames_per_sim": 200,
+      "max_epochs": 1,
+      "patience": 1,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "mix_sources": true,
+      "balance_sources": false,
+      "gradient_method": "source_mean",
+      "checkpoint_metric": "val_max_source_reconstruction",
+      "checkpoint_mode": "min",
+      "pratio_eval_every": 0
+    },
+    "coordinate_normalization": "position_normalization",
+    "edge_mode": "compact_stored",
+    "static_context_use_physical_reference": true,
+    "pos_dim": 2,
+    "batch_graphs": 32,
+    "frame_skip": 1,
+    "early_stop_min_delta": 1e-08,
+    "split_seed": 123,
+    "model_seed": 123,
+    "should_train_propagator": false,
+    "should_rollout": false,
+    "force_train": true,
+    "cache_require_matching_config": true,
+    "cache_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/node_original_uniform_smoke/ae.pt"
+  },
+  "source": {
+    "name": "mini_shared",
+    "dataset_name": "mini_shared",
+    "source_name": "mini_shared",
+    "label": "mini_shared",
+    "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/data/mini_node_original_trainval40_200frames.pt",
+    "dataset_mixture": [
+      {
+        "name": "node_original",
+        "label": "node_original",
+        "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_shared/data/mini_node_original_trainval40_200frames.pt",
+        "train_count": 1,
+        "val_count": 1,
+        "split_indices": {
+          "train": [
+            0
+          ],
+          "val": [
+            20
+          ],
+          "test": []
+        }
+      }
+    ],
+    "coordinate_normalization": "position_normalization"
+  },
+  "arm": "node_original_uniform",
+  "seed": 123,
+  "job_id": "4682635.zeus-master",
+  "protocol_sha256": "ed5cad6494bd43133838b2237028e62e6707007924292e75d42d475719f81c68",
+  "code_sha256": "87af2558618f89ca9a1f23b676fd7e59b7feb6660cb870f875503a0bc4411f06",
+  "data_manifest_sha256": "22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae",
+  "ae_objective": "one ordinary warmup epoch, then uniform exactly-1-per-frame/source displacement MSE",
+  "selection": "uniform validation displacement MSE; propagator validation latent delta MSE",
+  "test_selection": false,
+  "mixed_temperature_excluded_from_fitting_normalization_and_selection": true,
+  "single_source_data_mixture": "node_original only; the only permitted data-mixture difference from joint_original"
+}

@@ -1,0 +1,55 @@
+{
+  "study": "ml_only_engineering_v1",
+  "status": "completed",
+  "submitted_utc": "2026-09-08T16:24:00Z",
+  "output": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/ml_only_engineering_v1",
+  "optimization": {
+    "job_id": "4675254.zeus-master",
+    "stage": "optimize",
+    "queue": "mendels_q",
+    "resources": "select=1:ncpus=4:mem=8gb, place=free:shared, walltime=01:00:00",
+    "threads": 4,
+    "stdout": "logs/optimize_4675254.zeus-master.log"
+  },
+  "verification": {
+    "job_id": "4675255.zeus-master",
+    "stage": "verify",
+    "dependency": "afterok:4675254.zeus-master",
+    "resources": "select=1:ncpus=4:mem=8gb, place=free:shared, walltime=01:00:00",
+    "threads": 1,
+    "stdout": "logs/verify_4675255.zeus-master.log",
+    "physics_gate": "requires frozen_designs.json; runner validates recipe and all 42 graph/edit hashes before importing endpoint physics"
+  },
+  "verification_failed_v1": {
+    "job_id": "4675255.zeus-master",
+    "exit_status": 1,
+    "reason": "frozen endpoint helper did not accept compression_steps; failed before the first physics call",
+    "stdout": "logs/verify_4675255.zeus-master.log",
+    "preserved_recipe": "verification_recipe_failed_v1.json"
+  },
+  "verification_v2": {
+    "job_id": "4675268.zeus-master",
+    "stage": "verify",
+    "dependency": "frozen manifest from completed optimization 4675254.zeus-master; no optimizer rerun",
+    "resources": "select=1:ncpus=1:mem=2gb, place=free:shared, walltime=01:00:00",
+    "threads": 1,
+    "stdout": "logs/verify_4675268.zeus-master.log",
+    "runner": "code/run_verify_v2.py",
+    "physics_gate": "validates the immutable optimization recipe and all 42 graph/edit hashes before importing current verified endpoint physics"
+  },
+  "completion": {
+    "job_id": "4675268.zeus-master",
+    "exit_status": 0,
+    "walltime": "00:10:07",
+    "max_rss_kb": 744732,
+    "final_designs": 42,
+    "outputs": ["results.csv", "summary.json", "verification_completed.json"]
+  },
+  "snapshots": {
+    "code/run.py": "09939d6065c3ce8866673f4655ce8fa33d7af99a4a1dcc86c0431c658c045265",
+    "code/run.pbs": "c38660637daa59ea0d54e0ad57fcc6852ee9ffa13f2d605d022ce97cea385ea1"
+    ,"code/run_verify_v2.py": "ca4128eb216cb3fda39e3ad9e1e01e3c42acfe6aba59fd8cabdf27b2343cc899"
+    ,"code/run_verify_v2.pbs": "48ceaf8c84978820f568a998ecdd167cf9cdbde81f691b81f4ed85b42098b9a8"
+  },
+  "resource_basis": "Prior geometry optimizer RSS was below 1 GiB; this 42-final-design batch retains the authorized 8 GiB request until its batch RSS is measured."
+}

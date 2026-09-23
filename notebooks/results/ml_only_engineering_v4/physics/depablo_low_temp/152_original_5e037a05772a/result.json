@@ -1,0 +1,12 @@
+{
+  "index": 152,
+  "variant": "original",
+  "simulation_id": "152_original_5e037a05772a",
+  "scale_x": 0.9700106999999999,
+  "compression_steps": 120,
+  "physical_p_ratio": -0.5039466382913359,
+  "status": "completed",
+  "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/ml_only_engineering_v4/physics/depablo_low_temp/152_original_5e037a05772a",
+  "protocol": "2D quasistatic compression; first/last unwrapped boundary-node ratio",
+  "box_p_ratio": -0.4799487784839972
+}

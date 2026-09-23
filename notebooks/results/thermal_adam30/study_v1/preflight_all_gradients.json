@@ -1,0 +1,547 @@
+{
+  "total_checks": 60,
+  "failed_checks": 0,
+  "max_relative_error": 6.756186726659167e-05,
+  "rows": [
+    {
+      "index": 47,
+      "block": "spring",
+      "autograd": 0.22151122987270355,
+      "finite_difference": 0.22151172161102295,
+      "relative_error": 2.2199200828770166e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 47,
+      "block": "position",
+      "autograd": 0.07829316705465317,
+      "finite_difference": 0.07829219102859497,
+      "relative_error": 1.2466299358099779e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 44,
+      "block": "spring",
+      "autograd": 0.25809502601623535,
+      "finite_difference": 0.2581000328063965,
+      "relative_error": 1.9398642095053345e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 44,
+      "block": "position",
+      "autograd": 0.20509850978851318,
+      "finite_difference": 0.20509958267211914,
+      "relative_error": 5.231037489102005e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 36,
+      "block": "spring",
+      "autograd": 0.30624014139175415,
+      "finite_difference": 0.30623674392700195,
+      "relative_error": 1.1094119591105786e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 36,
+      "block": "position",
+      "autograd": 0.10501083731651306,
+      "finite_difference": 0.10500848293304443,
+      "relative_error": 2.242038563630899e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 39,
+      "block": "spring",
+      "autograd": 0.2593890130519867,
+      "finite_difference": 0.2593889832496643,
+      "relative_error": 1.1489431274300865e-07,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 39,
+      "block": "position",
+      "autograd": 0.06837695091962814,
+      "finite_difference": 0.06837695837020874,
+      "relative_error": 1.0896332294549654e-07,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 13,
+      "block": "spring",
+      "autograd": 0.19386349618434906,
+      "finite_difference": 0.19386112689971924,
+      "relative_error": 1.2221406693134084e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 13,
+      "block": "position",
+      "autograd": 0.06449051201343536,
+      "finite_difference": 0.06448924541473389,
+      "relative_error": 1.9640078236829306e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 68,
+      "block": "spring",
+      "autograd": 0.2940029203891754,
+      "finite_difference": 0.2940058708190918,
+      "relative_error": 1.0035275513927746e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 68,
+      "block": "position",
+      "autograd": 0.1839795559644699,
+      "finite_difference": 0.18397867679595947,
+      "relative_error": 4.7786206778692115e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 96,
+      "block": "spring",
+      "autograd": 0.1865471601486206,
+      "finite_difference": 0.1865476369857788,
+      "relative_error": 2.556114705647416e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 96,
+      "block": "position",
+      "autograd": 0.10981620848178864,
+      "finite_difference": 0.10981708765029907,
+      "relative_error": 8.005753287108023e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 70,
+      "block": "spring",
+      "autograd": 0.26990312337875366,
+      "finite_difference": 0.26990175247192383,
+      "relative_error": 5.079255151524119e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 70,
+      "block": "position",
+      "autograd": 0.052984949201345444,
+      "finite_difference": 0.052988529205322266,
+      "relative_error": 6.756186726659167e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 78,
+      "block": "spring",
+      "autograd": 0.25577905774116516,
+      "finite_difference": 0.255778431892395,
+      "relative_error": 2.446833511971599e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 78,
+      "block": "position",
+      "autograd": 0.06197235360741615,
+      "finite_difference": 0.06197094917297363,
+      "relative_error": 2.2662273752211903e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 77,
+      "block": "spring",
+      "autograd": 0.26107993721961975,
+      "finite_difference": 0.26107877492904663,
+      "relative_error": 4.451857103605787e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 77,
+      "block": "position",
+      "autograd": 0.07591154426336288,
+      "finite_difference": 0.07591098546981812,
+      "relative_error": 7.361114178242019e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 140,
+      "block": "spring",
+      "autograd": 0.22947296500205994,
+      "finite_difference": 0.22946596145629883,
+      "relative_error": 3.0520134522363144e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 140,
+      "block": "position",
+      "autograd": 0.049676962196826935,
+      "finite_difference": 0.04967451095581055,
+      "relative_error": 4.934361740308891e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 118,
+      "block": "spring",
+      "autograd": 0.2666366696357727,
+      "finite_difference": 0.26663580536842346,
+      "relative_error": 3.2413671773794596e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 118,
+      "block": "position",
+      "autograd": 0.09470397979021072,
+      "finite_difference": 0.09470097720623016,
+      "relative_error": 3.170493982630571e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 136,
+      "block": "spring",
+      "autograd": 0.305765300989151,
+      "finite_difference": 0.3057748079299927,
+      "relative_error": 3.109131489946492e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 136,
+      "block": "position",
+      "autograd": 0.17744244635105133,
+      "finite_difference": 0.1774519681930542,
+      "relative_error": 5.3658700434979765e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 109,
+      "block": "spring",
+      "autograd": 0.23871129751205444,
+      "finite_difference": 0.238712877035141,
+      "relative_error": 6.616832347570967e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 109,
+      "block": "position",
+      "autograd": 0.0705287978053093,
+      "finite_difference": 0.07052719593048096,
+      "relative_error": 2.2712351240701802e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 145,
+      "block": "spring",
+      "autograd": 0.19846311211585999,
+      "finite_difference": 0.1984626054763794,
+      "relative_error": 2.5528143501803563e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 145,
+      "block": "position",
+      "autograd": 0.16554854810237885,
+      "finite_difference": 0.16554594039916992,
+      "relative_error": 1.5751894165273375e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 161,
+      "block": "spring",
+      "autograd": 0.16280025243759155,
+      "finite_difference": 0.16279518604278564,
+      "relative_error": 3.1120312960511984e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 161,
+      "block": "position",
+      "autograd": 0.07244686782360077,
+      "finite_difference": 0.07244348526000977,
+      "relative_error": 4.66902668482445e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 191,
+      "block": "spring",
+      "autograd": 0.2825786769390106,
+      "finite_difference": 0.2825736999511719,
+      "relative_error": 1.7612750872279396e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 191,
+      "block": "position",
+      "autograd": 0.05651245638728142,
+      "finite_difference": 0.05651116371154785,
+      "relative_error": 2.2874173522161942e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 158,
+      "block": "spring",
+      "autograd": 0.24610300362110138,
+      "finite_difference": 0.24610012769699097,
+      "relative_error": 1.1685855386146982e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 158,
+      "block": "position",
+      "autograd": 0.09880024194717407,
+      "finite_difference": 0.0988006591796875,
+      "relative_error": 4.222972972972973e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 198,
+      "block": "spring",
+      "autograd": 0.30049943923950195,
+      "finite_difference": 0.30050575733184814,
+      "relative_error": 2.1024862892108736e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 198,
+      "block": "position",
+      "autograd": 0.22541138529777527,
+      "finite_difference": 0.22541582584381104,
+      "relative_error": 1.96993534910163e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 151,
+      "block": "spring",
+      "autograd": 0.3018251061439514,
+      "finite_difference": 0.3018200397491455,
+      "relative_error": 1.678586274891213e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 151,
+      "block": "position",
+      "autograd": 0.08980493247509003,
+      "finite_difference": 0.08980631828308105,
+      "relative_error": 1.5431074533749254e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 242,
+      "block": "spring",
+      "autograd": 0.2721709609031677,
+      "finite_difference": 0.2721726894378662,
+      "relative_error": 6.350874887764711e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 242,
+      "block": "position",
+      "autograd": 0.09897676110267639,
+      "finite_difference": 0.09898096323013306,
+      "relative_error": 4.245389537071885e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 208,
+      "block": "spring",
+      "autograd": 0.22784346342086792,
+      "finite_difference": 0.22784359753131866,
+      "relative_error": 5.886075018026105e-07,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 208,
+      "block": "position",
+      "autograd": 0.11739197373390198,
+      "finite_difference": 0.1173943281173706,
+      "relative_error": 2.005534259094717e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 221,
+      "block": "spring",
+      "autograd": 0.3092164099216461,
+      "finite_difference": 0.3092162311077118,
+      "relative_error": 5.782808692833683e-07,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 221,
+      "block": "position",
+      "autograd": 0.11047904938459396,
+      "finite_difference": 0.11048093438148499,
+      "relative_error": 1.7061739218397006e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 229,
+      "block": "spring",
+      "autograd": 0.2517208755016327,
+      "finite_difference": 0.25171712040901184,
+      "relative_error": 1.4917684571716235e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 229,
+      "block": "position",
+      "autograd": 0.08588863164186478,
+      "finite_difference": 0.08589252829551697,
+      "relative_error": 4.536661953627161e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 234,
+      "block": "spring",
+      "autograd": 0.23489487171173096,
+      "finite_difference": 0.23489594459533691,
+      "relative_error": 4.5674845847395266e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 234,
+      "block": "position",
+      "autograd": 0.06806723773479462,
+      "finite_difference": 0.06806701421737671,
+      "relative_error": 3.2837738880867967e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 268,
+      "block": "spring",
+      "autograd": 0.2973795235157013,
+      "finite_difference": 0.29737651348114014,
+      "relative_error": 1.0121862210187785e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 268,
+      "block": "position",
+      "autograd": 0.15254664421081543,
+      "finite_difference": 0.15254616737365723,
+      "relative_error": 3.125844954964389e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 250,
+      "block": "spring",
+      "autograd": 0.2476954609155655,
+      "finite_difference": 0.2477020025253296,
+      "relative_error": 2.6409192083258137e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 250,
+      "block": "position",
+      "autograd": 0.1483583152294159,
+      "finite_difference": 0.14836490154266357,
+      "relative_error": 4.43926641624651e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 262,
+      "block": "spring",
+      "autograd": 0.2560243010520935,
+      "finite_difference": 0.2560235559940338,
+      "relative_error": 2.9101068009195936e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 262,
+      "block": "position",
+      "autograd": 0.11014620959758759,
+      "finite_difference": 0.1101471483707428,
+      "relative_error": 8.522900221189553e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 265,
+      "block": "spring",
+      "autograd": 0.23817728459835052,
+      "finite_difference": 0.238172709941864,
+      "relative_error": 1.920693862231945e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 265,
+      "block": "position",
+      "autograd": 0.1809108853340149,
+      "finite_difference": 0.18090605735778809,
+      "relative_error": 2.6687041069379387e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 290,
+      "block": "spring",
+      "autograd": 0.18942931294441223,
+      "finite_difference": 0.18943026661872864,
+      "relative_error": 5.03443474703932e-06,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    },
+    {
+      "index": 290,
+      "block": "position",
+      "autograd": 0.0880134180188179,
+      "finite_difference": 0.0880114734172821,
+      "relative_error": 2.2094375830073425e-05,
+      "probe": "projected block gradient direction",
+      "epsilon": 0.01
+    }
+  ]
+}

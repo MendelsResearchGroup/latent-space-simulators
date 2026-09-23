@@ -1,0 +1,200 @@
+{
+  "expected": 40,
+  "observed": 10,
+  "valid": 10,
+  "invalid": 0,
+  "rows": [
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 93,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05879003007372894,
+        "minimum_pair_clearance": 0.05879003007372894,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 84,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05917278170863889,
+        "minimum_pair_clearance": 0.05917278170863889,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 96,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05880465005161676,
+        "minimum_pair_clearance": 0.05880465005161676,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 97,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.0587636491794918,
+        "minimum_pair_clearance": 0.0587636491794918,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 52,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05869199926946518,
+        "minimum_pair_clearance": 0.05869199926946518,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 59,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05940398018491544,
+        "minimum_pair_clearance": 0.05940398018491544,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 57,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05955711095444303,
+        "minimum_pair_clearance": 0.05955711095444303,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 53,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05895365897619893,
+        "minimum_pair_clearance": 0.05895365897619893,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 2,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.058391597501424045,
+        "minimum_pair_clearance": 0.058391597501424045,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    },
+    {
+      "cohort": "same10_reid",
+      "source": "reid",
+      "index": 74,
+      "temperature": null,
+      "pristine_valid": true,
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05911887704976853,
+        "minimum_pair_clearance": 0.05911887704976853,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "audit_kind": "read_only_pristine_zero_edit"
+    }
+  ],
+  "no_optimization": true,
+  "no_physics": true
+}

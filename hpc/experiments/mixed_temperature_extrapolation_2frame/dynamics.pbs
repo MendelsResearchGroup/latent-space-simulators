@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#PBS -N temp2f_dynamics
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=12:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="${LSS_CODE_ROOT}/src:${LSS_CODE_ROOT}:/rg/mendels_prj/alexander.z/MetaForge/src"
+export MPLCONFIGDIR="/tmp/temp2f-dynamics-${PBS_JOBID}"
+mkdir -p notebooks/results/mixed_temperature_extrapolation_2frame/logs
+exec >"notebooks/results/mixed_temperature_extrapolation_2frame/logs/${PBS_JOBID}.log" 2>&1
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "${LSS_CODE_ROOT}/run.py" --stage dynamics

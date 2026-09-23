@@ -1,0 +1,35 @@
+{
+  "checkpoint_sha256": {
+    "1 per source": "ee2eb5b1496df85c4211a0bcb20992ff1512bb6c13afe0f202f1dc56235a39fd",
+    "20 per source": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb"
+  },
+  "drawing_box": {
+    "x1": -9.275609970092773,
+    "x2": 9.230119705200195,
+    "y1": -9.131159782409668,
+    "y2": 9.187649726867676
+  },
+  "edge_metric": "per-undirected-edge L2 norm across z0/z1 of gradient times normalized reference-stiffness input",
+  "feature_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    20
+  ],
+  "frame": 0,
+  "metric": "gradient times input, L2 aggregated across z0/z1; static inputs measured relative to fitted zero/center and dynamic inputs relative to frame 0",
+  "models": {
+    "1 per source": "notebooks/results/all4_coverage_1000/all4_one_each_retry_v5_validation30",
+    "20 per source": "notebooks/results/all4_coverage_1000/all4_twenty_each_retry_v5_validation30"
+  },
+  "qualification": "local response-blind sensitivity, not a causal deletion score; feature families differ in element count and are descriptive",
+  "script_sha256": "9d740a1b2ecbbfc3516b1a15ab9ab1ce4cd3a091865c453041ed0d6d6bd3fad6",
+  "source": "stiffness_mixed",
+  "status": "complete",
+  "test_data_sha256": "211e9f5738b1abcaacfff4295400c5b2812983c9f299c020aca2fab0ec2f790c",
+  "test_local_index": 40,
+  "trajectory_id": 40
+}

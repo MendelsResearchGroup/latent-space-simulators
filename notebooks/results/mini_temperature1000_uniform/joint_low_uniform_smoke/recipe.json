@@ -1,0 +1,92 @@
+{
+  "config": {
+    "ae_config": {
+      "model": "message_passing_reference16",
+      "latent_dim": 2,
+      "latent_tokens": 32,
+      "hidden_size": 96,
+      "edge_feature_dim": 4,
+      "message_passing_steps": 2,
+      "node_feature_mode": "normalized_delta",
+      "target_mode": "normalized_delta",
+      "max_train_frames_per_sim": 200,
+      "max_val_frames_per_sim": 200,
+      "max_epochs": 1,
+      "patience": 1,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "mix_sources": true,
+      "balance_sources": false,
+      "gradient_method": "source_mean",
+      "checkpoint_metric": "val_max_source_reconstruction",
+      "checkpoint_mode": "min",
+      "pratio_eval_every": 0
+    },
+    "coordinate_normalization": "position_normalization",
+    "edge_mode": "compact_stored",
+    "static_context_use_physical_reference": true,
+    "pos_dim": 2,
+    "batch_graphs": 32,
+    "frame_skip": 1,
+    "early_stop_min_delta": 1e-08,
+    "split_seed": 123,
+    "model_seed": 123,
+    "should_train_propagator": false,
+    "should_rollout": false,
+    "force_train": true,
+    "cache_require_matching_config": true,
+    "cache_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/mini_temperature1000_uniform/joint_low_uniform_smoke/ae.pt"
+  },
+  "source": {
+    "name": "mini_shared",
+    "dataset_name": "mini_shared",
+    "source_name": "mini_shared",
+    "label": "mini_shared",
+    "path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_stiff_optimized_200_1500/dataset.pt",
+    "dataset_mixture": [
+      {
+        "name": "stiffness_low",
+        "label": "stiffness_low",
+        "path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_stiff_optimized_200_1500/dataset.pt",
+        "train_count": 1,
+        "val_count": 1,
+        "split_indices": {
+          "train": [
+            0
+          ],
+          "val": [
+            20
+          ],
+          "test": []
+        }
+      },
+      {
+        "name": "node_low",
+        "label": "node_low",
+        "path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_node_optimized_200_500/dataset.pt",
+        "train_count": 1,
+        "val_count": 1,
+        "split_indices": {
+          "train": [
+            0
+          ],
+          "val": [
+            20
+          ],
+          "test": []
+        }
+      }
+    ],
+    "coordinate_normalization": "position_normalization"
+  },
+  "arm": "joint_low_uniform",
+  "seed": 123,
+  "job_id": "4683622.zeus-master",
+  "protocol_sha256": "b8b9add9add523ee8da7fc4640d0b3303c768aa402ba24ba6f09e39eda977dca",
+  "code_sha256": "05b6ca2efa2e12d7cd608569c4e3645b74b6cc345f35b9ae20cb1dc0bddc0bb8",
+  "data_manifest_sha256": "fcf9ca1a95e81aaa8a13ab098d91d611163cbdf10df74b2ac0d8ea06de4bebb2",
+  "ae_objective": "one ordinary warmup epoch, then uniform exactly-1-per-frame/source displacement MSE",
+  "selection": "uniform validation displacement MSE; propagator validation latent delta MSE",
+  "test_selection": false,
+  "mixed_temperature_excluded_from_fitting_normalization_and_selection": true
+}

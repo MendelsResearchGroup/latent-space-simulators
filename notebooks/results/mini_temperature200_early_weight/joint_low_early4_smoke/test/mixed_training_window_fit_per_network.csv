@@ -1,0 +1,3 @@
+source,mode,trajectory_id,true_p_ratio,pred_p_ratio,true_fit_r2,pred_fit_r2,true_pairs,pred_pairs
+node_mixed,ae_reconstruction,40,0.33682460896252947,-0.051834043100293735,0.995555202733685,0.9999519280343002,500,500
+node_mixed,autonomous_delta_mlp,40,0.33682460896252947,-0.06383918159540804,0.995555202733685,0.9962560182427155,500,500

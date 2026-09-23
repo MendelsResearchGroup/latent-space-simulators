@@ -1,0 +1,3 @@
+source,mode,rows,max_abs_true_p_error,max_abs_pred_p_error
+node_mixed,ae_reconstruction,1,1.3774958396162162e-09,1.200695709524524e-09
+node_mixed,autonomous_delta_mlp,1,1.3774958396162162e-09,1.2289216866356867e-09

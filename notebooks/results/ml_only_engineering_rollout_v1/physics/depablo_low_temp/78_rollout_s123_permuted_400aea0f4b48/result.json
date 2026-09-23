@@ -1,0 +1,12 @@
+{
+  "index": 78,
+  "variant": "rollout_s123_permuted",
+  "simulation_id": "78_rollout_s123_permuted_400aea0f4b48",
+  "scale_x": 0.9700107,
+  "compression_steps": 120,
+  "physical_p_ratio": 0.34802981244481523,
+  "status": "completed",
+  "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/ml_only_engineering_rollout_v1/physics/depablo_low_temp/78_rollout_s123_permuted_400aea0f4b48",
+  "protocol": "2D quasistatic compression; first/last unwrapped boundary-node ratio",
+  "box_p_ratio": 0.3551377525998678
+}

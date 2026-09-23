@@ -1,0 +1,18 @@
+{
+  "code_manifest_sha256": "a5f3c9de79bd1b1fc2d2058640fa71b5f2a8cb538f611797368156f46ab97d6d",
+  "cohort": "mixed-T-only frozen seed123 model; direct full200 test IDs40:119",
+  "jobs": {
+    "joint_mixed_only": "4687548.zeus-master"
+  },
+  "method": "post-fit prefix affine normalized boundary strain OLS frames30..horizon, horizon37..199; t199 parity guard",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "snapshot": "notebooks/results/mini_temperature1000_mixed_only/prefix_linear_fit/code_v1",
+  "status": "submitted",
+  "study": "mini_temperature1000_mixed_only_prefix",
+  "submitted_at": "2026-09-15T19:47:19.814510+00:00"
+}

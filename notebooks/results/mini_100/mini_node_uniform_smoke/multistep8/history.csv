@@ -1,0 +1,2 @@
+epoch,train_loss,val_loss,train_dz_mse_norm,train_loss_raw,val_dz_mse_norm,val_dz_mse_raw,dataset,latent_dim,target_mode,hidden_size,propagator_loss,propagator_objective,propagator_multistep_horizons,propagator_multistep_loss,propagator_step_stride,initial_velocity
+1,10.050691604614258,16.25653115908305,10.050691604614258,31.591708501180012,16.25653115908305,51.21299616495768,Node-optimized mini networks,2,normalized_delta,96,delta,multistep,"[1, 2, 3, 4, 5, 6, 7, 8]",final_horizon,1,zero

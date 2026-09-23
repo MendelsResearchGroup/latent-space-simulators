@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N mini200_render
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l walltime=01:00:00
+#PBS -l place=free:shared
+#PBS -j oe
+
+set -euo pipefail
+
+PROJECT=/rg/mendels_prj/alexander.z/latent-space-simulators
+PYTHON=/home/alexander.z/miniconda3/bin/python
+export MPLCONFIGDIR="${TMPDIR}/matplotlib"
+mkdir -p "${MPLCONFIGDIR}"
+cd "${PROJECT}"
+
+"${PYTHON}" tools/analysis/execute_notebook.py notebooks/dynamics/02_mixed_dataset_shared_latent_rollout.ipynb
+"${PYTHON}" tools/analysis/execute_notebook.py notebooks/dynamics/200_md_step/01_one_trajectory_per_source.ipynb
+"${PYTHON}" tools/analysis/execute_notebook.py notebooks/dynamics/200_md_step/02_twenty_trajectories_and_rollout.ipynb
+"${PYTHON}" tools/analysis/execute_notebook.py notebooks/dynamics/200_md_step/03_latent_morph_and_attribution.ipynb

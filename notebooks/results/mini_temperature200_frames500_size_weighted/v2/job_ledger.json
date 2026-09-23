@@ -1,0 +1,61 @@
+{
+  "code_manifest_sha256": "08eb75c5a4c769ee6a4fb91fcf779f700495e3d10eb2d8e76645934f39a1ea70",
+  "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+  "jobs": {
+    "inverse_energy_cap100_seed123": {
+      "fit": "4687522.zeus-master",
+      "smoke": "4687521.zeus-master"
+    },
+    "inverse_energy_cap100_seed456": {
+      "fit": "4687524.zeus-master",
+      "smoke": "4687523.zeus-master"
+    },
+    "inverse_energy_cap100_seed786": {
+      "fit": "4687526.zeus-master",
+      "smoke": "4687525.zeus-master"
+    },
+    "uniform_seed123": {
+      "fit": "4687516.zeus-master",
+      "smoke": "4687515.zeus-master"
+    },
+    "uniform_seed456": {
+      "fit": "4687518.zeus-master",
+      "smoke": "4687517.zeus-master"
+    },
+    "uniform_seed786": {
+      "fit": "4687520.zeus-master",
+      "smoke": "4687519.zeus-master"
+    }
+  },
+  "protocol_sha256": "0b6968808a8fc4946b441201246a052079f9e22ad17fb4c9aa930602525187af",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "snapshot": "notebooks/results/mini_temperature200_frames500_size_weighted/v2/code_v2",
+  "status": "submitted",
+  "study": "mini_temperature200_frames500_size_weighted",
+  "submitted_at": "2026-09-15T18:44:43.918965+00:00",
+  "supersedes": {
+    "dependent_fit_jobs": [
+      "4687499.zeus-master",
+      "4687501.zeus-master",
+      "4687503.zeus-master",
+      "4687505.zeus-master",
+      "4687507.zeus-master",
+      "4687509.zeus-master"
+    ],
+    "failed_smoke_jobs": [
+      "4687498.zeus-master",
+      "4687500.zeus-master",
+      "4687502.zeus-master",
+      "4687504.zeus-master",
+      "4687506.zeus-master",
+      "4687508.zeus-master"
+    ],
+    "failure": "all six smoke fits raised KeyError: train_count before training",
+    "snapshot": "notebooks/results/mini_temperature200_frames500_size_weighted/v1/code_v1"
+  }
+}

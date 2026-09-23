@@ -1,0 +1,28 @@
+{
+  "checkpoint_sha256": "6eace46d5d5f82f7f066392f4869ac185c9a46e81a131e55455929905d370f6d",
+  "count": 1,
+  "encoder_input": "normalized x[t]-x[0]",
+  "heldout_ids_per_source": [
+    40
+  ],
+  "max_rss_kib": 3852388,
+  "p_ratio_used_for_training_or_selection": false,
+  "path_ids": [
+    40
+  ],
+  "seconds": 122.30254662781954,
+  "seed": 123,
+  "smoke": true,
+  "status": "completed",
+  "target_definition": "normalized x[t+1]-x[t]",
+  "training_ids_per_source": [
+    0
+  ],
+  "training_sources": [
+    "node_low",
+    "stiffness_low"
+  ],
+  "validation_ids_per_source": [
+    20
+  ]
+}

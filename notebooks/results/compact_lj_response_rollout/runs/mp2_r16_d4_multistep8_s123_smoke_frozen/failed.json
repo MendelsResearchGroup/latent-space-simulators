@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "error": "ValueError: D4 reconstruction parity mismatch: {'true_p_ratio': 9.8879238130678e-17, 'pred_p_ratio': 7.614992477700255e-07, 'coordinate_mse': 2.546585164964199e-11}",
+  "job_id": "4674673.zeus-master"
+}

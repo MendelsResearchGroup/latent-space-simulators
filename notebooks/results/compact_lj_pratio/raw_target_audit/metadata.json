@@ -1,0 +1,29 @@
+{
+  "datasets": {
+    "reid": {
+      "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/reid_200_frames.pt",
+      "sha256": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659",
+      "bytes": 310435942
+    },
+    "depablo_low_temp": {
+      "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/depablo-near-zero-temp.pt",
+      "sha256": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09",
+      "bytes": 1592810734
+    },
+    "lj_noisy": {
+      "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+      "sha256": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+      "bytes": 482897241
+    },
+    "depablo_mixed_temp": {
+      "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/data/depablo-10k-mix-temp.pt",
+      "sha256": "b5c10f48a03df0822ddc4decb5792afa83b73fee755fa83cc588bbfdaa0d3a67",
+      "bytes": 2371764434
+    }
+  },
+  "recipe_sha256": "f3db0cead003c7d52fe11d8f05d042b52e64bf3c4ee493428e02f2b4d36bfb7e",
+  "script_sha256": "2d0153998ec9af2fa56794879665d7338b8e106481e74f46f512c1ca510e8971",
+  "rows": 400,
+  "selection": "none",
+  "final_test_used": false
+}

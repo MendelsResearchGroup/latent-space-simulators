@@ -1,0 +1,352 @@
+[
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/ljonly_r16_d8_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d8_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d2_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d4_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d6_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r16_d8_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d4_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s123_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s123_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s2026_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s2026_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s3456456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s3456456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s456_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s456_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_reconstruction",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s786_code_v2/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/r96_d8_s786_code_v2/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s123_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s123_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s2026_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s2026_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s3456456_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s3456456_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s456_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s456_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s786_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/ljonly_spatial_r16_d4_s786_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s123_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s123_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s2026_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s2026_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s3456456_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s3456456_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s456_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s456_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s786_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d2_s786_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s123_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s123_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s2026_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s2026_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s3456456_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s3456456_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s456_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s456_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s786_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s786_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s123_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s123_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s2026_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s2026_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s3456456_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s3456456_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s456_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s456_code_v1/ae.pt"
+  },
+  {
+    "study": "compact_lj_spatial_decoder",
+    "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s786_code_v1/recipe.json",
+    "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d8_s786_code_v1/ae.pt"
+  }
+]

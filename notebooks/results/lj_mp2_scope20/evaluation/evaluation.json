@@ -1,0 +1,58 @@
+{
+  "status": "completed",
+  "script_sha256": "ec891f561116fdcd3915431f37fa8a35619f6c2ecec82dc2267c8e7208810bbd",
+  "checkpoint_sha256": {
+    "ljonly60_s123": "89dcc0b19ae40049405d6c595552a8488e2ffdfe3c4f85cc47b3d1e49987075e",
+    "ljonly60_s456": "75ebfe8b8304e24d98b69d4921b6ea89e1883dce559d1be5880a3b512f96718b",
+    "ljonly60_s786": "a408dc69a467b5d2a0b62b12ed6e034fefbb1684ad5005e0f9ccf6ebac915ba4",
+    "shared3x20_s123": "81a3786895c743a17cf3d8cb5bfb71b3a2c7a7aeb92f3a33cf4e46caf0919237",
+    "shared3x20_s456": "af8535feff8e7438339bed63a5e13822efb1b2e81d4ca0e1050a0836d54c00f2",
+    "shared3x20_s786": "af3c59e80bd1c188dde9e4806e46952bfa4d7753500aa9e2fc8335efd3d5244b"
+  },
+  "validation_physical_fingerprints": [
+    {
+      "scope": "ljonly60",
+      "seed": 123,
+      "physical_truth_sha256": "fc195515082af18c752d7dead280a56f7a9cc00a79c3e435f43061aef2fbd59d"
+    },
+    {
+      "scope": "ljonly60",
+      "seed": 456,
+      "physical_truth_sha256": "fc195515082af18c752d7dead280a56f7a9cc00a79c3e435f43061aef2fbd59d"
+    },
+    {
+      "scope": "ljonly60",
+      "seed": 786,
+      "physical_truth_sha256": "fc195515082af18c752d7dead280a56f7a9cc00a79c3e435f43061aef2fbd59d"
+    },
+    {
+      "scope": "shared3x20",
+      "seed": 123,
+      "physical_truth_sha256": "fc195515082af18c752d7dead280a56f7a9cc00a79c3e435f43061aef2fbd59d"
+    },
+    {
+      "scope": "shared3x20",
+      "seed": 456,
+      "physical_truth_sha256": "fc195515082af18c752d7dead280a56f7a9cc00a79c3e435f43061aef2fbd59d"
+    },
+    {
+      "scope": "shared3x20",
+      "seed": 786,
+      "physical_truth_sha256": "fc195515082af18c752d7dead280a56f7a9cc00a79c3e435f43061aef2fbd59d"
+    }
+  ],
+  "horizons": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    75,
+    100,
+    150,
+    199
+  ],
+  "metric": "physical_strain_time_ols_intercept_frames0_to_horizon_fixed_sides_q0.10_min_axial1e-3",
+  "final_test_used": false,
+  "response_used_for_training_or_selection": false
+}

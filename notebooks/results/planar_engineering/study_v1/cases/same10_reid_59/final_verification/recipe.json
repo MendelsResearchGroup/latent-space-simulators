@@ -1,0 +1,15 @@
+{
+  "job_id": "4677378.zeus-master",
+  "global_manifest_sha256": "86b6908a3f53853535cc9d502e19e42869f3b70a32a82ef812b193b8b517665f",
+  "frozen_manifest_sha256": "b508c38c988cafb26f8ee2a3e342c3f129925899129e66764d70243d721d7442",
+  "verification": {
+    "protocol": "Reid athermal x compression with y box relaxation",
+    "scale_x": 0.9700106999999999,
+    "increments": 120,
+    "feedback_to_optimizer": false
+  },
+  "runner_sha256": "e64f06acdb7f13d60227f5d914710b3c93128adb10e57318050c3cdd422003b8",
+  "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+  "feedback_to_optimizer": false,
+  "started_at": 1788952856.605371
+}

@@ -1,0 +1,257 @@
+training,source,trajectory_id,frame,md_step,feature,influence,influence_fraction
+1 per each of four sources,stiffness_low,40,0,0,reference positions,0.011917093768715858,0.8316057723354139
+1 per each of four sources,stiffness_low,40,0,0,reference edge direction,0.0008145897882059216,0.05684419230935721
+1 per each of four sources,stiffness_low,40,0,0,reference edge length,0.0005543565494008362,0.03868444063299115
+1 per each of four sources,stiffness_low,40,0,0,spring stiffness,0.0010441800113767385,0.07286559472223769
+1 per each of four sources,stiffness_low,40,0,0,node displacement from frame 0,0.0,0.0
+1 per each of four sources,stiffness_low,40,0,0,edge direction change from frame 0,0.0,0.0
+1 per each of four sources,stiffness_low,40,0,0,edge length change from frame 0,0.0,0.0
+1 per each of four sources,stiffness_low,40,0,0,relative edge stretch from frame 0,0.0,0.0
+1 per each of four sources,stiffness_low,40,1,200,reference positions,0.011911177076399326,0.8294938254796268
+1 per each of four sources,stiffness_low,40,1,200,reference edge direction,0.0008147330954670906,0.0567379754132704
+1 per each of four sources,stiffness_low,40,1,200,reference edge length,0.0005530516500584781,0.038514491552962875
+1 per each of four sources,stiffness_low,40,1,200,spring stiffness,0.0010430043330416083,0.07263477393185094
+1 per each of four sources,stiffness_low,40,1,200,node displacement from frame 0,8.409510883211624e-06,0.0005856379523354762
+1 per each of four sources,stiffness_low,40,1,200,edge direction change from frame 0,4.4149834366180585e-07,3.074592441015546e-05
+1 per each of four sources,stiffness_low,40,1,200,edge length change from frame 0,6.530229711643187e-06,0.00045476489771144324
+1 per each of four sources,stiffness_low,40,1,200,relative edge stretch from frame 0,2.222552939201705e-05,0.001547784847831947
+1 per each of four sources,stiffness_low,40,2,400,reference positions,0.01190470065921545,0.8276208664840883
+1 per each of four sources,stiffness_low,40,2,400,reference edge direction,0.0008148811175487936,0.05665095124128054
+1 per each of four sources,stiffness_low,40,2,400,reference edge length,0.0005517532117664814,0.03835816491984335
+1 per each of four sources,stiffness_low,40,2,400,spring stiffness,0.0010417368030175567,0.07242207429166665
+1 per each of four sources,stiffness_low,40,2,400,node displacement from frame 0,1.646866621740628e-05,0.0011449100817277718
+1 per each of four sources,stiffness_low,40,2,400,edge direction change from frame 0,7.211109505078639e-07,5.0132001364393306e-05
+1 per each of four sources,stiffness_low,40,2,400,edge length change from frame 0,1.2332257938396651e-05,0.0008573448667758222
+1 per each of four sources,stiffness_low,40,2,400,relative edge stretch from frame 0,4.16503862652462e-05,0.002895556113253144
+1 per each of four sources,stiffness_low,40,3,600,reference positions,0.011897988617420197,0.8257647383243073
+1 per each of four sources,stiffness_low,40,3,600,reference edge direction,0.0008149461355060339,0.05656029804476818
+1 per each of four sources,stiffness_low,40,3,600,reference edge length,0.0005504776490852237,0.03820519975827658
+1 per each of four sources,stiffness_low,40,3,600,spring stiffness,0.0010404008207842708,0.07220769317844579
+1 per each of four sources,stiffness_low,40,3,600,node displacement from frame 0,2.391019370406866e-05,0.0016594565251487718
+1 per each of four sources,stiffness_low,40,3,600,edge direction change from frame 0,1.0834655768121593e-06,7.519654769292255e-05
+1 per each of four sources,stiffness_low,40,3,600,edge length change from frame 0,1.822082413127646e-05,0.0012645930799418709
+1 per each of four sources,stiffness_low,40,3,600,relative edge stretch from frame 0,6.142068741610274e-05,0.004262824541418532
+1 per each of four sources,stiffness_low,40,4,800,reference positions,0.01189063023775816,0.8239177085918628
+1 per each of four sources,stiffness_low,40,4,800,reference edge direction,0.0008149298373609781,0.05646758084609212
+1 per each of four sources,stiffness_low,40,4,800,reference edge length,0.0005493076168932021,0.03806226112267312
+1 per each of four sources,stiffness_low,40,4,800,spring stiffness,0.0010389928938820958,0.07199321038949084
+1 per each of four sources,stiffness_low,40,4,800,node displacement from frame 0,3.0622220947407186e-05,0.0021218547386045307
+1 per each of four sources,stiffness_low,40,4,800,edge direction change from frame 0,1.4105892205407145e-06,9.774161798941015e-05
+1 per each of four sources,stiffness_low,40,4,800,edge length change from frame 0,2.4307844796567224e-05,0.0016843231506768546
+1 per each of four sources,stiffness_low,40,4,800,relative edge stretch from frame 0,8.161654113791883e-05,0.005655319542610377
+1 per each of four sources,stiffness_low,40,5,1000,reference positions,0.011881504207849503,0.8220771278619832
+1 per each of four sources,stiffness_low,40,5,1000,reference edge direction,0.0008149055065587163,0.05638302748469552
+1 per each of four sources,stiffness_low,40,5,1000,reference edge length,0.0005479934043250978,0.03791547232018563
+1 per each of four sources,stiffness_low,40,5,1000,spring stiffness,0.0010373179102316499,0.07177166404230681
+1 per each of four sources,stiffness_low,40,5,1000,node displacement from frame 0,3.6442052078200504e-05,0.00252141286000236
+1 per each of four sources,stiffness_low,40,5,1000,edge direction change from frame 0,1.7546651633892907e-06,0.0001214046700354303
+1 per each of four sources,stiffness_low,40,5,1000,edge length change from frame 0,3.057010326301679e-05,0.0021151347715975496
+1 per each of four sources,stiffness_low,40,5,1000,relative edge stretch from frame 0,0.00010254071094095707,0.007094755989193483
+1 per each of four sources,stiffness_low,40,20,4000,reference positions,0.011698280461132526,0.7919255110514187
+1 per each of four sources,stiffness_low,40,20,4000,reference edge direction,0.0008100393461063504,0.054836334730422855
+1 per each of four sources,stiffness_low,40,20,4000,reference edge length,0.0005267788656055927,0.035660764309920545
+1 per each of four sources,stiffness_low,40,20,4000,spring stiffness,0.0010042550275102258,0.06798393819752878
+1 per each of four sources,stiffness_low,40,20,4000,node displacement from frame 0,9.797885286388919e-05,0.006632765677337456
+1 per each of four sources,stiffness_low,40,20,4000,edge direction change from frame 0,1.0938808372884523e-05,0.0007405123718628528
+1 per each of four sources,stiffness_low,40,20,4000,edge length change from frame 0,0.00014490055036731064,0.009809171765245503
+1 per each of four sources,stiffness_low,40,20,4000,relative edge stretch from frame 0,0.0004787735524587333,0.032411001896263246
+1 per each of four sources,stiffness_low,40,50,10000,reference positions,0.011287572793662548,0.73802687458258
+1 per each of four sources,stiffness_low,40,50,10000,reference edge direction,0.0007963491370901465,0.052068507150904664
+1 per each of four sources,stiffness_low,40,50,10000,reference edge length,0.0004840023466385901,0.03164601865344056
+1 per each of four sources,stiffness_low,40,50,10000,spring stiffness,0.0009353669011034071,0.0611580472816022
+1 per each of four sources,stiffness_low,40,50,10000,node displacement from frame 0,0.0002207788493251428,0.014435408490375999
+1 per each of four sources,stiffness_low,40,50,10000,edge direction change from frame 0,6.589515396626666e-05,0.004308490002311793
+1 per each of four sources,stiffness_low,40,50,10000,edge length change from frame 0,0.0003635933971963823,0.02377319760917689
+1 per each of four sources,stiffness_low,40,50,10000,relative edge stretch from frame 0,0.0011406985577195883,0.07458345622960796
+20 per each of four sources,stiffness_low,40,0,0,reference positions,0.26643720269203186,0.6027976635860935
+20 per each of four sources,stiffness_low,40,0,0,reference edge direction,0.01959422044456005,0.04433070976737476
+20 per each of four sources,stiffness_low,40,0,0,reference edge length,0.05863847956061363,0.13266592697355284
+20 per each of four sources,stiffness_low,40,0,0,spring stiffness,0.09733115136623383,0.22020569967297887
+20 per each of four sources,stiffness_low,40,0,0,node displacement from frame 0,0.0,0.0
+20 per each of four sources,stiffness_low,40,0,0,edge direction change from frame 0,0.0,0.0
+20 per each of four sources,stiffness_low,40,0,0,edge length change from frame 0,0.0,0.0
+20 per each of four sources,stiffness_low,40,0,0,relative edge stretch from frame 0,0.0,0.0
+20 per each of four sources,stiffness_low,40,1,200,reference positions,0.2667849659919739,0.6009081201765534
+20 per each of four sources,stiffness_low,40,1,200,reference edge direction,0.01959366910159588,0.04413290240483646
+20 per each of four sources,stiffness_low,40,1,200,reference edge length,0.05864032357931137,0.13208183031441478
+20 per each of four sources,stiffness_low,40,1,200,spring stiffness,0.09736400097608566,0.21930328263387935
+20 per each of four sources,stiffness_low,40,1,200,node displacement from frame 0,0.0013807348441332579,0.003109975768557151
+20 per each of four sources,stiffness_low,40,1,200,edge direction change from frame 0,4.3145402742084116e-05,9.718097404628889e-05
+20 per each of four sources,stiffness_low,40,1,200,edge length change from frame 0,3.675616972032003e-05,8.27898257662403e-05
+20 per each of four sources,stiffness_low,40,1,200,relative edge stretch from frame 0,0.00012605093070305884,0.00028391790194638944
+20 per each of four sources,stiffness_low,40,2,400,reference positions,0.267133504152298,0.5990752163845973
+20 per each of four sources,stiffness_low,40,2,400,reference edge direction,0.019593875855207443,0.043941344815658756
+20 per each of four sources,stiffness_low,40,2,400,reference edge length,0.058642543852329254,0.13151212446810248
+20 per each of four sources,stiffness_low,40,2,400,spring stiffness,0.09739738702774048,0.21842397079354176
+20 per each of four sources,stiffness_low,40,2,400,node displacement from frame 0,0.0027565264608711004,0.006181802957500781
+20 per each of four sources,stiffness_low,40,2,400,edge direction change from frame 0,7.978044595802203e-05,0.00017891611191650882
+20 per each of four sources,stiffness_low,40,2,400,edge length change from frame 0,6.800667324569076e-05,0.00015251217783236767
+20 per each of four sources,stiffness_low,40,2,400,relative edge stretch from frame 0,0.00023816589964553714,0.0005341122908500397
+20 per each of four sources,stiffness_low,40,3,600,reference positions,0.26748135685920715,0.5972518146369902
+20 per each of four sources,stiffness_low,40,3,600,reference edge direction,0.01959461346268654,0.04375227711238186
+20 per each of four sources,stiffness_low,40,3,600,reference edge length,0.058644719421863556,0.13094619193225282
+20 per each of four sources,stiffness_low,40,3,600,spring stiffness,0.09743019938468933,0.2175492305939619
+20 per each of four sources,stiffness_low,40,3,600,node displacement from frame 0,0.004125520586967468,0.009211762217078671
+20 per each of four sources,stiffness_low,40,3,600,edge direction change from frame 0,0.00012141514889663085,0.00027110456913489756
+20 per each of four sources,stiffness_low,40,3,600,edge length change from frame 0,0.00010154768824577332,0.00022674305898972717
+20 per each of four sources,stiffness_low,40,3,600,relative edge stretch from frame 0,0.00035419658524915576,0.0007908758792099044
+20 per each of four sources,stiffness_low,40,4,800,reference positions,0.26782792806625366,0.5954300557387521
+20 per each of four sources,stiffness_low,40,4,800,reference edge direction,0.019595609977841377,0.0435645947216327
+20 per each of four sources,stiffness_low,40,4,800,reference edge length,0.05864809453487396,0.13038535021348893
+20 per each of four sources,stiffness_low,40,4,800,spring stiffness,0.09746352583169937,0.2166790933173641
+20 per each of four sources,stiffness_low,40,4,800,node displacement from frame 0,0.005496441852301359,0.012219587038999963
+20 per each of four sources,stiffness_low,40,4,800,edge direction change from frame 0,0.00016335323743987828,0.0003631638715805298
+20 per each of four sources,stiffness_low,40,4,800,edge length change from frame 0,0.00013588224828708917,0.00030209088072202025
+20 per each of four sources,stiffness_low,40,4,800,relative edge stretch from frame 0,0.00047502387315034866,0.0010560642174597336
+20 per each of four sources,stiffness_low,40,5,1000,reference positions,0.2681712210178375,0.5936102051892294
+20 per each of four sources,stiffness_low,40,5,1000,reference edge direction,0.01959661766886711,0.04337807834591366
+20 per each of four sources,stiffness_low,40,5,1000,reference edge length,0.058650847524404526,0.12982653955686094
+20 per each of four sources,stiffness_low,40,5,1000,spring stiffness,0.09749536216259003,0.21581078580569898
+20 per each of four sources,stiffness_low,40,5,1000,node displacement from frame 0,0.006867635995149612,0.015201850507197174
+20 per each of four sources,stiffness_low,40,5,1000,edge direction change from frame 0,0.00020954936917405576,0.0004638478489994679
+20 per each of four sources,stiffness_low,40,5,1000,edge length change from frame 0,0.00017124127771239728,0.000379051001870781
+20 per each of four sources,stiffness_low,40,5,1000,relative edge stretch from frame 0,0.0006006831536069512,0.0013296417442295876
+20 per each of four sources,stiffness_low,40,20,4000,reference positions,0.27344152331352234,0.5672984829669667
+20 per each of four sources,stiffness_low,40,20,4000,reference edge direction,0.019638661295175552,0.040743566029220656
+20 per each of four sources,stiffness_low,40,20,4000,reference edge length,0.05874107405543327,0.12186781947264556
+20 per each of four sources,stiffness_low,40,20,4000,spring stiffness,0.09794926643371582,0.20321152977144172
+20 per each of four sources,stiffness_low,40,20,4000,node displacement from frame 0,0.027284793555736542,0.05660669895584493
+20 per each of four sources,stiffness_low,40,20,4000,edge direction change from frame 0,0.0010707060573622584,0.002221352173161747
+20 per each of four sources,stiffness_low,40,20,4000,edge length change from frame 0,0.0008314396836794913,0.0017249555426485025
+20 per each of four sources,stiffness_low,40,20,4000,relative edge stretch from frame 0,0.003048977581784129,0.006325595088070117
+20 per each of four sources,stiffness_low,40,50,10000,reference positions,0.2859850525856018,0.5252141354101318
+20 per each of four sources,stiffness_low,40,50,10000,reference edge direction,0.019826147705316544,0.036410899560719384
+20 per each of four sources,stiffness_low,40,50,10000,reference edge length,0.05892765522003174,0.10822117173019519
+20 per each of four sources,stiffness_low,40,50,10000,spring stiffness,0.09866411983966827,0.1811975483651621
+20 per each of four sources,stiffness_low,40,50,10000,node displacement from frame 0,0.06731012463569641,0.12361565261982979
+20 per each of four sources,stiffness_low,40,50,10000,edge direction change from frame 0,0.0030532563105225563,0.005607332826727494
+20 per each of four sources,stiffness_low,40,50,10000,edge length change from frame 0,0.002290453063324094,0.004206437764754063
+20 per each of four sources,stiffness_low,40,50,10000,relative edge stretch from frame 0,0.008454530499875546,0.015526821722480062
+20 stiffness low-T only,stiffness_low,40,0,0,reference positions,0.30547070503234863,0.49866149686479516
+20 stiffness low-T only,stiffness_low,40,0,0,reference edge direction,0.0662514790892601,0.10815132576676566
+20 stiffness low-T only,stiffness_low,40,0,0,reference edge length,0.05630171671509743,0.09190897153373517
+20 stiffness low-T only,stiffness_low,40,0,0,spring stiffness,0.18455739319324493,0.301278205834704
+20 stiffness low-T only,stiffness_low,40,0,0,node displacement from frame 0,0.0,0.0
+20 stiffness low-T only,stiffness_low,40,0,0,edge direction change from frame 0,0.0,0.0
+20 stiffness low-T only,stiffness_low,40,0,0,edge length change from frame 0,0.0,0.0
+20 stiffness low-T only,stiffness_low,40,0,0,relative edge stretch from frame 0,0.0,0.0
+20 stiffness low-T only,stiffness_low,40,1,200,reference positions,0.30585166811943054,0.49676377276748096
+20 stiffness low-T only,stiffness_low,40,1,200,reference edge direction,0.06644340604543686,0.10791727004661701
+20 stiffness low-T only,stiffness_low,40,1,200,reference edge length,0.05641032010316849,0.09162154847731235
+20 stiffness low-T only,stiffness_low,40,1,200,spring stiffness,0.18480370938777924,0.30015787869121685
+20 stiffness low-T only,stiffness_low,40,1,200,node displacement from frame 0,0.000758996291551739,0.00123276051958801
+20 stiffness low-T only,stiffness_low,40,1,200,edge direction change from frame 0,7.395913416985422e-05,0.00012012430321774996
+20 stiffness low-T only,stiffness_low,40,1,200,edge length change from frame 0,0.0007854317082092166,0.001275696879537242
+20 stiffness low-T only,stiffness_low,40,1,200,relative edge stretch from frame 0,0.0005608602659776807,0.0009109483150297891
+20 stiffness low-T only,stiffness_low,40,2,400,reference positions,0.3062172830104828,0.49503287477861196
+20 stiffness low-T only,stiffness_low,40,2,400,reference edge direction,0.06665258854627609,0.10775101325149407
+20 stiffness low-T only,stiffness_low,40,2,400,reference edge length,0.056521717458963394,0.09137338038551293
+20 stiffness low-T only,stiffness_low,40,2,400,spring stiffness,0.1850813776254654,0.29920377299795814
+20 stiffness low-T only,stiffness_low,40,2,400,node displacement from frame 0,0.0014747940003871918,0.0023841616859128366
+20 stiffness low-T only,stiffness_low,40,2,400,edge direction change from frame 0,0.00011800052016042173,0.00019076041739415938
+20 stiffness low-T only,stiffness_low,40,2,400,edge length change from frame 0,0.0014641397865489125,0.002366938013711784
+20 stiffness low-T only,stiffness_low,40,2,400,relative edge stretch from frame 0,0.0010497906478121877,0.0016970984694040876
+20 stiffness low-T only,stiffness_low,40,3,600,reference positions,0.3064987361431122,0.49332096641540707
+20 stiffness low-T only,stiffness_low,40,3,600,reference edge direction,0.06682634353637695,0.1075594529041725
+20 stiffness low-T only,stiffness_low,40,3,600,reference edge length,0.0566248819231987,0.09113982597457589
+20 stiffness low-T only,stiffness_low,40,3,600,spring stiffness,0.1853148639202118,0.2982710757984082
+20 stiffness low-T only,stiffness_low,40,3,600,node displacement from frame 0,0.0021547714713960886,0.003468183778014431
+20 stiffness low-T only,stiffness_low,40,3,600,edge direction change from frame 0,0.00017595165991224349,0.00028320065525416565
+20 stiffness low-T only,stiffness_low,40,3,600,edge length change from frame 0,0.002156696282327175,0.0034712818318616977
+20 stiffness low-T only,stiffness_low,40,3,600,relative edge stretch from frame 0,0.0015445516910403967,0.0024860126423060388
+20 stiffness low-T only,stiffness_low,40,4,800,reference positions,0.3067525029182434,0.4916380043362022
+20 stiffness low-T only,stiffness_low,40,4,800,reference edge direction,0.0669727697968483,0.10733851745153
+20 stiffness low-T only,stiffness_low,40,4,800,reference edge length,0.05671664699912071,0.09090083659633676
+20 stiffness low-T only,stiffness_low,40,4,800,spring stiffness,0.185535728931427,0.2973616014120042
+20 stiffness low-T only,stiffness_low,40,4,800,node displacement from frame 0,0.0027844863943755627,0.004462748701343011
+20 stiffness low-T only,stiffness_low,40,4,800,edge direction change from frame 0,0.0002294064179295674,0.00036767397957587013
+20 stiffness low-T only,stiffness_low,40,4,800,edge length change from frame 0,0.0028903894126415253,0.00463248146002676
+20 stiffness low-T only,stiffness_low,40,4,800,relative edge stretch from frame 0,0.0020578382536768913,0.0032981360629811933
+20 stiffness low-T only,stiffness_low,40,5,1000,reference positions,0.3069601058959961,0.48999263473919963
+20 stiffness low-T only,stiffness_low,40,5,1000,reference edge direction,0.06710990518331528,0.10712584021915873
+20 stiffness low-T only,stiffness_low,40,5,1000,reference edge length,0.05680331587791443,0.09067369301199264
+20 stiffness low-T only,stiffness_low,40,5,1000,spring stiffness,0.18573999404907227,0.29649204346894675
+20 stiffness low-T only,stiffness_low,40,5,1000,node displacement from frame 0,0.003319787560030818,0.00529929271611949
+20 stiffness low-T only,stiffness_low,40,5,1000,edge direction change from frame 0,0.0002847442519851029,0.00045453003037566073
+20 stiffness low-T only,stiffness_low,40,5,1000,edge length change from frame 0,0.00364774651825428,0.0058228052864490185
+20 stiffness low-T only,stiffness_low,40,5,1000,relative edge stretch from frame 0,0.002593012759461999,0.00413916052775808
+20 stiffness low-T only,stiffness_low,40,20,4000,reference positions,0.30738890171051025,0.461561624374612
+20 stiffness low-T only,stiffness_low,40,20,4000,reference edge direction,0.06819659471511841,0.10240100035612598
+20 stiffness low-T only,stiffness_low,40,20,4000,reference edge length,0.057605110108852386,0.08649729396918947
+20 stiffness low-T only,stiffness_low,40,20,4000,spring stiffness,0.1879216730594635,0.2821749002317835
+20 stiffness low-T only,stiffness_low,40,20,4000,node displacement from frame 0,0.010272488929331303,0.01542471654053949
+20 stiffness low-T only,stiffness_low,40,20,4000,edge direction change from frame 0,0.0018187614623457193,0.0027309720365272763
+20 stiffness low-T only,stiffness_low,40,20,4000,edge length change from frame 0,0.019488556310534477,0.02926315705398425
+20 stiffness low-T only,stiffness_low,40,20,4000,relative edge stretch from frame 0,0.013283777981996536,0.019946335437238026
+20 stiffness low-T only,stiffness_low,40,50,10000,reference positions,0.3054918050765991,0.40168606903422616
+20 stiffness low-T only,stiffness_low,40,50,10000,reference edge direction,0.07002042979001999,0.0920686929306918
+20 stiffness low-T only,stiffness_low,40,50,10000,reference edge length,0.05890505015850067,0.07745326601641313
+20 stiffness low-T only,stiffness_low,40,50,10000,spring stiffness,0.19150380790233612,0.2518051565477736
+20 stiffness low-T only,stiffness_low,40,50,10000,node displacement from frame 0,0.02697441168129444,0.03546820311613021
+20 stiffness low-T only,stiffness_low,40,50,10000,edge direction change from frame 0,0.008258452638983727,0.010858901357523886
+20 stiffness low-T only,stiffness_low,40,50,10000,edge length change from frame 0,0.05982779338955879,0.07866656566979904
+20 stiffness low-T only,stiffness_low,40,50,10000,relative edge stretch from frame 0,0.039542023092508316,0.051993145327442196
+20 stiffness + 20 node low-T,stiffness_low,40,0,0,reference positions,0.4730583429336548,0.7748742314628029
+20 stiffness + 20 node low-T,stiffness_low,40,0,0,reference edge direction,0.0397733673453331,0.06514916799327025
+20 stiffness + 20 node low-T,stiffness_low,40,0,0,reference edge length,0.05078403651714325,0.08318475269406506
+20 stiffness + 20 node low-T,stiffness_low,40,0,0,spring stiffness,0.046881187707185745,0.07679184784986179
+20 stiffness + 20 node low-T,stiffness_low,40,0,0,node displacement from frame 0,0.0,0.0
+20 stiffness + 20 node low-T,stiffness_low,40,0,0,edge direction change from frame 0,0.0,0.0
+20 stiffness + 20 node low-T,stiffness_low,40,0,0,edge length change from frame 0,0.0,0.0
+20 stiffness + 20 node low-T,stiffness_low,40,0,0,relative edge stretch from frame 0,0.0,0.0
+20 stiffness + 20 node low-T,stiffness_low,40,1,200,reference positions,0.4738076627254486,0.7693785076003596
+20 stiffness + 20 node low-T,stiffness_low,40,1,200,reference edge direction,0.03972412645816803,0.06450484349347295
+20 stiffness + 20 node low-T,stiffness_low,40,1,200,reference edge length,0.0507829450070858,0.08246237770059656
+20 stiffness + 20 node low-T,stiffness_low,40,1,200,spring stiffness,0.04684801399707794,0.07607275679287286
+20 stiffness + 20 node low-T,stiffness_low,40,1,200,node displacement from frame 0,0.0018805126892402768,0.003053614705276721
+20 stiffness + 20 node low-T,stiffness_low,40,1,200,edge direction change from frame 0,8.908946620067582e-05,0.00014466528496840013
+20 stiffness + 20 node low-T,stiffness_low,40,1,200,edge length change from frame 0,0.0010182916885241866,0.001653522729269505
+20 stiffness + 20 node low-T,stiffness_low,40,1,200,relative edge stretch from frame 0,0.0016810429515317082,0.002729711693183433
+20 stiffness + 20 node low-T,stiffness_low,40,2,400,reference positions,0.4744388163089752,0.7646283475376683
+20 stiffness + 20 node low-T,stiffness_low,40,2,400,reference edge direction,0.03964167833328247,0.06388842977354033
+20 stiffness + 20 node low-T,stiffness_low,40,2,400,reference edge length,0.050766658037900925,0.08181798055125898
+20 stiffness + 20 node low-T,stiffness_low,40,2,400,spring stiffness,0.046809542924165726,0.07544050407500626
+20 stiffness + 20 node low-T,stiffness_low,40,2,400,node displacement from frame 0,0.0036834650672972202,0.00593644893883637
+20 stiffness + 20 node low-T,stiffness_low,40,2,400,edge direction change from frame 0,0.00014561144053004682,0.00023467438018933212
+20 stiffness + 20 node low-T,stiffness_low,40,2,400,edge length change from frame 0,0.0019009087700396776,0.0030635957297151777
+20 stiffness + 20 node low-T,stiffness_low,40,2,400,relative edge stretch from frame 0,0.0030962214805185795,0.004990019013785251
+20 stiffness + 20 node low-T,stiffness_low,40,3,600,reference positions,0.4750420153141022,0.7598565252456743
+20 stiffness + 20 node low-T,stiffness_low,40,3,600,reference edge direction,0.03958595171570778,0.0633199648653221
+20 stiffness + 20 node low-T,stiffness_low,40,3,600,reference edge length,0.05074923858046532,0.08117627250532448
+20 stiffness + 20 node low-T,stiffness_low,40,3,600,spring stiffness,0.046778641641139984,0.07482507851362687
+20 stiffness + 20 node low-T,stiffness_low,40,3,600,node displacement from frame 0,0.005431699566543102,0.008688310140489066
+20 stiffness + 20 node low-T,stiffness_low,40,3,600,edge direction change from frame 0,0.00020605159807018936,0.0003295911651675843
+20 stiffness + 20 node low-T,stiffness_low,40,3,600,edge length change from frame 0,0.0028245283756405115,0.00451799261493301
+20 stiffness + 20 node low-T,stiffness_low,40,3,600,relative edge stretch from frame 0,0.004555178340524435,0.007286264949462675
+20 stiffness + 20 node low-T,stiffness_low,40,4,800,reference positions,0.4757070243358612,0.7552044073974983
+20 stiffness + 20 node low-T,stiffness_low,40,4,800,reference edge direction,0.03950890898704529,0.0627220130712582
+20 stiffness + 20 node low-T,stiffness_low,40,4,800,reference edge length,0.05072285607457161,0.08052461389819704
+20 stiffness + 20 node low-T,stiffness_low,40,4,800,spring stiffness,0.04674975574016571,0.07421715420120216
+20 stiffness + 20 node low-T,stiffness_low,40,4,800,node displacement from frame 0,0.00707291578873992,0.011228543838016795
+20 stiffness + 20 node low-T,stiffness_low,40,4,800,edge direction change from frame 0,0.0002712599525693804,0.0004306362976599614
+20 stiffness + 20 node low-T,stiffness_low,40,4,800,edge length change from frame 0,0.0037800248246639967,0.006000944408259823
+20 stiffness + 20 node low-T,stiffness_low,40,4,800,relative edge stretch from frame 0,0.006092243827879429,0.009671686887907727
+20 stiffness + 20 node low-T,stiffness_low,40,5,1000,reference positions,0.47641506791114807,0.7507994118150455
+20 stiffness + 20 node low-T,stiffness_low,40,5,1000,reference edge direction,0.03943575546145439,0.06214820646786074
+20 stiffness + 20 node low-T,stiffness_low,40,5,1000,reference edge length,0.05071801319718361,0.079928316801212
+20 stiffness + 20 node low-T,stiffness_low,40,5,1000,spring stiffness,0.04671766608953476,0.0736240278360298
+20 stiffness + 20 node low-T,stiffness_low,40,5,1000,node displacement from frame 0,0.008563024923205376,0.013494774848093612
+20 stiffness + 20 node low-T,stiffness_low,40,5,1000,edge direction change from frame 0,0.00033714104210957885,0.0005313125322093956
+20 stiffness + 20 node low-T,stiffness_low,40,5,1000,edge length change from frame 0,0.004732300061732531,0.007457799599956665
+20 stiffness + 20 node low-T,stiffness_low,40,5,1000,relative edge stretch from frame 0,0.007624772842973471,0.0120161500995923
+20 stiffness + 20 node low-T,stiffness_low,40,20,4000,reference positions,0.48555988073349,0.6838916902678325
+20 stiffness + 20 node low-T,stiffness_low,40,20,4000,reference edge direction,0.03832104429602623,0.05397365967890247
+20 stiffness + 20 node low-T,stiffness_low,40,20,4000,reference edge length,0.05069780349731445,0.07140583046990899
+20 stiffness + 20 node low-T,stiffness_low,40,20,4000,spring stiffness,0.0462673082947731,0.06516565500851704
+20 stiffness + 20 node low-T,stiffness_low,40,20,4000,node displacement from frame 0,0.028550447896122932,0.04021216505796973
+20 stiffness + 20 node low-T,stiffness_low,40,20,4000,edge direction change from frame 0,0.0021267258562147617,0.0029954083898898623
+20 stiffness + 20 node low-T,stiffness_low,40,20,4000,edge length change from frame 0,0.022138584405183792,0.031181311532837187
+20 stiffness + 20 node low-T,stiffness_low,40,20,4000,relative edge stretch from frame 0,0.03633349761366844,0.051174279594142225
+20 stiffness + 20 node low-T,stiffness_low,40,50,10000,reference positions,0.485307902097702,0.579483167325803
+20 stiffness + 20 node low-T,stiffness_low,40,50,10000,reference edge direction,0.03683188557624817,0.0439792091166259
+20 stiffness + 20 node low-T,stiffness_low,40,50,10000,reference edge length,0.050846606492996216,0.06071352321066957
+20 stiffness + 20 node low-T,stiffness_low,40,50,10000,spring stiffness,0.04467611759901047,0.05334563483963766
+20 stiffness + 20 node low-T,stiffness_low,40,50,10000,node displacement from frame 0,0.0677306279540062,0.080873933109483
+20 stiffness + 20 node low-T,stiffness_low,40,50,10000,edge direction change from frame 0,0.008891594596207142,0.010617031737821988
+20 stiffness + 20 node low-T,stiffness_low,40,50,10000,edge length change from frame 0,0.05717024952173233,0.06826428567608686
+20 stiffness + 20 node low-T,stiffness_low,40,50,10000,relative edge stretch from frame 0,0.086029052734375,0.10272321498387202

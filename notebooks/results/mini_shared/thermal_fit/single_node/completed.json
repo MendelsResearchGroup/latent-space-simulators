@@ -1,0 +1,31 @@
+{
+  "arm": "single_node",
+  "input_data_sha256": {
+    "node_mixed": {
+      "test": "f350d52d7b107f4e7500d78487b7116ad1e1537d19f13e32731b4aaad7864988",
+      "trainval": "86b6c3cb198850ccfcd32dc7aa03459523e00f69dddabd35d2755609579b3ac8"
+    },
+    "node_original": {
+      "test": "6ab61471ccf7e3b9a74a0c832a11d67584c71e7cf45c8221889b32fe2a671369",
+      "trainval": "f358d15e22609842ae260583555cb1c1a5a040f27332a8294b80c0247bd5fe62"
+    },
+    "stiffness_mixed": {
+      "test": "109341c81b040d0020552a3f04f32b874cbccbfd38b24ccfe0cdc0abd7fe2e29",
+      "trainval": "e739a87267c68588c9b02591cc38a5e9faa6f515ab4ec864f13c60a911aeb90d"
+    },
+    "stiffness_original": {
+      "test": "f33dfd4ad381cc1a1ff100b02c54486ee6614d81c7b2dc30163e29884fbb120b",
+      "trainval": "f5bd966ed9d6ca6734d14f80e92f4060b5b308a32a5b557ce5c61d434b60f3ee"
+    }
+  },
+  "model_sha256_after": {
+    "ae_sha256": "d06c1dcada9f52b4c42767e2036958ef9f14ce955e1e53b432ee26eac71ffaef",
+    "propagator_sha256": "6aa7d240f2347cd3553fa008b84666139c79f5e491c826fe866804c9e34b6a1b"
+  },
+  "model_sha256_before": {
+    "ae_sha256": "d06c1dcada9f52b4c42767e2036958ef9f14ce955e1e53b432ee26eac71ffaef",
+    "propagator_sha256": "6aa7d240f2347cd3553fa008b84666139c79f5e491c826fe866804c9e34b6a1b"
+  },
+  "status": "completed",
+  "test_used_for_selection": false
+}

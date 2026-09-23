@@ -1,0 +1,5 @@
+{
+  "status": "completed",
+  "estimator_source": "hpc/experiments/lj_latent_influence_edges/evaluate_postfit.py",
+  "response_used_for_training_or_selection": false
+}

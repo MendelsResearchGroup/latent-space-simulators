@@ -8,6 +8,8 @@ directories and logs to preserve provenance.
 | [Dynamics 01](../notebooks/dynamics/01_mixed_dataset_shared_latent_space.ipynb) | Shared representation and post-fit mechanical probes. |
 | [Dynamics 02](../notebooks/dynamics/02_mixed_dataset_shared_latent_rollout.ipynb) | Separate AE/propagator fitting and rollout evaluation. |
 | [Dynamics 03](../notebooks/dynamics/03_four_source_standard_ae_pca.ipynb) | Standard AE/PCA analysis with structural LJ edges. |
+| [200-MD-step dynamics](../notebooks/dynamics/200_md_step/README.md) | Dense-cadence 500-frame dynamics notebooks 01–03 and the low-T one-step-displacement AE comparison. |
+| [Shared AE response and latents](../notebooks/dynamics/04_shared_ae_response_and_latents.ipynb) | Three-source reconstruction R² curves, raw 2D latent trajectories, and post-fit physical correlations. |
 | [Compact LJ diagnostics](../notebooks/dynamics/diagnostics/compact_lj_reconstruction.ipynb) | Saved reconstruction and p-ratio results; no training. |
 | [Response and rollout diagnostics](../notebooks/dynamics/diagnostics/compact_lj_response_rollout.ipynb) | Source-wise p-ratio R-squared by horizon. |
 | [Engineering cohort](../notebooks/engineering/01_adam_engineering.ipynb) | Frozen-model engineering results and animations. |

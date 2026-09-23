@@ -1,0 +1,1036 @@
+{
+  "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s2026_code_v2/ae.pt",
+  "training_recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s2026_code_v2/recipe.json",
+  "checkpoint_sha256": "7d5785dd5c6723d48e9ca4ec795fe2b88dac7ca5ff5b6ac085c2be5a07d40236",
+  "training_recipe_sha256": "cc97aec4d890716753557adf0e7fb16238cd8fd288db11d2c395255812a8ac1d",
+  "runner_sha256": "6497c5a6d17e88f2ca99a1e1955959e52b3fd99f235238245d6663a9b6250394",
+  "metric_module_sha256": "3c39486956b340ca91e535ffd64dd33e170ec83ad824a64d0f8f23c6af04ff0c",
+  "source_code_root": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_training_gap/snapshots/runner_6497c5a6d17e88f2_v1",
+  "torch_version": "2.8.0+cu128",
+  "frames": [
+    25,
+    50,
+    100,
+    150,
+    199
+  ],
+  "metric": "physical-coordinate endpoint sides, quantile0.10, eps1e-12",
+  "near_zero_strain_flag": "max(abs(relative_side_strains)) <1e-5; flag only, never filters",
+  "split": "train",
+  "final_test_used": false,
+  "training_performed": false,
+  "selection_performed": false,
+  "schema_checks": [
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 178,
+      "inverse_reference_max_abs_error": 2.2811616418039193e-07,
+      "half_extent": [
+        7.787964820861816,
+        7.712800979614258
+      ],
+      "edge_count": 2408
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 199,
+      "inverse_reference_max_abs_error": 1.907498869968549e-07,
+      "half_extent": [
+        6.42821741104126,
+        6.458439350128174
+      ],
+      "edge_count": 1622
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 42,
+      "inverse_reference_max_abs_error": 2.3333271315095772e-07,
+      "half_extent": [
+        7.684894561767578,
+        7.873673915863037
+      ],
+      "edge_count": 2296
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 102,
+      "inverse_reference_max_abs_error": 1.8573189208836993e-07,
+      "half_extent": [
+        6.242630958557129,
+        6.249649524688721
+      ],
+      "edge_count": 1550
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 99,
+      "inverse_reference_max_abs_error": 1.9089750935563643e-07,
+      "half_extent": [
+        6.560502529144287,
+        6.370137691497803
+      ],
+      "edge_count": 1586
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 174,
+      "inverse_reference_max_abs_error": 1.9091837089035835e-07,
+      "half_extent": [
+        6.537889003753662,
+        6.335734844207764
+      ],
+      "edge_count": 1541
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 96,
+      "inverse_reference_max_abs_error": 1.779654326128366e-07,
+      "half_extent": [
+        5.989987850189209,
+        5.925992488861084
+      ],
+      "edge_count": 1381
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 70,
+      "inverse_reference_max_abs_error": 2.1276579786899674e-07,
+      "half_extent": [
+        7.168813228607178,
+        7.243788719177246
+      ],
+      "edge_count": 1977
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 93,
+      "inverse_reference_max_abs_error": 1.9013219798580394e-07,
+      "half_extent": [
+        6.376246929168701,
+        6.470643520355225
+      ],
+      "edge_count": 1699
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 104,
+      "inverse_reference_max_abs_error": 2.3179421759778052e-07,
+      "half_extent": [
+        7.790525436401367,
+        7.851471900939941
+      ],
+      "edge_count": 2337
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 103,
+      "inverse_reference_max_abs_error": 2.2931180865271017e-07,
+      "half_extent": [
+        7.482495307922363,
+        7.801820755004883
+      ],
+      "edge_count": 2350
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 73,
+      "inverse_reference_max_abs_error": 2.0091493979634834e-07,
+      "half_extent": [
+        6.807789325714111,
+        6.758705139160156
+      ],
+      "edge_count": 1849
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 36,
+      "inverse_reference_max_abs_error": 2.298259857980156e-07,
+      "half_extent": [
+        7.848506450653076,
+        7.748682498931885
+      ],
+      "edge_count": 2430
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 160,
+      "inverse_reference_max_abs_error": 1.6959694448814844e-07,
+      "half_extent": [
+        5.786435604095459,
+        5.6655144691467285
+      ],
+      "edge_count": 1299
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 25,
+      "inverse_reference_max_abs_error": 2.2033469804227934e-07,
+      "half_extent": [
+        7.495519161224365,
+        7.357989311218262
+      ],
+      "edge_count": 2166
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 114,
+      "inverse_reference_max_abs_error": 1.892050249807653e-07,
+      "half_extent": [
+        6.140859127044678,
+        6.348753452301025
+      ],
+      "edge_count": 1570
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 52,
+      "inverse_reference_max_abs_error": 2.418551048322115e-07,
+      "half_extent": [
+        8.149643898010254,
+        7.9699387550354
+      ],
+      "edge_count": 2606
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 198,
+      "inverse_reference_max_abs_error": 1.9918843463528901e-07,
+      "half_extent": [
+        6.792865753173828,
+        6.691262245178223
+      ],
+      "edge_count": 1811
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 180,
+      "inverse_reference_max_abs_error": 2.298781396348204e-07,
+      "half_extent": [
+        7.569908618927002,
+        7.728565692901611
+      ],
+      "edge_count": 2300
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 54,
+      "inverse_reference_max_abs_error": 2.4176529223041143e-07,
+      "half_extent": [
+        8.005334854125977,
+        8.11709976196289
+      ],
+      "edge_count": 2533
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 32,
+      "inverse_reference_max_abs_error": 1.6670895774950623e-07,
+      "half_extent": [
+        5.708798408508301,
+        5.717449188232422
+      ],
+      "edge_count": 1246
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 184,
+      "inverse_reference_max_abs_error": 2.1796392957185162e-07,
+      "half_extent": [
+        7.37103796005249,
+        7.355789661407471
+      ],
+      "edge_count": 2175
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 56,
+      "inverse_reference_max_abs_error": 2.0923400256833702e-07,
+      "half_extent": [
+        6.88788366317749,
+        7.03607702255249
+      ],
+      "edge_count": 1877
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 53,
+      "inverse_reference_max_abs_error": 2.293709258083254e-07,
+      "half_extent": [
+        7.711568355560303,
+        7.62752628326416
+      ],
+      "edge_count": 2286
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 158,
+      "inverse_reference_max_abs_error": 2.1884110879000218e-07,
+      "half_extent": [
+        7.387213230133057,
+        7.349036693572998
+      ],
+      "edge_count": 2275
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 110,
+      "inverse_reference_max_abs_error": 1.8673017621040344e-07,
+      "half_extent": [
+        6.278905868530273,
+        6.27587890625
+      ],
+      "edge_count": 1567
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 122,
+      "inverse_reference_max_abs_error": 1.864827936515212e-07,
+      "half_extent": [
+        6.269927978515625,
+        6.259860038757324
+      ],
+      "edge_count": 1548
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 0,
+      "inverse_reference_max_abs_error": 2.201599329509918e-07,
+      "half_extent": [
+        7.417457103729248,
+        7.409367084503174
+      ],
+      "edge_count": 2068
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 82,
+      "inverse_reference_max_abs_error": 2.345698248973349e-07,
+      "half_extent": [
+        7.734229564666748,
+        7.873540878295898
+      ],
+      "edge_count": 2396
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 176,
+      "inverse_reference_max_abs_error": 2.0068057438038522e-07,
+      "half_extent": [
+        6.764326572418213,
+        6.724084854125977
+      ],
+      "edge_count": 1890
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 1,
+      "inverse_reference_max_abs_error": 2.3047769559525477e-07,
+      "half_extent": [
+        7.757678985595703,
+        7.755451679229736
+      ],
+      "edge_count": 2419
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 2,
+      "inverse_reference_max_abs_error": 2.314823461802007e-07,
+      "half_extent": [
+        7.71515417098999,
+        7.852896213531494
+      ],
+      "edge_count": 2442
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 3,
+      "inverse_reference_max_abs_error": 2.0233875375197385e-07,
+      "half_extent": [
+        6.823418617248535,
+        6.749089241027832
+      ],
+      "edge_count": 1811
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 4,
+      "inverse_reference_max_abs_error": 2.177405917791475e-07,
+      "half_extent": [
+        7.423524379730225,
+        7.404092311859131
+      ],
+      "edge_count": 2070
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 5,
+      "inverse_reference_max_abs_error": 1.9782663684964064e-07,
+      "half_extent": [
+        6.789673805236816,
+        6.772985458374023
+      ],
+      "edge_count": 1838
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 6,
+      "inverse_reference_max_abs_error": 1.8761309661385894e-07,
+      "half_extent": [
+        6.435754299163818,
+        6.411445140838623
+      ],
+      "edge_count": 1631
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 7,
+      "inverse_reference_max_abs_error": 2.177173996642523e-07,
+      "half_extent": [
+        7.218160152435303,
+        7.372054100036621
+      ],
+      "edge_count": 2026
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 8,
+      "inverse_reference_max_abs_error": 2.0569785874613444e-07,
+      "half_extent": [
+        7.0904951095581055,
+        6.992929458618164
+      ],
+      "edge_count": 1880
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 9,
+      "inverse_reference_max_abs_error": 2.1486573587026214e-07,
+      "half_extent": [
+        7.211889266967773,
+        7.285406589508057
+      ],
+      "edge_count": 2004
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 10,
+      "inverse_reference_max_abs_error": 2.2369977159542032e-07,
+      "half_extent": [
+        7.394352436065674,
+        7.539142608642578
+      ],
+      "edge_count": 2087
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 11,
+      "inverse_reference_max_abs_error": 2.424562808300834e-07,
+      "half_extent": [
+        8.073155403137207,
+        8.161893844604492
+      ],
+      "edge_count": 2454
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 14,
+      "inverse_reference_max_abs_error": 2.0175227177787747e-07,
+      "half_extent": [
+        6.691787242889404,
+        6.82587194442749
+      ],
+      "edge_count": 1791
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 16,
+      "inverse_reference_max_abs_error": 1.7609460201128968e-07,
+      "half_extent": [
+        5.911036014556885,
+        5.9337897300720215
+      ],
+      "edge_count": 1372
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 17,
+      "inverse_reference_max_abs_error": 2.1985232478982653e-07,
+      "half_extent": [
+        7.397637367248535,
+        7.181203842163086
+      ],
+      "edge_count": 2007
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 18,
+      "inverse_reference_max_abs_error": 2.0320203475421295e-07,
+      "half_extent": [
+        6.703395366668701,
+        6.824851989746094
+      ],
+      "edge_count": 1796
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 19,
+      "inverse_reference_max_abs_error": 1.696226092917641e-07,
+      "half_extent": [
+        5.677469730377197,
+        5.740956783294678
+      ],
+      "edge_count": 1268
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 20,
+      "inverse_reference_max_abs_error": 2.0552784008032177e-07,
+      "half_extent": [
+        6.996588706970215,
+        6.860492706298828
+      ],
+      "edge_count": 1870
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 21,
+      "inverse_reference_max_abs_error": 1.899664141546964e-07,
+      "half_extent": [
+        6.381567001342773,
+        6.4399285316467285
+      ],
+      "edge_count": 1608
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 22,
+      "inverse_reference_max_abs_error": 2.2876056959830748e-07,
+      "half_extent": [
+        7.713647842407227,
+        7.890367031097412
+      ],
+      "edge_count": 2445
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 23,
+      "inverse_reference_max_abs_error": 2.2973702584749844e-07,
+      "half_extent": [
+        7.712779521942139,
+        7.607217311859131
+      ],
+      "edge_count": 2281
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 24,
+      "inverse_reference_max_abs_error": 1.8719637751019036e-07,
+      "half_extent": [
+        6.198775291442871,
+        6.2886481285095215
+      ],
+      "edge_count": 1565
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 26,
+      "inverse_reference_max_abs_error": 2.190588475059485e-07,
+      "half_extent": [
+        7.397390842437744,
+        7.299701690673828
+      ],
+      "edge_count": 2250
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 27,
+      "inverse_reference_max_abs_error": 2.1869107058591908e-07,
+      "half_extent": [
+        7.348216533660889,
+        7.459182262420654
+      ],
+      "edge_count": 2208
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 28,
+      "inverse_reference_max_abs_error": 1.7465151813667035e-07,
+      "half_extent": [
+        5.86909294128418,
+        5.707785606384277
+      ],
+      "edge_count": 1232
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 30,
+      "inverse_reference_max_abs_error": 2.2425490442401497e-07,
+      "half_extent": [
+        7.63133430480957,
+        7.664284706115723
+      ],
+      "edge_count": 2340
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 33,
+      "inverse_reference_max_abs_error": 2.424320655336487e-07,
+      "half_extent": [
+        7.9792351722717285,
+        8.144701957702637
+      ],
+      "edge_count": 2636
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 34,
+      "inverse_reference_max_abs_error": 2.0445980908334604e-07,
+      "half_extent": [
+        6.947281360626221,
+        6.8648505210876465
+      ],
+      "edge_count": 1886
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 35,
+      "inverse_reference_max_abs_error": 1.7540764929435682e-07,
+      "half_extent": [
+        5.897597312927246,
+        5.915998458862305
+      ],
+      "edge_count": 1290
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 37,
+      "inverse_reference_max_abs_error": 1.7321610812359722e-07,
+      "half_extent": [
+        5.69599723815918,
+        5.854318618774414
+      ],
+      "edge_count": 1250
+    },
+    {
+      "source": "lj_noisy",
+      "split": "train",
+      "original_index": 38,
+      "inverse_reference_max_abs_error": 2.1846892650501104e-07,
+      "half_extent": [
+        7.377340793609619,
+        7.436339855194092
+      ],
+      "edge_count": 2141
+    }
+  ],
+  "original_training_recipe": {
+    "code_hashes_sha256": "3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9",
+    "code_root": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/code_v2",
+    "code_version": "code_v2",
+    "config": {
+      "ae_config": {
+        "balance_sources": false,
+        "checkpoint_metric": "val_max_source_reconstruction",
+        "checkpoint_mode": "min",
+        "edge_feature_dim": 5,
+        "gradient_method": "source_mean",
+        "hidden_size": 96,
+        "latent_dim": 4,
+        "latent_tokens": 32,
+        "lr": 0.0001,
+        "max_epochs": 60,
+        "max_train_frames_per_sim": 200,
+        "max_val_frames_per_sim": 200,
+        "message_passing_steps": 2,
+        "mix_sources": true,
+        "model": "message_passing_reference16",
+        "node_feature_mode": "normalized_delta",
+        "patience": 12,
+        "pratio_eval_every": 0,
+        "target_mode": "normalized_delta",
+        "weight_decay": 1e-05
+      },
+      "batch_graphs": 32,
+      "cache_path": "/rg/mendels_prj/alexander.z/DL-course-project/notebooks/results/compact_lj_reconstruction/mp2_r16_d4_s2026_code_v2/ae.pt",
+      "cache_require_matching_config": true,
+      "coordinate_normalization": "position_normalization",
+      "early_stop_min_delta": 1e-05,
+      "edge_mode": "compact_stored",
+      "force_train": true,
+      "frame_skip": 1,
+      "model_seed": 2026,
+      "pos_dim": 2,
+      "should_rollout": false,
+      "should_train_propagator": false,
+      "split_seed": 123,
+      "static_context_use_physical_reference": true
+    },
+    "dataset_sha256": {
+      "depablo_low_temp": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09",
+      "depablo_mixed_temp": "b5c10f48a03df0822ddc4decb5792afa83b73fee755fa83cc588bbfdaa0d3a67",
+      "lj_noisy": "fc38574e9f0089cfb548ec8295337668a154fb7764e36231c2810fa96da88bd0",
+      "reid": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659"
+    },
+    "final_test_used": false,
+    "job_id": "4672471.zeus-master",
+    "lj_only_caveat": "LJ-only differs in normalization and update budget from shared fitting; it is a diagnostic comparison, not causal matched proof.",
+    "manifest_sha256": "5594798915164f3c730a13af1e1f7fb4c06673f06abff18daad4d8fbc6482045",
+    "mixed_evaluation": {
+      "coordinate_normalization": "position_normalization",
+      "dataset_mixture": [
+        {
+          "append_lj_indicator": true,
+          "label": "depablo_mixed_temp",
+          "lj_max_graph_distance": null,
+          "name": "depablo_mixed_temp",
+          "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-10k-mix-temp.pt",
+          "split_indices": {
+            "test": [],
+            "train": [],
+            "val": [
+              268,
+              161,
+              47,
+              191,
+              242,
+              208,
+              221,
+              140,
+              118,
+              158,
+              250,
+              136,
+              68,
+              96,
+              262,
+              70,
+              78,
+              44,
+              36,
+              39
+            ]
+          },
+          "train_count": 0,
+          "val_count": 20
+        }
+      ],
+      "dataset_name": "compact_lj_mixed_transfer",
+      "label": "mixed-T post-fit transfer only",
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-10k-mix-temp.pt",
+      "source_name": "depablo_mixed_temp"
+    },
+    "raw_lj_edge_control": {
+      "added_edge_count": 2032,
+      "all_added_stiffness_zero": true,
+      "all_original_indicator_zero": true,
+      "augmented_edge_count": 2408,
+      "declared_train_id": 178,
+      "edge_feature_schema": "vector_length_stiffness_is_lj_v1",
+      "raw_edge_count": 376,
+      "trajectory_length": 200
+    },
+    "response_selection": false,
+    "runner_sha256": "48f7e382fabdbbaa97b85501827e915a506f89efa868a88e5e6432b5bfd85cc6",
+    "seed": 2026,
+    "selection": "worst retained-source validation coordinate reconstruction only",
+    "shared_fit": true,
+    "smoke": false,
+    "source": {
+      "coordinate_normalization": "position_normalization",
+      "dataset_mixture": [
+        {
+          "append_lj_indicator": true,
+          "label": "reid",
+          "lj_max_graph_distance": null,
+          "name": "reid",
+          "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+          "split_indices": {
+            "test": [],
+            "train": [
+              60,
+              45,
+              43,
+              73,
+              85,
+              22,
+              47,
+              27,
+              87,
+              67,
+              71,
+              36,
+              65,
+              9,
+              81,
+              90,
+              68,
+              21,
+              24,
+              48,
+              1,
+              76,
+              78,
+              72,
+              55,
+              82,
+              34,
+              23,
+              94,
+              75
+            ],
+            "val": [
+              41,
+              49,
+              25,
+              93,
+              84,
+              96,
+              97,
+              13,
+              28,
+              52,
+              59,
+              57,
+              15,
+              53,
+              2,
+              88,
+              74,
+              31,
+              69,
+              19
+            ]
+          },
+          "train_count": 30,
+          "val_count": 20
+        },
+        {
+          "append_lj_indicator": true,
+          "label": "depablo_low_temp",
+          "lj_max_graph_distance": null,
+          "name": "depablo_low_temp",
+          "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+          "split_indices": {
+            "test": [],
+            "train": [
+              99,
+              145,
+              7,
+              133,
+              198,
+              13,
+              21,
+              107,
+              14,
+              77,
+              130,
+              50,
+              85,
+              104,
+              55,
+              54,
+              147,
+              117,
+              3,
+              67,
+              151,
+              79,
+              160,
+              12,
+              157,
+              171,
+              153,
+              59,
+              102,
+              69
+            ],
+            "val": [
+              161,
+              47,
+              191,
+              66,
+              118,
+              98,
+              2,
+              136,
+              131,
+              124,
+              105,
+              96,
+              152,
+              70,
+              169,
+              168,
+              126,
+              196,
+              138,
+              78
+            ]
+          },
+          "train_count": 30,
+          "val_count": 20
+        },
+        {
+          "append_lj_indicator": true,
+          "label": "lj_noisy",
+          "lj_max_graph_distance": 3,
+          "name": "lj_noisy",
+          "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/lj-noisy-eps0.01-sigma1.0-cutoff1.122_200sims_200frames.pt",
+          "split_indices": {
+            "test": [],
+            "train": [
+              178,
+              199,
+              42,
+              102,
+              99,
+              174,
+              96,
+              70,
+              93,
+              104,
+              103,
+              73,
+              36,
+              160,
+              25,
+              114,
+              52,
+              198,
+              180,
+              54,
+              32,
+              184,
+              56,
+              53,
+              158,
+              110,
+              122,
+              0,
+              82,
+              176,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              14,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              26,
+              27,
+              28,
+              30,
+              33,
+              34,
+              35,
+              37,
+              38
+            ],
+            "val": [
+              15,
+              79,
+              75,
+              181,
+              31,
+              142,
+              157,
+              12,
+              152,
+              29,
+              95,
+              183,
+              147,
+              43,
+              13,
+              40,
+              132,
+              61,
+              188,
+              67
+            ]
+          },
+          "train_count": 60,
+          "val_count": 20
+        }
+      ],
+      "dataset_name": "compact_lj_shared",
+      "label": "shared Reid + low-T + noisy-LJ",
+      "path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+      "source_name": "reid_lowT_lj"
+    },
+    "variant": "mp2_r16_d4"
+  }
+}

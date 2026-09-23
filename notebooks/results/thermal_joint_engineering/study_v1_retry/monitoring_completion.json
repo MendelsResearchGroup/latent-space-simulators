@@ -1,0 +1,13 @@
+{
+  "total": 72,
+  "valid": 72,
+  "per_temperature": {
+    "T0.1": {"total": 12, "valid": 12},
+    "T1": {"total": 12, "valid": 12},
+    "T5": {"total": 12, "valid": 12},
+    "T10": {"total": 12, "valid": 12},
+    "T20": {"total": 12, "valid": 12},
+    "T30": {"total": 12, "valid": 12}
+  },
+  "observed_at_utc": "2026-09-08T19:15:47Z"
+}

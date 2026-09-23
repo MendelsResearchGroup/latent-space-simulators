@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -N highT_to_lowAE
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=08:00:00
+#PBS -j oe
+#PBS -o notebooks/results/high_temperature_to_low_ae/pbs.log
+
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export LSS_PROJECT_ROOT="$PWD"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export MPLCONFIGDIR="/tmp/highT-lowAE-${PBS_JOBID}"
+mkdir -p notebooks/results/high_temperature_to_low_ae/logs
+exec >"notebooks/results/high_temperature_to_low_ae/logs/${PBS_JOBID}.log" 2>&1
+args=(--seed "${LSS_SEED}")
+if [[ "${LSS_SMOKE:-0}" == "1" ]]; then args+=(--smoke); fi
+/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u hpc/experiments/high_temperature_to_low_ae/run.py "${args[@]}"

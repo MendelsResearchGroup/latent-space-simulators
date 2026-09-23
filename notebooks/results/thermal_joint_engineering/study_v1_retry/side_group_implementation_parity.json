@@ -1,0 +1,128 @@
+{
+  "rows": [
+    {
+      "index": 47,
+      "variant": "original",
+      "side_groups_equal": true
+    },
+    {
+      "index": 47,
+      "variant": "positions_r4_b0",
+      "side_groups_equal": true
+    },
+    {
+      "index": 47,
+      "variant": "joint_r4_b0.25",
+      "side_groups_equal": true
+    },
+    {
+      "index": 47,
+      "variant": "joint_r4_b0.25_permuted",
+      "side_groups_equal": true
+    },
+    {
+      "index": 68,
+      "variant": "original",
+      "side_groups_equal": true
+    },
+    {
+      "index": 68,
+      "variant": "positions_r4_b0",
+      "side_groups_equal": true
+    },
+    {
+      "index": 68,
+      "variant": "joint_r4_b0.25",
+      "side_groups_equal": true
+    },
+    {
+      "index": 68,
+      "variant": "joint_r4_b0.25_permuted",
+      "side_groups_equal": true
+    },
+    {
+      "index": 140,
+      "variant": "original",
+      "side_groups_equal": true
+    },
+    {
+      "index": 140,
+      "variant": "positions_r4_b0",
+      "side_groups_equal": true
+    },
+    {
+      "index": 140,
+      "variant": "joint_r4_b0.25",
+      "side_groups_equal": true
+    },
+    {
+      "index": 140,
+      "variant": "joint_r4_b0.25_permuted",
+      "side_groups_equal": true
+    },
+    {
+      "index": 161,
+      "variant": "original",
+      "side_groups_equal": true
+    },
+    {
+      "index": 161,
+      "variant": "positions_r4_b0",
+      "side_groups_equal": true
+    },
+    {
+      "index": 161,
+      "variant": "joint_r4_b0.25",
+      "side_groups_equal": true
+    },
+    {
+      "index": 161,
+      "variant": "joint_r4_b0.25_permuted",
+      "side_groups_equal": true
+    },
+    {
+      "index": 242,
+      "variant": "original",
+      "side_groups_equal": true
+    },
+    {
+      "index": 242,
+      "variant": "positions_r4_b0",
+      "side_groups_equal": true
+    },
+    {
+      "index": 242,
+      "variant": "joint_r4_b0.25",
+      "side_groups_equal": true
+    },
+    {
+      "index": 242,
+      "variant": "joint_r4_b0.25_permuted",
+      "side_groups_equal": true
+    },
+    {
+      "index": 268,
+      "variant": "original",
+      "side_groups_equal": true
+    },
+    {
+      "index": 268,
+      "variant": "positions_r4_b0",
+      "side_groups_equal": true
+    },
+    {
+      "index": 268,
+      "variant": "joint_r4_b0.25",
+      "side_groups_equal": true
+    },
+    {
+      "index": 268,
+      "variant": "joint_r4_b0.25_permuted",
+      "side_groups_equal": true
+    }
+  ],
+  "source_hashes": {
+    "/rg/mendels_prj/alexander.z/DL-course-project/.venv/lib/python3.10/site-packages/graph_utils/pratio.py": "3c39486956b340ca91e535ffd64dd33e170ec83ad824a64d0f8f23c6af04ff0c",
+    "/rg/mendels_prj/alexander.z/MetaForge/src/legacy_graph_utils.py": "8b7a79fc790ae2c0650aeb7e2c1dc47bcc302fb53c4aaac3b11b83e8d680d07a"
+  }
+}

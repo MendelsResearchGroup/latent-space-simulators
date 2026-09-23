@@ -1,0 +1,14 @@
+{
+  "expected_p_ratio": -0.10344072336031537,
+  "observed_p_ratio": -0.10344072336031537,
+  "parity_error": 0.0,
+  "frame_count": 121,
+  "graph_sha256": "b410ac79404d44b561989e5dee854c1d28ed999b6ab713bd268224c79bc4d90e",
+  "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/engineering_animation/reid53/runs/engineered",
+  "lammps_binary": "/rg/mendels_prj/alexander.z/DL-course-project/.runtime/lammps/bin/lmp",
+  "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+  "pbs_job_id": "4674996.zeus-master",
+  "runner_sha256": "3d80248b982fe7c4e5fe6cdd4dff96f8b0ff7a5290ea4fcdd4ecee2fe8e0d252",
+  "donor_endpoint_physics_sha256": "3d5ea68a5c790ff77baab376ec29c7df07cb3de96b3cfabeb26727b139dbbee0",
+  "donor_auxetic_utils_sha256": "68b9577011023606130591dbdc329db305521fd53e5d2a43c61bada44f41d13c"
+}

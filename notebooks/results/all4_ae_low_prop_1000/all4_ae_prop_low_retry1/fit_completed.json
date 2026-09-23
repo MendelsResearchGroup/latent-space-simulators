@@ -1,0 +1,8 @@
+{
+  "frozen_ae_sha256_after": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+  "frozen_ae_sha256_before": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+  "job_id": "4687511.zeus-master",
+  "propagator_sha256": "4462bbd5912adf3b85407df65e8a18cd8f2fa24b6bb690dcb10fbc06fbed94a7",
+  "response_used_for_training_or_selection": false,
+  "status": "completed"
+}

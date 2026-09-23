@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#PBS -N latent_count_morph
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="$LSS_PROJECT_ROOT/notebooks/results/all4_coverage_1000/code_v5:$LSS_PROJECT_ROOT/notebooks/results/all4_coverage_1000/code_v5/src:/rg/mendels_prj/alexander.z/MetaForge/src"
+cd "$LSS_PROJECT_ROOT"; mkdir -p notebooks/results/latent_count_morph/logs
+export MATRIX_INDEX="${PBS_ARRAY_INDEX:-${LSS_MATRIX_INDEX:?set LSS_MATRIX_INDEX for a non-array gate job}}"
+read -r COUNT SEED < <(/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -c "import json,os; x=json.load(open('hpc/experiments/latent_count_morph/matrix.json'))[int(os.environ['MATRIX_INDEX'])]; print(x['count'],x['seed'])")
+exec >"notebooks/results/latent_count_morph/logs/${PBS_JOBID}.log" 2>&1
+/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u hpc/experiments/latent_count_morph/run.py --count "$COUNT" --seed "$SEED"

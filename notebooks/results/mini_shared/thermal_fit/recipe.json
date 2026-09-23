@@ -1,0 +1,19 @@
+{
+  "request": "Use full-trajectory linear fit for mixed-T p-ratio, post-fit only.",
+  "estimator": "Two OLS fits with intercept: width/height strain vs frame index; p=-slope_y/slope_x; known x compression.",
+  "sides": "Fixed frame0 q.10 groups, physical coordinate inversion unchanged.",
+  "normalization": "Each width/height series normalized by its first finite value, matching existing thermal engineering estimator.",
+  "min_fit_frames": 8,
+  "min_fitted_axial_total_strain": 0.001,
+  "step_curve": "Prefix0..t only; last199 uses all200 saved frames.",
+  "latent_association": "Mixed p_ratio is full200frame fitted groundtruth response repeated per trajectory; x/y deformation remain per-frame.",
+  "original_sources": "Reuse original endpoint metrics exactly; no re-inference.",
+  "endpoint_artifacts": "Preserve old tree; new per-network tables retain endpoint columns for mixed.",
+  "fitting": "No retraining/checkpointselection. Existing frozenAE and propagator files must hash unchanged.",
+  "validation": "Analytic \u00b10.4 response, exact agreement with existing thermal_metric.frame_time_ols_p_ratio, undefined zero compression, future-prefix independence passed.",
+  "interpretation": "Mixed is normalized strain slope ratio; original endpoint estimator uses raw boundary displacements with symmetric branch. Their definitions are explicitly distinct.",
+  "implementation": "Reuse existing thermal_metric.frame_time_ols_p_ratio via thin boundary-dimension adapter; no separate fitting algorithm.",
+  "helper_path": "hpc/experiments/ml_only_engineering/thermal_metric.py",
+  "helper_sha256": "e4b2a6af2ba9927a5ff8547eee58b34457674941b1efea2dcfa714cefba910bd",
+  "graph_utils_check": "Installed and current GitHub main both734c6b81b5cddc539d1fad2e465e333f45ee5a90; onlymainbranch exists, no trajectory linear-fit method."
+}

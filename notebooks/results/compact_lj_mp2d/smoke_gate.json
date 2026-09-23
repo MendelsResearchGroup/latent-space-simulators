@@ -1,0 +1,26 @@
+{
+  "smoke": {
+    "job_id": "4674631.zeus-master",
+    "submitted_at_utc": "2026-09-08T13:33:02.020458+00:00",
+    "pbs_started_local": "2026-09-08T16:33:02+03:00",
+    "pbs_finished_local": "2026-09-08T16:36:24+03:00",
+    "exit_status": 0,
+    "completed": "notebooks/results/compact_lj_mp2d/mp2_r16_d2_s123_code_v2_smoke/completed.json",
+    "bundle_reload_latent_equal": true,
+    "bundle_reload_decode_equal": true,
+    "checkpoint_sha256": "2344cd57c0d96a82cf168fc440dfcfc43e40ac7f1b629c8090ef70ec6d4b578d"
+  },
+  "production": {
+    "first_submitted_at_utc": "2026-09-08T13:37:08.047521+00:00",
+    "first_training_job_id": "4674650.zeus-master",
+    "smoke_finished_before_first_production_submission": true
+  },
+  "harness_comparison": {
+    "training_adapter_sha256_v2": "2bfc2b466ce45ddb04d6b44a0b154f65902bf1f94e256c34e273ca61ce220346",
+    "training_adapter_sha256_v4": "2bfc2b466ce45ddb04d6b44a0b154f65902bf1f94e256c34e273ca61ce220346",
+    "training_adapter_identical": true,
+    "training_pbs_difference": "LSS_CODE_VERSION code_v2 (smoke) versus code_v4 (production), which changes only the output directory/version label used by the adapter; model, data, donor source, resources, and arguments are unchanged.",
+    "donor_training_source_hashes_sha256": "3fbd7c8d6e117ce462ef290fabef3592c2b786bb45a6b8325d4fb9f353eacfb9",
+    "donor_recipe_sha256": "8297622dba26419e64e7ce815eeb0b4315430089c32e3e77cb15248aad27e2f4"
+  }
+}

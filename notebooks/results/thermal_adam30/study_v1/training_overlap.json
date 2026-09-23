@@ -1,0 +1,729 @@
+{
+  "method": "SHA256 JSON(nodecount, canonical undirected node-labelled pairs with exact stiffness); reciprocal consistency required; geometryadds float64 frame0 coordinates. Hash nonmatch cannotruleout relabelled isomorphism.",
+  "cohort_sha256": "becce842174438cf3af47ab28b9f475dcb6c91653248e5cd639a70118599f76e",
+  "prior_provenance_sha256": "24652870ad78360ad238ab105d2a709240af8226b94a24ea14a8c54736d2eef6",
+  "known": {
+    "actual_ae_training_initial_graphs": [
+      {
+        "source": "reid",
+        "index": 60,
+        "hash": "3266858b4c9d01d1751c0c6e3103bda139d1e78337ce20ee57d2b6a46263ad4c",
+        "geometry_hash": "af0c2ffb57f042811e0b1c653f18611817f648fca5bc57d83cd7e7b2aea176a8"
+      },
+      {
+        "source": "reid",
+        "index": 45,
+        "hash": "4edd781138e30dfa2a4d95215f0773515ff099207787fc2d13a66fa34ee6530a",
+        "geometry_hash": "4649e67c6df36944c2c01d1e74d900c55082ba1380bff15836c83e5aefd20929"
+      },
+      {
+        "source": "reid",
+        "index": 43,
+        "hash": "8e1d4aed344cd87e864e31757274fbd319d1074709c729de604fa41cc7983421",
+        "geometry_hash": "4e59550d886d0fd5657b1d5a00725b9f72567899668b97b8992d70902192eb3a"
+      },
+      {
+        "source": "reid",
+        "index": 73,
+        "hash": "0dd7dde032f6a013ae174ec1b1d1e449ac0e09537c930e3db5f7ddc7a177131e",
+        "geometry_hash": "4a16831cf1b8bf0682c75419f0b4de281e16dc8f0c0131a9fc09f6c0d9055c0b"
+      },
+      {
+        "source": "reid",
+        "index": 85,
+        "hash": "d20107236bf422df79eaa1e28eceafd913c3bf4e9abb5302ade294f3c46cfce3",
+        "geometry_hash": "df45ff14dffe7aaf5dbb6cd166aedfaa12654e615f43760739af04286b65045c"
+      },
+      {
+        "source": "reid",
+        "index": 22,
+        "hash": "27e02a832ce89ee885ae68a441e5643e54f0db6e08d3e86a20cf9c129fb7b089",
+        "geometry_hash": "421fc4ebd5d51a6a929cc501f11351ea8d84bfd6d2dd1593ddb0cff04412ba43"
+      },
+      {
+        "source": "reid",
+        "index": 47,
+        "hash": "587f67ca31fafb71d9548fa9c55859464af2bcd1b6119bdd4095bf7f7e9c6baa",
+        "geometry_hash": "8f3306bc7940261ac0426ba3603f9e7040cf48e3e6aa3f9dbdf650c136eac720"
+      },
+      {
+        "source": "reid",
+        "index": 27,
+        "hash": "7e2cd1d862da4b8b3368f5b453bb0e00b1759a3a0e887075a6a015e4bb280e5f",
+        "geometry_hash": "fe7dc052facbd5a90ffb0b0f79f98851e28d8aec737da7330ecc9e2ed2ab1b87"
+      },
+      {
+        "source": "reid",
+        "index": 87,
+        "hash": "7a768f28c6a31ba1e14132815d3a006e79ada9bdc8a4bb7447cdc07cb524bb0f",
+        "geometry_hash": "ebb97a7e442c0992e6e3e9d18c22f7c8bf60dd34cb3f768e823ed0bf5da12562"
+      },
+      {
+        "source": "reid",
+        "index": 67,
+        "hash": "37c64c2c06a4568c6ff6435d4e1a75d97f6ffcf78451d39c27025750b35cd9dc",
+        "geometry_hash": "8b754f3aa5c038109c418e785351f7af1a9e9e8cf21612026cf1eaaadcaaad77"
+      },
+      {
+        "source": "reid",
+        "index": 71,
+        "hash": "8384a847cd95e9e61a77c43c402082cfaf90135565193f326b277e52003fb3f0",
+        "geometry_hash": "86e96d7e2ee82c9a93c7e1c4d8622ad01f19373796c6e4a382eafdd01535db97"
+      },
+      {
+        "source": "reid",
+        "index": 36,
+        "hash": "11eda0f18f2c575a4d063cd76cde3cfcc50642bf9189542a5dcc23fedb8fcc6f",
+        "geometry_hash": "5b0d4a3717abc9921f9463749a4afc360001047476d66556c55789d5fc142b21"
+      },
+      {
+        "source": "reid",
+        "index": 65,
+        "hash": "edc14d4635c594619133216599a298f7ad29878c7dd64017134004046c0b871f",
+        "geometry_hash": "5bdfa803db8b28ce0c15ef3cedcb4469b78817b1a0c84a6da0c0d0cf2a88c26a"
+      },
+      {
+        "source": "reid",
+        "index": 9,
+        "hash": "1a2b6ddbc68da32a57b7691e5b01200bb1f490cc81b57db6a5cb18afbebacd11",
+        "geometry_hash": "afaf9338f2f9498b6fe316c5f9de9a944288305687901669df1b5a56e90dcbbc"
+      },
+      {
+        "source": "reid",
+        "index": 81,
+        "hash": "ff57db328e052da0c472d17192ae7d48a895367808acd090bbf7af681ceab06c",
+        "geometry_hash": "1236cb4ddd19a92c231ad9fbcbb31a05242f7103be40d1940d9377a14e09fca7"
+      },
+      {
+        "source": "reid",
+        "index": 90,
+        "hash": "1bed72f0cb49f2a7b1a74320e510e574bf44bf2aec91cb0703029b4101718bd0",
+        "geometry_hash": "57dd4d4ffcbc01a0bf8638ecf653f6c4a685380d821b5a6c198ee52829dc6e40"
+      },
+      {
+        "source": "reid",
+        "index": 68,
+        "hash": "e87836af91f5c312feefdeb52a662c2690463f713c0aa792d514e9c01080c81b",
+        "geometry_hash": "dc335e20185c14fc52d21d3025eb520a9e2a4ce8d5273a10f9117fbce5101f86"
+      },
+      {
+        "source": "reid",
+        "index": 21,
+        "hash": "32494d719fd6050b2f9228a431b32e10bba8d692b42de642a3167b084c85802f",
+        "geometry_hash": "160a7a31db54daf222919a82d707b94de2528f27c6d85efdc627cacbf95debec"
+      },
+      {
+        "source": "reid",
+        "index": 24,
+        "hash": "a6eb18d1673dc6ba4f5b8c83f2d0c29751c4db0baa32a0372836468531df345f",
+        "geometry_hash": "ee55a065e7c89a383be3d6702c8efc59e17db8d873471f82c9d7777f585ea0cf"
+      },
+      {
+        "source": "reid",
+        "index": 48,
+        "hash": "8f45681043f61e0d4c1c56859698bc6f1148d6ee3c2fed9a5f4a7c5ed0ce87c1",
+        "geometry_hash": "b5aba39bb1b62a892c6fd75271dd6a268fd3116b45214664c35d792585ba6219"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 99,
+        "hash": "70eb693334b882564aab77d5e48b0882bae9e69c90e2a8ced381af04a485235b",
+        "geometry_hash": "a83568edfac4e9a76e36b267a18429bb27760ac5b369c4e689e33a621b0b2798"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 145,
+        "hash": "6f725c87f0e05b5eda4aa3ca76681175da411d8eeb41f48873ac1af01f100bb9",
+        "geometry_hash": "6c053f4309f70189da7d25f4b08bcb76b9a78bb89970746b44ec66fab4fc6b4f"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 7,
+        "hash": "5288b0acf444d655b7be96d4377c96f1b8cdeb0e95398269560602e602e17608",
+        "geometry_hash": "4ac2b947aa9cfae37e68dd4d7b55accccb7469453b845f6b79d399896f76d617"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 133,
+        "hash": "6b8f53185a89c8cd59e6b635bd0d07dded8fc0ed2695c165097d6c450c988cf8",
+        "geometry_hash": "5226f27b46eeadb48e8605981a3a7ec8954fad789da05e1ad69d146fedc32b2f"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 198,
+        "hash": "1a699b5908dca50627dd276864207031e5305b949f9b63612b71aaeab5e15cf8",
+        "geometry_hash": "e08585487b4e6c4f6a812ee57ac5b57db7757e31e80f19fefd3693b6481c136a"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 13,
+        "hash": "f4b28cc07b9ffa0a45b8e36ae28e3fccdaa9875eb5d33386307237829cf8d99b",
+        "geometry_hash": "19b474aae757d066f48e7d663ef09f1e769de3fabee191ebb62b39cedf8b9bbf"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 21,
+        "hash": "db04f1205fc4b4a8752212afc5f734056775f64107d12428c26a10d082b9f038",
+        "geometry_hash": "3fc6892238e4de0ad223ed058c9bc1a969d11e2dfb987ab100fb82dcc62a51d9"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 107,
+        "hash": "af87dc5c6173ede4f781c44160917c6e046baa6932e7156382021c3d01f28e74",
+        "geometry_hash": "61e556cf956275dee27e487bc771304a75f86302354a6537f0b4609283d16803"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 14,
+        "hash": "11aa3c676c8c69938d8acfb13ec829a6457dd1dfdf8dda6b188cdd892405cd71",
+        "geometry_hash": "20468fcf779c3ba844c94be05cc8a9714a8bc0c89589568e5cf00ef187b6b64a"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 77,
+        "hash": "c7cf58b3f385b7af3eee78b4fac93d7c582edaec58e6c932ee6a24d5b472f2b9",
+        "geometry_hash": "31bd33bff9f9a80fdb620584c96958de2dc716336248e34a59bd933785c7bd2d"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 130,
+        "hash": "741ccf3d3fba538577d1f664bccd41c6a44dab8cea8826e219a0e3584d9ec0d6",
+        "geometry_hash": "beef7bdb907cd39f770bf9b0b4320c0059a32c1238a56b657440e3a3e8757d18"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 50,
+        "hash": "9c964313d54e435e6aac2125e364b0f4e5809671db594072d312738c07329dd8",
+        "geometry_hash": "952566efb9611356e4eef14e2af3e4717af2905cda7265cdebe59790bc56ae09"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 85,
+        "hash": "d6f51e24550e97a747b2e3848041ea46be2e202a4d19d4b6616e99de482c0289",
+        "geometry_hash": "f0b8f2f55f65177503d90eb7ac6d20d37b539ead799c57cae10a5afe23d6cd84"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 104,
+        "hash": "70116d50252f7a2f93d4fc91fc4f27d95e040e766d462769afc8e944544e9fbe",
+        "geometry_hash": "402c93ac4f02959f22b98fb0265971718ba0520297b2383e802a88aca7754f84"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 55,
+        "hash": "a7f06eb7ae846db7ccf7c801c30425679cb36b2fda2217d9daae7ebf6aab7fca",
+        "geometry_hash": "231686f89a5d28f0811ab6b45435b6808d00d619811ceb109f3a01b65d272447"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 54,
+        "hash": "459270bc7700f1ce0b7c0881dfac706cce884bcf332ec8291a8feb902fb2e648",
+        "geometry_hash": "f5688994d1e21838b76791a7a808ce383e86e3606b8f6f08802d114c49ce282e"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 147,
+        "hash": "02ef4f15961d240cc13ea14c6d28d01e91593ea3c73c3cb284d6a9608e61625a",
+        "geometry_hash": "8c7b30df196f2ece1f0a340bb14e44358332898ab8fdc6434d55fb96efd35095"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 117,
+        "hash": "d574b94c450cb32887a0ceef6588282922ed310f513f344de783be7ffb01462b",
+        "geometry_hash": "7508c0bab7d308edb55a682d4b25c0cd3d4cdf68b9410b2d1e12fa9a389f70e5"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 3,
+        "hash": "36cfc8b7bceac758ad9d17cdab7d379e318ef1bd671e6f4ad979481fe5aebfca",
+        "geometry_hash": "9e89e7643fbb8b26836f5a423ed68df5ab2cc0a85fc7a8cb6f0423045338d5ea"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 67,
+        "hash": "b5398aa2ad4c270e24f2d9f017d79ab9ec40e91068ab04e64dc32c080dc1abad",
+        "geometry_hash": "1f68690cf94bbd5ff25a04cc956977b3dd1efc83c6cb6e735da0a1394c9a4788"
+      }
+    ],
+    "historical_readout_calibration_initial_graphs": [
+      {
+        "source": "reid",
+        "index": 41,
+        "hash": "69d5b9ca6d72173e97e680556f404bcfa92b0c918b2e4d687c4d5b93516c0bee",
+        "geometry_hash": "1b0bf69765d54f03a3e783ee20dad5f141da4cbf6be177cfe0feb1f65c8658be"
+      },
+      {
+        "source": "reid",
+        "index": 49,
+        "hash": "15d81131562ca365c0e69de7c1956c10a56869b5539ea57177b8131769b97e7c",
+        "geometry_hash": "b666f927ca3d7180a094b47ca7fa61dc3b791dc0f625a4f8283bea22ebcad630"
+      },
+      {
+        "source": "reid",
+        "index": 25,
+        "hash": "34e581b85e9a42cf250c021feca37c9ef30901a58abd37bc72dc81d97574983c",
+        "geometry_hash": "5409a0be8a1edb8fce6cb6c75b7fe82f88b57f945d8219fba197326f32413c17"
+      },
+      {
+        "source": "reid",
+        "index": 93,
+        "hash": "273342b3fe54ff12fc30d2695a079abdae46f75aedc64dcff18e509bdad3354e",
+        "geometry_hash": "ed30aef0287dde465136c883d4b9164689a3bf9f29269c90d50d231f13329eda"
+      },
+      {
+        "source": "reid",
+        "index": 84,
+        "hash": "0e3c4904e8ae93f62305e8b0de29e58d6c40354d4739d14d8e73e302fdf64574",
+        "geometry_hash": "53485700099ce67d694c5fcdca295cbd4ceaddbeed051409eaef1e02d770a3cd"
+      },
+      {
+        "source": "reid",
+        "index": 96,
+        "hash": "5e130e2b4c49c8ef5a36c339a437aababeb97012415ac9b336ae5912d70faa23",
+        "geometry_hash": "fec0befd29e8b33ad0e968fc71f5d62fda4bff3265fea0ff47dfd6bceaaa6417"
+      },
+      {
+        "source": "reid",
+        "index": 97,
+        "hash": "7b5d4732d01869bd23c558d1acd417f8e018201c6ca9fe243fef9dcc5291cd45",
+        "geometry_hash": "ad4c5c05e5dba6a7504e71cb843fadd83b2becf23a0a81a1c83440a75f6f4bf6"
+      },
+      {
+        "source": "reid",
+        "index": 13,
+        "hash": "591acf5fc75d1c76317b5e017c3718b180bdd5ee8d4fcda1f6ecf0eec0870d5b",
+        "geometry_hash": "ce20f66e979ac9094086974081db2cce0858afc38245e85e2f824bb2e7bf44f6"
+      },
+      {
+        "source": "reid",
+        "index": 28,
+        "hash": "ea23d76e1d3eb804c8b393f0243a8c01059f10e1ccef3f87ff46d6d781f2630d",
+        "geometry_hash": "de5eca080bd971529bec705b5f07b6cbfad449c2da18af0a3f8251e3705b06a9"
+      },
+      {
+        "source": "reid",
+        "index": 52,
+        "hash": "c1bfb5d9c14571fb45f92c4c10060aae4d795563090101ff3d2351ef6dad1ea2",
+        "geometry_hash": "28b555fbfd688181895a4acb2c31897a336f6cf38c43d48eeeaad51383c7dda7"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 161,
+        "hash": "ede45d3b082c0ca941eb12d75c2cdbfbb303e4a89581e1b4128615cb09c22726",
+        "geometry_hash": "e03352d973af8f05aaefb7b6eb4180ae59a3b3e74f65870a1549e57908b73946"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 47,
+        "hash": "1f2dda0a28607c99727e7321a8cbbbf19626eb8af7750cc9eb26548fb74280cc",
+        "geometry_hash": "80f1317d93fed0c0ae272e320e55f9f50487011061c768de4d0858991b8e2dc3"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 191,
+        "hash": "f1130320cd4e1c6071c9da28210d44fb646350c1a9bf3f156c2863d4d77250bd",
+        "geometry_hash": "4f78eb0fd71e107a31d2645d1b1563aee9f0589b7881ee9bc5fd50797ab41836"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 66,
+        "hash": "6ad91ae6a45f799c5e9ed59fc741ad9ec5f9db901141ef713e8799eec00eff44",
+        "geometry_hash": "5b601b5e4a992f2c8488d569763b41aceb36e8ea346dec0e9042a737813bdc2e"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 118,
+        "hash": "1776927612b5910cb9b20ba21e001fc477d35b902f4b9626997d648efa332748",
+        "geometry_hash": "39ffed41ae3c6dd5a46458855fe5cad19e15e5ea983cb18c428c435efe9a8e51"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 98,
+        "hash": "4a75d70b45ac25b3ab8ed026a917a9e2e821e7091695293b05c95990207e9137",
+        "geometry_hash": "fed4dfc24194cf2acf8a45a53a729f25c4e6d3dbcca182a9b239ec15da41403c"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 2,
+        "hash": "14048d058425ff67dc07efb69bfb382a0be6b7ff768bdc9dad0c89bb08ee32ff",
+        "geometry_hash": "17fc42efd0e99a2b626b9336ed0820052881e167c231719fa02ada6877dba297"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 136,
+        "hash": "e0eee9bc6ee41912ccfa57f62731fe21a408aea24cb7471425f5be101f71e22a",
+        "geometry_hash": "63de728a0386572564b200e3c77d7ef21a955b56f0afdc473619748e8c1fc246"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 131,
+        "hash": "1b1e6de2f582074298fe7627b03e2ee69345f3ae49adc432d25e73a4f99e1faa",
+        "geometry_hash": "5002fa9ba24ffe0b0b5c142896819269c26deb8422251608b3611e6e4dad3b53"
+      },
+      {
+        "source": "depablo_low_temp",
+        "index": 124,
+        "hash": "5b550ba16d106ed96697927f4aa32b3f2f70ac5bee26d6913857da2544a229d8",
+        "geometry_hash": "2e795290a9e12fc5e5a9d46c653fb805373ac948c0c4e005c5c446bb31c9adb4"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "index": 47,
+      "temperature": 0.1,
+      "split": "val",
+      "previous_thermal_engineering": true,
+      "topology_stiffness_sha256": "1f2dda0a28607c99727e7321a8cbbbf19626eb8af7750cc9eb26548fb74280cc",
+      "geometry_sha256": "a3d4a44dc8fd21b640da1a33af8100dcd90c0604286ef76b30d5a774fe2de4a6",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 47,
+          "same_geometry": false
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "temperature": 0.1,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "6dc50f05768aedc4e47e04a0ef51c019cccd1c03d414380d791b2cda12f97691",
+      "geometry_sha256": "0f6cf493259bf92a80f42316d1a9c2bcf38ded57812f245a31c079e94ff5256e",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 36,
+      "temperature": 0.1,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "47cf275b490eb8d52dc3c94e6ee45daea9b5c747c28eae656c72a83b12151ea0",
+      "geometry_sha256": "c64ea352bccf62b0231316eabbd1babc573f3149de5ecd05151c1c8e2e803418",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 39,
+      "temperature": 0.1,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "857c71d696206523f0d5e8459645249203b19dda866c4260d63226d0209440e3",
+      "geometry_sha256": "6b44033779119e4d02004c51dc5f0781b0e9b542259de9a94e2be492fdd7b96a",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 13,
+      "temperature": 0.1,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "f4b28cc07b9ffa0a45b8e36ae28e3fccdaa9875eb5d33386307237829cf8d99b",
+      "geometry_sha256": "469d0b72443742762c5885a8c1b2c2a1c6b3599ec5d1422b08ca6ec658e39884",
+      "actual_ae_training_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 13,
+          "same_geometry": false
+        }
+      ],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 68,
+      "temperature": 1.0,
+      "split": "val",
+      "previous_thermal_engineering": true,
+      "topology_stiffness_sha256": "4509fad296720315f503218eaf0e2fe1b4f8e308711b7ab52042a7aadec7ff74",
+      "geometry_sha256": "2948e27e53841e7a1e4e1727d54822b9d1588633f9c9970919ba54717999ca0f",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 96,
+      "temperature": 1.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "f27b5253861d3da642a546b74c2d37693e4316423c46017c2a5a61b0e5d19d76",
+      "geometry_sha256": "090821d9cae9ff37099fa69ca3367815e6b9e6af59f6028104f668e6a0d3acc1",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 70,
+      "temperature": 1.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "4f5c8964e9f256bc513bbe36e0e486cc140d814f00f5d33c21c5c874db235fa9",
+      "geometry_sha256": "7a09d2f04ed17224e22446ea5676cd4a80c08c39230a09b0570a7109fde696d8",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 78,
+      "temperature": 1.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "d2051273daca61f10f1e6d8901490031b0dbc46b2cdbdc009aae0f652326a9db",
+      "geometry_sha256": "520fadc904a859bd5903bb22300f89d9243f8b1ed5d858cd67e0157b78dab203",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 77,
+      "temperature": 1.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "c7cf58b3f385b7af3eee78b4fac93d7c582edaec58e6c932ee6a24d5b472f2b9",
+      "geometry_sha256": "02696306796c7faf31fe4cffb8b6250e19c387e5ec1d52e0030f3531c60f3977",
+      "actual_ae_training_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 77,
+          "same_geometry": false
+        }
+      ],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 140,
+      "temperature": 5.0,
+      "split": "val",
+      "previous_thermal_engineering": true,
+      "topology_stiffness_sha256": "523a09d9669f5b3833951f729c6fcbcaaf3ce1b764ce751d5b7b18dcd9cfe4bb",
+      "geometry_sha256": "b4d2207b9e347ef6634dd0e0d09b034fd5135568fff53df5abba77204c648145",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 118,
+      "temperature": 5.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "1776927612b5910cb9b20ba21e001fc477d35b902f4b9626997d648efa332748",
+      "geometry_sha256": "d68a6437d609828b1d430950dd1c8df053c7ade63c161117c7550c9171a84299",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 118,
+          "same_geometry": false
+        }
+      ]
+    },
+    {
+      "index": 136,
+      "temperature": 5.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "e0eee9bc6ee41912ccfa57f62731fe21a408aea24cb7471425f5be101f71e22a",
+      "geometry_sha256": "146500f589598301128587b04c0aaff4d5777566291e80375fdeb8f7bc38a664",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 136,
+          "same_geometry": false
+        }
+      ]
+    },
+    {
+      "index": 109,
+      "temperature": 5.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "d97cd8eb410d4627c3d21b21f4366e45211d2fba77f418cd01f9eb7303111b9c",
+      "geometry_sha256": "51950fff3ddd1a2f16bc7523d5625933a6239cf3242102ae2cf774d06ffddf20",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 145,
+      "temperature": 5.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "6f725c87f0e05b5eda4aa3ca76681175da411d8eeb41f48873ac1af01f100bb9",
+      "geometry_sha256": "581283f8d633e11c798f16973746699577299ccadb317c8ebca00dd0984824c3",
+      "actual_ae_training_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 145,
+          "same_geometry": false
+        }
+      ],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 161,
+      "temperature": 10.0,
+      "split": "val",
+      "previous_thermal_engineering": true,
+      "topology_stiffness_sha256": "ede45d3b082c0ca941eb12d75c2cdbfbb303e4a89581e1b4128615cb09c22726",
+      "geometry_sha256": "b0f3dd1d407a3e4864158f469f325386706fe6a6914cf56be2847310913b6104",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 161,
+          "same_geometry": false
+        }
+      ]
+    },
+    {
+      "index": 191,
+      "temperature": 10.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "f1130320cd4e1c6071c9da28210d44fb646350c1a9bf3f156c2863d4d77250bd",
+      "geometry_sha256": "d427918832b0a0bf642fab04cf897bc5e47db26a25c3cd067ecaac3a754bbd37",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 191,
+          "same_geometry": false
+        }
+      ]
+    },
+    {
+      "index": 158,
+      "temperature": 10.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "3cad924dfe4ebf586a4c371aab11e1faed6248d4355a787adf355f353f565b96",
+      "geometry_sha256": "9c898bfd865245db13b533a0a590b56abc0a005b0bc788d6dd2bd45b9305e788",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 198,
+      "temperature": 10.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "1a699b5908dca50627dd276864207031e5305b949f9b63612b71aaeab5e15cf8",
+      "geometry_sha256": "3cbb879fee9b39da166e2461b88c142ffbf4362355a528eb1f394e3719947b85",
+      "actual_ae_training_initial_graphs": [
+        {
+          "source": "depablo_low_temp",
+          "index": 198,
+          "same_geometry": false
+        }
+      ],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 151,
+      "temperature": 10.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "365c5803fcd739b4bb8529680bbaaf2d5f26ea8408c20d060c34791cea8b1d0e",
+      "geometry_sha256": "b520a85c2dbae639864ae476ee637ac696327065b00f825feb4c9ced3d8922a3",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 242,
+      "temperature": 20.0,
+      "split": "val",
+      "previous_thermal_engineering": true,
+      "topology_stiffness_sha256": "0f063a5fba8ac5dff3fdecff1397c5150292193996ee786021d59cad83c1f9f4",
+      "geometry_sha256": "5f8960f0a41bb730afa87c2ffa009b103452a56b7a3fe9e87eaf32e201cac964",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 208,
+      "temperature": 20.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "8ad44ae1e03e4b1f023627606daa52c3dcd09299b81a88742f4b7aaf2510168a",
+      "geometry_sha256": "6a5b5c99ee4ad12b80758544863f7f1ef72359b59cdbfc288f03059f150b7325",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 221,
+      "temperature": 20.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "649d828f1b81b9f12a7864f47ffd6fb32432116bf60aa92598ad7ef077a4d6d9",
+      "geometry_sha256": "b1a61d4827c4aa88e5200da4e08bcb22da1164947fdd474edf29df93252d05e4",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 229,
+      "temperature": 20.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "103f9c11566eb7cf722204ed26d64732bb934e9bfb8d2591a97a4fbae54e748e",
+      "geometry_sha256": "529ff62afde3599a3628ea614820feab566309f50e9888eb7aa89013d49d67e7",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 234,
+      "temperature": 20.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "c0752b7459048c470483a1ff8fa779747ae8d6dad7e32ea0f8fbf35035757598",
+      "geometry_sha256": "d9d733aef4204b983ed9a58da4d662791c12e0a769ee915e2c66305d79d22c53",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 268,
+      "temperature": 30.0,
+      "split": "val",
+      "previous_thermal_engineering": true,
+      "topology_stiffness_sha256": "0af3d871c3e0da503deee853f18eed215cbd71c43e3b7b9866b53cf40b52b012",
+      "geometry_sha256": "e87bd64dd7bc8c91d846b1da5f34c00838a5c71071011852517f231578bd177d",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 250,
+      "temperature": 30.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "986f8829c95577f7222dc4ba32b667bfb1c4214edb0ae74406b5af844a71564b",
+      "geometry_sha256": "7108d638178cae8a94f855602c3fe3fe15d3f7f36090af8558b6e8fcfe257c33",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 262,
+      "temperature": 30.0,
+      "split": "val",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "692e7aa4c2a0b3757539ead711ea43ab034f7a0089664026906377fd7f690639",
+      "geometry_sha256": "86976806f797ce41de0dccda2aff9a8c3622837c9f702092c08023503f563425",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 265,
+      "temperature": 30.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "38e8cf6874553c8b68957b7c55c99050503d2cc07ac75d953446302f1ce1ad1d",
+      "geometry_sha256": "a4319dcc752153f0b8c45da3354d44b0caf533ea7279a8f9e8ea0c52fcd26ff2",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    },
+    {
+      "index": 290,
+      "temperature": 30.0,
+      "split": "train",
+      "previous_thermal_engineering": false,
+      "topology_stiffness_sha256": "0c276cced24a8b131db5b529cb11fb39f3fa50debe6c37cbec31b0f9485e4de5",
+      "geometry_sha256": "bfd0d14dafd05b6c6b645be124d6716563068d2a72a71ccc14348899dff5570c",
+      "actual_ae_training_initial_graphs": [],
+      "historical_readout_calibration_initial_graphs": []
+    }
+  ],
+  "valid": 30,
+  "total": 30
+}

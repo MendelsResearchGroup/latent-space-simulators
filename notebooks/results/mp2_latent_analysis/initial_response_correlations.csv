@@ -1,0 +1,9 @@
+source,latent,target,pearson_r,valid,total,model_seed
+depablo_low_temp,z0_initial,final_p_ratio_199,-0.8825079876771242,20,20,786
+depablo_low_temp,z1_initial,final_p_ratio_199,0.9074468847047881,20,20,786
+depablo_mixed_temp,z0_initial,final_p_ratio_199,-0.8688075374454453,20,20,786
+depablo_mixed_temp,z1_initial,final_p_ratio_199,0.8811613374902167,20,20,786
+lj_noisy,z0_initial,final_p_ratio_199,0.3331400813849075,20,20,786
+lj_noisy,z1_initial,final_p_ratio_199,0.3636929803647352,20,20,786
+reid,z0_initial,final_p_ratio_199,-0.3095272656364088,20,20,786
+reid,z1_initial,final_p_ratio_199,0.18727200998281512,20,20,786

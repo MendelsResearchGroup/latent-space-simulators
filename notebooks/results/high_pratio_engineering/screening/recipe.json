@@ -1,0 +1,128 @@
+{
+  "stage": "read_only_raw_trajectory_screen",
+  "frame_pair": [
+    0,
+    199
+  ],
+  "estimator": "calc_p_ratio_rollout_sides; directional first-frame box side strips; side_quantile=0.10; eps=1e-12",
+  "cohort": "only declared previous_recipe train+validation IDs; no final-test or other IDs",
+  "sources": {
+    "reid": {
+      "raw_path": "/rg/mendels_prj/alexander.z/DL-course-project/data/reid_200_frames.pt",
+      "raw_sha256": "991bfe6a0029b73d5dfe7070dfe360f057377667b594b5055d0fd6da7fb95659",
+      "train_ids": [
+        60,
+        45,
+        43,
+        73,
+        85,
+        22,
+        47,
+        27,
+        87,
+        67,
+        71,
+        36,
+        65,
+        9,
+        81,
+        90,
+        68,
+        21,
+        24,
+        48
+      ],
+      "val_ids": [
+        41,
+        49,
+        25,
+        93,
+        84,
+        96,
+        97,
+        13,
+        28,
+        52,
+        59,
+        57,
+        15,
+        53,
+        2,
+        88,
+        74,
+        31,
+        69,
+        19
+      ],
+      "valid": 40,
+      "total": 40
+    },
+    "depablo_low_temp": {
+      "raw_path": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-near-zero-temp.pt",
+      "raw_sha256": "7cfebb26d59e7908c06095445d954e68f628d9f439a94301fe472b96d8427f09",
+      "train_ids": [
+        99,
+        145,
+        7,
+        133,
+        198,
+        13,
+        21,
+        107,
+        14,
+        77,
+        130,
+        50,
+        85,
+        104,
+        55,
+        54,
+        147,
+        117,
+        3,
+        67
+      ],
+      "val_ids": [
+        161,
+        47,
+        191,
+        66,
+        118,
+        98,
+        2,
+        136,
+        131,
+        124,
+        105,
+        96,
+        152,
+        70,
+        169,
+        168,
+        126,
+        196,
+        138,
+        78
+      ],
+      "valid": 40,
+      "total": 40
+    }
+  },
+  "known_physical_baselines": {
+    "reid": {
+      "2": 0.2243478919150938,
+      "53": 0.09049821989813585,
+      "59": 0.163656355520557
+    },
+    "depablo_low_temp": {
+      "70": 0.3312936702000986,
+      "78": 0.3568775413791611,
+      "96": 0.18910070189475456
+    }
+  },
+  "outputs": {
+    "all_rows": "all_rows.csv",
+    "top3": "top3_per_source.csv",
+    "known_comparison": "known_baseline_comparison.csv"
+  }
+}

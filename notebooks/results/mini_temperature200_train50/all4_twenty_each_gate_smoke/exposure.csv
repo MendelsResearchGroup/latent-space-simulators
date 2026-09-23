@@ -1,0 +1,9 @@
+split,source,trajectory_id,temperature_K,frames,first_md_step,last_md_step
+train,node_low,0,1e-07,50,0,9800
+train,node_mixed,0,0.1,50,0,9800
+train,stiffness_low,0,1e-07,50,0,9800
+train,stiffness_mixed,0,0.1,50,0,9800
+validation,node_low,20,1e-07,50,0,9800
+validation,node_mixed,20,0.1,50,0,9800
+validation,stiffness_low,20,1e-07,50,0,9800
+validation,stiffness_mixed,20,0.1,50,0,9800

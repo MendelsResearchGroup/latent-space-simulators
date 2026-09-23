@@ -1,0 +1,190 @@
+{
+  "scope": "shared3x20",
+  "arm": "latent",
+  "seed": 786,
+  "smoke": false,
+  "job_id": "4697679.zeus-master",
+  "protocol": {
+    "study": "lj_mp2_scope20_downstream",
+    "question": "Do frozen 2D AE-scope influence edges improve a matched physical noisy-LJ GNN on a canonical 60/20 split?",
+    "scopes": [
+      "ljonly60",
+      "shared3x20"
+    ],
+    "seeds": [
+      123,
+      456,
+      786
+    ],
+    "arms": {
+      "base": "physical plus frozen LJ graph-distance-two/three relations",
+      "random": "same count of nonphysical pairs as latent for that graph",
+      "latent": "top five nonphysical partners/node from frozen latent perturbation"
+    },
+    "canonical_raw_split": "Reload ljonly60 seed-matched raw cache: exactly 60 noisy-LJ train and 20 held-out noisy-LJ validation trajectories for both scopes; shared3x20 latent cache is never used as the downstream trajectory split.",
+    "influence": {
+      "latent_perturbation": 0.001,
+      "propagated_horizons": [
+        5,
+        10,
+        20
+      ],
+      "top_partners_per_node": 5,
+      "exclude_existing_relations": "physical and graph-distance-two/three"
+    },
+    "physical_gnn": {
+      "architecture": "normalized acceleration GNN",
+      "hidden_dim": 64,
+      "message_passing_blocks": 4,
+      "epochs": 45,
+      "training_frames_per_trajectory_per_epoch": 2,
+      "batch_graphs": 4,
+      "selection": "validation one-step normalized acceleration MSE"
+    },
+    "evaluation": {
+      "split": "same held-out 20 noisy-LJ trajectories",
+      "autonomous_frames": [
+        4,
+        100
+      ],
+      "saved_physical_paths": true,
+      "postfit_horizons": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        75,
+        100
+      ]
+    },
+    "response_supervision": false,
+    "final_test_used": false,
+    "frozen_autoencoders": {
+      "ljonly60": {
+        "123": {
+          "sha256": "89dcc0b19ae40049405d6c595552a8488e2ffdfe3c4f85cc47b3d1e49987075e"
+        },
+        "456": {
+          "sha256": "75ebfe8b8304e24d98b69d4921b6ea89e1883dce559d1be5880a3b512f96718b"
+        },
+        "786": {
+          "sha256": "a408dc69a467b5d2a0b62b12ed6e034fefbb1684ad5005e0f9ccf6ebac915ba4"
+        }
+      },
+      "shared3x20": {
+        "123": {
+          "sha256": "81a3786895c743a17cf3d8cb5bfb71b3a2c7a7aeb92f3a33cf4e46caf0919237"
+        },
+        "456": {
+          "sha256": "af8535feff8e7438339bed63a5e13822efb1b2e81d4ca0e1050a0836d54c00f2"
+        },
+        "786": {
+          "sha256": "af3c59e80bd1c188dde9e4806e46952bfa4d7753500aa9e2fc8335efd3d5244b"
+        }
+      }
+    }
+  },
+  "protocol_sha256": "bcd3ad807cede3c08f4dc61930488cf680d04d9f21f58c15dbc71bb462fca5fd",
+  "code_manifest_sha256": "c431f6d40e08ce0aee7058722dafe120fe2ddf49e19c6053252bc0fae92b13a9",
+  "canonical_lj_ae_checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_mp2_scope20/ljonly60_s786/full/ae.pt",
+  "canonical_lj_ae_sha256": "a408dc69a467b5d2a0b62b12ed6e034fefbb1684ad5005e0f9ccf6ebac915ba4",
+  "scope_ae_checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_mp2_scope20/shared3x20_s786/full/ae.pt",
+  "scope_ae_sha256": "af3c59e80bd1c188dde9e4806e46952bfa4d7753500aa9e2fc8335efd3d5244b",
+  "latent_cache": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_mp2_scope20/latent/shared3x20_s786/full/cache.pt",
+  "latent_cache_sha256": "9acb5b4363422666d84f001c54b8fcbec48db4722b38889432c504714a0e2a27",
+  "latent_model": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/lj_mp2_scope20/latent/shared3x20_s786/full/latent_model.pt",
+  "latent_model_sha256": "02d49d51704f551dad99b86c534d890063ba3e61df88d332a6f76d408b6a4798",
+  "final_test_used": false,
+  "response_supervision_or_selection": false,
+  "validation_selection": "one-step normalized acceleration MSE",
+  "frozen_before": {
+    "ae": "a4b14af26b7062d635090c6a92b3cf21ef372086029501075ea28c9e82b6b8cf",
+    "latent": "81925bd29fff951f37af455f6d483259ae38751a734b6a8bebad7560512c8b10"
+  },
+  "frozen_after": {
+    "ae": "a4b14af26b7062d635090c6a92b3cf21ef372086029501075ea28c9e82b6b8cf",
+    "latent": "81925bd29fff951f37af455f6d483259ae38751a734b6a8bebad7560512c8b10"
+  },
+  "checkpoint_sha256": "b058c6dfe418042baba8ccbcc9734de2e8768ab59bf798e465e8d5eca7046dd3",
+  "predicted_position_paths_sha256": "43121ee07b20123b57dc3513bae6c1fdf963bfca0509d31f7a74f328916c5fd3",
+  "summary": [
+    {
+      "arm": "shared3x20_latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 10,
+      "p_ratio_r2": 0.9064154379190587,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 1.5133308327515617e-07,
+      "added_edges_mean": 740.85
+    },
+    {
+      "arm": "shared3x20_latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 20,
+      "p_ratio_r2": 0.8151493732209513,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 2.1130994974294257e-06,
+      "added_edges_mean": 740.85
+    },
+    {
+      "arm": "shared3x20_latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 30,
+      "p_ratio_r2": 0.768667430430982,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 7.911355176995056e-06,
+      "added_edges_mean": 740.85
+    },
+    {
+      "arm": "shared3x20_latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 40,
+      "p_ratio_r2": 0.7479622590457745,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 1.8597735400789413e-05,
+      "added_edges_mean": 740.85
+    },
+    {
+      "arm": "shared3x20_latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 50,
+      "p_ratio_r2": 0.7103286439697726,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 3.538816510456626e-05,
+      "added_edges_mean": 740.85
+    },
+    {
+      "arm": "shared3x20_latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 75,
+      "p_ratio_r2": 0.5937416264184394,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 0.00011034216633756359,
+      "added_edges_mean": 740.85
+    },
+    {
+      "arm": "shared3x20_latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 100,
+      "p_ratio_r2": 0.49510502113203325,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 0.00024053744560945488,
+      "added_edges_mean": 740.85
+    }
+  ]
+}

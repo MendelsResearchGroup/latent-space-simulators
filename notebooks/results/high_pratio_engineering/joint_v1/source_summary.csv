@@ -1,0 +1,5 @@
+source,mode,bound,position_radius,model_seed,valid,total,improved,negative,target,mean_change
+depablo_low_temp,joint,0.25,4.0,786,2,2,2,0,0,-0.29889369071310856
+depablo_low_temp,joint,1.0,4.0,786,2,2,2,0,0,-0.29873965969733063
+reid,joint,0.25,4.0,786,2,2,2,0,0,-0.3149981944865843
+reid,joint,1.0,4.0,786,2,2,2,0,0,-0.2720340171214731

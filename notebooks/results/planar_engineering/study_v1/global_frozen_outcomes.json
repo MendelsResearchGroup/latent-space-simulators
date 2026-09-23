@@ -1,0 +1,1287 @@
+{
+  "expected": 40,
+  "observed": 40,
+  "missing": [],
+  "outcomes": [
+    {
+      "cohort": "same10_reid",
+      "index": 93,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05879003007372894,
+        "minimum_pair_clearance": 0.05879003007372894,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "ba7f38ab59e1ca6e67bc63dd1be034c3e744f890385bb5ca4c9939f575f245c0",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/original.pt",
+          "graph_sha256": "b066ba746412be613f7cef2fd6f0203275078c90b5014e1cfcca09da389543ad"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/optimized.pt",
+          "graph_sha256": "0f54cea76f27013117c1ef5d97230b6f2b8b0bc41fe0bc9eac6bcaa98390154b"
+        }
+      ],
+      "pbs_job_id": "4677331.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 84,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05917278170863889,
+        "minimum_pair_clearance": 0.05917278170863889,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_84/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "8dc82c3b3595f2a10acd75b18308a933108ec29a4c1a7aa257aae0d0df1b2e15",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_84/frozen/original.pt",
+          "graph_sha256": "05c6d33ca81e35e248d38242375f48814d84e9516da1eb702e70c217d639a8f0"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_84/frozen/optimized.pt",
+          "graph_sha256": "ed5857fe0d939ca9d79761a08a118933a4912ce46aea92dddfe506a77be7dc2c"
+        }
+      ],
+      "pbs_job_id": "4677332.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 96,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05880465005161676,
+        "minimum_pair_clearance": 0.05880465005161676,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_96/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "b93016938a506f3c5fc212abdc73e91269c43cdd98be19cb2bb2633a08e55619",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_96/frozen/original.pt",
+          "graph_sha256": "834ec1f3619e061ab0e457d7052a3c68a5cc8fef0b23e099ae6a170c5ddd577c"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_96/frozen/optimized.pt",
+          "graph_sha256": "dec64ca901348b269f5776f207e1eaaef7a640a2306bb8f1a690c40b40fe1d36"
+        }
+      ],
+      "pbs_job_id": "4677333.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 97,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.0587636491794918,
+        "minimum_pair_clearance": 0.0587636491794918,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_97/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "6869f8944cd2a49020d15e36cd2c247b47599b30a927dba2f1f62cb0f2df6777",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_97/frozen/original.pt",
+          "graph_sha256": "f4f6c473913f5c079382dd78c4d83ddd62c82c16edaad9c9d21d75cad9b1b493"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_97/frozen/optimized.pt",
+          "graph_sha256": "a21e9772ca6abce09510fc5f043bfbaece7cb58176b4adba5f81649c10dbb0cb"
+        }
+      ],
+      "pbs_job_id": "4677334.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 52,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05869199926946518,
+        "minimum_pair_clearance": 0.05869199926946518,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_52/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "42eb78bbb9c45d99efb7f4f519209fa49e6ebc362b868764aaab5c43a18241e5",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_52/frozen/original.pt",
+          "graph_sha256": "1bab7276ebb74af48a943f0432f05363e4f3696b271042296ca4f2115dcd65c3"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_52/frozen/optimized.pt",
+          "graph_sha256": "a038cb3d8d5b24d8c1a61839efc24fd52f869103d5e657919e2c8010025025c2"
+        }
+      ],
+      "pbs_job_id": "4677335.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 59,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05940398018491544,
+        "minimum_pair_clearance": 0.05940398018491544,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_59/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "b508c38c988cafb26f8ee2a3e342c3f129925899129e66764d70243d721d7442",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_59/frozen/original.pt",
+          "graph_sha256": "869518f03dad973d2d43798db5f64eccc810c6cbfa5ae6ca729587039d77dbc2"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_59/frozen/optimized.pt",
+          "graph_sha256": "31add2e2a1e75a6fc535ab8e9734f33f4dd30627029b92c0d424dc03ad4327fc"
+        }
+      ],
+      "pbs_job_id": "4677336.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 57,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05955711095444303,
+        "minimum_pair_clearance": 0.05955711095444303,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_57/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "024029695eb6f711022730a8db0349d89d49d92623cf049f1de8cf6aeabbcc92",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_57/frozen/original.pt",
+          "graph_sha256": "8bdb01aa8d20d4ce7bc9c21e6a1d80309e372ce2080e5403866d601b00ff1bb2"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_57/frozen/optimized.pt",
+          "graph_sha256": "b4870af5a5ae1f096e0d76bee7dd59b88be68787ae91fa2c88ddb961e2b2dd3e"
+        }
+      ],
+      "pbs_job_id": "4677337.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 53,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05895365897619893,
+        "minimum_pair_clearance": 0.05895365897619893,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_53/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "c06f06c667a49abfc044b0936d87a422e46c5d75945fa6609d7f521255497ad0",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_53/frozen/original.pt",
+          "graph_sha256": "c8b8a0d4331e5608fba9a8a8c183f513c64e4353560596a0ce87f3721d45af10"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_53/frozen/optimized.pt",
+          "graph_sha256": "747df659194f107f4ef22a14db194b7c1e819afad46f38765ba9233a8a1901ab"
+        }
+      ],
+      "pbs_job_id": "4677338.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 2,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.058391597501424045,
+        "minimum_pair_clearance": 0.058391597501424045,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_2/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "e9bfe6b4ca688d97e1989bbac31d5ec1cf1e0026145c39334e138300fa53ea49",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_2/frozen/original.pt",
+          "graph_sha256": "b42adc7bac6a57e0fb2c021481d556c08979bf801e16a2afb480417cc6f058bc"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_2/frozen/optimized.pt",
+          "graph_sha256": "3a1360c9e3112529e72e9519dc0bc86396035427774337c3a793f9c868f5fbba"
+        }
+      ],
+      "pbs_job_id": "4677339.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "same10_reid",
+      "index": 74,
+      "temperature": null,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05911887704976853,
+        "minimum_pair_clearance": 0.05911887704976853,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "7378b42789bd13076266dc729a9c8fe411ccf42f71ca59071e73c93f704c653b",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/original.pt",
+          "graph_sha256": "981fcdd90d0c026e46f0e7367c26921e723ea3ddd9bda9fc0788b166114378fb"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_74/frozen/optimized.pt",
+          "graph_sha256": "472b3f99bea0002a8e7945a2504d59d68d464f67d2f9c5647d869a4d56c3e86c"
+        }
+      ],
+      "pbs_job_id": "4677340.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 47,
+      "temperature": 0.1,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05918721190373823,
+        "minimum_pair_clearance": 0.05918721190373823,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_47/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "65c36e881814fc284beb8ceef9d3eb6a64731d9fa26466be64eaaf5f8cef48a0",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_47/frozen/original.pt",
+          "graph_sha256": "0b1dc0112a2af3b2161ea2278e9035a9185eb6c2a6a1c1bbd1c6f640647aa959"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_47/frozen/optimized.pt",
+          "graph_sha256": "3cf86af0a21e0fc4fdb0c16c688e7837a6b4a8a78c5b335ea4095f0779cb0ba5"
+        }
+      ],
+      "pbs_job_id": "4677341.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 44,
+      "temperature": 0.1,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06606048332447588,
+        "minimum_pair_clearance": 0.06606048332447588,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_44/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "2d2e5110e15e9128ae459d0667ccf831a03689a7f344d33d3582189a1eff9612",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_44/frozen/original.pt",
+          "graph_sha256": "594ddf9b63cbebcd7d45a5156bddf924e9b6f865e9e8e8520a1a7f4765edcd2d"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_44/frozen/optimized.pt",
+          "graph_sha256": "06d40aa5bf3471ca148b3bbaa4d74c010314eb6d4ac2c39692f3e03d08f2d054"
+        }
+      ],
+      "pbs_job_id": "4677342.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 36,
+      "temperature": 0.1,
+      "status": "cancelled_by_user",
+      "reason": "User requested dropping unfinished optimization and proceeding with the other designs.",
+      "pbs_job_id": "4677343.zeus-master",
+      "physics_used": false,
+      "periodic_pristine_violating_pairs": [],
+      "cancelled_at": "2026-09-09T11:20:06.186984+00:00"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 39,
+      "temperature": 0.1,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06200955922632332,
+        "minimum_pair_clearance": 0.06200955922632332,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_39/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "16a27b6f71a01da8414f85df22990f746da086615ac0acfc0885a8b18ea9cfc1",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_39/frozen/original.pt",
+          "graph_sha256": "e7e69251e039a8b71ae0c77bbcef23f4617371e62ad477757414f183c4f14854"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_39/frozen/optimized.pt",
+          "graph_sha256": "1c6b01eed10b9eee0de55b64671cacffaa8410dcdcc4f669140f890e69359b4d"
+        }
+      ],
+      "pbs_job_id": "4677344.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 13,
+      "temperature": 0.1,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.059206513652308,
+        "minimum_pair_clearance": 0.059206513652308,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_13/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "6e800b11a8fa66491799b9257238f45c334fb58d1cde3771619a65080c6f2807",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_13/frozen/original.pt",
+          "graph_sha256": "386e78723b191d1ba84a3750ae8ce1c5441960c2231c8f8e08ba468c001e731f"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_13/frozen/optimized.pt",
+          "graph_sha256": "95b9b5bb261b1b4bafce485a95cbf614b45a0a08d72cb634559e96048e16181d"
+        }
+      ],
+      "pbs_job_id": "4677345.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 68,
+      "temperature": 1.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06673758619304529,
+        "minimum_pair_clearance": 0.06673758619304529,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_68/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "b87d4f902a4e4821677edab37519a416b6fe888197771ef7760553802fa30231",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_68/frozen/original.pt",
+          "graph_sha256": "0b8cc288c43831cb36d36647ff14a4e7821d1e43f5060d9a0d828b45d7c75167"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_68/frozen/optimized.pt",
+          "graph_sha256": "b65d10993cb907e2d2b5c563ae7fdd895795aecf30e4974e3d732236c050032f"
+        }
+      ],
+      "pbs_job_id": "4677346.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 96,
+      "temperature": 1.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.059887227609791864,
+        "minimum_pair_clearance": 0.059887227609791864,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_96/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "b333a79a2645533c00d8974f767cba13d3d5c85bd0ab9584fb9b4c4d39387781",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_96/frozen/original.pt",
+          "graph_sha256": "f535807156b766b298fc2d482a07db90e6a5f97f625f2f98c20801a0328b81cb"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_96/frozen/optimized.pt",
+          "graph_sha256": "8a146e75b3c589e2a2bf9bf800ed96cf870dd0e9b2a949b0c5af35904e894af8"
+        }
+      ],
+      "pbs_job_id": "4677347.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 70,
+      "temperature": 1.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05914764770566652,
+        "minimum_pair_clearance": 0.05914764770566652,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_70/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "b244cd7b726ae03260659b1079de453fabecddd8338a28127d1f9294a6493bb2",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_70/frozen/original.pt",
+          "graph_sha256": "7ed7d89f2bf3be2ec6e58ec46ac6b3b2bdf9ab1165bf96c78d432fb989a52bf7"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_70/frozen/optimized.pt",
+          "graph_sha256": "f1819d63dc139df3c46879120f1524606a49e3094dd983cf01f02592acdba56b"
+        }
+      ],
+      "pbs_job_id": "4677348.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 78,
+      "temperature": 1.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05938663834015445,
+        "minimum_pair_clearance": 0.05938663834015445,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_78/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "90739d50f20b0a3d73e8f3e96275405270a1fed3c6697377654ca0a4f8fecf3d",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_78/frozen/original.pt",
+          "graph_sha256": "47d73d0fad20df91fbac351970b9f4b3d323a39ef56f7f50d4a8d1bc9c0970ee"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_78/frozen/optimized.pt",
+          "graph_sha256": "429c04e8ca557a2ff5eaa4db257edea02f97a13089ff307b6a0b9939f354e652"
+        }
+      ],
+      "pbs_job_id": "4677349.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 77,
+      "temperature": 1.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.060826529444149305,
+        "minimum_pair_clearance": 0.060826529444149305,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_77/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "3dca3893e46f72eed8ec9ce7b777dc0a39ff378c33b86c61570e88426d6d42ef",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_77/frozen/original.pt",
+          "graph_sha256": "0b86dc2d4baa5e32c53dd3594d228995eb757d91e4620d78756718bd7931f1a3"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_77/frozen/optimized.pt",
+          "graph_sha256": "d142888fc6fde96b4c753e230ad91bbd41f2fb510025243e6252961c3df414f2"
+        }
+      ],
+      "pbs_job_id": "4677350.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 140,
+      "temperature": 5.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05899121385146464,
+        "minimum_pair_clearance": 0.05899121385146464,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_140/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "3c18e8a7457af1cf8d647b59a006ece1f67ced37f1d50086667b6fbd72563fb8",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_140/frozen/original.pt",
+          "graph_sha256": "4233765b6bd62229756cc359dae57767330842e13b054a9353ad754999f60f65"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_140/frozen/optimized.pt",
+          "graph_sha256": "82ee136ea5ad879e51d40a8e55133ae2456bcd02799e93508074f961fe0cacad"
+        }
+      ],
+      "pbs_job_id": "4677351.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 118,
+      "temperature": 5.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06191530258394552,
+        "minimum_pair_clearance": 0.05957266565027808,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_118/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "5ecac2de9ddf5a48a9137fa948a9108f0e5b903a7cee4db12429fa1aebd96fdf",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_118/frozen/original.pt",
+          "graph_sha256": "2138ee9901bb0f62f9dd54e3fd72d90a8675fc70f9c40f4cc00ccd4d504992a0"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_118/frozen/optimized.pt",
+          "graph_sha256": "a30b48f85fc8931a369350856c873e61227848338e1bb48557e71da84db88167"
+        }
+      ],
+      "pbs_job_id": "4677352.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 136,
+      "temperature": 5.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06581635154303342,
+        "minimum_pair_clearance": 0.06581635154303342,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_136/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "a50d8b28cbda727dee949102e86d2070d6417d7e9d04f9552d541872c425457b",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_136/frozen/original.pt",
+          "graph_sha256": "74a1b24c99e1a4951dda88b9d0204367f35005cf4b5236bbebc79f92f69d4e74"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_136/frozen/optimized.pt",
+          "graph_sha256": "621416cc8459260fa28d8c08a88c49a8c0cd996bf8a71f1008fe332af3fe535f"
+        }
+      ],
+      "pbs_job_id": "4677353.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 109,
+      "temperature": 5.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06039960293693637,
+        "minimum_pair_clearance": 0.06039960293693637,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_109/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "c40c2402222a7b355217a607a228b8f58d7993120d267c65762cb8830d7a0164",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_109/frozen/original.pt",
+          "graph_sha256": "d236378710a76d99dde1c13c354e6f37a8be3285660a98c5a6b38ae1e4d962d4"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_109/frozen/optimized.pt",
+          "graph_sha256": "eacf0ed35f86a41e30605dc70cfc89176839f8b28d8ce3ef501cd66e1e883c67"
+        }
+      ],
+      "pbs_job_id": "4677354.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 145,
+      "temperature": 5.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06668531136309083,
+        "minimum_pair_clearance": 0.06668531136309083,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_145/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "d4b5c33db5e216bf0e05121e3529cd300c598d280bc7814bb68189999ce54796",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_145/frozen/original.pt",
+          "graph_sha256": "75a819db7c27f1b6b8a0f17bd29a8a103b35b00b55526e6fdb48a69c6c15325a"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_145/frozen/optimized.pt",
+          "graph_sha256": "a0d6787607659c437b9f8467816fd48a9493061d8c91801997f48097437201e1"
+        }
+      ],
+      "pbs_job_id": "4677355.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 161,
+      "temperature": 10.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.05896855907095005,
+        "minimum_pair_clearance": 0.05896855907095005,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_161/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "0dc0b4f30ffd48b9f6a9a68572caee8198d410cc8761385e276de2e3d31c6997",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_161/frozen/original.pt",
+          "graph_sha256": "ae270e61c8d0b7993958454a3b22276b93fc78452ed3b15b0198468b51e2a941"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_161/frozen/optimized.pt",
+          "graph_sha256": "dffb8098d8c83853adf0e93539b60397ad4448df6e6a4ac11748cab59c65fc9f"
+        }
+      ],
+      "pbs_job_id": "4677356.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 191,
+      "temperature": 10.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.058960202639706985,
+        "minimum_pair_clearance": 0.058960202639706985,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_191/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "06cd6561deda3e83be8859198c208ef74b15ee26cfd745aad8889807fb102d72",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_191/frozen/original.pt",
+          "graph_sha256": "79485665b7d1ac7857ad899a3b2b6e0b01a576f3bfe450605bd36a94636c195a"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_191/frozen/optimized.pt",
+          "graph_sha256": "085ca9cd47b0107be668a3da20ecb358c07d2ff20b515fa14c0f85a6270c305a"
+        }
+      ],
+      "pbs_job_id": "4677357.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 158,
+      "temperature": 10.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06024566864345682,
+        "minimum_pair_clearance": 0.06024566864345682,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_158/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "98319753f45cb278cec37155592eef7715ce2bd9d1fdd09a19883a564da4c177",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_158/frozen/original.pt",
+          "graph_sha256": "5bc86a2d45c2b3b9b45fd1c9ab8b41dac4ceb25a18b1d49188d5d5e944dfe9ad"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_158/frozen/optimized.pt",
+          "graph_sha256": "d152bfa5902d10a43e40c9c8f3dcd456c0e0f9aef269376e3999fcca8fb8f177"
+        }
+      ],
+      "pbs_job_id": "4677358.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 198,
+      "temperature": 10.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06507495941534783,
+        "minimum_pair_clearance": 0.06507495941534783,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_198/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "2c9995a4fe05cf1fd80476ce44dac7900b641771bb50961a0337b062a061693a",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_198/frozen/original.pt",
+          "graph_sha256": "fafac216e12da39577a0e5d45fea252a795bec8a95b52789b22baed9aaad2f4d"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_198/frozen/optimized.pt",
+          "graph_sha256": "081473292aee54b7db26ca7142e9d8927a0f5e862fa8a7c0499cae4f7e0fb46a"
+        }
+      ],
+      "pbs_job_id": "4677359.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 151,
+      "temperature": 10.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06534884423374025,
+        "minimum_pair_clearance": 0.06534884423374025,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_151/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "3faf634e3c00b2a57d8eabbc8f67f97043ab44f9dd24346fee66af60c13ec721",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_151/frozen/original.pt",
+          "graph_sha256": "1c53c3e21783bf39bb53fc4f0936715889cba20d2a376531b69a0277e3a12cba"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_151/frozen/optimized.pt",
+          "graph_sha256": "2b71fd52fa1872d0e48094e832c8a02476dbe023a6bd009b626332b9aadd4fcb"
+        }
+      ],
+      "pbs_job_id": "4677360.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 242,
+      "temperature": 20.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06419539727116534,
+        "minimum_pair_clearance": 0.06419539727116534,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_242/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "cbe5084b528243dc86b9c096c2ae37f90276d57cb21d531c8aee67cd6628bda3",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_242/frozen/original.pt",
+          "graph_sha256": "19a64bd7bfc7c3734e0dd6c9c2885537f68c7f2a66b2091cccd25e5ea27533aa"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_242/frozen/optimized.pt",
+          "graph_sha256": "8a8390e0d5ee0c5c57a708720a3ae047897aa4708ee0e7d91bb0a8cb66f4650f"
+        }
+      ],
+      "pbs_job_id": "4677361.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 208,
+      "temperature": 20.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06308927119475241,
+        "minimum_pair_clearance": 0.06308927119475241,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_208/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "d600cea539e1660a9413268fde927aaa6318b734c5fb32892057872833bea5a0",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_208/frozen/original.pt",
+          "graph_sha256": "c7c935bab54fb57632e4b323dfeef6c85e4dca0273fbc03a2e3718681247307a"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_208/frozen/optimized.pt",
+          "graph_sha256": "06896c1e86ed59fde105ab58770a44b4c61f603f9444d16bbc56c5f0abee9c6b"
+        }
+      ],
+      "pbs_job_id": "4677362.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 221,
+      "temperature": 20.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06498227774006193,
+        "minimum_pair_clearance": 0.06272685014125595,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_221/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "809523197420b0aecb3675f7511de9c397876d53c57adc3c9c3fcbada255c9c5",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_221/frozen/original.pt",
+          "graph_sha256": "1af7bcb7abbcae364a503b0ee112e88721f4ba3d8b2688aa6d9c63c438a041dd"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_221/frozen/optimized.pt",
+          "graph_sha256": "04ce28882dc39eb41d9e3df4cb5b1b09c5f8009a8a964bb40ad231c4c09e4729"
+        }
+      ],
+      "pbs_job_id": "4677363.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 229,
+      "temperature": 20.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06265000047540864,
+        "minimum_pair_clearance": 0.06265000047540864,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_229/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "b2d698260851d218f56763fe5738fc41c619a53e9bd171bce20d425b74702ce9",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_229/frozen/original.pt",
+          "graph_sha256": "7768c4578c34e6dcbb1cf28d2474fba89ce732c7eb10b9bc3c189226931cf894"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_229/frozen/optimized.pt",
+          "graph_sha256": "a2ccf985aaf1bdb52cdece25d451bce32a55daf2c4928fb5d9a0de24b74dd99d"
+        }
+      ],
+      "pbs_job_id": "4677364.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 234,
+      "temperature": 20.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.060302376273501296,
+        "minimum_pair_clearance": 0.060302376273501296,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_234/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "e7df3452bf42390a54110a553f1db9c9cc090f4ad85d4c151e881948986e36bb",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_234/frozen/original.pt",
+          "graph_sha256": "d4e3dbdbf73649755a9b4f047b1294d974b47903b9024ee4bd600f0ab8c5dd0c"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_234/frozen/optimized.pt",
+          "graph_sha256": "677068f392e218361fc38093a74b3d0d202969704b2341afe470cbb35b22ce73"
+        }
+      ],
+      "pbs_job_id": "4677365.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "source": "depablo_mixed_temp",
+      "index": 268,
+      "temperature": 30.0,
+      "status": "cancelled_by_user",
+      "reason": "User requested dropping unfinished optimization and proceeding with the other designs.",
+      "pbs_job_id": "4677366.zeus-master",
+      "physics_used": false,
+      "periodic_pristine_violating_pairs": [],
+      "cancelled_at": "2026-09-09T11:20:06.189437+00:00"
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 250,
+      "temperature": 30.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06699145930027102,
+        "minimum_pair_clearance": 0.05402394584217993,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_250/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "b161ee96a00367baf71061d1b80d466333c3aa7439956df1bec9bb565646e98b",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_250/frozen/original.pt",
+          "graph_sha256": "f41fe5d9788a984f1e45bbfc19323d1b1e1858f74dd657fc2d84403de383df9b"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_250/frozen/optimized.pt",
+          "graph_sha256": "f8d3af1f65f6b84b701fa04027741db3a1cc489a999d6fda75c8797ffd1d4b21"
+        }
+      ],
+      "pbs_job_id": "4677367.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 262,
+      "temperature": 30.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.060645368250263613,
+        "minimum_pair_clearance": 0.060645368250263613,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_262/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "edf6af581be5b877a54ff351f7bfa6522fe455467aa0b39a60f62ed24e83cbd2",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_262/frozen/original.pt",
+          "graph_sha256": "856f7745b1da477b55e5589e092ccdbac792d54da082a3ddcaec3a3cc96db033"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_262/frozen/optimized.pt",
+          "graph_sha256": "eeee61b5eac8b79c151cbdf568ff1188e7943763f388bd6b67a77d6396835103"
+        }
+      ],
+      "pbs_job_id": "4677368.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 265,
+      "temperature": 30.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06659975230421161,
+        "minimum_pair_clearance": 0.06659975230421161,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_265/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "5d9a2eed7ee84179c6d658d0d0bfd55c7818af45f3d8c96449763a4487990429",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_265/frozen/original.pt",
+          "graph_sha256": "0f1e5a39004320c1b89c2f203f04deaeae9c2ae2212889aaafa4072d312ae94f"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_265/frozen/optimized.pt",
+          "graph_sha256": "71a6e08d635bde30af06e523224f751f79d9aff5aba14aa331fdb57020f9ec03"
+        }
+      ],
+      "pbs_job_id": "4677369.zeus-master",
+      "physics_used": false
+    },
+    {
+      "cohort": "mixedT_thermal_armA",
+      "index": 290,
+      "temperature": 30.0,
+      "status": "frozen",
+      "periodic_pristine_violating_pairs": [],
+      "planar_constraints": {
+        "periodic": true,
+        "continuous_linear_step_check": true,
+        "target_clearance": 0.06010005528579936,
+        "minimum_pair_clearance": 0.06010005528579936,
+        "clearance_fraction": 0.05,
+        "clearance_rule": "min(fraction * median original spring length, 0.5 * original pair distance); numerical tolerance floor",
+        "shared_joints_allowed": true,
+        "collinear_overlap_forbidden": true
+      },
+      "frozen_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_290/frozen/frozen_manifest.json",
+      "frozen_manifest_sha256": "80e1742dc948def6a423fb3d0d5c6b2634fc9d4c95fe56aa9fff8bf92f6ff5d4",
+      "designs": [
+        {
+          "name": "original",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_290/frozen/original.pt",
+          "graph_sha256": "30b229f09a07268e4f2b908240498617f28d72173713d0416a73d8e7dd1b3224"
+        },
+        {
+          "name": "optimized",
+          "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/mixedT_thermal_armA_290/frozen/optimized.pt",
+          "graph_sha256": "869cde4e5261ff7d833eb2d24ae3d4c8d7ff7b463ecb8738de245fd3bf8f8036"
+        }
+      ],
+      "pbs_job_id": "4677370.zeus-master",
+      "physics_used": false
+    }
+  ],
+  "invalid_original_count": 0,
+  "physics_feedback_to_optimizer": false
+}

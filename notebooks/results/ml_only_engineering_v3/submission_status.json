@@ -1,0 +1,28 @@
+{
+  "study": "ml_only_engineering_v3",
+  "status": "completed",
+  "purpose": "Independent centered maximum-direction study with a linear readout objective; no surrogate target stopping or physical feedback.",
+  "output": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/ml_only_engineering_v3",
+  "optimization": {
+    "job_id": "4675286.zeus-master",
+    "stage": "optimize",
+    "queue": "mendels_q",
+    "resources": "select=1:ncpus=4:mem=2gb, place=free:shared, walltime=01:00:00",
+    "threads": 4,
+    "stdout": "logs/optimize_4675286.zeus-master.log"
+  },
+  "verification": {
+    "job_id": "4675287.zeus-master",
+    "stage": "verify",
+    "dependency": "afterok:4675286.zeus-master",
+    "resources": "select=1:ncpus=1:mem=2gb, place=free:shared, walltime=01:00:00",
+    "threads": 1,
+    "stdout": "logs/verify_4675287.zeus-master.log",
+    "physics_gate": "requires frozen_designs.json; all predeclared graph/edit hashes are checked before endpoint physics is imported"
+  },
+  "snapshots": {
+    "code/run.py": "faa0de1eb4d2c72f4d1e9f03239407fce4a2ea8e0dd2c7bda3d94eea02823326",
+    "code/run.pbs": "48ceaf8c84978820f568a998ecdd167cf9cdbde81f691b81f4ed85b42098b9a8"
+  },
+  "completion": {"job_id": "4675287.zeus-master", "exit_status": 0, "walltime": "00:08:29", "max_rss_kb": 745028, "final_designs": 24, "outputs": ["results.csv", "summary.json", "verification_completed.json"]}
+}

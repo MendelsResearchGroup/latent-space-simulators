@@ -1,0 +1,387 @@
+[
+  {
+    "job_id": "4674709.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674650.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674710.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674650.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674711.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674651.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674712.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674651.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674713.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674652.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674714.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674652.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674715.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674653.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674716.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674653.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674717.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674654.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674718.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": null,
+    "dependencies": "afterok:4674654.zeus-master@zeus-master,beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674719.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 74,
+      "cput": "00:01:53",
+      "mem": "2969900kb",
+      "ncpus": 8,
+      "vmem": "8156640kb",
+      "walltime": "00:00:49"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674720.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 78,
+      "cput": "00:01:54",
+      "mem": "2993984kb",
+      "ncpus": 8,
+      "vmem": "8179396kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674721.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 84,
+      "cput": "00:02:09",
+      "mem": "2950004kb",
+      "ncpus": 8,
+      "vmem": "8138152kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674722.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 82,
+      "cput": "00:02:04",
+      "mem": "2983904kb",
+      "ncpus": 8,
+      "vmem": "8175420kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674723.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 81,
+      "cput": "00:02:01",
+      "mem": "2951044kb",
+      "ncpus": 8,
+      "vmem": "8137852kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674724.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 82,
+      "cput": "00:02:03",
+      "mem": "2968752kb",
+      "ncpus": 8,
+      "vmem": "8157736kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674725.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 78,
+      "cput": "00:01:52",
+      "mem": "2964580kb",
+      "ncpus": 8,
+      "vmem": "8156460kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674726.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 84,
+      "cput": "00:02:09",
+      "mem": "2950660kb",
+      "ncpus": 8,
+      "vmem": "8139124kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674727.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 82,
+      "cput": "00:02:05",
+      "mem": "2986508kb",
+      "ncpus": 8,
+      "vmem": "8176368kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674728.zeus-master",
+    "state": "R",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "16gb",
+      "ncpus": 8,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=8:mem=16gb",
+      "walltime": "24:00:00"
+    },
+    "used": {
+      "cpupercent": 81,
+      "cput": "00:02:02",
+      "mem": "2988056kb",
+      "ncpus": 8,
+      "vmem": "8174376kb",
+      "walltime": "00:00:48"
+    },
+    "dependencies": "beforeany:4674730.zeus-master@zeus-master"
+  },
+  {
+    "job_id": "4674730.zeus-master",
+    "state": "H",
+    "queue": "mendels_q",
+    "resources": {
+      "mem": "2gb",
+      "ncpus": 1,
+      "nodect": 1,
+      "place": "free:shared",
+      "select": "1:ncpus=1:mem=2gb",
+      "walltime": "00:15:00"
+    },
+    "used": null,
+    "dependencies": "afterany:4674655.zeus-master@zeus-master:4674656.zeus-master@zeus-master:4674657.zeus-master@zeus-master:4674658.zeus-master@zeus-master:4674659.zeus-master@zeus-master:4674660.zeus-master@zeus-master:4674709.zeus-master@zeus-master:4674710.zeus-master@zeus-master:4674711.zeus-master@zeus-master:4674712.zeus-master@zeus-master:4674713.zeus-master@zeus-master:4674714.zeus-master@zeus-master:4674715.zeus-master@zeus-master:4674716.zeus-master@zeus-master:4674717.zeus-master@zeus-master:4674718.zeus-master@zeus-master:4674719.zeus-master@zeus-master:4674720.zeus-master@zeus-master:4674721.zeus-master@zeus-master:4674722.zeus-master@zeus-master:4674723.zeus-master@zeus-master:4674724.zeus-master@zeus-master:4674725.zeus-master@zeus-master:4674726.zeus-master@zeus-master:4674727.zeus-master@zeus-master:4674728.zeus-master@zeus-master"
+  }
+]

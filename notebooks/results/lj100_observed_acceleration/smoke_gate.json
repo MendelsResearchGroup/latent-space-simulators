@@ -1,0 +1,11 @@
+[
+  {
+    "family": "observed_acceleration",
+    "observed_frames": 3,
+    "job_id": "4680412.zeus-master",
+    "checks": {
+      "pure_position_gradient": 23.72934913635254,
+      "reload_max_abs": 0.0
+    }
+  }
+]

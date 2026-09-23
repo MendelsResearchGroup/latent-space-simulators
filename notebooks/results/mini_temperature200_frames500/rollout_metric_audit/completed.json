@@ -1,0 +1,27 @@
+{
+  "checkpoint_sha256_after": {
+    "ae.pt": "11a4a3f73154ef711d657e0bc1ef2a615e424d141382846bd3f6dcab1aa9f561",
+    "propagator.pt": "70e5a2434abdef13a6791cd8f116e61e84bcd2e9fdec13940512baf6a3eb4754"
+  },
+  "checkpoint_sha256_before": {
+    "ae.pt": "11a4a3f73154ef711d657e0bc1ef2a615e424d141382846bd3f6dcab1aa9f561",
+    "propagator.pt": "70e5a2434abdef13a6791cd8f116e61e84bcd2e9fdec13940512baf6a3eb4754"
+  },
+  "cumulative_fit_frames": [
+    150,
+    499
+  ],
+  "fixed_window_frames": 150,
+  "fixed_window_md_span": 29800,
+  "heldout_ids": [
+    40,
+    119
+  ],
+  "postfit_only": true,
+  "script_sha256": "2e1230df3ccd146dba180b0b2c1dec8d488e0e2b90a37768c23ff273aedc255a",
+  "sources": [
+    "node_mixed",
+    "stiffness_mixed"
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,13 @@
+{
+  "indices": [
+    36,
+    268
+  ],
+  "completed_designs_retained": 38,
+  "removed_from_verification": [
+    4677385,
+    4677408
+  ],
+  "original_cohort_size": 40,
+  "selection_uses_physical_results": false
+}

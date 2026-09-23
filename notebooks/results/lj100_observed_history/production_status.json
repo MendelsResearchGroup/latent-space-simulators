@@ -1,0 +1,176 @@
+{
+  "stage": "production",
+  "version": "code_v1",
+  "initial_qstat": "2026-09-09T21:20:00+03:00",
+  "fits": [
+    {
+      "job_id": "4679056.zeus-master",
+      "family": "history_mlp",
+      "observed_frames": 1,
+      "seed": 123,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679057.zeus-master",
+      "family": "history_mlp",
+      "observed_frames": 1,
+      "seed": 456,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679058.zeus-master",
+      "family": "history_mlp",
+      "observed_frames": 1,
+      "seed": 786,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679059.zeus-master",
+      "family": "history_mlp",
+      "observed_frames": 3,
+      "seed": 123,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679060.zeus-master",
+      "family": "history_mlp",
+      "observed_frames": 3,
+      "seed": 456,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679061.zeus-master",
+      "family": "history_mlp",
+      "observed_frames": 3,
+      "seed": 786,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679062.zeus-master",
+      "family": "velocity_residual",
+      "observed_frames": 1,
+      "seed": 123,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679063.zeus-master",
+      "family": "velocity_residual",
+      "observed_frames": 1,
+      "seed": 456,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679064.zeus-master",
+      "family": "velocity_residual",
+      "observed_frames": 1,
+      "seed": 786,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679065.zeus-master",
+      "family": "velocity_residual",
+      "observed_frames": 3,
+      "seed": 123,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679066.zeus-master",
+      "family": "velocity_residual",
+      "observed_frames": 3,
+      "seed": 456,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    },
+    {
+      "job_id": "4679067.zeus-master",
+      "family": "velocity_residual",
+      "observed_frames": 3,
+      "seed": 786,
+      "state": "R",
+      "resources": {
+        "ncpus": 4,
+        "mem": "4gb",
+        "place": "free:shared"
+      },
+      "collector_link": "beforeany:4679068.zeus-master@zeus-master"
+    }
+  ],
+  "collector": {
+    "job_id": "4679068.zeus-master",
+    "state": "H",
+    "resources": {
+      "ncpus": 2,
+      "mem": "4gb",
+      "place": "free:shared"
+    },
+    "dependency": "afterany:4679056.zeus-master@zeus-master:4679057.zeus-master@zeus-master:4679058.zeus-master@zeus-master:4679059.zeus-master@zeus-master:4679060.zeus-master@zeus-master:4679061.zeus-master@zeus-master:4679062.zeus-master@zeus-master:4679063.zeus-master@zeus-master:4679064.zeus-master@zeus-master:4679065.zeus-master@zeus-master:4679066.zeus-master@zeus-master:4679067.zeus-master@zeus-master"
+  },
+  "submitter": "hpc/experiments/lj100_observed_history/submit.py",
+  "submitter_sha256": "4c80ef9ffbe0bcb3fa65ebc6b65b2c2a2fa4c35487d035ec68ae85b0266a287f",
+  "frozen_manifest_sha256": "9ecb71c7842212de6768b2fbac8dd157b926ac88a9b0703bbc79d56807a8721d"
+}

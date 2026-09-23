@@ -1,0 +1,23 @@
+{
+  "arm": "all4_one_each",
+  "checkpoint_sha256": {
+    "ae": "052fc4db903f3e3c93a2493241cbd22061ab08c8015d8650be5ab46aaf448080",
+    "propagator": "703b4f5f1af9a710a26c3da10125d3d0e3590e36725a661ea33234d44b6161be"
+  },
+  "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87",
+  "frames": [
+    0,
+    499
+  ],
+  "heldout_ids": [
+    40
+  ],
+  "job_id": "4687459.zeus-master",
+  "mixed_linear_fit_frames": [
+    150,
+    499
+  ],
+  "smoke": true,
+  "status": "completed",
+  "test_used_for_selection": false
+}

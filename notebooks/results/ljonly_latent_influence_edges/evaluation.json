@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "script_sha256": "5a316127fb501f0dcc365f1a440a1fc08ff909614991f88be4307c373827716e",
+  "final_test_used": false,
+  "response_used_for_training_or_selection": false,
+  "visualization_network": 15,
+  "latent_edges_are_unseen_graph_frame0_only": true,
+  "base_reuse": "unchanged base checkpoints from lj_latent_influence_edges"
+}

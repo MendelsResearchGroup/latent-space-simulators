@@ -1,0 +1,13 @@
+{
+  "cohort": "clean_400.json", "split_seed": 20260917,
+  "models": {"local": {"attention_layers": 0}, "global": {"attention_layers": 2}},
+  "seeds": [123, 456, 786],
+  "architecture": {"hidden_dim": 64, "attention_heads": 4, "message_blocks_before": 2, "message_blocks_after": 2},
+  "observed_frames": [1, 2], "autonomous_prediction_frames": [3, 399],
+  "training": {"center_frames": [2, 398], "centers_per_train_trajectory_epoch": 96, "max_epochs": 25, "patience": 5, "optimizer": "Adam", "learning_rate": 0.0003, "weight_decay": 0.000001, "gradient_accumulation": 4, "gradient_clip_norm": 1.0},
+  "inputs": "reference position, current position, minimum-image current velocity; each divided by initial box lengths; atom type embedding in model",
+  "targets": "node and raw box-coordinate centered accelerations; separately train-standardized MSE summed",
+  "selection": "validation one-step combined physical state MSE only", "forbidden": ["p-ratio targets", "strain targets", "p-ratio checkpoint selection", "strain checkpoint selection"],
+  "test": {"position_mse": "autonomous, physical, minimum-image", "p_ratio": "post-fit affine position p-ratio R2", "components": ["y/x", "z/x"], "horizons": [5,10,20,50,100,200,399]},
+  "pbs": {"queue": "mendels_q", "place": "free:shared", "ncpus": 8, "mem": "16gb"}
+}

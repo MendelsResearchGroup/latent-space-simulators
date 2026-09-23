@@ -9,6 +9,8 @@ dist/
 .ipynb_checkpoints/
 .DS_Store
 
+data
+
 # Local datasets and trained weights (included in the working copy)
 *.pt
 *.pth
@@ -35,3 +37,4 @@ notebooks/results/hpc_runs/
 notebooks/results/hpc_diagnostics/
 notebooks/results/**/code/
 notebooks/results/**/analysis_code*/
+notebooks/results/compact_lj_pratio/snapshots/*/src/

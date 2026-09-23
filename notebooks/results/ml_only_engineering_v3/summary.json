@@ -1,0 +1,50 @@
+[
+  {
+    "source": "depablo_low_temp",
+    "policy": "ridge2d",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 1,
+    "negative": 0,
+    "target": 0,
+    "mean_change": 0.007304168659857714,
+    "mean_physical_p": 0.2997281398169707
+  },
+  {
+    "source": "depablo_low_temp",
+    "policy": "z1",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 1,
+    "negative": 0,
+    "target": 0,
+    "mean_change": 0.007163478912694403,
+    "mean_physical_p": 0.2995874500698074
+  },
+  {
+    "source": "reid",
+    "policy": "ridge2d",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 2,
+    "target": 1,
+    "mean_change": -0.1813562515515271,
+    "mean_physical_p": -0.021855429119826932
+  },
+  {
+    "source": "reid",
+    "policy": "z1",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 3,
+    "negative": 2,
+    "target": 1,
+    "mean_change": -0.1854435760716945,
+    "mean_physical_p": -0.02594275363999436
+  }
+]

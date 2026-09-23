@@ -1,0 +1,27 @@
+{
+  "cohort_sha256": "8b4364cf83674089a9d22e0849742d16b24605abf2df191cd67f760853753681",
+  "evaluation_ids": [
+    "rubber_1076"
+  ],
+  "evaluation_split": "smoke_eval",
+  "loader_sha256": "1648ff8d6610700185d889c1fc137805cdc208800ceb533e44b8ab89f06e9894",
+  "model": "local",
+  "model_source_sha256": "7e5fd5617530473571bbd65ed1ad9603a641cf41362c74b2df6a99dceb72ed9f",
+  "protocol_sha256": "5d67a6a982fb9ec24e74a35816c0f499c6f113a579ec50d6971c1b2eab9f1fb1",
+  "registry_sha256": "c5f67015d105d7e6d2f56af7a77bf5ddf00ba381f31a4925c123cafa6d89ff11",
+  "runner_sha256": "fc7aaf64debcca546df72f1a2edd4347305675a7c6a4662c0d0055a15afb5997",
+  "seed": 123,
+  "smoke": true,
+  "split_manifest_sha256": "5b90a7a1f03428764b4c138e6606760eee4f2259cbc44b3939cc7915919aa7dc",
+  "train_ids": [
+    "rubber_0417"
+  ],
+  "trajectory_sha256": {
+    "rubber_0417": "b8ad4172989e40373423792ac0205a4f8e21915e3f0e971e35b48db8a5d5bc7c",
+    "rubber_1076": "ef6dca45f19b73d63a8b35540c2a977a7c92da0c1bb932bdc993b3d1397cd464",
+    "rubber_1686": "0523808c18128cef6b2f6cf6c3f8d0898128101f441f1ddb21592c8f428b3a8b"
+  },
+  "validation_ids": [
+    "rubber_1686"
+  ]
+}

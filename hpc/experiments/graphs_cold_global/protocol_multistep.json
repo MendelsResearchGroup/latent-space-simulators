@@ -1,0 +1,17 @@
+{
+  "base_protocol": "protocol.json",
+  "model": "global",
+  "seeds": [123, 456, 786],
+  "training": {
+    "unroll_steps": 20,
+    "windows_per_train_trajectory_epoch": 6,
+    "max_epochs": 20,
+    "patience": 4,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.000001,
+    "gradient_clip_norm": 1.0
+  },
+  "selection": "mean validation physical state MSE at autonomous horizons 20, 50, and 100",
+  "forbidden": ["p-ratio targets", "strain targets", "p-ratio checkpoint selection", "strain checkpoint selection"]
+}

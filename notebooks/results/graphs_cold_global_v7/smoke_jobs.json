@@ -1,0 +1,9 @@
+{
+  "kind": "smoke",
+  "jobs": {
+    "initial_motion_token_residual": "4690095.zeus-master"
+  },
+  "runner_sha256": "c5885eb7bffc94cd065c3e9125f9bf59881f5b5581b630f9c8ddbfdd751451da",
+  "protocol_sha256": "26dd4681adaead76cfaebd8d49eab249508a304dc1056c06143f67f79105826d",
+  "model_source_sha256": "4c073f8e9b17d0b8361691ad82871370241c4dfb922a02f8d8052a5aa9eb4f7d"
+}

@@ -1,0 +1,932 @@
+{
+  "method": "canonical undirected edges; nonshared pairs only; explicit 3x3 periodic images; proper crossings use strictly interior parameters beyond verifier tolerance",
+  "audits": [
+    {
+      "case": "same10_reid_93",
+      "kind": "original_s0",
+      "trajectory": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/original_trajectory.npz",
+      "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/original.pt",
+      "edge_count": 542,
+      "frames": 5,
+      "analyzed_frame_ids": [
+        0,
+        58,
+        59,
+        60,
+        120
+      ],
+      "initial_pair_count": 0,
+      "flagged_frame_count": 0,
+      "first_flagged_frame": null,
+      "max_pair_count": 0,
+      "proper_crossing_frame_count": 0,
+      "near_contact_frame_count": 0,
+      "periodic_image_only_frame_count": 0,
+      "shared_verifier_contact_frame_count": 0,
+      "shared_proper_crossing_frame_count": 0,
+      "shared_collinear_overlap_frame_count": 0,
+      "frames_detail": []
+    },
+    {
+      "case": "same10_reid_93",
+      "kind": "optimized_s0",
+      "trajectory": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/optimized_trajectory.npz",
+      "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_93/frozen/optimized.pt",
+      "edge_count": 542,
+      "frames": 5,
+      "analyzed_frame_ids": [
+        0,
+        58,
+        59,
+        60,
+        120
+      ],
+      "initial_pair_count": 0,
+      "flagged_frame_count": 3,
+      "first_flagged_frame": 59,
+      "max_pair_count": 16,
+      "proper_crossing_frame_count": 3,
+      "near_contact_frame_count": 0,
+      "periodic_image_only_frame_count": 0,
+      "shared_verifier_contact_frame_count": 0,
+      "shared_proper_crossing_frame_count": 0,
+      "shared_collinear_overlap_frame_count": 0,
+      "frames_detail": [
+        {
+          "frame": 59,
+          "tolerance": 1.2696571488580815e-08,
+          "records": [
+            {
+              "pair": [
+                86,
+                126
+              ],
+              "edges": [
+                [
+                  18,
+                  32
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.9999040462232931,
+                0.7181996363451237
+              ],
+              "determinant": 0.6561907086022928,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                121,
+                126
+              ],
+              "edges": [
+                [
+                  31,
+                  32
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.9999661420020158,
+                0.718278223831043
+              ],
+              "determinant": 1.859648546252839,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                124,
+                126
+              ],
+              "edges": [
+                [
+                  32,
+                  46
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                8.737427428530507e-05,
+                0.7182971909163791
+              ],
+              "determinant": -0.7206237447511451,
+              "shared_nodes": []
+            }
+          ],
+          "shared_records": [],
+          "pair_count": 3,
+          "proper_pair_count": 3,
+          "near_pair_count": 0,
+          "image_only_pair_count": 0,
+          "pairs": [
+            [
+              86,
+              126
+            ],
+            [
+              121,
+              126
+            ],
+            [
+              124,
+              126
+            ]
+          ],
+          "proper_pairs": [
+            [
+              86,
+              126
+            ],
+            [
+              121,
+              126
+            ],
+            [
+              124,
+              126
+            ]
+          ],
+          "near_pairs": [],
+          "image_only_pairs": [],
+          "shared_pair_count": 0,
+          "shared_proper_pair_count": 0,
+          "shared_collinear_pair_count": 0
+        },
+        {
+          "frame": 60,
+          "tolerance": 1.2693456481878933e-08,
+          "records": [
+            {
+              "pair": [
+                86,
+                126
+              ],
+              "edges": [
+                [
+                  18,
+                  32
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.9981087610515923,
+                0.7169289172244976
+              ],
+              "determinant": 0.6560638660657997,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                121,
+                126
+              ],
+              "edges": [
+                [
+                  31,
+                  32
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.9993329065892768,
+                0.7184777101414614
+              ],
+              "determinant": 1.8599697076922164,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                124,
+                126
+              ],
+              "edges": [
+                [
+                  32,
+                  46
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.0017210358719907312,
+                0.7188508131160148
+              ],
+              "determinant": -0.7209457724500804,
+              "shared_nodes": []
+            }
+          ],
+          "shared_records": [],
+          "pair_count": 3,
+          "proper_pair_count": 3,
+          "near_pair_count": 0,
+          "image_only_pair_count": 0,
+          "pairs": [
+            [
+              86,
+              126
+            ],
+            [
+              121,
+              126
+            ],
+            [
+              124,
+              126
+            ]
+          ],
+          "proper_pairs": [
+            [
+              86,
+              126
+            ],
+            [
+              121,
+              126
+            ],
+            [
+              124,
+              126
+            ]
+          ],
+          "near_pairs": [],
+          "image_only_pairs": [],
+          "shared_pair_count": 0,
+          "shared_proper_pair_count": 0,
+          "shared_collinear_pair_count": 0
+        },
+        {
+          "frame": 120,
+          "tolerance": 1.261987944671096e-08,
+          "records": [
+            {
+              "pair": [
+                86,
+                126
+              ],
+              "edges": [
+                [
+                  18,
+                  32
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.8975784614887704,
+                0.6464602147664584
+              ],
+              "determinant": 0.6445782747715746,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                121,
+                126
+              ],
+              "edges": [
+                [
+                  31,
+                  32
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.9647879737883818,
+                0.7299736153851084
+              ],
+              "determinant": 1.8748906466290234,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                124,
+                126
+              ],
+              "edges": [
+                [
+                  32,
+                  46
+                ],
+                [
+                  33,
+                  47
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.08942521001436246,
+                0.7478582209826738
+              ],
+              "determinant": -0.7382560083718637,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                212,
+                249
+              ],
+              "edges": [
+                [
+                  63,
+                  77
+                ],
+                [
+                  76,
+                  90
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.8666583808316862,
+                0.6044313547596832
+              ],
+              "determinant": -0.709389441183087,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                249,
+                250
+              ],
+              "edges": [
+                [
+                  76,
+                  90
+                ],
+                [
+                  77,
+                  78
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.7176632109502181,
+                0.05124935411032879
+              ],
+              "determinant": -1.8457039771588897,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                249,
+                252
+              ],
+              "edges": [
+                [
+                  76,
+                  90
+                ],
+                [
+                  77,
+                  91
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.7373655660113244,
+                0.03394374705603517
+              ],
+              "determinant": -2.7867028514001344,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                249,
+                253
+              ],
+              "edges": [
+                [
+                  76,
+                  90
+                ],
+                [
+                  77,
+                  92
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.9319551271591302,
+                0.25337717776958574
+              ],
+              "determinant": -0.3733214551559838,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                290,
+                366
+              ],
+              "edges": [
+                [
+                  90,
+                  104
+                ],
+                [
+                  116,
+                  131
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.9042518586747124,
+                0.43780485119758666
+              ],
+              "determinant": -0.5818031525050683,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                295,
+                366
+              ],
+              "edges": [
+                [
+                  92,
+                  104
+                ],
+                [
+                  116,
+                  131
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.9378538146800056,
+                0.5368116643099351
+              ],
+              "determinant": -0.8963795634875519,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                328,
+                366
+              ],
+              "edges": [
+                [
+                  104,
+                  105
+                ],
+                [
+                  116,
+                  131
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.02784956583452436,
+                0.5778189186828223
+              ],
+              "determinant": 2.0002671065160844,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                330,
+                366
+              ],
+              "edges": [
+                [
+                  104,
+                  118
+                ],
+                [
+                  116,
+                  131
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.12433826895282635,
+                0.6477865640397049
+              ],
+              "determinant": 0.44802433666410607,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                331,
+                366
+              ],
+              "edges": [
+                [
+                  104,
+                  119
+                ],
+                [
+                  116,
+                  131
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.03179626889741338,
+                0.6210128120857792
+              ],
+              "determinant": 1.751984506398641,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                452,
+                455
+              ],
+              "edges": [
+                [
+                  146,
+                  160
+                ],
+                [
+                  147,
+                  161
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.614364817085213,
+                0.9443385649068151
+              ],
+              "determinant": 0.37131662774077934,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                452,
+                457
+              ],
+              "edges": [
+                [
+                  146,
+                  160
+                ],
+                [
+                  148,
+                  161
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.6726253563601073,
+                0.9875521911025227
+              ],
+              "determinant": 1.6603738492645244,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                452,
+                494
+              ],
+              "edges": [
+                [
+                  146,
+                  160
+                ],
+                [
+                  161,
+                  162
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.6845457364492211,
+                0.011658392761075064
+              ],
+              "determinant": -1.772801517119916,
+              "shared_nodes": []
+            },
+            {
+              "pair": [
+                452,
+                495
+              ],
+              "edges": [
+                [
+                  146,
+                  160
+                ],
+                [
+                  161,
+                  175
+                ]
+              ],
+              "shift": [
+                0,
+                0
+              ],
+              "distance": 0.0,
+              "proper": true,
+              "collinear_overlap": false,
+              "params": [
+                0.6974721362401367,
+                0.01923477150628106
+              ],
+              "determinant": -1.0745132255542853,
+              "shared_nodes": []
+            }
+          ],
+          "shared_records": [],
+          "pair_count": 16,
+          "proper_pair_count": 16,
+          "near_pair_count": 0,
+          "image_only_pair_count": 0,
+          "pairs": [
+            [
+              86,
+              126
+            ],
+            [
+              121,
+              126
+            ],
+            [
+              124,
+              126
+            ],
+            [
+              212,
+              249
+            ],
+            [
+              249,
+              250
+            ],
+            [
+              249,
+              252
+            ],
+            [
+              249,
+              253
+            ],
+            [
+              290,
+              366
+            ],
+            [
+              295,
+              366
+            ],
+            [
+              328,
+              366
+            ],
+            [
+              330,
+              366
+            ],
+            [
+              331,
+              366
+            ],
+            [
+              452,
+              455
+            ],
+            [
+              452,
+              457
+            ],
+            [
+              452,
+              494
+            ],
+            [
+              452,
+              495
+            ]
+          ],
+          "proper_pairs": [
+            [
+              86,
+              126
+            ],
+            [
+              121,
+              126
+            ],
+            [
+              124,
+              126
+            ],
+            [
+              212,
+              249
+            ],
+            [
+              249,
+              250
+            ],
+            [
+              249,
+              252
+            ],
+            [
+              249,
+              253
+            ],
+            [
+              290,
+              366
+            ],
+            [
+              295,
+              366
+            ],
+            [
+              328,
+              366
+            ],
+            [
+              330,
+              366
+            ],
+            [
+              331,
+              366
+            ],
+            [
+              452,
+              455
+            ],
+            [
+              452,
+              457
+            ],
+            [
+              452,
+              494
+            ],
+            [
+              452,
+              495
+            ]
+          ],
+          "near_pairs": [],
+          "image_only_pairs": [],
+          "shared_pair_count": 0,
+          "shared_proper_pair_count": 0,
+          "shared_collinear_pair_count": 0
+        }
+      ]
+    }
+  ]
+}

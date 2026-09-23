@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#PBS -N planar_final
+#PBS -j oe
+set -euo pipefail
+project_root=/rg/mendels_prj/alexander.z/latent-space-simulators
+python_bin=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+export PYTHONPATH="$LSS_OUTPUT/code/src:/rg/mendels_prj/alexander.z/MetaForge/src"
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1
+export MPLCONFIGDIR="/tmp/lss-planar-mpl-${PBS_JOBID}"
+mkdir -p "$LSS_OUTPUT/logs"
+cd "$project_root"
+exec >"$LSS_OUTPUT/logs/${LSS_STAGE}_${PBS_JOBID}.log" 2>&1
+if [[ "$LSS_STAGE" == final ]]; then
+  "$python_bin" -u "$LSS_OUTPUT/verification_code/verify.py" --output "$LSS_OUTPUT" --cohort "$LSS_COHORT" --index "$LSS_INDEX"
+  exec "$python_bin" -u "$LSS_OUTPUT/verification_code/render.py" --output "$LSS_OUTPUT" --cohort "$LSS_COHORT" --index "$LSS_INDEX"
+fi
+if [[ "$LSS_STAGE" == collect ]]; then
+  exec "$python_bin" -u "$LSS_OUTPUT/verification_code/collect.py" --output "$LSS_OUTPUT"
+fi
+exit 64

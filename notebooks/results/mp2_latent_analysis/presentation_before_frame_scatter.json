@@ -1,0 +1,15 @@
+{
+  "notebook": "notebooks/dynamics/04_shared_ae_response_and_latents.ipynb",
+  "notebook_sha256": "4403bfd0bf34b2c42e5982a46d4a5738d092e18efa0c2a84d831d2747cf30fc5",
+  "inline_pngs": 7,
+  "executed_code_cells": 8,
+  "helper_sha256": "15dbb5c3ababf750fb48c6de3ab87711a32d5ab1f0563e0e5813fce853fedbd6",
+  "displayed_sources": [
+    "reid",
+    "depablo_low_temp",
+    "lj_noisy"
+  ],
+  "displayed_networks": 60,
+  "displayed_latent_frames": 12000,
+  "mixed_temp_excluded_from_all_plots": true
+}

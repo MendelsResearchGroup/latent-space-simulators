@@ -1,0 +1,83 @@
+{
+  "base_v2_runner_sha256": "efec78ad5f69688579bf81e401d866b3a9c56a3005c7027c8925af4dedd27fce",
+  "base_v4_runner_sha256": "e6ee71d753da9b4f2e34a144d8ad6b39fc933eb0644218ae9b3e5b17617db832",
+  "cohort_sha256": "8b4364cf83674089a9d22e0849742d16b24605abf2df191cd67f760853753681",
+  "evaluation_ids": [
+    "rubber_1248"
+  ],
+  "evaluation_split": "smoke_validation_1",
+  "loader_sha256": "1648ff8d6610700185d889c1fc137805cdc208800ceb533e44b8ab89f06e9894",
+  "model_source_sha256": "6337921c191756548df86a8b826b9d61082798940298851043f175d2973676db",
+  "ols_and_normalizers": {
+    "context_mean": [
+      6.925802230834961,
+      6.9571685791015625,
+      6.963179111480713,
+      6.898039817810059,
+      -6.926060791556665e-07
+    ],
+    "context_std": [
+      0.16542327404022217,
+      0.17458046972751617,
+      0.26290932297706604,
+      0.1654750257730484,
+      1.7239322858131345e-08
+    ],
+    "ols_coefficients": [
+      [
+        0.010758630931377411,
+        0.011473008431494236
+      ],
+      [
+        0.028894975781440735,
+        0.0316145196557045
+      ],
+      [
+        -0.007314410526305437,
+        0.004029754549264908
+      ],
+      [
+        0.007920211181044579,
+        0.0016536121256649494
+      ],
+      [
+        -0.06173795089125633,
+        -0.07280310988426208
+      ],
+      [
+        -0.030982336029410362,
+        -0.03572221100330353
+      ]
+    ],
+    "residual_mean": [
+      -1.021405182655144e-08,
+      -2.937067700159446e-09
+    ],
+    "residual_std": [
+      0.0023401358630508184,
+      0.0026123577263206244
+    ]
+  },
+  "protocol_sha256": "86167d10c9a4ae49d2ddf556fa261bdc4430a8cb0208a17c0f7922711c45265b",
+  "runner_sha256": "cbff012734e76e5c5357a4826e84c3e0bfe65921ee887325b254329e6cff8c1c",
+  "seed": 123,
+  "smoke": true,
+  "split_manifest_sha256": "1a0e8ffb6e8a5aef9339009acca7a394cabada3c70ee5ba0e667268e0c765541",
+  "train_ids": [
+    "rubber_1548",
+    "rubber_0436",
+    "rubber_1910",
+    "rubber_2169"
+  ],
+  "trajectory_sha256": {
+    "rubber_0436": "c8f2ff4c65e33c5bef5685c4eb9d0cc581462dbbf1dd5c353cdd40d17ed3b54b",
+    "rubber_1168": "7b6b226b860c5c23b6c74bb64c414876b02d5093f621741efd8fdbf848fbb031",
+    "rubber_1248": "beb0762d204cd52734e4655ccfa3463e1fad0ed28808cdd109fe02e35d6b5e9a",
+    "rubber_1548": "15888d81315842ba32fe9c3f1845991a4808b4974773359bff2cc9130efc0407",
+    "rubber_1910": "e6da1ddda1fef54f00895a3cd7782077db96700aef049ffc5a3d6143ea87bd3b",
+    "rubber_2169": "9a64f36a85dc78e8471ddccd26f92bd768ac3ed7a822428b1433f26aaac6a37b"
+  },
+  "validation_ids": [
+    "rubber_1168"
+  ]
+}

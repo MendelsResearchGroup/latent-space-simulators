@@ -1,0 +1,11 @@
+[
+  {"stage": "latent_smoke", "job_id": "4696979.zeus-master"},
+  {"stage": "latent_production", "job_id": "4696984.zeus-master"},
+  {"stage": "downstream_smoke", "arm": "latent", "seed": 123, "job_id": "4696992.zeus-master"},
+  {"stage": "downstream", "arm": "random", "seed": 123, "job_id": "4696997.zeus-master"},
+  {"stage": "downstream", "arm": "latent", "seed": 123, "job_id": "4696996.zeus-master"},
+  {"stage": "downstream", "arm": "random", "seed": 456, "job_id": "4696994.zeus-master"},
+  {"stage": "downstream", "arm": "latent", "seed": 456, "job_id": "4696998.zeus-master"},
+  {"stage": "downstream", "arm": "random", "seed": 786, "job_id": "4696999.zeus-master"},
+  {"stage": "downstream", "arm": "latent", "seed": 786, "job_id": "4696995.zeus-master"}
+]

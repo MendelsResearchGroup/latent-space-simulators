@@ -1,0 +1,14 @@
+{
+  "checkpoint_sha256": "ee2eb5b1496df85c4211a0bcb20992ff1512bb6c13afe0f202f1dc56235a39fd",
+  "fluctuation_method": "sample SD of residual transverse displacement after affine OLS against axial displacement over frames30-199",
+  "input_sha256": {
+    "latents": "38c7ce0a5a620bad7753364db1aa6be7f427c606c17424bc3740d5693913c0e8",
+    "node_mixed": "0944ffd2fee7cf9a4e9c0019fe038dcd2ebea6f928bdd61781c05cf151a58616",
+    "stiffness_mixed": "8f0866e9b3f06b68e7cc3535e1de6022051a998d46b4d4b4ce9d542716436705"
+  },
+  "model": "notebooks/results/all4_coverage_1000/all4_one_each_retry_v5_validation30",
+  "qualification": "Temperature association confirms that the heldout data contain increasing thermal fluctuations. Together with training mixed ID0 at 0.1K it documents out-of-training-temperature evaluation up to30K, but it does not alone prove causal temperature extrapolation because structure and temperature vary together across heldout IDs.",
+  "script_sha256": "ad610cbfeb8d6449aa552949b9e864fad4d6580230b85550b9d49cbd7d50ddce",
+  "status": "complete",
+  "training_marker_method": "source-appropriate position-derived response; low endpoint frame199, mixed normalized-strain OLS frames30-199"
+}

@@ -1,0 +1,9 @@
+{
+  "initial_score": 0.34157514572143555,
+  "best_score": -1.0031296014785767,
+  "actual_steps": 1200,
+  "stop_reason": "max_steps",
+  "patience": 11,
+  "arm": "C",
+  "learning_rate": 0.02
+}

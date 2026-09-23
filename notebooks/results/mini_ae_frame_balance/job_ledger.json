@@ -1,0 +1,61 @@
+{
+  "version": "code_v1",
+  "manifest_sha256": "f572e56d43cf7cf313cc36838cdbff335d7e7e8c81f05ef3fe58e7bbbb82787f",
+  "smokes": [
+    {
+      "study": "mini_stiffness",
+      "mode": "uniform",
+      "job_id": "4682323.zeus-master",
+      "status": "finished_exit_0"
+    },
+    {
+      "study": "mini_stiffness",
+      "mode": "balanced",
+      "job_id": "4682324.zeus-master",
+      "status": "finished_exit_0"
+    },
+    {
+      "study": "mini_node",
+      "mode": "uniform",
+      "job_id": "4682325.zeus-master",
+      "status": "finished_exit_0"
+    },
+    {
+      "study": "mini_node",
+      "mode": "balanced",
+      "job_id": "4682326.zeus-master",
+      "status": "finished_exit_0"
+    }
+  ],
+  "production": [
+    {
+      "study": "mini_stiffness",
+      "mode": "uniform",
+      "job_id": "4682327.zeus-master",
+      "initial_state": "R"
+    },
+    {
+      "study": "mini_stiffness",
+      "mode": "balanced",
+      "job_id": "4682328.zeus-master",
+      "initial_state": "R"
+    },
+    {
+      "study": "mini_node",
+      "mode": "uniform",
+      "job_id": "4682329.zeus-master",
+      "initial_state": "R"
+    },
+    {
+      "study": "mini_node",
+      "mode": "balanced",
+      "job_id": "4682330.zeus-master",
+      "initial_state": "R"
+    }
+  ],
+  "resources": {
+    "ncpus": 4,
+    "mem": "4gb",
+    "place": "free:shared"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "checkpoint_sha256_after": {
+    "ae.pt": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+    "propagator.pt": "9ab4b2c4c7e630f368fc24b3a105a751bba2e97b153b212e6229cd30133dcb47"
+  },
+  "checkpoint_sha256_before": {
+    "ae.pt": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+    "propagator.pt": "9ab4b2c4c7e630f368fc24b3a105a751bba2e97b153b212e6229cd30133dcb47"
+  },
+  "final_truth_fit_frames": [
+    30,
+    199
+  ],
+  "fixed_window_frames": 30,
+  "heldout_ids": [
+    40,
+    119
+  ],
+  "horizons": [
+    59,
+    199
+  ],
+  "job_id": "4687761.zeus-master",
+  "postfit_only": true,
+  "script_sha256": "74e0671fd9a0fbc6b988cc203c21a867d23ad07be163d80916c8cde432d07798",
+  "sources": [
+    "node_mixed",
+    "stiffness_mixed"
+  ],
+  "status": "completed"
+}

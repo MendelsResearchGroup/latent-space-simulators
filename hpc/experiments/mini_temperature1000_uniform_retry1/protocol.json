@@ -1,0 +1,17 @@
+{
+  "study": "mini_temperature1000_uniform_retry1",
+  "seed": 123,
+  "arms": {"joint_low_uniform_retry1": ["stiffness_low", "node_low"], "node_low_uniform_retry1": ["node_low"]},
+  "mixed_temperature": "Excluded from fitting, normalizer estimation, checkpoint selection, and all losses; post-fit test evaluation only.",
+  "split": {"train": [0, 20], "validation": [20, 40], "test": [40, 120], "frames": [0, 199]},
+  "architecture": {"model": "message_passing_reference16", "latent_dim": 2, "message_passing_steps": 2, "reference_node_dim": 16, "hidden_size": 96, "latent_tokens": 32, "edge_feature_dim": 4},
+  "ae": {
+    "initialization": "fresh seed123", "warmup_epochs": 1, "uniform_epochs": 60, "patience": 12,
+    "warmup_optimizer": "AdamW", "optimizer": "Adam", "learning_rate": 0.0001, "weight_decay": 0.00001,
+    "batch_graphs": 32, "gradient_clip": 1, "loss": "uniform exactly-1-per-frame/source coordinate MSE after warmup",
+    "weight_normalization": "every source/frame weight is exactly 1", "selection": "mean-source uniform validation coordinate MSE; minimum improvement1e-8",
+    "normalizers": "training-only and frozen after warmup"
+  },
+  "propagator": {"model": "delta_mlp", "hidden_size": 64, "context": "mean16 static reference embedding", "temperature_input": false, "source_id_input": false, "objective": "one-step latent delta MSE", "selection": "validation latent loss", "max_epochs": 60, "patience": 12, "learning_rate": 0.0001, "weight_decay": 0.00001, "transitions": 199, "ae_frozen": true},
+  "postfit": {"primary": "physical_endpoint_fixed_frame0_sides_quantile_0.10 p-ratio R2 at frame199, source-wise AE reconstruction and autonomous rollout separately", "diagnostics": "all frames0..199 and valid/total rows retained", "expert_supervision": false, "test_selection": false, "single_seed": "preliminary; no seed SD"}
+}

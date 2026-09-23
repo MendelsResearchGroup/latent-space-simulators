@@ -1,0 +1,29 @@
+{
+  "study": "high_temperature_to_low_ae",
+  "status": "smoke_passed_production_running",
+  "submitted_at": "2026-09-16",
+  "script": "hpc/experiments/high_temperature_to_low_ae/run.py",
+  "script_sha256": "744e9534bac3a7a5103b28eaaae40944bc053265a5fadcc8fffa8976fc6ec788",
+  "protocol": "hpc/experiments/high_temperature_to_low_ae/protocol.json",
+  "protocol_sha256": "29a348372ab66f2ce4770378505cf2a258d709789cf98818e1fa0da85dc7b9de",
+  "resources": {
+    "queue": "mendels_q",
+    "ncpus": 8,
+    "mem": "16gb",
+    "place": "free:shared",
+    "walltime": "08:00:00"
+  },
+  "jobs": {
+    "smoke_seed123": "4688140.zeus-master",
+    "seed123": "4688141.zeus-master",
+    "seed456": "4688142.zeus-master",
+    "seed786": "4688143.zeus-master"
+  },
+  "dependency": "all production jobs afterok smoke_seed123",
+  "smoke_result": {
+    "exit_status": 0,
+    "walltime": "00:02:47",
+    "schema_and_low_temperature_evaluation": "passed"
+  },
+  "final_test_used": false
+}

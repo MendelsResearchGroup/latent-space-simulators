@@ -1,0 +1,9 @@
+{
+  "combinations": 12,
+  "pure_position_gradient_min": 0.15227600932121277,
+  "pure_position_gradient_max": 0.4752219617366791,
+  "ae_historical_parity_max_abs": 1.990792368122829e-06,
+  "all_steps_present": true,
+  "all_frozen_invariants_pass": true,
+  "checkpoint_reload_exact": true
+}

@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N five_seed_p_nb
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=2:mem=8gb
+#PBS -l place=free:shared
+#PBS -l walltime=01:00:00
+#PBS -j oe
+
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2
+export MPLCONFIGDIR="/tmp/mpl-five-seed-notebook-${PBS_JOBID}"
+mkdir -p "$MPLCONFIGDIR" notebooks/results/five_seed_pratio/logs
+exec >"notebooks/results/five_seed_pratio/logs/${PBS_JOBID}.log" 2>&1
+PYTHON=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+"$PYTHON" -u tools/analysis/build_notebook09_five_seed_pratio.py
+"$PYTHON" -u tools/analysis/execute_notebook.py notebooks/dynamics/09_five_seed_pratio.ipynb

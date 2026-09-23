@@ -1,0 +1,12 @@
+{
+  "ae_sha256": "fc19267d04d9d77f8f232ffd06b22f26b2457c3d49bb736c551975d5307a2b31",
+  "dynamics_sha256": "b49bae689eec872f40ab2fcd5e9a59ab196d59d58db5fbdfb3b8038876c4b8dd",
+  "final_test_used": false,
+  "job_id": "4687543.zeus-master",
+  "observed_frames": [
+    0,
+    1
+  ],
+  "response_selection": false,
+  "status": "completed"
+}

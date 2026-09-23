@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "scope": "shared3x20",
+  "seed": 123,
+  "error": "AttributeError: 'GlobalStorage' object has no attribute 'source_sim_id'"
+}

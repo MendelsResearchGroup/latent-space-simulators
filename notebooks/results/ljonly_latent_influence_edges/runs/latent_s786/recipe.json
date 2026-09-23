@@ -1,0 +1,128 @@
+{
+  "arm": "latent",
+  "seed": 786,
+  "smoke": false,
+  "job_id": "4696995.zeus-master",
+  "protocol": {
+    "study": "ljonly_latent_influence_edges_v1",
+    "status": "frozen protocol",
+    "question": "Do edges discovered by an LJ-only latent simulator improve physical-node noisy-LJ rollout?",
+    "reuse_reason": "The exact requested LJ-only AE already exists and took 11289.6 seconds to train; it is reused without changing weights.",
+    "frozen_ae": {
+      "path": "notebooks/results/compact_lj_reconstruction/ljonly_r16_d4_s123_code_v2/ae.pt",
+      "sha256": "42d36dc32c6a4bee95f242e7f13f8be6947fb1a49870d26cdf00a9417395164a",
+      "architecture": "attention_reference16_corrected",
+      "latent_dim": 4,
+      "seed": 123,
+      "training_source": "noisy-LJ only",
+      "train_trajectories": 60,
+      "training_frames_per_trajectory": 200,
+      "validation_trajectories": 20,
+      "p_ratio_or_strain_supervision": false
+    },
+    "latent_dynamics": {
+      "architecture": "history_attention with mean reference context",
+      "seed": 123,
+      "train_trajectories": 60,
+      "validation_trajectories": 20,
+      "frames": 101,
+      "supervision_frames": [
+        1,
+        2,
+        3,
+        5,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_metric": "decoded normalized-position validation MSE",
+      "p_ratio_or_strain_supervision": false
+    },
+    "edge_discovery": {
+      "perturbation": 0.001,
+      "latent_horizons": [
+        5,
+        10,
+        20
+      ],
+      "top_partners_per_node": 5,
+      "exclude_existing_distance_two_three_relations": true,
+      "validation_graph_information": "frame-0 reference graph and frame-0 latent only",
+      "validation_future_positions_used": false
+    },
+    "downstream": {
+      "arms": [
+        "base",
+        "random",
+        "latent"
+      ],
+      "seeds": [
+        123,
+        456,
+        786
+      ],
+      "train_trajectories": 60,
+      "validation_trajectories": 20,
+      "observed_frames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "autonomous_prediction_frames": [
+        4,
+        100
+      ],
+      "evaluation_horizons": [
+        50,
+        100
+      ],
+      "final_test_used": false,
+      "checkpoint_metric": "validation one-step normalized acceleration MSE",
+      "primary_metric": "post-fit physical-coordinate p-ratio R2",
+      "secondary_metric": "physical-coordinate MSE"
+    }
+  },
+  "protocol_sha256": "6fe344e99a210c816ad654c9c8499c9926610dc27a0059a3f5000f4bd1604e4c",
+  "code_manifest_sha256": "9b69006092110bed1230518a4c8d806ef48c453c3971957e28d71b208ed0b400",
+  "latent_cache_sha256": "f5e1f378e5fef7478a0fdd5a6fd7f458cbc05f271a931d6880482514db87d1ec",
+  "latent_model_sha256": "ae5f2b145d46ef1e6bf47d520fd0f2e9547fff016e793046f3bb1f23f437d904",
+  "final_test_used": false,
+  "response_supervision_or_selection": false,
+  "validation_edge_inputs": "frame-0 reference graph and z0 only",
+  "frozen_before": {
+    "ae": "a9e613a521432180864cb9a141f697ac36f4f1e34aaa62435e458973ddcf2d25",
+    "latent": "832ee4507895272f41f209c6e75641e1decba70cde30c6bad9abcb127d609785"
+  },
+  "frozen_after": {
+    "ae": "a9e613a521432180864cb9a141f697ac36f4f1e34aaa62435e458973ddcf2d25",
+    "latent": "832ee4507895272f41f209c6e75641e1decba70cde30c6bad9abcb127d609785"
+  },
+  "checkpoint_sha256": "cbfe6d809cad42a6bca8d13d1f2189f28a997ce57f6988050f9cc1f7d844ae1b",
+  "summary": [
+    {
+      "arm": "latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 50,
+      "p_ratio_r2": 0.7038698640496965,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 3.5317677207930643e-05,
+      "added_edges_mean": 741.75
+    },
+    {
+      "arm": "latent",
+      "seed": 786,
+      "split": "validation",
+      "frame": 100,
+      "p_ratio_r2": 0.4945320227234594,
+      "p_ratio_valid": 20,
+      "p_ratio_total": 20,
+      "coordinate_mse": 0.0002456941838028102,
+      "added_edges_mean": 741.75
+    }
+  ]
+}

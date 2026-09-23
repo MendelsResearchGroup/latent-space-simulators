@@ -1,0 +1,199 @@
+{
+  "selection": "First validation IDs per temperature in existing split order, filled to five from train in existing order; no response access or reserved test selection",
+  "rows": [
+    {
+      "index": 47,
+      "temperature": 0.1,
+      "split": "val",
+      "previous_thermal_engineering": true
+    },
+    {
+      "index": 44,
+      "temperature": 0.1,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 36,
+      "temperature": 0.1,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 39,
+      "temperature": 0.1,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 13,
+      "temperature": 0.1,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 68,
+      "temperature": 1.0,
+      "split": "val",
+      "previous_thermal_engineering": true
+    },
+    {
+      "index": 96,
+      "temperature": 1.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 70,
+      "temperature": 1.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 78,
+      "temperature": 1.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 77,
+      "temperature": 1.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 140,
+      "temperature": 5.0,
+      "split": "val",
+      "previous_thermal_engineering": true
+    },
+    {
+      "index": 118,
+      "temperature": 5.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 136,
+      "temperature": 5.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 109,
+      "temperature": 5.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 145,
+      "temperature": 5.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 161,
+      "temperature": 10.0,
+      "split": "val",
+      "previous_thermal_engineering": true
+    },
+    {
+      "index": 191,
+      "temperature": 10.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 158,
+      "temperature": 10.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 198,
+      "temperature": 10.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 151,
+      "temperature": 10.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 242,
+      "temperature": 20.0,
+      "split": "val",
+      "previous_thermal_engineering": true
+    },
+    {
+      "index": 208,
+      "temperature": 20.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 221,
+      "temperature": 20.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 229,
+      "temperature": 20.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 234,
+      "temperature": 20.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 268,
+      "temperature": 30.0,
+      "split": "val",
+      "previous_thermal_engineering": true
+    },
+    {
+      "index": 250,
+      "temperature": 30.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 262,
+      "temperature": 30.0,
+      "split": "val",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 265,
+      "temperature": 30.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    },
+    {
+      "index": 290,
+      "temperature": 30.0,
+      "split": "train",
+      "previous_thermal_engineering": false
+    }
+  ],
+  "temperatures": [
+    0.1,
+    1,
+    5,
+    10,
+    20,
+    30
+  ],
+  "split_manifest": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/latent_matched_study/split_manifest.json",
+  "split_manifest_sha256": "f34492ab4d75195c0fe35de2deba5a2038dc64fc71d4547d1bafd7c4602b1804",
+  "dataset": "/rg/mendels_prj/alexander.z/DL-course-project/data/depablo-10k-mix-temp.pt",
+  "dataset_sha256_from_split_manifest": "b5c10f48a03df0822ddc4decb5792afa83b73fee755fa83cc588bbfdaa0d3a67",
+  "model_seed": 786,
+  "objective": "frozen low-T-trained AE plus historical low-T z1 readout; direct thermal frame0, no corresponding low-T geometry"
+}

@@ -1,0 +1,6 @@
+{
+  "cohort": "clean_400.json", "numpy_seed": 20260917,
+  "train": ["rubber_0417", "rubber_1634", "rubber_0706", "rubber_2183", "rubber_0771", "rubber_1819", "rubber_2289", "rubber_0526", "rubber_1684", "rubber_2222", "rubber_2146", "rubber_0557"],
+  "validation": ["rubber_1686", "rubber_1076", "rubber_0836", "rubber_2092"],
+  "final_test": ["rubber_0694", "rubber_1265", "rubber_1960", "rubber_1141", "rubber_0199", "rubber_0621", "rubber_1043", "rubber_1687"]
+}

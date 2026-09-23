@@ -1,0 +1,12 @@
+{
+  "purpose": "AE-only 32-versus-20 coverage pilot",
+  "files": {
+    "pilot.pbs": "656923beacc8aeb70ad5e5201e2604c7bab6f39dfa3e1ae503a139e434d86983",
+    "train_and_evaluate.py": "6d1bf94cd2de127c6059914dddd66aa43f2d5d34cdf89655f7907f69ae510898"
+  },
+  "frozen_inputs": {
+    "code_v5_manifest.json": "7555cdce89d21d542eb492f03f5be37b58941e323c6ea3093e3b7b926f99259a",
+    "data_manifest.json": "c92162d0c2fd475e41f13f41596685274b346e7d81d23e9115aba317948c824a",
+    "cached20_ae_per_network.csv": "91d2317c2e1efe91dc10fb71004d4365a2442a6438b3b6617355387e5bee868f"
+  }
+}

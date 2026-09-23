@@ -1,0 +1,12 @@
+{
+  "index": 15,
+  "variant": "random_b2",
+  "simulation_id": "15_random_b2_ec556eb28b1a",
+  "scale_x": 0.9700107,
+  "compression_steps": 120,
+  "physical_p_ratio": -0.1936188687742181,
+  "status": "completed",
+  "run_dir": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/ml_only_engineering_v4/physics/reid/15_random_b2_ec556eb28b1a",
+  "protocol": "2D quasistatic compression; first/last unwrapped boundary-node ratio",
+  "box_p_ratio": -0.20302676731006764
+}

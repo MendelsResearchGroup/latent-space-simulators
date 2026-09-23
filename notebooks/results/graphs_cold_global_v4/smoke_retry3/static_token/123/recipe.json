@@ -1,0 +1,46 @@
+{
+  "base_v2_runner_sha256": "efec78ad5f69688579bf81e401d866b3a9c56a3005c7027c8925af4dedd27fce",
+  "cohort_sha256": "8b4364cf83674089a9d22e0849742d16b24605abf2df191cd67f760853753681",
+  "contact_cutoff": 1.5,
+  "evaluation_ids": [
+    "rubber_1248"
+  ],
+  "evaluation_split": "smoke_validation_1",
+  "fractional_model_source_sha256": "6207d9204ec7de940cc4384213ed1fbf6f47be1698b0ec6ef7dac833e16172da",
+  "loader_sha256": "1648ff8d6610700185d889c1fc137805cdc208800ceb533e44b8ab89f06e9894",
+  "model_source_sha256": "6337921c191756548df86a8b826b9d61082798940298851043f175d2973676db",
+  "normalizer": {
+    "centers_per_trajectory": 397,
+    "seed": 20260918,
+    "split": "train",
+    "train_ids": [
+      "rubber_1548",
+      "rubber_0436",
+      "rubber_1910",
+      "rubber_2169"
+    ]
+  },
+  "protocol_sha256": "d80c8f070dc39d7e8eba649deed79c3fce1d6b5120f0d5f06a20e9d8197541c4",
+  "runner_sha256": "e6ee71d753da9b4f2e34a144d8ad6b39fc933eb0644218ae9b3e5b17617db832",
+  "seed": 123,
+  "smoke": true,
+  "split_manifest_sha256": "1a0e8ffb6e8a5aef9339009acca7a394cabada3c70ee5ba0e667268e0c765541",
+  "train_ids": [
+    "rubber_1548",
+    "rubber_0436",
+    "rubber_1910",
+    "rubber_2169"
+  ],
+  "trajectory_sha256": {
+    "rubber_0436": "c8f2ff4c65e33c5bef5685c4eb9d0cc581462dbbf1dd5c353cdd40d17ed3b54b",
+    "rubber_1168": "7b6b226b860c5c23b6c74bb64c414876b02d5093f621741efd8fdbf848fbb031",
+    "rubber_1248": "beb0762d204cd52734e4655ccfa3463e1fad0ed28808cdd109fe02e35d6b5e9a",
+    "rubber_1548": "15888d81315842ba32fe9c3f1845991a4808b4974773359bff2cc9130efc0407",
+    "rubber_1910": "e6da1ddda1fef54f00895a3cd7782077db96700aef049ffc5a3d6143ea87bd3b",
+    "rubber_2169": "9a64f36a85dc78e8471ddccd26f92bd768ac3ed7a822428b1433f26aaac6a37b"
+  },
+  "validation_ids": [
+    "rubber_1168"
+  ],
+  "variant": "static_token"
+}

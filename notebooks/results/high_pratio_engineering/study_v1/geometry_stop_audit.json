@@ -1,0 +1,218 @@
+{
+  "study": "high_pratio_engineering/study_v1",
+  "method": "frozen positions_b0 terminal state; current normalized q descent with exact project_q_/valid",
+  "cases": [
+    {
+      "source": "reid",
+      "index": 65,
+      "history_steps": 46,
+      "current_score": 0.33011922240257263,
+      "q_norm_max": 1.999999761581421,
+      "candidates": [
+        {
+          "step": 0.05,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.025,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.0125,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.00625,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        }
+      ]
+    },
+    {
+      "source": "reid",
+      "index": 93,
+      "history_steps": 99,
+      "current_score": 0.1127149909734726,
+      "q_norm_max": 2.000000238418579,
+      "candidates": [
+        {
+          "step": 0.05,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.025,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.0125,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.00625,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        }
+      ]
+    },
+    {
+      "source": "depablo_low_temp",
+      "index": 50,
+      "history_steps": 47,
+      "current_score": 0.0470605194568634,
+      "q_norm_max": 2.0,
+      "candidates": [
+        {
+          "step": 0.05,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 2,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 4
+        },
+        {
+          "step": 0.025,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 2,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 4
+        },
+        {
+          "step": 0.0125,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.00625,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        }
+      ]
+    },
+    {
+      "source": "depablo_low_temp",
+      "index": 13,
+      "history_steps": 53,
+      "current_score": 0.005903758108615875,
+      "q_norm_max": 1.9999998807907104,
+      "candidates": [
+        {
+          "step": 0.05,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 2,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 4
+        },
+        {
+          "step": 0.025,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.0125,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        },
+        {
+          "step": 0.00625,
+          "valid": false,
+          "score": null,
+          "score_change": null,
+          "length_too_short": 0,
+          "length_too_long": 1,
+          "pair_separation_violation": false,
+          "side_group_changed": false,
+          "offending_nodes": 2
+        }
+      ]
+    }
+  ]
+}

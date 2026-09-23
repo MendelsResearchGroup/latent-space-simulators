@@ -1,0 +1,8 @@
+{
+  "status": "completed",
+  "script_sha256": "8fe3196e9e1c826bc5f660e0c3a164c654447fbc33910141de6d06f33566f76b",
+  "frozen_manifest_sha256": "c39515ba13e6b090d35c759c1921b040b675b59f158314a74384978a690a18db",
+  "final_test_used": false,
+  "response_used_for_training_or_selection": false,
+  "metric": "two time-OLS strain fits with intercept over frames0..horizon; p=-slope_y/slope_x"
+}

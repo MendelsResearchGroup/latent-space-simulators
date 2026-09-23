@@ -1,0 +1,11 @@
+{
+  "cohort": [
+    40
+  ],
+  "frozen_ae_sha256": "3662a61b533761a252cec48847b476ca05bb65c79bd77489c12da89068e520fb",
+  "job_id": "4687511.zeus-master",
+  "propagator_sha256": "d3ecadc66cd364eec4dc3ff01d65117e4872e2502cc0e453032fc9ac67467d79",
+  "smoke": true,
+  "status": "completed",
+  "test_used_for_selection": false
+}

@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "jobs": {"latent_sparse_failed": "4698609.zeus-master", "latent_sparse_replacement": "4698612.zeus-master", "random_sparse": "4698610.zeus-master"},
+  "cancelled_live_path_job": "4698607.zeus-master",
+  "arms": ["latent_sparse", "random_sparse"],
+  "seed": 123,
+  "final_test_used": false,
+  "response_used_for_training_or_selection": false,
+  "frozen_snapshot": "notebooks/results/lj_sparse_influence/code_v1"
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#PBS -N latent_paths20
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=08:00:00
+#PBS -j oe
+set -euo pipefail
+
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+export OMP_NUM_THREADS=8
+export OPENBLAS_NUM_THREADS=8
+export MKL_NUM_THREADS=8
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="${LSS_PROJECT_ROOT}/src:/rg/mendels_prj/alexander.z/MetaForge/src"
+cd "$LSS_PROJECT_ROOT"
+
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python \
+  tools/analysis/export_latent_count_trajectories20.py

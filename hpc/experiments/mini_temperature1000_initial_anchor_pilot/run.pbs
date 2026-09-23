@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#PBS -N mt1000_anchor
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=08:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+cd "$LSS_PROJECT_ROOT"
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="${LSS_CODE_ROOT}/src:${LSS_CODE_ROOT}:/rg/mendels_prj/alexander.z/MetaForge/src"
+mkdir -p notebooks/results/mini_temperature1000_initial_anchor_pilot/logs
+exec >"notebooks/results/mini_temperature1000_initial_anchor_pilot/logs/${PBS_JOBID}.log" 2>&1
+PYTHON=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+"$PYTHON" -u "${LSS_CODE_ROOT}/train.py" --smoke
+"$PYTHON" -u "${LSS_CODE_ROOT}/evaluate.py" --smoke
+exec "$PYTHON" -u "${LSS_CODE_ROOT}/train.py"
+

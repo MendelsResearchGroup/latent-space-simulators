@@ -1,0 +1,16 @@
+{
+  "source": "depablo_mixed_temp",
+  "index": 158,
+  "temperature": 10.0,
+  "thermal_seed": 786,
+  "status": "completed",
+  "path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/engineering/Planar Adam engineering/depablo_mixed_temp_158.gif",
+  "sha256": "1857f87189466105c49ee5fc3be5e20c50d4895a88bc2a2652fb109251fa6459",
+  "frames": 200,
+  "duration_ms": 4000,
+  "trajectory_contact_frames_original": 0,
+  "trajectory_contact_frames_optimized": 97,
+  "renderer_sha256": "93a765b98582bec59535cf5bf9ef70fe1220f02bd120fb47201c56ec15262d73",
+  "original_p_ratio": 0.2276287864288645,
+  "optimized_p_ratio": -0.0357991553528039
+}

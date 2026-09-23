@@ -1,0 +1,52 @@
+{
+  "status": "completed",
+  "arm": "joint_mixed_only",
+  "smoke": false,
+  "checkpoint_sha256_before": {
+    "ae": "358a57bf22e5fb7548ebc5375ae54efdb2a037d8f76ceb4cf69be5e127d1f8a6",
+    "propagator": "3e476fca4be25ad2273dbed4e8e73fe6d3c013056e027ea195ff25aaac538ff4"
+  },
+  "checkpoint_sha256_after": {
+    "ae": "358a57bf22e5fb7548ebc5375ae54efdb2a037d8f76ceb4cf69be5e127d1f8a6",
+    "propagator": "3e476fca4be25ad2273dbed4e8e73fe6d3c013056e027ea195ff25aaac538ff4"
+  },
+  "endpoint_and_linear_t199_parity": [
+    {
+      "source": "node_mixed",
+      "mode": "ae_reconstruction",
+      "rows": 80,
+      "linear_true": 1.1102230246251565e-16,
+      "linear_pred": 8.326672684688674e-17,
+      "endpoint_true": 6.201480995393638e-09,
+      "endpoint_pred": 4.987583901439052e-09
+    },
+    {
+      "source": "node_mixed",
+      "mode": "autonomous_delta_mlp",
+      "rows": 80,
+      "linear_true": 1.1102230246251565e-16,
+      "linear_pred": 9.627715291671279e-17,
+      "endpoint_true": 6.201480995393638e-09,
+      "endpoint_pred": 5.780372291930291e-09
+    },
+    {
+      "source": "stiffness_mixed",
+      "mode": "ae_reconstruction",
+      "rows": 80,
+      "linear_true": 9.71445146547012e-17,
+      "linear_pred": 9.6710833785707e-17,
+      "endpoint_true": 4.739502346140512e-09,
+      "endpoint_pred": 2.9847105897928827e-09
+    },
+    {
+      "source": "stiffness_mixed",
+      "mode": "autonomous_delta_mlp",
+      "rows": 80,
+      "linear_true": 9.71445146547012e-17,
+      "linear_pred": 9.020562075079397e-17,
+      "endpoint_true": 4.739502346140512e-09,
+      "endpoint_pred": 1.56369489578978e-09
+    }
+  ],
+  "method": "prefix affine normalized boundary strain OLS frames30..horizon, horizon37..199; p=-slope; all pairs finite; postfit only"
+}

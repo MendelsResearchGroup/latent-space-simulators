@@ -1,0 +1,42 @@
+{
+  "code_manifest_sha256": "a3a64c53127ac5b41e350f44c9b1a0edf44b6e06de6c201793478ea35a28de28",
+  "data_manifest_sha256": "2b33efffe3e690d9d4dacfd66c22de28b97ad4848aba9e1a05229a41d8198c51",
+  "endpoint": "physical fixed-frame0 q0.10 at frame199; all four sources evaluated",
+  "frames": "0..199000 step1000; 1.99% compression",
+  "jobs": {
+    "joint_mixed_only": {
+      "collector": "4685142.zeus-master",
+      "collector_dependency": "afterok:4685141.zeus-master",
+      "fit": "4685141.zeus-master",
+      "initial_check": {
+        "checked_at": "2026-09-14T10:43:51+00:00",
+        "collector_state": "H (dependency hold)",
+        "fit_log": "logs/4685141.zeus-master.log (created, empty during initial check)",
+        "fit_state": "R",
+        "fit_usage": "00:00:10 walltime; 695160kb memory; 50 cpupercent"
+      }
+    }
+  },
+  "linear_fit": "post-fit only: mixed sources, normalized boundary-strain affine OLS frames30..199, p=-slope, all170 finite pairs",
+  "prior_failure_guard": "source_sim_id absent on direct graphs; smoke assigns identity20 and evaluator asserts it",
+  "prior_unsubmitted_snapshot": {
+    "reason": "sandbox qsub could not create its /var/tmp script; no PBS job was submitted; code_v1 also predates smoke linear-model-path correction",
+    "snapshot": "notebooks/results/mini_temperature1000_mixed_only/code_v1"
+  },
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "selection": "mixed-only coordinate validation MSE; propagator validation latent-delta MSE",
+  "snapshot": "notebooks/results/mini_temperature1000_mixed_only/code_v2",
+  "split": "direct full200: train0:20,val20:40,heldout_development40:120",
+  "status": "submitted",
+  "study": "mini_temperature1000_mixed_only",
+  "submitted_at": "2026-09-14T10:43:38.814957+00:00",
+  "training_domain": [
+    "node_mixed",
+    "stiffness_mixed"
+  ]
+}

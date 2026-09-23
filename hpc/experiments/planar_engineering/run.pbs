@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#PBS -N planar_engineering
+#PBS -j oe
+set -euo pipefail
+project_root=/rg/mendels_prj/alexander.z/latent-space-simulators
+python_bin=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+export PYTHONPATH="$LSS_RUNNER/src:/rg/mendels_prj/alexander.z/MetaForge/src"
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1
+mkdir -p "$LSS_OUTPUT/logs"
+cd "$project_root"
+exec >"$LSS_OUTPUT/logs/${LSS_STAGE}_${PBS_JOBID:-local}.log" 2>&1
+case "$LSS_STAGE" in
+  prepare) exec "$python_bin" -u "$LSS_RUNNER/prepare.py" --output "$LSS_OUTPUT" ;;
+  optimize) exec "$python_bin" -u "$LSS_RUNNER/run.py" --output "$LSS_OUTPUT" --cohort "$LSS_COHORT" --index "$LSS_INDEX" ;;
+  freeze) exec "$python_bin" -u "$LSS_RUNNER/freeze_collect.py" --output "$LSS_OUTPUT" ;;
+  *) exit 64 ;;
+esac

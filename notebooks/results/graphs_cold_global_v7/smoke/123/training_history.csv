@@ -1,0 +1,2 @@
+epoch,training_residual_scaled_yz_box_mse,validation_raw_yz_box_length_mse,optimizer_steps_this_epoch,optimizer_steps_cumulative
+1,1.164106622338295,0.0005661753821186721,1,1

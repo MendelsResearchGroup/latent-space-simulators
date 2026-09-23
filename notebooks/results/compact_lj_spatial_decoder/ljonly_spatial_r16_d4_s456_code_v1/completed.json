@@ -1,0 +1,16 @@
+{
+  "ae_file_sha256": "a8443faec833a0605999c4d8b760f9ce3222f52c572cecd85fadad9da865531a",
+  "approx_optimizer_steps_per_epoch": 375,
+  "bundle_reload": null,
+  "epochs_completed": 57,
+  "job_id": "4673354.zeus-master",
+  "max_rss_kb": 4904620,
+  "output_horizon": 199,
+  "parameters": 297462,
+  "seconds": 13750.40437078476,
+  "seed": 456,
+  "smoke": false,
+  "status": "completed",
+  "total_train_frame_samples": 12000,
+  "variant": "ljonly_spatial_r16_d4"
+}

@@ -1,0 +1,9 @@
+{
+  "job_id": "4675315.zeus-master",
+  "manifest_sha256": "d204b16e076535753bf68406365ce209cbe19162515030f0bd78fcdcbbf4ceb9",
+  "script_sha256": "2c7452a52330c469a3680c533e2dfea81b2e7b63b85f17ac0c810ec71d2401db",
+  "endpoint_helper_sha256": "3d5ea68a5c790ff77baab376ec29c7df07cb3de96b3cfabeb26727b139dbbee0",
+  "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+  "steps": 120,
+  "feedback_to_optimizer": false
+}

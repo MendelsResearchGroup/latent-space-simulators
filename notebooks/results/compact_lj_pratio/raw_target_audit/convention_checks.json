@@ -1,0 +1,8 @@
+{
+  "synthetic_pass": true,
+  "minimal_decoded_graph_pass": true,
+  "lj_max_abs_raw_inverse_pratio_difference": 2.6668059237011654e-06,
+  "lj_rows": 100,
+  "script_sha256": "f5dbebce7b269939a44599bf4483f8cd5032fb105fb04e46e7c9efca14c1f1ea",
+  "runner_sha256": "0115ba7d827198fc83a1920d61e6c074da3c59df009dc8a11c06fe4b369cd2f3"
+}

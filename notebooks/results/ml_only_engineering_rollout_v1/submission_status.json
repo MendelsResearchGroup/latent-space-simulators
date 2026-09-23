@@ -1,0 +1,9 @@
+{
+  "study": "ml_only_engineering_rollout_v1",
+  "status": "completed",
+  "scope": "Autonomous physical-position rollout objective on low-T 70/78/96 and frozen model seeds 786/123; no response-calibrated readout.",
+  "optimization": {"job_id": "4675328.zeus-master", "stage": "optimize", "resources": "4 CPU, 4 GB, shared, 01:00:00", "stdout": "logs/optimize_4675328.zeus-master.log"},
+  "verification": {"job_id": "4675329.zeus-master", "dependency": "afterok:4675328.zeus-master", "stage": "verify", "resources": "1 CPU, 2 GB, shared, 01:00:00", "stdout": "logs/verify_4675329.zeus-master.log", "gate": "all 15 frozen design hashes before physics"},
+  "snapshots": {"code/run.py": "98e1b3b142c95af07bfbc7146e33143c4716724798563ee609b65025b714d3b1", "code/run.pbs": "453682369a08c3ea9bf9e6ec4e5b8dfcb82c3a352e559fb9f285a19f328b2d48"},
+  "completion": {"job_id": "4675329.zeus-master", "exit_status": 0, "walltime": "00:08:06", "max_rss_kb": 721732, "final_designs": 15, "outputs": ["results.csv", "summary.json", "verification_completed.json"]}
+}

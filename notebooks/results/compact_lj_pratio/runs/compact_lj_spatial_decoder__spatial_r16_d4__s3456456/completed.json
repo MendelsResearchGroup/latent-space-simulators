@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "rows": 400,
+  "job_id": "4674103.zeus-master",
+  "seconds": 100.11471486091614,
+  "checkpoint_sha256": "02de44074b712285ba90f57fb04db397134aeea5e6451cad8301a86a0258bddc",
+  "checkpoint_sha256_after": "02de44074b712285ba90f57fb04db397134aeea5e6451cad8301a86a0258bddc",
+  "recipe_sha256": "3a122c62f270fa8e2cd4f92a170b1a90fe25a79b8a2dab4ff710b7378c0b8a5d",
+  "max_coordinate_mse_delta": 2.1827872842550278e-11
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "source": "depablo_low_temp",
+    "policy": "ridge2d",
+    "bound": 0.7,
+    "valid": 3,
+    "total": 3,
+    "improved": 0,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -2.3282818357543236e-07,
+    "mean_physical_p": 0.29242373832892943
+  },
+  {
+    "source": "depablo_low_temp",
+    "policy": "ridge2d",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 0,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -2.3282818357543236e-07,
+    "mean_physical_p": 0.29242373832892943
+  },
+  {
+    "source": "depablo_low_temp",
+    "policy": "z1",
+    "bound": 0.7,
+    "valid": 3,
+    "total": 3,
+    "improved": 0,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -4.4935936930704895e-07,
+    "mean_physical_p": 0.2924235217977437
+  },
+  {
+    "source": "depablo_low_temp",
+    "policy": "z1",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 0,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -4.4935936930704895e-07,
+    "mean_physical_p": 0.2924235217977437
+  },
+  {
+    "source": "reid",
+    "policy": "ridge2d",
+    "bound": 0.7,
+    "valid": 3,
+    "total": 3,
+    "improved": 1,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -9.686064812958195e-05,
+    "mean_physical_p": 0.15940396178357055
+  },
+  {
+    "source": "reid",
+    "policy": "ridge2d",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 1,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -9.686064812958195e-05,
+    "mean_physical_p": 0.15940396178357055
+  },
+  {
+    "source": "reid",
+    "policy": "z1",
+    "bound": 0.7,
+    "valid": 3,
+    "total": 3,
+    "improved": 2,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.00041666277733052687,
+    "mean_physical_p": 0.15908415965436962
+  },
+  {
+    "source": "reid",
+    "policy": "z1",
+    "bound": 2.0,
+    "valid": 3,
+    "total": 3,
+    "improved": 2,
+    "negative": 0,
+    "target": 0,
+    "mean_change": -0.00041666277733052687,
+    "mean_physical_p": 0.15908415965436962
+  }
+]

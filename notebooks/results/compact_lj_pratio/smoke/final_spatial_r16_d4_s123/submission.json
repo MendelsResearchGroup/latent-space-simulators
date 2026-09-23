@@ -1,0 +1,7 @@
+{
+  "job_id": "4674011.zeus-master",
+  "snapshot": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_pratio/snapshots/runner_2ab45fd72ca26076_v2/run_pratio.py",
+  "runner_sha256": "2ab45fd72ca260761edb2ae67dae15cf3c4599a225e759856543a001d490b681",
+  "checkpoint": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s123_code_v1/ae.pt",
+  "recipe": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/compact_lj_spatial_decoder/spatial_r16_d4_s123_code_v1/recipe.json"
+}

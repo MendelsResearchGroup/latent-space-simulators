@@ -1,0 +1,559 @@
+"""Build the paper-facing 200-MD-step dynamics notebooks from frozen artifacts."""
+
+from pathlib import Path
+
+import nbformat as nbf
+
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / "notebooks/dynamics/200_md_step"
+
+
+def md(text: str):
+    return nbf.v4.new_markdown_cell(text.strip() + "\n")
+
+
+def code(text: str):
+    return nbf.v4.new_code_cell(text.strip() + "\n")
+
+
+def write(name: str, cells: list) -> None:
+    notebook = nbf.v4.new_notebook(
+        cells=cells,
+        metadata={
+            "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
+            "language_info": {"name": "python", "version": "3"},
+        },
+    )
+    target = OUT / name
+    nbf.validate(notebook)
+    nbf.write(notebook, target)
+    print("wrote", target, len(cells), "cells")
+
+
+COMMON = r"""
+%matplotlib inline
+from pathlib import Path
+import sys
+import json
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.colors import LogNorm
+from IPython.display import display
+
+ROOT = Path.cwd().resolve()
+while not (ROOT / 'notebooks').exists():
+    if ROOT.parent == ROOT:
+        raise RuntimeError('Run from inside the repository.')
+    ROOT = ROOT.parent
+if str(ROOT / 'src') not in sys.path:
+    sys.path.insert(0, str(ROOT / 'src'))
+from lss.plotting import apply_editorial_style, PAPER_COLORS, style_axes
+
+PLOT_THEME = 'light'
+apply_editorial_style(PLOT_THEME)
+BASE = ROOT / 'notebooks/results/mini_temperature200_frames500'
+SOURCE_LABELS = {
+    'node_low': 'node optimized · low-T',
+    'node_mixed': 'node optimized · mixed-T',
+    'stiffness_low': 'stiffness optimized · low-T',
+    'stiffness_mixed': 'stiffness optimized · mixed-T',
+}
+SOURCE_COLORS = {
+    'node_low': PAPER_COLORS['blue'], 'node_mixed': PAPER_COLORS['sky'],
+    'stiffness_low': PAPER_COLORS['red'], 'stiffness_mixed': PAPER_COLORS['orange'],
+}
+MODE_LABELS = {'autonomous_delta_mlp': 'autonomous rollout'}
+LOW_SOURCES = ['node_low', 'stiffness_low']
+MIXED_SOURCES = ['node_mixed', 'stiffness_mixed']
+"""
+
+
+OUT.mkdir(parents=True, exist_ok=True)
+
+
+write(
+    "01_one_trajectory_per_source.ipynb",
+    [
+        md(
+            """
+# One trajectory per source
+
+This is the dense-cadence counterpart of the repository's original 1,000-MD-step notebook 01. The frozen 2D autoencoder was trained on one trajectory from each of four sources. Here we show the held-out mixed-temperature latent trajectories and ask what the learned coordinates organize; autonomous rollout is intentionally omitted.
+
+Frames 0–499 span MD steps 0–99,800. p-ratio was never an input, loss, selection metric, or training-sample selector.
+"""
+        ),
+        code(
+            COMMON
+            + r"""
+RUN = BASE / 'all4_one_each'
+required = [RUN/'completed.json', RUN/'recipe.json', RUN/'exposure.csv',
+            RUN/'test/mixed_temperature_latents.csv', RUN/'test/per_network.csv',
+            RUN/'test/mixed_temperature_latents_completed.json']
+missing = [str(path) for path in required if not path.exists()]
+if missing:
+    raise FileNotFoundError('Missing frozen artifacts:\n' + '\n'.join(missing))
+completed = json.loads((RUN/'completed.json').read_text())
+recipe = json.loads((RUN/'recipe.json').read_text())
+exposure = pd.read_csv(RUN/'exposure.csv')
+latents = pd.read_csv(RUN/'test/mixed_temperature_latents.csv')
+per_network = pd.read_csv(RUN/'test/per_network.csv')
+assert completed['status'] == 'completed'
+assert set(latents.source.unique()) == set(MIXED_SOURCES)
+assert latents.groupby(['source','trajectory_id']).size().eq(500).all()
+
+truth = (per_network.query("mode == 'ae_reconstruction' and frame == 499 and source in @MIXED_SOURCES")
+         [['source','trajectory_id','true_p_ratio']].rename(columns={'true_p_ratio':'final_p_ratio'}))
+initial = latents.query('frame == 0')[['source','trajectory_id','z0','z1']]
+descriptors = initial.merge(truth, on=['source','trajectory_id'], validate='one_to_one')
+print('Loaded one frozen 2D model and 160 held-out mixed-T trajectories (80/source × 500 frames).')
+"""
+        ),
+        md("## Training data"),
+        code(
+            r"""
+shown = exposure.query("split == 'train'").copy()
+shown['source'] = shown.source.map(SOURCE_LABELS)
+shown['MD range'] = shown.apply(lambda row: f"{int(row.first_md_step):,}–{int(row.last_md_step):,}", axis=1)
+display(shown[['source','trajectory_id','temperature_K','frames','MD range']].reset_index(drop=True))
+print('Four trajectories, 500 frames each; paired low/mixed IDs share the same underlying structure.')
+"""
+        ),
+        md("## Initial state and p-ratio"),
+        code(
+            r"""
+rows = []
+fig, axes = plt.subplots(2, 2, figsize=(9.2, 7.0), constrained_layout=True)
+for row, source in enumerate(MIXED_SOURCES):
+    values = descriptors.query('source == @source')
+    for col, latent in enumerate(['z0','z1']):
+        r = values[latent].corr(values.final_p_ratio)
+        rho = values[latent].corr(values.final_p_ratio, method='spearman')
+        rows.append({'source':SOURCE_LABELS[source], 'coordinate':f'initial {latent}',
+                     'Pearson r':r, 'Spearman rho':rho, 'valid/total':'80/80'})
+        ax = axes[row,col]
+        ax.scatter(values[latent], values.final_p_ratio, s=20, alpha=.72, color=SOURCE_COLORS[source])
+        fit = np.polyfit(values[latent], values.final_p_ratio, 1)
+        xx = np.linspace(values[latent].min(), values[latent].max(), 100)
+        ax.plot(xx, np.polyval(fit,xx), color=PAPER_COLORS['ink'], lw=1.2)
+        ax.set_title(SOURCE_LABELS[source])
+        style_axes(ax, xlabel=f'initial {latent}', ylabel='final endpoint p-ratio' if col == 0 else '')
+correlations = pd.DataFrame(rows)
+plt.show()
+display(correlations.round(3))
+"""
+        ),
+        md("## Representative trajectories"),
+        code(
+            r"""
+from matplotlib.colors import Normalize
+
+fig, axes = plt.subplots(2, 2, figsize=(11.2, 7.2), constrained_layout=True,
+                         gridspec_kw={'width_ratios':[3.2,1.5]})
+selected_rows = []
+for row, source in enumerate(MIXED_SOURCES):
+    values = descriptors.query('source == @source').copy()
+    coordinate = max(['z0','z1'], key=lambda z: abs(values[z].corr(values.final_p_ratio)))
+    fit = np.polyfit(values.final_p_ratio, values[coordinate], 1)
+    values['fit_residual'] = abs(values[coordinate] - np.polyval(fit, values.final_p_ratio))
+    values['quartile'] = pd.qcut(values.final_p_ratio, 4, labels=False)
+    chosen = values.loc[values.groupby('quartile').fit_residual.idxmin()].sort_values('final_p_ratio')
+    norm = Normalize(chosen.final_p_ratio.min(), chosen.final_p_ratio.max())
+    for _, item in chosen.iterrows():
+        path = latents.query('source == @source and trajectory_id == @item.trajectory_id').sort_values('frame')
+        color = plt.cm.cividis_r(norm(item.final_p_ratio))
+        axes[row,0].plot(path.md_step, path[coordinate], color=color, lw=1.55)
+        early = path.query('frame <= 20')
+        axes[row,1].plot(early.md_step, early[coordinate], color=color, lw=1.8)
+        axes[row,1].annotate(f"{item.final_p_ratio:+.2f}",
+                             (early.md_step.iloc[-1], early[coordinate].iloc[-1]),
+                             xytext=(3,0), textcoords='offset points', fontsize=7, color=color)
+        selected_rows.append({'source':SOURCE_LABELS[source], 'trajectory_id':int(item.trajectory_id),
+                              'coordinate':coordinate, 'final p-ratio':item.final_p_ratio})
+    axes[row,0].axvspan(0, 4000, color=PAPER_COLORS['slate'], alpha=.10, lw=0)
+    axes[row,0].set_title(SOURCE_LABELS[source])
+    axes[row,1].set_title('Early frames')
+    style_axes(axes[row,0], xlabel='MD step', ylabel=coordinate)
+    style_axes(axes[row,1], xlabel='MD step', ylabel=coordinate)
+plt.show()
+display(pd.DataFrame(selected_rows).round(3))
+"""
+        ),
+        md("## Latent paths"),
+        code(
+            r"""
+fig, ax = plt.subplots(figsize=(7.2,6.2), constrained_layout=True)
+for source in MIXED_SOURCES:
+    for trajectory_id, path in latents.query('source == @source and trajectory_id < 60').groupby('trajectory_id'):
+        path = path.sort_values('frame')
+        ax.plot(path.z0, path.z1, color=SOURCE_COLORS[source], alpha=.34, lw=.85)
+        ax.scatter(path.z0.iloc[0], path.z1.iloc[0], color=SOURCE_COLORS[source], s=10, zorder=3)
+    ax.plot([], [], color=SOURCE_COLORS[source], label=SOURCE_LABELS[source])
+ax.set_title('Held-out latent paths')
+style_axes(ax, xlabel='z0', ylabel='z1', legend=True)
+plt.show()
+"""
+        ),
+        md(
+            """
+## Result
+
+With one trajectory per source, the 2D representation is effectively close to a single deformation direction. The raw mixed-T frame-499 response is noisy, so single-coordinate correlations are descriptive rather than a rollout claim. The complete paths show how observed thermal motion is represented after encoding.
+"""
+        ),
+    ],
+)
+
+
+write(
+    "02_twenty_trajectories_and_rollout.ipynb",
+    [
+        md(
+            """
+# Twenty trajectories per source
+
+This notebook evaluates the autonomous rollout of the frozen model trained on 20 trajectories from each of the four sources. The scatter plots use the physical p-ratio measured directly at frame 499. The predefined noise-reduced mixed-T trajectory-fit metric is retained only in the final training-regime summary.
+"""
+        ),
+        code(
+            COMMON
+            + r"""
+RUN = BASE / 'all4_twenty_each'
+required = [RUN/'completed.json', RUN/'exposure.csv', RUN/'test/mixed_temperature_latents.csv',
+            RUN/'test/mixed_temperature_latents_completed.json',
+            RUN/'test/per_step.csv', RUN/'test/per_network.csv',
+            RUN/'test/mixed_linear_fit_summary.csv']
+missing = [str(path) for path in required if not path.exists()]
+if missing:
+    raise FileNotFoundError('Missing frozen artifacts:\n' + '\n'.join(missing))
+completed = json.loads((RUN/'completed.json').read_text())
+exposure = pd.read_csv(RUN/'exposure.csv')
+latents = pd.read_csv(RUN/'test/mixed_temperature_latents.csv')
+per_step = pd.read_csv(RUN/'test/per_step.csv')
+per_network = pd.read_csv(RUN/'test/per_network.csv')
+mixed_summary = pd.read_csv(RUN/'test/mixed_linear_fit_summary.csv')
+manifest = json.loads((BASE/'data_manifest.json').read_text())
+temperature_rows = []
+for source in MIXED_SOURCES:
+    for record in manifest['datasets'][source]['records']:
+        temperature_rows.append({
+            'source': source,
+            'trajectory_id': int(record['source_index']),
+            'temperature_K': float(record['temperature_K']),
+        })
+temperatures = pd.DataFrame(temperature_rows)
+TEMP_NORM = LogNorm(vmin=temperatures.temperature_K.min(),
+                    vmax=temperatures.temperature_K.max())
+TEMP_CMAP = plt.get_cmap('plasma')
+assert completed['status'] == 'completed'
+assert latents.groupby(['source','trajectory_id']).size().eq(500).all()
+print('Loaded the frozen 20-per-source model: 80 training trajectories and 320 held-out trajectories.')
+"""
+        ),
+        md("## Training data"),
+        code(
+            r"""
+table = (exposure.query("split == 'train'").groupby('source')
+         .agg(trajectories=('trajectory_id','size'), frames_each=('frames','first'),
+              first_md_step=('first_md_step','min'), last_md_step=('last_md_step','max')))
+table.index = table.index.map(SOURCE_LABELS)
+display(table)
+"""
+        ),
+        md("## Latent trajectories"),
+        code(
+            r"""
+fig, ax = plt.subplots(figsize=(7.5,6.4), constrained_layout=True)
+for source in MIXED_SOURCES:
+    shown = latents.query('source == @source and trajectory_id < 60')
+    for trajectory_id, path in shown.groupby('trajectory_id'):
+        path = path.sort_values('frame')
+        ax.plot(path.z0, path.z1, color=SOURCE_COLORS[source], alpha=.35, lw=.85)
+        ax.scatter(path.z0.iloc[0], path.z1.iloc[0], color=SOURCE_COLORS[source], s=11, marker='o')
+        ax.scatter(path.z0.iloc[-1], path.z1.iloc[-1], color=SOURCE_COLORS[source], s=12, marker='x')
+    ax.plot([], [], color=SOURCE_COLORS[source], label=SOURCE_LABELS[source])
+ax.set_title('Held-out latent paths')
+style_axes(ax, xlabel='z0', ylabel='z1', legend=True)
+plt.show()
+"""
+        ),
+        md(
+            """
+## R² by step
+
+At every point, predicted and ground-truth p-ratios are measured at the same frame across the same 80 held-out networks. This curve is secondary because individual mixed-T frames fluctuate strongly; the final-step scatter below is the clearer network-by-network result.
+"""
+        ),
+        code(
+            r"""
+fig, axes = plt.subplots(1,2,figsize=(11.0,4.2),sharey=True,constrained_layout=True)
+for ax, source in zip(axes, MIXED_SOURCES):
+    values = per_step.query("source == @source and mode == 'autonomous_delta_mlp' and frame > 0").sort_values('frame')
+    ax.plot(values.frame*200, values.p_ratio_r2.clip(lower=0),
+            color=SOURCE_COLORS[source])
+    ax.set_title(SOURCE_LABELS[source])
+    ax.set_ylim(bottom=0)
+    style_axes(ax, xlabel='MD step', ylabel='held-out endpoint p-ratio R²')
+plt.show()
+
+low_final = per_step.query("frame == 499 and source in @MIXED_SOURCES and mode == 'autonomous_delta_mlp'")[
+    ['source','mode','p_ratio_r2','p_ratio_valid','p_ratio_total']].copy()
+low_final['source'] = low_final.source.map(SOURCE_LABELS)
+low_final['mode'] = low_final['mode'].map(MODE_LABELS)
+display(low_final.rename(columns={'source':'dataset','mode':'prediction','p_ratio_r2':'R²',
+                                  'p_ratio_valid':'valid','p_ratio_total':'total'}).round(3))
+print('Prediction and ground truth are evaluated at the same frame. Mixed-T fluctuations make this curve noisy; negative R² values are shown at zero only in the plot.')
+"""
+        ),
+        md("## Final p-ratio"),
+        code(
+            r"""
+fig, axes = plt.subplots(1,2,figsize=(9.0,4.2),constrained_layout=True)
+for ax, source in zip(axes, MIXED_SOURCES):
+    values = (per_network.query("source == @source and mode == 'autonomous_delta_mlp' and frame == 499")
+              .merge(temperatures, on=['source','trajectory_id'], validate='one_to_one'))
+    score = per_step.query("source == @source and mode == 'autonomous_delta_mlp' and frame == 499").iloc[0]
+    ax.scatter(values.true_p_ratio, values.pred_p_ratio, c=values.temperature_K,
+               cmap=TEMP_CMAP, norm=TEMP_NORM, s=24, alpha=.78)
+    lo = min(values.true_p_ratio.min(), values.pred_p_ratio.min())
+    hi = max(values.true_p_ratio.max(), values.pred_p_ratio.max())
+    ax.plot([lo,hi],[lo,hi], color=PAPER_COLORS['ink'], ls=':', lw=1.1)
+    ax.set_title(SOURCE_LABELS[source])
+    style_axes(ax, xlabel='true p-ratio · frame 499', ylabel='predicted p-ratio · frame 499')
+fig.colorbar(plt.cm.ScalarMappable(norm=TEMP_NORM, cmap=TEMP_CMAP), ax=axes,
+             label='temperature (K)', fraction=.025, pad=.02)
+plt.show()
+mixed_endpoint = per_step.query("source in @MIXED_SOURCES and frame == 499 and mode == 'autonomous_delta_mlp'")[
+    ['source','mode','p_ratio_r2','p_ratio_valid','p_ratio_total']].copy()
+mixed_endpoint['source'] = mixed_endpoint.source.map(SOURCE_LABELS)
+mixed_endpoint['mode'] = mixed_endpoint['mode'].map(MODE_LABELS)
+display(mixed_endpoint.rename(columns={'p_ratio_r2':'R²','p_ratio_valid':'valid','p_ratio_total':'total'}).round(3))
+"""
+        ),
+        md("## Training summary"),
+        code(
+            r"""
+ARMS = {
+    '1/source · all four':'all4_one_each',
+    '20/source · all four':'all4_twenty_each',
+    '20/source · low-T joint':'joint_low',
+    '20 · node low-T only':'node_low_only',
+    '20 · stiffness low-T only':'stiffness_low_only',
+    '20/source · mixed-T joint':'joint_mixed_only',
+}
+parts=[]
+for label, folder in ARMS.items():
+    path=BASE/folder/'test/mixed_linear_fit_summary.csv'
+    if not path.exists(): raise FileNotFoundError(path)
+    values=pd.read_csv(path); values['training']=label; parts.append(values)
+comparison=pd.concat(parts,ignore_index=True).query("mode=='autonomous_delta_mlp'").copy()
+
+fig,axes=plt.subplots(1,2,figsize=(12.2,4.8),sharey=True,constrained_layout=True)
+for ax,source in zip(axes,MIXED_SOURCES):
+    values=comparison.query("source==@source and mode=='autonomous_delta_mlp'").set_index('training').loc[list(ARMS)]
+    colors=[PAPER_COLORS['blue'] if value>=0 else PAPER_COLORS['light'] for value in values.p_ratio_r2]
+    bars=ax.barh(np.arange(len(values)),values.p_ratio_r2.clip(lower=0),color=colors)
+    for bar, exact in zip(bars,values.p_ratio_r2):
+        ax.text(max(bar.get_width(),0)+.015,bar.get_y()+bar.get_height()/2,f'{exact:.2f}',va='center',fontsize=8)
+    ax.set_title(SOURCE_LABELS[source]); ax.set_yticks(np.arange(len(values)),values.index); ax.invert_yaxis()
+    style_axes(ax,xlabel='autonomous rollout fitted p-ratio R²',ylabel='')
+plt.show()
+
+exact=comparison.copy()
+exact['source']=exact.source.map(SOURCE_LABELS); exact['prediction']=exact['mode'].map(MODE_LABELS)
+display(exact[['training','source','prediction','p_ratio_r2','valid','total','true_fit_r2_median','pred_fit_r2_median']]
+        .rename(columns={'p_ratio_r2':'R²'}).round(3))
+print('Bars stop at zero; labels and table retain negative R² values.')
+"""
+        ),
+        md(
+            """
+## Result
+
+Twenty trajectories per source are enough for useful low-T rollouts and modest mixed-T mean-response prediction. The mixed-T truth itself is weakly linear over this shorter physical window: median trajectory-fit R² is about 0.26 for node-optimized and 0.20 for stiffness-optimized networks. Thus 500 dense frames improve temporal resolution but do not replace the longer physical deformation horizon.
+"""
+        ),
+    ],
+)
+
+
+write(
+    "03_latent_morph_and_attribution.ipynb",
+    [
+        md(
+            """
+# Latent space and training coverage
+
+The autoencoder input type never changes. This notebook varies the number of low-T training networks per source—1, 2, 4, 8, 10, 12, 14, and 20—and then follows complete held-out 500-frame trajectories. It also shows which graph-input families and physical springs locally influence z0/z1.
+"""
+        ),
+        code(
+            COMMON
+            + r"""
+MORPH = BASE/'latent_count_morph'
+ATTR = BASE/'edge_attribution'
+required=[BASE/'all4_one_each/test/low_temperature_latents.csv',
+          BASE/'all4_twenty_each/test/low_temperature_latents.csv',
+          BASE/'all4_one_each/test/per_network.csv', BASE/'all4_twenty_each/test/per_network.csv',
+          ATTR/'feature_influence.csv', ATTR/'edge_influence.csv', ATTR/'metadata.json']
+missing=[str(path) for path in required if not path.exists()]
+if missing: raise FileNotFoundError('Missing frozen artifacts:\n'+'\n'.join(missing))
+COUNTS=[1,2,4,8,10,12,14,20]
+SEEDS=[123,456,786]
+summary_parts=[]
+for path in sorted(MORPH.glob('c*_s*/summary.csv')):
+    summary_parts.append(pd.read_csv(path))
+summary=pd.concat(summary_parts,ignore_index=True)
+
+def seed123_summary(count, folder):
+    lat=pd.read_csv(BASE/folder/'test/low_temperature_latents.csv')
+    net=pd.read_csv(BASE/folder/'test/per_network.csv')
+    truth=(net.query("mode=='ae_reconstruction' and frame==499 and source in @LOW_SOURCES")
+           [['source','trajectory_id','true_p_ratio']].rename(columns={'true_p_ratio':'p'}))
+    initial=lat.query('frame==0')[['source','trajectory_id','z0','z1']].merge(truth,on=['source','trajectory_id'])
+    rows=[]
+    for source,g in initial.groupby('source'):
+        eig=np.linalg.eigvalsh(np.cov(g[['z0','z1']].to_numpy(),rowvar=False))
+        rows.append({'count':count,'seed':123,'source':source,
+                     'effective_dimension':eig.sum()**2/np.square(eig).sum(),
+                     'z0_z1_pearson':g.z0.corr(g.z1),
+                     'initial_z0_final_p_abs_pearson':abs(g.z0.corr(g.p)),
+                     'initial_z1_final_p_abs_pearson':abs(g.z1.corr(g.p)),
+                     'valid':len(g),'total':len(g)})
+    return pd.DataFrame(rows)
+
+summary=pd.concat([summary,seed123_summary(1,'all4_one_each'),seed123_summary(20,'all4_twenty_each')],ignore_index=True)
+assert len(summary)==len(COUNTS)*len(SEEDS)*2
+assert set(zip(summary['count'],summary.seed))==set((c,s) for c in COUNTS for s in SEEDS)
+print('Loaded 24 frozen morphology cells: 8 training counts × 3 seeds; 80 held-out networks/source.')
+"""
+        ),
+        md("## Latent dimension"),
+        code(
+            r"""
+summary['absolute z0-z1 correlation']=summary.z0_z1_pearson.abs()
+aggregate=(summary.groupby(['count','source']).agg(
+    effective_dimension_mean=('effective_dimension','mean'),
+    effective_dimension_sd=('effective_dimension','std'),
+    redundancy_mean=('absolute z0-z1 correlation','mean'),
+    redundancy_sd=('absolute z0-z1 correlation','std'),
+    seeds=('seed','size')).reset_index())
+fig,axes=plt.subplots(1,2,figsize=(10.2,4.0),constrained_layout=True)
+for source in LOW_SOURCES:
+    values=aggregate.query('source==@source').sort_values('count')
+    axes[0].errorbar(values['count'],values.effective_dimension_mean,yerr=values.effective_dimension_sd,
+                     marker='o',capsize=3,color=SOURCE_COLORS[source],label=SOURCE_LABELS[source])
+    axes[1].errorbar(values['count'],values.redundancy_mean,yerr=values.redundancy_sd,
+                     marker='o',capsize=3,color=SOURCE_COLORS[source],label=SOURCE_LABELS[source])
+axes[0].set(title='effective latent dimension',ylim=(1,2.03),xticks=COUNTS)
+axes[1].set(title='z0/z1 redundancy',ylim=(0,1.03),xticks=COUNTS)
+style_axes(axes[0],xlabel='training networks / source',ylabel='participation-ratio dimension',legend=True)
+style_axes(axes[1],xlabel='training networks / source',ylabel='absolute correlation',legend=True)
+plt.show()
+display(aggregate.round(3))
+print('Effective dimension = (λ0 + λ1)² / (λ0² + λ1²), using eigenvalues of the held-out initial-state covariance. It ranges from 1 to 2.')
+"""
+        ),
+        md("## Paths by coverage"),
+        code(
+            r"""
+fig,axes=plt.subplots(2,4,figsize=(13.2,6.5),constrained_layout=True)
+for ax,count in zip(axes.flat,COUNTS):
+    path=MORPH/f'c{count}_s456'/'trajectory_latents_20_ids.csv'
+    if not path.exists(): raise FileNotFoundError(path)
+    trajectories=pd.read_csv(path).query("source=='stiffness_low'")
+    for trajectory_id,g in trajectories.groupby('trajectory_id'):
+        g=g.sort_values('frame')
+        color=plt.cm.cividis((trajectory_id-40)/19)
+        ax.plot(g.z0,g.z1,color=color,lw=.75,alpha=.72)
+        ax.scatter(g.z0.iloc[0],g.z1.iloc[0],s=7,color=color,zorder=3)
+    ax.set_title(f'{count} / source')
+    style_axes(ax,xlabel='z0',ylabel='z1')
+fig.suptitle('Stiffness low-T paths',fontweight='semibold')
+plt.show()
+"""
+        ),
+        md("## Feature importance"),
+        code(
+            r"""
+features=pd.read_csv(ATTR/'feature_influence.csv')
+feature_order=['reference positions','reference edge direction','reference edge length','spring stiffness',
+               'node displacement from frame 0','edge direction change from frame 0',
+               'edge length change from frame 0','relative edge stretch from frame 0']
+frames=[0,1,2,3,4,5,20,50]
+trainings=['1 per each of four sources','20 per each of four sources',
+           '20 stiffness low-T only','20 stiffness + 20 node low-T']
+short={'1 per each of four sources':'1/source · all four',
+       '20 per each of four sources':'20/source · all four',
+       '20 stiffness low-T only':'20 · stiffness only',
+       '20 stiffness + 20 node low-T':'20+20 · stiffness and node'}
+fig,axes=plt.subplots(2,2,figsize=(12.0,8.2),constrained_layout=True)
+for ax,training in zip(axes.flat,trainings):
+    matrix=(features.query('training==@training').pivot(index='feature',columns='frame',values='influence_fraction')
+            .loc[feature_order,frames])
+    image=ax.imshow(matrix,vmin=0,vmax=.9,cmap='magma',aspect='auto')
+    ax.set_title(short[training]); ax.set_xticks(range(len(frames)),frames)
+    ax.set_yticks(range(len(feature_order)),feature_order)
+    for i in range(len(feature_order)):
+        for j in range(len(frames)):
+            value=matrix.iloc[i,j]
+            if value>=.05: ax.text(j,i,f'{100*value:.0f}%',ha='center',va='center',fontsize=7,
+                                    color='white' if value<.55 else 'black')
+    style_axes(ax,xlabel='frame',ylabel='')
+fig.colorbar(image,ax=axes,label='share of local gradient × normalized-input influence',fraction=.025,pad=.02)
+plt.show()
+"""
+        ),
+        md("## Edge importance"),
+        code(
+            r"""
+import networkx as nx
+GRAPH_UTILS_SITE=Path('/rg/mendels_prj/alexander.z/DL-course-project/.venv/lib/python3.10/site-packages')
+if str(GRAPH_UTILS_SITE) not in sys.path: sys.path.append(str(GRAPH_UTILS_SITE))
+from graph_utils import draw_graph, remove_periodic_edges
+
+edges=pd.read_csv(ATTR/'edge_influence.csv')
+def network_and_visible(table):
+    graph=nx.Graph()
+    for edge in table.itertuples():
+        graph.add_node(int(edge.node_i),pos=(float(edge.x_i),float(edge.y_i)))
+        graph.add_node(int(edge.node_j),pos=(float(edge.x_j),float(edge.y_j)))
+        graph.add_edge(int(edge.node_i),int(edge.node_j))
+    graph.graph['box']={'x1':-10.,'x2':10.,'y1':-10.,'y2':10.,'x':20.,'y':20.}
+    visible=remove_periodic_edges(graph)
+    visible_keys={tuple(sorted(edge)) for edge in visible.edges}
+    keep=[tuple(sorted((int(row.node_i),int(row.node_j)))) in visible_keys for row in table.itertuples()]
+    return graph,table.loc[keep].copy()
+
+fig,axes=plt.subplots(2,2,figsize=(10.0,9.3),constrained_layout=True)
+for ax,training in zip(axes.flat,trainings):
+    table=edges.query('training==@training').copy()
+    graph,visible=network_and_visible(table)
+    visible['percentile']=visible.stiffness_influence.rank(pct=True,method='average')
+    stiffness=(visible.stiffness-visible.stiffness.min())/(visible.stiffness.max()-visible.stiffness.min()+1e-12)
+    draw_graph(graph,periodic_edges=False,node_color=PAPER_COLORS['ink'],node_size=4,
+               show_labels=False,ax=ax,show=False)
+    nx.draw_networkx_edges(remove_periodic_edges(graph),nx.get_node_attributes(graph,'pos'),
+        edgelist=list(zip(visible.node_i.astype(int),visible.node_j.astype(int))),
+        edge_color=visible.percentile.to_numpy(),edge_cmap=plt.cm.viridis,edge_vmin=0,edge_vmax=1,
+        width=(.2+1.7*stiffness).to_numpy(),alpha=.9,ax=ax)
+    ax.set_title(short[training]); ax.set_aspect('equal'); ax.set_axis_off()
+fig.colorbar(plt.cm.ScalarMappable(norm=plt.Normalize(0,1),cmap='viridis'),ax=axes,
+             label='spring-stiffness influence percentile within model',fraction=.025,pad=.02)
+fig.suptitle('Edge influence',fontweight='semibold')
+plt.show()
+"""
+        ),
+        md(
+            """
+## Result
+
+With one network per source, z0 and z1 mostly duplicate one dominant deformation direction. As training coverage grows, the initial states occupy more of the available 2D plane and complete trajectories acquire distinct directions and early curvature. The encoder separates network families without labels because reference geometry, edge lengths, and spring stiffness are part of its graph input. Motion then enters through displacement and edge-change features relative to that reference.
+
+Gradient × input is a local sensitivity diagnostic on one fixed held-out graph, not a causal feature-removal experiment.
+"""
+        ),
+    ],
+)

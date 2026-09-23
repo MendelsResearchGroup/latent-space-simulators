@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#PBS -N mini_data_preview
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=04:00:00
+#PBS -j oe
+set -euo pipefail
+export LSS_PROJECT_ROOT=/rg/mendels_prj/alexander.z/latent-space-simulators
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 NUMEXPR_NUM_THREADS=8
+export PYTHONPATH="$LSS_PROJECT_ROOT/src:/rg/mendels_prj/alexander.z/MetaForge/src"
+export MPLBACKEND=Agg PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR="/tmp/mini-data-preview-${PBS_JOBID}"
+cd "$LSS_PROJECT_ROOT"
+mkdir -p notebooks/results/mini_data_preview/logs
+exec >"notebooks/results/mini_data_preview/logs/${PBS_JOBID}.log" 2>&1
+python_bin=/rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python
+"$python_bin" -u hpc/experiments/mini_data_preview/prepare.py --mode pilot
+"$python_bin" -u hpc/experiments/mini_data_preview/prepare.py --mode full

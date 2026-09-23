@@ -1,0 +1,8 @@
+{
+  "proper_crossing": true,
+  "shared_joint_excluded": true,
+  "bidirectional_duplicates_count_once": true,
+  "disjoint_segments_clear": true,
+  "notebook_executed": false,
+  "new_simulation": false
+}

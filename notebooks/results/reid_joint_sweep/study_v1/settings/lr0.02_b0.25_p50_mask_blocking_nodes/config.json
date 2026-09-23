@@ -1,0 +1,24 @@
+{
+  "id": "lr0.02_b0.25_p50_mask_blocking_nodes",
+  "learning_rate": 0.02,
+  "log_stiffness_bound": 0.25,
+  "patience": 50,
+  "feasibility_mode": "mask_blocking_nodes",
+  "output": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/settings/lr0.02_b0.25_p50_mask_blocking_nodes",
+  "prepared_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/study_v1/prepared/reid/prepare/prepared.pt",
+  "baseline_results_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_positive10/adam_v1/results.csv",
+  "global_freeze_completed_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/global_freeze_completed.json",
+  "global_manifest_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/reid_joint_sweep/study_v1/global_frozen_designs.json",
+  "ids": [
+    93,
+    84,
+    96,
+    97,
+    52,
+    59,
+    57,
+    53,
+    2,
+    74
+  ]
+}

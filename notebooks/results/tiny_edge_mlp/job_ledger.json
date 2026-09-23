@@ -1,0 +1,23 @@
+{
+  "code_manifest_sha256": "6e35f6e6390e76aa5cd7769767b0717e38ccb98434a4765dfb849ccbaa0e16d4",
+  "code_root": "notebooks/results/tiny_edge_mlp/code_v1",
+  "jobs": {
+    "123": "4698537.zeus-master",
+    "456": "4698538.zeus-master",
+    "786": "4698539.zeus-master"
+  },
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "seeds": [
+    123,
+    456,
+    786
+  ],
+  "status": "submitted",
+  "study": "tiny_edge_mlp",
+  "submitted_at": "2026-09-23T09:29:06.911724+00:00"
+}

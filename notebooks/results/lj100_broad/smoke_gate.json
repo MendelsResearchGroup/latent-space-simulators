@@ -1,0 +1,113 @@
+{
+  "code_manifest_sha256": "6478d2fd52eb2df5e0b6c270ab57b6e3977b894f300ea8a7a610f25b259cb3af",
+  "evidence": [
+    {
+      "family": "residual_mlp",
+      "context": "mean",
+      "job_id": "4678636.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.1613236665725708,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "residual_mlp",
+      "context": "attention",
+      "job_id": "4678637.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.15227600932121277,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "inertial",
+      "context": "mean",
+      "job_id": "4678638.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.23724326491355896,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "inertial",
+      "context": "attention",
+      "job_id": "4678639.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.24538357555866241,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "gru",
+      "context": "mean",
+      "job_id": "4678640.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.4752219617366791,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "gru",
+      "context": "attention",
+      "job_id": "4678641.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.4212634265422821,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "history_attention",
+      "context": "mean",
+      "job_id": "4678642.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.20309197902679443,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "history_attention",
+      "context": "attention",
+      "job_id": "4678643.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.16903924942016602,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "direct_mlp",
+      "context": "mean",
+      "job_id": "4678644.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.1643049567937851,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "direct_mlp",
+      "context": "attention",
+      "job_id": "4678645.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.15711624920368195,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "cubic",
+      "context": "mean",
+      "job_id": "4678646.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.3016379773616791,
+        "reload_max_abs": 0.0
+      }
+    },
+    {
+      "family": "cubic",
+      "context": "attention",
+      "job_id": "4678647.zeus-master",
+      "checks": {
+        "pure_position_gradient": 0.2831466794013977,
+        "reload_max_abs": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "study": "mini_ae_frame_balance",
+  "hypothesis": "Small-frame displacement signals may be underweighted by global coordinate MSE; posthocreference subtraction worsenedearlyp in bothdatasets.",
+  "matrix": [
+    {
+      "study": "mini_stiffness",
+      "mode": "uniform",
+      "seed": 123
+    },
+    {
+      "study": "mini_stiffness",
+      "mode": "balanced",
+      "seed": 123
+    },
+    {
+      "study": "mini_node",
+      "mode": "uniform",
+      "seed": 123
+    },
+    {
+      "study": "mini_node",
+      "mode": "balanced",
+      "seed": 123
+    }
+  ],
+  "architecture": "Existing2DMP2/reference16 AE unchanged; fine-tune from each existing saved AE; no decoderreference subtraction.",
+  "data": "Same20train/20validation perstudy, exactframes0..19; nofinaltest, no newnormalizerfit.",
+  "weights": "For eachframe mean over20trainingnetworks of node/coordinate mean (normalized_delta / frozen_target_std)^2. Energy floor=.04*median(frame1..19 energy), equivalent20%median-energy RMS floor. Inverse flooredenergy weights normalizedmean1 across20frames. Uniformcontrolweights1.",
+  "objective": "Mean per-graph frozen-target-normalized displacement squared error multiplied by frame weight. Both axes equally treated afterexistingnormalization; no boundary/response/strainfeatures.",
+  "selection": "Sameweightedvalidationcoordinate loss as training mode; epoch0eligible,minimprove1e-8. No p-ratio/strain in inputs, loss, weights orcheckpoint selection.",
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "clip_norm": 1,
+    "max_epochs": 30,
+    "patience": 8,
+    "batch_graphs": 32
+  },
+  "evaluation": "Frozen selectedAE physical endpoint p-ratioR2 viaoriginaldirectionalsidesquantile.10, displacementMSE/R2 atall0..19 on20validationnetworks, sourcewisevalidtotal. One seed noSD; fixed unweightedcontrol distinguishes extra training fromweighting.",
+  "limits": "Validation development study; prior testresultsdescribedproblem, but no further testusedin this pilot; no propagatortraining/no latentdimensionchange."
+}

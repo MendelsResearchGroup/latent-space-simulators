@@ -1,0 +1,100 @@
+#!/usr/bin/env python3
+"""Add the cached mixed-only versus low-T endpoint response curves to notebook 06."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[2]
+NOTEBOOK = ROOT / "notebooks/dynamics/06_mini_shared_latent_dynamics.ipynb"
+MARKER = "## Direct mixed-T training versus low-T transfer"
+
+
+def lines(text: str) -> list[str]:
+    return text.splitlines(keepends=True)
+
+
+def main() -> None:
+    notebook = json.loads(NOTEBOOK.read_text())
+    cells = notebook["cells"]
+    cells = [
+        cell
+        for cell in cells
+        if MARKER not in "".join(cell.get("source", []))
+        and "MIXED_ONLY_ROOT = ROOT / 'notebooks/results/mini_temperature1000_mixed_only/joint_mixed_only'" not in "".join(cell.get("source", []))
+    ]
+    insertion = next(
+        index
+        for index, cell in enumerate(cells)
+        if "## Mixed-T auxiliary boundary-strain linear fit" in "".join(cell.get("source", []))
+    )
+    markdown = {
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": lines(
+            MARKER
+            + "\n\n"
+            + "Solid lines are the model trained directly on the two mixed-temperature sources. "
+            + "Dashed lines are the matched joint low-temperature model evaluated zero-shot on the same held-out IDs 40–119. "
+            + "Panels separate AE reconstruction from autonomous rollout. These curves use the historical single-frame endpoint estimator; "
+            + "the noise-reduced frames 30–199 fit is a separate final-trajectory summary below.\n"
+        ),
+    }
+    code = {
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": lines(
+            "MIXED_ONLY_ROOT = ROOT / 'notebooks/results/mini_temperature1000_mixed_only/joint_mixed_only'\n"
+            "LOW_T_BASELINE_ROOT = T1000 / 'joint_low_uniform_retry1'\n"
+            "MIXED_SOURCES = ('node_mixed', 'stiffness_mixed')\n"
+            "\n"
+            "def source_steps(folder):\n"
+            "    paths = [folder / 'test' / source / 'per_step.csv' for source in MIXED_SOURCES]\n"
+            "    for path in paths:\n"
+            "        assert path.is_file(), path\n"
+            "    table = pd.concat([pd.read_csv(path) for path in paths], ignore_index=True)\n"
+            "    assert set(table['source']) == set(MIXED_SOURCES)\n"
+            "    assert set(table['mode']) == set(MODES)\n"
+            "    assert table.groupby(['source', 'mode'])['frame'].nunique().eq(200).all()\n"
+            "    assert (table['p_ratio_total'] == 80).all()\n"
+            "    return table\n"
+            "\n"
+            "mixed_only_scores = source_steps(MIXED_ONLY_ROOT)\n"
+            "low_transfer_scores = source_steps(LOW_T_BASELINE_ROOT)\n"
+            "\n"
+            "fig, axes = plt.subplots(1, 2, figsize=(12, 4.2), sharex=True, sharey=True, constrained_layout=True)\n"
+            "for ax, mode in zip(axes, MODES):\n"
+            "    for source in MIXED_SOURCES:\n"
+            "        color = SOURCE_COLORS[source]\n"
+            "        direct = mixed_only_scores.loc[(mixed_only_scores['source'] == source) & (mixed_only_scores['mode'] == mode) & (mixed_only_scores['frame'] >= 10)].sort_values('frame')\n"
+            "        transfer = low_transfer_scores.loc[(low_transfer_scores['source'] == source) & (low_transfer_scores['mode'] == mode) & (low_transfer_scores['frame'] >= 10)].sort_values('frame')\n"
+            "        assert len(direct) == len(transfer) == 190\n"
+            "        ax.plot(direct['frame'] * 1000, direct['p_ratio_r2'], color=color, lw=2.1, label=f\"{source.replace('_', ' ')} · mixed-T train\")\n"
+            "        ax.plot(transfer['frame'] * 1000, transfer['p_ratio_r2'], color=color, lw=1.6, ls='--', alpha=.8, label=f\"{source.replace('_', ' ')} · low-T train\")\n"
+            "    ax.axhline(0, color=PAPER_COLORS['slate'], lw=.7)\n"
+            "    ax.set_ylim(-.5, 1.0)\n"
+            "    ax.set_title(MODE_LABELS[mode])\n"
+            "    style_axes(ax, xlabel='MD steps (frame × 1,000)', ylabel='Endpoint p-ratio R²', legend=True)\n"
+            "plt.show()\n"
+            "\n"
+            "comparison = pd.concat([\n"
+            "    mixed_only_scores.assign(training='mixed-T only'),\n"
+            "    low_transfer_scores.assign(training='low-T only'),\n"
+            "])\n"
+            "comparison = comparison.loc[comparison['frame'].isin(HORIZONS), ['training', 'source', 'mode', 'frame', 'p_ratio_r2', 'p_ratio_valid', 'p_ratio_total']]\n"
+            "comparison['readout'] = comparison['mode'].map(MODE_LABELS)\n"
+            "comparison['MD steps'] = comparison['frame'] * 1000\n"
+            "display(comparison.drop(columns=['mode']).sort_values(['source', 'readout', 'MD steps', 'training']))\n"
+        ),
+    }
+    cells[insertion:insertion] = [markdown, code]
+    notebook["cells"] = cells
+    NOTEBOOK.write_text(json.dumps(notebook, ensure_ascii=False, indent=1) + "\n")
+
+
+if __name__ == "__main__":
+    main()

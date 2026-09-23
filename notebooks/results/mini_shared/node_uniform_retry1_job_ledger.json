@@ -1,0 +1,66 @@
+{
+  "code_manifest_sha256": "558ab83e6ebf0e9bb169e7d939458f22200866a2b109ff93b14e45a0e2303356",
+  "collector_dependency": "afterok:4682639.zeus-master",
+  "data_manifest_sha256": "22c1885f87a79260b7c7cf2a2d9040f04165dc0f08ee9d0125e6f3029dd78cae",
+  "frame_weights": "all 200 post-warmup source/frame weights exactly 1",
+  "jobs": {
+    "fit_with_smoke_gate": "4682639.zeus-master",
+    "postfit_collector": "4682640.zeus-master"
+  },
+  "mixed_excluded": true,
+  "postfit_primary": "physical endpoint fixed-frame0 sides q0.10 p-ratio R2 at frame199; AE reconstruction and autonomous rollout separately",
+  "protocol_sha256": "587c1443f3f3b4329b1237b6d5c16d6f5c8edbb94c607dd711f0383f7eb90e63",
+  "resources": {
+    "mem": "16gb",
+    "ncpus": 8,
+    "place": "free:shared",
+    "queue": "mendels_q"
+  },
+  "completed_accounting": {
+    "fit": {
+      "exit_status": 0,
+      "job_id": "4682639.zeus-master",
+      "memory_kb": 1651224,
+      "walltime": "01:29:01"
+    },
+    "postfit_collector": {
+      "exit_status": 0,
+      "job_id": "4682640.zeus-master",
+      "memory_kb": 1522348,
+      "walltime": "00:08:02"
+    }
+  },
+  "frame199_endpoint_results": {
+    "node_mixed": {
+      "ae_p_ratio_r2": 0.082617,
+      "ae_valid_total": "80/80",
+      "rollout_p_ratio_r2": 0.362967,
+      "rollout_valid_total": "80/80"
+    },
+    "node_original": {
+      "ae_p_ratio_r2": 0.970263,
+      "ae_valid_total": "80/80",
+      "rollout_p_ratio_r2": 0.961533,
+      "rollout_valid_total": "80/80"
+    }
+  },
+  "selected_epochs": {
+    "ae_post_warmup": 13,
+    "propagator": 55
+  },
+  "checkpoint_sha256": {
+    "ae": "f6bddc23488c3518356419e4fefdb3ce8df5b2c99bf43ec29e27a0168fd47275",
+    "propagator": "40541ce146e9d58ad6aa5a177589cee5fbc25a8c8ece446d74adb76a0a2647e3"
+  },
+  "seed": 123,
+  "selection": "ordinary uniform validation coordinate MSE and latent-delta validation loss only; p-ratio never used",
+  "smoke_gate": "same job: train smoke, endpoint diagnostic collection through frame199, then full fit only after both succeed",
+  "snapshot": "notebooks/results/mini_shared/code_node_uniform_v2",
+  "sources": [
+    "node_original"
+  ],
+  "status": "completed",
+  "study": "node_original_uniform_retry1",
+  "submission_attempts": [],
+  "submitted_at": "2026-09-13T08:41:23.001885+00:00"
+}

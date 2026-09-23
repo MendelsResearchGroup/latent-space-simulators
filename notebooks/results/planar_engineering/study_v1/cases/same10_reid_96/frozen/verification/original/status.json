@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "name": "original",
+  "graph_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_96/frozen/original.pt",
+  "graph_sha256": "834ec1f3619e061ab0e457d7052a3c68a5cc8fef0b23e099ae6a170c5ddd577c",
+  "trajectory_path": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/planar_engineering/study_v1/cases/same10_reid_96/frozen/original_trajectory.npz",
+  "trajectory_sha256": "f9e9d9eb0bf36540e0c563b1208e1a2e0382f69e587dd36ea94de143b49fc843",
+  "physical_p_ratio": 0.07163962573647556,
+  "endpoint_parity_error": 0.0,
+  "frame_count": 121,
+  "lammps_path": "/rg/mendels_prj/alexander.z/DL-course-project/.runtime/lammps/bin/lmp",
+  "lammps_sha256": "0f80557a681e4c72ff347ba229929471c1c0a729fdc23d4b708270314e19aa76",
+  "pbs_job_id": "4677375.zeus-master",
+  "verification_source_sha256": "08ba5a9997cb9fbb04dbe66a43977e5fcf2af14b9a6ec6f4b23336096c7908e1"
+}

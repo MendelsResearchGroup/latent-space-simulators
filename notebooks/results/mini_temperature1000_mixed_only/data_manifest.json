@@ -1,0 +1,74 @@
+{
+  "status": "complete",
+  "study": "mini_temperature1000_mixed_only",
+  "datasets": {
+    "node_low": {
+      "trainval_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_node_optimized_200_500/dataset.pt",
+      "trainval_sha256": "fa9413516e252825a9e93f73f87edd1e361004807c6fe158e6b54ace1678784b",
+      "test_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_node_optimized_200_500/dataset.pt",
+      "test_sha256": "fa9413516e252825a9e93f73f87edd1e361004807c6fe158e6b54ace1678784b",
+      "manifest_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_node_optimized_200_500/manifest.json",
+      "manifest_sha256": "36308c48b6cdebe26e475a78be1baa65f7ba6abdd73ecb2717d43796c077ad5e",
+      "recipe_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_node_optimized_200_500/recipe.json",
+      "recipe_sha256": "f25a57abbc13ebfcdfcb36391ff4c5128746798d69de78c62babc4d13bfc40ba",
+      "p_ratio_validation_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_node_optimized_200_500/p_ratio_validation.json",
+      "p_ratio_validation_sha256": "b7d34adab7cf70cde3d25612f4961e4d013d7fd34c94cdde2d21ba2826ded3be"
+    },
+    "node_mixed": {
+      "trainval_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_node_optimized_200_500/dataset.pt",
+      "trainval_sha256": "d4f85c76434470293c75968f7c9bd29b9ff55f76012c9fffbb73f9f9b3ee49f9",
+      "test_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_node_optimized_200_500/dataset.pt",
+      "test_sha256": "d4f85c76434470293c75968f7c9bd29b9ff55f76012c9fffbb73f9f9b3ee49f9",
+      "manifest_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_node_optimized_200_500/manifest.json",
+      "manifest_sha256": "0944ffd2fee7cf9a4e9c0019fe038dcd2ebea6f928bdd61781c05cf151a58616",
+      "recipe_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_node_optimized_200_500/recipe.json",
+      "recipe_sha256": "d2c7ef6ab015b8cdedfaab5f49816354df1a2892d2408876e47483294c9d45cc",
+      "p_ratio_validation_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_node_optimized_200_500/p_ratio_validation.json",
+      "p_ratio_validation_sha256": "5f7648accdc29afbe938a3c777d08811b3a76c422d903c0e987faf24d4a7a0a0"
+    },
+    "stiffness_low": {
+      "trainval_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_stiff_optimized_200_1500/dataset.pt",
+      "trainval_sha256": "5cdb873ac50118a65294f6ca0db9e3f25a22f6f0ed30fa089951b0e521e1c1f8",
+      "test_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_stiff_optimized_200_1500/dataset.pt",
+      "test_sha256": "5cdb873ac50118a65294f6ca0db9e3f25a22f6f0ed30fa089951b0e521e1c1f8",
+      "manifest_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_stiff_optimized_200_1500/manifest.json",
+      "manifest_sha256": "896cc04d13670b41ff7fd9af62cc4230f8c022b7d12a04ab12419a7c6cbeff9a",
+      "recipe_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_stiff_optimized_200_1500/recipe.json",
+      "recipe_sha256": "85248fdba752b3c594726eb5f4e1954a984f787fe332c844036a15b270665aa6",
+      "p_ratio_validation_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/low/mini_stiff_optimized_200_1500/p_ratio_validation.json",
+      "p_ratio_validation_sha256": "7e4b603d294023105ce40396fb525e793df1bc46ed73740551f3c207ed2d7742"
+    },
+    "stiffness_mixed": {
+      "trainval_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_stiff_optimized_200_1500/dataset.pt",
+      "trainval_sha256": "211e9f5738b1abcaacfff4295400c5b2812983c9f299c020aca2fab0ec2f790c",
+      "test_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_stiff_optimized_200_1500/dataset.pt",
+      "test_sha256": "211e9f5738b1abcaacfff4295400c5b2812983c9f299c020aca2fab0ec2f790c",
+      "manifest_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_stiff_optimized_200_1500/manifest.json",
+      "manifest_sha256": "8f0866e9b3f06b68e7cc3535e1de6022051a998d46b4d4b4ce9d542716436705",
+      "recipe_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_stiff_optimized_200_1500/recipe.json",
+      "recipe_sha256": "480821e82a98a7222402e62effe5b7f79c440256050aeb3f48d2d2ab9a348ea8",
+      "p_ratio_validation_path": "/rg/mendels_prj/alexander.z/MetaForge/results/mini_temperature_1000/mixed/mini_stiff_optimized_200_1500/p_ratio_validation.json",
+      "p_ratio_validation_sha256": "5989710e6f5cadb0e9c940068a038e58115be2c4fd6196166050b4f1add7b3c7"
+    }
+  },
+  "split": {
+    "train": [
+      0,
+      20
+    ],
+    "validation": [
+      20,
+      40
+    ],
+    "test": [
+      40,
+      120
+    ]
+  },
+  "frames": {
+    "count": 200,
+    "times": "0..199000 step1000",
+    "compression": 0.0199
+  },
+  "pairing": "low/mixed paired source_index/source_chunk verified"
+}

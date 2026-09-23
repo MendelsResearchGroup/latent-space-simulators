@@ -1,0 +1,32 @@
+[
+  {
+    "arm": "base",
+    "smoke": true,
+    "job_id": "4696918.zeus-master"
+  },
+  {
+    "arm": "random",
+    "smoke": true,
+    "job_id": "4696920.zeus-master"
+  },
+  {
+    "arm": "latent",
+    "smoke": true,
+    "job_id": "4696921.zeus-master"
+  },
+  {
+    "arm": "base",
+    "smoke": false,
+    "job_id": "4696922.zeus-master"
+  },
+  {
+    "arm": "random",
+    "smoke": false,
+    "job_id": "4696924.zeus-master"
+  },
+  {
+    "arm": "latent",
+    "smoke": false,
+    "job_id": "4696923.zeus-master"
+  }
+]

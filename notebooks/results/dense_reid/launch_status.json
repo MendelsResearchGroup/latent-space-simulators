@@ -1,0 +1,21 @@
+{
+  "all_six_training_jobs_running": true,
+  "smoke_job": "4677438.zeus-master",
+  "full_jobs": [
+    "4677439.zeus-master",
+    "4677440.zeus-master",
+    "4677441.zeus-master",
+    "4677442.zeus-master",
+    "4677443.zeus-master",
+    "4677444.zeus-master"
+  ],
+  "collector_job": "4677445.zeus-master",
+  "smoke": {
+    "status": "completed",
+    "job_id": "4677438.zeus-master",
+    "seconds": 60.41234827041626,
+    "max_rss_kb": 1484412
+  },
+  "full_results_collected": false,
+  "user_requested_no_wait": true
+}

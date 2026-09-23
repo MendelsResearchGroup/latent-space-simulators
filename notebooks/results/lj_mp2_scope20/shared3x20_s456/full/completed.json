@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "seconds": 4170.457865476608,
+  "job_id": "4697199.zeus-master",
+  "ae_sha256": "af8535feff8e7438339bed63a5e13822efb1b2e81d4ca0e1050a0836d54c00f2",
+  "epochs": 17,
+  "train_count": 60,
+  "validation_count": 20,
+  "final_test_used": false
+}

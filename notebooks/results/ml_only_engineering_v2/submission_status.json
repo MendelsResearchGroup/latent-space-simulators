@@ -1,0 +1,29 @@
+{
+  "study": "ml_only_engineering_v2",
+  "status": "completed",
+  "purpose": "Independent centered-log-stiffness-edit study after v1 revealed near-uniform stiffness scaling.",
+  "output": "/rg/mendels_prj/alexander.z/latent-space-simulators/notebooks/results/ml_only_engineering_v2",
+  "optimization": {
+    "job_id": "4675275.zeus-master",
+    "stage": "optimize",
+    "queue": "mendels_q",
+    "resources": "select=1:ncpus=4:mem=2gb, place=free:shared, walltime=01:00:00",
+    "threads": 4,
+    "stdout": "logs/optimize_4675275.zeus-master.log"
+  },
+  "verification": {
+    "job_id": "4675276.zeus-master",
+    "stage": "verify",
+    "dependency": "afterok:4675275.zeus-master",
+    "resources": "select=1:ncpus=1:mem=2gb, place=free:shared, walltime=01:00:00",
+    "threads": 1,
+    "stdout": "logs/verify_4675276.zeus-master.log",
+    "physics_gate": "requires frozen_designs.json; runner validates the recipe and all 42 graph/edit hashes before importing endpoint physics"
+  },
+  "snapshots": {
+    "code/run.py": "315eda841173b88891573dbadc8d2fa0b7786e0f4e311cdf103c3b9046843aed",
+    "code/run.pbs": "48ceaf8c84978820f568a998ecdd167cf9cdbde81f691b81f4ed85b42098b9a8"
+  },
+  "completion": {"job_id": "4675276.zeus-master", "exit_status": 0, "walltime": "00:11:10", "max_rss_kb": 747124, "final_designs": 42, "outputs": ["results.csv", "summary.json", "verification_completed.json"]},
+  "resource_basis": "v1 optimization measured 727360 kB maximum RSS; v2 optimization keeps 2 GB headroom. v1 verification reached 742048 kB before its pre-physics failure; v2 verification requests 2 GB."
+}

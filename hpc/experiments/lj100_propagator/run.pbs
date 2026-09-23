@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#PBS -N lss_lj100
+#PBS -q mendels_q
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l place=free:shared
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -euo pipefail
+cd /rg/mendels_prj/alexander.z/latent-space-simulators
+export LSS_PROJECT_ROOT="$PWD" OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8 MPLBACKEND=Agg PYTHONDONTWRITEBYTECODE=1
+mkdir -p notebooks/results/lj100_propagator/logs
+exec >"notebooks/results/lj100_propagator/logs/${PBS_JOBID}.log" 2>&1
+args=(--seed "${LSS_SEED:?}" --objective "${LSS_OBJECTIVE:?}" --lr "${LSS_LR:?}")
+[[ "${LSS_SMOKE:-0}" == 1 ]] && args+=(--smoke)
+exec /rg/mendels_prj/alexander.z/DL-course-project/.venv/bin/python -u "${LSS_RUNNER:?}" "${args[@]}"

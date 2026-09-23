@@ -1,0 +1,3 @@
+source,trained_pc1_abs_pearson,trained_effective_dimension,random_seeds,random_pc1_abs_pearson_mean,random_pc1_abs_pearson_sd,random_pc1_abs_pearson_p95,random_pc1_abs_pearson_max,random_effective_dimension_mean,trained_exceeds_random_max
+node_low,0.8763910424624916,1.0002524534178436,15,0.8020813307053433,0.2924879586654073,0.9797290162070611,0.9824762802660891,1.18042098681132,False
+stiffness_low,0.8504742713868539,1.00042200989702,15,0.5921593792063936,0.253058836176599,0.8942934598838733,0.8994427327915756,1.2777029275894165,False

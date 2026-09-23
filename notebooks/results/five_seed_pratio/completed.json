@@ -1,0 +1,36 @@
+{
+  "comparators": [
+    "replicate_mean_p_ratio",
+    "ensemble_mean_p_ratio",
+    "endpoint_ensemble_p_ratio"
+  ],
+  "final_test_used": false,
+  "input_sha256": {
+    "notebooks/results/five_seed_pratio/shards/1000md_node_low/per_network_prefix.csv": "b871c9d82083f963549ad9957b9a97ccf5903c019778e06efa18b88330197bba",
+    "notebooks/results/five_seed_pratio/shards/1000md_node_low/per_network_window.csv": "6fcc9e88a41a27d4100838b0b509ca3018903a0ca241116a43f831a4acfcb163",
+    "notebooks/results/five_seed_pratio/shards/1000md_node_mixed/per_network_prefix.csv": "3721ea605091f06923effa62a1f373923cd7a80ca6a9e30db419b819bd63f00e",
+    "notebooks/results/five_seed_pratio/shards/1000md_node_mixed/per_network_window.csv": "539d79af4a52384cbc90926c3fb8b906ec3c5a5ca92af87069568f8b220924ba",
+    "notebooks/results/five_seed_pratio/shards/1000md_stiffness_low/per_network_prefix.csv": "4b03e11218b222051d1b1022d4d4e8e3e16a3a2338dd15cc3e4fa0b72f907498",
+    "notebooks/results/five_seed_pratio/shards/1000md_stiffness_low/per_network_window.csv": "491e88e879ec689c5593e36a32861c567fda12e25bd7df5667e3e8f41a77b56d",
+    "notebooks/results/five_seed_pratio/shards/1000md_stiffness_mixed/per_network_prefix.csv": "a7c29d0c6582f042b7d1ac2ec68f04c351fdebddc0e278d60b9fdbf732de192a",
+    "notebooks/results/five_seed_pratio/shards/1000md_stiffness_mixed/per_network_window.csv": "2774e7583e4de650d92a55d884c6cf9ca6110128a9781e2698f7a1cabbc7bb18",
+    "notebooks/results/five_seed_pratio/shards/200md_node_low/per_network_prefix.csv": "88fa47e4fc988647e8cea29573e246fa03a56b4486ad7d646e34d52896893c37",
+    "notebooks/results/five_seed_pratio/shards/200md_node_low/per_network_window.csv": "6349169be7ffa5cad7a351acd06ca0685447b9358d9dd8df97c61f74addf5c14",
+    "notebooks/results/five_seed_pratio/shards/200md_node_mixed/per_network_prefix.csv": "ecda57ffc872e56c8abd47b051649df77702fca78cbe6791b285b1ba71d08f2e",
+    "notebooks/results/five_seed_pratio/shards/200md_node_mixed/per_network_window.csv": "621b96ef5e144b163755861ec4d8ee01a45920c5aefb9321ae5db158faf7928b",
+    "notebooks/results/five_seed_pratio/shards/200md_stiffness_low/per_network_prefix.csv": "6adf67c73971ddef1696e8b1e71547612a0e719f27f4e5a3a5774df11e588800",
+    "notebooks/results/five_seed_pratio/shards/200md_stiffness_low/per_network_window.csv": "9d4ae31c1f80666398e91846b3f60771fcc474522c17ade4b87555788a00dfee",
+    "notebooks/results/five_seed_pratio/shards/200md_stiffness_mixed/per_network_prefix.csv": "78698dedc2043d718685b0bd03afc10951d9d9f896f5fa9554f8423df0d3a166",
+    "notebooks/results/five_seed_pratio/shards/200md_stiffness_mixed/per_network_window.csv": "2522b872f78effe368291dd7dcc93215df71c3d280aa54964c3c93e8b88c2729"
+  },
+  "matched_cadence_horizon_md_steps": [
+    30000,
+    199000
+  ],
+  "network_prefix_rows": 36800,
+  "network_window_rows": 3200,
+  "primary_estimator": "p_ratio (five-replica fixed-effects shared slope)",
+  "script_sha256": "7ebe15afe8004ee568b00d97477eb776df3a4617c5618d9408549f2230db4211",
+  "shards": 8,
+  "status": "complete"
+}

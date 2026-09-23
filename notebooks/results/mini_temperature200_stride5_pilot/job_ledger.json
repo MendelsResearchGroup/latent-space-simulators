@@ -1,0 +1,50 @@
+{
+  "status": "smoke_passed_production_running",
+  "submitted_at": "2026-09-16T20:08:39+03:00",
+  "hypothesis": "Increasing the propagator transition from 200 to 1000 MD steps improves mechanical signal-to-thermal-noise ratio at fixed physical horizon.",
+  "jobs": {
+    "smoke_seed123": "4688462.zeus-master",
+    "seed123": "4688463.zeus-master",
+    "seed456": "4688464.zeus-master",
+    "seed786": "4688465.zeus-master",
+    "collector": "4688466.zeus-master"
+  },
+  "dependencies": {
+    "production": "afterok:4688462.zeus-master",
+    "collector": "afterok:4688463.zeus-master:4688464.zeus-master:4688465.zeus-master"
+  },
+  "smoke_result": {
+    "status": "complete",
+    "walltime_approx": "00:02:30",
+    "heldout_per_source": 1,
+    "all_four_sources_valid": true,
+    "baseline_ae_unchanged": true,
+    "propagator_sha256": "d572b64dcd797c5f6f3d050af1cf97a06237ea4ea59a8ba8a91370aa87ec3982"
+  },
+  "resources": {
+    "fit_and_evaluation": "mendels_q; select=1:ncpus=8:mem=16gb; place=free:shared; walltime=08:00:00",
+    "collector": "mendels_q; select=1:ncpus=1:mem=4gb; place=free:shared; walltime=01:00:00"
+  },
+  "frozen_inputs": {
+    "baseline_ae": "notebooks/results/mini_temperature200_frames500/all4_twenty_each/ae.pt",
+    "baseline_ae_sha256": "11a4a3f73154ef711d657e0bc1ef2a615e424d141382846bd3f6dcab1aa9f561",
+    "data_manifest": "notebooks/results/mini_temperature200_frames500/data_manifest.json",
+    "data_manifest_sha256": "347c165087b2698131845318ddc37250a9f6689e5f707c2d7b34f2d8fc073f87"
+  },
+  "sha256": {
+    "protocol.json": "90443a5ed9953d2f12db37bb2ffa8e577418e79756b19bb3dfa7958df34d9835",
+    "run.py": "25cc02de566cd2a6c83ff553342048b12006fcb8f497818854aedd20ada392f2",
+    "run.pbs": "164fc9869b7b490818dd85b27ba4eb8afd94c606b400302a1cca8dacd1a6ce2a",
+    "collect.py": "bb774a19c25932c3a05ce64bb40d46320a2feef3955401da6efd006eb918aab1",
+    "collect.pbs": "4686cf483a8e0d366a6dcfaa7cec046375bee4d72a9d49a72c869f29ef47e401"
+  },
+  "comparison": {
+    "baseline": "frame_skip=1; effective transition 200 MD",
+    "intervention": "frame_skip=5; effective transition 1000 MD",
+    "unchanged": "frozen AE, four sources, 20 train/source, 30 validation trajectories, heldout IDs40-119, architecture, delta loss, optimizer and checkpoint selection",
+    "last_common_frame": 495,
+    "mixed_fit_frames": "150,155,...,495",
+    "seeds": [123, 456, 786]
+  },
+  "final_test_used": false
+}

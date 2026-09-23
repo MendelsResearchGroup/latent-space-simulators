@@ -1,0 +1,5 @@
+model,source,linear_fit_p_ratio_r2,linear_fit_valid,linear_fit_total,frame199_endpoint_p_ratio_r2,endpoint_valid,endpoint_total
+baseline,node_mixed,0.9304495546709464,30,30,0.9545951157660834,30,30
+baseline,stiffness_mixed,0.5645444198458263,30,30,0.46948685054495454,30,30
+initial anchor,node_mixed,0.9443345868507107,30,30,0.9242169577965612,30,30
+initial anchor,stiffness_mixed,0.6042865741098808,30,30,0.4705395331467169,30,30

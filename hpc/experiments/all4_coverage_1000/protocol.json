@@ -1,0 +1,17 @@
+{
+  "study": "all4_coverage_1000",
+  "seed": 123,
+  "arms": {"all4_one_each": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"], "all4_twenty_each": ["node_low", "node_mixed", "stiffness_low", "stiffness_mixed"]},
+  "mixed_temperature": "Included exactly as declared by IDs. In all4_one_each, mixed ID0 is one trajectory only and must not be represented as coverage of the mixed-temperature distribution.",
+  "split": {"train": [0, 20], "validation_by_source": {"node_low": [20, 28], "node_mixed": [20, 28], "stiffness_low": [20, 27], "stiffness_mixed": [20, 27]}, "validation_total_trajectories": 30, "validation_unique_paired_structures": 15, "test": [40, 120], "frames": [0, 199]},
+  "architecture": {"model": "message_passing_reference16", "latent_dim": 2, "message_passing_steps": 2, "reference_node_dim": 16, "hidden_size": 96, "latent_tokens": 32, "edge_feature_dim": 4},
+  "ae": {
+    "initialization": "fresh seed123", "warmup_epochs": 1, "uniform_epochs": 60, "patience": 12,
+    "warmup_optimizer": "AdamW", "optimizer": "Adam", "learning_rate": 0.0001, "weight_decay": 0.00001,
+    "batch_graphs": 32, "gradient_clip": 1, "loss": "uniform exactly-1-per-frame/source coordinate MSE after warmup",
+    "weight_normalization": "every source/frame weight is exactly 1", "selection": "mean-source uniform validation coordinate MSE; minimum improvement1e-8",
+    "normalizers": "training-only and frozen after warmup"
+  },
+  "propagator": {"model": "delta_mlp", "hidden_size": 64, "context": "mean16 static reference embedding", "temperature_input": false, "source_id_input": false, "objective": "one-step latent delta MSE", "selection": "validation latent loss", "max_epochs": 60, "patience": 12, "learning_rate": 0.0001, "weight_decay": 0.00001, "transitions": 199, "ae_frozen": true},
+  "postfit": {"primary": "physical_endpoint_fixed_frame0_sides_quantile_0.10 p-ratio R2 at frame199, source-wise AE reconstruction and autonomous rollout separately", "diagnostics": "all frames0..199 and valid/total rows retained; auxiliary normalized-boundary-strain OLS frames30..199 with endpoint parity on node_mixed and stiffness_mixed only", "expert_supervision": false, "test_selection": false, "single_seed": "preliminary; no seed SD"}
+}

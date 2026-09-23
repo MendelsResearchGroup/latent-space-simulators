@@ -1,0 +1,29 @@
+{
+  "status": "production_submitted",
+  "smoke_job": "4696712.zeus-master",
+  "smoke_result": {
+    "status": "completed",
+    "exit_status": 0,
+    "walltime": "00:02:19",
+    "memory_kib": 3570848,
+    "checkpoint_sha256": "6eace46d5d5f82f7f066392f4869ac185c9a46e81a131e55455929905d370f6d"
+  },
+  "production_jobs": {
+    "count1_seed123": "4696722.zeus-master",
+    "count1_seed456": "4696721.zeus-master",
+    "count1_seed786": "4696720.zeus-master",
+    "count20_seed123": "4696723.zeus-master",
+    "count20_seed456": "4696718.zeus-master",
+    "count20_seed786": "4696719.zeus-master"
+  },
+  "resources": {
+    "queue": "mendels_q",
+    "placement": "place=free:shared",
+    "ncpus": 8,
+    "memory": "16gb",
+    "walltime": "12:00:00"
+  },
+  "counts_per_source": [1, 20],
+  "seeds": [123, 456, 786],
+  "snapshot": "notebooks/results/mini_temperature200_one_step_ae/code_v1"
+}

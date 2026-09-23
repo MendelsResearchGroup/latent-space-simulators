@@ -1,0 +1,3 @@
+phase,epoch,training_standardized_acceleration_mse,validation_physical_state_mse,training_normalized_fractional_position_yz_box_state_loss,validation_autonomous_physical_state_mse,selection_horizons
+one_step,1,0.07649834081530571,1.561989382281581e-08,,,
+autonomous,1,,,1.3715789318084717,2.5303178219360234e-08,[4]

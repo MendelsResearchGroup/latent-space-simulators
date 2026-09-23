@@ -1,0 +1,10 @@
+{
+  "snapshot_kind": "in_progress",
+  "expected_networks": 40,
+  "observed_networks": 40,
+  "status_counts": "source              status              \ndepablo_mixed_temp  cancelled_by_user        2\n                    completed                1\n                    trajectory_crossing      5\n                    verification_pending    22\nreid                trajectory_crossing     10",
+  "valid_networks": 1,
+  "completed_gifs": 14,
+  "summary_sha256": "249a6acdc9495d11df52546464a4ddeb201758691393eac44cbd30100043f577",
+  "feedback_to_optimizer": false
+}
